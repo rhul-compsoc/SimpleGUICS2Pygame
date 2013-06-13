@@ -1,0 +1,320 @@
++ <a rel="nofollow" href="https://bitbucket.org/OPiMedia/simpleguics2pygame" target="_blank">SimpleGUICS2Pygame</a> examples
+
+http://www.codeskulptor.org/#user16_L4uy3E0pUylUNJW.py
+Blackjack.py
+
+http://www.codeskulptor.org/#user16_bIlvJT7GMmM3pPA.py
+Frame_example.py
+
+http://www.codeskulptor.org/#user16_J2A5EKpIdyOA5Vl.py
+<strong>Mandelbrot_Set</strong>.py
+
+http://www.codeskulptor.org/#user16_0NlwPSKV0P2dNhi.py
+<strong>Memory</strong>.py
+
+http://www.codeskulptor.org/#user16_4dU3sKZRkMnc7u1.py
+<strong>Pong</strong>.py
+
+http://www.codeskulptor.org/#user16_f79zc30j3ZypJQk.py
+<strong>Spaceship_prototype</strong>.py
+
+http://www.codeskulptor.org/#user16_m6lpgajkjVoXf6H.py
+Stopwatch.py
+
+http://www.codeskulptor.org/#user16_HYq3eoL6Hz2nNo2.py
+<strong>Stress_Balls</strong>.py
+
+http://www.codeskulptor.org/#user16_KmocqM5YxavnKDM.py
+Stress_Balls_results.py
+
+
+
++ SimpleGUICS2Pygame <strong>modules</strong>
+
+http://www.codeskulptor.org/#user16_9JI3lqVw8Bpq387.py
+Module <strong>codeskulptor_lib</strong>.py
+
+http://www.codeskulptor.org/#user16_Qpss15rD1ETZL7l.py
+Module <strong>simplegui_lib</strong>.py
+
+
+
++ SimpleGUICS2Pygame test
+
+http://www.codeskulptor.org/#user16_DPIsGLR6JMeMZqV.py
+test_circle.py
+
+http://www.codeskulptor.org/#user16_FTkmZXZq00NPbjj.py
+test_colors_constants.py
+
+http://www.codeskulptor.org/#user16_vG0VcgnuZXBSoQM.py
+test_colors_html.py
+
+http://www.codeskulptor.org/#user16_6UfDiwCO1vJCL87.py
+test_colors_html_rgba.py
+
+http://www.codeskulptor.org/#user16_ubQ7jokamMQ3D0A.py
+test_dir.py
+
+http://www.codeskulptor.org/#user16_Ou61JlvKBwukfZR.py
+test_grid.py
+
+http://www.codeskulptor.org/#user16_KZHmiMwfETutaEf.py
+test_line.py
+
+http://www.codeskulptor.org/#user16_HqSxocsDv8TmVTh.py
+test_objects.py
+
+http://www.codeskulptor.org/#user16_B7r8Ceiy9uQVjw3.py
+test_text.py
+
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/demos.html" target="_blank">CodeSkulptor Demos</a>
+
+http://www.codeskulptor.org/#demos-doodleJump.py
+Doodle Jump prototype
+
+http://www.codeskulptor.org/#user16_RB6j2S6ieI_0.py
+Doodle Jump prototype ADAPTED
+
+http://www.codeskulptor.org/#demos-magnifier.py
+Draggable map magnifier
+
+http://www.codeskulptor.org/#demos-musicplayer.py
+Simple music player
+
+http://www.codeskulptor.org/#user16_jfhoO5x1x8_0.py
+<strong>Simple music player</strong> ADAPTED
+
+http://www.codeskulptor.org/#demos-animation.py
+Sprite sheet animation
+
+http://www.codeskulptor.org/#user16_ddNddbF9nI_0.py
+Sprite sheet animation CORRECTED
+
+http://www.codeskulptor.org/#demos-tetris-clone.py
+Tetris prototype (Sarah <span class="small-caps">Davies</span>)
+
+http://www.codeskulptor.org/#user16_eVd1AVpep0_0.py
+<strong>Tetris</strong> prototype (Sarah <span class="small-caps">Davies</span>) ADAPTED
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/demos.html" target="_blank">CodeSkulptor Hall of Fame</a>
+
+http://www.codeskulptor.org/#demos_bunny_adventure.py
+Bunny's Big Adventure (Jenna <span class="small-caps">Netland</span>)
+
+http://www.codeskulptor.org/#demos_bunny_game_objects.py
+Bunny's Big Adventure (game objects require Bunny's Big Adventure, Jenna <span class="small-caps">Netland</span>)
+
+http://www.codeskulptor.org/#save2_cxBnS2wLPz.py
+Bunny's Big Adventure (Jenna <span class="small-caps">Netland</span>) ADAPTED
+
+http://www.codeskulptor.org/#user16_fn3IdoDS8y_0.py
+Bunny's Big Adventure (game objects require by Bunny's Big Adventure, Jenna <span class="small-caps">Netland</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos-towerdefence.py
+Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>)
+
+http://www.codeskulptor.org/#user16_pkjMxzxZCY_0.py
+Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>) ADAPTED (but I don't understand anything in this game!)
+
+http://www.codeskulptor.org/#demos-automata.py
+Psychedelic 1D Cellular Automata (Scott <span class="small-caps">Reynolds</span>)
+
+http://www.codeskulptor.org/#user16_QMF8HFt8de_0.py
+<strong>Psychedelic 1D Cellular Automata</strong> (Scott <span class="small-caps">Reynolds</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos-pyman.py
+Pyman (Lawrence <span class="small-caps">Strickland</span>)
+
+http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py
+<strong>Pyman</strong> (Lawrence <span class="small-caps">Strickland</span>) ADAPTED (but big speed problem in Python, too fast!)
+
+http://www.codeskulptor.org/#demos-riceracer.py
+Rice Racer (Steve <span class="small-caps">Knock</span>) (don't work in Python, due to incorrect use of classes)
+
+http://www.codeskulptor.org/#demos-starwars.py
+Star Wars (Steve <span class="small-caps">Knock</span>)
+
+http://www.codeskulptor.org/#user16_aLi8h3NpYe_0.py
+<strong>Star Wars</strong> (Steve <span class="small-caps">Knock</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos-adventures_of_tom.py
+The Adventures of Tom (Derek <span class="small-caps">Peirce</span>) (don't work in Python, due to incorrect use of classes)
+
+
+
++ By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://www.codeskulptor.org/#user16_KeOVeTmuOn2iucr_0.py
+<strong>Bouncing balls</strong> (Andrew <span class="small-caps">Meadows</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7649" target="_blank"><i>Bouncing balls</i></a>
+
+http://www.codeskulptor.org/#user12_HSQQBLcXvm_1.py
+<strong><span class="small-caps">Conway</span>'s Game of Life</strong> (Jonathan <span class="small-caps">Nixon</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=2152" target="_blank"><i><span class="small-caps">Conway</span>'s Game of Life</i></a>
+
+http://www.codeskulptor.org/#user16_75c0yLJi2x_4.py
+Dance Dance Revolution (Emily <span class="small-caps">Wachtel</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7140" target="_blank"><i>Dance Dance Revolution attempt</i></a>
+
+http://www.codeskulptor.org/#user16_eWJipRUZA9_0.py
+<strong>Dance Dance Revolution</strong> (Emily <span class="small-caps">Wachtel</span>) ADAPTED
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7140" target="_blank"><i>Dance Dance Revolution attempt</i></a>
+
+http://www.codeskulptor.org/#user16_xfbbqbrHIbO8zDv_4.py
+<strong>Fractal</strong> (Roger <span class="small-caps">Foreman</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174" target="_blank"><i>Fractal</i></a>
+
+http://www.codeskulptor.org/#user16_JERSJkUJn2WSSOk_3.py
+<strong>Fractal: Dragon Curve</strong> (Roger <span class="small-caps">Foreman</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174#post-36575" target="_blank"><i>Fractal</i></a>
+
+http://www.codeskulptor.org/#user16_2ujEC2Zwla_0.py
+<strong>Py*bert</strong> (Jeff <span class="small-caps">Botts</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7141" target="_blank"><i>Py*bert (a Q*bert port)</i></a>
+
+http://www.codeskulptor.org/#user16_HasV5HkNlG_18.py
+Raycasting (Mike <span class="small-caps">Bendele</span>, with of Helder <span class="small-caps">Sepulveda</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6821" target="_blank"><i>Raycasting test</i></a>
+
+http://www.codeskulptor.org/#user16_fRCKqpqKA5_0.py
+<strong>Raycasting</strong> (Mike <span class="small-caps">Bendele</span>, with of Helder <span class="small-caps">Sepulveda</span>) ADAPTED
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6821" target="_blank"><i>Raycasting test</i></a>
+
+http://www.codeskulptor.org/#user16_SawZhBSY55_0.py
+<strong>Solarsystem</strong> (Diego <span class="small-caps">Romero</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6923" target="_blank"><i>Solarsystem in Codeskulptor</i></a>
+
+http://www.codeskulptor.org/#user16_Y6PO921iKpLyxG9.py
+<strong>Tetris Attack</strong> (Stephen <span class="small-caps">Ferguson</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
+
+
+
++ Examples of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week3" target="_blank">Week 3</a>
+
+http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-hidden_picture.py
+interactive_drawing-hidden_picture.py
+
+http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-pictures.py
+interactive_drawing-pictures.py
+
+http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-shapes.py
+interactive_drawing-shapes.py
+
+http://www.codeskulptor.org/#examples-more-3b_timers-reaction_time.py
+timers-reaction_time.py
+
+http://www.codeskulptor.org/#user16_kekWAX4zah_0.py
+timers-reaction_time.py CORRECTED
+
+
+
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week4" target="_blank">Week 4</a>
+
+http://www.codeskulptor.org/#examples-keyboard-0.py
+keyboard-0.py
+
+http://www.codeskulptor.org/#examples-more-4a_keyboard_input-shape_selection.py
+keyboard_input-shape_selection.py
+
+http://www.codeskulptor.org/#examples-more-4a_lists-digital_numbers.py
+lists-digital_numbers.py
+
+http://www.codeskulptor.org/#examples-more-4b_velocity_control-ball_track.py
+velocity_control-ball_track.py
+
+
+
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week5" target="_blank">Week 5</a>
+
+http://www.codeskulptor.org/#examples-images.py
+images.py
+
+http://www.codeskulptor.org/#examples-list_selection.py
+list_selection.py
+
+http://www.codeskulptor.org/#examples-more-5_images-backgrounds.py
+more-5_images-backgrounds.py
+
+http://www.codeskulptor.org/#examples-more-5_images-changes.py
+more-5_images-changes.py
+
+http://www.codeskulptor.org/#examples-more-5_iteration-equilateral_polygons.py
+more-5_iteration-equilateral_polygons.py
+
+http://www.codeskulptor.org/#user16_rUI85oYQ5D_0.py
+more-5_iteration-equilateral_polygons.py ADAPTED
+
+http://www.codeskulptor.org/#examples-more-5_mouseclick_handlers-ball_movement.py
+more-5_mouseclick_handlers-ball_movement.py
+
+http://www.codeskulptor.org/#examples-more-5_mouseclick_handlers-click_lines.py
+more-5_mouseclick_handlers-click_lines.py
+
+http://www.codeskulptor.org/#examples-more-5_mouseclick_handlers-tic_tac_toe.py
+more-5_mouseclick_handlers-tic_tac_toe.py
+
+
+
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week6" target="_blank">Week 6</a>
+
+http://www.codeskulptor.org/#examples-more-6_object_oriented_programming-bubbles.py
+more-6_object_oriented_programming-bubbles.py
+
+http://www.codeskulptor.org/#examples-more-6_object_oriented_programming-flowers.py
+more-6_object_oriented_programming-flowers.py
+
+http://www.codeskulptor.org/#examples-more-6_tiled_images-bunny_emotions.py
+
+
+
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week7" target="_blank">Week 7</a>
+
+http://www.codeskulptor.org/#examples-more-7_acceleration_and_friction-balancing.py
+more-7_acceleration_and_friction-balancing.py
+
+http://www.codeskulptor.org/#examples-more-7_acceleration_and_friction-curling.py
+more-7_acceleration_and_friction-curling.py
+
+http://www.codeskulptor.org/#examples-more-7_colors-fading_dots.py
+more-7_colors-fading_dots.py
+
+http://www.codeskulptor.org/#examples-more-7_sound-bouncing_sounds.py
+more-7_sound-bouncing_sounds.py
+
+http://www.codeskulptor.org/#examples-spaceship_template.py
+spaceship_template.py
+
+http://www.codeskulptor.org/#examples-sprite_example.py
+sprite_example.py
+
+
+
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nolfollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week8" target="_blank">Week 8</a>
+
+http://www.codeskulptor.org/#examples-asteroid_animation.py
+asteroid_animation.py
+
+http://www.codeskulptor.org/#examples-explosion_animation.py
+explosion_animation.py
+
+http://www.codeskulptor.org/#examples-more-8_sprite_animation-running_bunny.py
+more-8_sprite_animation-running_bunny.py
+
+http://www.codeskulptor.org/#examples-more-8_collisions-balloon_pop.py
+more-8_collisions-balloon_pop.py
+
+http://www.codeskulptor.org/#user16_bordh1K5TC_0.py
+more-8_collisions-balloon_pop.py CORRECTED
+
+http://www.codeskulptor.org/#examples-ricerocks_template.py
+ricerocks_template.py
+
+http://www.codeskulptor.org/#exercises_sets_final_solution.py
+sets_final_solution.py
