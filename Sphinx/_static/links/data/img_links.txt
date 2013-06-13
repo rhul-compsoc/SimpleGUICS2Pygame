@@ -1,0 +1,172 @@
++ Asteroid (Kim Lathrop) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris1_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris1_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris3_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris3_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris4_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris4_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha3.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_blue2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_orange.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot1.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot3.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/splash.png
+
+
+
++ <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/Community_Graphics_Resources" target="_blank">Community Graphics Resources</a> of <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/About" target="_blank">O.H.R.RPG.C.E.</a>
+
+
+
++ Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/asteroid1.opengameart.warspawn.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/explosion.hasgraphics.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week6-emotions.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week8-bunny_sprite.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_0NlwPSKV0P2dNhi.py" target="_blank">Memory Cards</a>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/CodeSkulptor.jpg
+CodeSkulptor
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Guido_van_Rossum.jpg
+Guido <span class="small-caps">van Rossum</span>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Joe_Warren.jpg
+Joe <span class="small-caps">Warren</span>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/John_Greiner.jpg
+John <span class="small-caps">John_Greiner</span>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/OPi.jpg
+O<span class="small-caps">Pi</span>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Python.jpg
+Python
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Scott_Rixner.jpg
+Scott <span class="small-caps">Rixner</span>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Stephen_Wong.jpg
+Stephen <span class="small-caps">Wong</span>
+
+http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Memory.jpg
+T-shirt memory
+
+
+
++ <a rel="nofollow" href="http://www.jfitz.com/cards/" target="_blank">Playing Cards</a> (jfitz.com) used in <a href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png
+52 cards
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/card_back.png
+Red verso
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="small-caps">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/board.gif
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/edibles.png
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="small-caps">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/backdrop.jpg
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/banner.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/car_1.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/car_2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/car_3.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/car_4.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/gravel.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/jgreiner.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/jwarren.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/log.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/logo.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/racerx.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/rock.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/sand.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/srixner.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/start.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/start_line.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/swong.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/tree_1.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/tree_2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/tree_3.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/tree_4.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/tree_5.png
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/tree_6.png
