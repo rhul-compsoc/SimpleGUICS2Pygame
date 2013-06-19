@@ -102,7 +102,7 @@ frame.add_label('')
 frame.add_button('Switch colors', switch_colors)
 frame.add_button('Switch direction', switch_direction)
 frame.add_label('')
-frame.add_button('Quit', lambda: frame.stop())
+frame.add_button('Quit', frame.stop)
 
 frame.set_draw_handler(draw)
 

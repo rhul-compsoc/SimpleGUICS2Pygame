@@ -3,14 +3,17 @@
 http://www.codeskulptor.org/#user16_ycjNHfwtQW5ZyoN.py
 Blackjack.py
 
-http://www.codeskulptor.org/#user16_bIlvJT7GMmM3pPA.py
+http://www.codeskulptor.org/#user16_o5w65gjtAkxuTHR.py
 Frame_example.py
 
-http://www.codeskulptor.org/#user16_Fsh2f5x50Mn1BES.py
+http://www.codeskulptor.org/#user16_7pJZfFiPvl9n5I4.py
 <strong>Mandelbrot_Set</strong>.py
 
 http://www.codeskulptor.org/#user16_5XlqYPIGlwweXXV.py
 <strong>Memory</strong>.py
+
+http://www.codeskulptor.org/#user16_URDkriiYlhtk91D.py
+<strong>Nostalgic_Basic_Blitz</strong>.py
 
 http://www.codeskulptor.org/#user16_4dU3sKZRkMnc7u1.py
 <strong>Pong</strong>.py
@@ -44,31 +47,31 @@ Module <strong>simplegui_lib</strong>.py
 
 + SimpleGUICS2Pygame test
 
-http://www.codeskulptor.org/#user16_57n4yI4q4PEqS0Z.py
+http://www.codeskulptor.org/#user16_ZJjUPTFkbhoQkqo.py
 test_circle.py
 
-http://www.codeskulptor.org/#user16_kaMcts66DfTHFbt.py
+http://www.codeskulptor.org/#user16_C2uE5GGbpRXqoEp.py
 test_colors_constants.py
 
-http://www.codeskulptor.org/#user16_r9cURDUPdZtAM7N.py
+http://www.codeskulptor.org/#user16_zjELhUTpzq4StXs.py
 test_colors_html.py
 
-http://www.codeskulptor.org/#user16_VnjEG9tZvs4Lwrx.py
+http://www.codeskulptor.org/#user16_ioIlLaY6AIsyVF0.py
 test_colors_html_rgba.py
 
 http://www.codeskulptor.org/#user16_KFPf8ppYKQHsht7.py
 test_dir.py
 
-http://www.codeskulptor.org/#user16_rfoSx3KT6wcHB2l.py
+http://www.codeskulptor.org/#user16_alUttQBf7DnqYoZ.py
 test_grid.py
 
-http://www.codeskulptor.org/#user16_xnGWR7ZfWWx43dG.py
+http://www.codeskulptor.org/#user16_VWY1d0Wp4hHK81n.py
 test_line.py
 
 http://www.codeskulptor.org/#user16_UDtvfBMwO9rubq8.py
 test_objects.py
 
-http://www.codeskulptor.org/#user16_RAj3e0aWLqrjDtn.py
+http://www.codeskulptor.org/#user16_NPKIjp9LpLO2bZI.py
 test_text.py
 
 

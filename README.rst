@@ -65,7 +65,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* 00.90.01 --- June 19, 2013
+* 00.90.10 --- June 19, 2013
+
+  - Adapted button, label and input to display multine text.
+  - Simplified handler functions transmitted to ``add_button()`` in some programs.
+  - Added example/Nostalgic_Basic_Blitz.py.
 
   - Changed ``default_pygame_color`` param of ``_simpleguicolor_to_pygamecolor()`` function (now installation is ok even if Pygame not installed).
 

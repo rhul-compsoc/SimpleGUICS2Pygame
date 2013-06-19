@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Frame example (June 13, 2013)
+Frame example (June 19, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -41,7 +41,7 @@ frame = simplegui.create_frame('Title', CANVAS_WIDTH, CANVAS_HEIGHT)
 frame.add_label('Control Panel')
 
 frame.add_label('')
-frame.add_button('Quit', lambda: frame.stop())
+frame.add_button('Quit', frame.stop)
 
 frame.set_draw_handler(draw)
 
