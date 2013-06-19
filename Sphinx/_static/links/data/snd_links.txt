@@ -14,6 +14,10 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
++  <a rel="nofollow" href="http://www.freesound.org/" target="_blank">Freesound.org</a> (profil <a rel="nofollow" href="http://www.freesound.org/people/OPiMedia/" target="_blank">O<span class="small-caps">Pi</span>Media</a>)
+
+
+
 + <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="small-caps">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012) (<a rel="nofollow" href="http://www.noiseforfun.com/" target="_blank">NoiseForFun.com</a>, <a rel="nofollow" href="http://www.playonloop.com/" target="_blank">PlayOnLoop.com</a>)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/ateapill.ogg

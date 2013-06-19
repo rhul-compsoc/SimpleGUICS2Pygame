@@ -1,22 +1,25 @@
 + <a rel="nofollow" href="https://bitbucket.org/OPiMedia/simpleguics2pygame" target="_blank">SimpleGUICS2Pygame</a> examples
 
-http://www.codeskulptor.org/#user16_L4uy3E0pUylUNJW.py
+http://www.codeskulptor.org/#user16_ycjNHfwtQW5ZyoN.py
 Blackjack.py
 
 http://www.codeskulptor.org/#user16_bIlvJT7GMmM3pPA.py
 Frame_example.py
 
-http://www.codeskulptor.org/#user16_J2A5EKpIdyOA5Vl.py
+http://www.codeskulptor.org/#user16_Fsh2f5x50Mn1BES.py
 <strong>Mandelbrot_Set</strong>.py
 
-http://www.codeskulptor.org/#user16_0NlwPSKV0P2dNhi.py
+http://www.codeskulptor.org/#user16_5XlqYPIGlwweXXV.py
 <strong>Memory</strong>.py
 
 http://www.codeskulptor.org/#user16_4dU3sKZRkMnc7u1.py
 <strong>Pong</strong>.py
 
+http://www.codeskulptor.org/#user16_2HJrwCWzHvWmK2y.py
+<strong>RiceRocks_Asteroids</strong>.py
+
 http://www.codeskulptor.org/#user16_f79zc30j3ZypJQk.py
-<strong>Spaceship_prototype</strong>.py
+Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user16_m6lpgajkjVoXf6H.py
 Stopwatch.py
@@ -31,7 +34,7 @@ Stress_Balls_results.py
 
 + SimpleGUICS2Pygame <strong>modules</strong>
 
-http://www.codeskulptor.org/#user16_9JI3lqVw8Bpq387.py
+http://www.codeskulptor.org/#user16_WPKkkxSR6z6xQh1.py
 Module <strong>codeskulptor_lib</strong>.py
 
 http://www.codeskulptor.org/#user16_Qpss15rD1ETZL7l.py
@@ -41,31 +44,31 @@ Module <strong>simplegui_lib</strong>.py
 
 + SimpleGUICS2Pygame test
 
-http://www.codeskulptor.org/#user16_DPIsGLR6JMeMZqV.py
+http://www.codeskulptor.org/#user16_57n4yI4q4PEqS0Z.py
 test_circle.py
 
-http://www.codeskulptor.org/#user16_FTkmZXZq00NPbjj.py
+http://www.codeskulptor.org/#user16_kaMcts66DfTHFbt.py
 test_colors_constants.py
 
-http://www.codeskulptor.org/#user16_vG0VcgnuZXBSoQM.py
+http://www.codeskulptor.org/#user16_r9cURDUPdZtAM7N.py
 test_colors_html.py
 
-http://www.codeskulptor.org/#user16_6UfDiwCO1vJCL87.py
+http://www.codeskulptor.org/#user16_VnjEG9tZvs4Lwrx.py
 test_colors_html_rgba.py
 
-http://www.codeskulptor.org/#user16_ubQ7jokamMQ3D0A.py
+http://www.codeskulptor.org/#user16_KFPf8ppYKQHsht7.py
 test_dir.py
 
-http://www.codeskulptor.org/#user16_Ou61JlvKBwukfZR.py
+http://www.codeskulptor.org/#user16_rfoSx3KT6wcHB2l.py
 test_grid.py
 
-http://www.codeskulptor.org/#user16_KZHmiMwfETutaEf.py
+http://www.codeskulptor.org/#user16_xnGWR7ZfWWx43dG.py
 test_line.py
 
-http://www.codeskulptor.org/#user16_HqSxocsDv8TmVTh.py
+http://www.codeskulptor.org/#user16_UDtvfBMwO9rubq8.py
 test_objects.py
 
-http://www.codeskulptor.org/#user16_B7r8Ceiy9uQVjw3.py
+http://www.codeskulptor.org/#user16_RAj3e0aWLqrjDtn.py
 test_text.py
 
 
@@ -154,6 +157,14 @@ http://www.codeskulptor.org/#user16_KeOVeTmuOn2iucr_0.py
 <strong>Bouncing balls</strong> (Andrew <span class="small-caps">Meadows</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7649" target="_blank"><i>Bouncing balls</i></a>
 
+http://www.codeskulptor.org/#user16_JXs6TOMaOOZQJKF.py
+Chicken Shooter (Dennis <span class="small-caps">Della Corte</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7969" target="_blank"><i>Chicken Shooter</i></a>
+
+http://www.codeskulptor.org/#user16_51xSwE0jKK_0.py
+<strong>Chicken Shooter</strong> (Dennis <span class="small-caps">Della Corte</span>) ADAPTED
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7969" target="_blank"><i>Chicken Shooter</i></a>
+
 http://www.codeskulptor.org/#user12_HSQQBLcXvm_1.py
 <strong><span class="small-caps">Conway</span>'s Game of Life</strong> (Jonathan <span class="small-caps">Nixon</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=2152" target="_blank"><i><span class="small-caps">Conway</span>'s Game of Life</i></a>
@@ -174,7 +185,7 @@ http://www.codeskulptor.org/#user16_JERSJkUJn2WSSOk_3.py
 <strong>Fractal: Dragon Curve</strong> (Roger <span class="small-caps">Foreman</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174#post-36575" target="_blank"><i>Fractal</i></a>
 
-http://www.codeskulptor.org/#user16_2ujEC2Zwla_0.py
+http://www.codeskulptor.org/#save2_2qZWdKdMc1.py
 <strong>Py*bert</strong> (Jeff <span class="small-caps">Botts</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7141" target="_blank"><i>Py*bert (a Q*bert port)</i></a>
 
@@ -189,6 +200,14 @@ Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/
 http://www.codeskulptor.org/#user16_SawZhBSY55_0.py
 <strong>Solarsystem</strong> (Diego <span class="small-caps">Romero</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6923" target="_blank"><i>Solarsystem in Codeskulptor</i></a>
+
+http://www.codeskulptor.org/#user16_bQhY2qfBlgprppk.py
+Tetris (John <span class="small-caps">Shea</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7984" target="_blank"><i>Tetris</i></a>
+
+http://www.codeskulptor.org/#user16_EGTMrlExln_0.py
+<strong>Tetris</strong> (John <span class="small-caps">Shea</span>) ADAPTED
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7984" target="_blank"><i>Tetris</i></a>
 
 http://www.codeskulptor.org/#user16_Y6PO921iKpLyxG9.py
 <strong>Tetris Attack</strong> (Stephen <span class="small-caps">Ferguson</span>)

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack (June 13, 2013)
+Blackjack (June 19, 2013)
 
 My solution (slightly retouched) of the mini-project #6 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -20,6 +20,8 @@ try:
     import simplegui
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+    simplegui.Frame._hide_status = True
 
 
 
@@ -112,17 +114,6 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color = None):
                          (x0 + width, y0 + height),
                          (x0, y0 + height)),
                         line_width, line_color, fill_color)
-
-
-def enumerate(iterable, start = 0):
-    """
-    Replace the Python built-in function not available in CodeSkulptor.
-    Cf. http://docs.python.org/3/library/functions.html#enumerate
-    """
-    for elem in iterable:
-        yield start, elem
-
-        start += 1
 
 
 

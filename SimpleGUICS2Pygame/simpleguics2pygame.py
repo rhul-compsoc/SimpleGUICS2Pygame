@@ -2,9 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame
+simpleguics2pygame (June 19, 2013)
 
-It is a standard Python_ (2 **and** 3) module
+Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
@@ -12,53 +12,23 @@ Require Pygame_
 (except for the Timer class)
 (`Unofficial Windows Binaries`_).
 
-| Piece of SimpleGUICS2Pygame.
-| https://bitbucket.org/OPiMedia/simpleguics2pygame
+`Online HTML documentation`_ on `DragonSoft DS`_ website.
 
-| GPLv3 --- Copyright (C) 2013 Olivier Pirson
-| http://www.opimedia.be/
+Piece of SimpleGUICS2Pygame.
+https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-Module started on May 21, 2013
-
-v.00.90.00 --- June 13, 2013
+GPLv3 --- Copyright (C) 2013 Olivier Pirson
+http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
+.. _`Online HTML documentation`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/index.htm
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 """
 
 from __future__ import division
-
-_VERSION = '00.90.00'
-"""
-Version of simpleguics2pygame module.
-"""
-
-_WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame'
-"""
-Website of the project.
-"""
-
-#
-# GPLv3
-# ------
-# Copyright (C) 2013 Olivier Pirson
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-
 
 
 try:
@@ -511,6 +481,13 @@ class Canvas:
             self._pygame_surface.fill(self._background_pygame_color)
 
             self._draw_handler(self)
+
+            if self._frame_parent._display_fps_average:
+                self._pygame_surface.blit(pygame.font.SysFont(None, 40)
+                                          .render(str(round(self._frame_parent._fps_average)),
+                                                  True,
+                                                  _SIMPLEGUICOLOR_TO_PYGAMECOLOR['red']),
+                                          (10, self._height - 40))
 
             self._frame_parent._pygame_surface.blit(self._pygame_surface,
                                                     (self._frame_parent._canvas_x_offset,
@@ -1231,6 +1208,12 @@ class Frame:
     Background color of control panel.
     """
 
+    _display_fps_average = False
+    """
+    If `True`
+    then display FPS average on the canvas.
+    """
+
     _fps = 60
     """
     Frames per second drawed (frequency of draw and check events)
@@ -1246,6 +1229,18 @@ class Frame:
     """
     If `True`
     then hide status box.
+    """
+
+    _keep_timers = None
+    """
+    If `None`
+    then ask if it should be stop timers when stop frame.
+
+    If `True`
+    then timers keep running when stop frame.
+
+    If `False`
+    then stop all timers when stop frame.
     """
 
     _pygame_mode_flags = 0
@@ -1310,18 +1305,6 @@ class Frame:
                                 else None)
     """
     `pygame.Font` of status mouse box..
-    """
-
-    _keep_timers = None
-    """
-    If `None`
-    then ask if it should be stop timers when stop frame.
-
-    If `True`
-    then timers keep running when stop frame.
-
-    If `False`
-    then stop all timers when stop frame.
     """
 
     def __init__(self,
@@ -1395,7 +1378,7 @@ class Frame:
 
         icon_path = __file__.split(sep)[:-1]
         try:
-            icon_path.extend(('_img', 'SimpleGUICS2Pygame_cartoon_64x64_t.png'))
+            icon_path.extend(('_img', 'SimpleGUICS2Pygame_64x64_t.png'))
             pygame.display.set_icon(pygame.image.load(sep.join(icon_path)))
         except:
             pass
@@ -2699,6 +2682,7 @@ def _set_option_from_argv():
     Read arguments in sys.argv
     and set options.
 
+    * ``--display-fps``: Display FPS average on the canvas.
     * ``--fullscreen```: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
     * ``--no-border``: Window without border.
@@ -2717,7 +2701,9 @@ def _set_option_from_argv():
     from sys import argv
 
     for arg in argv[1:]:
-        if arg == '--fullscreen':
+        if arg == '--display-fps':
+            Frame._display_fps_average = True
+        elif arg == '--fullscreen':
             Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
         elif arg == '--keep-timers':
             Frame._keep_timers = True
@@ -3021,6 +3007,8 @@ _set_option_from_argv()
 if __name__ == '__main__':
     from webbrowser import open_new_tab
 
+    from SimpleGUICS2Pygame import _WEBSITE
+
     WIDTH = 500
     HEIGHT = 260
 
@@ -3053,7 +3041,7 @@ if __name__ == '__main__':
                 canvas.draw_text(line, (10, 50 + size*(i + 3/4)), size, 'Black')
 
 
-    logo = load_image('https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2013/Jun/09/simpleguics2pygame-logo-4079748489-6_avatar.png')
+    logo = load_image('http://www.opimedia.be/DS/SimpleGUICS2Pygame/_png/SimpleGUICS2Pygame_64x64_t.png')
 
     frame = create_frame('SimpleGUICS2Pygame: short presentation of this module', WIDTH, HEIGHT, 160)
     frame.set_canvas_background('White')

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw circles. (June 12, 2013)
+Test draw circles. (June 19, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -24,10 +24,11 @@ except:
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
-    GUI_VERSION = 'SimpleGUICS2Pygame ' + simplegui._VERSION
+    GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
     PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/
     PYGAME_VERSION = ''

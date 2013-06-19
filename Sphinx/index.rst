@@ -1,10 +1,11 @@
-SimpleGUICS2Pygame's documentation
-==================================
-.. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_cartoon_32x32_t.png
+SimpleGUICS2Pygame package's documentation
+==========================================
+.. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_32x32_t.png
 
 .. toctree::
    :maxdepth: 2
 
+   package_init
    codeskulptor
    codeskulptor_lib
    simplegui_lib
@@ -15,7 +16,7 @@ SimpleGUICS2Pygame's documentation
 
 SimpleGUICS2Pygame
 ------------------
-It is a standard Python_ (2 **and** 3) module
+It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
@@ -29,10 +30,14 @@ Require Pygame_
 |   ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``
 | in your CodeSkulptor program and run it in *standard Python* with this module (and Pygame).
 
+`Online HTML documentation`_ on `DragonSoft DS`_ website.
+
 Sources on Bitbucket:
 https://bitbucket.org/OPiMedia/simpleguics2pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
+.. _`Online HTML documentation`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/index.htm
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
@@ -115,7 +120,7 @@ You can write this
         import codeskulptor
         import simplegui
 
-        import user16_9JI3lqVw8Bpq387 as codeskulptor_lib
+        import user16_WPKkkxSR6z6xQh1 as codeskulptor_lib
         import user16_Qpss15rD1ETZL7l as simplegui_lib
     except:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
@@ -153,11 +158,24 @@ Be careful
   Rounded behavior is also different:
   http://docs.python.org/3/whatsnew/3.0.html#builtins .
 
+  (You can add
+  ``from __future__ import division``
+  *on the top* of your program, and Python 2 mimic Python 3 division.
+  But then *CodeSkulptor failed*!)
+
 * ``Frame.start()`` is blocking until ``Frame.stop()`` execution or closing window.
-  So timers must be started *before*. (Or after by a handler function.)
+  So timers must be started *before*, and states must be initialized *before*.
+  (Or maybe after by a handler function.)
+
+* ``math.abs()`` doesn't exist in In Python, instead use ``abs()``.
 
 * ``print`` is a function in Python 3:
   http://docs.python.org/3/whatsnew/3.0.html#print-is-a-function .
+
+  (You can add
+  ``from __future__ import print_function``
+  *on the top* of your program, and Python 2 mimic Python 3 print function.
+  But then *CodeSkulptor failed*!)
 
 
 English
@@ -185,7 +203,8 @@ Options
 When you run a program you can use following options:
 ``python yourprogram.py [options]``
 
-* ``--fullscreen```: Fullscreen mode.
+* ``--display-fps``: Display FPS average on the canvas.
+* ``--fullscreen``: Fullscreen mode.
 * ``--keep-timers``: Keep running timers when close frame without ask.
 * ``--no-border``: Window without border.
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
@@ -212,3 +231,12 @@ Ressources
 `Python programs running in CodeSkulptor`_
 
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.htm
+
+
+Sounds
+~~~~~~
+Supported formats are supported formats by Pygame: OGG and uncompressed WAV.
+To convert your sounds, you can use Audacity_ and FFmpeg_.
+
+.. _Audacity: http://audacity.sourceforge.net/
+.. _FFmpeg: http://www.ffmpeg.org/

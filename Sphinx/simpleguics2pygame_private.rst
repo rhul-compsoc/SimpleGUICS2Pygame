@@ -14,7 +14,3 @@ simpleguics2pygame (with private members)
 .. autodata:: _PYGAMEKEY_TO_SIMPLEGUIKEY
 
 .. autodata:: _SIMPLEGUICOLOR_TO_PYGAMECOLOR
-
-.. autodata:: _VERSION
-
-.. autodata:: _WEBSITE

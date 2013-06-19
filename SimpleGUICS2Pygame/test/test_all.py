@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (June 11, 2013)
+Test all other test_*.py. (June 19, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -51,12 +51,12 @@ if not to_compare_imgs:
     print('!PIL module not available: images comparaison impossible', file = sys.stderr)
 
 try:
-    SIMPLEGUICS2PYGAME_VERSION = simplegui._VERSION
-    SIMPLEGUICS2PYGAME_WEBSITE = simplegui._WEBSITE
+    from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
+    from SimpleGUICS2Pygame import _WEBSITE as SIMPLEGUICS2PYGAME_WEBSITE
     PYGAME_VERSION = simplegui._PYGAME_VERSION
 except:
     SIMPLEGUICS2PYGAME_VERSION = '?'
-    SIMPLEGUICS2PYGAME_WEBSITE = 'http://www.opimedia.be/'
+    SIMPLEGUICS2PYGAME_WEBSITE = 'http://www.opimedia.be/DS/SimpleGUICS2Pygame/'
     PYGAME_VERSION = '?'
 
 filenames = sorted(glob.glob('*.py'))
