@@ -450,6 +450,8 @@ frame = simplegui.create_frame('Nostalgic Basic Blitz)',
 frame.add_button('Restart', restart)
 frame.add_label('')
 frame.add_button('Quit', frame.stop)
+frame.add_label('')
+frame.add_label('Spacebar to launch bomb!')
 
 
 restart()
