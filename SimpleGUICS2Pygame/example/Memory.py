@@ -29,16 +29,16 @@ except:
 
 # Globals variables
 if True:
-    card_images = [simplegui.load_image('http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/' + url)
-                   for url in ('Guido_van_Rossum.jpg',
-                               'Python.jpg',
-                               'Joe_Warren.jpg',
-                               'Scott_Rixner.jpg',
-                               'John_Greiner.jpg',
-                               'Stephen_Wong.jpg',
-                               'CodeSkulptor.jpg',
-                               'OPi.jpg',
-                               'Memory.jpg')]
+    card_images = [simplegui.load_image('http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/' + filename)
+                   for filename in ('Guido_van_Rossum.jpg',
+                                    'Python.jpg',
+                                    'Joe_Warren.jpg',
+                                    'Scott_Rixner.jpg',
+                                    'John_Greiner.jpg',
+                                    'Stephen_Wong.jpg',
+                                    'CodeSkulptor.jpg',
+                                    'OPi.jpg',
+                                    'Memory.jpg')]
 else:  # to debug
     card_images = [simplegui.load_image('')]*9
 

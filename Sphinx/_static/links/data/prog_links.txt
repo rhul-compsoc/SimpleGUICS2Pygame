@@ -9,10 +9,10 @@ Frame_example.py
 http://www.codeskulptor.org/#user16_7pJZfFiPvl9n5I4.py
 <strong>Mandelbrot_Set</strong>.py
 
-http://www.codeskulptor.org/#user16_5XlqYPIGlwweXXV.py
+http://www.codeskulptor.org/#user16_ZF5G5HlnmpFDGwO.py
 <strong>Memory</strong>.py
 
-http://www.codeskulptor.org/#user16_URDkriiYlhtk91D.py
+http://www.codeskulptor.org/#user16_7HvkwPBa98RyLlA.py
 <strong>Nostalgic_Basic_Blitz</strong>.py
 
 http://www.codeskulptor.org/#user16_4dU3sKZRkMnc7u1.py

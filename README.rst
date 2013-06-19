@@ -65,6 +65,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+*
+
+  - example/Memory.py: moved image locations.
+  - example/Nostalgic_Basic_Blitz.py : added spacebar information.
+
 * 00.90.10 --- June 19, 2013
 
   - Adapted button, label and input to display multine text.

@@ -78,33 +78,33 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_0NlwPSKV0P2dNhi.py" target="_blank">Memory Cards</a>
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_ZF5G5HlnmpFDGwO.py" target="_blank">Memory Cards</a>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/CodeSkulptor.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/CodeSkulptor.jpg
 CodeSkulptor
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Guido_van_Rossum.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Guido_van_Rossum.jpg
 Guido <span class="small-caps">van Rossum</span>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Joe_Warren.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Joe_Warren.jpg
 Joe <span class="small-caps">Warren</span>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/John_Greiner.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/John_Greiner.jpg
 John <span class="small-caps">John_Greiner</span>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/OPi.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/OPi.jpg
 O<span class="small-caps">Pi</span>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Python.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Python.jpg
 Python
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Scott_Rixner.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Scott_Rixner.jpg
 Scott <span class="small-caps">Rixner</span>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Stephen_Wong.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Stephen_Wong.jpg
 Stephen <span class="small-caps">Wong</span>
 
-http://www.opimedia.be/__stuff/Coursera_2013/An_Introduction_to_Interactive_Programming_in_Python/Memory/img/Memory.jpg
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Memory.jpg
 T-shirt memory
 
 
