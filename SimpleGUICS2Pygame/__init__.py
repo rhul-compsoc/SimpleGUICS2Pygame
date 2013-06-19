@@ -28,11 +28,11 @@ http://www.opimedia.be/
 
 Started on May 21, 2013
 
-v.00.90.01 --- June 19, 2013
+v.00.90.10 --- June 19, 2013
 v.00.90.00 --- June 13, 2013
 """
 
-_VERSION = '00.90.01'
+_VERSION = '00.90.10'
 """
 Version of simpleguics2pygame module.
 """

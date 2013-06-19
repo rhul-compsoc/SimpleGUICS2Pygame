@@ -115,7 +115,7 @@ frame.add_label(PYTHON_VERSION)
 frame.add_label(GUI_VERSION)
 frame.add_label(PYGAME_VERSION)
 frame.add_label('')
-frame.add_button('Quit', lambda: frame.stop())
+frame.add_button('Quit', frame.stop)
 
 frame.set_draw_handler(draw)
 

@@ -172,7 +172,7 @@ frame.add_label('')
 frame.add_button('Switch color', switch_color)
 frame.add_button('Switch method', switch_method)
 frame.add_label('')
-frame.add_button('Quit', lambda: frame.stop())
+frame.add_button('Quit', frame.stop)
 
 frame.set_draw_handler(draw)
 

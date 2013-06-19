@@ -1002,7 +1002,7 @@ class Control:
     def __init__(self,
                  frame,
                  text,
-                 button_handler = None, button_width = None):
+                 button_handler = None, button_width = 0):
         """
         Set a button or a label in the control panel.
 
@@ -1017,14 +1017,20 @@ class Control:
         assert isinstance(frame, Frame), type(frame)
         assert isinstance(text, str), type(text)
         assert (button_handler == None) or callable(button_handler), type(button_handler)
-        assert (button_width == None) or isinstance(button_width, int) or isinstance(button_width, float), type(button_width)
+        assert isinstance(button_width, int) or isinstance(button_width, float), type(button_width)
 
         self._frame_parent = frame
 
-        self._text = text
         self._button_handler = button_handler  # if == None then it's a label, else it's a button
-        self._button_width = (max(0, int(round(button_width))) if (button_width != None) and (button_handler != None)
+        self._button_width = (max(0, int(round(button_width))) if button_handler != None
                               else None)
+
+        self._text = text
+        self._text_cut = _text_to_text_cut(text,
+                                           (self._button_width if self._button_width
+                                            else self._frame_parent._control_width),
+                                           (Control._label_pygame_font if button_handler != None
+                                            else Control._button_pygame_font))
 
         self._x1 = 0
         self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
@@ -1081,22 +1087,28 @@ class Control:
 
         **(Don't available in SimpleGUI of CodeSkulptor.)**
         """
-        pygame_surface_text = Control._button_pygame_font.render(self._text.strip(),
-                                                                 True, Control._button_text_pygame_color)
+        # Prepare text
+        seq = []
 
-        text_width, text_height = pygame_surface_text.get_size()
+        width_max = 0
+        height_total = 0
+        for text in self._text_cut:
+            pygame_surface_text = Control._button_pygame_font.render(text,
+                                                                     True,
+                                                                     Control._button_text_pygame_color)
 
-        if self._button_width == None:
-            width = text_width + Control._button_padding_x*2
-            x = Control._button_padding_x
-        else:
-            width = max(self._button_width, text_width + Control._button_padding_x*2)
-            x = (width - text_width)//2
+            text_width, text_height = pygame_surface_text.get_size()
+            width_max = max(width_max, text_width)
+            height_total += text_height
 
-        height = text_height + Control._button_padding_y*2
+            seq.append((pygame_surface_text, text_width, text_height))
 
-        self._x2 = self._x1 + width
-        self._y2 = self._y1 + height
+
+        # Button
+        width = (width_max + Control._button_padding_x*2 if self._button_width == None
+                 else max(self._button_width, width_max + Control._button_padding_x*2))
+
+        height = height_total + Control._button_padding_y*2
 
         pygame_surface_button = pygame.Surface((width, height))
         pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)
@@ -1115,9 +1127,20 @@ class Control:
                                  (0, 3)),
                                 i)  # button with rounded corners
 
-        pygame_surface_button.blit(pygame_surface_text, (x, (height - text_height)//2))
 
+        # Draw text
+        y = Control._button_padding_y
+        for pygame_surface_text, text_width, text_height in seq:
+            pygame_surface_button.blit(pygame_surface_text, ((width - text_width)//2,
+                                                             y))
+            y += text_height
+
+
+        # Draw complete button
         self._frame_parent._controlpanel_pygame_surface.blit(pygame_surface_button, (self._x1, self._y1))
+
+        self._x2 = self._x1 + width
+        self._y2 = self._y1 + height
 
 
     def _draw_label(self):
@@ -1126,14 +1149,26 @@ class Control:
 
         **(Don't available in SimpleGUI of CodeSkulptor.)**
         """
-        pygame_surface_text = Control._label_pygame_font.render(self._text.strip(),
-                                                                True, Control._label_text_pygame_color)
+        if self._text_cut:
+            width_max = 0
 
-        width, height = pygame_surface_text.get_size()
-        self._x2 = self._x1 + width
-        self._y2 = self._y1 + height
+            self._y2 = self._y1
 
-        self._frame_parent._controlpanel_pygame_surface.blit(pygame_surface_text, (self._x1, self._y1))
+            for text in self._text_cut:
+                pygame_surface_text = Control._label_pygame_font.render(text,
+                                                                        True,
+                                                                        Control._label_text_pygame_color)
+
+                width, height = pygame_surface_text.get_size()
+                width_max = max(width_max, width)
+
+                self._frame_parent._controlpanel_pygame_surface.blit(pygame_surface_text, (self._x1, self._y2))
+                self._y2 += height
+
+            self._x2 = self._x1 + width_max
+        else:
+            self._x2 = self._x1
+            self._y2 = self._y1 + Control._label_pygame_font.size('')[1]
 
 
     def _pos_in(self, x, y):
@@ -1177,6 +1212,12 @@ class Control:
         assert isinstance(text, str), type(text)
 
         self._text = text
+        self._text_cut = _text_to_text_cut(text,
+                                           (self._button_width if self._button_width
+                                            else self._frame_parent._control_width),
+                                           (Control._label_pygame_font if self._button_handler != None
+                                            else Control._button_pygame_font))
+
         self._frame_parent._draw_controlpanel()
 
 
@@ -2309,10 +2350,13 @@ class TextAreaControl:
 
         self._frame_parent = frame
 
-        self._text = text
         self._input_handler = input_handler
         self._width = (int(round(input_width)) if input_width >= 0
                        else frame._control_width)
+
+        self._text = text
+        self._text_cut = _text_to_text_cut(text, frame._control_width,
+                                           TextAreaControl._input_pygame_font)
 
         self._x1 = 0
         self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
@@ -2339,14 +2383,20 @@ class TextAreaControl:
         **(Don't available in SimpleGUI of CodeSkulptor.)**
         """
         # Display the label
-        pygame_surface_text = TextAreaControl._label_pygame_font.render(self._text.strip(),
-                                                                        True,
-                                                                        TextAreaControl._label_text_pygame_color)
+        label_width = 0
 
-        label_width, label_height = pygame_surface_text.get_size()
+        self._y2 = self._y1
 
-        self._frame_parent._controlpanel_pygame_surface.blit(pygame_surface_text,
-                                                             (self._x1, self._y1))
+        for text in self._text_cut:
+            pygame_surface_text = TextAreaControl._label_pygame_font.render(text,
+                                                                            True,
+                                                                            TextAreaControl._label_text_pygame_color)
+
+            width, height = pygame_surface_text.get_size()
+            label_width = max(label_width, width)
+
+            self._frame_parent._controlpanel_pygame_surface.blit(pygame_surface_text, (self._x1, self._y2))
+            self._y2 += height
 
 
         # Display the input text in the input box
@@ -2358,7 +2408,7 @@ class TextAreaControl:
 
         text_width, text_height = pygame_surface_text.get_size()
 
-        rect_y = self._y1 + label_height + 2
+        rect_y = self._y2 + 2
         rect_height = text_height + 2 + TextAreaControl._input_padding_y*2
 
         pygame.draw.rect(self._frame_parent._controlpanel_pygame_surface,
@@ -2395,7 +2445,7 @@ class TextAreaControl:
 
         # Set bottom-right position
         self._x2 = self._x1 + max(label_width, self._width)
-        self._y2 = rect_y + rect_height
+        self._y2 += rect_height
 
 
     def _key(self, pygame_event, pressed):
@@ -2516,6 +2566,9 @@ class TextAreaControl:
         assert isinstance(text, str), type(text)
 
         self._text_input = text
+        self._text_cut = _text_to_text_cut(text, self._frame_parent._control_width,
+                                           TextAreaControl._input_pygame_font)
+
         self._frame_parent._draw_controlpanel()
 
 
@@ -2793,7 +2846,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
     **(Don't available in SimpleGUI of CodeSkulptor.)**
 
     :param font_face: str == key of _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME
-    :param size: int > 0
+    :param font_size: int > 0
 
     :return: pygame.Font
     """
@@ -2807,6 +2860,45 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
         return pygame.font.SysFont(_SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME[font_face], font_size)
     except:
         return pygame.font.SysFont(None, font_size)
+
+
+def _text_to_text_cut(text, width, pygame_font):
+    """
+    Cut `text` in pieces smaller `width`.
+
+    **(Don't available in SimpleGUI of CodeSkulptor.)**
+
+    :param text: str
+    :param width: int >= 0
+    :param pygame_font: pygame.font.Font
+
+    :return: tuple of str
+    """
+    assert isinstance(text, str),type(text)
+
+    assert isinstance(width, int), type(width)
+    assert width >= 0, width
+
+    assert isinstance(pygame_font, pygame.font.Font), type(pygame_font)
+
+    text_cut = []
+
+    line = ''
+    tested = ''
+    for piece in text.split():
+        tested = (line + ' ' + piece if line
+                  else piece)
+        if pygame_font.size(tested)[0] <= width:
+            line = tested
+        else:
+            if line:
+                text_cut.append(line)
+            line = piece
+
+    if line:
+        text_cut.append(line)
+
+    return tuple(text_cut)
 
 
 
@@ -3060,7 +3152,7 @@ if __name__ == '__main__':
 
     frame.add_label('')
     frame.add_label('')
-    frame.add_button('Quit', lambda: frame.stop())
+    frame.add_button('Quit', frame.stop)
 
     frame.set_draw_handler(draw_about)
 

@@ -159,7 +159,7 @@ init()
 
 frame = simplegui.create_frame('Mandelbrot Viewer', CANVAS_WIDTH, CANVAS_HEIGHT)
 
-frame.add_button('Quit', lambda: frame.stop())
+frame.add_button('Quit', frame.stop)
 
 frame.set_draw_handler(draw_and_calculate)
 
