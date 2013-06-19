@@ -67,6 +67,8 @@ Changes
 =======
 * 00.90.01 --- June 19, 2013
 
+  - Changed ``default_pygame_color`` param of ``_simpleguicolor_to_pygamecolor()`` function (now installation is ok even if Pygame not installed).
+
   - Moved ``_VERSION`` and ``_WEBSITE`` constants from ``simpleguics2pygame.py`` to ``__init__.py``.
   - Removed ``enumerate()`` function from ``codeskulptor_lib`` (now implemented natively by CodeSkulptor).
   - Added ``--display-fps`` option.

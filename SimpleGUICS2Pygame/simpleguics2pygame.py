@@ -119,7 +119,8 @@ _PYGAMEKEY_TO_SIMPLEGUIKEY = { 97: 65,  # A or a
 
 
 if _PYGAME_AVAILABLE:
-    _SIMPLEGUICOLOR_TO_PYGAMECOLOR = {'aliceblue': pygame.Color('#f0f8ff'),
+    _SIMPLEGUICOLOR_TO_PYGAMECOLOR = {'_default': pygame.Color('#ff0000'),
+                                      'aliceblue': pygame.Color('#f0f8ff'),
                                       'antiquewhite': pygame.Color('#faebd7'),
                                       'aqua': pygame.Color('#00ffff'),
                                       'aquamarine': pygame.Color('#7fffd4'),
@@ -270,7 +271,7 @@ if _PYGAME_AVAILABLE:
     List from http://www.w3schools.com/html/html_colornames.asp
     """
 else:
-    _SIMPLEGUICOLOR_TO_PYGAMECOLOR = {}
+    _SIMPLEGUICOLOR_TO_PYGAMECOLOR = {'_default': None}
 
 
 _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME = {'monospace': 'courier,couriernew',
@@ -2722,7 +2723,7 @@ def _set_option_from_argv():
 
 
 def _simpleguicolor_to_pygamecolor(color,
-                                   default_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['red']):
+                                   default_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['_default']):
     """
     Return a `pygame.Color` object
     corresponding to the SimpleGUI string `color` in format:
