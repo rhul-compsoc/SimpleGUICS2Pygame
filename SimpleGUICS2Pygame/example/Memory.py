@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (June 13, 2013)
+Memory (June 19, 2013)
   8 x (2 indentical cards)
   or 4 x (4 indentical cards)
 
@@ -22,6 +22,8 @@ try:
     import simplegui
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+    simplegui.Frame._hide_status = True
 
 
 
@@ -86,17 +88,6 @@ def draw_rect(canvas, pos, size, line_width, color):
                          (x0 + width, y0 + height),
                          (x0, y0 + height)),
                         line_width, color)
-
-
-def enumerate(iterable, start = 0):
-    """
-    Replace the Python built-in function not available in CodeSkulptor.
-    Cf. http://docs.python.org/3/library/functions.html#enumerate
-    """
-    for elem in iterable:
-        yield start, elem
-
-        start += 1
 
 
 

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (June 13, 2013)
+Mandelbrot Set. (June 19, 2013)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -16,13 +16,15 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user16_4kCgnGfEwhwaA5Y import codeskulptor_is, hex2
+    from user16_WPKkkxSR6z6xQh1 import codeskulptor_is, hex2
 
     import simplegui
 except:
     from SimpleGUICS2Pygame.codeskulptor_lib import codeskulptor_is, hex2
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+    simplegui.Frame._hide_status = True
 
 
 

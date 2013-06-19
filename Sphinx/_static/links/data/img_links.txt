@@ -1,8 +1,12 @@
 + Asteroid (Kim Lathrop) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png
+
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_brown.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris_blend.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris1_blue.png
 
@@ -45,6 +49,8 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot3.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/splash.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/space%20station.png
 
 
 

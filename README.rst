@@ -4,7 +4,7 @@
 SimpleGUICS2Pygame
 ==================
 
-It is a standard Python_ (2 **and** 3) module
+It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
@@ -18,10 +18,14 @@ Require Pygame_
 |   ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``
 | in your CodeSkulptor program and run it in *standard Python* with this module (and Pygame).
 
+`Online HTML documentation`_ on `DragonSoft DS`_ website.
+
 Sources on Bitbucket:
 https://bitbucket.org/OPiMedia/simpleguics2pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
+.. _`Online HTML documentation`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/index.htm
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
@@ -61,6 +65,17 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+* 00.90.01 --- June 19, 2013
+
+  - Moved ``_VERSION`` and ``_WEBSITE`` constants from ``simpleguics2pygame.py`` to ``__init__.py``.
+  - Removed ``enumerate()`` function from ``codeskulptor_lib`` (now implemented natively by CodeSkulptor).
+  - Added ``--display-fps`` option.
+  - Added example/RiceRocks_Asteroids.py.
+  - Updated some CodeSkulptor programs links.
+  - Added some new media links.
+  - Added some details in documentations.
+  - Some cosmetic changes.
+
 * 00.90.00 --- June 13, 2013
 
   - First public version.

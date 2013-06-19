@@ -335,13 +335,13 @@ div.viewcode-block:target {
 
 
 .sphinxsidebarwrapper {
-    background-image: url('img/SimpleGUICS2Pygame_cartoon_64x64_t.png');
+    background-image: url('img/SimpleGUICS2Pygame_64x64_t.png');
     background-repeat: no-repeat;
     background-position: 90% 50%;
 }
 
 .toctree-wrapper {
-    background-image: url('img/SimpleGUICS2Pygame_cartoon_64x64_t.png');
+    background-image: url('img/SimpleGUICS2Pygame_64x64_t.png');
     background-repeat: no-repeat;
     background-position: bottom right;
 }

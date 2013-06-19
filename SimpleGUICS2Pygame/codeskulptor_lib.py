@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor_lib (June 11, 2013)
+codeskulptor_lib (June 19, 2013)
 
 Some miscellaneous functions to help in CodeSkulptor.
 
@@ -57,22 +57,6 @@ def codeskulptor_is():
         return True
     except:
         return False
-
-
-def enumerate(iterable, start = 0):
-    """
-    Replace the Python built-in function not available in CodeSkulptor.
-    See http://docs.python.org/3/library/functions.html#enumerate
-
-    :param iterable: Iterable
-    :param start: int
-
-    :yield: (int, value of iterable)
-    """
-    for elem in iterable:
-        yield start, elem
-
-        start += 1
 
 
 def hex2(n, uppercase = True):
