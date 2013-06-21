@@ -66,6 +66,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Some precisions and English corrections in the documentation.
+  - Added some CodeSkulptor programs links.
 
   - example/Memory.py: moved image locations.
   - example/Nostalgic_Basic_Blitz.py : added spacebar information.

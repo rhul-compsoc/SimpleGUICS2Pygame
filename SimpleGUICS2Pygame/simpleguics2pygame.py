@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 19, 2013)
+simpleguics2pygame (June 20, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -114,7 +114,7 @@ _PYGAMEKEY_TO_SIMPLEGUIKEY = { 97: 65,  # A or a
 """
 `Dict` {`int` Pygame key code : corresponding `int` SimpleGUI key code}.
 
-**(Don't available in SimpleGUI of CodeSkulptor.)**
+**(Not available in SimpleGUI of CodeSkulptor.)**
 """
 
 
@@ -264,7 +264,7 @@ if _PYGAME_AVAILABLE:
     """
     `Dict` {`str` color constant name: corresponding `pygame.Color`}.
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
 
     See http://www.opimedia.be/DS/mementos/colors.htm
 
@@ -281,7 +281,7 @@ _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME = {'monospace': 'courier,couriernew',
 Font faces using by SimpleGUI
 to corresponding font names list used by Pygame.
 
-**(Don't available in SimpleGUI of CodeSkulptor.)**
+**(Not available in SimpleGUI of CodeSkulptor.)**
 """
 
 
@@ -329,7 +329,7 @@ _SIMPLEGUIKEY_TO_STATUSKEY = {32: 'space',
 """
 `Dict` {`int` SimpleGUI key code : corresponding `str` status key}.
 
-**(Don't available in SimpleGUI of CodeSkulptor.)**
+**(Not available in SimpleGUI of CodeSkulptor.)**
 """
 
 
@@ -476,7 +476,7 @@ class Canvas:
         If `self._draw_handler` != `None`
         then call it and update display of the canvas.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
         """
         if (self._draw_handler != None) and (self._frame_parent != None):
             self._pygame_surface.fill(self._background_pygame_color)
@@ -511,7 +511,7 @@ class Canvas:
         If `filename` extension is not recognized
         then TGA format is used.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param filename: str
         """
@@ -757,7 +757,7 @@ class Canvas:
         Draw a point.
 
         (Available in SimpleGUI of CodeSkulptor
-        but *don't in CodeSkulptor documentation*!)
+        but *not in CodeSkulptor documentation*!)
 
         :param position: (int or float, int or float) or [int or float, int or float]
         :param color: str
@@ -903,7 +903,7 @@ class Canvas:
         then use the default `pygame.Font`.
 
         `_font_size_coef` is used to adjust the vertical positioning.
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param text: str
         :param point: (int or float, int or float) or [int or float, int or float]
@@ -1056,7 +1056,7 @@ class Control:
         then select this Control,
         else unselect and run the button handler (if exist).
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param pressed: bool
         """
@@ -1073,7 +1073,7 @@ class Control:
         """
         Draw the control object in the control panel.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
         """
         if self._button_handler == None:
             self._draw_label()
@@ -1085,7 +1085,7 @@ class Control:
         """
         Draw the the control object as a button.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
         """
         # Prepare text
         seq = []
@@ -1147,7 +1147,7 @@ class Control:
         """
         Draw the the control object as a label.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
         """
         if self._text_cut:
             width_max = 0
@@ -1177,7 +1177,7 @@ class Control:
         then return `True`,
         else return `False`.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param x: int or float
         :param y: int or float
@@ -1196,7 +1196,7 @@ class Control:
         Return the text of the button or the label.
 
         (Available in SimpleGUI of CodeSkulptor
-        but *don't in CodeSkulptor documentation*!)
+        but *not in CodeSkulptor documentation*!)
 
         :return: str
         """
@@ -1476,7 +1476,7 @@ class Frame:
         Draw the control panel
         and two status boxes.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
         """
         self._controlpanel_pygame_surface.fill(Frame._controlpanel_background_pygame_color)
 
@@ -1503,7 +1503,7 @@ class Frame:
         """
         Draw the status box of key.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param key: int
         :param pressed: None or bool
@@ -1546,7 +1546,7 @@ class Frame:
         """
         Draw the status box of mouse.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param position: (int or float, int or float) or [int or float, int or float]
         :param pressed: bool
@@ -1589,7 +1589,7 @@ class Frame:
         """
         Return the framerate average (in frame per second) computed by Pygame.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :return: float
         """
@@ -1602,7 +1602,7 @@ class Frame:
         then return it
         else return `None`.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param x: int or float
         :param y: int or float
@@ -1626,7 +1626,7 @@ class Frame:
 
         (The images are saved on each cycle fixed by `Frame._fps_average`.)
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param filemane: str
         """
@@ -1641,7 +1641,7 @@ class Frame:
         then save the canvas in a file
         and stop the program.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param filemane: str
         :param after: int or float >= 0
@@ -1749,7 +1749,7 @@ class Frame:
     def get_canvas_image(self):
         """
         Available in SimpleGUI of CodeSkulptor
-        but *don't in CodeSkulptor documentation*!
+        but *not in CodeSkulptor documentation*!
 
         It is a special method in CodeSkulptor,
         **never execute this method**.
@@ -1981,7 +1981,7 @@ class Frame:
         then ask in the canvas if they must be stopped.
 
         (Available in SimpleGUI of CodeSkulptor
-        but *don't in CodeSkulptor documentation*!)
+        but *not in CodeSkulptor documentation*!)
         """
         if (Frame._keep_timers == True) or (Frame._keep_timers == False) or not Timer._timers_running:
             if Frame._keep_timers == False:
@@ -2218,7 +2218,7 @@ class Sound:
         (If initialization of this sound was failed
         then return `0`.)
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :return: int or float
         """
@@ -2380,7 +2380,7 @@ class TextAreaControl:
         """
         Draw the input box and his label.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
         """
         # Display the label
         label_width = 0
@@ -2456,7 +2456,7 @@ class TextAreaControl:
         If `pressed`
         then add character to text in the input box.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param pygame_event: pygame.Event KEYDOWN or KEYUP
         :param pressed: bool
@@ -2514,7 +2514,7 @@ class TextAreaControl:
         If `pressed`
         then give it the focus.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param pressed: bool
         """
@@ -2531,7 +2531,7 @@ class TextAreaControl:
         then return `True`,
         else return `False`.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param x: int or float
         :param y: int or float
@@ -2550,7 +2550,7 @@ class TextAreaControl:
         Return the text of the input box.
 
         (Available in SimpleGUI of CodeSkulptor
-        but *don't in CodeSkulptor documentation*!)
+        but *not in CodeSkulptor documentation*!)
 
         :return: str (or unicode in Python 2)
         """
@@ -2590,7 +2590,7 @@ class Timer:
         """
         Stop all timers.
 
-        **(Don't available in SimpleGUI of CodeSkulptor.)**
+        **(Not available in SimpleGUI of CodeSkulptor.)**
 
         Side effect: Empty `Timer._timers_running`.
         """
@@ -2641,7 +2641,7 @@ class Timer:
         Return the interval of this timer.
 
         (Available in SimpleGUI of CodeSkulptor
-        but *don't in CodeSkulptor documentation*!)
+        but *not in CodeSkulptor documentation*!)
 
         :return: (int or float) > 0
         """
@@ -2696,7 +2696,7 @@ def _pos_round(position):
 
     **Don't require Pygame.**
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
 
     :param position: (int or float, int or float) or [int or float, int or float]
 
@@ -2718,7 +2718,7 @@ def _pygamekey_to_simpleguikey(key):
     If `key` not in _PYGAMEKEY_TO_SIMPLEGUIKEY
     then return `key`.
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
 
     :param key: int >= 0
 
@@ -2746,11 +2746,11 @@ def _set_option_from_argv():
     * ``--stop-timers``: Stop all timers when close frame.
 
     If an argument not in this list
-    then next argument are ignored.
+    then next arguments are ignored.
 
     This function is executed when the module is imported.
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
     """
     from sys import argv
 
@@ -2795,7 +2795,7 @@ def _simpleguicolor_to_pygamecolor(color,
 
     :return: pygame.Color
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
     """
     assert _PYGAME_AVAILABLE
     assert isinstance(color, str), type(color)
@@ -2843,7 +2843,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
     If correponding font is not founded,
     then return the default `pygame.Font`.
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
 
     :param font_face: str == key of _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME
     :param font_size: int > 0
@@ -2866,7 +2866,7 @@ def _text_to_text_cut(text, width, pygame_font):
     """
     Cut `text` in pieces smaller `width`.
 
-    **(Don't available in SimpleGUI of CodeSkulptor.)**
+    **(Not available in SimpleGUI of CodeSkulptor.)**
 
     :param text: str
     :param width: int >= 0
@@ -2955,7 +2955,7 @@ def create_invisible_canvas(width, height):
     (Return a "weak" `Canvas`.)
 
     (Available in SimpleGUI of CodeSkulptor
-    but *don't in CodeSkulptor documentation*!)
+    but *not in CodeSkulptor documentation*!)
 
     :param width: int >= 0
     :param height: int >= 0
@@ -2976,7 +2976,7 @@ def create_sound(sound_data, sample_rate = 8000, num_channels = 1):
     NOT YET IMPLEMENTED! (Return an empty `Sound`.)
 
     (Available in SimpleGUI of CodeSkulptor
-    but *don't in CodeSkulptor documentation*!)
+    but *not in CodeSkulptor documentation*!)
 
     :param sound_data: (tuple or list) of (0 <= int < 256)
     :param sample_rate: int >= 0

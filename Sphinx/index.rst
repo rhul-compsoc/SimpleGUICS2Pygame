@@ -201,7 +201,7 @@ To install easily the Pygame module on Window$, see `Unofficial Windows Binaries
 Options
 ~~~~~~~
 When you run a program you can use following options:
-``python yourprogram.py [options]``
+``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
 
 * ``--display-fps``: Display FPS average on the canvas.
 * ``--fullscreen``: Fullscreen mode.
@@ -212,10 +212,18 @@ When you run a program you can use following options:
 * ``--no-status``: Hide two status boxes.
 * ``--stop-timers``: Stop all timers when close frame.
 
+If an argument not in this list then next arguments are ignored.
+
+Example: ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
+run ``yourprogram.py`` with the control panel hidden and timers will stoped.
+But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
+
+SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
+
 
 Run
 ``python yourprogram.py``
-then asserts is active and this module is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
+then asserts is active and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
 It is a good point to develop and write correct programs.
 But if you want just run a program,
 ``python -O yourprogram.py``
