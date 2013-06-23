@@ -20,10 +20,6 @@ It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
-Require Pygame_
-(except for the Timer class)
-(`Unofficial Windows Binaries`_).
-
 | Simply change
 |   ``import simplegui``
 | by
@@ -38,10 +34,47 @@ Require Pygame_
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
 .. _`Online HTML documentation`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/index.htm
-.. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
-.. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
+
+Installation
+------------
+If pip_ is installed on your platform you can do:
+
+>>> pip install SimpleGUICS2Pygame
+
+
+Else, download the archive ``SimpleGUICS2Pygame-?.tar.gz``, unzip it ``somewhere``.
+Next in the ``somewhere/SimpleGUICS2Pygame-?/SimpleGUICS2Pygame`` subdirectory run:
+
+>>> python setup.py install
+
+
+Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
+(except for the Timer class) Pygame_ .
+
+On Window$:
+
+* You can use the binary installer ``SimpleGUICS2Pygame-?.exe`` if it available to your machine.
+
+* You can easily install pip and Pygame,
+  see `Unofficial Windows Binaries pip`_ and `Unofficial Windows Binaries Pygame`_.
+
+* You can use 7-Zip_ to unzip archive.
+
+.. _7-Zip: http://www.7-zip.org/
+.. _pip: https://pypi.python.org/pypi/pip
+.. _Pygame: http://www.pygame.org/
+.. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
+.. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
+
+
+Examples
+--------
+You can see examples in ``SimpleGUICS2Pygame/example/`` subdirectory from the sources archives.
+
+Or online in CodeSkulptor:
+http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/_static/links/prog_links.htm .
 
 
 Author |OPi|
@@ -184,20 +217,6 @@ I don't really speak English, I'm speak French.
 So this documentation and comments in the source code are likely horrible. ;-)
 
 
-Installation
-~~~~~~~~~~~~
-Unzip the archive ``SimpleGUICS2Pygame-?.tar.gz``
-and then in the ``SimpleGUICS2Pygame-?/`` directory
-run ``python setup.py install``.
-
-Or use the Window$ installer ``SimpleGUICS2Pygame-?.exe``.
-
-
-To install easily the Pygame module on Window$, see `Unofficial Windows Binaries`_ .
-
-.. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
-
-
 Options
 ~~~~~~~
 When you run a program you can use following options:
@@ -211,6 +230,7 @@ When you run a program you can use following options:
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
 * ``--no-load-sound``: Don't load any sound.
 * ``--no-status``: Hide two status boxes.
+* ``--print-load-medias``: Print URLs or local filenames loaded.
 * ``--stop-timers``: Stop all timers when close frame.
 
 If an argument not in this list then next arguments are ignored.

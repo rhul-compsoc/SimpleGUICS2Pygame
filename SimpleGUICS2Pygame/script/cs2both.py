@@ -2,9 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
+script/cs2both.py
+
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(June 22, 2013)
+(June 23, 2013)
+
+A file codeskulptor_program.py is copied
+to codeskulptor_program.py.bak before changing.
 
 Changes made :
 - Add shebang '#!/usr/bin/env python'.
@@ -15,6 +20,7 @@ Changes made :
       import simplegui
   except:
       import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+- Replace math.abs() by abs().
 - Try to check if a timer is started *after* the start frame.
 
 Piece of SimpleGUICS2Pygame.
@@ -33,14 +39,37 @@ import re
 import sys
 
 
+def help():
+    print("""cs2both.py codeskulptor_program.py
+
+Make automatically little changes in codeskulptor_program.py
+to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
+
+The file codeskulptor_program.py is copied
+to codeskulptor_program.py.bak before changing.
+
+Changes made :
+- Add shebang '#!/usr/bin/env python'.
+- Add '# -*- coding: latin-1 -*-'.
+- Replace import simplegui
+  by
+  try:
+      import simplegui
+  except:
+      import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+- Replace math.abs() by abs().
+- Try to check if a timer is started *after* the start frame.
+""")
+
+    exit(1)
+
+
 ########
 # Main #
 ########
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print('Usage: cs2both.py filename.py')
-
-        exit(1)
+    if (len(sys.argv) != 2) or (sys.argv[1][0] == '-'):
+        help()
 
     filename = sys.argv[1]
 
@@ -49,8 +78,13 @@ if __name__ == '__main__':
 
         exit(1)
 
+    if not os.path.isfile(filename):
+        print("! '{}' doesn't exist.".format(filename))
+
+        exit(1)
+
     if os.path.isfile(filename + '.bak'):
-        print("'! {}.bak' alread exist.".format(filename))
+        print("! '{}.bak' alread exist.".format(filename))
 
         exit(1)
 
@@ -72,15 +106,10 @@ if __name__ == '__main__':
                   and not re.match('#\w*-\*- coding: \W+ -\*-$', lines[1]))
 
     change_import = False
+    change_math_abs = False
     already_change_import = False
 
     end_blank_line = False
-
-    for line in lines:
-        if re.search('^\w*import SimpleGUICS2Pygame', line):
-            already_change_import = True
-
-            break
 
     while lines[-1] == '':
         end_blank_line = True
@@ -90,6 +119,14 @@ if __name__ == '__main__':
         print('"Empty" file.')
 
         exit()
+
+    for i, line in enumerate(lines):
+        if (not already_change_import
+                and re.search('^\w*import SimpleGUICS2Pygame', line)):
+            already_change_import = True
+        else:
+            lines[i] = re.sub('math\.abs\(', 'abs(', line)
+            change_math_abs = True
 
     if not already_change_import:
         for i, line in enumerate(lines):
@@ -106,8 +143,10 @@ if __name__ == '__main__':
                      '    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui')) + '\n'
 
     # Write
-    if add_shebang or add_coding or change_import or end_blank_line:
+    if (add_shebang or add_coding
+            or change_import or change_math_abs or end_blank_line):
         os.rename(filename, filename + '.bak')
+        print("File copied to {}.bak'".format(filename))
 
         f = (open(filename, mode='w', encoding='latin_1', newline='\n')
              if sys.version_info[0] >= 3
@@ -123,6 +162,9 @@ if __name__ == '__main__':
 
         if change_import:
             print('Change import simplegui.')
+
+        if change_math_abs:
+            print('Change math.abs() by abs().')
 
         if end_blank_line:
             print('End blank line deleted.')

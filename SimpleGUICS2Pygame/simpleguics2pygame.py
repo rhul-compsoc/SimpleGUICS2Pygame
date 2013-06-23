@@ -29,6 +29,7 @@ http://www.opimedia.be/
 """
 
 from __future__ import division
+from __future__ import print_function
 
 
 try:
@@ -470,6 +471,7 @@ def _set_option_from_argv():
     * ``--no-controlpanel``: Hide the control panel (and status boxes).
     * ``--no-load-sound``: Don't load any sound.
     * ``--no-status``: Hide two status boxes.
+    * ``--print-load-medias``: Print URLs or locals filename loaded.
     * ``--stop-timers``: Stop all timers when close frame.
 
     If an argument not in this list
@@ -502,6 +504,8 @@ def _set_option_from_argv():
             Sound._load_disabled = True
         elif arg == '--no-status':
             Frame._hide_status = True
+        elif arg == '--print-load-medias':
+            Frame._print_load_medias = True
         elif arg == '--stop-timers':
             Frame._keep_timers = False
         else:
@@ -729,6 +733,13 @@ class Frame:
 
     If `False`
     then stop all timers when stop frame.
+    """
+
+    _print_load_medias = False
+    """
+    If `True`
+    then print URLs or locals filename loaded
+         by `load_image()` and `load_sound()`.
     """
 
     _pygamefonts_cached = {}
@@ -2467,12 +2478,17 @@ class Image:
         if Image._dir_search_first is not None:
             assert Image._dir_search_first[-1] == '/'
 
-            from os.path import isfile
+            from os.path import dirname, isfile, join
+            from sys import argv
 
-            filename = Image._dir_search_first + url.split('/')[-1]
+            filename = join(dirname(argv[0]),
+                            Image._dir_search_first,
+                            url.split('/')[-1])
 
             if isfile(filename):
                 self._pygame_surface = pygame.image.load(filename)
+                if Frame._print_load_medias:
+                    print("Image: '{}'".format(filename))
 
                 return
 
@@ -2485,15 +2501,13 @@ class Image:
             from urllib2 import urlopen
 
         try:
-            url = urlopen(url)
-            url = BytesIO(url.read())
+            self._pygame_surface = pygame.image.load(
+                BytesIO(urlopen(url).read()))
+            if Frame._print_load_medias:
+                print("Image: '{}'".format(url))
         except Exception as e:
-            pass
-
-        try:
-            self._pygame_surface = pygame.image.load(url)
-        except Exception as e:
-            pass
+            if Frame._print_load_medias:
+                print("Image: '{}' FAILED! {}".format(url, e))
 
     def __repr__(self):
         """
@@ -2567,12 +2581,17 @@ class Sound:
         if Sound._dir_search_first is not None:
             assert Sound._dir_search_first[-1] == '/'
 
-            from os.path import isfile
+            from os.path import dirname, isfile, join
+            from sys import argv
 
-            filename = Image._dir_search_first + url.split('/')[-1]
+            filename = join(dirname(argv[0]),
+                            Sound._dir_search_first,
+                            url.split('/')[-1])
 
             if isfile(filename):
                 self._pygame_sound = pygame.mixer.Sound(filename)
+                if Frame._print_load_medias:
+                    print("Sound: '{}'".format(filename))
 
                 return
 
@@ -2585,15 +2604,13 @@ class Sound:
             from urllib2 import urlopen
 
         try:
-            url = urlopen(url)
-            url = BytesIO(url.read())
+            self._pygame_sound = pygame.mixer.Sound(
+                BytesIO(urlopen(url).read()))
+            if Frame._print_load_medias:
+                print("Sound: '{}'".format(url))
         except Exception as e:
-            pass
-
-        try:
-            self._pygame_sound = pygame.mixer.Sound(url)
-        except Exception as e:
-            pass
+            if Frame._print_load_medias:
+                print("Sound: '{}' FAILED! {}".format(url, e))
 
     def __repr__(self):
         """
