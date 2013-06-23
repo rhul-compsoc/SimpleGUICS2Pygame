@@ -15,13 +15,18 @@ http://www.opimedia.be/
 
 from __future__ import print_function
 
+from sys import version
+
 
 ########
 # Main #
 ########
 if __name__ == '__main__':
     print("""script/SimpleGUICS2Pygame_check.py
-==================================""")
+==================================
+python - version""", version)
+
+    print()
 
     try:
         cmd = 'import pygame'
@@ -30,7 +35,7 @@ if __name__ == '__main__':
 
         print(cmd, 'ok - Version', pygame.version.ver)
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
 
     try:
         cmd = 'pygame.init()'
@@ -38,7 +43,7 @@ if __name__ == '__main__':
 
         print(cmd, 'ok')
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
 
     print()
 
@@ -49,7 +54,7 @@ if __name__ == '__main__':
 
         print(cmd, 'ok - Version', SimpleGUICS2Pygame._VERSION)
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
 
     print()
 
@@ -60,7 +65,7 @@ if __name__ == '__main__':
 
         print(cmd, 'ok')
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
 
     try:
         cmd = 'import SimpleGUICS2Pygame.codeskulptor_lib'
@@ -69,7 +74,7 @@ if __name__ == '__main__':
 
         print(cmd, 'ok')
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
 
     try:
         cmd = 'import SimpleGUICS2Pygame.simplegui_lib'
@@ -78,7 +83,7 @@ if __name__ == '__main__':
 
         print(cmd, 'ok')
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
 
     try:
         cmd = 'import SimpleGUICS2Pygame.simpleguics2pygame'
@@ -87,4 +92,4 @@ if __name__ == '__main__':
 
         print(cmd, 'ok')
     except Exception as e:
-        print(cmd, 'failed!', e)
+        print(cmd, 'FAILED!', e)
