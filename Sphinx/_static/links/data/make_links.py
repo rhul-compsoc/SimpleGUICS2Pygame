@@ -5,7 +5,7 @@
 Module
   to make_img_snd_links.py
   and make_prog_links.py .
-(June 22, 2013)
+(June 23, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -83,7 +83,7 @@ def print_html_list_link(data, dest_file):
 
         print("""  <li>
     {}
-    <div class="progs">""".format(items[0]), file=dest_file)
+    <ul class="progs">""".format(items[0]), file=dest_file)
 
         for url, info, info2 in items[1:]:
             assert isinstance(url, str), type(url)
@@ -92,12 +92,14 @@ def print_html_list_link(data, dest_file):
             if info == '':
                 info = '<tt>{}</tt>'.format(os.path.basename(url))
 
-            print("""      <div class="prog">
-        <a href="{0}" target="_blank">{1}</a>{2}
-      </div>""".format(url, info, ('<span class="info2-attention">&hellip;</span> <div class="info2">{}</div>'.format(info2) if info2 != ''
-                                   else '')), file=dest_file)
+            print("""      <li class="prog">
+        <a class="info" href="{0}" target="_blank">{1}</a>{2}
+      </li>""".format(url, info,
+                      ('<span class="info2">{}</span>'.format(info2)
+                       if info2 != ''
+                       else '')), file=dest_file)
 
-        print("""    </div>
+        print("""    </ul>
   </li>""", file=dest_file)
 
     print('</ul>', file=dest_file)

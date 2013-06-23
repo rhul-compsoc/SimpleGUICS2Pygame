@@ -11,7 +11,6 @@ a.mail:visited {
 
 
 div.images a.image,
-div.progs div.prog,
 div.sounds div.sound {
     background-color: #f0f0f0;
 
@@ -65,33 +64,19 @@ div.images a.image span.size span {
 div.images a.image:hover span.size span { display: inline-block; }
 
 
-div.progs div.prog { position: relative; }
+ul.progs li.prog { margin-left: 1em; }
 
-div.progs div.prog div.info2 {
+ul.progs li.prog a.info {
     background-color: #f0f0f0;
 
     border: solid 1px black;
     border-radius: 1ex;
 
-    box-shadow: -1ex 1ex 1ex silver;
-    display: none;
-    right: 0px;
+    display: inline-block;
     padding: 1px 1ex;
-    position: absolute;
-    top: 3ex;
-    z-index: 1002;
 }
 
-div.progs div.prog:hover div.info2 { display: inline-block; }
-
-div.progs div.prog span.info2-attention {
-    background-color: #d0d0d0;
-
-    border: solid 1px black;
-    border-radius: 1ex;
-
-    margin: 0px -1ex 0px 1ex;
-}
+ul.progs li.prog span.info2 { margin-left: 1em; }
 
 
 h1 { margin: 0px; }

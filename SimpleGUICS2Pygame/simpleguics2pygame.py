@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 22, 2013)
+simpleguics2pygame (June 23, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -410,912 +410,247 @@ SimpleGUI keyboard characters contants.
 
 
 #
+# Private function
+###################
+def _pos_round(position):
+    """
+    Returns the rounded `position`.
+
+    **Don't require Pygame.**
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    :param position: (int or float, int or float)
+                     or [int or float, int or float]
+
+    :return: (int, int)
+    """
+    assert isinstance(position, tuple) or isinstance(position, list), \
+        type(position)
+    assert len(position) == 2, len(position)
+    assert isinstance(position[0], int) or isinstance(position[0], float), \
+        type(position[0])
+    assert isinstance(position[1], int) or isinstance(position[1], float), \
+        type(position[1])
+
+    return (int(round(position[0])), int(round(position[1])))
+
+
+def _pygamekey_to_simpleguikey(key):
+    """
+    Return the code use by SimpleGUI to representing
+    the `key` expressed by Pygame.
+
+    If `key` not in _PYGAMEKEY_TO_SIMPLEGUIKEY
+    then return `key`.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    :param key: int >= 0
+
+    :return: int >= 0
+    """
+    assert _PYGAME_AVAILABLE
+    assert isinstance(key, int), type(key)
+    assert key >= 0, key
+
+    return _PYGAMEKEY_TO_SIMPLEGUIKEY.get(key, key)
+
+
+def _set_option_from_argv():
+    """
+    Read arguments in sys.argv
+    and set options.
+
+    * ``--default-font``: Use Pygame default font instead serif, monospace...
+    * ``--display-fps``: Display FPS average on the canvas.
+    * ``--fullscreen``: Fullscreen mode.
+    * ``--keep-timers``: Keep running timers when close frame without ask.
+    * ``--no-border``: Window without border.
+    * ``--no-controlpanel``: Hide the control panel (and status boxes).
+    * ``--no-load-sound``: Don't load any sound.
+    * ``--no-status``: Hide two status boxes.
+    * ``--stop-timers``: Stop all timers when close frame.
+
+    If an argument not in this list
+    then next arguments are ignored.
+
+    This function is executed when the module is imported.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+    from sys import argv
+
+    for arg in argv[1:]:
+        if arg == '--default-font':
+            Frame._default_font = True
+        elif arg == '--display-fps':
+            Frame._display_fps_average = True
+        elif arg == '--fullscreen':
+            Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.HWSURFACE
+        elif arg == '--keep-timers':
+            Frame._keep_timers = True
+        elif arg == '--no-border':
+            Frame._pygame_mode_flags |= pygame.NOFRAME
+        elif arg == '--no-controlpanel':
+            Frame._hide_controlpanel = True
+        elif arg == '--no-load-sound':
+            Sound._load_disabled = True
+        elif arg == '--no-status':
+            Frame._hide_status = True
+        elif arg == '--stop-timers':
+            Frame._keep_timers = False
+        else:
+            break
+
+
+def _simpleguicolor_to_pygamecolor(color,
+                                   default_pygame_color=_SIMPLEGUICOLOR_TO_PYGAMECOLOR['_default']):
+    """
+    Return a `pygame.Color` object
+    corresponding to the SimpleGUI string `color` in format:
+
+    * '#rrggbb',
+    * '#rgb',
+    * 'rbg(red,blue,green)',
+    * 'rgba(red,blue,green,alpha)'
+    * or constant name in `_SIMPLEGUICOLOR_TO_PYGAMECOLOR` \
+      (`default_pygame_color` if the constant name are not founded).
+
+    See http://www.opimedia.be/DS/mementos/colors.htm
+
+    :param color: str
+    :param default_pygame_color: pygame.Color
+
+    :return: pygame.Color
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+    assert _PYGAME_AVAILABLE
+    assert isinstance(color, str), type(color)
+    assert len(color) > 0
+    #assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
+    #        or (color[:4] == 'rgb(')
+    #        or (color[:5] == 'rgba(')
+    #        or (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
+
+    if color[0] == '#':        # format #rrggbb or #rgb
+        return pygame.Color(color if len(color) == 7
+                            else '#' + color[1]*2 + color[2]*2 + color[3]*2)
+    elif color[:4] == 'rgb(':  # format rbg(red,blue,green)
+        assert color[-1] == ')', color
+
+        color = color[4:-1].split(',')
+
+        assert len(color) == 3, color
+
+        return pygame.Color(max(0, min(255, int(color[0]))),
+                            max(0, min(255, int(color[1]))),
+                            max(0, min(255, int(color[2]))))
+    elif color[:5] == 'rgba(':  # format rbga(red,blue,green,alpha)
+        assert color[-1] == ')', color
+
+        color = color[5:-1].split(',')
+
+        assert len(color) == 4, color
+
+        return pygame.Color(max(0, min(255, int(color[0]))),
+                            max(0, min(255, int(color[1]))),
+                            max(0, min(255, int(color[2]))),
+                            max(0, min(255, int(round(float(color[3])*255)))))
+    else:                       # constant name
+        return _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
+                                                  default_pygame_color)
+
+
+def _simpleguifontface_to_pygamefont(font_face, font_size):
+    """
+    Return a `pygame.font.Font` object
+    corresponding to the SimpleGUI `font_face` name
+    by using the `_SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME` dictionary.
+
+    If font_face is None or the correponding font is not founded,
+    then use the default `pygame.font.Font`.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    Side effect: Each new font with new size
+                 is added to `Frame._pygamefonts_cached`.
+    See `Frame._pygamefonts_cached_clear`.
+
+    :param font_face: None
+                      or (str == key of _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)
+    :param font_size: int > 0
+
+    :return: pygame.font.Font
+    """
+    assert ((font_face is None)
+            or (isinstance(font_face, str)
+                and font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)), \
+        font_face
+    assert isinstance(font_size, int), type(font_size)
+    assert font_size > 0, font_size
+
+    font = Frame._pygamefonts_cached.get((font_face, font_size))
+
+    if font is None:
+        if (font_face is None) or Frame._default_font:
+            font = pygame.font.SysFont(None, font_size)
+        else:
+            try:
+                font = pygame.font.SysFont(
+                    _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME[font_face],
+                    font_size)
+            except:
+                font = pygame.font.SysFont(None, font_size)
+
+        Frame._pygamefonts_cached[(font_face, font_size)] = font
+
+    return font
+
+
+def _text_to_text_cut(text, width, pygame_font):
+    """
+    Cut `text` in pieces smaller `width`.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    :param text: str
+    :param width: int >= 0
+    :param pygame_font: pygame.font.Font
+
+    :return: tuple of str
+    """
+    assert isinstance(text, str), type(text)
+
+    assert isinstance(width, int), type(width)
+    assert width >= 0, width
+
+    assert isinstance(pygame_font, pygame.font.Font), type(pygame_font)
+
+    text_cut = []
+
+    line = ''
+    tested = ''
+    for piece in text.split():
+        tested = (line + ' ' + piece if line
+                  else piece)
+        if pygame_font.size(tested)[0] <= width:
+            line = tested
+        else:
+            if line:
+                text_cut.append(line)
+            line = piece
+
+    if line:
+        text_cut.append(line)
+
+    return tuple(text_cut)
+
+
+#
 # Classes
 ##########
-class Canvas:
-    """
-    Canvas similar to SimpleGUI `Canvas` of CodeSkulptor.
-    """
-
-    _background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
-                                if _PYGAME_AVAILABLE
-                                else None)
-    """
-    Default `pygame.Color` of the background of the canvas.
-    """
-
-    def __init__(self,
-                 frame,
-                 canvas_width, canvas_height):
-        """
-        Set the canvas.
-
-        **Don't use directly**, a canvas is created by `Frame()`
-        and reachable by handler defined by `Frame.set_draw_handler()`.
-
-        :param frame: Frame (or None)
-        :param canvas_width: int >= 0
-        :param canvas_height: int >= 0
-        """
-        assert _PYGAME_AVAILABLE
-        assert (frame is None) or isinstance(frame, Frame), type(frame)
-
-        assert isinstance(canvas_width, int), type(canvas_width)
-        assert canvas_width >= 0, canvas_width
-
-        assert isinstance(canvas_height, int), type(canvas_height)
-        assert canvas_height >= 0, canvas_height
-
-        self._frame_parent = frame
-
-        self._width = canvas_width
-        self._height = canvas_height
-
-        self._background_pygame_color = Canvas._background_pygame_color
-
-        self._draw_handler = None
-
-        self._pygame_surface = pygame.Surface((canvas_width, canvas_height))
-
-        from math import pi
-
-        self.pi = pi
-
-    def __repr__(self):
-        """
-        Return `'<Canvas object>'`.
-
-        :return: str
-        """
-        return '<Canvas object>'
-
-    def _draw(self):
-        """
-        If `self._draw_handler` != `None`
-        then call it and update display of the canvas.
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-        """
-        if ((self._draw_handler is not None)
-                and (self._frame_parent is not None)):
-            self._pygame_surface.fill(self._background_pygame_color)
-
-            self._draw_handler(self)
-
-            if self._frame_parent._display_fps_average:
-                self._pygame_surface.blit(
-                    pygame.font.SysFont(None, 40)
-                    .render(str(round(self._frame_parent._fps_average)),
-                            True,
-                            _SIMPLEGUICOLOR_TO_PYGAMECOLOR['red']),
-                    (10, self._height - 40))
-
-            self._frame_parent._pygame_surface.blit(
-                self._pygame_surface,
-                (self._frame_parent._canvas_x_offset,
-                 self._frame_parent._canvas_y_offset))
-
-            pygame.display.update((self._frame_parent._canvas_x_offset,
-                                   self._frame_parent._canvas_y_offset,
-                                   self._width,
-                                   self._height))
-
-    def _save(self, filename):
-        """
-        Save the canvas in `filename`.
-
-        Supported formats are supported formats by Pygame to save:
-        TGA, PNG, JPEG or BMP
-        (see http://www.pygame.org/docs/ref/image.html#pygame.image.save ).
-
-        If `filename` extension is not recognized
-        then TGA format is used.
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-
-        :param filename: str
-        """
-        assert isinstance(filename, str), type(filename)
-
-        pygame.image.save(self._pygame_surface, filename)
-
-    def draw_circle(self,
-                    center_point, radius,
-                    line_width, line_color,
-                    fill_color=None):
-        """
-        Draw a circle.
-
-        If `fill_color` != `None`
-        then fill with this color.
-
-        :param center_point: (int or float, int or float)
-                             or [int or float, int or float]
-        :param radius: (int or float) > 0
-        :param line_width: (int or float) > 0
-        :param line_color: str
-        :param fill_color: None or str
-        """
-        assert (isinstance(center_point, tuple)
-                or isinstance(center_point, list)), type(center_point)
-        assert len(center_point) == 2, len(center_point)
-        assert (isinstance(center_point[0], int)
-                or isinstance(center_point[0], float)), type(center_point[0])
-        assert (isinstance(center_point[1], int)
-                or isinstance(center_point[1], float)), type(center_point[1])
-
-        assert isinstance(radius, int) or isinstance(radius, float), \
-            type(radius)
-        assert radius > 0, radius
-
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
-        assert line_width > 0, line_width
-
-        assert isinstance(line_color, str), type(line_color)
-        assert (fill_color is None) or isinstance(fill_color, str), \
-            type(fill_color)
-
-        line_width = (1 if line_width <= 1
-                      else int(round(line_width)))
-
-        radius = int(round(radius)) + int(round(line_width//2))
-
-        if radius > 1:
-            line_color = _simpleguicolor_to_pygamecolor(line_color)
-            if fill_color is not None:
-                fill_color = _simpleguicolor_to_pygamecolor(fill_color)
-
-            if ((line_color.a == 255)
-                    and ((fill_color is None) or (fill_color.a == 255))):
-                # Without alpha
-                if fill_color is not None:
-                    pygame.draw.circle(self._pygame_surface, fill_color,
-                                       _pos_round(center_point), radius, 0)
-                if line_color != fill_color:
-                    pygame.draw.circle(self._pygame_surface, line_color,
-                                       _pos_round(center_point),
-                                       radius, min(line_width, radius))
-            elif ((line_color.a > 0)
-                  or ((fill_color is not None) and (fill_color.a > 0))):
-                # With one or two alpha (not null)
-                s_alpha = pygame.Surface((radius*2, radius*2), pygame.SRCALPHA)
-
-                if (fill_color is not None) and (fill_color.a > 0):
-                    pygame.draw.circle(s_alpha, fill_color,
-                                       (radius, radius), radius, 0)
-                if (line_color != fill_color) and (line_color.a > 0):
-                    pygame.draw.circle(s_alpha, line_color,
-                                       (radius, radius),
-                                       radius, min(line_width, radius))
-
-                self._pygame_surface.blit(
-                    s_alpha,
-                    (int(round(center_point[0])) - radius,
-                     int(round(center_point[1])) - radius))
-        elif radius > 0:  # == 1
-            self.draw_point(center_point, line_color)
-
-    def draw_image(self, image,
-                   center_source, width_height_source,
-                   center_dest, width_height_dest,
-                   rotation=0):
-        """
-        Draw `image` on the canvas.
-
-        Specify center position and size of the source (`image`)
-        and center position and size of the destination (the canvas).
-
-        Size of the source allow get a piece of `image`.
-        If `width_height_source` is bigger than `image`
-        then draw nothing.
-
-        Size of the destination allow rescale the drawed image.
-
-        `rotation` specify a clockwise rotation in radians.
-
-        :param image: Image
-        :param center_source: (int or float, int or float)
-                              or [int or float, int or float]
-        :param width_height_source: ((int or float) >= 0, (int or float) >= 0)
-                                 or [(int or float) >= 0, (int or float) >= 0]
-        :param center_dest: (int or float, int or float)
-                            or [int or float, int or float]
-        :param width_height_dest: ((int or float) >= 0, (int or float) >= 0)
-                                  or [(int or float) >= 0, (int or float) >= 0]
-        :param rotation: int or float
-        """
-        assert isinstance(image, Image), type(image)
-
-        assert (isinstance(center_source, tuple)
-                or isinstance(center_source, list)), type(center_source)
-        assert len(center_source) == 2, len(center_source)
-        assert (isinstance(center_source[0], int)
-                or isinstance(center_source[0], float)), type(center_source[0])
-        assert (isinstance(center_source[1], int)
-                or isinstance(center_source[1], float)), type(center_source[1])
-
-        assert (isinstance(width_height_source, tuple)
-                or isinstance(width_height_source, list)), \
-            type(width_height_source)
-        assert len(width_height_source) == 2, len(width_height_source)
-        assert (isinstance(width_height_source[0], int)
-                or isinstance(width_height_source[0], float)), \
-            type(width_height_source[0])
-        assert width_height_source[0] >= 0, width_height_source[0]
-        assert (isinstance(width_height_source[1], int)
-                or isinstance(width_height_source[1], float)), \
-            type(width_height_source[1])
-        assert width_height_source[1] >= 0, width_height_source[1]
-
-        assert (isinstance(center_dest, tuple)
-                or isinstance(center_dest, list)), type(center_dest)
-        assert len(center_dest) == 2, len(center_dest)
-        assert (isinstance(center_dest[0], int)
-                or isinstance(center_dest[0], float)), type(center_dest[0])
-        assert (isinstance(center_dest[1], int)
-                or isinstance(center_dest[1], float)), type(center_dest[1])
-
-        assert (isinstance(width_height_dest, tuple)
-                or isinstance(width_height_dest, list)), \
-            type(width_height_dest)
-        assert len(width_height_dest) == 2, len(width_height_dest)
-        assert (isinstance(width_height_dest[0], int)
-                or isinstance(width_height_dest[0], float)), \
-            type(width_height_dest[0])
-        assert width_height_dest[0] >= 0, width_height_dest[0]
-        assert (isinstance(width_height_dest[1], int)
-                or isinstance(width_height_dest[1], float)), \
-            type(width_height_dest[1])
-        assert width_height_dest[1] >= 0, width_height_dest[1]
-
-        assert isinstance(rotation, int) or isinstance(rotation, float), \
-            type(rotation)
-
-        pygame_surface_image = image._pygame_surface
-
-        if pygame_surface_image is not None:
-            width_source, height_source = width_height_source
-
-            x0_source = center_source[0] - width_source/2
-            y0_source = center_source[1] - height_source/2
-
-            if x0_source >= 0:
-                x0_source = int(round(x0_source))
-            elif -1 < x0_source:
-                width_source -= x0_source
-                x0_source = 0
-            else:
-                return
-
-            if y0_source >= 0:
-                y0_source = int(round(y0_source))
-            elif -1 < y0_source:
-                height_source -= y0_source
-                y0_source = 0
-            else:
-                return
-
-            width_source = int(round(width_source))
-            height_source = int(round(height_source))
-
-            if ((x0_source + width_source > image.get_width() + 1)
-                    or (y0_source + height_source > image.get_height() + 1)):
-                # Bigger than image
-                return
-
-            if x0_source + width_source > image.get_width():
-                # Keep this image (seem too big, maybe rounding error)
-                width_source -= 1
-
-            if y0_source + height_source > image.get_height():
-                # Keep this image (seem too big, maybe rounding error)
-                height_source -= 1
-
-        if pygame_surface_image is not None:
-
-            if ((x0_source != 0)
-                    or (y0_source != 0)
-                    or (width_source != image.get_width())
-                    or (height_source != image.get_height())):
-                # Get a piece
-                pygame_surface_image = pygame_surface_image.subsurface(
-                    (x0_source, y0_source,
-                     width_source, height_source))
-
-            width_height_dest = _pos_round(width_height_dest)
-
-            if ((width_height_dest[0] != width_source)
-                    or (width_height_dest[1] != height_source)):
-                # Resize
-                pygame_surface_image = pygame.transform.scale(
-                    pygame_surface_image,
-                    width_height_dest)
-
-            if rotation != 0:
-                # Rotation
-                pygame_surface_image = pygame.transform.rotate(
-                    pygame_surface_image,
-                    -rotation*180/self.pi)
-
-            # Draw the result
-            self._pygame_surface.blit(
-                pygame_surface_image,
-                (int(round(center_dest[0]
-                           - pygame_surface_image.get_width()/2)),
-                 int(round(center_dest[1]
-                           - pygame_surface_image.get_height()/2))))
-
-    def draw_line(self,
-                  point1, point2,
-                  line_width, line_color):
-        """
-        Draw a line segment from point1 to point2.
-
-        :param point1: (int or float, int or float)
-                       or [int or float, int or float]
-        :param point2: (int or float, int or float)
-                       or [int or float, int or float]
-        :param line_width: (int or float) > 0
-        :param line_color: str
-        """
-        assert isinstance(point1, tuple) or isinstance(point1, list), \
-            type(point1)
-        assert len(point1) == 2, len(point1)
-        assert isinstance(point1[0], int) or isinstance(point1[0], float), \
-            type(point1[0])
-        assert isinstance(point1[1], int) or isinstance(point1[1], float), \
-            type(point1[1])
-
-        assert isinstance(point2, tuple) or isinstance(point2, list), \
-            type(point2)
-        assert len(point2) == 2, len(point2)
-        assert isinstance(point2[0], int) or isinstance(point2[0], float), \
-            type(point2[0])
-        assert isinstance(point2[1], int) or isinstance(point2[1], float), \
-            type(point2[1])
-
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
-        assert line_width > 0, line_width
-
-        assert isinstance(line_color, str), type(line_color)
-
-        line_color = _simpleguicolor_to_pygamecolor(line_color)
-
-        if line_color.a == 255:  # without alpha
-            pygame.draw.line(self._pygame_surface, line_color,
-                             _pos_round(point1), _pos_round(point2),
-                             int(round(line_width)))
-        elif line_color.a > 0:   # with alpha (not null)
-            x1, y1 = _pos_round(point1)
-            x2, y2 = _pos_round(point2)
-
-            width = abs(x2 - x1) + line_width*2
-            height = abs(y2 - y1) + line_width*2
-
-            x_min = min(x1, x2)
-            y_min = min(y1, y2)
-
-            s_alpha = pygame.Surface((width, height), pygame.SRCALPHA)
-            pygame.draw.line(s_alpha, line_color,
-                             (x1 - x_min + line_width,
-                              y1 - y_min + line_width),
-                             (x2 - x_min + line_width,
-                              y2 - y_min + line_width),
-                             int(round(line_width)))
-            self._pygame_surface.blit(s_alpha,
-                                      (x_min - line_width, y_min - line_width))
-
-    def draw_point(self, position, color):
-        """
-        Draw a point.
-
-        (Available in SimpleGUI of CodeSkulptor
-        but *not in CodeSkulptor documentation*!)
-
-        :param position: (int or float, int or float)
-                         or [int or float, int or float]
-        :param color: str
-        """
-        assert isinstance(position, tuple) or isinstance(position, list), \
-            type(position)
-        assert len(position) == 2, len(position)
-        assert isinstance(position[0], int) or isinstance(position[0], float),\
-            type(position[0])
-        assert isinstance(position[1], int) or isinstance(position[1], float),\
-            type(position[1])
-
-        assert isinstance(color, str), type(color)
-
-        color = _simpleguicolor_to_pygamecolor(color)
-
-        if color.a == 255:  # without alpha
-            self._pygame_surface.set_at(_pos_round(position), color)
-        elif color.a > 0:   # with alpha (not null)
-            s_alpha = pygame.Surface((1, 1), pygame.SRCALPHA)
-            s_alpha.set_at((0, 0), color)
-            self._pygame_surface.blit(s_alpha, _pos_round(position))
-
-    def draw_polygon(self,
-                     point_list,
-                     line_width, line_color,
-                     fill_color=None):
-        """
-        Draw a polygon from a list of points.
-        A segment is automatically drawed
-        between the last point and the first point.
-
-        If `fill color` is not None
-        then fill with this color.
-
-        If `line_width` > 1, ends are poorly made!
-
-        :param point_list: non empty (tuple or list)
-                           of ((int or float, int or float)
-                               or [int or float, int or float])
-        :param line_width: (int or float) > 0
-        :param line_color: str
-        :param fill_color: None or str
-        """
-        assert isinstance(point_list, tuple) or isinstance(point_list, list), \
-            type(point_list)
-        assert len(point_list) > 0, len(point_list)
-
-        if __debug__:
-            for point in point_list:
-                assert isinstance(point, tuple) or isinstance(point, list), \
-                    type(point)
-                assert len(point) == 2, len(point)
-                assert (isinstance(point[0], int)
-                        or isinstance(point[0], float)), type(point[0])
-                assert (isinstance(point[1], int)
-                        or isinstance(point[1], float)), type(point[1])
-
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
-        assert line_width >= 0, line_width
-
-        assert isinstance(line_color, str), type(line_color)
-        assert (fill_color is None) or isinstance(fill_color, str), \
-            type(fill_color)
-
-        if len(point_list) == 1:
-            return
-
-        line_color = _simpleguicolor_to_pygamecolor(line_color)
-        if fill_color is not None:
-            fill_color = _simpleguicolor_to_pygamecolor(fill_color)
-
-        point_list = [_pos_round(point) for point in point_list]
-
-        if ((line_color.a == 255)
-                and ((fill_color is None) or (fill_color.a == 255))):
-            # Without alpha
-            if fill_color is not None:
-                pygame.draw.polygon(self._pygame_surface, fill_color,
-                                    point_list, 0)
-            if line_color != fill_color:
-                pygame.draw.lines(self._pygame_surface, line_color, True,
-                                  point_list, line_width)
-        elif ((line_color.a > 0)
-              or ((fill_color is not None) and (fill_color.a > 0))):
-            # With one or two alpha (not null)
-            s_alpha = pygame.Surface((self._width, self._height),
-                                     pygame.SRCALPHA)
-
-            if (fill_color is not None) and (fill_color.a > 0):
-                pygame.draw.polygon(s_alpha, fill_color,
-                                    point_list, 0)
-            if (line_color != fill_color) and (line_color.a > 0):
-                pygame.draw.lines(s_alpha, line_color, True,
-                                  point_list, line_width)
-
-            self._pygame_surface.blit(s_alpha, (0, 0))
-
-    def draw_polyline(self,
-                      point_list,
-                      line_width, line_color):
-        """
-        Draw line segments between a list of points.
-
-        If `line_width` > 1, ends are poorly made!
-
-        :param point_list: non empty (tuple or list)
-                           of ((int or float, int or float)
-                               or [int or float, int or float])
-        :param line_width: (int or float) > 0
-        :param line_color: str
-        """
-        assert isinstance(point_list, tuple) or isinstance(point_list, list), \
-            type(point_list)
-        assert len(point_list) > 0, len(point_list)
-
-        if __debug__:
-            for point in point_list:
-                assert isinstance(point, tuple) or isinstance(point, list), \
-                    type(point)
-                assert len(point) == 2, len(point)
-                assert (isinstance(point[0], int)
-                        or isinstance(point[0], float)), type(point[0])
-                assert (isinstance(point[1], int)
-                        or isinstance(point[1], float)), type(point[1])
-
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
-        assert line_width > 0, line_width
-
-        assert isinstance(line_color, str), type(line_color)
-
-        if len(point_list) == 1:
-            return
-
-        line_color = _simpleguicolor_to_pygamecolor(line_color)
-
-        point_list = [_pos_round(point) for point in point_list]
-
-        if line_color.a == 255:  # without alpha
-            pygame.draw.lines(self._pygame_surface, line_color, False,
-                              point_list, line_width)
-        elif line_color.a > 0:   # with alpha (not null)
-            s_alpha = pygame.Surface((self._width, self._height),
-                                     pygame.SRCALPHA)
-
-            pygame.draw.lines(s_alpha, line_color, False,
-                              point_list, line_width)
-
-            self._pygame_surface.blit(s_alpha, (0, 0))
-
-    def draw_text(self,
-                  text, point,
-                  font_size, font_color,
-                  font_face='serif',
-                  _font_size_coef=3/4):
-        """
-        Draw the `text` string at the position `point`.
-
-        (`point[0]` is the left of the text,
-        `point[1]` is the bottom of the text.)
-
-        If correponding font in Pygame is not founded,
-        then use the default `pygame.Font`.
-
-        `_font_size_coef` is used to adjust the vertical positioning.
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-
-        :param text: str
-        :param point: (int or float, int or float)
-                      or [int or float, int or float]
-        :param font_size: (int or float) >= 0
-        :param font_color: str
-        :param font_face: str == 'monospace', 'sans-serif', 'serif'
-        :param _font_size_coef: int or float
-
-        **(Alpha color channel don't work!!!)**
-        """
-        assert isinstance(text, str), type(text)
-
-        assert isinstance(point, tuple) or isinstance(point, list), type(point)
-        assert len(point) == 2, len(point)
-        assert isinstance(point[0], int) or isinstance(point[0], float), \
-            type(point[0])
-        assert isinstance(point[1], int) or isinstance(point[1], float), \
-            type(point[1])
-
-        assert isinstance(font_size, int) or isinstance(font_size, float), \
-            type(font_size)
-        assert font_size >= 0, font_size
-
-        assert isinstance(font_color, str), type(font_color)
-
-        assert isinstance(font_face, str), type(font_face)
-        assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face
-
-        assert (isinstance(_font_size_coef, int)
-                or isinstance(_font_size_coef, float)), type(_font_size_coef)
-
-        font_color = _simpleguicolor_to_pygamecolor(font_color)
-        font_size = int(round(font_size))
-
-        if (font_color.a > 0) and (font_size > 0):
-            font = _simpleguifontface_to_pygamefont(font_face, font_size)
-
-            pygame_surface_text = font.render(text, True, font_color)
-
-            if font_color.a == 255:  # without alpha
-                self._pygame_surface.blit(
-                    pygame_surface_text,
-                    (point[0],
-                     point[1] - font.get_height()*_font_size_coef))
-            else:                    # with alpha (not null)
-                # Don't work!!!
-                s_alpha = pygame.Surface((pygame_surface_text.get_width(),
-                                          pygame_surface_text.get_height()),
-                                         pygame.SRCALPHA)
-                s_alpha.blit(pygame_surface_text, (0, 0))
-                self._pygame_surface.blit(
-                    s_alpha,
-                    (point[0],
-                     point[1] - font.get_height()*_font_size_coef))
-
-
-class Control:
-    """
-    Control similar to SimpleGUI `Control` (button and label) of CodeSkulptor.
-    """
-
-    _button_background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['silver']
-                                       if _PYGAME_AVAILABLE
-                                       else None)
-    """
-    `pygame.Color` of the background in the button.
-    """
-
-    _button_selected_background_pygame_color = (pygame.Color('#f0f0f0')
-                                                if _PYGAME_AVAILABLE
-                                                else None)
-    """
-    `pygame.Color` of the background in the button when it has pressed.
-    """
-
-    _button_text_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
-                                 if _PYGAME_AVAILABLE
-                                 else None)
-    """
-    `pygame.Color` of text in the button.
-    """
-
-    _button_pygame_font = (pygame.font.Font(None, 20) if _PYGAME_AVAILABLE
-                           else None)
-    """
-    `pygame.Font` of text in the button.
-    """
-
-    _button_padding_x = 5
-    """
-    Horizontal padding in the button.
-    """
-
-    _button_padding_y = 3
-    """
-    Vertical padding in the button.
-    """
-
-    _label_text_pygame_color = _button_text_pygame_color
-    """
-    `pygame.Color` of the label.
-    """
-
-    _label_pygame_font = _button_pygame_font
-    """
-    `pygame.Font` of the label.
-    """
-
-    def __init__(self,
-                 frame,
-                 text,
-                 button_handler=None, button_width=0):
-        """
-        Set a button or a label in the control panel.
-
-        **Don't use directly**,
-        use `Frame.add_button()` or `Frame.add_label()`.
-
-        :param frame: Frame
-        :param text: str
-        :param button_handler: None or (function () -> *)
-        :param button_width: None or int or float
-        """
-        assert _PYGAME_AVAILABLE
-        assert isinstance(frame, Frame), type(frame)
-        assert isinstance(text, str), type(text)
-        assert (button_handler is None) or callable(button_handler), \
-            type(button_handler)
-        assert (isinstance(button_width, int)
-                or isinstance(button_width, float)), type(button_width)
-
-        self._frame_parent = frame
-
-        self._button_handler = button_handler  # if is None then it's a label,
-                                               # else it's a button
-        self._button_width = (max(0, int(round(button_width)))
-                              if button_handler is not None
-                              else None)
-
-        self._text = text
-        self._text_cut = _text_to_text_cut(
-            text,
-            (self._button_width if self._button_width
-             else self._frame_parent._control_width),
-            (Control._label_pygame_font if button_handler is not None
-             else Control._button_pygame_font))
-
-        self._x1 = 0
-        self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
-                    else 0)
-        self._x2 = None
-        self._y2 = None
-
-    def __repr__(self):
-        """
-        Return `'<Control object>'`.
-
-        :return: str
-        """
-        return '<Control object>'
-
-    def _mouse_left_button(self, pressed):
-        """
-        Deal a click of left mouse button on the zone of this `Control`.
-
-        If `pressed`
-        then select this Control,
-        else unselect and run the button handler (if exist).
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-
-        :param pressed: bool
-        """
-        assert isinstance(pressed, bool), type(pressed)
-
-        self._frame_parent._control_selected = (self if pressed
-                                                else None)
-        self._frame_parent._draw_controlpanel()
-        if (not pressed) and (self._button_handler is not None):
-            self._button_handler()
-
-    def _draw(self):
-        """
-        Draw the control object in the control panel.
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-        """
-        if self._button_handler is None:
-            self._draw_label()
-        else:
-            self._draw_button()
-
-    def _draw_button(self):
-        """
-        Draw the the control object as a button.
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-        """
-        # Prepare text
-        seq = []
-
-        width_max = 0
-        height_total = 0
-        for text in self._text_cut:
-            pygame_surface_text = Control._button_pygame_font.render(
-                text,
-                True,
-                Control._button_text_pygame_color)
-
-            text_width, text_height = pygame_surface_text.get_size()
-            width_max = max(width_max, text_width)
-            height_total += text_height
-
-            seq.append((pygame_surface_text, text_width, text_height))
-
-        # Button
-        width = (width_max + Control._button_padding_x*2
-                 if self._button_width is None
-                 else max(self._button_width,
-                          width_max + Control._button_padding_x*2))
-
-        height = height_total + Control._button_padding_y*2
-
-        pygame_surface_button = pygame.Surface((width, height))
-        pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)
-
-        for i, color in enumerate(
-            ((Control._button_selected_background_pygame_color
-              if self._frame_parent._control_selected == self
-              else Control._button_background_pygame_color),
-             Control._button_text_pygame_color)):
-            pygame.draw.polygon(pygame_surface_button, color,
-                                ((3, 0),
-                                 (width - 4, 0),
-                                 (width - 1, 3),
-                                 (width - 1, height - 4),
-                                 (width - 4, height - 1),
-                                 (3, height - 1),
-                                 (0, height - 4),
-                                 (0, 3)),
-                                i)  # button with rounded corners
-
-        # Draw text
-        y = Control._button_padding_y
-        for pygame_surface_text, text_width, text_height in seq:
-            pygame_surface_button.blit(pygame_surface_text,
-                                       ((width - text_width)//2,
-                                        y))
-            y += text_height
-
-        # Draw complete button
-        self._frame_parent._controlpanel_pygame_surface.blit(
-            pygame_surface_button, (self._x1, self._y1))
-
-        self._x2 = self._x1 + width
-        self._y2 = self._y1 + height
-
-    def _draw_label(self):
-        """
-        Draw the the control object as a label.
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-        """
-        if self._text_cut:
-            width_max = 0
-
-            self._y2 = self._y1
-
-            for text in self._text_cut:
-                pygame_surface_text = Control._label_pygame_font.render(
-                    text, True, Control._label_text_pygame_color)
-
-                width, height = pygame_surface_text.get_size()
-                width_max = max(width_max, width)
-
-                self._frame_parent._controlpanel_pygame_surface.blit(
-                    pygame_surface_text, (self._x1, self._y2))
-                self._y2 += height
-
-            self._x2 = self._x1 + width_max
-        else:
-            self._x2 = self._x1
-            self._y2 = self._y1 + Control._label_pygame_font.size('')[1]
-
-    def _pos_in(self, x, y):
-        """
-        If position (`x`, `y`) is on the zone of this `aControl`
-        then return `True`,
-        else return `False`.
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-
-        :param x: int or float
-        :param y: int or float
-
-        :return: bool
-        """
-        assert isinstance(x, int) or isinstance(x, float), type(x)
-        assert isinstance(y, int) or isinstance(y, float), type(y)
-
-        return ((self._x1 <= x <= self._x2)
-                and (self._y1 <= y <= self._y2))
-
-    def get_text(self):
-        """
-        Return the text of the button or the label.
-
-        (Available in SimpleGUI of CodeSkulptor
-        but *not in CodeSkulptor documentation*!)
-
-        :return: str
-        """
-        return self._text
-
-    def set_text(self, text):
-        """
-        Change the text of the button or the label.
-
-        :param text: str
-        """
-        assert isinstance(text, str), type(text)
-
-        self._text = text
-        self._text_cut = _text_to_text_cut(
-            text,
-            (self._button_width if self._button_width
-             else self._frame_parent._control_width),
-            (Control._label_pygame_font if self._button_handler is not None
-             else Control._button_pygame_font))
-
-        self._frame_parent._draw_controlpanel()
-
-
 class Frame:
     """
     Frame similar to SimpleGUI `Frame` of CodeSkulptor.
@@ -1345,6 +680,12 @@ class Frame:
         else None)
     """
     Background color of control panel.
+    """
+
+    _default_font = False
+    """
+    If `True`
+    then use Pygame default font instead serif, monospace...
     """
 
     _display_fps_average = False
@@ -1380,6 +721,12 @@ class Frame:
 
     If `False`
     then stop all timers when stop frame.
+    """
+
+    _pygamefonts_cached = {}
+    """
+    `Dict` {(`str` CodeSkulptor font face, `int` font size):
+            `pygame.font.Font`}.
     """
 
     _pygame_mode_flags = 0
@@ -1424,7 +771,7 @@ class Frame:
                               if _PYGAME_AVAILABLE
                               else None)
     """
-    `pygame.Font` of status key box.
+    `pygame.font.Font` of status key box.
     """
 
     _statusmouse_background_pygame_color = (
@@ -1448,8 +795,23 @@ class Frame:
                                 if _PYGAME_AVAILABLE
                                 else None)
     """
-    `pygame.Font` of status mouse box..
+    `pygame.font.Font` of status mouse box..
     """
+
+    @classmethod
+    def _pygamefonts_cached_clear(cls):
+        """
+        Empty the cache of Pygame fonts used.
+
+        Each font used with each size is cached to accelerate drawing.
+        If you use many many different sizes maybe use this function
+        to free memory.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        Side effect: Empty `Frame._pygamefonts_cached`.
+        """
+        cls._pygamefonts_cached = {}
 
     def __init__(self,
                  title,
@@ -2162,6 +1524,911 @@ class Frame:
             self.set_keyup_handler(check_key)
 
 
+class Canvas:
+    """
+    Canvas similar to SimpleGUI `Canvas` of CodeSkulptor.
+    """
+
+    _background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
+                                if _PYGAME_AVAILABLE
+                                else None)
+    """
+    Default `pygame.Color` of the background of the canvas.
+    """
+
+    def __init__(self,
+                 frame,
+                 canvas_width, canvas_height):
+        """
+        Set the canvas.
+
+        **Don't use directly**, a canvas is created by `Frame()`
+        and reachable by handler defined by `Frame.set_draw_handler()`.
+
+        :param frame: Frame (or None)
+        :param canvas_width: int >= 0
+        :param canvas_height: int >= 0
+        """
+        assert _PYGAME_AVAILABLE
+        assert (frame is None) or isinstance(frame, Frame), type(frame)
+
+        assert isinstance(canvas_width, int), type(canvas_width)
+        assert canvas_width >= 0, canvas_width
+
+        assert isinstance(canvas_height, int), type(canvas_height)
+        assert canvas_height >= 0, canvas_height
+
+        self._frame_parent = frame
+
+        self._width = canvas_width
+        self._height = canvas_height
+
+        self._background_pygame_color = Canvas._background_pygame_color
+
+        self._draw_handler = None
+
+        self._pygame_surface = pygame.Surface((canvas_width, canvas_height))
+
+        from math import pi
+
+        self.pi = pi
+
+    def __repr__(self):
+        """
+        Return `'<Canvas object>'`.
+
+        :return: str
+        """
+        return '<Canvas object>'
+
+    def _draw(self):
+        """
+        If `self._draw_handler` != `None`
+        then call it and update display of the canvas.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        if ((self._draw_handler is not None)
+                and (self._frame_parent is not None)):
+            self._pygame_surface.fill(self._background_pygame_color)
+
+            self._draw_handler(self)
+
+            if self._frame_parent._display_fps_average:
+                self._pygame_surface.blit(
+                    _simpleguifontface_to_pygamefont(None, 40)
+                    .render(str(round(self._frame_parent._fps_average)),
+                            True,
+                            _SIMPLEGUICOLOR_TO_PYGAMECOLOR['red']),
+                    (10, self._height - 40))
+
+            self._frame_parent._pygame_surface.blit(
+                self._pygame_surface,
+                (self._frame_parent._canvas_x_offset,
+                 self._frame_parent._canvas_y_offset))
+
+            pygame.display.update((self._frame_parent._canvas_x_offset,
+                                   self._frame_parent._canvas_y_offset,
+                                   self._width,
+                                   self._height))
+
+    def _save(self, filename):
+        """
+        Save the canvas in `filename`.
+
+        Supported formats are supported formats by Pygame to save:
+        TGA, PNG, JPEG or BMP
+        (see http://www.pygame.org/docs/ref/image.html#pygame.image.save ).
+
+        If `filename` extension is not recognized
+        then TGA format is used.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param filename: str
+        """
+        assert isinstance(filename, str), type(filename)
+
+        pygame.image.save(self._pygame_surface, filename)
+
+    def draw_circle(self,
+                    center_point, radius,
+                    line_width, line_color,
+                    fill_color=None):
+        """
+        Draw a circle.
+
+        If `fill_color` != `None`
+        then fill with this color.
+
+        :param center_point: (int or float, int or float)
+                             or [int or float, int or float]
+        :param radius: (int or float) > 0
+        :param line_width: (int or float) > 0
+        :param line_color: str
+        :param fill_color: None or str
+        """
+        assert (isinstance(center_point, tuple)
+                or isinstance(center_point, list)), type(center_point)
+        assert len(center_point) == 2, len(center_point)
+        assert (isinstance(center_point[0], int)
+                or isinstance(center_point[0], float)), type(center_point[0])
+        assert (isinstance(center_point[1], int)
+                or isinstance(center_point[1], float)), type(center_point[1])
+
+        assert isinstance(radius, int) or isinstance(radius, float), \
+            type(radius)
+        assert radius > 0, radius
+
+        assert isinstance(line_width, int) or isinstance(line_width, float), \
+            type(line_width)
+        assert line_width > 0, line_width
+
+        assert isinstance(line_color, str), type(line_color)
+        assert (fill_color is None) or isinstance(fill_color, str), \
+            type(fill_color)
+
+        line_width = (1 if line_width <= 1
+                      else int(round(line_width)))
+
+        radius = int(round(radius)) + int(round(line_width//2))
+
+        if radius > 1:
+            line_color = _simpleguicolor_to_pygamecolor(line_color)
+            if fill_color is not None:
+                fill_color = _simpleguicolor_to_pygamecolor(fill_color)
+
+            if ((line_color.a == 255)
+                    and ((fill_color is None) or (fill_color.a == 255))):
+                # Without alpha
+                if fill_color is not None:
+                    pygame.draw.circle(self._pygame_surface, fill_color,
+                                       _pos_round(center_point), radius, 0)
+                if line_color != fill_color:
+                    pygame.draw.circle(self._pygame_surface, line_color,
+                                       _pos_round(center_point),
+                                       radius, min(line_width, radius))
+            elif ((line_color.a > 0)
+                  or ((fill_color is not None) and (fill_color.a > 0))):
+                # With one or two alpha (not null)
+                s_alpha = pygame.Surface((radius*2, radius*2), pygame.SRCALPHA)
+
+                if (fill_color is not None) and (fill_color.a > 0):
+                    pygame.draw.circle(s_alpha, fill_color,
+                                       (radius, radius), radius, 0)
+                if (line_color != fill_color) and (line_color.a > 0):
+                    pygame.draw.circle(s_alpha, line_color,
+                                       (radius, radius),
+                                       radius, min(line_width, radius))
+
+                self._pygame_surface.blit(
+                    s_alpha,
+                    (int(round(center_point[0])) - radius,
+                     int(round(center_point[1])) - radius))
+        elif radius > 0:  # == 1
+            self.draw_point(center_point, line_color)
+
+    def draw_image(self, image,
+                   center_source, width_height_source,
+                   center_dest, width_height_dest,
+                   rotation=0):
+        """
+        Draw `image` on the canvas.
+
+        Specify center position and size of the source (`image`)
+        and center position and size of the destination (the canvas).
+
+        Size of the source allow get a piece of `image`.
+        If `width_height_source` is bigger than `image`
+        then draw nothing.
+
+        Size of the destination allow rescale the drawed image.
+
+        `rotation` specify a clockwise rotation in radians.
+
+        :param image: Image
+        :param center_source: (int or float, int or float)
+                              or [int or float, int or float]
+        :param width_height_source: ((int or float) >= 0, (int or float) >= 0)
+                                 or [(int or float) >= 0, (int or float) >= 0]
+        :param center_dest: (int or float, int or float)
+                            or [int or float, int or float]
+        :param width_height_dest: ((int or float) >= 0, (int or float) >= 0)
+                                  or [(int or float) >= 0, (int or float) >= 0]
+        :param rotation: int or float
+        """
+        assert isinstance(image, Image), type(image)
+
+        assert (isinstance(center_source, tuple)
+                or isinstance(center_source, list)), type(center_source)
+        assert len(center_source) == 2, len(center_source)
+        assert (isinstance(center_source[0], int)
+                or isinstance(center_source[0], float)), type(center_source[0])
+        assert (isinstance(center_source[1], int)
+                or isinstance(center_source[1], float)), type(center_source[1])
+
+        assert (isinstance(width_height_source, tuple)
+                or isinstance(width_height_source, list)), \
+            type(width_height_source)
+        assert len(width_height_source) == 2, len(width_height_source)
+        assert (isinstance(width_height_source[0], int)
+                or isinstance(width_height_source[0], float)), \
+            type(width_height_source[0])
+        assert width_height_source[0] >= 0, width_height_source[0]
+        assert (isinstance(width_height_source[1], int)
+                or isinstance(width_height_source[1], float)), \
+            type(width_height_source[1])
+        assert width_height_source[1] >= 0, width_height_source[1]
+
+        assert (isinstance(center_dest, tuple)
+                or isinstance(center_dest, list)), type(center_dest)
+        assert len(center_dest) == 2, len(center_dest)
+        assert (isinstance(center_dest[0], int)
+                or isinstance(center_dest[0], float)), type(center_dest[0])
+        assert (isinstance(center_dest[1], int)
+                or isinstance(center_dest[1], float)), type(center_dest[1])
+
+        assert (isinstance(width_height_dest, tuple)
+                or isinstance(width_height_dest, list)), \
+            type(width_height_dest)
+        assert len(width_height_dest) == 2, len(width_height_dest)
+        assert (isinstance(width_height_dest[0], int)
+                or isinstance(width_height_dest[0], float)), \
+            type(width_height_dest[0])
+        assert width_height_dest[0] >= 0, width_height_dest[0]
+        assert (isinstance(width_height_dest[1], int)
+                or isinstance(width_height_dest[1], float)), \
+            type(width_height_dest[1])
+        assert width_height_dest[1] >= 0, width_height_dest[1]
+
+        assert isinstance(rotation, int) or isinstance(rotation, float), \
+            type(rotation)
+
+        pygame_surface_image = image._pygame_surface
+
+        if pygame_surface_image is not None:
+            width_source, height_source = width_height_source
+
+            x0_source = center_source[0] - width_source/2
+            y0_source = center_source[1] - height_source/2
+
+            if x0_source >= 0:
+                x0_source = int(round(x0_source))
+            elif -1 < x0_source:
+                width_source -= x0_source
+                x0_source = 0
+            else:
+                return
+
+            if y0_source >= 0:
+                y0_source = int(round(y0_source))
+            elif -1 < y0_source:
+                height_source -= y0_source
+                y0_source = 0
+            else:
+                return
+
+            width_source = int(round(width_source))
+            height_source = int(round(height_source))
+
+            if ((x0_source + width_source > image.get_width() + 1)
+                    or (y0_source + height_source > image.get_height() + 1)):
+                # Bigger than image
+                return
+
+            if x0_source + width_source > image.get_width():
+                # Keep this image (seem too big, maybe rounding error)
+                width_source -= 1
+
+            if y0_source + height_source > image.get_height():
+                # Keep this image (seem too big, maybe rounding error)
+                height_source -= 1
+
+        if pygame_surface_image is not None:
+
+            if ((x0_source != 0)
+                    or (y0_source != 0)
+                    or (width_source != image.get_width())
+                    or (height_source != image.get_height())):
+                # Get a piece
+                pygame_surface_image = pygame_surface_image.subsurface(
+                    (x0_source, y0_source,
+                     width_source, height_source))
+
+            width_height_dest = _pos_round(width_height_dest)
+
+            if ((width_height_dest[0] != width_source)
+                    or (width_height_dest[1] != height_source)):
+                # Resize
+                pygame_surface_image = pygame.transform.scale(
+                    pygame_surface_image,
+                    width_height_dest)
+
+            if rotation != 0:
+                # Rotation
+                pygame_surface_image = pygame.transform.rotate(
+                    pygame_surface_image,
+                    -rotation*180/self.pi)
+
+            # Draw the result
+            self._pygame_surface.blit(
+                pygame_surface_image,
+                (int(round(center_dest[0]
+                           - pygame_surface_image.get_width()/2)),
+                 int(round(center_dest[1]
+                           - pygame_surface_image.get_height()/2))))
+
+    def draw_line(self,
+                  point1, point2,
+                  line_width, line_color):
+        """
+        Draw a line segment from point1 to point2.
+
+        :param point1: (int or float, int or float)
+                       or [int or float, int or float]
+        :param point2: (int or float, int or float)
+                       or [int or float, int or float]
+        :param line_width: (int or float) > 0
+        :param line_color: str
+        """
+        assert isinstance(point1, tuple) or isinstance(point1, list), \
+            type(point1)
+        assert len(point1) == 2, len(point1)
+        assert isinstance(point1[0], int) or isinstance(point1[0], float), \
+            type(point1[0])
+        assert isinstance(point1[1], int) or isinstance(point1[1], float), \
+            type(point1[1])
+
+        assert isinstance(point2, tuple) or isinstance(point2, list), \
+            type(point2)
+        assert len(point2) == 2, len(point2)
+        assert isinstance(point2[0], int) or isinstance(point2[0], float), \
+            type(point2[0])
+        assert isinstance(point2[1], int) or isinstance(point2[1], float), \
+            type(point2[1])
+
+        assert isinstance(line_width, int) or isinstance(line_width, float), \
+            type(line_width)
+        assert line_width > 0, line_width
+
+        assert isinstance(line_color, str), type(line_color)
+
+        line_color = _simpleguicolor_to_pygamecolor(line_color)
+
+        if line_color.a == 255:  # without alpha
+            pygame.draw.line(self._pygame_surface, line_color,
+                             _pos_round(point1), _pos_round(point2),
+                             int(round(line_width)))
+        elif line_color.a > 0:   # with alpha (not null)
+            x1, y1 = _pos_round(point1)
+            x2, y2 = _pos_round(point2)
+
+            width = abs(x2 - x1) + line_width*2
+            height = abs(y2 - y1) + line_width*2
+
+            x_min = min(x1, x2)
+            y_min = min(y1, y2)
+
+            s_alpha = pygame.Surface((width, height), pygame.SRCALPHA)
+            pygame.draw.line(s_alpha, line_color,
+                             (x1 - x_min + line_width,
+                              y1 - y_min + line_width),
+                             (x2 - x_min + line_width,
+                              y2 - y_min + line_width),
+                             int(round(line_width)))
+            self._pygame_surface.blit(s_alpha,
+                                      (x_min - line_width, y_min - line_width))
+
+    def draw_point(self, position, color):
+        """
+        Draw a point.
+
+        (Available in SimpleGUI of CodeSkulptor
+        but *not in CodeSkulptor documentation*!)
+
+        :param position: (int or float, int or float)
+                         or [int or float, int or float]
+        :param color: str
+        """
+        assert isinstance(position, tuple) or isinstance(position, list), \
+            type(position)
+        assert len(position) == 2, len(position)
+        assert isinstance(position[0], int) or isinstance(position[0], float),\
+            type(position[0])
+        assert isinstance(position[1], int) or isinstance(position[1], float),\
+            type(position[1])
+
+        assert isinstance(color, str), type(color)
+
+        color = _simpleguicolor_to_pygamecolor(color)
+
+        if color.a == 255:  # without alpha
+            self._pygame_surface.set_at(_pos_round(position), color)
+        elif color.a > 0:   # with alpha (not null)
+            s_alpha = pygame.Surface((1, 1), pygame.SRCALPHA)
+            s_alpha.set_at((0, 0), color)
+            self._pygame_surface.blit(s_alpha, _pos_round(position))
+
+    def draw_polygon(self,
+                     point_list,
+                     line_width, line_color,
+                     fill_color=None):
+        """
+        Draw a polygon from a list of points.
+        A segment is automatically drawed
+        between the last point and the first point.
+
+        If `fill color` is not None
+        then fill with this color.
+
+        If `line_width` > 1, ends are poorly made!
+
+        :param point_list: non empty (tuple or list)
+                           of ((int or float, int or float)
+                               or [int or float, int or float])
+        :param line_width: (int or float) > 0
+        :param line_color: str
+        :param fill_color: None or str
+        """
+        assert isinstance(point_list, tuple) or isinstance(point_list, list), \
+            type(point_list)
+        assert len(point_list) > 0, len(point_list)
+
+        if __debug__:
+            for point in point_list:
+                assert isinstance(point, tuple) or isinstance(point, list), \
+                    type(point)
+                assert len(point) == 2, len(point)
+                assert (isinstance(point[0], int)
+                        or isinstance(point[0], float)), type(point[0])
+                assert (isinstance(point[1], int)
+                        or isinstance(point[1], float)), type(point[1])
+
+        assert isinstance(line_width, int) or isinstance(line_width, float), \
+            type(line_width)
+        assert line_width >= 0, line_width
+
+        assert isinstance(line_color, str), type(line_color)
+        assert (fill_color is None) or isinstance(fill_color, str), \
+            type(fill_color)
+
+        if len(point_list) == 1:
+            return
+
+        line_color = _simpleguicolor_to_pygamecolor(line_color)
+        if fill_color is not None:
+            fill_color = _simpleguicolor_to_pygamecolor(fill_color)
+
+        point_list = [_pos_round(point) for point in point_list]
+
+        if ((line_color.a == 255)
+                and ((fill_color is None) or (fill_color.a == 255))):
+            # Without alpha
+            if fill_color is not None:
+                pygame.draw.polygon(self._pygame_surface, fill_color,
+                                    point_list, 0)
+            if line_color != fill_color:
+                pygame.draw.lines(self._pygame_surface, line_color, True,
+                                  point_list, line_width)
+        elif ((line_color.a > 0)
+              or ((fill_color is not None) and (fill_color.a > 0))):
+            # With one or two alpha (not null)
+            s_alpha = pygame.Surface((self._width, self._height),
+                                     pygame.SRCALPHA)
+
+            if (fill_color is not None) and (fill_color.a > 0):
+                pygame.draw.polygon(s_alpha, fill_color,
+                                    point_list, 0)
+            if (line_color != fill_color) and (line_color.a > 0):
+                pygame.draw.lines(s_alpha, line_color, True,
+                                  point_list, line_width)
+
+            self._pygame_surface.blit(s_alpha, (0, 0))
+
+    def draw_polyline(self,
+                      point_list,
+                      line_width, line_color):
+        """
+        Draw line segments between a list of points.
+
+        If `line_width` > 1, ends are poorly made!
+
+        :param point_list: non empty (tuple or list)
+                           of ((int or float, int or float)
+                               or [int or float, int or float])
+        :param line_width: (int or float) > 0
+        :param line_color: str
+        """
+        assert isinstance(point_list, tuple) or isinstance(point_list, list), \
+            type(point_list)
+        assert len(point_list) > 0, len(point_list)
+
+        if __debug__:
+            for point in point_list:
+                assert isinstance(point, tuple) or isinstance(point, list), \
+                    type(point)
+                assert len(point) == 2, len(point)
+                assert (isinstance(point[0], int)
+                        or isinstance(point[0], float)), type(point[0])
+                assert (isinstance(point[1], int)
+                        or isinstance(point[1], float)), type(point[1])
+
+        assert isinstance(line_width, int) or isinstance(line_width, float), \
+            type(line_width)
+        assert line_width > 0, line_width
+
+        assert isinstance(line_color, str), type(line_color)
+
+        if len(point_list) == 1:
+            return
+
+        line_color = _simpleguicolor_to_pygamecolor(line_color)
+
+        point_list = [_pos_round(point) for point in point_list]
+
+        if line_color.a == 255:  # without alpha
+            pygame.draw.lines(self._pygame_surface, line_color, False,
+                              point_list, line_width)
+        elif line_color.a > 0:   # with alpha (not null)
+            s_alpha = pygame.Surface((self._width, self._height),
+                                     pygame.SRCALPHA)
+
+            pygame.draw.lines(s_alpha, line_color, False,
+                              point_list, line_width)
+
+            self._pygame_surface.blit(s_alpha, (0, 0))
+
+    def draw_text(self,
+                  text, point,
+                  font_size, font_color,
+                  font_face='serif',
+                  _font_size_coef=3/4):
+        """
+        Draw the `text` string at the position `point`.
+
+        (`point[0]` is the left of the text,
+        `point[1]` is the bottom of the text.)
+
+        If correponding font in Pygame is not founded,
+        then use the default `pygame.font.Font`.
+
+        `_font_size_coef` is used to adjust the vertical positioning.
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param text: str
+        :param point: (int or float, int or float)
+                      or [int or float, int or float]
+        :param font_size: (int or float) >= 0
+        :param font_color: str
+        :param font_face: str == 'monospace', 'sans-serif', 'serif'
+        :param _font_size_coef: int or float
+
+        **(Alpha color channel don't work!!!)**
+        """
+        assert isinstance(text, str), type(text)
+
+        assert isinstance(point, tuple) or isinstance(point, list), type(point)
+        assert len(point) == 2, len(point)
+        assert isinstance(point[0], int) or isinstance(point[0], float), \
+            type(point[0])
+        assert isinstance(point[1], int) or isinstance(point[1], float), \
+            type(point[1])
+
+        assert isinstance(font_size, int) or isinstance(font_size, float), \
+            type(font_size)
+        assert font_size >= 0, font_size
+
+        assert isinstance(font_color, str), type(font_color)
+
+        assert isinstance(font_face, str), type(font_face)
+        assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face
+
+        assert (isinstance(_font_size_coef, int)
+                or isinstance(_font_size_coef, float)), type(_font_size_coef)
+
+        font_color = _simpleguicolor_to_pygamecolor(font_color)
+        font_size = int(round(font_size))
+
+        if (font_color.a > 0) and (font_size > 0):
+            pygame_surface_text = _simpleguifontface_to_pygamefont(
+                font_face, font_size).render(text, True, font_color)
+
+            #if font_color.a == 255:  # without alpha
+            self._pygame_surface.blit(
+                pygame_surface_text,
+                (point[0],
+                 point[1] - pygame_surface_text.get_height()*_font_size_coef))
+            #else:                    # with alpha (not null)
+            #    # Don't work!!!
+            #    s_alpha = pygame.Surface((pygame_surface_text.get_width(),
+            #                              pygame_surface_text.get_height()),
+            #                             pygame.SRCALPHA)
+            #    s_alpha.blit(pygame_surface_text, (0, 0))
+            #    self._pygame_surface.blit(
+            #        s_alpha,
+            #        (point[0],
+            #         point[1]
+            #         - pygame_surface_text.get_height()*_font_size_coef))
+
+
+class Control:
+    """
+    Control similar to SimpleGUI `Control` (button and label) of CodeSkulptor.
+    """
+
+    _button_background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['silver']
+                                       if _PYGAME_AVAILABLE
+                                       else None)
+    """
+    `pygame.Color` of the background in the button.
+    """
+
+    _button_selected_background_pygame_color = (pygame.Color('#f0f0f0')
+                                                if _PYGAME_AVAILABLE
+                                                else None)
+    """
+    `pygame.Color` of the background in the button when it has pressed.
+    """
+
+    _button_text_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
+                                 if _PYGAME_AVAILABLE
+                                 else None)
+    """
+    `pygame.Color` of text in the button.
+    """
+
+    _button_pygame_font = (_simpleguifontface_to_pygamefont(None, 20)
+                           if _PYGAME_AVAILABLE
+                           else None)
+    """
+    `pygame.font.Font` of text in the button.
+    """
+
+    _button_padding_x = 5
+    """
+    Horizontal padding in the button.
+    """
+
+    _button_padding_y = 3
+    """
+    Vertical padding in the button.
+    """
+
+    _label_text_pygame_color = _button_text_pygame_color
+    """
+    `pygame.Color` of the label.
+    """
+
+    _label_pygame_font = _button_pygame_font
+    """
+    `pygame.font.Font` of the label.
+    """
+
+    def __init__(self,
+                 frame,
+                 text,
+                 button_handler=None, button_width=0):
+        """
+        Set a button or a label in the control panel.
+
+        **Don't use directly**,
+        use `Frame.add_button()` or `Frame.add_label()`.
+
+        :param frame: Frame
+        :param text: str
+        :param button_handler: None or (function () -> *)
+        :param button_width: None or int or float
+        """
+        assert _PYGAME_AVAILABLE
+        assert isinstance(frame, Frame), type(frame)
+        assert isinstance(text, str), type(text)
+        assert (button_handler is None) or callable(button_handler), \
+            type(button_handler)
+        assert (isinstance(button_width, int)
+                or isinstance(button_width, float)), type(button_width)
+
+        self._frame_parent = frame
+
+        self._button_handler = button_handler  # if is None then it's a label,
+                                               # else it's a button
+        self._button_width = (max(0, int(round(button_width)))
+                              if button_handler is not None
+                              else None)
+
+        self._text = text
+        self._text_cut = _text_to_text_cut(
+            text,
+            (self._button_width if self._button_width
+             else self._frame_parent._control_width),
+            (Control._label_pygame_font if button_handler is not None
+             else Control._button_pygame_font))
+
+        self._x1 = 0
+        self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
+                    else 0)
+        self._x2 = None
+        self._y2 = None
+
+    def __repr__(self):
+        """
+        Return `'<Control object>'`.
+
+        :return: str
+        """
+        return '<Control object>'
+
+    def _mouse_left_button(self, pressed):
+        """
+        Deal a click of left mouse button on the zone of this `Control`.
+
+        If `pressed`
+        then select this Control,
+        else unselect and run the button handler (if exist).
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param pressed: bool
+        """
+        assert isinstance(pressed, bool), type(pressed)
+
+        self._frame_parent._control_selected = (self if pressed
+                                                else None)
+        self._frame_parent._draw_controlpanel()
+        if (not pressed) and (self._button_handler is not None):
+            self._button_handler()
+
+    def _draw(self):
+        """
+        Draw the control object in the control panel.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        if self._button_handler is None:
+            self._draw_label()
+        else:
+            self._draw_button()
+
+    def _draw_button(self):
+        """
+        Draw the the control object as a button.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        # Prepare text
+        seq = []
+
+        width_max = 0
+        height_total = 0
+        for text in self._text_cut:
+            pygame_surface_text = Control._button_pygame_font.render(
+                text,
+                True,
+                Control._button_text_pygame_color)
+
+            text_width, text_height = pygame_surface_text.get_size()
+            width_max = max(width_max, text_width)
+            height_total += text_height
+
+            seq.append((pygame_surface_text, text_width, text_height))
+
+        # Button
+        width = (width_max + Control._button_padding_x*2
+                 if self._button_width is None
+                 else max(self._button_width,
+                          width_max + Control._button_padding_x*2))
+
+        height = height_total + Control._button_padding_y*2
+
+        pygame_surface_button = pygame.Surface((width, height))
+        pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)
+
+        for i, color in enumerate(
+            ((Control._button_selected_background_pygame_color
+              if self._frame_parent._control_selected == self
+              else Control._button_background_pygame_color),
+             Control._button_text_pygame_color)):
+            pygame.draw.polygon(pygame_surface_button, color,
+                                ((3, 0),
+                                 (width - 4, 0),
+                                 (width - 1, 3),
+                                 (width - 1, height - 4),
+                                 (width - 4, height - 1),
+                                 (3, height - 1),
+                                 (0, height - 4),
+                                 (0, 3)),
+                                i)  # button with rounded corners
+
+        # Draw text
+        y = Control._button_padding_y
+        for pygame_surface_text, text_width, text_height in seq:
+            pygame_surface_button.blit(pygame_surface_text,
+                                       ((width - text_width)//2,
+                                        y))
+            y += text_height
+
+        # Draw complete button
+        self._frame_parent._controlpanel_pygame_surface.blit(
+            pygame_surface_button, (self._x1, self._y1))
+
+        self._x2 = self._x1 + width
+        self._y2 = self._y1 + height
+
+    def _draw_label(self):
+        """
+        Draw the the control object as a label.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        if self._text_cut:
+            width_max = 0
+
+            self._y2 = self._y1
+
+            for text in self._text_cut:
+                pygame_surface_text = Control._label_pygame_font.render(
+                    text, True, Control._label_text_pygame_color)
+
+                width, height = pygame_surface_text.get_size()
+                width_max = max(width_max, width)
+
+                self._frame_parent._controlpanel_pygame_surface.blit(
+                    pygame_surface_text, (self._x1, self._y2))
+                self._y2 += height
+
+            self._x2 = self._x1 + width_max
+        else:
+            self._x2 = self._x1
+            self._y2 = self._y1 + Control._label_pygame_font.size('')[1]
+
+    def _pos_in(self, x, y):
+        """
+        If position (`x`, `y`) is on the zone of this `aControl`
+        then return `True`,
+        else return `False`.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param x: int or float
+        :param y: int or float
+
+        :return: bool
+        """
+        assert isinstance(x, int) or isinstance(x, float), type(x)
+        assert isinstance(y, int) or isinstance(y, float), type(y)
+
+        return ((self._x1 <= x <= self._x2)
+                and (self._y1 <= y <= self._y2))
+
+    def get_text(self):
+        """
+        Return the text of the button or the label.
+
+        (Available in SimpleGUI of CodeSkulptor
+        but *not in CodeSkulptor documentation*!)
+
+        :return: str
+        """
+        return self._text
+
+    def set_text(self, text):
+        """
+        Change the text of the button or the label.
+
+        :param text: str
+        """
+        assert isinstance(text, str), type(text)
+
+        self._text = text
+        self._text_cut = _text_to_text_cut(
+            text,
+            (self._button_width if self._button_width
+             else self._frame_parent._control_width),
+            (Control._label_pygame_font if self._button_handler is not None
+             else Control._button_pygame_font))
+
+        self._frame_parent._draw_controlpanel()
+
+
 class Image:
     """
     Image similar to SimpleGUI `Image` of CodeSkulptor.
@@ -2429,7 +2696,7 @@ class TextAreaControl:
 
     _input_pygame_font = Control._label_pygame_font
     """
-    `pygame.Font` of the text in the input box.
+    `pygame.font.Font` of the text in the input box.
     """
 
     _input_selected_background_pygame_color = (
@@ -2446,7 +2713,7 @@ class TextAreaControl:
 
     _label_pygame_font = _input_pygame_font
     """
-    `pygame.Font` of the label of the input box.
+    `pygame.font.Font` of the label of the input box.
     """
 
     def __init__(self,
@@ -2713,7 +2980,7 @@ class Timer:
 
         Side effect: Empty `Timer._timers_running`.
         """
-        for timer in tuple(Timer._timers_running.values()):
+        for timer in tuple(cls._timers_running.values()):
             timer.stop()
 
     def __init__(self, interval, timer_handler):
@@ -2797,226 +3064,6 @@ class Timer:
             self._timer = None
 
             del Timer._timers_running[id(self)]
-
-
-#
-# Private function
-###################
-def _pos_round(position):
-    """
-    Returns the rounded `position`.
-
-    **Don't require Pygame.**
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-
-    :param position: (int or float, int or float)
-                     or [int or float, int or float]
-
-    :return: (int, int)
-    """
-    assert isinstance(position, tuple) or isinstance(position, list), \
-        type(position)
-    assert len(position) == 2, len(position)
-    assert isinstance(position[0], int) or isinstance(position[0], float), \
-        type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), \
-        type(position[1])
-
-    return (int(round(position[0])), int(round(position[1])))
-
-
-def _pygamekey_to_simpleguikey(key):
-    """
-    Return the code use by SimpleGUI to representing
-    the `key` expressed by Pygame.
-
-    If `key` not in _PYGAMEKEY_TO_SIMPLEGUIKEY
-    then return `key`.
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-
-    :param key: int >= 0
-
-    :return: int >= 0
-    """
-    assert _PYGAME_AVAILABLE
-    assert isinstance(key, int), type(key)
-    assert key >= 0, key
-
-    return _PYGAMEKEY_TO_SIMPLEGUIKEY.get(key, key)
-
-
-def _set_option_from_argv():
-    """
-    Read arguments in sys.argv
-    and set options.
-
-    * ``--display-fps``: Display FPS average on the canvas.
-    * ``--fullscreen```: Fullscreen mode.
-    * ``--keep-timers``: Keep running timers when close frame without ask.
-    * ``--no-border``: Window without border.
-    * ``--no-controlpanel``: Hide the control panel (and status boxes).
-    * ``--no-load-sound``: Don't load any sound.
-    * ``--no-status``: Hide two status boxes.
-    * ``--stop-timers``: Stop all timers when close frame.
-
-    If an argument not in this list
-    then next arguments are ignored.
-
-    This function is executed when the module is imported.
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-    """
-    from sys import argv
-
-    for arg in argv[1:]:
-        if arg == '--display-fps':
-            Frame._display_fps_average = True
-        elif arg == '--fullscreen':
-            Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.HWSURFACE
-        elif arg == '--keep-timers':
-            Frame._keep_timers = True
-        elif arg == '--no-border':
-            Frame._pygame_mode_flags |= pygame.NOFRAME
-        elif arg == '--no-controlpanel':
-            Frame._hide_controlpanel = True
-        elif arg == '--no-load-sound':
-            Sound._load_disabled = True
-        elif arg == '--no-status':
-            Frame._hide_status = True
-        elif arg == '--stop-timers':
-            Frame._keep_timers = False
-        else:
-            break
-
-
-def _simpleguicolor_to_pygamecolor(color,
-                                   default_pygame_color=_SIMPLEGUICOLOR_TO_PYGAMECOLOR['_default']):
-    """
-    Return a `pygame.Color` object
-    corresponding to the SimpleGUI string `color` in format:
-
-    * '#rrggbb',
-    * '#rgb',
-    * 'rbg(red,blue,green)',
-    * 'rgba(red,blue,green,alpha)'
-    * or constant name in `_SIMPLEGUICOLOR_TO_PYGAMECOLOR` \
-      (`default_pygame_color` if the constant name are not founded).
-
-    See http://www.opimedia.be/DS/mementos/colors.htm
-
-    :param color: str
-    :param default_pygame_color: pygame.Color
-
-    :return: pygame.Color
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-    """
-    assert _PYGAME_AVAILABLE
-    assert isinstance(color, str), type(color)
-    assert len(color) > 0
-    #assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
-    #        or (color[:4] == 'rgb(')
-    #        or (color[:5] == 'rgba(')
-    #        or (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
-
-    if color[0] == '#':        # format #rrggbb or #rgb
-        return pygame.Color(color if len(color) == 7
-                            else '#' + color[1]*2 + color[2]*2 + color[3]*2)
-    elif color[:4] == 'rgb(':  # format rbg(red,blue,green)
-        assert color[-1] == ')', color
-
-        color = color[4:-1].split(',')
-
-        assert len(color) == 3, color
-
-        return pygame.Color(max(0, min(255, int(color[0]))),
-                            max(0, min(255, int(color[1]))),
-                            max(0, min(255, int(color[2]))))
-    elif color[:5] == 'rgba(':  # format rbga(red,blue,green,alpha)
-        assert color[-1] == ')', color
-
-        color = color[5:-1].split(',')
-
-        assert len(color) == 4, color
-
-        return pygame.Color(max(0, min(255, int(color[0]))),
-                            max(0, min(255, int(color[1]))),
-                            max(0, min(255, int(color[2]))),
-                            max(0, min(255, int(round(float(color[3])*255)))))
-    else:                       # constant name
-        return _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
-                                                  default_pygame_color)
-
-
-def _simpleguifontface_to_pygamefont(font_face, font_size):
-    """
-    Return a `pygame.Font` object
-    corresponding to the SimpleGUI `font_face` name
-    by using the `_SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME` dictionary.
-
-    If correponding font is not founded,
-    then return the default `pygame.Font`.
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-
-    :param font_face: str == key of _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME
-    :param font_size: int > 0
-
-    :return: pygame.Font
-    """
-    assert isinstance(font_face, str), type(font_face)
-    assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face
-
-    assert isinstance(font_size, int), type(font_size)
-    assert font_size > 0, font_size
-
-    try:
-        return pygame.font.SysFont(
-            _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME[font_face],
-            font_size)
-    except:
-        return pygame.font.SysFont(None, font_size)
-
-
-def _text_to_text_cut(text, width, pygame_font):
-    """
-    Cut `text` in pieces smaller `width`.
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-
-    :param text: str
-    :param width: int >= 0
-    :param pygame_font: pygame.font.Font
-
-    :return: tuple of str
-    """
-    assert isinstance(text, str), type(text)
-
-    assert isinstance(width, int), type(width)
-    assert width >= 0, width
-
-    assert isinstance(pygame_font, pygame.font.Font), type(pygame_font)
-
-    text_cut = []
-
-    line = ''
-    tested = ''
-    for piece in text.split():
-        tested = (line + ' ' + piece if line
-                  else piece)
-        if pygame_font.size(tested)[0] <= width:
-            line = tested
-        else:
-            if line:
-                text_cut.append(line)
-            line = piece
-
-    if line:
-        text_cut.append(line)
-
-    return tuple(text_cut)
 
 
 #
