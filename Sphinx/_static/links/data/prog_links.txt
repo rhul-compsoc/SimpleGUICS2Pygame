@@ -200,6 +200,14 @@ http://www.codeskulptor.org/#user16_v1lBHnqvBe_7.py
 Pacific Defender (Bob <span class="small-caps">Lewis</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8209" target="_blank"><i>Hall of Shame!;) Pacific Defender(basic 1942 style game)</i></a>
 
+http://www.codeskulptor.org/#user16_Iuy7xIrAnI_25.py
+Pitfall (Corrado <span class="small-caps">Musumeci</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8266" target="_blank"><i>Pitfall - MyFOG Berlin Game Jam</i></a>
+
+http://www.codeskulptor.org/#user16_F5TtoDE53v_0.py
+<strong>Pitfall</strong> (Corrado <span class="small-caps">Musumeci</span>) ADAPATED
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8266" target="_blank"><i>Pitfall - MyFOG Berlin Game Jam</i></a>
+
 http://www.codeskulptor.org/#user16_ptoKdvNGaY_0.py
 <strong>Pacific Defender</strong> (Bob <span class="small-caps">Lewis</span>) ADAPTED
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8209" target="_blank"><i>Hall of Shame!;) Pacific Defender(basic 1942 style game)</i></a>
