@@ -39,7 +39,7 @@ setup(name='SimpleGUICS2Pygame',
 
       keywords='CodeSkulptor SimpleGUI Pygame game education',
       classifiers=(
-          'Development Status :: 5 - Production/Stable'
+          'Development Status :: 5 - Production/Stable',
 
           'Environment :: MacOS X',
           'Environment :: Win32 (MS Windows)',
