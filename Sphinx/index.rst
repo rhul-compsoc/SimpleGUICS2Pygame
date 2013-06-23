@@ -203,6 +203,7 @@ Options
 When you run a program you can use following options:
 ``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
 
+* ``--default-font``: Use Pygame default font instead serif, monospace...
 * ``--display-fps``: Display FPS average on the canvas.
 * ``--fullscreen``: Fullscreen mode.
 * ``--keep-timers``: Keep running timers when close frame without ask.

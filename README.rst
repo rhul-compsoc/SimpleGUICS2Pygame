@@ -66,6 +66,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Memoization of Pygame fonts.
+  - Added ``--default-font`` option.
+
   - Many cosmetic changes to respect PEP 8.
   - Updated media and CodeSkulptor programs links.
 
