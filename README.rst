@@ -99,6 +99,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 * 00.91.00 --- June 23, 2013
+
   - Changed installation program to build distribution (now ``setuptools`` is used).
   - Added ``--print-load-medias`` option.
   - Added ``script/SimpleGUICS2Pygame_check.py`` and moved and updated ``cs2both.py``.
