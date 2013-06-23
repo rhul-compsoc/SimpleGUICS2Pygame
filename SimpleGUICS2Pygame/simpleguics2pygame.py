@@ -475,13 +475,17 @@ def _set_option_from_argv():
     If an argument not in this list
     then next arguments are ignored.
 
+    Arguments used by SimpleGUICS2Pygame is deleted to sys.argv.
+
     This function is executed when the module is imported.
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
     from sys import argv
 
+    nb = 0
     for arg in argv[1:]:
+        nb += 1
         if arg == '--default-font':
             Frame._default_font = True
         elif arg == '--display-fps':
@@ -501,7 +505,11 @@ def _set_option_from_argv():
         elif arg == '--stop-timers':
             Frame._keep_timers = False
         else:
+            nb -= 1
+
             break
+
+    del argv[1:nb + 1]
 
 
 def _simpleguicolor_to_pygamecolor(color,

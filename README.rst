@@ -66,6 +66,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Now, ``_set_option_from_argv()`` deleted SimpleGUICS2Pygame options after use.
+
   - Memoization of Pygame fonts.
   - Added ``--default-font`` option.
 
