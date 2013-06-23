@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
         import pygame
 
-        print(cmd, 'ok')
+        print(cmd, 'ok - Version', pygame.version.ver)
     except Exception as e:
         print(cmd, 'failed!', e)
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
         import SimpleGUICS2Pygame
 
-        print(cmd, 'ok')
+        print(cmd, 'ok - Version', SimpleGUICS2Pygame._VERSION)
     except Exception as e:
         print(cmd, 'failed!', e)
 
