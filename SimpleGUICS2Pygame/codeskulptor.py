@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor (June 10, 2013)
+codeskulptor (June 22, 2013)
 
 Replace the codeskulptor module of CodeSkulptor.
 
@@ -12,12 +12,15 @@ GPLv3 --- Copyright (C) 2013 Olivier Pirson
 http://www.opimedia.be/
 """
 
+
 def file2url(filename):
     """
     Return a completed CodeSkulptor URL ressource from a short `filename`.
 
-    | Example given in the `CodeSkulptor documentation`_: `file2url('assets-Quick_fox.txt')`
-    | return `'http://codeskulptor-assets.commondatastorage.googleapis.com/assets-Quick_fox.txt'`
+    Example given in the `CodeSkulptor documentation`_:
+    `file2url('assets-Quick_fox.txt')`
+    return
+    `'http://codeskulptor-assets.commondatastorage.googleapis.com/assets-Quick_fox.txt'`
 
     .. _`CodeSkulptor documentation`: http://www.codeskulptor.org/docs.html
 
@@ -32,7 +35,8 @@ def file2url(filename):
 
     m = search('^([a-zA-Z][a-zA-Z0-9]*)[_-]', filename)
 
-    if m == None:
+    if m is None:
         raise ValueError("invalid filename: '{}'".format(filename))
 
-    return 'http://codeskulptor-{}.commondatastorage.googleapis.com/{}'.format(m.group(1), filename)
+    return ('http://codeskulptor-{}.commondatastorage.googleapis.com/{}'
+            .format(m.group(1), filename))

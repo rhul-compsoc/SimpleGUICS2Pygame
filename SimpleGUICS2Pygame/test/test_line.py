@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw lines. (June 19, 2013)
+Test draw lines. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,6 +20,8 @@ except:
 
     SIMPLEGUICS2PYGAME = True
 
+    simplegui.Frame._hide_status = True
+
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
@@ -35,17 +37,14 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test line'
 
 WIDTH = 400
 HEIGHT = 200
 
 
-
 state_colors = True
 state_direction = True
-
 
 
 def draw(canvas):
@@ -59,16 +58,20 @@ def draw(canvas):
 
     if state_direction:
         for i in range(0, HEIGHT + 1, 20):
-            canvas.draw_line((i, i), (WIDTH - i/2, i), 9, ('White' if state_colors
-                                                           else 'Red'))
-            canvas.draw_line((i, i), (WIDTH - i/2, i), 3, ('Red' if state_colors
-                                                           else 'White'))
+            canvas.draw_line((i, i), (WIDTH - i/2, i), 9,
+                             ('White' if state_colors
+                              else 'Red'))
+            canvas.draw_line((i, i), (WIDTH - i/2, i), 3,
+                             ('Red' if state_colors
+                              else 'White'))
     else:
         for i in range(0, WIDTH + 1, 20):
-            canvas.draw_line((i, i), (i, HEIGHT - i/2), 9, ('White' if state_colors
-                                                            else 'Red'))
-            canvas.draw_line((i, i), (i, HEIGHT - i/2), 3, ('Red' if state_colors
-                                                            else 'White'))
+            canvas.draw_line((i, i), (i, HEIGHT - i/2), 9,
+                             ('White' if state_colors
+                              else 'Red'))
+            canvas.draw_line((i, i), (i, HEIGHT - i/2), 3,
+                             ('Red' if state_colors
+                              else 'White'))
 
 
 def switch_colors():
@@ -87,7 +90,6 @@ def switch_direction():
     global state_direction
 
     state_direction = not state_direction
-
 
 
 # Main

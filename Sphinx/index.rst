@@ -32,8 +32,8 @@ Require Pygame_
 
 `Online HTML documentation`_ on `DragonSoft DS`_ website.
 
-Sources on Bitbucket:
-https://bitbucket.org/OPiMedia/simpleguics2pygame .
+| Sources and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
+| and on PyPI: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
@@ -120,8 +120,8 @@ You can write this
         import codeskulptor
         import simplegui
 
-        import user16_WPKkkxSR6z6xQh1 as codeskulptor_lib
-        import user16_Qpss15rD1ETZL7l as simplegui_lib
+        import user16_DmDJwXW1dy0Sw1u as codeskulptor_lib
+        import user16_v0hIgQGF5JqtOUQ as simplegui_lib
     except:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui

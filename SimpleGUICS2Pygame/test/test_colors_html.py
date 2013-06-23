@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML. (June 19, 2013)
+Test colors HTML. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -12,7 +12,7 @@ http://www.opimedia.be/
 """
 
 try:
-    from user16_WPKkkxSR6z6xQh1 import hex2, hex_fig
+    from user16_DmDJwXW1dy0Sw1u import hex2, hex_fig
 
     import simplegui
 
@@ -23,6 +23,8 @@ except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     SIMPLEGUICS2PYGAME = True
+
+    simplegui.Frame._hide_status = True
 
 
 if SIMPLEGUICS2PYGAME:
@@ -39,12 +41,10 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test colors HTML'
 
 WIDTH = 512
 HEIGHT = 180
-
 
 
 def draw(canvas):
@@ -54,17 +54,24 @@ def draw(canvas):
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
     for i in range(16):  # Format #rgb
-        canvas.draw_line((i*32, 10), ((i + 1)*32, 10), 10, '#' + hex_fig(i)*3)
-        canvas.draw_line((i*32, 30), ((i + 1)*32, 30), 10, '#' + hex_fig(i) + '00')
-        canvas.draw_line((i*32, 50), ((i + 1)*32, 50), 10, '#0' + hex_fig(i) + '0')
-        canvas.draw_line((i*32, 70), ((i + 1)*32, 70), 10, '#00' + hex_fig(i))
+        canvas.draw_line((i*32, 10), ((i + 1)*32, 10), 10,
+                         '#' + hex_fig(i)*3)
+        canvas.draw_line((i*32, 30), ((i + 1)*32, 30), 10,
+                         '#' + hex_fig(i) + '00')
+        canvas.draw_line((i*32, 50), ((i + 1)*32, 50), 10,
+                         '#0' + hex_fig(i) + '0')
+        canvas.draw_line((i*32, 70), ((i + 1)*32, 70), 10,
+                         '#00' + hex_fig(i))
 
     for i in range(256):  # Format #rrggbb
-        canvas.draw_line((i*2, 110), ((i + 1)*2, 110), 10, '#' + hex2(i)*3)
-        canvas.draw_line((i*2, 130), ((i + 1)*2, 130), 10, '#' + hex2(i) + '0000')
-        canvas.draw_line((i*2, 150), ((i + 1)*2, 150), 10, '#00' + hex2(i) + '00')
-        canvas.draw_line((i*2, 170), ((i + 1)*2, 170), 10, '#0000' + hex2(i))
-
+        canvas.draw_line((i*2, 110), ((i + 1)*2, 110), 10,
+                         '#' + hex2(i)*3)
+        canvas.draw_line((i*2, 130), ((i + 1)*2, 130), 10,
+                         '#' + hex2(i) + '0000')
+        canvas.draw_line((i*2, 150), ((i + 1)*2, 150), 10,
+                         '#00' + hex2(i) + '00')
+        canvas.draw_line((i*2, 170), ((i + 1)*2, 170), 10,
+                         '#0000' + hex2(i))
 
 
 # Main

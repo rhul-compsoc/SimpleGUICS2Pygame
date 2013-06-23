@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (June 19, 2013)
+Test dir() content. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -37,9 +37,7 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test dir'
-
 
 
 """
@@ -48,27 +46,31 @@ Results of dir() in CodeSkulptor
 CODESKULPTOR_DIRS = {
     'simplegui': ('__name__',
                   'KEY_MAP',
-                  'Canvas', 'Control', 'Frame', 'Image', 'Sound', 'TextAreaControl', 'Timer',
-                  'create_frame', 'create_invisible_canvas', 'create_sound', 'create_timer',
+                  'Canvas', 'Control', 'Frame', 'Image',
+                  'Sound', 'TextAreaControl', 'Timer',
+                  'create_frame', 'create_invisible_canvas',
+                  'create_sound', 'create_timer',
                   'load_image', 'load_sound'),
-    'Canvas' : ('__init__', '__module__',
-                'draw_circle', 'draw_image', 'draw_line', 'draw_point', 'draw_polygon', 'draw_polyline', 'draw_text'),
-    'Control' : ('__init__', '__module__',
-                 'get_text', 'set_text'),
-    'Frame' : ('__init__', '__module__',
-               'add_button', 'add_input', 'add_label',
-               'get_canvas_image', 'get_canvas_textwidth',
-               'set_canvas_background', 'set_draw_handler', 'set_keydown_handler',
-               'set_keyup_handler', 'set_mouseclick_handler', 'set_mousedrag_handler',
-               'start', 'stop'),
-    'Image' : ('__init__', '__module__',
-               'get_height', 'get_width'),
-    'Sound' : ('__init__', '__module__',
-               'pause', 'play', 'rewind', 'set_volume'),
-    'TextAreaControl' : ('__init__', '__module__',
-                         'get_text', 'set_text'),
-    'Timer' : ('__init__', '__module__',
-               'get_interval', 'is_running', 'start', 'stop')}
+    'Canvas': ('__init__', '__module__',
+               'draw_circle', 'draw_image', 'draw_line',
+               'draw_point', 'draw_polygon', 'draw_polyline', 'draw_text'),
+    'Control': ('__init__', '__module__',
+                'get_text', 'set_text'),
+    'Frame': ('__init__', '__module__',
+              'add_button', 'add_input', 'add_label',
+              'get_canvas_image', 'get_canvas_textwidth',
+              'set_canvas_background', 'set_draw_handler',
+              'set_keydown_handler', 'set_keyup_handler',
+              'set_mouseclick_handler', 'set_mousedrag_handler',
+              'start', 'stop'),
+    'Image': ('__init__', '__module__',
+              'get_height', 'get_width'),
+    'Sound': ('__init__', '__module__',
+              'pause', 'play', 'rewind', 'set_volume'),
+    'TextAreaControl': ('__init__', '__module__',
+                        'get_text', 'set_text'),
+    'Timer': ('__init__', '__module__',
+              'get_interval', 'is_running', 'start', 'stop')}
 
 """
 Results of dir() in this environment
@@ -87,8 +89,8 @@ DIRS = {
 Sequence of elements to compare.
 """
 LIST = ('simplegui',
-        'Canvas', 'Control', 'Frame', 'Image', 'Sound', 'TextAreaControl', 'Timer')
-
+        'Canvas', 'Control', 'Frame', 'Image',
+        'Sound', 'TextAreaControl', 'Timer')
 
 
 def print_cmp_seq(a, title_a,
@@ -114,7 +116,8 @@ def print_cmp_seq(a, title_a,
 
     indent = max(max([len(i) for i in a]), len(title_a))
 
-    head = (title_a + ' '*indent)[:indent] + '\t!= ' + title_b + '\n' + '-'*(indent + 11 + len(title_b))
+    head = ((title_a + ' '*indent)[:indent]
+            + '\t!= ' + title_b + '\n' + '-'*(indent + 11 + len(title_b)))
     for i in ab:
         if (i[:2] == '__') and (i[-2:] == '__') and (i != '__init__'):
             continue
@@ -134,7 +137,6 @@ def print_cmp_seq(a, title_a,
 
     if not head:
         print('')
-
 
 
 # Main

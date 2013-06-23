@@ -20,8 +20,8 @@ Require Pygame_
 
 `Online HTML documentation`_ on `DragonSoft DS`_ website.
 
-Sources on Bitbucket:
-https://bitbucket.org/OPiMedia/simpleguics2pygame .
+| Sources and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
+| and on PyPI: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
@@ -66,6 +66,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Many cosmetic changes to respect PEP 8.
+  - Updated media and CodeSkulptor programs links.
+
   - Some precisions and English corrections in the documentation.
   - Added some CodeSkulptor programs links.
 

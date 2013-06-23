@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (June 19, 2013)
+Mandelbrot Set. (June 22, 2013)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -16,7 +16,7 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user16_WPKkkxSR6z6xQh1 import codeskulptor_is, hex2
+    from user16_DmDJwXW1dy0Sw1u import codeskulptor_is, hex2
 
     import simplegui
 except:
@@ -27,15 +27,14 @@ except:
     simplegui.Frame._hide_status = True
 
 
-
 #
 # Global constants
 ###################
-_FPS_AVERAGE = not codeskulptor_is()  # draw FPS average (only with SimpleGUICS2Pygame)
+_FPS_AVERAGE = not codeskulptor_is()  # draw FPS average
+                                      #   (only with SimpleGUICS2Pygame)
 
 CANVAS_WIDTH = 256
 CANVAS_HEIGHT = 256
-
 
 
 #
@@ -55,7 +54,6 @@ z1_real = 1.0
 z1_imag = -1.5
 
 
-
 #
 # Functions
 ############
@@ -71,7 +69,7 @@ def draw_and_calculate(canvas):
     for y, line in enumerate(grid):
         for x, point in enumerate(line):
             color = point[3]
-            if color != None:
+            if color is not None:
                 canvas.draw_point((x, y), colors[color])
             else:
                 z = point[0]
@@ -81,7 +79,7 @@ def draw_and_calculate(canvas):
                 z_abs2 = z_real2 + z_imag2
 
                 if z_abs2 > 4:
-                    point[3] = color = point[2]%len(colors)  # color
+                    point[3] = color = point[2] % len(colors)  # color
                     canvas.draw_point((x, y), colors[color])
                 else:
                     c = point[1]
@@ -94,7 +92,8 @@ def draw_and_calculate(canvas):
         print('\nEnd.')
 
     if _FPS_AVERAGE:
-        canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20), 20, 'Black')
+        canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20),
+                         20, 'Black')
 
 
 def draw_only(canvas):
@@ -104,11 +103,12 @@ def draw_only(canvas):
     for y, line in enumerate(grid):
         for x, point in enumerate(line):
             color = point[3]
-            if color != None:
+            if color is not None:
                 canvas.draw_point((x, y), colors[color])
 
     if _FPS_AVERAGE:
-        canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20), 20, 'Black')
+        canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20),
+                         20, 'Black')
 
 
 def init():
@@ -124,9 +124,10 @@ def init():
 
     assert nb_iter_max < 256, nb_iter_max
 
-    colors = tuple(['#%s%s%s' % (hex2(255 - 256*int(math.log10(i)//nb_iter_max)),
-                                 hex2(255 - 256*i//nb_iter_max),
-                                 hex2(255 - 256*i//nb_iter_max))
+    colors = tuple(['#%s%s%s'
+                    % (hex2(255 - 256*int(math.log10(i)//nb_iter_max)),
+                       hex2(255 - 256*i//nb_iter_max),
+                       hex2(255 - 256*i//nb_iter_max))
                     for i in range(1, nb_iter_max)])
 
     nb_iter = 0
@@ -151,13 +152,13 @@ def init():
     print('\nNumber of iterations:')
 
 
-
 #
 # Main
 #######
 init()
 
-frame = simplegui.create_frame('Mandelbrot Viewer', CANVAS_WIDTH, CANVAS_HEIGHT)
+frame = simplegui.create_frame('Mandelbrot Viewer',
+                               CANVAS_WIDTH, CANVAS_HEIGHT)
 
 frame.add_button('Quit', frame.stop)
 

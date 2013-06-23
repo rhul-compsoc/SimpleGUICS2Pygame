@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (June 19, 2013)
+Test all other test_*.py. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -39,16 +39,17 @@ except:
     from cgi import escape
 
 
-
 # Main
 run_test = True
-if len(sys.argv) == 2: # to only compare images et make reports
+if len(sys.argv) == 2:  # to only compare images et make reports
     run_test = False
 
 PYTHON_VERSION = sys.version_info[0]
-print('Python {}: test all simpleguics2pygame'.format(PYTHON_VERSION), file = sys.stderr)
+print('Python {}: test all simpleguics2pygame'.format(PYTHON_VERSION),
+      file=sys.stderr)
 if not to_compare_imgs:
-    print('!PIL module not available: images comparaison impossible', file = sys.stderr)
+    print('!PIL module not available: images comparaison impossible',
+          file=sys.stderr)
 
 try:
     from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
@@ -76,14 +77,13 @@ if to_compare_imgs:
 
 for i, filename in enumerate(filenames):
     print('{}/{} - {}... '.format(i + 1, nb, filename),
-          end = '', file = sys.stderr)
+          end='', file=sys.stderr)
     sys.stderr.flush()
 
     if run_test:
-        errors[filename] = os.system('python{0} {1}.py {2}/{1}.png > {2}/{1}.log'
-                                     .format(PYTHON_VERSION,
-                                             filename,
-                                             dir_results))
+        errors[filename] = os.system(
+            'python{0} {1}.py {2}/{1}.png > {2}/{1}.log'
+            .format(PYTHON_VERSION, filename, dir_results))
     else:
         errors[filename] = 'skip running'
 
@@ -98,18 +98,20 @@ for i, filename in enumerate(filenames):
                 good_img = PIL.Image.open(good_path)
                 src_img = PIL.Image.open(src_path)
                 diff_img = PIL.ImageChops.difference(good_img, src_img)
-                imgs_diff[filename] = int(round(PIL.ImageStat.Stat(diff_img).rms[0]))
+                imgs_diff[filename] = int(round(
+                    PIL.ImageStat.Stat(diff_img).rms[0]))
             else:
-                imgs_diff[filename] = '{} missing'.format(good_path if not os.path.exists(good_path)
-                                                          else src_path)
+                imgs_diff[filename] = ('{} missing'
+                                       .format(good_path
+                                               if not os.path.exists(good_path)
+                                               else src_path))
 
     print((errors[filename] if errors[filename]
            else 'ok'),
           (imgs_diff[filename] if imgs_diff.get(filename)
            else ''),
-          file = sys.stderr)
+          file=sys.stderr)
     sys.stderr.flush()
-
 
 
 # Make HTLM report
@@ -125,20 +127,28 @@ print("""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://
 
 <body>
   <h1><a href="{0}" target="_blank">SimpleGUICS2Pygame</a> <span class="infos">{1} &ndash; test report &ndash; Python {2} &ndash; Pygame {3} &ndash; {4}</span></h1>
-  <ol>""".format(SIMPLEGUICS2PYGAME_WEBSITE, SIMPLEGUICS2PYGAME_VERSION, PYTHON_VERSION, PYGAME_VERSION, datetime.datetime.now()),
-      file = f)
+  <ol>""".format(SIMPLEGUICS2PYGAME_WEBSITE,
+                 SIMPLEGUICS2PYGAME_VERSION,
+                 PYTHON_VERSION,
+                 PYGAME_VERSION,
+                 datetime.datetime.now()),
+      file=f)
 
 
 for i, filename in enumerate(filenames):
     print("""<li>
-  <h2 {}>{}{}{}</h2>""".format((' class="error"' if errors[filename]
-                                else ''),
-                               filename,
-                               ('<span class="error">Error: {}!</span>'.format(errors[filename]) if errors[filename]
-                                else ''),
-                               ('<span class="imgs_diff">Images different: {}!</span>'.format(imgs_diff[filename]) if imgs_diff.get(filename)
-                                else '')),
-          file = f)
+  <h2 {}>{}{}{}</h2>""".format(
+        (' class="error"' if errors[filename]
+         else ''),
+        filename,
+        ('<span class="error">Error: {}!</span>'.format(errors[filename])
+         if errors[filename]
+         else ''),
+        ('<span class="imgs_diff">Images different: {}!</span>'
+         .format(imgs_diff[filename])
+         if imgs_diff.get(filename)
+         else '')),
+        file=f)
 
     f_log = open('{}/{}.log'.format(dir_results,
                                     filename))
@@ -147,23 +157,24 @@ for i, filename in enumerate(filenames):
 
     if imgs_diff.get(filename):
         print("""<img src="../{0}" alt="[{0}]">
-<img src="../{1}" alt="[{1}]">""".format('results_good/{}.png'.format(filename),
-                                      '{}/{}.png'.format(dir_results, filename)),
-              file = f)
+<img src="../{1}" alt="[{1}]">""".format(
+            'results_good/{}.png'.format(filename),
+            '{}/{}.png'.format(dir_results, filename)),
+            file=f)
 
     if len(log) > 0:
         print("""<pre class="log">{}</pre>""".format(escape(log)),
-              file = f)
+              file=f)
 
     f_log.close()
 
     print('</li>',
-          file = f)
+          file=f)
 
 
 print("""  </ol>
 </body>
 </html>""",
-      file = f)
+      file=f)
 
 f.close()

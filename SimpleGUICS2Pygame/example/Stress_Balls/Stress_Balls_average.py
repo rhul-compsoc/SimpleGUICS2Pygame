@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stress Ball - FPS AVERAGE (June 13, 2013)
+Stress Ball - FPS AVERAGE (June 22, 2013)
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Chrome: simpleplot failed!
@@ -24,11 +24,12 @@ try:
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
+    simplegui.Frame._hide_status = True
+
 try:
     import simpleplot
 except:
     print('No simpleplot!')
-
 
 
 ### Config >>>
@@ -37,7 +38,8 @@ MAX_NB_SECONDS = 30  # number of seconds before next step
 ALPHA = False  # start with transparency if True
 REVERSE = False  # reverse list_nb_balls if true
 
-_FPS_AVERAGE = True  # use Frame._get_fps_average() (only with SimpleGUICS2Pygame)
+_FPS_AVERAGE = True  # use Frame._get_fps_average()
+                     #   (only with SimpleGUICS2Pygame)
 
 # Number of balls of each step
 list_nb_balls = [1, 10, 20, 30, 40, 50, 75,
@@ -49,35 +51,32 @@ if REVERSE:
     list_nb_balls.reverse()
 
 
-
 FONT_SIZE = 40
 
 WIDTH = 599
 HEIGHT = 407
 
-RGB_COLORS = ((  0,   0, 128),
-              (  0,   0, 255),
-              (  0, 128,   0),
-              (  0, 128, 128),
-              (  0, 255,   0),
-              (  0, 255, 255),
-              (128,   0,   0),
-              (128,   0, 128),
-              (128, 128,   0),
+RGB_COLORS = ((0,   0,   128),
+              (0,   0,   255),
+              (0,   128, 0),
+              (0,   128, 128),
+              (0,   255, 0),
+              (0,   255, 255),
+              (128, 0,   0),
+              (128, 0,   128),
+              (128, 128, 0),
               (128, 128, 128),
               (192, 192, 192),
-              (255,   0,   0),
-              (255,   0, 255),
-              (255, 165,   0),
-              (255, 255,   0),
+              (255, 0,   0),
+              (255, 0,   255),
+              (255, 165, 0),
+              (255, 255, 0),
               (255, 255, 255))
-
 
 
 results = {}
 
 transparency = ALPHA
-
 
 
 class Ball:
@@ -103,45 +102,50 @@ class Ball:
                      self.draw_squarefill,
                      self.draw_squarefill_border)[shape]
 
-
     def draw_circle(self, canvas):
         canvas.draw_circle((self.center_x, self.center_y),
                            self.radius, 2, self.color)
-
 
     def draw_disc(self, canvas):
         canvas.draw_circle((self.center_x, self.center_y),
                            self.radius, 1, self.color, self.color)
 
-
     def draw_disc_border(self, canvas):
         canvas.draw_circle((self.center_x, self.center_y),
                            self.radius, 2, self.color, self.fill_color)
 
-
     def draw_square(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius , self.center_y - self.radius),
-                             (self.center_x + self.radius , self.center_y - self.radius),
-                             (self.center_x + self.radius , self.center_y + self.radius),
-                             (self.center_x - self.radius , self.center_y + self.radius)),
+        canvas.draw_polygon(((self.center_x - self.radius,
+                              self.center_y - self.radius),
+                             (self.center_x + self.radius,
+                              self.center_y - self.radius),
+                             (self.center_x + self.radius,
+                              self.center_y + self.radius),
+                             (self.center_x - self.radius,
+                              self.center_y + self.radius)),
                             2, self.color)
 
-
     def draw_squarefill(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius , self.center_y - self.radius),
-                             (self.center_x + self.radius , self.center_y - self.radius),
-                             (self.center_x + self.radius , self.center_y + self.radius),
-                             (self.center_x - self.radius , self.center_y + self.radius)),
+        canvas.draw_polygon(((self.center_x - self.radius,
+                              self.center_y - self.radius),
+                             (self.center_x + self.radius,
+                              self.center_y - self.radius),
+                             (self.center_x + self.radius,
+                              self.center_y + self.radius),
+                             (self.center_x - self.radius,
+                              self.center_y + self.radius)),
                             1, self.color, self.color)
 
-
     def draw_squarefill_border(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius , self.center_y - self.radius),
-                             (self.center_x + self.radius , self.center_y - self.radius),
-                             (self.center_x + self.radius , self.center_y + self.radius),
-                             (self.center_x - self.radius , self.center_y + self.radius)),
+        canvas.draw_polygon(((self.center_x - self.radius,
+                              self.center_y - self.radius),
+                             (self.center_x + self.radius,
+                              self.center_y - self.radius),
+                             (self.center_x + self.radius,
+                              self.center_y + self.radius),
+                             (self.center_x - self.radius,
+                              self.center_y + self.radius)),
                             2, self.color, self.fill_color)
-
 
     def freeze_off(self):
         self.velocity_x = self.velocity_x_save
@@ -150,14 +154,12 @@ class Ball:
         del self.velocity_x_save
         del self.velocity_y_save
 
-
     def freeze_on(self):
         self.velocity_x_save = self.velocity_x
         self.velocity_y_save = self.velocity_y
 
         self.velocity_x = 0
         self.velocity_y = 0
-
 
     def revert(self):
         if freezed:
@@ -167,27 +169,24 @@ class Ball:
             self.velocity_x = -self.velocity_x
             self.velocity_y = -self.velocity_y
 
-
     def transparency_reset(self):
         self.color = rgba_to_str(self.color_rgba)
         self.fill_color = rgba_to_str(self.fill_color_rgba)
 
-
     def move(self):
         self.center_x += self.velocity_x
 
-        if self.center_x <= self.radius :
+        if self.center_x <= self.radius:
             self.velocity_x = abs(self.velocity_x)
         elif self.center_x >= WIDTH - 1 - self.radius:
             self.velocity_x = -abs(self.velocity_x)
 
         self.center_y += self.velocity_y
 
-        if self.center_y <= self.radius :
+        if self.center_y <= self.radius:
             self.velocity_y = abs(self.velocity_y)
         elif self.center_y > HEIGHT - 1 - self.radius:
             self.velocity_y = -abs(self.velocity_y)
-
 
 
 # Functions
@@ -214,7 +213,8 @@ def init():
 
         results = dict_to_ordered_list(results)
 
-        print('Results: {' + ', '.join(['%d: %d' % result for result in results])+ '}')
+        print('Results: {' + ', '
+              .join(['%d: %d' % result for result in results]) + '}')
 
         try:
             # Don't work in Chrome!
@@ -240,12 +240,15 @@ def init():
     nb_seconds = 0
     to_next_step = False
 
-    balls = tuple([Ball([47 + n%(WIDTH - 100), 47 + n%(HEIGHT - 100)],                  # position
-                        19 + n%11,                                                      # radius
-                        n_to_rgba((n + 1)%len(RGB_COLORS), .2 + float(n%13)/15),        # color of border
-                        n_to_rgba((n + 2)%len(RGB_COLORS), .2 + float((n + 3)%14)/17),  # fill color
-                        [3 + n%7, 2 + n%5],                                             # velocity
-                        (n + 2)%6)                                                      # shape
+    balls = tuple([Ball([47 + n % (WIDTH - 100),
+                         47 + n % (HEIGHT - 100)],  # position
+                        19 + n % 11,  # radius
+                        n_to_rgba((n + 1) % len(RGB_COLORS),
+                                  .2 + float(n % 13)/15),  # color of border
+                        n_to_rgba((n + 2) % len(RGB_COLORS),
+                                  .2 + float((n + 3) % 14)/17),  # fill color
+                        [3 + n % 7, 2 + n % 5],  # velocity
+                        (n + 2) % 6)  # shape
                    for n in range(nb_balls)])
 
 
@@ -259,7 +262,6 @@ def rgba_to_str(rgba):
     # %f failed on CodeSkulptor
     return ('rgba(%d, %d, %d, %s)' % rgba if transparency
             else 'rgba(%d, %d, %d, 1)' % rgba[:3])
-
 
 
 # Handler
@@ -336,7 +338,6 @@ def transparency_on_off():
 
     for ball in balls:
         ball.transparency_reset()
-
 
 
 # Main

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (June 13, 2013)
+Spaceship prototype (June 22, 2013)
 
 My solution (slightly retouched) of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user16_Qpss15rD1ETZL7l import Loader
+    from user16_v0hIgQGF5JqtOUQ import Loader
 
     import simplegui
 except:
@@ -32,6 +32,7 @@ except:
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
+    simplegui.Frame._hide_status = True
 
 
 #
@@ -39,7 +40,6 @@ except:
 ###################
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-
 
 
 #
@@ -69,7 +69,6 @@ a_rock = None
 my_ship = None
 
 
-
 #
 # Helper functions
 ###################
@@ -84,9 +83,10 @@ def angle_to_vector(angle):
     return (math.cos(angle), math.sin(angle))
 
 
-def assert_position(position, non_negative = False, non_zero = False):
+def assert_position(position, non_negative=False, non_zero=False):
     """
-    Assertions to check valid position: (int or float, int or float) or [int or float, int or float].
+    Assertions to check valid position:
+    (int or float, int or float) or [int or float, int or float].
 
     If non_negative
     then each int or float must be >= 0.
@@ -100,11 +100,14 @@ def assert_position(position, non_negative = False, non_zero = False):
     assert isinstance(non_negative, bool), type(non_negative)
     assert isinstance(non_zero, bool), type(non_zero)
 
-    assert isinstance(position, tuple) or isinstance(position, list), type(position)
+    assert isinstance(position, tuple) or isinstance(position, list), \
+        type(position)
     assert len(position) == 2, len(position)
 
-    assert isinstance(position[0], int) or isinstance(position[0], float), type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), type(position[1])
+    assert isinstance(position[0], int) or isinstance(position[0], float), \
+        type(position[0])
+    assert isinstance(position[1], int) or isinstance(position[1], float), \
+        type(position[1])
 
     if non_negative:
         assert position[0] >= 0, position
@@ -115,7 +118,6 @@ def assert_position(position, non_negative = False, non_zero = False):
         assert position[1] != 0, position
 
 
-
 #
 # Classes
 ##########
@@ -123,33 +125,39 @@ class ImageInfo:
     """
     Informations to use with Sprite.
     """
-    def __init__(self, center, size, radius = None, lifespan = None, animated = False):
+    def __init__(self, center, size,
+                 radius=None, lifespan=None, animated=False):
         """
         Set informations.
 
-        If radius == None
+        If radius is None
         then use maximum of size components.
 
-        :param center: (int or float, int or float) or [int or float, int or float]
-        :param size: ((int or float) > 0, (int or float) > 0) or [(int or float) > 0, (int or float) > 0]
+        :param center: (int or float, int or float)
+                       or [int or float, int or float]
+        :param size: ((int or float) > 0, (int or float) > 0)
+                     or [(int or float) > 0, (int or float) > 0]
         :param radius: None or ((int or float) > 0)
         :param lifespan: None or ((int or float) > 0)
         :param animated: bool
         """
         assert_position(center)
         assert_position(size, True, True)
-        assert (radius == None) or ((isinstance(radius, int) or isinstance(radius, float)) and (radius > 0)), radius
-        assert (lifespan == None) or ((isinstance(lifespan, int) or isinstance(lifespan, float)) and (lifespan > 0)), lifespan
+        assert ((radius is None)
+                or ((isinstance(radius, int) or isinstance(radius, float))
+                    and (radius > 0))), radius
+        assert ((lifespan is None)
+                or ((isinstance(lifespan, int) or isinstance(lifespan, float))
+                    and (lifespan > 0))), lifespan
         assert isinstance(animated, bool), type(animated)
 
         self._center = list(center)
         self._size = list(size)
-        self._radius = (max(size) if radius == None
+        self._radius = (max(size) if radius is None
                         else radius)
         self._lifespan = (lifespan if lifespan
                           else float('inf'))
         self._animated = animated
-
 
     def get_animated(self):
         """
@@ -161,7 +169,6 @@ class ImageInfo:
         """
         return self._animated
 
-
     def get_center(self):
         """
         Return position of the center of image.
@@ -169,7 +176,6 @@ class ImageInfo:
         :return: [int or float, int or float]
         """
         return self._center
-
 
     def get_lifespan(self):
         """
@@ -179,7 +185,6 @@ class ImageInfo:
         """
         return self._lifespan
 
-
     def get_radius(self):
         """
         Return radius of image.
@@ -187,7 +192,6 @@ class ImageInfo:
         :return: (int or float) > 0
         """
         return self._radius
-
 
     def get_size(self):
         """
@@ -198,7 +202,6 @@ class ImageInfo:
         return self._size
 
 
-
 class Sprite:
     """
     Sprite class
@@ -206,12 +209,14 @@ class Sprite:
     def __init__(self, position, velocity, angle,
                  angle_velocity,
                  image, image_info,
-                 sound = None):
+                 sound=None):
         """
         Set sprite.
 
-        :param position: (int or float, int or float) or [int or float, int or float]
-        :param velocity: (int or float, int or float) or [int or float, int or float]
+        :param position: (int or float, int or float)
+                         or [int or float, int or float]
+        :param velocity: (int or float, int or float)
+                         or [int or float, int or float]
         :param angle: int or float
         :param image: simplegui.Image
         :param image_info: ImageInfo
@@ -220,7 +225,8 @@ class Sprite:
         assert_position(position)
         assert_position(velocity)
         assert isinstance(angle, int) or isinstance(angle, float), type(angle)
-        assert isinstance(angle_velocity, int) or isinstance(angle_velocity, float), type(angle_velocity)
+        assert (isinstance(angle_velocity, int)
+                or isinstance(angle_velocity, float)), type(angle_velocity)
         assert isinstance(image_info, ImageInfo), type(image_info)
 
         self.position = list(position)
@@ -237,17 +243,18 @@ class Sprite:
             sound.rewind()
             sound.play()
 
-
     def draw(self, canvas):
         """
         Draw the sprite
         (if the associated image are not loaded, draw a red disc).
         """
         if self.image.get_width() > 0:
-            canvas.draw_image(self.image, self.image_center, self.image_size, self.position, self.image_size, self.angle)
+            canvas.draw_image(self.image,
+                              self.image_center, self.image_size,
+                              self.position, self.image_size,
+                              self.angle)
         else:
             canvas.draw_circle(self.position, self.radius, 1, 'Red', 'Red')
-
 
     def update(self):
         """
@@ -260,7 +267,6 @@ class Sprite:
         self.position[1] += self.velocity[1]
 
 
-
 class Ship(Sprite):
     """
     Ship class
@@ -270,8 +276,10 @@ class Ship(Sprite):
         """
         Set ship sprite.
 
-        :param position: (int or float, int or float) or [int or float, int or float]
-        :param velocity: (int or float, int or float) or [int or float, int or float]
+        :param position: (int or float, int or float)
+                         or [int or float, int or float]
+        :param velocity: (int or float, int or float)
+                         or [int or float, int or float]
         :param angle: int or float
         :param image: simplegui.Image
         :param image_info: ImageInfo
@@ -287,7 +295,6 @@ class Ship(Sprite):
 
         self.thrust = False
 
-
     def shoot(self):
         """
         Launch a missile.
@@ -296,10 +303,13 @@ class Ship(Sprite):
 
         v = angle_to_vector(my_ship.angle)
 
-        a_missile = Sprite((my_ship.position[0] + my_ship.radius*v[0], my_ship.position[1] + my_ship.radius*v[1]),
-                           (my_ship.velocity[0] + v[0]*10, my_ship.velocity[1] + v[1]*10),
-                           0, 0, loader.get_image('missile'), missile_info, loader.get_sound('missile'))
-
+        a_missile = Sprite((my_ship.position[0] + my_ship.radius*v[0],
+                            my_ship.position[1] + my_ship.radius*v[1]),
+                           (my_ship.velocity[0] + v[0]*10,
+                            my_ship.velocity[1] + v[1]*10),
+                           0, 0,
+                           loader.get_image('missile'), missile_info,
+                           loader.get_sound('missile'))
 
     def thrust_on_off(self):
         """
@@ -309,11 +319,12 @@ class Ship(Sprite):
 
         if self.thrust:
             loader.get_sound('ship_thrust').play()
-            self.image_center[0] += self.image_size[0]  # sprite image with actif thrust
+            # Sprite image with actif thrust
+            self.image_center[0] += self.image_size[0]
         else:
             loader.get_sound('ship_thrust').rewind()
-            self.image_center[0] -= self.image_size[0]  # sprite image with inactif thrust
-
+            # Sprite image with inactif thrust
+            self.image_center[0] -= self.image_size[0]
 
     def turn(self, angle_move):
         """
@@ -322,10 +333,10 @@ class Ship(Sprite):
 
         :param angle_move: int or float
         """
-        assert isinstance(angle_move, int) or isinstance(angle_move, float), type(angle_move)
+        assert isinstance(angle_move, int) or isinstance(angle_move, float), \
+            type(angle_move)
 
         my_ship.angle_velocity = angle_move
-
 
     def update(self):
         """
@@ -345,9 +356,8 @@ class Ship(Sprite):
         self.velocity[0] *= .95
         self.velocity[1] *= .95
 
-        self.position = ((self.position[0] + self.velocity[0])%SCREEN_WIDTH,
-                         (self.position[1] + self.velocity[1])%SCREEN_HEIGHT)
-
+        self.position = ((self.position[0] + self.velocity[0]) % SCREEN_WIDTH,
+                         (self.position[1] + self.velocity[1]) % SCREEN_HEIGHT)
 
 
 #
@@ -363,19 +373,24 @@ def draw(canvas):
     time += 1
     center = debris_info.get_center()
     size = debris_info.get_size()
-    wtime = (time/8.0)%center[0]
+    wtime = (time/8.0) % center[0]
 
     canvas.draw_image(loader.get_image('nebula'),
-                      nebula_info.get_center(), nebula_info.get_size(),
-                      (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (SCREEN_WIDTH, SCREEN_HEIGHT))
+                      nebula_info.get_center(),
+                      nebula_info.get_size(),
+                      (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                      (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     canvas.draw_image(loader.get_image('debris'),
-                      (center[0] - wtime, center[1]), (size[0] - 2*wtime, size[1]),
-                      (SCREEN_WIDTH/2.0 + 1.25*wtime, SCREEN_HEIGHT/2.0), (SCREEN_WIDTH - 2.5*wtime, SCREEN_HEIGHT))
+                      (center[0] - wtime, center[1]),
+                      (size[0] - 2*wtime, size[1]),
+                      (SCREEN_WIDTH/2.0 + 1.25*wtime, SCREEN_HEIGHT/2.0),
+                      (SCREEN_WIDTH - 2.5*wtime, SCREEN_HEIGHT))
     canvas.draw_image(loader.get_image('debris'),
-                      (size[0] - wtime, center[1]), (2*wtime, size[1]),
-                      (1.25*wtime, SCREEN_HEIGHT/2.0), (2.5*wtime, SCREEN_HEIGHT))
-
+                      (size[0] - wtime, center[1]),
+                      (2*wtime, size[1]),
+                      (1.25*wtime, SCREEN_HEIGHT/2.0),
+                      (2.5*wtime, SCREEN_HEIGHT))
 
     # Display number of lives
     size = 30
@@ -387,30 +402,30 @@ def draw(canvas):
     # Display score
     s = 'Score'
     width = frame.get_canvas_textwidth(s, size, font)
-    canvas.draw_text(s, (SCREEN_WIDTH - 20 - width, 20 + size*3.0/4), size, 'White', font)
+    canvas.draw_text(s, (SCREEN_WIDTH - 20 - width, 20 + size*3.0/4),
+                     size, 'White', font)
 
     s = str(score)
     width = frame.get_canvas_textwidth(s, size, font)
-    canvas.draw_text(s, (SCREEN_WIDTH - 20 - width, 20 + size*7.0/4), size, 'White', font)
-
+    canvas.draw_text(s, (SCREEN_WIDTH - 20 - width, 20 + size*7.0/4),
+                     size, 'White', font)
 
     # Draw ship and sprites
     my_ship.draw(canvas)
 
-    if a_rock != None:
+    if a_rock is not None:
         a_rock.draw(canvas)
 
-    if a_missile != None:
+    if a_missile is not None:
         a_missile.draw(canvas)
-
 
     # Update ship and sprites
     my_ship.update()
 
-    if a_rock != None:
+    if a_rock is not None:
         a_rock.update()
 
-    if a_missile != None:
+    if a_missile is not None:
         a_missile.update()
 
 
@@ -466,8 +481,12 @@ def rock_spawner():
     """
     global a_rock
 
-    a_rock = Sprite((random.randrange(SCREEN_WIDTH//16, SCREEN_WIDTH*15//16), random.randrange(SCREEN_HEIGHT//16, SCREEN_HEIGHT*15//16)),
-                    (random.randrange(2, 7)*random.choice((-1, 1)), random.randrange(2, 7)*random.choice((-1, 1))),
+    a_rock = Sprite((random.randrange(SCREEN_WIDTH//16,
+                                      SCREEN_WIDTH*15//16),
+                     random.randrange(SCREEN_HEIGHT//16,
+                                      SCREEN_HEIGHT*15//16)),
+                    (random.randrange(2, 7)*random.choice((-1, 1)),
+                     random.randrange(2, 7)*random.choice((-1, 1))),
                     (random.random() - 0.5)*math.pi,
                     (random.random() - 0.5)/10.0,
                     loader.get_image('asteroid'), asteroid_info)
@@ -484,7 +503,6 @@ def start():
     timer = simplegui.create_timer(1000, rock_spawner)
     timer.start()
     rock_spawner()
-
 
 
 #
@@ -507,11 +525,9 @@ if __name__ == '__main__':
 
     asteroid_info = ImageInfo((45, 45), (90, 90), 40)
     debris_info = ImageInfo((320, 240), (640, 480))
-    missile_info = ImageInfo((5,5), (10, 10), 3, 50)
+    missile_info = ImageInfo((5, 5), (10, 10), 3, 50)
     nebula_info = ImageInfo((400, 300), (800, 600))
     ship_info = ImageInfo((45, 45), (90, 90), 35)
-
-
 
     # Sounds from http://www.sounddogs.com/ (not free)
     loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',
@@ -519,17 +535,15 @@ if __name__ == '__main__':
     loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',
                      'ship_thrust')
 
-
     loader.load()
 
-
     # Create frame
-    frame = simplegui.create_frame('Spaceship prototype', SCREEN_WIDTH, SCREEN_HEIGHT)
-
+    frame = simplegui.create_frame('Spaceship prototype',
+                                   SCREEN_WIDTH, SCREEN_HEIGHT)
 
     # Initialize ship and rock
-    my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0), -math.pi/2, loader.get_image('ship'), ship_info)
-
+    my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
+                   -math.pi/2, loader.get_image('ship'), ship_info)
 
     # Register event handlers
     frame.set_keydown_handler(keydown)

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors constants. (June 19, 2013)
+Test colors constants. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,6 +20,8 @@ except:
 
     SIMPLEGUICS2PYGAME = True
 
+    simplegui.Frame._hide_status = True
+
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
@@ -35,12 +37,10 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test colors constants'
 
 WIDTH = 640
 HEIGHT = 200
-
 
 
 def draw(canvas):
@@ -54,16 +54,21 @@ def draw(canvas):
 
     size = 30
 
-    for j, line in enumerate((('Aqua', 'Black', 'Blue', 'Fuchsia', 'Gray', 'Green', 'Lime', 'Maroon'),
-                              ('Navy', 'Olive', 'Purple', 'Red', 'Silver', 'Teal', 'White', 'Yellow'),
+    for j, line in enumerate((('Aqua', 'Black', 'Blue', 'Fuchsia',
+                               'Gray', 'Green', 'Lime', 'Maroon'),
+                              ('Navy', 'Olive', 'Purple', 'Red',
+                               'Silver', 'Teal', 'White', 'Yellow'),
                               ('Orange', 'Cyan', 'Magenta'))):
         for i, color in enumerate(line):
             canvas.draw_line((i*width, height//2 - 1 + j*height),
-                             ((i + 1)*width, height//2 - 1 + j*height), height, color)
+                             ((i + 1)*width, height//2 - 1 + j*height),
+                             height, color)
 
             length = frame.get_canvas_textwidth(color, size)
-            canvas.draw_text(color, (i*width + (width - length)//2, j*height + (height - size)//2 + size*3//4), size, 'White')
-
+            canvas.draw_text(color,
+                             (i*width + (width - length)//2,
+                              j*height + (height - size)//2 + size*3//4),
+                             size, 'White')
 
 
 # Main

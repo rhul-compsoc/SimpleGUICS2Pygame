@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (June 13, 2013)
+Stopwatch: The Game (June 22, 2013)
 (Stop the timer when 0 decisecond.)
 
 My solution (slightly retouched) of the mini-project #3 of the course
@@ -20,11 +20,12 @@ try:
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
+    simplegui.Frame._hide_status = True
 
 
 # Global variables
 canvas_width = 300
-canvas_height = 150
+canvas_height = 160
 
 nb_attempts = 0
 nb_success = 0
@@ -45,11 +46,10 @@ def format(t):
     assert isinstance(t, int)
     assert t >= 0
 
-    t, tenths = t//10, t%10
-    minutes, seconds = t//60, t%60
+    t, tenths = t//10, t % 10
+    minutes, seconds = t//60, t % 60
 
     return '%d:%02d.%d' % (minutes, seconds, tenths)
-
 
 
 # Event handlers for buttons
@@ -99,9 +99,8 @@ def stop():
         timer.stop()
 
         nb_attempts += 1
-        if time%10 == 0:
+        if time % 10 == 0:
             nb_success += 1
-
 
 
 # Event handler for timer
@@ -112,7 +111,6 @@ def tick():
     global time
 
     time += 1
-
 
 
 # Draw handler
@@ -128,7 +126,8 @@ def draw(canvas):
     width = frame.get_canvas_textwidth(s, size, 'monospace')
     canvas.draw_text(s,
                      ((canvas_width - width)//2,
-                      (canvas_height*2 + size)//4),  # (canvas_height - size)//2 + size*3//4
+                      # (canvas_height - size)//2 + size*3//4
+                      (canvas_height*2 + size)//4),
                      size, 'Lime', 'monospace')
 
     if nb_attempts > 0:
@@ -143,18 +142,24 @@ def draw(canvas):
                                 else 'White')),
                          'monospace')
 
+    if timer.is_running():
+        s = 'Stop the timer when 0 decisecond.'
+        size = 20
+        width = frame.get_canvas_textwidth(s, size)
+        canvas.draw_text(s,
+                         ((canvas_width - width)//2, (canvas_height - size)),
+                         size, 'White')
 
 
 # Create frame
 frame = simplegui.create_frame('Stopwatch (Stop the timer when 0 decisecond)',
-                               canvas_width, canvas_height)
-
+                               canvas_width, canvas_height, 100)
 
 
 # Register event handlers
-frame.add_button('Start', start, 200)
-frame.add_button('Stop', stop, 200)
-frame.add_button('Reset', reset, 200)
+frame.add_button('Start', start, 100)
+frame.add_button('Stop', stop, 100)
+frame.add_button('Reset', reset, 100)
 frame.add_label('')
 frame.add_button('Quit', quit)
 
@@ -163,13 +168,12 @@ frame.set_draw_handler(draw)
 timer = simplegui.create_timer(100, tick)
 
 
-
 # Main
-assert format(   0) == '0:00.0'
-assert format(   3) == '0:00.3'
-assert format(  11) == '0:01.1'
-assert format( 321) == '0:32.1'
-assert format( 613) == '1:01.3'
+assert format(0) == '0:00.0'
+assert format(3) == '0:00.3'
+assert format(11) == '0:01.1'
+assert format(321) == '0:32.1'
+assert format(613) == '1:01.3'
 assert format(1234) == '2:03.4'
 
 frame.start()

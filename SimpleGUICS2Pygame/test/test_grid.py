@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw points, lines and polygons. (June 19, 2013)
+Test draw points, lines and polygons. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,6 +20,8 @@ except:
 
     SIMPLEGUICS2PYGAME = True
 
+    simplegui.Frame._hide_status = True
+
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
@@ -35,7 +37,6 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test grid'
 
 WIDTH = 400
@@ -44,10 +45,8 @@ HEIGHT = 300
 SIZE = 80
 
 
-
 state_colors = True
 state_method = 0
-
 
 
 def draw(canvas):
@@ -88,7 +87,8 @@ def draw_grid1(canvas, y_offset, color):
     s = 'points'
     width = frame.get_canvas_textwidth(s, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2), SIZE, color)
+    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2),
+                     SIZE, color)
 
     for y in range(0, HEIGHT//3, 20):
         y += y_offset
@@ -111,14 +111,16 @@ def draw_grid2(canvas, y_offset, color):
     s = 'lines'
     width = frame.get_canvas_textwidth(s, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2), SIZE, color)
+    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2),
+                     SIZE, color)
 
     for y in range(0, HEIGHT//3, 20):
         y += y_offset
         canvas.draw_line((0, y), (WIDTH - 1, y), 1, color)
 
     for x in range(0, WIDTH, 40):
-        canvas.draw_line((x, y_offset), (x, y_offset + HEIGHT//2 - 1), 1, color)
+        canvas.draw_line((x, y_offset), (x, y_offset + HEIGHT//2 - 1),
+                         1, color)
 
 
 def draw_grid3(canvas, y_offset, color):
@@ -132,12 +134,14 @@ def draw_grid3(canvas, y_offset, color):
     s = 'rectangles'
     width = frame.get_canvas_textwidth(s, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2), SIZE, color)
+    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2),
+                     SIZE, color)
 
     for y in range(0, HEIGHT//3, 20):
         y += y_offset
         for x in range(0, WIDTH, 40):
-            canvas.draw_polygon(((x, y), (x + 40, y), (x + 40, y + 20), (x, y + 20)),
+            canvas.draw_polygon(((x, y), (x + 40, y),
+                                 (x + 40, y + 20), (x, y + 20)),
                                 1, color)
 
 
@@ -156,8 +160,7 @@ def switch_method():
     """
     global state_method
 
-    state_method = (state_method + 1)%3
-
+    state_method = (state_method + 1) % 3
 
 
 # Main

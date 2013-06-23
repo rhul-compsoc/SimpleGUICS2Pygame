@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw circles. (June 19, 2013)
+Test draw circles. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,6 +20,8 @@ except:
 
     SIMPLEGUICS2PYGAME = True
 
+    simplegui.Frame._hide_status = True
+
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
@@ -35,12 +37,10 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test circle'
 
 WIDTH = 400
 HEIGHT = 200
-
 
 
 def draw(canvas):
@@ -55,13 +55,13 @@ def draw(canvas):
     line_width = 11
 
     for radius in range(1, WIDTH, 30):
-        canvas.draw_circle((WIDTH - 1 - x, y), radius, line_width, 'rgba(0,255,0,.5)')
+        canvas.draw_circle((WIDTH - 1 - x, y), radius, line_width,
+                           'rgba(0,255,0,.5)')
         canvas.draw_circle((WIDTH - 1 - x, y), radius, 1, 'Lime')
 
     for radius in range(1, WIDTH, 30):
         canvas.draw_circle((x, y), radius, line_width, 'rgba(255,0,0,.5)')
         canvas.draw_circle((x, y), radius, 1, 'Red')
-
 
 
 # Main

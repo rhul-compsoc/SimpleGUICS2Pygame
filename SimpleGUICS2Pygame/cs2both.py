@@ -4,7 +4,7 @@
 """
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(June 13, 2013)
+(June 22, 2013)
 
 Changes made :
 - Add shebang '#!/usr/bin/env python'.
@@ -33,7 +33,6 @@ import re
 import sys
 
 
-
 ########
 # Main #
 ########
@@ -55,14 +54,12 @@ if __name__ == '__main__':
 
         exit(1)
 
-
     # Read
     f = open(filename)
 
     lines = [line.rstrip() for line in f]
 
     f.close()
-
 
     # Check
     if len(lines) < 2:
@@ -71,7 +68,8 @@ if __name__ == '__main__':
         exit()
 
     add_shebang = lines[0][:2]
-    add_coding = not re.match('#\w*-\*- coding: \W+ -\*-$', lines[0]) and not re.match('#\w*-\*- coding: \W+ -\*-$', lines[1])
+    add_coding = (not re.match('#\w*-\*- coding: \W+ -\*-$', lines[0])
+                  and not re.match('#\w*-\*- coding: \W+ -\*-$', lines[1]))
 
     change_import = False
     already_change_import = False
@@ -100,27 +98,28 @@ if __name__ == '__main__':
                 change_import = True
                 indent = (r.group(1) if r.group(1)
                           else '')
-                lines[i] = '\n' + indent + ('\n' + indent).join(("# Automatically modified by 'cs2both.py' to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.",
-                                                                 'try:',
-                                                                 '    import simplegui',
-                                                                 'except:',
-                                                                 '    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui')) + '\n'
-
+                lines[i] = '\n' + indent + ('\n' + indent).join(
+                    ("# Automatically modified by 'cs2both.py' to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.",
+                     'try:',
+                     '    import simplegui',
+                     'except:',
+                     '    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui')) + '\n'
 
     # Write
     if add_shebang or add_coding or change_import or end_blank_line:
         os.rename(filename, filename + '.bak')
 
-        f = (open(filename, mode = 'w', encoding = 'latin_1', newline = '\n') if sys.version_info[0] >= 3
-             else open(filename, mode = 'w'))
+        f = (open(filename, mode='w', encoding='latin_1', newline='\n')
+             if sys.version_info[0] >= 3
+             else open(filename, mode='w'))
 
         if add_shebang:
             print('Add shebang.')
-            print('#!/usr/bin/env python', file = f)
+            print('#!/usr/bin/env python', file=f)
 
         if add_coding:
             print('Add coding latin-1.')
-            print('# -*- coding: latin-1 -*-', file = f)
+            print('# -*- coding: latin-1 -*-', file=f)
 
         if change_import:
             print('Change import simplegui.')
@@ -128,16 +127,16 @@ if __name__ == '__main__':
         if end_blank_line:
             print('End blank line deleted.')
 
-        print('\n'.join(lines), file = f)
+        print('\n'.join(lines), file=f)
 
         f.close()
     else:
         print('Nothing changed.')
 
-
     while lines:
         line = lines.pop()
-        if re.search('^\w*f(rame)?\.start\(\)', line):  # f.start() ou frame.start()
+        if re.search('^\w*f(rame)?\.start\(\)', line):  # f.start()
+                                                        #   or frame.start()
             break
         elif re.search('^\w*[^#]+\.start\(\)', line):   # other .start()
             print('Warning: Maybe a timer is started *after* the start frame.')

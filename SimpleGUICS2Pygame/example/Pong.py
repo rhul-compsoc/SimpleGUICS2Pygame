@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Pong (June 13, 2013)
+Pong (June 22, 2013)
 
 My solution (slightly retouched) of the mini-project #4 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -22,10 +22,10 @@ try:
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
+    simplegui.Frame._hide_status = True
 
 
 pong = None
-
 
 
 def hex_fig(n):
@@ -54,8 +54,7 @@ def hex2(n):
     assert isinstance(n, int)
     assert 0 <= n < 256
 
-    return hex_fig(n//16) + hex_fig(n%16)
-
+    return hex_fig(n//16) + hex_fig(n % 16)
 
 
 # Classes
@@ -76,7 +75,6 @@ class Vector:
         self.x = x
         self.y = y
 
-
     def add(self, other):
         """
         Adds other to self.
@@ -88,7 +86,6 @@ class Vector:
         self.x += other.x
         self.y += other.y
 
-
     def mul_scalar(self, scalar):
         """
         Multiplies self by scalar.
@@ -99,7 +96,6 @@ class Vector:
 
         self.x *= scalar
         self.y *= scalar
-
 
     def distance(self, other):
         """
@@ -113,7 +109,6 @@ class Vector:
 
         return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
 
-
     def same(self, other):
         """
         If (self.x, self.y) == (other.x, other.y)
@@ -126,7 +121,6 @@ class Vector:
 
         return (self.x == other.x) and (self.y == other.y)
 
-
     def to_tuple(self):
         """
         Return the vector as a tuple.
@@ -136,7 +130,6 @@ class Vector:
         return (self.x, self.y)
 
 
-
 class Pong:
     """
     Game Pong.
@@ -144,7 +137,7 @@ class Pong:
     Size of the screen (Pong.WIDTH, Pong.HEIGHT).
     Half size: (Pong.HALF_WIDTH, Pong.HALF_HEIGHT)
     """
-    WIDTH  = 600
+    WIDTH = 600
     HEIGHT = 400
 
     HALF_WIDTH = WIDTH//2
@@ -162,28 +155,28 @@ class Pong:
 
         self.paused = False
 
-
-    def add_ball(self, radius = None, right = None):
+    def add_ball(self, radius=None, right=None):
         """
         Add a new ball.
 
-        If radius == None
+        If radius is None
         then add a smaller ball (minimum radius == 10),
         else add a ball with radius.
 
         :param radius: (int or float) > 0
         :param right: None or bool
         """
-        assert (radius == None) or ((isinstance(radius, int) or isinstance(radius, float)) and radius > 0)
-        assert (right == None) or isinstance(right, bool)
+        assert ((radius is None)
+                or ((isinstance(radius, int) or isinstance(radius, float))
+                    and radius > 0))
+        assert (right is None) or isinstance(right, bool)
 
-        if radius == None:
+        if radius is None:
             if self.current_radius >= 11:
                 self.current_radius -= 1
             self.balls_to_launch.append(Ball(self.current_radius, right))
         else:
             self.balls_to_launch.append(Ball(radius, right))
-
 
     def pause(self):
         """
@@ -192,32 +185,30 @@ class Pong:
         self.paused = not self.paused
 
 
-
 class Moving_item:
     """
     General moving item:
     self.pos: position Vector
     self.vel: velocity Vector
     """
-    def __init__(self, position, velocity = None):
+    def __init__(self, position, velocity=None):
         """
         Initialize the position and the velocity.
 
-        If velocity == None
+        If velocity is None
         then set to Vector(0, 0).
 
         :param position: Vector
         :param velocity: None or Vector
         """
         assert isinstance(position, Vector)
-        assert (velocity == None) or isinstance(velocity, Vector)
+        assert (velocity is None) or isinstance(velocity, Vector)
 
         self.pos = position
-        self.vel = (Vector(0, 0) if velocity == None
+        self.vel = (Vector(0, 0) if velocity is None
                     else velocity)
 
-
-    def bounce(self, horizontally = True, vertically = True):
+    def bounce(self, horizontally=True, vertically=True):
         """
         If horizontally
         then invert horizontal velocity.
@@ -236,7 +227,6 @@ class Moving_item:
         if vertically:
             self.vel.y = -self.vel.y
 
-
     def same_pos(self, other):
         """
         If self and other are same position
@@ -248,7 +238,6 @@ class Moving_item:
         assert isinstance(other, Moving_item)
 
         return self.pos.same(other.pos)
-
 
     def same_vel_horizontal(self, other):
         """
@@ -264,7 +253,6 @@ class Moving_item:
                 or (self.vel.x < 0 and other.vel.x < 0)
                 or (self.vel.x == 0 and other.vel.x == 0))
 
-
     def same_vel_vertical(self, other):
         """
         If self and other are the same vertically direction
@@ -279,13 +267,11 @@ class Moving_item:
                 or (self.vel.y < 0 and other.vel.y < 0)
                 or (self.vel.y == 0 and other.vel.y == 0))
 
-
     def update_pos(self):
         """
         Add self.vel to self.pos.
         """
         self.pos.add(self.vel)
-
 
 
 class Ball(Moving_item):
@@ -295,12 +281,12 @@ class Ball(Moving_item):
     SPEED_MAX_X = 20
     SPEED_MAX_Y = 20
 
-    def __init__(self, radius, right = None):
+    def __init__(self, radius, right=None):
         """
         Initialize the position at middle of screen
         and the velocity at random top up.
 
-        If right == None
+        If right is None
         then choice randomly a right.
 
         If right
@@ -313,7 +299,7 @@ class Ball(Moving_item):
         assert isinstance(radius, int) or isinstance(radius, float)
         assert radius > 0, radius
 
-        if right == None:
+        if right is None:
             right = random.choice((False, True))
 
         assert isinstance(right, bool)
@@ -326,7 +312,6 @@ class Ball(Moving_item):
                                      else -vel_x),
                                     -random.randrange(60, 180)/60.0))
         self.radius = radius
-
 
     def check_collision(self):
         """
@@ -352,9 +337,12 @@ class Ball(Moving_item):
 
         if self.vel.x < 0:    # left
             if self.pos.x <= Player.WIDTH + self.radius:
-                if ((pong.players[0].pos.y - Player.HALF_HEIGHT <= self.pos.y <= pong.players[0].pos.y + Player.HALF_HEIGHT) or pong.players[0].protected):
+                if ((pong.players[0].pos.y - Player.HALF_HEIGHT
+                     <= self.pos.y
+                     <= pong.players[0].pos.y + Player.HALF_HEIGHT)
+                        or pong.players[0].protected):
                     sound_bounce_paddle.play()
-                    self.bounce(vertically = False)
+                    self.bounce(vertically=False)
                     self.faster()
                 else:  # left player lost
                     sound_lost.play()
@@ -367,9 +355,12 @@ class Ball(Moving_item):
                     pong.add_ball(self.radius, True)
         elif self.vel.x > 0:  # right
             if self.pos.x >= Pong.WIDTH - 1 - self.radius - Player.WIDTH:
-                if ((pong.players[1].pos.y - Player.HALF_HEIGHT <= self.pos.y <= pong.players[1].pos.y + Player.HALF_HEIGHT) or pong.players[1].protected):
+                if ((pong.players[1].pos.y - Player.HALF_HEIGHT
+                     <= self.pos.y
+                     <= pong.players[1].pos.y + Player.HALF_HEIGHT)
+                        or pong.players[1].protected):
                     sound_bounce_paddle.play()
-                    self.bounce(vertically = False)
+                    self.bounce(vertically=False)
                     self.faster()
                 else:  # right player lost
                     sound_lost.play()
@@ -396,14 +387,15 @@ class Ball(Moving_item):
                         new_y = float(diff*self.vel.y + double*ball.vel.y)/sum
 
                         double = 2*self.radius
-                        ball.vel.x = float(double*self.vel.x - diff*ball.vel.x)/sum
-                        ball.vel.y = float(double*self.vel.y - diff*ball.vel.y)/sum
+                        ball.vel.x = float(double*self.vel.x
+                                           - diff*ball.vel.x)/sum
+                        ball.vel.y = float(double*self.vel.y
+                                           - diff*ball.vel.y)/sum
 
                         self.vel.x = new_x
                         self.vel.y = new_y
                 elif self.same_pos(ball):
                     founded = True
-
 
     def draw(self, canvas):
         """
@@ -416,12 +408,13 @@ class Ball(Moving_item):
             canvas.draw_circle(self.pos.to_tuple(), i, 1, color, color)
 
         # To debug
-        #canvas.draw_line((self.pos.x - self.radius, self.pos.y), (self.pos.x + self.radius, self.pos.y), 1, 'Red')
-
+        #canvas.draw_line((self.pos.x - self.radius, self.pos.y),
+        #                 (self.pos.x + self.radius, self.pos.y), 1, 'Red')
 
     def faster(self):
         """
-        Increase velocity by 10% (with maximum (Ball.SPEED_MAX_X, Ball.SPEED_MAX_Y))
+        Increase velocity by 10
+        (with maximum (Ball.SPEED_MAX_X, Ball.SPEED_MAX_Y))
         """
         self.vel.mul_scalar(1.1)
 
@@ -435,7 +428,6 @@ class Ball(Moving_item):
         if neg:
             self.vel.y = -self.vel.y
 
-
     def touch(self, other):
         """
         If two balls touch
@@ -447,7 +439,6 @@ class Ball(Moving_item):
         :return: bool
         """
         return self.pos.distance(other.pos) <= (self.radius + other.radius)
-
 
 
 class Player(Moving_item):
@@ -479,7 +470,8 @@ class Player(Moving_item):
         assert isinstance(key_up, str)
         assert isinstance(key_down, str)
 
-        Moving_item.__init__(self, Vector((Pong.WIDTH - 1 - Player.HALF_WIDTH if right
+        Moving_item.__init__(self, Vector((Pong.WIDTH - 1 - Player.HALF_WIDTH
+                                           if right
                                            else Player.HALF_WIDTH),
                                           Pong.HALF_HEIGHT))
 
@@ -493,7 +485,6 @@ class Player(Moving_item):
 
         self.protected = False
 
-
     def draw(self, canvas):
         """
         Draw the paddle.
@@ -501,19 +492,24 @@ class Player(Moving_item):
         :param canvas: simplegui.Canvas
         """
         y1 = self.pos.y - Player.HALF_HEIGHT
-        canvas.draw_line((self.pos.x, y1), (self.pos.x, y1 + Player.HEIGHT), Player.WIDTH, 'White')
+        canvas.draw_line((self.pos.x, y1), (self.pos.x, y1 + Player.HEIGHT),
+                         Player.WIDTH, 'White')
 
         # To debug
-        #canvas.draw_line((self.pos.x - Player.WIDTH, self.pos.y - Player.HALF_HEIGHT), (self.pos.x + Player.WIDTH, self.pos.y - Player.HALF_HEIGHT), 1, 'Red')
-        #canvas.draw_line((self.pos.x - Player.WIDTH, self.pos.y + Player.HALF_HEIGHT), (self.pos.x + Player.WIDTH, self.pos.y + Player.HALF_HEIGHT), 1, 'Red')
-
+        #canvas.draw_line((self.pos.x - Player.WIDTH,
+        #                  self.pos.y - Player.HALF_HEIGHT),
+        #                 (self.pos.x + Player.WIDTH,
+        #                  self.pos.y - Player.HALF_HEIGHT), 1, 'Red')
+        #canvas.draw_line((self.pos.x - Player.WIDTH,
+        #                  self.pos.y + Player.HALF_HEIGHT),
+        #                 (self.pos.x + Player.WIDTH,
+        #                  self.pos.y + Player.HALF_HEIGHT), 1, 'Red')
 
     def protect(self):
         """
         Switch protected parameter.
         """
         self.protected = not self.protected
-
 
     def update_pos(self):
         """
@@ -528,7 +524,6 @@ class Player(Moving_item):
         elif self.pos.y > Pong.HEIGHT - 1 - Player.HALF_HEIGHT:
             self.pos.y = Pong.HEIGHT - 1 - Player.HALF_HEIGHT
 
-
     def update_vel(self):
         """
         If self.vel == 0 and a key is down
@@ -539,8 +534,6 @@ class Player(Moving_item):
                 self.vel.y = -Player.SPEED
             elif self.key_down_active:
                 self.vel.y = Player.SPEED
-
-
 
 
 # Event handlers
@@ -556,20 +549,27 @@ def draw(c):
     Event handler to draw all items.
     """
     # Mid line
-    c.draw_line((Pong.HALF_WIDTH, 0), (Pong.HALF_WIDTH, Pong.HEIGHT), 1, 'White')
+    c.draw_line((Pong.HALF_WIDTH, 0), (Pong.HALF_WIDTH, Pong.HEIGHT),
+                1, 'White')
 
     # Gutters
-    c.draw_line((Player.WIDTH, 0), (Player.WIDTH, Pong.HEIGHT), 1, ('Red' if pong.players[0].protected
-                                                                    else 'White'))
+    c.draw_line((Player.WIDTH, 0), (Player.WIDTH, Pong.HEIGHT),
+                1, ('Red' if pong.players[0].protected
+                    else 'White'))
     x = Pong.WIDTH - 1 - Player.WIDTH
-    c.draw_line((x, 0), (x, Pong.HEIGHT), 1, ('Red' if pong.players[1].protected
-                                              else 'White'))
+    c.draw_line((x, 0), (x, Pong.HEIGHT),
+                1, ('Red' if pong.players[1].protected
+                    else 'White'))
 
     # Scores
     SIZE = 60
     s = str(pong.players[0].score)
-    c.draw_text(s, (Pong.HALF_WIDTH - 100 - frame.get_canvas_textwidth(s, SIZE), 100), SIZE, 'Green')
-    c.draw_text(str(pong.players[1].score), (Pong.HALF_WIDTH + 100, 100), SIZE, 'Green')
+    c.draw_text(s,
+                (Pong.HALF_WIDTH - 100 - frame.get_canvas_textwidth(s, SIZE),
+                 100),
+                SIZE, 'Green')
+    c.draw_text(str(pong.players[1].score), (Pong.HALF_WIDTH + 100, 100),
+                SIZE, 'Green')
 
     if not pong.paused:
         # Players
@@ -582,7 +582,6 @@ def draw(c):
             ball.update_pos()
             ball.draw(c)
             ball.check_collision()
-
 
 
 def keydown(key):
@@ -686,23 +685,28 @@ def restart():
     protect_left()
 
 
-
 # Create frame
 frame = simplegui.create_frame('Pong', Pong.WIDTH, Pong.HEIGHT)
 
 # Sounds
-sound_balls_collision = simplegui.load_sound('http://rpg.hamsterrepublic.com/wiki-images/7/72/Metal_Hit.ogg')
-sound_bounce_border = simplegui.load_sound('http://rpg.hamsterrepublic.com/wiki-images/2/21/Collision8-Bit.ogg')
-sound_bounce_paddle = simplegui.load_sound('http://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg')
-sound_lost = simplegui.load_sound('http://rpg.hamsterrepublic.com/wiki-images/d/db/Crush8-Bit.ogg')
+sound_balls_collision = simplegui.load_sound(
+    'http://rpg.hamsterrepublic.com/wiki-images/7/72/Metal_Hit.ogg')
+sound_bounce_border = simplegui.load_sound(
+    'http://rpg.hamsterrepublic.com/wiki-images/2/21/Collision8-Bit.ogg')
+sound_bounce_paddle = simplegui.load_sound(
+    'http://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg')
+sound_lost = simplegui.load_sound(
+    'http://rpg.hamsterrepublic.com/wiki-images/d/db/Crush8-Bit.ogg')
 
 # Register event handlers
 frame.add_button('Restart', restart, 200)
 frame.add_label('')
 button_pause = frame.add_button('Pause on', pause, 200)
 frame.add_label('')
-button_protect_left = frame.add_button('Protect left player', protect_left, 200)
-button_protect_right = frame.add_button('Protect right player', protect_right, 200)
+button_protect_left = frame.add_button('Protect left player',
+                                       protect_left, 200)
+button_protect_right = frame.add_button('Protect right player',
+                                        protect_right, 200)
 frame.add_label('')
 frame.add_button('Add ball', add_ball, 200)
 frame.add_label('')
