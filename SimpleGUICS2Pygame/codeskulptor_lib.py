@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor_lib (June 19, 2013)
+codeskulptor_lib (June 22, 2013)
 
 Some miscellaneous functions to help in CodeSkulptor.
 
@@ -12,9 +12,11 @@ GPLv3 --- Copyright (C) 2013 Olivier Pirson
 http://www.opimedia.be/
 """
 
-def assert_position(position, non_negative = False, non_zero = False):
+
+def assert_position(position, non_negative=False, non_zero=False):
     """
-    Assertions to check valid `position`: (int or float, int or float) or [int or float, int or float].
+    Assertions to check valid `position`:
+    (int or float, int or float) or [int or float, int or float].
 
     If non_negative
     then each `int` or `float` must be >= 0.
@@ -28,11 +30,14 @@ def assert_position(position, non_negative = False, non_zero = False):
     assert isinstance(non_negative, bool), type(non_negative)
     assert isinstance(non_zero, bool), type(non_zero)
 
-    assert isinstance(position, tuple) or isinstance(position, list), type(position)
+    assert isinstance(position, tuple) or isinstance(position, list), \
+        type(position)
     assert len(position) == 2, len(position)
 
-    assert isinstance(position[0], int) or isinstance(position[0], float), type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), type(position[1])
+    assert isinstance(position[0], int) or isinstance(position[0], float), \
+        type(position[0])
+    assert isinstance(position[1], int) or isinstance(position[1], float), \
+        type(position[1])
 
     if non_negative:
         assert position[0] >= 0, position
@@ -59,7 +64,7 @@ def codeskulptor_is():
         return False
 
 
-def hex2(n, uppercase = True):
+def hex2(n, uppercase=True):
     """
     Return 2 characters corresponding to the hexadecimal representation of `n`.
 
@@ -72,10 +77,10 @@ def hex2(n, uppercase = True):
     assert 0 <= n < 256
     assert isinstance(uppercase, bool), type(uppercase)
 
-    return hex_fig(n//16) + hex_fig(n%16)
+    return hex_fig(n//16) + hex_fig(n % 16)
 
 
-def hex_fig(n, uppercase = True):
+def hex_fig(n, uppercase=True):
     """
     Return the hexadecimal figure of `n`.
 
@@ -95,7 +100,7 @@ def hex_fig(n, uppercase = True):
 
 
 def rgba(red, green, blue,
-         alpha = 1):
+         alpha=1):
     """
     Return the string HTML representation of the color
     in 'rgba(red,blue,green,alpha)' format.
@@ -117,4 +122,5 @@ def rgba(red, green, blue,
     assert 0 <= alpha <= 1
 
     return 'rgba(%d, %d, %d, %s)' % (red, green, blue,
-                                     str(alpha))  # to avoid CodeSkulptor %f bug on Firefox!
+                                     # To avoid CodeSkulptor %f bug on Firefox!
+                                     str(alpha))

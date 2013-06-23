@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw text. (June 19, 2013)
+Test draw text. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -24,6 +24,8 @@ except:
 
     SIMPLEGUICS2PYGAME = True
 
+    simplegui.Frame._hide_status = True
+
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
@@ -39,12 +41,10 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test text'
 
 WIDTH = 800
 HEIGHT = 300
-
 
 
 def draw(canvas):
@@ -64,7 +64,7 @@ def draw(canvas):
     text = 'Text'
     y = 120
 
-    canvas.draw_text(text, (  0, y), size, 'rgba(255,255,255,.5)')
+    canvas.draw_text(text, (0, y), size, 'rgba(255,255,255,.5)')
     canvas.draw_text(text, (200, y), size, 'White', 'serif')
     canvas.draw_text(text, (400, y), size, 'White', 'sans-serif')
     canvas.draw_text(text, (600, y), size, 'White', 'monospace')
@@ -72,7 +72,7 @@ def draw(canvas):
     text = 'Text'
     y = 240
 
-    canvas.draw_text(text, (  0, y), size, 'rgba(255,255,255,.5)')
+    canvas.draw_text(text, (0, y), size, 'rgba(255,255,255,.5)')
     canvas.draw_text(text, (200, y), size, 'White', 'serif')
     canvas.draw_text(text, (400, y), size, 'White', 'sans-serif')
     canvas.draw_text(text, (600, y), size, 'White', 'monospace')
@@ -81,29 +81,28 @@ def draw(canvas):
 
     draw_text_side(frame, canvas,
                    'Left top', (0, 0), size, 'Red',
-                   rectangle_color = 'Orange',
-                   side_x = -1, side_y = -1)
+                   rectangle_color='Orange',
+                   side_x=-1, side_y=-1)
 
     draw_text_side(frame, canvas,
                    'Left bottom', (0, HEIGHT - 1), size, 'Red',
-                   rectangle_color = 'Orange',
-                   side_x = -1, side_y = 1)
+                   rectangle_color='Orange',
+                   side_x=-1, side_y=1)
 
     draw_text_side(frame, canvas,
                    'Right top', (WIDTH - 1, 0), size, 'Red',
-                   rectangle_color = 'Orange',
-                   side_x = 1, side_y = -1)
+                   rectangle_color='Orange',
+                   side_x=1, side_y=-1)
 
     draw_text_side(frame, canvas,
                    'Right bottom', (WIDTH - 1, HEIGHT - 1), size, 'Red',
-                   rectangle_color = 'Orange',
-                   side_x = 1, side_y = 1)
+                   rectangle_color='Orange',
+                   side_x=1, side_y=1)
 
     draw_text_side(frame, canvas,
                    'Center', (WIDTH/2, HEIGHT/2), size, 'Red',
-                   rectangle_color = 'Orange', rectangle_fill_color = 'Yellow',
-                   side_x = 0, side_y = 0)
-
+                   rectangle_color='Orange', rectangle_fill_color='Yellow',
+                   side_x=0, side_y=0)
 
 
 # Main

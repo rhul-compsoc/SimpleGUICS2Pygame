@@ -5,7 +5,7 @@
 Module
   to make_img_snd_links.py
   and make_prog_links.py .
-(June 13, 2013)
+(June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -17,9 +17,7 @@ http://www.opimedia.be/
 from __future__ import print_function
 
 
-
 import os.path
-
 
 
 def print_html_list_img(data, dest_file):
@@ -31,7 +29,7 @@ def print_html_list_img(data, dest_file):
     """
     assert isinstance(data, list), type(data)
 
-    print('<ul>', file = dest_file)
+    print('<ul>', file=dest_file)
 
     for items in data:
         assert isinstance(items, list), type(items)
@@ -44,7 +42,7 @@ def print_html_list_img(data, dest_file):
 
         print("""  <li>
     {}
-    <div class="images">""".format(items[0]), file = dest_file)
+    <div class="images">""".format(items[0]), file=dest_file)
 
         for url, info, info2 in items[1:]:
             assert isinstance(url, str), type(url)
@@ -55,12 +53,12 @@ def print_html_list_img(data, dest_file):
 
             print("""      <a class="image" href="{0}" target="_blank" onmouseover="img_load(this, '{0}');"><img src="#" alt="[Loading&hellip;]"><span class="size"><span></span></span>
         {1}
-      </a>""".format(url, info), file = dest_file)
+      </a>""".format(url, info), file=dest_file)
 
         print("""    </div>
-  </li>""", file = dest_file)
+  </li>""", file=dest_file)
 
-    print('</ul>', file = dest_file)
+    print('</ul>', file=dest_file)
 
 
 def print_html_list_link(data, dest_file):
@@ -72,7 +70,7 @@ def print_html_list_link(data, dest_file):
     """
     assert isinstance(data, list), type(data)
 
-    print('<ul>', file = dest_file)
+    print('<ul>', file=dest_file)
 
     for items in data:
         assert isinstance(items, list), type(items)
@@ -85,7 +83,7 @@ def print_html_list_link(data, dest_file):
 
         print("""  <li>
     {}
-    <div class="progs">""".format(items[0]), file = dest_file)
+    <div class="progs">""".format(items[0]), file=dest_file)
 
         for url, info, info2 in items[1:]:
             assert isinstance(url, str), type(url)
@@ -97,12 +95,12 @@ def print_html_list_link(data, dest_file):
             print("""      <div class="prog">
         <a href="{0}" target="_blank">{1}</a>{2}
       </div>""".format(url, info, ('<span class="info2-attention">&hellip;</span> <div class="info2">{}</div>'.format(info2) if info2 != ''
-                                   else '')), file = dest_file)
+                                   else '')), file=dest_file)
 
         print("""    </div>
-  </li>""", file = dest_file)
+  </li>""", file=dest_file)
 
-    print('</ul>', file = dest_file)
+    print('</ul>', file=dest_file)
 
 
 def print_html_list_snd(data, dest_file):
@@ -114,7 +112,7 @@ def print_html_list_snd(data, dest_file):
     """
     assert isinstance(data, list), type(data)
 
-    print('<ul>', file = dest_file)
+    print('<ul>', file=dest_file)
 
     for items in data:
         assert isinstance(items, list), type(items)
@@ -127,7 +125,7 @@ def print_html_list_snd(data, dest_file):
 
         print("""  <li>
     {}
-    <div class="sounds">""".format(items[0]), file = dest_file)
+    <div class="sounds">""".format(items[0]), file=dest_file)
 
         for url, info, info2 in items[1:]:
             assert isinstance(url, str), type(url)
@@ -139,12 +137,12 @@ def print_html_list_snd(data, dest_file):
             print("""      <div class="sound">
         <a href="{0}" target="_blank">{1}</a>
         <audio src="{0}" controls="controls"></audio>
-      </div>""".format(url, info), file = dest_file)
+      </div>""".format(url, info), file=dest_file)
 
         print("""    </div>
-  </li>""", file = dest_file)
+  </li>""", file=dest_file)
 
-    print('</ul>', file = dest_file)
+    print('</ul>', file=dest_file)
 
 
 def read_txt(filename):

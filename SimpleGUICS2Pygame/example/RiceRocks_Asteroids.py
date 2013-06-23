@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mini-project #8 - RiceRocks (Asteroids) (June 19, 2013)
+RiceRocks (Asteroids) (June 22, 2013)
 
 My solution (slightly retouched) of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user16_Qpss15rD1ETZL7l import Loader
+    from user16_v0hIgQGF5JqtOUQ import Loader
 
     import simplegui
 except:
@@ -35,13 +35,11 @@ except:
     simplegui.Frame._hide_status = True
 
 
-
 #
 # Global constants
 ###################
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-
 
 
 #
@@ -50,7 +48,6 @@ SCREEN_HEIGHT = 600
 frame = None
 
 ricerock = None
-
 
 
 #
@@ -64,14 +61,15 @@ def angle_to_vector(angle):
 
     :return: (-1 <= float <= 1, -1 <= float <= 1)
     """
-    #assert isinstance(angle, int) or isinstance(angle, float), type(angle)
+    assert isinstance(angle, int) or isinstance(angle, float), type(angle)
 
     return (math.cos(angle), math.sin(angle))
 
 
-def assert_position(position, non_negative = False, non_zero = False):
+def assert_position(position, non_negative=False, non_zero=False):
     """
-    Assertions to check valid position: (int or float, int or float) or [int or float, int or float].
+    Assertions to check valid position:
+    (int or float, int or float) or [int or float, int or float].
 
     If non_negative
     then each int or float must be >= 0.
@@ -85,11 +83,14 @@ def assert_position(position, non_negative = False, non_zero = False):
     assert isinstance(non_negative, bool), type(non_negative)
     assert isinstance(non_zero, bool), type(non_zero)
 
-    assert isinstance(position, tuple) or isinstance(position, list), type(position)
+    assert isinstance(position, tuple) or isinstance(position, list), \
+        type(position)
     assert len(position) == 2, len(position)
 
-    assert isinstance(position[0], int) or isinstance(position[0], float), type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), type(position[1])
+    assert isinstance(position[0], int) or isinstance(position[0], float), \
+        type(position[0])
+    assert isinstance(position[1], int) or isinstance(position[1], float), \
+        type(position[1])
 
     if non_negative:
         assert position[0] >= 0, position
@@ -98,7 +99,6 @@ def assert_position(position, non_negative = False, non_zero = False):
     if non_zero:
         assert position[0] != 0, position
         assert position[1] != 0, position
-
 
 
 #
@@ -124,11 +124,11 @@ class RiceRocks:
         self.time = 0.5
 
         self.explosions = []
+        self.live_explosions = []
         self.missiles = []
         self.rocks = []
 
         self.timer = simplegui.create_timer(1000, self.rock_spawner)
-
 
     def bomb_explode(self):
         """
@@ -145,7 +145,6 @@ class RiceRocks:
                                               'asteroid_explosion'))
             self.rocks = []
 
-
     def draw_and_update(self, canvas):
         """
         Draw and update all stuffs in each FPS cycle.
@@ -156,23 +155,28 @@ class RiceRocks:
 
         # Draw static background
         canvas.draw_image(self.medias.get_image('nebula'),
-                          self.img_infos['nebula'].get_center(), self.img_infos['nebula'].get_size(),
-                          (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (SCREEN_WIDTH, SCREEN_HEIGHT))
-
+                          self.img_infos['nebula'].get_center(),
+                          self.img_infos['nebula'].get_size(),
+                          (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                          (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw animated background
         center = self.img_infos['debris'].get_center()
         size = self.img_infos['debris'].get_size()
 
-        y_offset = (self.time/8.0)%center[1]
+        y_offset = (self.time/8.0) % center[1]
 
         canvas.draw_image(self.medias.get_image('debris'),
-                          (center[0], center[1] - y_offset), (size[0], size[1] - 2*y_offset),
-                          (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0 + 1.25*y_offset), (SCREEN_WIDTH, SCREEN_HEIGHT - 2.5*y_offset))
+                          (center[0], center[1] - y_offset),
+                          (size[0], size[1] - 2*y_offset),
+                          (SCREEN_WIDTH/2.0,
+                           SCREEN_HEIGHT/2.0 + 1.25*y_offset),
+                          (SCREEN_WIDTH, SCREEN_HEIGHT - 2.5*y_offset))
         canvas.draw_image(self.medias.get_image('debris'),
-                          (center[0], size[1] - y_offset), (size[0], 2*y_offset),
-                          (SCREEN_WIDTH/2.0, 1.25*y_offset), (SCREEN_WIDTH, 2.5*y_offset))
-
+                          (center[0], size[1] - y_offset),
+                          (size[0], 2*y_offset),
+                          (SCREEN_WIDTH/2.0, 1.25*y_offset),
+                          (SCREEN_WIDTH, 2.5*y_offset))
 
         # Draw missiles, ship, asteroids and explosions
         for missile in self.missiles:
@@ -192,10 +196,8 @@ class RiceRocks:
             if explosion.lifespan <= 0:  # explosion finished
                 del self.explosions[i]
 
-
         # Update ship
         self.my_ship.update()
-
 
         # Update missiles
         for i in range(len(self.missiles) - 1, -1, -1):
@@ -205,7 +207,8 @@ class RiceRocks:
             if missile.lifespan <= 0:  # missile disappear
                 del self.missiles[i]
             else:                      # active missile
-                for j in range(len(self.rocks) - 1, -1, -1):  # check collide with asteroids
+                for j in range(len(self.rocks) - 1, -1, -1):
+                    # Check collide with asteroids
                     rock = self.rocks[j]
 
                     if missile.collide(rock):  # collide
@@ -213,17 +216,19 @@ class RiceRocks:
                         del self.rocks[j]
 
                         self.score += 1
-                        if self.score%10 == 0:
+                        if self.score % 10 == 0:  # add a new bomb
                             self.nb_bombs += 1
                             self.medias.get_sound('bomb_extra').rewind()
                             self.medias.get_sound('bomb_extra').play()
+                            if self.score % 100 == 0:  # add a new live
+                                self.lives += 1
 
-                        self.explosions.append(Sprite(rock.position, rock.velocity,
+                        self.explosions.append(Sprite(rock.position,
+                                                      rock.velocity,
                                                       0, rock.angle_velocity,
                                                       'asteroid_explosion'))
 
                         break
-
 
         # Update asteroids
         for i in range(len(self.rocks) - 1, -1, -1):
@@ -236,20 +241,28 @@ class RiceRocks:
                 self.explosions.append(Sprite(rock.position, rock.velocity,
                                               0, rock.angle_velocity,
                                               'asteroid_collide_explosion'))
+                self.live_explosions.append(Sprite((self.lives*40, 40),
+                                                   (0, 0),
+                                                   -math.pi/2, 0,
+                                                   'live_explosion'))
 
                 self.lives = max(0, self.lives - 1)
                 if self.lives <= 0:  # game over
                     self.stop()
 
-                    self.explosions.append(Sprite(self.my_ship.position, self.my_ship.velocity,
-                                                  0, self.my_ship.angle_velocity,
+                    self.explosions.append(Sprite(self.my_ship.position,
+                                                  self.my_ship.velocity,
+                                                  0,
+                                                  self.my_ship.angle_velocity,
                                                   'ship_explosion'))
 
                     self.medias.get_sound('death').rewind()
                     self.medias.get_sound('death').play()
 
                     break
-
+                else:
+                    self.medias.get_sound('collide').rewind()
+                    self.medias.get_sound('collide').play()
 
         # Display number of lives
         if self.started:
@@ -260,6 +273,18 @@ class RiceRocks:
                                   (40 + i*40, 40), (40, 40),
                                   -math.pi/2)
 
+        # Draw and update live explosions
+        for i in range(len(self.live_explosions) - 1, -1, -1):
+            live_explosion = self.live_explosions[i]
+
+            canvas.draw_image(live_explosion.image,
+                              live_explosion.image_center,
+                              live_explosion.image_size,
+                              live_explosion.position, (40, 40),
+                              -math.pi/2)
+            live_explosion.update()
+            if live_explosion.lifespan <= 0:  # explosion finished
+                del self.live_explosions[i]
 
         # Display number of bombs
         if self.started and self.nb_bombs:
@@ -270,7 +295,6 @@ class RiceRocks:
                                   (40 + i*40, 80), (20, 40),
                                   -math.pi/2)
 
-
         # Display score
         size = 36
         font = 'sans-serif'
@@ -280,12 +304,15 @@ class RiceRocks:
         s2 = str(self.score)
         width2 = frame.get_canvas_textwidth(s2, size, font)
 
-        canvas.draw_text(s1, (SCREEN_WIDTH - 22 - width1, 22 + size*3.0/4), size, 'Gray', font)
-        canvas.draw_text(s2, (SCREEN_WIDTH - 22 - width2, 22 + size*7.0/4), size, 'Gray', font)
+        canvas.draw_text(s1, (SCREEN_WIDTH - 22 - width1, 22 + size*3.0/4),
+                         size, 'Gray', font)
+        canvas.draw_text(s2, (SCREEN_WIDTH - 22 - width2, 22 + size*7.0/4),
+                         size, 'Gray', font)
 
-        canvas.draw_text(s1, (SCREEN_WIDTH - 20 - width1, 20 + size*3.0/4), size, 'White', font)
-        canvas.draw_text(s2, (SCREEN_WIDTH - 20 - width2, 20 + size*7.0/4), size, 'White', font)
-
+        canvas.draw_text(s1, (SCREEN_WIDTH - 20 - width1, 20 + size*3.0/4),
+                         size, 'White', font)
+        canvas.draw_text(s2, (SCREEN_WIDTH - 20 - width2, 20 + size*7.0/4),
+                         size, 'White', font)
 
         # Draw splash screen if game not started
         if not self.started:
@@ -293,8 +320,6 @@ class RiceRocks:
             canvas.draw_image(self.medias.get_image('splash'),
                               self.img_infos['splash'].get_center(), size,
                               (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), size)
-
-
 
     def load_medias(self):
         """
@@ -304,16 +329,22 @@ class RiceRocks:
         self.img_infos = {'asteroid-1': ImageInfo((45, 45), (90, 90), 40),
                           'asteroid-2': ImageInfo((45, 45), (90, 90), 40),
                           'asteroid-3': ImageInfo((45, 45), (90, 90), 38),
-                          'asteroid_explosion': ImageInfo((64, 64), (128, 128), 17, 24, True),
-                          'asteroid_collide_explosion': ImageInfo((64, 64), (128, 128), 17, 24, True),
+                          'asteroid_explosion': ImageInfo((64, 64), (128, 128),
+                                                          17, 24, True),
+                          'asteroid_collide_explosion': ImageInfo((64, 64),
+                                                                  (128, 128),
+                                                                  17, 24,
+                                                                  True),
                           'bomb': ImageInfo((10, 10), (20, 20)),
                           'debris': ImageInfo((320, 240), (640, 480)),
+                          'live_explosion': ImageInfo((64, 64), (128, 128),
+                                                      17, 24, True),
                           'missile': ImageInfo((5, 5), (10, 10), 3, 50),
                           'nebula': ImageInfo((400, 300), (800, 600)),
                           'ship': ImageInfo((45, 45), (90, 90), 35),
-                          'ship_explosion': ImageInfo((64, 64), (128, 128), 17, 24, True),
+                          'ship_explosion': ImageInfo((64, 64), (128, 128),
+                                                      17, 24, True),
                           'splash': ImageInfo((200, 150), (400, 300))}
-
 
         self.medias = Loader()
 
@@ -343,7 +374,6 @@ class RiceRocks:
         self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/splash.png',
                               'splash')
 
-
         # Sounds from http://www.sounddogs.com/ (not free)
         self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/explosion.ogg',
                               'asteroid_explosion')
@@ -351,6 +381,8 @@ class RiceRocks:
                               'bomb_explode')
         self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/extralife.ogg',
                               'bomb_extra')
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/eatedible.ogg',
+                              'collide')
         self.medias.add_sound('http://rpg.hamsterrepublic.com/wiki-images/5/58/Death.ogg',
                               'death')
         self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
@@ -362,9 +394,7 @@ class RiceRocks:
         self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',
                               'ship_thrust')
 
-
         self.medias.load()
-
 
         def init():
             """
@@ -372,7 +402,8 @@ class RiceRocks:
             """
             self.medias.get_sound('missile').set_volume(.5)
 
-            self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0), -math.pi/2, 'ship')
+            self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
+                                -math.pi/2, 'ship')
 
             frame.set_draw_handler(self.draw_and_update)
 
@@ -383,13 +414,15 @@ class RiceRocks:
 
             self.medias.get_sound('intro').play()
 
-            self.medias._sounds['asteroid_collide_explosion'] = self.medias._sounds['asteroid_explosion']
+            self.medias._images['live_explosion'] = \
+                self.medias._images['ship_explosion']
+
+            self.medias._sounds['asteroid_collide_explosion'] = \
+                self.medias._sounds['asteroid_explosion']
 
             self.loaded = True
 
-
         self.medias.wait_loaded(frame, SCREEN_WIDTH, init)
-
 
     def rock_spawner(self):
         """
@@ -403,7 +436,9 @@ class RiceRocks:
                 """
                 :return: int or float
                 """
-                return min(10, (random.random()*0.3*(self.score/2 + 1)))*random.choice((-1, 1))
+                return min(10,
+                           (random.random()*0.3*(
+                            self.score/2 + 1)))*random.choice((-1, 1))
 
             while too_close:
                 rock_pos = (random.randrange(0, SCREEN_WIDTH),
@@ -415,10 +450,10 @@ class RiceRocks:
                 rock = Sprite(rock_pos, rock_vel,
                               0, rock_ang_vel,
                               'asteroid-' + str(random.randint(1, 3)))
-                too_close = self.my_ship.distance(rock) < (self.my_ship.radius + rock.radius)*1.5
+                too_close = (self.my_ship.distance(rock)
+                             < (self.my_ship.radius + rock.radius)*1.5)
 
             self.rocks.append(rock)
-
 
     def start(self):
         """
@@ -433,7 +468,8 @@ class RiceRocks:
         self.nb_bombs = 0
         self.score = 0
 
-        self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0), -math.pi/2, 'ship')
+        self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
+                            -math.pi/2, 'ship')
 
         self.explosions = []
         self.missiles = []
@@ -443,7 +479,6 @@ class RiceRocks:
         self.rock_spawner()
 
         self.started = True
-
 
     def stop(self):
         """
@@ -464,38 +499,43 @@ class RiceRocks:
         self.medias.get_sound('intro').play()
 
 
-
 class ImageInfo:
     """
     Informations to use with Sprite.
     """
-    def __init__(self, center, size, radius = None, lifespan = None, animated = False):
+    def __init__(self, center, size,
+                 radius=None, lifespan=None, animated=False):
         """
         Set informations.
 
-        If radius == None
+        If radius is None
         then use maximum of size components.
 
-        :param center: (int or float, int or float) or [int or float, int or float]
-        :param size: ((int or float) > 0, (int or float) > 0) or [(int or float) > 0, (int or float) > 0]
+        :param center: (int or float, int or float)
+                       or [int or float, int or float]
+        :param size: ((int or float) > 0, (int or float) > 0)
+                     or [(int or float) > 0, (int or float) > 0]
         :param radius: None or ((int or float) > 0)
         :param lifespan: None or ((int or float) > 0)
         :param animated: bool
         """
-        #assert_position(center)
-        #assert_position(size, True, True)
-        #assert (radius == None) or ((isinstance(radius, int) or isinstance(radius, float)) and (radius > 0)), radius
-        #assert (lifespan == None) or ((isinstance(lifespan, int) or isinstance(lifespan, float)) and (lifespan > 0)), lifespan
-        #assert isinstance(animated, bool), type(animated)
+        assert_position(center)
+        assert_position(size, True, True)
+        assert ((radius is None)
+                or ((isinstance(radius, int) or isinstance(radius, float))
+                    and (radius > 0))), radius
+        assert ((lifespan is None)
+                or ((isinstance(lifespan, int) or isinstance(lifespan, float))
+                    and (lifespan > 0))), lifespan
+        assert isinstance(animated, bool), type(animated)
 
         self._center = list(center)
         self._size = list(size)
-        self._radius = (max(size) if radius == None
+        self._radius = (max(size) if radius is None
                         else radius)
         self._lifespan = (lifespan if lifespan
                           else float('inf'))
         self._animated = animated
-
 
     def get_animated(self):
         """
@@ -507,7 +547,6 @@ class ImageInfo:
         """
         return self._animated
 
-
     def get_center(self):
         """
         Return position of the center of image.
@@ -515,7 +554,6 @@ class ImageInfo:
         :return: [int or float, int or float]
         """
         return list(self._center)
-
 
     def get_lifespan(self):
         """
@@ -525,7 +563,6 @@ class ImageInfo:
         """
         return self._lifespan
 
-
     def get_radius(self):
         """
         Return radius of image.
@@ -534,7 +571,6 @@ class ImageInfo:
         """
         return self._radius
 
-
     def get_size(self):
         """
         Return size of image.
@@ -542,7 +578,6 @@ class ImageInfo:
         :return: [(int or float) > 0, (int or float) > 0]
         """
         return list(self._size)
-
 
 
 class Sprite:
@@ -555,16 +590,19 @@ class Sprite:
         """
         Set sprite.
 
-        :param position: (int or float, int or float) or [int or float, int or float]
-        :param velocity: (int or float, int or float) or [int or float, int or float]
+        :param position: (int or float, int or float)
+                         or [int or float, int or float]
+        :param velocity: (int or float, int or float)
+                         or [int or float, int or float]
         :param angle: int or float
         :param media_name: str
         """
-        #assert_position(position)
-        #assert_position(velocity)
-        #assert isinstance(angle, int) or isinstance(angle, float), type(angle)
-        #assert isinstance(angle_velocity, int) or isinstance(angle_velocity, float), type(angle_velocity)
-        #assert isinstance(media_name, str), type(media_name)
+        assert_position(position)
+        assert_position(velocity)
+        assert isinstance(angle, int) or isinstance(angle, float), type(angle)
+        assert (isinstance(angle_velocity, int)
+                or isinstance(angle_velocity, float)), type(angle_velocity)
+        assert isinstance(media_name, str), type(media_name)
 
         if media_name in ricerocks.medias._sounds:
             sound = ricerocks.medias.get_sound(media_name)
@@ -584,7 +622,6 @@ class Sprite:
         self.lifespan = img_info.get_lifespan()
         self.radius = img_info.get_radius()
 
-
     def collide(self, other_sprite):
         """
         If this sprite collide with other_sprite
@@ -595,11 +632,11 @@ class Sprite:
 
         :return: bool
         """
-        #assert isinstance(other_sprite, Sprite), type(other_sprite)
+        assert isinstance(other_sprite, Sprite), type(other_sprite)
 
-        return ((self.position[0] - other_sprite.position[0])**2 + (self.position[1] - other_sprite.position[1])**2
+        return ((self.position[0] - other_sprite.position[0])**2
+                + (self.position[1] - other_sprite.position[1])**2
                 <= (self.radius + other_sprite.radius)**2)
-
 
     def distance(self, other_sprite):
         """
@@ -609,10 +646,10 @@ class Sprite:
 
         :return: float
         """
-        #assert isinstance(other_sprite, Sprite), type(other_sprite)
+        assert isinstance(other_sprite, Sprite), type(other_sprite)
 
-        return math.sqrt((self.position[0] - other_sprite.position[0])**2 + (self.position[1] - other_sprite.position[1])**2)
-
+        return math.sqrt((self.position[0] - other_sprite.position[0])**2
+                         + (self.position[1] - other_sprite.position[1])**2)
 
     def draw(self, canvas):
         """
@@ -630,7 +667,6 @@ class Sprite:
             # Useful to debug
             canvas.draw_circle(self.position, self.radius, 1, 'Red', 'Red')
 
-
     def update(self):
         """
         Update position adding velocity,
@@ -639,16 +675,17 @@ class Sprite:
         """
         self.angle += self.angle_velocity
 
-        self.position[0] = (self.position[0] + self.velocity[0])%SCREEN_WIDTH
-        self.position[1] = (self.position[1] + self.velocity[1])%SCREEN_HEIGHT
+        self.position[0] = (self.position[0]
+                            + self.velocity[0]) % SCREEN_WIDTH
+        self.position[1] = (self.position[1]
+                            + self.velocity[1]) % SCREEN_HEIGHT
 
-        if self.lifespan != None:
+        if self.lifespan is not None:
             self.lifespan -= 1
             if self.animated:  # change the current image
-                #assert self.image_center[0] < self.image.get_width()
+                assert self.image_center[0] < self.image.get_width()
 
                 self.image_center[0] += self.image_size[0]
-
 
 
 class Ship(Sprite):
@@ -660,15 +697,17 @@ class Ship(Sprite):
         """
         Set ship sprite.
 
-        :param position: (int or float, int or float) or [int or float, int or float]
-        :param velocity: (int or float, int or float) or [int or float, int or float]
+        :param position: (int or float, int or float)
+                         or [int or float, int or float]
+        :param velocity: (int or float, int or float)
+                         or [int or float, int or float]
         :param angle: int or float
         :param media_name: str
         """
-        #assert_position(position)
-        #assert_position(velocity)
-        #assert isinstance(angle, int) or isinstance(angle, float), type(angle)
-        #assert isinstance(media_name, str), type(media_name)
+        assert_position(position)
+        assert_position(velocity)
+        assert isinstance(angle, int) or isinstance(angle, float), type(angle)
+        assert isinstance(media_name, str), type(media_name)
 
         Sprite.__init__(self, position, velocity, angle,
                         0,
@@ -676,13 +715,11 @@ class Ship(Sprite):
 
         self.thrust = False
 
-
     def flip(self):
         """
         Flip the ship.
         """
         self.angle += math.pi
-
 
     def shoot(self):
         """
@@ -690,11 +727,15 @@ class Ship(Sprite):
         """
         v = angle_to_vector(ricerocks.my_ship.angle)
 
-        ricerocks.missiles.append(Sprite((ricerocks.my_ship.position[0] + ricerocks.my_ship.radius*v[0], ricerocks.my_ship.position[1] + ricerocks.my_ship.radius*v[1]),
-                                         (ricerocks.my_ship.velocity[0] + v[0]*6, ricerocks.my_ship.velocity[1] + v[1]*6),
-                                         self.angle, 0,
-                                         'missile'))
-
+        ricerocks.missiles.append(
+            Sprite((ricerocks.my_ship.position[0]
+                    + ricerocks.my_ship.radius*v[0],
+                    ricerocks.my_ship.position[1]
+                    + ricerocks.my_ship.radius*v[1]),
+                   (ricerocks.my_ship.velocity[0] + v[0]*6,
+                    ricerocks.my_ship.velocity[1] + v[1]*6),
+                   self.angle, 0,
+                   'missile'))
 
     def stop(self):
         """
@@ -704,7 +745,6 @@ class Ship(Sprite):
         if self.thrust:
             self.thrust_on_off()
 
-
     def thrust_on_off(self):
         """
         Switch activation of thrust.
@@ -713,11 +753,12 @@ class Ship(Sprite):
 
         if self.thrust:
             ricerocks.medias.get_sound('ship_thrust').play()
-            self.image_center[0] += self.image_size[0]  # sprite image with actif thrust
+            # Sprite image with actif thrust
+            self.image_center[0] += self.image_size[0]
         else:
             ricerocks.medias.get_sound('ship_thrust').rewind()
-            self.image_center[0] -= self.image_size[0]  # sprite image with inactif thrust
-
+            # Sprite image with inactif thrust
+            self.image_center[0] -= self.image_size[0]
 
     def turn(self, right):
         """
@@ -726,12 +767,11 @@ class Ship(Sprite):
 
         :param right: None or Bool
         """
-        #assert (right == None) or isinstance(right, bool), type(right)
+        assert (right is None) or isinstance(right, bool), type(right)
 
         ricerocks.my_ship.angle_velocity = {False: -0.075,
-                                  None: 0,
-                                  True: 0.075}[right]
-
+                                            None: 0,
+                                            True: 0.075}[right]
 
     def update(self):
         """
@@ -745,8 +785,10 @@ class Ship(Sprite):
         self.angle += self.angle_velocity
 
         # Update position
-        self.position[0] = (self.position[0] + self.velocity[0])%SCREEN_WIDTH
-        self.position[1] = (self.position[1] + self.velocity[1])%SCREEN_HEIGHT
+        self.position[0] = (self.position[0]
+                            + self.velocity[0]) % SCREEN_WIDTH
+        self.position[1] = (self.position[1]
+                            + self.velocity[1]) % SCREEN_HEIGHT
 
         # Update velocity
         if self.thrust:
@@ -756,7 +798,6 @@ class Ship(Sprite):
 
         self.velocity[0] *= .99
         self.velocity[1] *= .99
-
 
 
 #
@@ -771,8 +812,12 @@ def click(pos):
     size = ricerocks.img_infos['splash'].get_size()
 
     if ((not ricerocks.started)
-        and (center[0] - size[0]/2.0) < pos[0] < (center[0] + size[0]/2.0)
-        and (center[1] - size[1]/2.0) < pos[1] < (center[1] + size[1]/2.0)):
+            and ((center[0] - size[0]/2.0)
+                 < pos[0]
+                 < (center[0] + size[0]/2.0))
+            and ((center[1] - size[1]/2.0)
+                 < pos[1]
+                 < (center[1] + size[1]/2.0))):
         ricerocks.start()
 
 
@@ -831,17 +876,15 @@ def stop():
         ricerocks.stop()
 
 
-
 #
 # Main
 #######
 if __name__ == '__main__':
-    frame = simplegui.create_frame('RiceRocks (Asteroids)', SCREEN_WIDTH, SCREEN_HEIGHT)
-
+    frame = simplegui.create_frame('RiceRocks (Asteroids)',
+                                   SCREEN_WIDTH, SCREEN_HEIGHT, 150)
 
     ricerocks = RiceRocks()
     ricerocks.load_medias()
-
 
     frame.add_button('Stop this game', stop)
     frame.add_label('')
@@ -853,5 +896,9 @@ if __name__ == '__main__':
     frame.add_label('Fire: Space')
     frame.add_label('Bomb: Z (or W)')
 
+    frame.add_label('')
+    frame.add_label('One bomb for every 10 asteroids destroyed.')
+    frame.add_label('')
+    frame.add_label('One live for every 100 asteroids destroyed.')
 
     frame.start()

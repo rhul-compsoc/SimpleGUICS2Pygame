@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib (June 11, 2013)
+simplegui_lib (June 22, 2013)
 
 Some functions to help in SimpleGUI of CodeSkulptor.
 
@@ -13,7 +13,6 @@ http://www.opimedia.be/
 """
 
 
-
 # Class
 ########
 class Loader:
@@ -22,12 +21,14 @@ class Loader:
     and wait finished.
 
     With SimpleGUICS2Pygame,
-    `load_image()` and `load_sound()` wait automatically until loading is completed.
+    `load_image()` and `load_sound()`
+    wait automatically until loading is completed.
 
     But in CodeSkulptor, the browser load images and sounds asynchronously.
     (With SimpleGUI it is **impossible to verify that the sounds are loaded**.
     So `Loader` begin load sounds, and next begin load images.
-    It wait each image is loaded, and considers that all downloads are completed.)
+    It wait each image is loaded,
+    and considers that all downloads are completed.)
     """
 
     _interval = 100
@@ -42,8 +43,7 @@ class Loader:
         self._images = {}
         self._sounds = {}
 
-
-    def add_image(self, url, name = None):
+    def add_image(self, url, name=None):
         """
         Add an image from `url`
         and give it a name.
@@ -63,13 +63,12 @@ class Loader:
         :param wait: bool
         """
         assert isinstance(url, str), type(url)
-        assert (name == None) or isinstance(name, str), type(name)
+        assert (name is None) or isinstance(name, str), type(name)
 
-        self._images[(url.split('/')[-1] if name == None
+        self._images[(url.split('/')[-1] if name is None
                       else name)] = url
 
-
-    def add_sound(self, url, name = None):
+    def add_sound(self, url, name=None):
         """
         Add a sound from `url`
         and give it a `name`.
@@ -89,11 +88,10 @@ class Loader:
         :param wait: bool
         """
         assert isinstance(url, str), type(url)
-        assert (name == None) or isinstance(name, str), type(name)
+        assert (name is None) or isinstance(name, str), type(name)
 
-        self._sounds[(url.split('/')[-1] if name == None
+        self._sounds[(url.split('/')[-1] if name is None
                       else name)] = url
-
 
     def get_image(self, name):
         """
@@ -103,7 +101,8 @@ class Loader:
 
         :param name: str
 
-        :raise: Exception if Loader.load() was not executed since the addition of this image.
+        :raise: Exception if Loader.load() was not executed
+                since the addition of this image.
 
         :return: None or (simpleguics2pygame.Image or simplegui.Image)
         """
@@ -112,10 +111,11 @@ class Loader:
         image = self._images.get(name)
 
         if isinstance(image, str):
-            raise Exception("load() not executed since the addition of the image '%s'!" % name)
+            raise Exception(
+                "load() not executed since the addition of the image '%s'!"
+                % name)
 
         return image
-
 
     def get_nb_images(self):
         """
@@ -124,7 +124,6 @@ class Loader:
         :return: int >= 0
         """
         return len(self._images)
-
 
     def get_nb_images_loaded(self):
         """
@@ -136,8 +135,8 @@ class Loader:
         :return: int >= 0
         """
         return len([None for name in self._images
-                    if (not isinstance(self._images[name], str)) and (self._images[name].get_width() > 0)])
-
+                    if ((not isinstance(self._images[name], str))
+                        and (self._images[name].get_width() > 0))])
 
     def get_nb_sounds(self):
         """
@@ -146,7 +145,6 @@ class Loader:
         :return: int >= 0
         """
         return len(self._sounds)
-
 
     def get_nb_sounds_loaded(self):
         """
@@ -162,7 +160,6 @@ class Loader:
         return len([None for name in self._sounds
                     if not isinstance(self._sounds[name], str)])
 
-
     def get_sound(self, name):
         """
         If a sound named `name` exist
@@ -171,7 +168,8 @@ class Loader:
 
         :param name: str
 
-        :raise: Exception if load() was not executed since the addition of this sound.
+        :raise: Exception if load() was not executed
+                since the addition of this sound.
 
         :return: None or (simpleguics2pygame.Sound or simplegui.Sound)
         """
@@ -180,10 +178,11 @@ class Loader:
         sound = self._sounds.get(name)
 
         if isinstance(sound, str):
-            raise Exception("load() not executed since the addition of the sound '%s'!" % name)
+            raise Exception(
+                "load() not executed since the addition of the sound '%s'!"
+                % name)
 
         return sound
-
 
     def load(self):
         """
@@ -193,7 +192,8 @@ class Loader:
         try:
             from simplegui import load_image, load_sound
         except:
-            from SimpleGUICS2Pygame.simpleguics2pygame import load_image, load_sound
+            from SimpleGUICS2Pygame.simpleguics2pygame import load_image, \
+                load_sound
 
         for name in self._sounds:
             if isinstance(self._sounds[name], str):
@@ -203,10 +203,11 @@ class Loader:
             if isinstance(self._images[name], str):
                 self._images[name] = load_image(self._images[name])
 
-
-    def wait_loaded(self, frame, progression_bar_width, after_function, max_waiting = 5000):
+    def wait_loaded(self, frame, progression_bar_width,
+                    after_function, max_waiting=5000):
         """
-        Wait all images and sounds are fully loaded, and next execute `after_function`.
+        Wait all images and sounds are fully loaded,
+        and next execute `after_function`.
 
         While waiting, display message and progression bar on canvas of frame.
 
@@ -219,20 +220,23 @@ class Loader:
         :param after_function: function () -> *
         :param max_waiting: (int or float) >= 0
         """
-        assert isinstance(progression_bar_width, int) or isinstance(progression_bar_width, float), type(progression_bar_width)
+        assert (isinstance(progression_bar_width, int)
+                or isinstance(progression_bar_width, float)), \
+            type(progression_bar_width)
         assert progression_bar_width >= 0, progression_bar_width
 
         #assert callable(after_function), type(after_function)
 
-        assert isinstance(max_waiting, int) or isinstance(max_waiting, float), type(max_waiting)
+        assert isinstance(max_waiting, int) or isinstance(max_waiting, float),\
+            type(max_waiting)
         assert max_waiting >= 0, max_waiting
 
-        if ((self.get_nb_images_loaded() == self.get_nb_images()) and (self.get_nb_sounds_loaded() == self.get_nb_sounds())
-            or (max_waiting <= 0)):
+        if (((self.get_nb_images_loaded() == self.get_nb_images())
+             and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
+                or (max_waiting <= 0)):
             after_function()
 
             return
-
 
         def check_if_loaded():
             """
@@ -241,16 +245,16 @@ class Loader:
             """
             self.__max_waiting -= Loader._interval
 
-            if (((self.get_nb_images_loaded() == self.get_nb_images()) and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
-                or (self.__max_waiting <= 0)):
-                self.__max_waiting  = 0
+            if (((self.get_nb_images_loaded() == self.get_nb_images())
+                 and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
+                    or (self.__max_waiting <= 0)):
+                self.__max_waiting = 0
                 self.__timer.stop()
                 frame.set_draw_handler(lambda canvas: None)
 
                 del self.__timer
 
                 after_function()
-
 
         def draw_loading(canvas):
             """
@@ -264,23 +268,27 @@ class Loader:
             size = 30
 
             if (progression_bar_width > 0) and (nb > 0):
-                percent = (self.get_nb_images_loaded() + self.get_nb_sounds_loaded())*100.0/nb
+                percent = (self.get_nb_images_loaded()
+                           + self.get_nb_sounds_loaded())*100.0/nb
 
                 y = 30 + size*3.0/4
-                canvas.draw_line((0, y), (progression_bar_width, y), 20, 'White')
+                canvas.draw_line((0, y),
+                                 (progression_bar_width, y), 20, 'White')
                 if percent > 0:
-                    canvas.draw_line((0, y), (progression_bar_width*percent/100.0, y), 20, 'Green')
+                    canvas.draw_line((0, y),
+                                     (progression_bar_width*percent/100.0, y),
+                                     20, 'Green')
 
             canvas.draw_text('Loading... %d%%' % int(percent),
                              (10, 10 + size*3.0/4),
                              size, 'White')
 
             nb = int(round(self.__max_waiting/1000.0))
-            canvas.draw_text('Cancellation after %d second%s...' % (nb, ('s' if nb > 1
-                                                                         else '')),
+            canvas.draw_text('Cancellation after %d second%s...'
+                             % (nb, ('s' if nb > 1
+                                     else '')),
                              (10, 50 + size*2*3.0/4),
                              size, 'White')
-
 
         self.__max_waiting = max_waiting
 
@@ -294,11 +302,10 @@ class Loader:
         self.__timer.start()
 
 
-
 #
 # Functions
 ############
-def draw_rect(canvas, pos, size, line_width, line_color, fill_color = None):
+def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
     """
     Draw a rectangle.
 
@@ -316,13 +323,16 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color = None):
 
     assert isinstance(size, tuple) or isinstance(size, list), type(size)
     assert len(size) == 2, len(size)
-    assert isinstance(size[0], int) or isinstance(size[0], float), type(size[0])
-    assert isinstance(size[1], int) or isinstance(size[1], float), type(size[1])
+    assert isinstance(size[0], int) or isinstance(size[0], float), \
+        type(size[0])
+    assert isinstance(size[1], int) or isinstance(size[1], float), \
+        type(size[1])
 
-    assert isinstance(line_width, int) or isinstance(line_width, float), type(line_width)
+    assert isinstance(line_width, int) or isinstance(line_width, float), \
+        type(line_width)
     assert line_width >= 0, line_width
     assert isinstance(line_color, str), type(str)
-    assert (fill_color == None) or isinstance(fill_color, str), type(str)
+    assert (fill_color is None) or isinstance(fill_color, str), type(str)
 
     x0 = pos[0]
     y0 = pos[1]
@@ -340,10 +350,10 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color = None):
 def draw_text_side(frame, canvas,
                    text, point,
                    font_size, font_color,
-                   font_face = 'serif',
-                   font_size_coef = 3.0/4,
-                   rectangle_color = None, rectangle_fill_color = None,
-                   side_x = -1, side_y = 1):
+                   font_face='serif',
+                   font_size_coef=3.0/4,
+                   rectangle_color=None, rectangle_fill_color=None,
+                   side_x=-1, side_y=1):
     """
     Draw the `text` string at the position `point`.
 
@@ -380,23 +390,31 @@ def draw_text_side(frame, canvas,
 
     assert isinstance(point, tuple) or isinstance(point, list), type(point)
     assert len(point) == 2, len(point)
-    assert isinstance(point[0], int) or isinstance(point[0], float), type(point[0])
-    assert isinstance(point[1], int) or isinstance(point[1], float), type(point[1])
+    assert isinstance(point[0], int) or isinstance(point[0], float), \
+        type(point[0])
+    assert isinstance(point[1], int) or isinstance(point[1], float), \
+        type(point[1])
 
-    assert isinstance(font_size, int) or isinstance(font_size, float), type(font_size)
+    assert isinstance(font_size, int) or isinstance(font_size, float), \
+        type(font_size)
     assert font_size >= 0, font_size
 
     assert isinstance(font_color, str), type(font_color)
     assert isinstance(font_face, str), type(font_face)
 
-    assert (rectangle_color == None) or isinstance(rectangle_color, str), type(rectangle_color)
-    assert (rectangle_fill_color == None) or isinstance(rectangle_fill_color, str), type(rectangle_fill_color)
+    assert (rectangle_color is None) or isinstance(rectangle_color, str), \
+        type(rectangle_color)
+    assert ((rectangle_fill_color is None)
+            or isinstance(rectangle_fill_color, str)), \
+        type(rectangle_fill_color)
 
     assert isinstance(side_x, int) or isinstance(side_x, float), type(side_x)
     assert isinstance(side_y, int) or isinstance(side_y, float), type(side_y)
-    assert isinstance(font_size_coef, int) or isinstance(font_size_coef, float), type(font_size_coef)
+    assert (isinstance(font_size_coef, int)
+            or isinstance(font_size_coef, float)), type(font_size_coef)
 
-    text_width = (frame.get_canvas_textwidth(text, font_size) if font_face == None
+    text_width = (frame.get_canvas_textwidth(text, font_size)
+                  if font_face is None
                   else frame.get_canvas_textwidth(text, font_size, font_face))
 
     text_height = font_size*font_size_coef
@@ -415,9 +433,11 @@ def draw_text_side(frame, canvas,
     else:
         y = point[1]
 
-    if rectangle_color != None:
-        draw_rect(canvas, (x, y), (text_width, -text_height), 1, rectangle_color, rectangle_fill_color)
-    elif rectangle_fill_color != None:
-        draw_rect(canvas, (x, y), (text_width, -text_height), 1, rectangle_fill_color, rectangle_fill_color)
+    if rectangle_color is not None:
+        draw_rect(canvas, (x, y), (text_width, -text_height),
+                  1, rectangle_color, rectangle_fill_color)
+    elif rectangle_fill_color is not None:
+        draw_rect(canvas, (x, y), (text_width, -text_height),
+                  1, rectangle_fill_color, rectangle_fill_color)
 
     canvas.draw_text(text, (x, y), font_size, font_color, font_face)

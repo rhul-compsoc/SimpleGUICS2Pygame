@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Frame example (June 19, 2013)
+Frame example (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -16,10 +16,11 @@ try:
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
+    simplegui.Frame._hide_status = True
+
 
 CANVAS_WIDTH = 400
 CANVAS_HEIGHT = 300
-
 
 
 def draw(canvas):
@@ -32,7 +33,6 @@ def draw(canvas):
                      ((CANVAS_WIDTH - text_width)/2,
                       CANVAS_HEIGHT/2 + font_size/4),
                      font_size, 'Green')
-
 
 
 # Main

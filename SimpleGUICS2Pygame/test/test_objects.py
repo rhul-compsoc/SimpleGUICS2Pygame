@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test __repr__() et __str__() methods of objects. (June 19, 2013)
+Test __repr__() et __str__() methods of objects. (June 22, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,6 +20,8 @@ except:
 
     SIMPLEGUICS2PYGAME = True
 
+    simplegui.Frame._hide_status = True
+
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
@@ -35,12 +37,10 @@ else:
     GUI_VERSION = 'simplegui'
 
 
-
 TEST = 'test objects'
 
 WIDTH = 400
 HEIGHT = 200
-
 
 
 def draw(canvas):
@@ -64,8 +64,6 @@ def draw(canvas):
         print(name + str(type(o)) + repr(o) + str(o))
 
     frame.stop()
-
-
 
 
 # Main

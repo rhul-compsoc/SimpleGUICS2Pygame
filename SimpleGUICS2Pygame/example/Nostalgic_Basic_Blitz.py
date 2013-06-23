@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Nostalgic Basic Blitz (June 19, 2013)
+Nostalgic Basic Blitz (June 22, 2013)
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -25,7 +25,6 @@ except:
     simplegui.Frame._hide_status = True
 
 
-
 #
 # Global constants
 ###################
@@ -41,14 +40,12 @@ CANVAS_WIDTH = WIDTH*CHAR_WIDTH
 CANVAS_HEIGHT = HEIGHT*CHAR_HEIGHT
 
 
-
 #
 # Global variables
 ###################
 blitz = None
 
 frame = None
-
 
 
 #
@@ -67,7 +64,6 @@ class Blitz:
         self.__city = City()
         self.__plane = Plane()
 
-
     def draw(self, canvas):
         """
         Draw all the game.
@@ -78,23 +74,22 @@ class Blitz:
 
         self.__city.draw(canvas)
         self.__plane.draw(canvas)
-        if self.__bomb != None:
+        if self.__bomb is not None:
             self.__bomb.draw(canvas)
 
         s = str(self.__city.nb_remaining_columns())
         size = 30
         width = frame.get_canvas_textwidth(s, size)
-        canvas.draw_text(s, (CANVAS_WIDTH - width - 10, 10 + size*3.0/4), size, 'White')
-
+        canvas.draw_text(s, (CANVAS_WIDTH - width - 10, 10 + size*3.0/4),
+                         size, 'White')
 
     def launch_bomb(self):
         """
         If not crashed and not already a bomb
         then launch a bomb.
         """
-        if (self.__bomb == None) and not self.__plane.crashed():
+        if (self.__bomb is None) and not self.__plane.crashed():
             self.__bomb = self.__plane.launch_bomb()
-
 
     def update(self):
         """
@@ -102,19 +97,18 @@ class Blitz:
         """
         self.__plane.update()
 
-        if self.__bomb != None:
+        if self.__bomb is not None:
             self.__bomb.update()
             if self.__bomb.landed():
                 self.__city.kill_columns(self.__bomb.pos_x())
                 self.__bomb = None
             else:
-                self.__city.kill_column_top(self.__bomb.pos_x(), self.__bomb.pos_y())
-
+                self.__city.kill_column_top(self.__bomb.pos_x(),
+                                            self.__bomb.pos_y())
 
         x, y = self.__plane.nose_pos()
         if self.__city.check_collide(x + 1, y):
             self.__plane.crashed(True)
-
 
     def won(self):
         """
@@ -124,8 +118,8 @@ class Blitz:
 
         :return: bool
         """
-        return (self.__city.nb_remaining_columns() == 0) and not self.__plane.crashed()
-
+        return ((self.__city.nb_remaining_columns() == 0)
+                and not self.__plane.crashed())
 
 
 class Bomb:
@@ -148,7 +142,6 @@ class Bomb:
         self.__x = x
         self.__pixel_y = y*CHAR_HEIGHT
 
-
     def draw(self, canvas):
         """
         Draw the bomb.
@@ -157,9 +150,11 @@ class Bomb:
         """
         assert isinstance(canvas, simplegui.Canvas), type(canvas)
 
-        canvas.draw_line(((self.__x + 0.5)*CHAR_WIDTH - 1, self.__pixel_y),
-                         ((self.__x + 0.5)*CHAR_WIDTH - 1, self.__pixel_y + CHAR_HEIGHT), CHAR_WIDTH, 'Red')
-
+        canvas.draw_line(((self.__x + 0.5)*CHAR_WIDTH - 1,
+                          self.__pixel_y),
+                         ((self.__x + 0.5)*CHAR_WIDTH - 1,
+                          self.__pixel_y + CHAR_HEIGHT),
+                         CHAR_WIDTH, 'Red')
 
     def landed(self):
         """
@@ -171,7 +166,6 @@ class Bomb:
         """
         return self.__pixel_y + CHAR_HEIGHT >= CANVAS_HEIGHT
 
-
     def pos_x(self):
         """
         Return the horizontal position.
@@ -179,7 +173,6 @@ class Bomb:
         :return: int >= 0
         """
         return self.__x
-
 
     def pos_y(self):
         """
@@ -189,13 +182,11 @@ class Bomb:
         """
         return self.__pixel_y//CHAR_HEIGHT
 
-
     def update(self):
         """
         Update the bomb position.
         """
         self.__pixel_y += CHAR_HEIGHT//3
-
 
 
 class City:
@@ -207,7 +198,8 @@ class City:
         """
         Set randomly a city.
         """
-        heights = [random.randint(4, HEIGHT - 8)//2 for i in range((WIDTH - 5)//2)]
+        heights = [random.randint(4, HEIGHT - 8)//2
+                   for i in range((WIDTH - 5)//2)]
 
         self.__heights = [0, 0]
         for height in heights:
@@ -215,7 +207,6 @@ class City:
             self.__heights.extend((max(height, self.__heights[-1]),
                                    height))
         self.__heights.append(height)
-
 
     def check_collide(self, x, y):
         """
@@ -233,8 +224,9 @@ class City:
         assert isinstance(y, int), type(y)
         assert y >= 0, y
 
-        return (x < len(self.__heights)) and (self.__heights[x] > 0) and (y >= HEIGHT - self.__heights[x])
-
+        return ((x < len(self.__heights))
+                and (self.__heights[x] > 0)
+                and (y >= HEIGHT - self.__heights[x]))
 
     def draw(self, canvas):
         """
@@ -247,16 +239,21 @@ class City:
         for i in range(len(self.__heights)):
             height = self.__heights[i]
             if height > 0:
-                if i%2 == 0:
-                    canvas.draw_line(((i + 0.5)*CHAR_WIDTH - 1, CANVAS_HEIGHT - 1 - height*CHAR_HEIGHT),
-                                     ((i + 0.5)*CHAR_WIDTH - 1, CANVAS_HEIGHT - 1),
-                                     CHAR_WIDTH, 'Yellow')
+                if i % 2 == 0:
+                    canvas.draw_line(
+                        ((i + 0.5)*CHAR_WIDTH - 1,
+                         CANVAS_HEIGHT - 1 - height*CHAR_HEIGHT),
+                        ((i + 0.5)*CHAR_WIDTH - 1,
+                         CANVAS_HEIGHT - 1),
+                        CHAR_WIDTH, 'Yellow')
                 else:
                     for j in range(0, height, 2):
-                        canvas.draw_line(((i + 0.5)*CHAR_WIDTH - 1, CANVAS_HEIGHT - 1 - (j + 1)*CHAR_HEIGHT),
-                                         ((i + 0.5)*CHAR_WIDTH - 1, CANVAS_HEIGHT - 1 - j*CHAR_HEIGHT),
-                                         CHAR_WIDTH, 'Yellow')
-
+                        canvas.draw_line(
+                            ((i + 0.5)*CHAR_WIDTH - 1,
+                             CANVAS_HEIGHT - 1 - (j + 1)*CHAR_HEIGHT),
+                            ((i + 0.5)*CHAR_WIDTH - 1,
+                             CANVAS_HEIGHT - 1 - j*CHAR_HEIGHT),
+                            CHAR_WIDTH, 'Yellow')
 
     def kill_column_top(self, x, y):
         """
@@ -273,7 +270,6 @@ class City:
         if x < len(self.__heights):
             self.__heights[x] = min(max(0, HEIGHT - y - 1), self.__heights[x])
 
-
     def kill_columns(self, x):
         """
         Kill the column `x`.
@@ -287,7 +283,6 @@ class City:
             self.__heights[x] = 0
             while self.__heights and (self.__heights[-1] <= 0):
                 self.__heights.pop()
-
 
     def nb_remaining_columns(self):
         """
@@ -304,7 +299,6 @@ class City:
         return nb
 
 
-
 class Plane:
     """
     A plane.
@@ -319,27 +313,25 @@ class Plane:
 
         self.__crashed = False
 
-
-    def crashed(self, crashed = None):
+    def crashed(self, crashed=None):
         """
         If the plane crashed
         then return True,
         else return False.
 
-        If `crashed` == True
+        If `crashed` is True
         then crashed the plane.
 
         :param crashed: None or True
 
         :return: bool
         """
-        assert (crashed == None) or (crashed == True), crashed
+        assert (crashed is None) or (crashed is True), crashed
 
         if crashed:
             self.__crashed = True
 
         return self.__crashed
-
 
     def draw(self, canvas):
         """
@@ -352,13 +344,19 @@ class Plane:
         color = ('Orange' if self.__crashed
                  else 'Silver')
         pixel_y = self.__y*CHAR_HEIGHT
-        canvas.draw_polygon(((self.__pixel_x, pixel_y + CHAR_HEIGHT/2),
-                             (self.__pixel_x + CHAR_WIDTH, pixel_y + CHAR_HEIGHT),
-                             (self.__pixel_x + CHAR_WIDTH*3, pixel_y + CHAR_HEIGHT),
-                             (self.__pixel_x + CHAR_WIDTH*4, pixel_y + CHAR_HEIGHT*1.5),
-                             (self.__pixel_x + CHAR_WIDTH*3, pixel_y + CHAR_HEIGHT*2 - 3),
-                             (self.__pixel_x, pixel_y + CHAR_HEIGHT*2 - 3)), 1, color, color)
-
+        canvas.draw_polygon(((self.__pixel_x,
+                              pixel_y + CHAR_HEIGHT/2),
+                             (self.__pixel_x + CHAR_WIDTH,
+                              pixel_y + CHAR_HEIGHT),
+                             (self.__pixel_x + CHAR_WIDTH*3,
+                              pixel_y + CHAR_HEIGHT),
+                             (self.__pixel_x + CHAR_WIDTH*4,
+                              pixel_y + CHAR_HEIGHT*1.5),
+                             (self.__pixel_x + CHAR_WIDTH*3,
+                              pixel_y + CHAR_HEIGHT*2 - 3),
+                             (self.__pixel_x,
+                              pixel_y + CHAR_HEIGHT*2 - 3)),
+                            1, color, color)
 
     def launch_bomb(self):
         """
@@ -367,7 +365,6 @@ class Plane:
         :return: Bomb
         """
         return Bomb(*self.launch_pos())
-
 
     def launch_pos(self):
         """
@@ -378,7 +375,6 @@ class Plane:
         return (self.__pixel_x//CHAR_WIDTH + 1,
                 self.__y + 2)
 
-
     def nose_pos(self):
         """
         Position of nose of the plane.
@@ -387,7 +383,6 @@ class Plane:
         """
         return (self.__pixel_x//CHAR_WIDTH + 3,
                 self.__y + 1)
-
 
     def update(self):
         """
@@ -400,7 +395,6 @@ class Plane:
                 self.__y += 1
             elif blitz.won():
                 self.__y += 1
-
 
 
 #
@@ -438,7 +432,6 @@ def restart():
     global blitz
 
     blitz = Blitz()
-
 
 
 #
