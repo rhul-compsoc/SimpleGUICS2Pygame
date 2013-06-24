@@ -9,5 +9,6 @@ include SimpleGUICS2Pygame/example/Stress_Balls/old_results/Stress_Balls_results
 
 include SimpleGUICS2Pygame/script/*.py
 
+include SimpleGUICS2Pygame/test/README
 include SimpleGUICS2Pygame/test/*.py
 include SimpleGUICS2Pygame/test/*/*
