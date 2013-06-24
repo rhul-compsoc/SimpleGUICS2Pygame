@@ -230,7 +230,12 @@ When you run a program you can use following options:
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
 * ``--no-load-sound``: Don't load any sound.
 * ``--no-status``: Hide two status boxes.
+* ``--overwrite-downloaded-medias``: download all images and sounds from Web
+                                     and save in local directory
+                                     even if they already exist.
 * ``--print-load-medias``: Print URLs or local filenames loaded.
+* ``--save-downloaded-medias``: save images and sounds downloaded from Web
+                                that don't already exist in local directory.
 * ``--stop-timers``: Stop all timers when close frame.
 
 If an argument not in this list then next arguments are ignored.
