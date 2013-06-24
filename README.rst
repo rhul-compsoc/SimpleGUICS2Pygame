@@ -100,6 +100,8 @@ Changes
 =======
 *
 
+  - Added ``--overwrite-downloaded-medias`` and ``--save-downloaded-medias`` options.
+
   - Display versions in ``script/SimpleGUICS2Pygame_check.py``.
 
 * 00.91.00 --- June 23, 2013

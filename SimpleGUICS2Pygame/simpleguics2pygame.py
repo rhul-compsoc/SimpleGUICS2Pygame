@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 23, 2013)
+simpleguics2pygame (June 24, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -413,6 +413,113 @@ SimpleGUI keyboard characters contants.
 #
 # Private function
 ###################
+def _load_media(type_of_media, url, local_dir):
+    """
+    Load an image or a sound from web or local directory,
+    and save if asked with Frame._save_downloaded_medias
+    and Frame._save_downloaded_medias_overwrite.
+
+    If local_dir don't exist it is created.
+
+    **Don't use directly**, this function is use by  `Image` ad `Sound()`.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    (Maybe conflict if two different URLs are the same "filename"!)
+
+    :param type_of_media: 'Image' or 'Sound'
+    :param url: str
+    :param local_dir: str
+
+    :return: pygame.Surface or pygame.mixer.Sound
+    """
+    assert type_of_media in ('Image', 'Sound'), type(type_of_media)
+    assert isinstance(url, str), type(url)
+    assert isinstance(local_dir, str), type(local_dir)
+
+    from os.path import dirname, isfile, join
+    from sys import argv, version_info
+
+    media_is_image = (type_of_media == 'Image')
+
+    filename = join(dirname(argv[0]),
+                    local_dir,
+                    url.split('/')[-1])
+
+    filename_exist = isfile(filename)
+
+    if not Frame._save_downloaded_medias_overwrite and filename_exist:
+        try:
+            # Load from local file
+            media = (pygame.image.load(filename) if media_is_image
+                     else pygame.mixer.Sound(filename))
+            if Frame._print_load_medias:
+                print("{} loaded '{}'".format(type_of_media, filename))
+
+            return media
+        except:
+            pass
+
+    from io import BytesIO
+
+    if version_info[0] >= 3:
+        from urllib.request import urlopen
+    else:
+        from urllib2 import urlopen
+
+    try:
+        # Download from url
+        media_data = urlopen(url).read()
+        if Frame._print_load_medias:
+            print("Image downloaded '{}'".format(url))
+    except Exception as e:
+        if Frame._print_load_medias:
+            print("Image downloading '{}' FAILED! {}".format(url, e))
+
+        return
+
+    media = (pygame.image.load(BytesIO(media_data)) if media_is_image
+             else pygame.mixer.Sound(BytesIO(media_data)))
+
+    if Frame._save_downloaded_medias:
+        if Frame._save_downloaded_medias_overwrite or not filename_exist:
+            from os.path import isdir
+
+            if not isdir(dirname(filename)):
+                from os import makedirs
+
+                try:
+                    # Create local directory
+                    makedirs(dirname(filename))
+                    if Frame._print_load_medias:
+                        print("      Created '{}' directory"
+                              .format(dirname(filename)))
+                except Exception as e:
+                    if Frame._print_load_medias:
+                        print("      Creating '{}' directory FAILED!! {}"
+                              .format(dirname(filename), e))
+
+            try:
+                # Save to local file
+                f = open(filename, 'wb')
+                f.write(media_data)
+                f.close()
+                if Frame._print_load_medias:
+                    print("      {} in '{}'"
+                          .format(('Overwrited' if filename_exist
+                                   else 'Saved'), filename))
+            except Exception as e:
+                if Frame._print_load_medias:
+                    print("      {} in '{}' FAILED! {}"
+                          .format(('Overwriting' if filename_exist
+                                   else 'Saving'), filename, e))
+        elif Frame._print_load_medias:
+            print("      Local file '{}' already exist"
+                  .format(filename))
+
+    return media
+
+
 def _pos_round(position):
     """
     Returns the rounded `position`.
@@ -471,7 +578,13 @@ def _set_option_from_argv():
     * ``--no-controlpanel``: Hide the control panel (and status boxes).
     * ``--no-load-sound``: Don't load any sound.
     * ``--no-status``: Hide two status boxes.
+    * ``--overwrite-downloaded-medias``: download all images and sounds
+                                         from Web and save in local directory
+                                         even if they already exist.
     * ``--print-load-medias``: Print URLs or locals filename loaded.
+    * ``--save-downloaded-medias``: save images and sounds downloaded from Web
+                                    that don't already exist
+                                    in local directory.
     * ``--stop-timers``: Stop all timers when close frame.
 
     If an argument not in this list
@@ -504,6 +617,12 @@ def _set_option_from_argv():
             Sound._load_disabled = True
         elif arg == '--no-status':
             Frame._hide_status = True
+        elif arg == '--overwrite-downloaded-medias':
+            Frame._save_downloaded_medias = True
+            Frame._save_downloaded_medias_overwrite = True
+        elif arg == '--save-downloaded-medias':
+            Frame._save_downloaded_medias = True
+            Frame._save_downloaded_medias_overwrite = False
         elif arg == '--print-load-medias':
             Frame._print_load_medias = True
         elif arg == '--stop-timers':
@@ -765,6 +884,21 @@ class Frame:
     _save_canvas_requests = []
     """
     List of filenames in which to save canvas image.
+    """
+
+    _save_downloaded_medias = False
+    """
+    If `True`
+    then save images and sounds downloaded from Web
+         that don't already exist in local directory.
+    See Frame._save_downloaded_medias_overwrite.
+    """
+
+    _save_downloaded_medias_overwrite = False
+    """
+    If `True` and `Frame._save_downloaded_medias`
+    then download all images and sounds from Web
+         and save in local directory even if they already exist.
     """
 
     _statuskey_background_pygame_color = (
@@ -2470,44 +2604,9 @@ class Image:
         assert _PYGAME_AVAILABLE
         assert isinstance(url, str), type(url)
 
-        self._pygame_surface = None
-
-        if url == '':
-            return
-
-        if Image._dir_search_first is not None:
-            assert Image._dir_search_first[-1] == '/'
-
-            from os.path import dirname, isfile, join
-            from sys import argv
-
-            filename = join(dirname(argv[0]),
-                            Image._dir_search_first,
-                            url.split('/')[-1])
-
-            if isfile(filename):
-                self._pygame_surface = pygame.image.load(filename)
-                if Frame._print_load_medias:
-                    print("Image: '{}'".format(filename))
-
-                return
-
-        from io import BytesIO
-        from sys import version_info
-
-        if version_info[0] >= 3:
-            from urllib.request import urlopen
-        else:
-            from urllib2 import urlopen
-
-        try:
-            self._pygame_surface = pygame.image.load(
-                BytesIO(urlopen(url).read()))
-            if Frame._print_load_medias:
-                print("Image: '{}'".format(url))
-        except Exception as e:
-            if Frame._print_load_medias:
-                print("Image: '{}' FAILED! {}".format(url, e))
+        self._pygame_surface = (None if url == ''
+                                else _load_media('Image', url,
+                                                 Image._dir_search_first))
 
     def __repr__(self):
         """
@@ -2573,44 +2672,11 @@ class Sound:
         assert isinstance(url, str), type(url)
 
         self._pygame_channel = None
-        self._pygame_sound = None
-
-        if Sound._load_disabled or (url[-4:].lower() not in ('.ogg', '.wav')):
-            return
-
-        if Sound._dir_search_first is not None:
-            assert Sound._dir_search_first[-1] == '/'
-
-            from os.path import dirname, isfile, join
-            from sys import argv
-
-            filename = join(dirname(argv[0]),
-                            Sound._dir_search_first,
-                            url.split('/')[-1])
-
-            if isfile(filename):
-                self._pygame_sound = pygame.mixer.Sound(filename)
-                if Frame._print_load_medias:
-                    print("Sound: '{}'".format(filename))
-
-                return
-
-        from io import BytesIO
-        from sys import version_info
-
-        if version_info[0] >= 3:
-            from urllib.request import urlopen
-        else:
-            from urllib2 import urlopen
-
-        try:
-            self._pygame_sound = pygame.mixer.Sound(
-                BytesIO(urlopen(url).read()))
-            if Frame._print_load_medias:
-                print("Sound: '{}'".format(url))
-        except Exception as e:
-            if Frame._print_load_medias:
-                print("Sound: '{}' FAILED! {}".format(url, e))
+        self._pygame_sound = (None if (Sound._load_disabled
+                                       or (url[-4:].lower()
+                                           not in ('.ogg', '.wav')))
+                              else _load_media('Sound', url,
+                                               Sound._dir_search_first))
 
     def __repr__(self):
         """
@@ -3222,17 +3288,12 @@ def load_image(url):
     Create and return an image by loading a file from `url`.
     Not founded file and errors are ignored.
 
-    **Warning**:
-    In SimpleGUICS2Pygame:
-
-    * `url` may be also a path of a local file.
-      **(In SimpleGUI of CodeSkulptor `url` must be an URL.)**
-    * SimpleGUICS2Pygame try **first** to loading image \
-        from `Image._dir_search_first` directory, \
-        and next if failed, try to loading from `url`.
+    SimpleGUICS2Pygame try **first** to loading image
+    from `Image._dir_search_first` local directory (`_img/` by default),
+    and next if failed, try to loading from `url`.
 
     Supported formats are supported formats by Pygame to load:
-    PNG, JPG, GIF (non animated), ...
+    PNG, JPG, GIF (non animated)...
     (see http://www.pygame.org/docs/ref/image.html ).
 
     (CodeSkulptor may supported other formats,
@@ -3253,14 +3314,9 @@ def load_sound(url):
     Create and return a sound by loading a file from `url`.
     Not founded file and errors are ignored.
 
-    **Warning**:
-    In SimpleGUICS2Pygame:
-
-    * `url` may be also a path of a local file.
-      **(In SimpleGUI of CodeSkulptor `url` must be an URL.)**
-    * SimpleGUICS2Pygame try **first** to loading sound \
-        from `Sound._dir_search_first` directory, \
-        and next if failed, try to loading from `url`.
+    SimpleGUICS2Pygame try **first** to loading sound
+    from `Sound._dir_search_first` local directory (`_snd/` by default),
+    and next if failed, try to loading from `url`.
 
     Supported formats are supported formats by Pygame:
     OGG and uncompressed WAV
