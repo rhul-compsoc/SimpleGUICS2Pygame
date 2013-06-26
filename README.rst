@@ -100,6 +100,9 @@ Changes
 =======
 *
 
+  - Memoization of downloaded images and sounds.
+  - Changed save in local directory to avoid conflict.
+
   - Added test/test_image.py.
 
   - Added ``--overwrite-downloaded-medias`` and ``--save-downloaded-medias`` options.
