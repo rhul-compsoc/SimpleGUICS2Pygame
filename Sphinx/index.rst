@@ -211,6 +211,13 @@ Be careful
   But then *CodeSkulptor failed*!)
 
 
+Download medias
+~~~~~~~~~~~~~~~
+Run ``python yourprogram.py --save-downloaded-medias --print-load-medias`` once.
+Images and sounds will be saved in local directory (``_img/`` et ``_snd`` by default).
+Next simply run ``python yourprogram.py`` and the medias will be loaded from these local directories.
+
+
 English
 ~~~~~~~
 I don't really speak English, I'm speak French.
@@ -240,11 +247,14 @@ When you run a program you can use following options:
 
 If an argument not in this list then next arguments are ignored.
 
+Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
+
+SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
+
 Example: ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
 run ``yourprogram.py`` with the control panel hidden and timers will stoped.
 But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
-
-SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
+``yourprogram.py`` application receive ``--foo --fullscreen`` options.
 
 
 Run

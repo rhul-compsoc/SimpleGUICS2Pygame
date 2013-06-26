@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 24, 2013)
+simpleguics2pygame (June 26, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -425,13 +425,13 @@ def _load_media(type_of_media, url, local_dir):
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
-    (Maybe conflict if two different URLs are the same "filename"!)
+    Side effect: Each new url is added to `Frame._pygamemedias_cached`.
 
     :param type_of_media: 'Image' or 'Sound'
     :param url: str
     :param local_dir: str
 
-    :return: pygame.Surface or pygame.mixer.Sound
+    :return: pygame.Surface or pygame.mixer.Sound or None
     """
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(url, str), type(url)
@@ -442,19 +442,47 @@ def _load_media(type_of_media, url, local_dir):
 
     media_is_image = (type_of_media == 'Image')
 
-    filename = join(dirname(argv[0]),
-                    local_dir,
-                    url.split('/')[-1])
+    cached = Frame._pygamemedias_cached.get(url)
+    if cached is not None:
+        # Already in cache
+        media = (cached.copy() if media_is_image
+                 else pygame.mixer.Sound(cached))
+        if Frame._print_load_medias:
+            print("{} '{}' got in cache".format(type_of_media, url))
+
+        return media
+
+    # Build filename
+    if version_info[0] >= 3:
+        from urllib.parse import urlsplit
+    else:
+        from urlparse import urlsplit
+
+    from re import sub
+
+    filename = sub('[^._/0-9A-Za-z]', '_', join(dirname(argv[0]),
+                                                local_dir,
+                                                urlsplit(url)[1],
+                                                urlsplit(url)[2][1:]))
+
+    if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
+        if Frame._print_load_medias:
+            print("Sound format not supported '{}'".format(url))
+        return None
 
     filename_exist = isfile(filename)
 
+    # Load...
     if not Frame._save_downloaded_medias_overwrite and filename_exist:
         try:
             # Load from local file
             media = (pygame.image.load(filename) if media_is_image
                      else pygame.mixer.Sound(filename))
             if Frame._print_load_medias:
-                print("{} loaded '{}'".format(type_of_media, filename))
+                print("{} loaded '{}' instead '{}'".format(type_of_media,
+                                                           filename, url))
+
+            Frame._pygamemedias_cached[url] = media
 
             return media
         except:
@@ -471,10 +499,11 @@ def _load_media(type_of_media, url, local_dir):
         # Download from url
         media_data = urlopen(url).read()
         if Frame._print_load_medias:
-            print("Image downloaded '{}'".format(url))
+            print("{} downloaded '{}'".format(type_of_media, url))
     except Exception as e:
         if Frame._print_load_medias:
-            print("Image downloading '{}' FAILED! {}".format(url, e))
+            print("{} downloading '{}' FAILED! {}".format(type_of_media,
+                                                          url, e))
 
         return
 
@@ -516,6 +545,8 @@ def _load_media(type_of_media, url, local_dir):
         elif Frame._print_load_medias:
             print("      Local file '{}' already exist"
                   .format(filename))
+
+    Frame._pygamemedias_cached[url] = media
 
     return media
 
@@ -590,7 +621,7 @@ def _set_option_from_argv():
     If an argument not in this list
     then next arguments are ignored.
 
-    Arguments used by SimpleGUICS2Pygame is deleted to sys.argv.
+    Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
 
     This function is executed when the module is imported.
 
@@ -865,6 +896,11 @@ class Frame:
     """
     `Dict` {(`str` CodeSkulptor font face, `int` font size):
             `pygame.font.Font`}.
+    """
+
+    _pygamemedias_cached = {}
+    """
+    `Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
     """
 
     _pygame_mode_flags = 0
@@ -2672,9 +2708,7 @@ class Sound:
         assert isinstance(url, str), type(url)
 
         self._pygame_channel = None
-        self._pygame_sound = (None if (Sound._load_disabled
-                                       or (url[-4:].lower()
-                                           not in ('.ogg', '.wav')))
+        self._pygame_sound = (None if Sound._load_disabled or (url == '')
                               else _load_media('Sound', url,
                                                Sound._dir_search_first))
 

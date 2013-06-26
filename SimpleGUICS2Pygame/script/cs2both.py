@@ -6,7 +6,7 @@ script/cs2both.py
 
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(June 23, 2013)
+(June 26, 2013)
 
 A file codeskulptor_program.py is copied
 to codeskulptor_program.py.bak before changing.
@@ -125,8 +125,9 @@ if __name__ == '__main__':
                 and re.search('^\w*import SimpleGUICS2Pygame', line)):
             already_change_import = True
         else:
-            lines[i] = re.sub('math\.abs\(', 'abs(', line)
-            change_math_abs = True
+            new_line = re.sub('math\.abs\(', 'abs(', line)
+            change_math_abs |= (new_line != lines[i])
+            lines[i] = new_line
 
     if not already_change_import:
         for i, line in enumerate(lines):
