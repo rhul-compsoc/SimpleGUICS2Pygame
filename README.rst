@@ -98,7 +98,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-*
+* 00.92.00 --- June 27, 2013
 
   - Changed ``simplegui_lib.Loader`` class to display progression loading in SimpleGUICS2Pygame
     (moved arguments from ``wait_loaded()`` function to ``__init__()``).
