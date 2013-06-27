@@ -62,7 +62,7 @@ def angle_to_vector(angle):
     """
     Return the vector corresponding to the angle expressed in radians.
 
-    :param: int or float
+    :param angle: int or float
 
     :return: (-1 <= float <= 1, -1 <= float <= 1)
     """
@@ -104,6 +104,20 @@ def assert_position(position, non_negative=False, non_zero=False):
     if non_zero:
         assert position[0] != 0, position
         assert position[1] != 0, position
+
+
+def vector_to_angle(vector):
+    """
+    Return the angle (in radians) corresponding to the direction of vector.
+
+    :param vector: (int or float, int or float)
+                   or [int or float, int or float]
+
+    :return: -math.pi <= float <= math.pi
+    """
+    assert_position(vector)
+
+    return math.atan2(vector[1], vector[0])
 
 
 #
@@ -224,6 +238,36 @@ class RiceRocks:
                         del self.missiles[i]
                         del self.rocks[j]
 
+                        if not rock.little:
+                            # Divide in two little asteroids
+                            angle = vector_to_angle(missile.velocity)
+                            mvel = math.sqrt(
+                                (rock.velocity[0]*rock.velocity[0]
+                                 + rock.velocity[1]*rock.velocity[1])/2.0)
+
+                            vel = list(angle_to_vector(angle - math.pi/4))
+                            vel[0] *= mvel
+                            vel[1] *= mvel
+                            little1 = Asteroid(rock.position, vel,
+                                               rock.angle_velocity*2,
+                                               rock.num, True)
+
+                            vel = list(angle_to_vector(angle + math.pi/4))
+                            vel[0] *= mvel
+                            vel[1] *= mvel
+                            little2 = Asteroid(rock.position, vel,
+                                               rock.angle_velocity*2,
+                                               rock.num, True)
+
+                            while True:
+                                little1.position[0] += little1.velocity[0]
+                                little1.position[1] += little1.velocity[1]
+                                little2.position[0] += little2.velocity[0]
+                                little2.position[1] += little2.velocity[1]
+                                if not little1.collide(little2):
+                                    break
+                            self.rocks.extend((little1, little2))
+
                         self.score += 1
                         if self.score % 10 == 0:  # add a new bomb
                             self.nb_bombs += 1
@@ -291,17 +335,17 @@ class RiceRocks:
                                               - other.velocity[1])
                                              % SCREEN_HEIGHT)
 
-                        # Elastic collision (with radius as mass)
-                        sum = rock.radius + other.radius
-                        diff = rock.radius - other.radius
+                        # Elastic collision (with radius*3 as mass)
+                        sum = (rock.radius + other.radius)*3
+                        diff = (rock.radius - other.radius)*3
 
-                        double = 2*other.radius
+                        double = 2*3*other.radius
                         new_x = (float(diff*rock.velocity[0]
                                        + double*other.velocity[0])/sum)
                         new_y = (float(diff*rock.velocity[1]
                                        + double*other.velocity[1])/sum)
 
-                        double = 2*rock.radius
+                        double = 2*3*rock.radius
                         other.velocity[0] = float(double*rock.velocity[0]
                                                   - diff*other.velocity[0])/sum
                         other.velocity[1] = float(double*rock.velocity[1]
@@ -383,6 +427,15 @@ class RiceRocks:
                                                                   True),
                           'bomb': ImageInfo((10, 10), (20, 20)),
                           'debris': ImageInfo((320, 240), (640, 480)),
+                          'little-asteroid-1': ImageInfo((45, 45), (90, 90),
+                                                         27, None, False,
+                                                         (60, 60)),
+                          'little-asteroid-2': ImageInfo((45, 45), (90, 90),
+                                                         27, None, False,
+                                                         (60, 60)),
+                          'little-asteroid-3': ImageInfo((45, 45), (90, 90),
+                                                         26, None, False,
+                                                         (60, 60)),
                           'live_explosion': ImageInfo((64, 64), (128, 128),
                                                       17, 24, True),
                           'missile': ImageInfo((5, 5), (10, 10), 3, 50),
@@ -453,6 +506,10 @@ class RiceRocks:
             self.medias._images['live_explosion'] = \
                 self.medias._images['ship_explosion']
 
+            for i in range(1, 4):
+                self.medias._images['little-asteroid-' + str(i)] = \
+                    self.medias._images['asteroid-' + str(i)]
+
             self.medias._sounds['asteroid_collide_explosion'] = \
                 self.medias._sounds['asteroid_explosion']
 
@@ -487,7 +544,7 @@ class RiceRocks:
                 """
                 :return: int or float
                 """
-                return min(4,
+                return min(3,
                            (random.random()*0.3*(
                             self.score/2 + 1)))*random.choice((-1, 1))
 
@@ -498,9 +555,9 @@ class RiceRocks:
                             random_vel())
                 rock_ang_vel = random.random()*0.2 - 0.1
 
-                rock = Sprite(rock_pos, rock_vel,
-                              0, rock_ang_vel,
-                              'asteroid-' + str(random.randint(1, 3)))
+                rock = Asteroid(rock_pos, rock_vel,
+                                rock_ang_vel,
+                                random.randint(1, 3))
 
                 too_close = False
                 for r in self.rocks:
@@ -568,7 +625,8 @@ class ImageInfo:
     Informations to use with Sprite.
     """
     def __init__(self, center, size,
-                 radius=None, lifespan=None, animated=False):
+                 radius=None, lifespan=None, animated=False,
+                 draw_size=None):
         """
         Set informations.
 
@@ -582,6 +640,9 @@ class ImageInfo:
         :param radius: None or ((int or float) > 0)
         :param lifespan: None or ((int or float) > 0)
         :param animated: bool
+        :param draw_size: None
+                          or ((int or float) > 0, (int or float) > 0)
+                          or [(int or float) > 0, (int or float) > 0]
         """
         assert_position(center)
         assert_position(size, True, True)
@@ -593,6 +654,11 @@ class ImageInfo:
                     and (lifespan > 0))), lifespan
         assert isinstance(animated, bool), type(animated)
 
+        if draw_size is None:
+            draw_size = size
+
+        assert_position(draw_size, True, True)
+
         self._center = list(center)
         self._size = list(size)
         self._radius = (max(size) if radius is None
@@ -600,6 +666,7 @@ class ImageInfo:
         self._lifespan = (lifespan if lifespan
                           else float('inf'))
         self._animated = animated
+        self._draw_size = list(draw_size)
 
     def get_animated(self):
         """
@@ -618,6 +685,14 @@ class ImageInfo:
         :return: [int or float, int or float]
         """
         return list(self._center)
+
+    def get_draw_size(self):
+        """
+        Return draw size of image.
+
+        :return: [(int or float) > 0, (int or float) > 0]
+        """
+        return list(self._draw_size)
 
     def get_lifespan(self):
         """
@@ -648,8 +723,8 @@ class Sprite:
     """
     Sprite class
     """
-    def __init__(self, position, velocity, angle,
-                 angle_velocity,
+    def __init__(self, position, velocity,
+                 angle, angle_velocity,
                  media_name):
         """
         Set sprite.
@@ -659,6 +734,7 @@ class Sprite:
         :param velocity: (int or float, int or float)
                          or [int or float, int or float]
         :param angle: int or float
+        :param angle_velocity: int or float
         :param media_name: str
         """
         assert_position(position)
@@ -683,6 +759,7 @@ class Sprite:
         img_info = ricerocks.img_infos[media_name]
         self.animated = img_info.get_animated()
         self.image_center = img_info.get_center()
+        self.image_draw_size = img_info.get_draw_size()
         self.image_size = img_info.get_size()
         self.lifespan = img_info.get_lifespan()
         self.radius = img_info.get_radius()
@@ -726,7 +803,7 @@ class Sprite:
         if self.image.get_width() > 0:
             canvas.draw_image(self.image,
                               self.image_center, self.image_size,
-                              self.position, self.image_size,
+                              self.position, self.image_draw_size,
                               self.angle)
         else:
             # Useful to debug
@@ -753,11 +830,46 @@ class Sprite:
                 self.image_center[0] += self.image_size[0]
 
 
+class Asteroid(Sprite):
+    """
+    Asteroid class
+    """
+    def __init__(self, position, velocity,
+                 angle_velocity,
+                 num, little=False):
+        """
+        Set an asteroid sprite.
+
+        :param position: (int or float, int or float)
+                         or [int or float, int or float]
+        :param velocity: (int or float, int or float)
+                         or [int or float, int or float]
+        :param angle_velocity: int or float
+        :param num: 1, 2 or 3
+        :param litle: bool
+        """
+        assert_position(position)
+        assert_position(velocity)
+        assert (isinstance(angle_velocity, int)
+                or isinstance(angle_velocity, float)), type(angle_velocity)
+        assert num in (1, 2, 3)
+        assert isinstance(little, bool), type(little)
+
+        Sprite.__init__(self, position, velocity,
+                        0, angle_velocity,
+                        ('little-asteroid-' if little
+                         else 'asteroid-') + str(num))
+
+        self.num = num
+        self.little = little
+
+
 class Ship(Sprite):
     """
     Ship class
     """
-    def __init__(self, position, velocity, angle,
+    def __init__(self, position, velocity,
+                 angle,
                  media_name):
         """
         Set ship sprite.
@@ -924,6 +1036,8 @@ def keyup(key):
                                    else None)
         elif key == simplegui.KEY_MAP['up']:
             ricerocks.my_ship.thrust_on_off()
+        elif key == 27:  # Escape
+            quit()
 
 
 def quit():
@@ -992,6 +1106,7 @@ if __name__ == '__main__':
     frame.add_label('Flip: Down')
     frame.add_label('Fire: Space')
     frame.add_label('Bomb: Z (or W)')
+    frame.add_label('Esc: Quit')
 
     frame.add_label('')
     frame.add_label('One bomb for every 10 asteroids destroyed.')
