@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (June 24, 2013)
+Test draw images. (June 27, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -95,12 +95,25 @@ def draw(canvas):
                       (img.get_width()/2, img.get_height()),
                       -math.pi/2)
 
-    # The scaled ship with thrust
+    # The big ship with thrust
     canvas.draw_image(img,
                       (img.get_width()*3/4, img.get_height()/2),
                       (img.get_width()/2, img.get_height()),
                       (img.get_width()*6/4, img.get_height()*3/2),
                       (img.get_width(), img.get_height()*4))
+
+    # The little ship with thrust
+    canvas.draw_image(img,
+                      (img.get_width()*3/4, img.get_height()/2),
+                      (img.get_width()/2, img.get_height()),
+                      (img.get_width()*15/8, img.get_height()/2),
+                      (img.get_width()/4, img.get_height()))
+
+    canvas.draw_image(img,
+                      (img.get_width()*3/4, img.get_height()/2),
+                      (img.get_width()/2, img.get_height()),
+                      (img.get_width()*7/4, img.get_height()*11/4),
+                      (img.get_width()/2, img.get_height()/2))
 
 
 # Main
