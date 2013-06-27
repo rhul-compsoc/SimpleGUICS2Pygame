@@ -100,6 +100,8 @@ Changes
 =======
 *
 
+  - Updated example/RiceRocks_Asteroids.py (collisions of asteroid).
+
   - Added ``Frame._set_canvas_background_image()`` function.
 
   - Memoization of downloaded images and sounds.

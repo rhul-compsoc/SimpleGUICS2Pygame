@@ -2,9 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-RiceRocks (Asteroids) (June 22, 2013)
+RiceRocks (Asteroids) (June 27, 2013)
 
-My solution (slightly retouched) of the mini-project #8 of the course
+My slightly retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
 
 Run on (maybe very slow on some browsers):
@@ -27,12 +27,17 @@ try:
     from user16_v0hIgQGF5JqtOUQ import Loader
 
     import simplegui
+
+    SIMPLEGUICS2PYGAME = False
 except:
     from SimpleGUICS2Pygame.simplegui_lib import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
+
+    SIMPLEGUICS2PYGAME = True
 
 
 #
@@ -128,6 +133,8 @@ class RiceRocks:
         self.missiles = []
         self.rocks = []
 
+        self.music_active = True
+        self.sounds_active = True
         self.timer = simplegui.create_timer(1000, self.rock_spawner)
 
     def bomb_explode(self):
@@ -137,8 +144,9 @@ class RiceRocks:
         """
         if self.nb_bombs:
             self.nb_bombs -= 1
-            self.medias.get_sound('bomb_explode').rewind()
-            self.medias.get_sound('bomb_explode').play()
+            if self.sounds_active:
+                self.medias.get_sound('bomb_explode').rewind()
+                self.medias.get_sound('bomb_explode').play()
             for rock in self.rocks:
                 self.explosions.append(Sprite(rock.position, rock.velocity,
                                               0, rock.angle_velocity,
@@ -154,11 +162,12 @@ class RiceRocks:
         self.time += 1
 
         # Draw static background
-        canvas.draw_image(self.medias.get_image('nebula'),
-                          self.img_infos['nebula'].get_center(),
-                          self.img_infos['nebula'].get_size(),
-                          (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
-                          (SCREEN_WIDTH, SCREEN_HEIGHT))
+        if not SIMPLEGUICS2PYGAME:
+            canvas.draw_image(self.medias.get_image('nebula'),
+                              self.img_infos['nebula'].get_center(),
+                              self.img_infos['nebula'].get_size(),
+                              (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                              (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw animated background
         center = self.img_infos['debris'].get_center()
@@ -218,9 +227,10 @@ class RiceRocks:
                         self.score += 1
                         if self.score % 10 == 0:  # add a new bomb
                             self.nb_bombs += 1
-                            self.medias.get_sound('bomb_extra').rewind()
-                            self.medias.get_sound('bomb_extra').play()
-                            if self.score % 100 == 0:  # add a new live
+                            if self.sounds_active:
+                                self.medias.get_sound('bomb_extra').rewind()
+                                self.medias.get_sound('bomb_extra').play()
+                            if self.score % 50 == 0:  # add a new live
                                 self.lives += 1
 
                         self.explosions.append(Sprite(rock.position,
@@ -256,13 +266,49 @@ class RiceRocks:
                                                   self.my_ship.angle_velocity,
                                                   'ship_explosion'))
 
-                    self.medias.get_sound('death').rewind()
-                    self.medias.get_sound('death').play()
+                    if self.sounds_active:
+                        self.medias.get_sound('death').rewind()
+                        self.medias.get_sound('death').play()
 
                     break
                 else:
-                    self.medias.get_sound('collide').rewind()
-                    self.medias.get_sound('collide').play()
+                    if self.sounds_active:
+                        self.medias.get_sound('collide').rewind()
+                        self.medias.get_sound('collide').play()
+            else:
+                for j in range(0, i):
+                    other = self.rocks[j]
+                    if rock.collide(other):
+                        rock.position[0] = (rock.position[0]
+                                            - rock.velocity[0]) % SCREEN_WIDTH
+                        rock.position[1] = (rock.position[1]
+                                            - rock.velocity[1]) % SCREEN_HEIGHT
+
+                        other.position[0] = ((other.position[0]
+                                              - other.velocity[0])
+                                             % SCREEN_WIDTH)
+                        other.position[1] = ((other.position[1]
+                                              - other.velocity[1])
+                                             % SCREEN_HEIGHT)
+
+                        # Elastic collision (with radius as mass)
+                        sum = rock.radius + other.radius
+                        diff = rock.radius - other.radius
+
+                        double = 2*other.radius
+                        new_x = (float(diff*rock.velocity[0]
+                                       + double*other.velocity[0])/sum)
+                        new_y = (float(diff*rock.velocity[1]
+                                       + double*other.velocity[1])/sum)
+
+                        double = 2*rock.radius
+                        other.velocity[0] = float(double*rock.velocity[0]
+                                                  - diff*other.velocity[0])/sum
+                        other.velocity[1] = float(double*rock.velocity[1]
+                                                  - diff*other.velocity[1])/sum
+
+                        rock.velocity[0] = new_x
+                        rock.velocity[1] = new_y
 
         # Display number of lives
         if self.started:
@@ -400,6 +446,16 @@ class RiceRocks:
             """
             Init the game after medias loaded.
             """
+            if SIMPLEGUICS2PYGAME:
+                frame._set_canvas_background_image(
+                    self.medias.get_image('nebula'))
+
+            self.medias._images['live_explosion'] = \
+                self.medias._images['ship_explosion']
+
+            self.medias._sounds['asteroid_collide_explosion'] = \
+                self.medias._sounds['asteroid_explosion']
+
             self.medias.get_sound('missile').set_volume(.5)
 
             self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
@@ -412,13 +468,8 @@ class RiceRocks:
 
             frame.set_mouseclick_handler(click)
 
-            self.medias.get_sound('intro').play()
-
-            self.medias._images['live_explosion'] = \
-                self.medias._images['ship_explosion']
-
-            self.medias._sounds['asteroid_collide_explosion'] = \
-                self.medias._sounds['asteroid_explosion']
+            if ricerocks.music_active:
+                self.medias.get_sound('intro').play()
 
             self.loaded = True
 
@@ -436,11 +487,11 @@ class RiceRocks:
                 """
                 :return: int or float
                 """
-                return min(10,
+                return min(4,
                            (random.random()*0.3*(
                             self.score/2 + 1)))*random.choice((-1, 1))
 
-            while too_close:
+            for i in range(10):
                 rock_pos = (random.randrange(0, SCREEN_WIDTH),
                             random.randrange(0, SCREEN_HEIGHT))
                 rock_vel = (random_vel(),
@@ -450,17 +501,29 @@ class RiceRocks:
                 rock = Sprite(rock_pos, rock_vel,
                               0, rock_ang_vel,
                               'asteroid-' + str(random.randint(1, 3)))
-                too_close = (self.my_ship.distance(rock)
-                             < (self.my_ship.radius + rock.radius)*1.5)
 
-            self.rocks.append(rock)
+                too_close = False
+                for r in self.rocks:
+                    if r.collide(rock):
+                        too_close = True
+
+                        break
+                too_close = (too_close
+                             or (self.my_ship.distance(rock)
+                                 < (self.my_ship.radius + rock.radius)*3))
+                if not too_close:
+                    break
+
+            if not too_close:
+                self.rocks.append(rock)
 
     def start(self):
         """
         Start the game.
         """
-        self.medias.get_sound('intro').rewind()
-        self.medias.get_sound('soundtrack').play()
+        if ricerocks.music_active:
+            self.medias.get_sound('intro').rewind()
+            self.medias.get_sound('soundtrack').play()
 
         self.keydown_left = False
         self.keydown_right = False
@@ -493,10 +556,11 @@ class RiceRocks:
 
         self.started = False
 
-        self.medias.get_sound('soundtrack').rewind()
         self.my_ship.stop()
 
-        self.medias.get_sound('intro').play()
+        if ricerocks.music_active:
+            self.medias.get_sound('soundtrack').rewind()
+            self.medias.get_sound('intro').play()
 
 
 class ImageInfo:
@@ -604,7 +668,8 @@ class Sprite:
                 or isinstance(angle_velocity, float)), type(angle_velocity)
         assert isinstance(media_name, str), type(media_name)
 
-        if media_name in ricerocks.medias._sounds:
+        if (ricerocks.sounds_active
+                and (media_name in ricerocks.medias._sounds)):
             sound = ricerocks.medias.get_sound(media_name)
             sound.rewind()
             sound.play()
@@ -752,11 +817,13 @@ class Ship(Sprite):
         self.thrust = not self.thrust
 
         if self.thrust:
-            ricerocks.medias.get_sound('ship_thrust').play()
+            if ricerocks.sounds_active:
+                ricerocks.medias.get_sound('ship_thrust').play()
             # Sprite image with actif thrust
             self.image_center[0] += self.image_size[0]
         else:
-            ricerocks.medias.get_sound('ship_thrust').rewind()
+            if ricerocks.sounds_active:
+                ricerocks.medias.get_sound('ship_thrust').rewind()
             # Sprite image with inactif thrust
             self.image_center[0] -= self.image_size[0]
 
@@ -876,6 +943,33 @@ def stop():
         ricerocks.stop()
 
 
+def switch_music():
+    """
+    Switch music on/off.
+    """
+    ricerocks.music_active = not ricerocks.music_active
+
+    if ricerocks.music_active:
+        button_music.set_text('Music off')
+        if ricerocks.started:
+            ricerocks.medias.get_sound('soundtrack').play()
+        else:
+            ricerocks.medias.get_sound('intro').play()
+    else:
+        button_music.set_text('Music on')
+        ricerocks.medias.get_sound('intro').rewind()
+        ricerocks.medias.get_sound('soundtrack').rewind()
+
+
+def switch_sounds():
+    """
+    Switch sounds on/off.
+    """
+    ricerocks.sounds_active = not ricerocks.sounds_active
+    button_sounds.set_text('Sounds off' if ricerocks.sounds_active
+                           else 'Sounds on')
+
+
 #
 # Main
 #######
@@ -888,6 +982,9 @@ if __name__ == '__main__':
 
     frame.add_button('Stop this game', stop)
     frame.add_label('')
+    button_music = frame.add_button('Music off', switch_music)
+    button_sounds = frame.add_button('Sounds off', switch_sounds)
+    frame.add_label('')
     frame.add_button('Quit', quit)
     frame.add_label('')
     frame.add_label('Turn: Left and Right')
@@ -899,6 +996,6 @@ if __name__ == '__main__':
     frame.add_label('')
     frame.add_label('One bomb for every 10 asteroids destroyed.')
     frame.add_label('')
-    frame.add_label('One live for every 100 asteroids destroyed.')
+    frame.add_label('One live for every 50 asteroids destroyed.')
 
     frame.start()
