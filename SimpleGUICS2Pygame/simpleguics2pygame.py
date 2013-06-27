@@ -818,11 +818,6 @@ class Frame:
     Frame similar to SimpleGUI `Frame` of CodeSkulptor.
     """
 
-    _already_frame = False
-    """
-    Become `True` when instantiate the first frame.
-    """
-
     _background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
                                 if _PYGAME_AVAILABLE
                                 else None)
@@ -859,6 +854,11 @@ class Frame:
     _fps = 60
     """
     Frames per second drawed (frequency of draw and check events)
+    """
+
+    _frame_instance = None
+    """
+    The only instance of Frame.
     """
 
     _hide_controlpanel = False
@@ -1017,7 +1017,7 @@ class Frame:
         :param control_width: (int or float) >= 0
         """
         assert _PYGAME_AVAILABLE
-        assert not Frame._already_frame
+        assert Frame._frame_instance is None
 
         assert isinstance(title, str), type(title)
 
@@ -1033,7 +1033,7 @@ class Frame:
                 or isinstance(control_width, float)), type(control_width)
         assert control_width >= 0, control_width
 
-        Frame._already_frame = True
+        Frame._frame_instance = self
 
         self._control_width = (0 if Frame._hide_controlpanel
                                else int(round(control_width)))
@@ -1653,7 +1653,7 @@ class Frame:
         while Frame._save_canvas_requests:
             self._canvas._save(Frame._save_canvas_requests.pop(0))
 
-        Frame._already_frame = False
+        Frame._frame_instance = None
 
         pygame.display.quit()
 
