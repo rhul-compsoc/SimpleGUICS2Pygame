@@ -100,7 +100,7 @@ Changes
 =======
 *
 
-  - Updated example/RiceRocks_Asteroids.py (collisions of asteroid).
+  - Updated example/RiceRocks_Asteroids.py (collisions of asteroids and little asteroids).
 
   - Added ``Frame._set_canvas_background_image()`` function.
 
