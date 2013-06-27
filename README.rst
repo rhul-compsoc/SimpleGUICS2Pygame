@@ -100,6 +100,8 @@ Changes
 =======
 *
 
+  - Added ``Frame._set_canvas_background_image()`` function.
+
   - Memoization of downloaded images and sounds.
   - Changed save in local directory to avoid conflict.
 

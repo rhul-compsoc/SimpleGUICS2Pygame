@@ -1331,6 +1331,16 @@ class Frame:
             timer = create_timer(after, save_canvas_and_stop)
             timer.start()
 
+    def _set_canvas_background_image(self, image):
+        """
+        Set an image to replace the background color of the canvas.
+
+        :param image: None or Image
+        """
+        assert (image is None) or isinstance(image, Image), type(image)
+
+        self._canvas._background_pygame_surface_image = image._pygame_surface
+
     def add_button(self,
                    text,
                    button_handler,
@@ -1725,6 +1735,12 @@ class Canvas:
     Default `pygame.Color` of the background of the canvas.
     """
 
+    _background_pygame_surface_image = None
+    """
+    `pygame.Surface` default background image
+    replaces `_background_pygame_color`.
+    """
+
     def __init__(self,
                  frame,
                  canvas_width, canvas_height):
@@ -1779,7 +1795,11 @@ class Canvas:
         """
         if ((self._draw_handler is not None)
                 and (self._frame_parent is not None)):
-            self._pygame_surface.fill(self._background_pygame_color)
+            if self._background_pygame_surface_image is None:
+                self._pygame_surface.fill(self._background_pygame_color)
+            else:
+                self._pygame_surface.blit(
+                    self._background_pygame_surface_image, (0, 0))
 
             self._draw_handler(self)
 
@@ -2014,7 +2034,6 @@ class Canvas:
                 height_source -= 1
 
         if pygame_surface_image is not None:
-
             if ((x0_source != 0)
                     or (y0_source != 0)
                     or (width_source != image.get_width())
