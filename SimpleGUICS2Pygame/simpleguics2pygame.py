@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 26, 2013)
+simpleguics2pygame (June 27, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -462,7 +462,7 @@ def _load_media(type_of_media, url, local_dir):
 
     filename = sub('[^._/0-9A-Za-z]', '_', join(dirname(argv[0]),
                                                 local_dir,
-                                                urlsplit(url)[1],
+                                                urlsplit(url)[1] + '/',
                                                 urlsplit(url)[2][1:]))
 
     if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
