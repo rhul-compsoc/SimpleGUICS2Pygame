@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib (June 22, 2013)
+simplegui_lib (June 27, 2013)
 
 Some functions to help in SimpleGUI of CodeSkulptor.
 
@@ -36,10 +36,28 @@ class Loader:
     Interval in ms betweed two check.
     """
 
-    def __init__(self):
+    def __init__(self, frame, progression_bar_width,
+                 after_function, max_waiting=5000):
         """
         Set an empty loader.
+
+        :param frame: simpleguics2pygame.Frame or simplegui.Frame
+        :param progression_bar_width: (int or float) >= 0
+        :param after_function: function () -> *
+        :param max_waiting: (int or float) >= 0
         """
+        assert (isinstance(progression_bar_width, int)
+                or isinstance(progression_bar_width, float)), \
+            type(progression_bar_width)
+        assert progression_bar_width >= 0, progression_bar_width
+
+        #assert callable(after_function), type(after_function)
+
+        self._frame = frame
+        self._progression_bar_width = progression_bar_width
+        self._after_function = after_function
+        self._max_waiting = max_waiting
+
         self._images = {}
         self._sounds = {}
 
@@ -92,6 +110,42 @@ class Loader:
 
         self._sounds[(url.split('/')[-1] if name is None
                       else name)] = url
+
+    def draw_loading(self, canvas):
+        """
+        Draw waiting message on the canvas
+        when images and sounds loading.
+
+        :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
+        """
+        nb = self.get_nb_images() + self.get_nb_sounds()
+
+        size = 30
+
+        if (self._progression_bar_width > 0) and (nb > 0):
+            percent = (self.get_nb_images_loaded()
+                       + self.get_nb_sounds_loaded())*100.0/nb
+
+            y = 30 + size*3.0/4
+            canvas.draw_line((0, y),
+                             (self._progression_bar_width, y), 20, 'White')
+            if percent > 0:
+                canvas.draw_line((0, y),
+                                 (self._progression_bar_width*percent/100.0,
+                                  y),
+                                 20, 'Green')
+
+        canvas.draw_text('Loading... %d%%' % int(percent),
+                         (10, 10 + size*3.0/4),
+                         size, 'White')
+
+        if not self._SIMPLEGUICS2PYGAME:
+            nb = int(round(self.__max_waiting_remain/1000.0))
+            canvas.draw_text('Cancellation after %d second%s...'
+                             % (nb, ('s' if nb > 1
+                                     else '')),
+                             (10, 50 + size*2*3.0/4),
+                             size, 'White')
 
     def get_image(self, name):
         """
@@ -191,113 +245,81 @@ class Loader:
         """
         try:
             from simplegui import load_image, load_sound
+
+            SIMPLEGUICS2PYGAME = False
         except:
             from SimpleGUICS2Pygame.simpleguics2pygame import load_image, \
                 load_sound
 
+            SIMPLEGUICS2PYGAME = True
+
+        self._SIMPLEGUICS2PYGAME = SIMPLEGUICS2PYGAME
+
+        if SIMPLEGUICS2PYGAME:
+            handler_saved = self._frame._canvas._draw_handler
+            self._frame._canvas._draw_handler = self.draw_loading
+
         for name in self._sounds:
+            if SIMPLEGUICS2PYGAME:
+                self._frame._canvas._draw()
             if isinstance(self._sounds[name], str):
                 self._sounds[name] = load_sound(self._sounds[name])
 
         for name in self._images:
+            if SIMPLEGUICS2PYGAME:
+                self._frame._canvas._draw()
             if isinstance(self._images[name], str):
                 self._images[name] = load_image(self._images[name])
 
-    def wait_loaded(self, frame, progression_bar_width,
-                    after_function, max_waiting=5000):
+        if SIMPLEGUICS2PYGAME:
+            self._frame._canvas._draw()
+            self._frame._canvas._draw_handler = handler_saved
+
+    def wait_loaded(self):
         """
         Wait all images and sounds are fully loaded,
-        and next execute `after_function`.
+        and next execute `self._after_function`.
 
         While waiting, display message and progression bar on canvas of frame.
 
-        After `max_waiting` milliseconds, abort and execute `after_function`.
+        After `self._max_waiting` milliseconds,
+        abort and execute `self._after_function`.
 
         See details in `get_nb_sounds_loaded()` documentation.
-
-        :param frame: simpleguics2pygame.Frame or simplegui.Frame
-        :param progression_bar_width: (int or float) >= 0
-        :param after_function: function () -> *
-        :param max_waiting: (int or float) >= 0
         """
-        assert (isinstance(progression_bar_width, int)
-                or isinstance(progression_bar_width, float)), \
-            type(progression_bar_width)
-        assert progression_bar_width >= 0, progression_bar_width
-
-        #assert callable(after_function), type(after_function)
-
-        assert isinstance(max_waiting, int) or isinstance(max_waiting, float),\
-            type(max_waiting)
-        assert max_waiting >= 0, max_waiting
-
         if (((self.get_nb_images_loaded() == self.get_nb_images())
              and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
-                or (max_waiting <= 0)):
-            after_function()
+                or (self._max_waiting <= 0)):
+            self._after_function()
 
             return
 
         def check_if_loaded():
             """
             If all images and sounds are loaded
-            then stop waiting and execute `after_function`.
+            then stop waiting and execute `self._after_function`.
             """
-            self.__max_waiting -= Loader._interval
+            self.__max_waiting_remain -= Loader._interval
 
             if (((self.get_nb_images_loaded() == self.get_nb_images())
                  and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
-                    or (self.__max_waiting <= 0)):
-                self.__max_waiting = 0
+                    or (self.__max_waiting_remain <= 0)):
+                self.__max_waiting_remain = 0
                 self.__timer.stop()
-                frame.set_draw_handler(lambda canvas: None)
+                self._frame.set_draw_handler(lambda canvas: None)
 
                 del self.__timer
 
-                after_function()
+                self._after_function()
 
-        def draw_loading(canvas):
-            """
-            Draw waiting message on the canvas
-            when images and sounds loading.
-
-            :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
-            """
-            nb = self.get_nb_images() + self.get_nb_sounds()
-
-            size = 30
-
-            if (progression_bar_width > 0) and (nb > 0):
-                percent = (self.get_nb_images_loaded()
-                           + self.get_nb_sounds_loaded())*100.0/nb
-
-                y = 30 + size*3.0/4
-                canvas.draw_line((0, y),
-                                 (progression_bar_width, y), 20, 'White')
-                if percent > 0:
-                    canvas.draw_line((0, y),
-                                     (progression_bar_width*percent/100.0, y),
-                                     20, 'Green')
-
-            canvas.draw_text('Loading... %d%%' % int(percent),
-                             (10, 10 + size*3.0/4),
-                             size, 'White')
-
-            nb = int(round(self.__max_waiting/1000.0))
-            canvas.draw_text('Cancellation after %d second%s...'
-                             % (nb, ('s' if nb > 1
-                                     else '')),
-                             (10, 50 + size*2*3.0/4),
-                             size, 'White')
-
-        self.__max_waiting = max_waiting
+        self.__max_waiting_remain = self._max_waiting
 
         try:
             from simplegui import create_timer
         except:
             from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
 
-        frame.set_draw_handler(draw_loading)
+        self._frame.set_draw_handler(self.draw_loading)
         self.__timer = create_timer(Loader._interval, check_if_loaded)
         self.__timer.start()
 

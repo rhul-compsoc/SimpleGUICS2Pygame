@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (June 22, 2013)
+Spaceship prototype (June 27, 2013)
 
 My solution (slightly retouched) of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user16_v0hIgQGF5JqtOUQ import Loader
+    from user17_wvnbup0PNzbGTlS import Loader
 
     import simplegui
 except:
@@ -509,7 +509,12 @@ def start():
 # Main
 #######
 if __name__ == '__main__':
-    loader = Loader()
+    # Create frame
+    frame = simplegui.create_frame('Spaceship prototype',
+                                   SCREEN_WIDTH, SCREEN_HEIGHT)
+
+    # Load medias
+    loader = Loader(frame, SCREEN_WIDTH, start)
 
     # Images by Kim Lathrop
     loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',
@@ -537,10 +542,6 @@ if __name__ == '__main__':
 
     loader.load()
 
-    # Create frame
-    frame = simplegui.create_frame('Spaceship prototype',
-                                   SCREEN_WIDTH, SCREEN_HEIGHT)
-
     # Initialize ship and rock
     my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
                    -math.pi/2, loader.get_image('ship'), ship_info)
@@ -551,7 +552,7 @@ if __name__ == '__main__':
 
     frame.add_button('Quit', quit)
 
-    loader.wait_loaded(frame, SCREEN_WIDTH, start)
+    loader.wait_loaded()
 
     loader.get_sound('missile').set_volume(.5)
 

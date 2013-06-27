@@ -154,7 +154,7 @@ You can write this
         import simplegui
 
         import user16_DmDJwXW1dy0Sw1u as codeskulptor_lib
-        import user16_v0hIgQGF5JqtOUQ as simplegui_lib
+        import user17_wvnbup0PNzbGTlS as simplegui_lib
     except:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
