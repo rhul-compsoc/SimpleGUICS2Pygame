@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user16_v0hIgQGF5JqtOUQ import Loader
+    from user17_wvnbup0PNzbGTlS import Loader
 
     import simplegui
 
@@ -445,7 +445,42 @@ class RiceRocks:
                                                       17, 24, True),
                           'splash': ImageInfo((200, 150), (400, 300))}
 
-        self.medias = Loader()
+        def init():
+            """
+            Init the game after medias loaded.
+            """
+            if SIMPLEGUICS2PYGAME:
+                frame._set_canvas_background_image(
+                    self.medias.get_image('nebula'))
+
+            self.medias._images['live_explosion'] = \
+                self.medias._images['ship_explosion']
+
+            for i in range(1, 4):
+                self.medias._images['little-asteroid-' + str(i)] = \
+                    self.medias._images['asteroid-' + str(i)]
+
+            self.medias._sounds['asteroid_collide_explosion'] = \
+                self.medias._sounds['asteroid_explosion']
+
+            self.medias.get_sound('missile').set_volume(.5)
+
+            self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
+                                -math.pi/2, 'ship')
+
+            frame.set_draw_handler(self.draw_and_update)
+
+            frame.set_keydown_handler(keydown)
+            frame.set_keyup_handler(keyup)
+
+            frame.set_mouseclick_handler(click)
+
+            if ricerocks.music_active:
+                self.medias.get_sound('intro').play()
+
+            self.loaded = True
+
+        self.medias = Loader(frame, SCREEN_WIDTH, init)
 
         # Images by Kim Lathrop
         self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',
@@ -495,42 +530,7 @@ class RiceRocks:
 
         self.medias.load()
 
-        def init():
-            """
-            Init the game after medias loaded.
-            """
-            if SIMPLEGUICS2PYGAME:
-                frame._set_canvas_background_image(
-                    self.medias.get_image('nebula'))
-
-            self.medias._images['live_explosion'] = \
-                self.medias._images['ship_explosion']
-
-            for i in range(1, 4):
-                self.medias._images['little-asteroid-' + str(i)] = \
-                    self.medias._images['asteroid-' + str(i)]
-
-            self.medias._sounds['asteroid_collide_explosion'] = \
-                self.medias._sounds['asteroid_explosion']
-
-            self.medias.get_sound('missile').set_volume(.5)
-
-            self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
-                                -math.pi/2, 'ship')
-
-            frame.set_draw_handler(self.draw_and_update)
-
-            frame.set_keydown_handler(keydown)
-            frame.set_keyup_handler(keyup)
-
-            frame.set_mouseclick_handler(click)
-
-            if ricerocks.music_active:
-                self.medias.get_sound('intro').play()
-
-            self.loaded = True
-
-        self.medias.wait_loaded(frame, SCREEN_WIDTH, init)
+        self.medias.wait_loaded()
 
     def rock_spawner(self):
         """

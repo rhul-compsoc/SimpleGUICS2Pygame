@@ -100,6 +100,9 @@ Changes
 =======
 *
 
+  - Changed ``simplegui_lib.Loader`` class to display progression loading in SimpleGUICS2Pygame
+    (moved arguments from ``wait_loaded()`` function to ``__init__()``).
+
   - Replaced ``Frame._already_frame`` by ``Frame._frame_instance``.
 
   - Updated example/RiceRocks_Asteroids.py (collisions of asteroids and little asteroids).

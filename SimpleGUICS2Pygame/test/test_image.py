@@ -14,7 +14,7 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user16_v0hIgQGF5JqtOUQ import Loader
+    from user17_wvnbup0PNzbGTlS import Loader
 
     import simplegui
 
@@ -140,11 +140,11 @@ def init():
         if len(argv) == 2:
             frame._save_canvas_and_stop(argv[1])
 
-loader = Loader()
+loader = Loader(frame, WIDTH, init)
 loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
                  'double_ship')
 loader.load()
 
-loader.wait_loaded(frame, WIDTH, init)
+loader.wait_loaded()
 
 frame.start()
