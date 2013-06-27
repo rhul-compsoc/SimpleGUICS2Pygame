@@ -18,7 +18,7 @@ http://www.codeskulptor.org/#user16_z1hGuYwK3BCXXTt.py
 http://www.codeskulptor.org/#user16_VoETI6R7uXkBoHh.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user16_jcIXcVwD0Hyf3Zf.py
+http://www.codeskulptor.org/#user17_9VMi3dGbp6O5Ose.py
 <strong>RiceRocks_Asteroids</strong>.py
 
 http://www.codeskulptor.org/#user16_GLdCjwPYi8lYxcT.py
@@ -64,6 +64,9 @@ test_dir.py
 
 http://www.codeskulptor.org/#user16_f4x8BQ9f1oHzQ4u.py
 test_grid.py
+
+http://www.codeskulptor.org/#user17_6L7W3NEisNoSb25.py
+test_image.py
 
 http://www.codeskulptor.org/#user16_Jf8XrvcKFAP1SMl.py
 test_line.py
