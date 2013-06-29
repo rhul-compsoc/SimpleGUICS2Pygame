@@ -252,8 +252,8 @@ Tetris Attack (Stephen <span class="small-caps">Ferguson</span>)
 Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
 
 http://www.codeskulptor.org/#user16_1WZB5ONMqmVd8TF.py
-<strong>Tetris Attack</strong> (Stephen <span class="small-caps">Ferguson</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a> ADAPTED
+<strong>Tetris Attack</strong> (Stephen <span class="small-caps">Ferguson</span>) ADAPTED
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
 
 
 

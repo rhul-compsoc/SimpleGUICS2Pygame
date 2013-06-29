@@ -98,6 +98,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+*
+
+  - Updated media and CodeSkulptor programs links.
+
 * 00.92.00 --- June 27, 2013
 
   - Changed ``simplegui_lib.Loader`` class to display progression loading in SimpleGUICS2Pygame
