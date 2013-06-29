@@ -5,7 +5,7 @@
 Make 'img_snd_links.htm' file
   from img_links.txt
        snd_links.txt
-(June 22, 2013)
+(June 29, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -43,12 +43,12 @@ if __name__ == '__main__':
          else open(DIR_DEST + FILE_DEST, mode='a'))
 
     print("""
-<h2>Images</h2>""", file=f)
+<h2 id="Images">Images</h2>""", file=f)
     make_links.print_html_list_img(
         make_links.read_txt(DIR_DATA + 'img_links.txt'), f)
 
     print("""
-<h2>Sounds</h2>""", file=f)
+<h2 id="Sounds">Sounds</h2>""", file=f)
     make_links.print_html_list_snd(
         make_links.read_txt(DIR_DATA + 'snd_links.txt'), f)
 
