@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (June 22, 2013)
+Mandelbrot Set. (July 5, 2013)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -71,6 +71,7 @@ def draw_and_calculate(canvas):
             color = point[3]
             if color is not None:
                 canvas.draw_point((x, y), colors[color])
+                canvas.draw_point((x, CANVAS_HEIGHT - y), colors[color])
             else:
                 z = point[0]
 
@@ -81,6 +82,7 @@ def draw_and_calculate(canvas):
                 if z_abs2 > 4:
                     point[3] = color = point[2] % len(colors)  # color
                     canvas.draw_point((x, y), colors[color])
+                    canvas.draw_point((x, CANVAS_HEIGHT - y), colors[color])
                 else:
                     c = point[1]
                     point[0] = (z_real2 - z_imag2 + c[0],  # z
@@ -105,6 +107,7 @@ def draw_only(canvas):
             color = point[3]
             if color is not None:
                 canvas.draw_point((x, y), colors[color])
+                canvas.draw_point((x, CANVAS_HEIGHT - y), colors[color])
 
     if _FPS_AVERAGE:
         canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20),
@@ -136,7 +139,7 @@ def init():
     coef_c_imag = (z0_imag - z1_imag)/(CANVAS_HEIGHT - 1)
 
     grid = []
-    for y in range(CANVAS_HEIGHT):
+    for y in range(CANVAS_HEIGHT//2 + 1):
         c_imag = z0_imag - coef_c_imag*y
 
         line = []
