@@ -100,6 +100,7 @@ Changes
 =======
 *
 
+  - Updated example/Mandelbrot_Set.py (used vertical symetry).
   - Updated media and CodeSkulptor programs links.
 
 * 00.92.00 --- June 27, 2013
