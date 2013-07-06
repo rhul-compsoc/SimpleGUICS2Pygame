@@ -1,8 +1,8 @@
 simplegui_lib
 =============
 (Version saved in CodeSkulptor
-http://www.codeskulptor.org/#user17_wvnbup0PNzbGTlS.py .)
+http://www.codeskulptor.org/#user17_4TDF1HgJxDffzME.py .)
 
-.. automodule:: simplegui_lib
+.. automodule:: SimpleGUICS2Pygame.simplegui_lib
     :special-members:
     :members:

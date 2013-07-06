@@ -11,6 +11,7 @@ SimpleGUICS2Pygame package's documentation
    simplegui_lib
    simpleguics2pygame
    simpleguics2pygame_private
+   simpleplot
 
 
 
@@ -152,12 +153,14 @@ You can write this
     try:
         import codeskulptor
         import simplegui
+        import simpleplot
 
         import user16_DmDJwXW1dy0Sw1u as codeskulptor_lib
-        import user17_wvnbup0PNzbGTlS as simplegui_lib
+        import user17_4TDF1HgJxDffzME as simplegui_lib
     except:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+        import SimpleGUICS2Pygame.simpleplot as simpleplot
 
         import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib

@@ -2,10 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-Stress Ball - REVERSE (June 22, 2013)
+Stress Ball - REVERSE (July 6, 2013)
   Display many "balls" and calculate FPS (Frame Per Second)
 
-On Chrome: simpleplot failed!
 On Safari: exception failed!
 
 Inspired by "Classy Balls" of Bill:
@@ -21,15 +20,12 @@ http://www.opimedia.be/
 
 try:
     import simplegui
-except:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-
-    simplegui.Frame._hide_status = True
-
-try:
     import simpleplot
 except:
-    print('No simpleplot!')
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleplot as simpleplot
+
+    simplegui.Frame._hide_status = True
 
 
 ### Config >>>
@@ -217,17 +213,16 @@ def init():
               .join(['%d: %d' % result for result in results]) + '}')
 
         try:
-            # Don't work in Chrome!
+            frame.stop()
+        except Exception as e:  # to avoid simpleguitk failed
+            print('frame.stop():' + str(e))
+
+        try:
             simpleplot.plot_lines('Stress Balls', 800, 650,
                                   '# balls', 'FPS',
                                   (results, ), True)
         except Exception as e:  # to avoid fail if no simpleplot
             print('simpleplot.plot_lines():' + str(e))
-
-        try:
-            frame.stop()
-        except Exception as e:  # to avoid simpleguitk failed
-            print('frame.stop():' + str(e))
 
         return
 

@@ -1,6 +1,6 @@
 simpleguics2pygame (with private members)
 =========================================
-.. automodule:: simpleguics2pygame
+.. automodule:: SimpleGUICS2Pygame.simpleguics2pygame
     :undoc-members:
     :special-members:
     :private-members:

@@ -1,7 +1,7 @@
 Package SimpleGUICS2Pygame
 ==========================
 
-.. automodule:: __init__
+.. automodule:: SimpleGUICS2Pygame.__init__
 
 .. autodata:: _VERSION
 

@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib (June 27, 2013)
+simplegui_lib (July 6, 2013)
 
 Some functions to help in SimpleGUI of CodeSkulptor.
 
@@ -29,6 +29,13 @@ class Loader:
     So `Loader` begin load sounds, and next begin load images.
     It wait each image is loaded,
     and considers that all downloads are completed.)
+
+    Examples of use in :
+
+    * `example/Spaceship_prototype.py`:
+      http://www.codeskulptor.org/#user17_UiZndlbIFBy9T9m.py
+    * `example/RiceRocks_Asteroids.py`:
+      http://www.codeskulptor.org/#user17_9VMi3dGbp6O5Ose.py
     """
 
     _interval = 100
