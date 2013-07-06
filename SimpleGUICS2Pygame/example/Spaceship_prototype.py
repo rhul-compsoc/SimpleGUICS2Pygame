@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (June 27, 2013)
+Spaceship prototype (July 6, 2013)
 
 My solution (slightly retouched) of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user17_wvnbup0PNzbGTlS import Loader
+    from user17_4TDF1HgJxDffzME import Loader
 
     import simplegui
 except:

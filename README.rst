@@ -100,6 +100,7 @@ Changes
 =======
 *
 
+  - Added simpleplot module.
   - Updated example/Mandelbrot_Set.py (used vertical symetry).
   - Updated media and CodeSkulptor programs links.
 

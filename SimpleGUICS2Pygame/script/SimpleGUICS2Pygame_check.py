@@ -4,7 +4,7 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(June 23, 2013)
+(July 6, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -25,6 +25,17 @@ if __name__ == '__main__':
     print("""script/SimpleGUICS2Pygame_check.py
 ==================================
 python - version""", version)
+
+    print()
+
+    try:
+        cmd = 'import matplotlib'
+
+        import matplotlib
+
+        print(cmd, 'ok - Version', matplotlib.__version__)
+    except Exception as e:
+        print(cmd, 'FAILED!', e)
 
     print()
 
@@ -89,6 +100,15 @@ python - version""", version)
         cmd = 'import SimpleGUICS2Pygame.simpleguics2pygame'
 
         import SimpleGUICS2Pygame.simpleguics2pygame
+
+        print(cmd, 'ok')
+    except Exception as e:
+        print(cmd, 'FAILED!', e)
+
+    try:
+        cmd = 'import SimpleGUICS2Pygame.simpleplot'
+
+        import SimpleGUICS2Pygame.simpleplot
 
         print(cmd, 'ok')
     except Exception as e:

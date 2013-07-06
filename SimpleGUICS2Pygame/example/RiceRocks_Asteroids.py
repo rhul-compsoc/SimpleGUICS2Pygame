@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-RiceRocks (Asteroids) (June 27, 2013)
+RiceRocks (Asteroids) (July 6, 2013)
 
 My slightly retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user17_wvnbup0PNzbGTlS import Loader
+    from user17_4TDF1HgJxDffzME import Loader
 
     import simplegui
 

@@ -3,7 +3,7 @@
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(June 22, 2013)
+(July 6, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -13,9 +13,10 @@ http://www.opimedia.be/
 """
 
 try:
+    import codeskulptor  # to avoid other simpleplot available in Python
     import simpleplot
 except:
-    print('!No simpleplot')
+    import SimpleGUICS2Pygame.simpleplot as simpleplot
 
 
 # All my (old) results on Pentium Dual-Core 2.7GHz 2Gio, Windows 7 64 bits:
