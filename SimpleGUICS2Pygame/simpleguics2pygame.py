@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 27, 2013)
+simpleguics2pygame (July 13, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -12,7 +12,7 @@ Require Pygame_
 (except for the Timer class)
 (`Unofficial Windows Binaries`_).
 
-`Online HTML documentation`_ on `DragonSoft DS`_ website.
+`Online HTML documentation`_ on Read The Docs.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -22,7 +22,7 @@ http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
-.. _`Online HTML documentation`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/index.htm
+.. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame

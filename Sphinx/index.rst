@@ -27,16 +27,17 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 |   ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``
 | in your CodeSkulptor program and run it in *standard Python* with this module (and Pygame).
 
-`Online HTML documentation`_ on `DragonSoft DS`_ website.
+|SimpleGUICS2Pygame|
+
+`Online HTML documentation`_ on Read The Docs.
 
 | Sources and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 | and on PyPI: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
-.. _`Online HTML documentation`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/index.htm
+.. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Python: http://www.python.org/
-
+.. |SimpleGUICS2Pygame| image:: http://www.opimedia.be/DS/SimpleGUICS2Pygame/_png/SimpleGUICS2Pygame_64x64_t.png
 
 Installation
 ------------
@@ -74,8 +75,10 @@ Examples
 --------
 You can see examples in ``SimpleGUICS2Pygame/example/`` subdirectory from the sources archives.
 
-Or online in CodeSkulptor:
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/doc_html/_static/links/prog_links.htm .
+Or online:
+`Python programs running in CodeSkulptor`_ .
+
+.. _`Python programs running in CodeSkulptor`: _static/links/prog_links.htm
 
 
 Author |OPi|
