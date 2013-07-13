@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (July 6, 2013)
+simpleplot (July 13, 2013)
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -21,7 +21,10 @@ http://www.opimedia.be/
 try:
     import matplotlib.pyplot
 except Exception as e:
-    raise Exception('matplotlib not installed! ' + str(e))
+    import os
+
+    if os.environ.get('READTHEDOCS', None) != 'True':
+        raise Exception('matplotlib not installed! ' + str(e))
 
 
 #
