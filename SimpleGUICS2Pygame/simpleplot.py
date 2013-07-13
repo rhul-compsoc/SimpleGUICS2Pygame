@@ -81,8 +81,8 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
     :param ylabel: str
     :param datasets: (list or tuple)
                      of (((list or tuple) of ([int or float, int or float]
-                                              or (int or float, int or float)))
-                         or (dict (int or float): (int or float)))
+                     or (int or float, int or float)))
+                     or (dict (int or float): (int or float)))
     :param points: bool
     :param legends: None or ((list or tuple) of same length as datasets)
     """
