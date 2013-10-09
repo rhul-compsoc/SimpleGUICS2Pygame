@@ -74,7 +74,7 @@ test_line.py
 http://www.codeskulptor.org/#user16_X1V3Dgp484V0uzg.py
 test_objects.py
 
-http://www.codeskulptor.org/#user16_8D1aR0ZNIhW3iNJ.py
+http://www.codeskulptor.org/#user17_yqWMjasFmB40KiK.py
 test_text.py
 
 
@@ -332,6 +332,7 @@ http://www.codeskulptor.org/#examples-more-6_object_oriented_programming-flowers
 more-6_object_oriented_programming-flowers.py
 
 http://www.codeskulptor.org/#examples-more-6_tiled_images-bunny_emotions.py
+examples-more-6_tiled_images-bunny_emotions.py
 
 
 

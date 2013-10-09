@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw text. (June 22, 2013)
+Test draw text. (July 18, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -12,13 +12,13 @@ http://www.opimedia.be/
 """
 
 try:
-    from user16_5OTl5W5yQFVDqqv import draw_rect, draw_text_side
+    from user17_4TDF1HgJxDffzME import draw_text_side
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
 except:
-    from SimpleGUICS2Pygame.simplegui_lib import draw_rect, draw_text_side
+    from SimpleGUICS2Pygame.simplegui_lib import draw_text_side
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
