@@ -37,7 +37,7 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Python: http://www.python.org/
-.. |SimpleGUICS2Pygame| image:: http://www.opimedia.be/DS/SimpleGUICS2Pygame/_png/SimpleGUICS2Pygame_64x64_t.png
+.. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_64x64_t.png
 
 Installation
 ------------
@@ -54,6 +54,10 @@ Next in the ``somewhere/SimpleGUICS2Pygame-?/SimpleGUICS2Pygame`` subdirectory r
 
 Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
 (except for the Timer class) Pygame_ .
+
+You can run the little script ``SimpleGUICS2Pygame_check.py``
+to check if required modules are installed.
+
 
 On Window$:
 
@@ -189,32 +193,41 @@ Compatibility
 ~~~~~~~~~~~~~
 Be careful
 
-* CodeSkulptor don't distinguish int and float.
-
-  The division ``/`` don't have the same behavior in Python 2 and Python 3:
+* The division ``/`` don't have the same behavior in Python 2 and Python 3:
   http://docs.python.org/3/whatsnew/3.0.html#integers .
 
-  Rounded behavior is also different:
-  http://docs.python.org/3/whatsnew/3.0.html#builtins .
+  * In Python 2 (and CodeSkulptor): ``3/2 == 1`` and ``3/2.0 == 1.5``
+  * In Python 3: ``3/2 == 3/2.0 == 1.5``
+
+  ``3//2 == 1`` and ``3//2.0 == 1.0`` everywehre.
 
   (You can add
   ``from __future__ import division``
   *on the top* of your program, and Python 2 mimic Python 3 division.
   But then *CodeSkulptor failed*!)
 
-* ``Frame.start()`` is blocking until ``Frame.stop()`` execution or closing window.
-  So timers must be started *before*, and states must be initialized *before*.
-  (Or maybe after by a handler function.)
+* Rounded behavior is also different:
+  http://docs.python.org/3/whatsnew/3.0.html#builtins .
 
-* ``math.abs()`` doesn't exist in In Python, instead use ``abs()``.
+  * In Python 2 (and CodeSkulptor): ``round(1.5) == 2.0`` and ``round(2.5) == 3.0``
+  * In Python 3: ``round(1.5) == round(2.5) == 2``
 
 * ``print`` is a function in Python 3:
   http://docs.python.org/3/whatsnew/3.0.html#print-is-a-function .
+
+  * In Python 2 (and CodeSkulptor): ``print 'Hello real world!', 42``
+  * In Python 3: ``print('Hello real world!', 42)``
+
+  With only one argument, ``print('Hello real world! ' + str(42))`` run everywhere.
 
   (You can add
   ``from __future__ import print_function``
   *on the top* of your program, and Python 2 mimic Python 3 print function.
   But then *CodeSkulptor failed*!)
+
+* ``Frame.start()`` is blocking until ``Frame.stop()`` execution or closing window.
+  So timers must be started *before*, and states must be initialized *before*.
+  (Or maybe after by a handler function.)
 
 
 Download medias
@@ -224,18 +237,12 @@ Images and sounds used will be saved in local directory (``_img/`` et ``_snd`` b
 Next simply run ``python yourprogram.py`` and the medias will be loaded from these local directories.
 
 
-English
-~~~~~~~
-I don't really speak English, I'm speak French.
-So this documentation and comments in the source code are likely horrible. ;-)
-
-
 Options
 ~~~~~~~
 When you run a program you can use following options:
 ``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
 
-* ``--default-font``: Use Pygame default font instead serif, monospace...
+* ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
 * ``--display-fps``: Display FPS average on the canvas.
 * ``--fullscreen``: Fullscreen mode.
 * ``--keep-timers``: Keep running timers when close frame without ask.
@@ -249,9 +256,9 @@ When you run a program you can use following options:
 * ``--print-load-medias``: Print URLs or local filenames loaded.
 * ``--save-downloaded-medias``: save images and sounds downloaded from Web
                                 that don't already exist in local directory.
-* ``--stop-timers``: Stop all timers when close frame.
+* ``--stop-timers``: Stop all timers when close frame without ask.
 
-If an argument not in this list then next arguments are ignored.
+If an argument is not in this list then it is ignored and all next arguments are ignored.
 
 Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
 
@@ -263,11 +270,13 @@ But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
 ``yourprogram.py`` application receive ``--foo --fullscreen`` options.
 
 
+Python option
+~~~~~~~~~~~~~
 Run
 ``python yourprogram.py``
 then asserts is active and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
 It is a good point to develop and write correct programs.
-But if you want just run a program,
+But if you want just run a program (or run faster),
 ``python -O yourprogram.py``
 then all asserts is *inactive*.
 

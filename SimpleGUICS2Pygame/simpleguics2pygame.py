@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (July 13, 2013)
+simpleguics2pygame (October 9, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -427,7 +427,7 @@ def _load_media(type_of_media, url, local_dir):
 
     Side effect: Each new url is added to `Frame._pygamemedias_cached`.
 
-    :param type_of_media: 'Image' or 'Sound'
+    :param type_of_media: Image or Sound
     :param url: str
     :param local_dir: str
 
@@ -602,6 +602,7 @@ def _set_option_from_argv():
     and set options.
 
     * ``--default-font``: Use Pygame default font instead serif, monospace...
+                          (this is faster if you print a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
     * ``--fullscreen``: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
@@ -616,10 +617,10 @@ def _set_option_from_argv():
     * ``--save-downloaded-medias``: save images and sounds downloaded from Web
                                     that don't already exist
                                     in local directory.
-    * ``--stop-timers``: Stop all timers when close frame.
+    * ``--stop-timers``: Stop all timers when close frame without ask.
 
-    If an argument not in this list
-    then next arguments are ignored.
+    If an argument is not in this list
+    then it is ignored and all next arguments are ignored.
 
     Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
 
@@ -2131,9 +2132,6 @@ class Canvas:
         """
         Draw a point.
 
-        (Available in SimpleGUI of CodeSkulptor
-        but *not in CodeSkulptor documentation*!)
-
         :param position: (int or float, int or float)
                          or [int or float, int or float]
         :param color: str
@@ -2301,7 +2299,7 @@ class Canvas:
         then use the default `pygame.font.Font`.
 
         `_font_size_coef` is used to adjust the vertical positioning.
-        **(Not available in SimpleGUI of CodeSkulptor.)**
+        **(This paramater is not available in SimpleGUI of CodeSkulptor.)**
 
         :param text: str
         :param point: (int or float, int or float)
@@ -3447,7 +3445,7 @@ if __name__ == '__main__':
                 canvas.draw_text(line, (10, 50 + size*(i + 3/4)),
                                  size, 'Black')
 
-    logo = load_image('http://www.opimedia.be/DS/SimpleGUICS2Pygame/_png/SimpleGUICS2Pygame_64x64_t.png')
+    logo = load_image('https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png')
 
     frame = create_frame(
         'SimpleGUICS2Pygame: short presentation of this module',

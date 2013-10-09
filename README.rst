@@ -24,7 +24,7 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Python: http://www.python.org/
-.. |SimpleGUICS2Pygame| image:: http://www.opimedia.be/DS/SimpleGUICS2Pygame/_png/SimpleGUICS2Pygame_64x64_t.png
+.. |SimpleGUICS2Pygame| image:: https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png
 
 
 Installation
@@ -102,6 +102,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+* 01.00.01 --- October 9, 2013
+
+  - Adapted documentation and ``cs2both.py`` to changes of CodeSkulptor (int and float are now separate).
+
 * 01.00.00 --- July 13, 2013
 
   - Moved documentation to Read The Docs.
