@@ -102,6 +102,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+*
+
+  - Updated example/Mandelbrot_Set.py (optimized draw).
+  - Updated media and CodeSkulptor programs links.
+
 * 01.00.01 --- October 9, 2013
 
   - Adapted documentation and ``cs2both.py`` to changes of CodeSkulptor (int and float are now separate).

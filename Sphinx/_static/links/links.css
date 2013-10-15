@@ -1,5 +1,7 @@
 /* -*- coding: latin-1 -*- */
 
+a.broken { text-decoration: line-through; }
+
 a.mail:link {
     background-color: inherit;
     color: green;

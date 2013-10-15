@@ -6,7 +6,7 @@ script/cs2both.py
 
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(October 9, 2013)
+(October 15, 2013)
 
 A file codeskulptor_program.py is copied
 to codeskulptor_program.py.bak before changing.
@@ -132,6 +132,7 @@ if __name__ == '__main__':
                 lines[i] = '\n' + indent + ('\n' + indent).join(
                     ("# Automatically modified by 'cs2both.py'",
                      '# to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.',
+                     '# https://bitbucket.org/OPiMedia/simpleguics2pygame',
                      'try:',
                      '    import simplegui',
                      'except:',

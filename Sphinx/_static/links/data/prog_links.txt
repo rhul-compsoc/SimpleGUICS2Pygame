@@ -6,7 +6,7 @@ Blackjack.py
 http://www.codeskulptor.org/#user16_1ZbqfmtFxX6rpHt.py
 Frame_example.py
 
-http://www.codeskulptor.org/#user17_SyQtrVhx3aMPUqS.py
+http://www.codeskulptor.org/#user19_hifKDNyY7Kj8ew5.py
 <strong>Mandelbrot_Set</strong>.py
 
 http://www.codeskulptor.org/#user16_8aI2mmAJn8zpAsS.py
@@ -125,17 +125,35 @@ Bunny's Big Adventure (Jenna <span class="small-caps">Netland</span>) ADAPTED
 http://www.codeskulptor.org/#user16_fn3IdoDS8y_0.py
 Bunny's Big Adventure (game objects require by Bunny's Big Adventure, Jenna <span class="small-caps">Netland</span>) ADAPTED
 
+http://www.codeskulptor.org/#demos-ddr.py
+DDR clone (Emily <span class="small-caps">Wachtel</span>)
+
+http://www.codeskulptor.org/#user19_hLghEN2n2P_0.py
+<strong>DDR clone</strong> (Emily <span class="small-caps">Wachtel</span>) ADAPTED
+
 http://www.codeskulptor.org/#demos-towerdefence.py
 Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>)
 
 http://www.codeskulptor.org/#user16_pkjMxzxZCY_0.py
 Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>) ADAPTED (but I don't understand anything in this game!)
 
+http://www.codeskulptor.org/#demos-game_of_life.py
+Game of Life (Jonathan <span class="small-caps">Nixon</span>)
+
+http://www.codeskulptor.org/#user19_kx6pNaJ16J_0.py
+<strong>Game of Life</strong> (Jonathan <span class="small-caps">Nixon</span>) ADAPTED
+
 http://www.codeskulptor.org/#demos-automata.py
 Psychedelic 1D Cellular Automata (Scott <span class="small-caps">Reynolds</span>)
 
 http://www.codeskulptor.org/#user16_QMF8HFt8de_0.py
 <strong>Psychedelic 1D Cellular Automata</strong> (Scott <span class="small-caps">Reynolds</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos-pybert.py
+Py*bert (Jeff <span class="small-caps">Botts</span>)
+
+http://www.codeskulptor.org/#save2_Gh6BSQnjSn.py
+<strong>Py*bert</strong> (Jeff <span class="small-caps">Botts</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-pyman.py
 Pyman (Lawrence <span class="small-caps">Strickland</span>)
@@ -155,109 +173,99 @@ http://www.codeskulptor.org/#user16_aLi8h3NpYe_0.py
 http://www.codeskulptor.org/#demos-adventures_of_tom.py
 The Adventures of Tom (Derek <span class="small-caps">Peirce</span>) (don't work in Python, due to incorrect use of classes)
 
+http://www.codeskulptor.org/#demos-tile_flood.py
+Tile Flood (Sergey <span class="small-caps">Efimov</span>)
+
+http://www.codeskulptor.org/#user19_Sd5A76hlsV_0.py
+<strong>Tile Flood</strong> (Sergey <span class="small-caps">Efimov</span>) ADAPTED
+
 
 
 + By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://www.codeskulptor.org/#user16_KeOVeTmuOn2iucr_0.py
 <strong>Bouncing balls</strong> (Andrew <span class="small-caps">Meadows</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7649" target="_blank"><i>Bouncing balls</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7649" target="_blank"><i>Bouncing balls</i></a>
 
 http://www.codeskulptor.org/#user16_JXs6TOMaOOZQJKF.py
 Chicken Shooter (Dennis <span class="small-caps">Della Corte</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7969" target="_blank"><i>Chicken Shooter</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7969" target="_blank"><i>Chicken Shooter</i></a>
 
 http://www.codeskulptor.org/#user16_51xSwE0jKK_0.py
 <strong>Chicken Shooter</strong> (Dennis <span class="small-caps">Della Corte</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7969" target="_blank"><i>Chicken Shooter</i></a>
-
-http://www.codeskulptor.org/#user12_HSQQBLcXvm_1.py
-<strong><span class="small-caps">Conway</span>'s Game of Life</strong> (Jonathan <span class="small-caps">Nixon</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=2152" target="_blank"><i><span class="small-caps">Conway</span>'s Game of Life</i></a>
-
-http://www.codeskulptor.org/#user16_75c0yLJi2x_4.py
-Dance Dance Revolution (Emily <span class="small-caps">Wachtel</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7140" target="_blank"><i>Dance Dance Revolution attempt</i></a>
-
-http://www.codeskulptor.org/#user16_eWJipRUZA9_0.py
-<strong>Dance Dance Revolution</strong> (Emily <span class="small-caps">Wachtel</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7140" target="_blank"><i>Dance Dance Revolution attempt</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7969" target="_blank"><i>Chicken Shooter</i></a>
 
 http://www.codeskulptor.org/#user16_xfbbqbrHIbO8zDv_4.py
 <strong>Fractal</strong> (Roger <span class="small-caps">Foreman</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174" target="_blank"><i>Fractal</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174" target="_blank"><i>Fractal</i></a>
 
 http://www.codeskulptor.org/#user16_JERSJkUJn2WSSOk_3.py
 <strong>Fractal: Dragon Curve</strong> (Roger <span class="small-caps">Foreman</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174#post-36575" target="_blank"><i>Fractal</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174#post-36575" target="_blank"><i>Fractal</i></a>
 
 http://www.codeskulptor.org/#user14_ukoXFYBnla2yntE_1.py
 Memory (Soesilo <span class="small-caps">Wijono</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=4946" target="_blank"><i>Show Off &quot;Card / Number&quot; Extras (Image, Animation)</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=4946" target="_blank"><i>Show Off &quot;Card / Number&quot; Extras (Image, Animation)</i></a>
 
 http://www.codeskulptor.org/#user17_t0KaM6ZKSm_0.py
 <strong>Memory</strong> (Soesilo <span class="small-caps">Wijono</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=4946" target="_blank"><i>Show Off &quot;Card / Number&quot; Extras (Image, Animation)</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=4946" target="_blank"><i>Show Off &quot;Card / Number&quot; Extras (Image, Animation)</i></a>
 
 http://www.codeskulptor.org/#user16_Tkant5IfVO5F0UA.py
 Juggle (Zolt&aacute;n <span class="small-caps">Szalai</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8225" target="_blank"><i>Juggle</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8225" target="_blank"><i>Juggle</i></a>
 
 http://www.codeskulptor.org/#user16_FstVqlEZD6_0.py
 Juggle (Zolt&aacute;n <span class="small-caps">Szalai</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8225" target="_blank"><i>Juggle</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8225" target="_blank"><i>Juggle</i></a>
 
 http://www.codeskulptor.org/#user16_v1lBHnqvBe_7.py
 Pacific Defender (Bob <span class="small-caps">Lewis</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8209" target="_blank"><i>Hall of Shame!;) Pacific Defender(basic 1942 style game)</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8209" target="_blank"><i>Hall of Shame!;) Pacific Defender(basic 1942 style game)</i></a>
 
 http://www.codeskulptor.org/#user17_v1lBHnqvBe_8.py
 <strong>Pacific Defender</strong> (Bob <span class="small-caps">Lewis</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8209" target="_blank"><i>Hall of Shame!;) Pacific Defender(basic 1942 style game)</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8209" target="_blank"><i>Hall of Shame!;) Pacific Defender(basic 1942 style game)</i></a>
 
 http://www.codeskulptor.org/#user16_Iuy7xIrAnI_25.py
 Pitfall (Corrado <span class="small-caps">Musumeci</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8266" target="_blank"><i>Pitfall - MyFOG Berlin Game Jam</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8266" target="_blank"><i>Pitfall - MyFOG Berlin Game Jam</i></a>
 
 http://www.codeskulptor.org/#user16_F5TtoDE53v_0.py
 <strong>Pitfall</strong> (Corrado <span class="small-caps">Musumeci</span>) ADAPATED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8266" target="_blank"><i>Pitfall - MyFOG Berlin Game Jam</i></a>
-
-http://www.codeskulptor.org/#save2_2qZWdKdMc1.py
-<strong>Py*bert</strong> (Jeff <span class="small-caps">Botts</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7141" target="_blank"><i>Py*bert (a Q*bert port)</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=8266" target="_blank"><i>Pitfall - MyFOG Berlin Game Jam</i></a>
 
 http://www.codeskulptor.org/#user16_HasV5HkNlG_18.py
 Raycasting (Mike <span class="small-caps">Bendele</span>, with of Helder <span class="small-caps">Sepulveda</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6821" target="_blank"><i>Raycasting test</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6821" target="_blank"><i>Raycasting test</i></a>
 
 http://www.codeskulptor.org/#user16_fRCKqpqKA5_0.py
 <strong>Raycasting</strong> (Mike <span class="small-caps">Bendele</span>, with of Helder <span class="small-caps">Sepulveda</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6821" target="_blank"><i>Raycasting test</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6821" target="_blank"><i>Raycasting test</i></a>
 
 http://www.codeskulptor.org/#user16_SawZhBSY55_0.py
 <strong>Solarsystem</strong> (Diego <span class="small-caps">Romero</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6923" target="_blank"><i>Solarsystem in Codeskulptor</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6923" target="_blank"><i>Solarsystem in Codeskulptor</i></a>
 
 http://www.codeskulptor.org/#user16_bQhY2qfBlgprppk.py
 Tetris (John <span class="small-caps">Shea</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7984" target="_blank"><i>Tetris</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7984" target="_blank"><i>Tetris</i></a>
 
 http://www.codeskulptor.org/#user16_EGTMrlExln_0.py
 <strong>Tetris</strong> (John <span class="small-caps">Shea</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7984" target="_blank"><i>Tetris</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7984" target="_blank"><i>Tetris</i></a>
 
 http://www.codeskulptor.org/#user16_z2JMGgdos8_2.py
 Tetris Attack (Stephen <span class="small-caps">Ferguson</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
 
 http://www.codeskulptor.org/#user16_1WZB5ONMqmVd8TF.py
 <strong>Tetris Attack</strong> (Stephen <span class="small-caps">Ferguson</span>) ADAPTED
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
+Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7778" target="_blank"><i>Tetris Attack</i></a>
 
 
 
-+ Examples of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week3" target="_blank">Week 3</a>
++ Examples of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week3" target="_blank">Week 3</a>
 
 http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-hidden_picture.py
 interactive_drawing-hidden_picture.py
@@ -276,7 +284,7 @@ timers-reaction_time.py CORRECTED
 
 
 
-+ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week4" target="_blank">Week 4</a>
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week4" target="_blank">Week 4</a>
 
 http://www.codeskulptor.org/#examples-keyboard-0.py
 keyboard-0.py
@@ -292,7 +300,7 @@ velocity_control-ball_track.py
 
 
 
-+ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week5" target="_blank">Week 5</a>
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week5" target="_blank">Week 5</a>
 
 http://www.codeskulptor.org/#examples-images.py
 images.py
@@ -323,7 +331,7 @@ more-5_mouseclick_handlers-tic_tac_toe.py
 
 
 
-+ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week6" target="_blank">Week 6</a>
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week6" target="_blank">Week 6</a>
 
 http://www.codeskulptor.org/#examples-more-6_object_oriented_programming-bubbles.py
 more-6_object_oriented_programming-bubbles.py
@@ -336,7 +344,7 @@ examples-more-6_tiled_images-bunny_emotions.py
 
 
 
-+ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week7" target="_blank">Week 7</a>
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week7" target="_blank">Week 7</a>
 
 http://www.codeskulptor.org/#examples-more-7_acceleration_and_friction-balancing.py
 more-7_acceleration_and_friction-balancing.py
@@ -358,7 +366,7 @@ sprite_example.py
 
 
 
-+ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a rel="nolfollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week8" target="_blank">Week 8</a>
++ Examples of <i>An Introduction to Interactive Programming in Python</i> (Coursera 2013), <a class="broken" rel="nolfollow" href="https://class.coursera.org/interactivepython-002/wiki/view?page=week8" target="_blank">Week 8</a>
 
 http://www.codeskulptor.org/#examples-asteroid_animation.py
 asteroid_animation.py

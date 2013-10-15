@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (July 5, 2013)
+Mandelbrot Set. (October 15, 2013)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -67,12 +67,12 @@ def draw_and_calculate(canvas):
     nb_iter += 1
 
     for y, line in enumerate(grid):
+        contiguous_color = None
+        contiguous_x0 = 0
+
         for x, point in enumerate(line):
             color = point[3]
-            if color is not None:
-                canvas.draw_point((x, y), colors[color])
-                canvas.draw_point((x, CANVAS_HEIGHT - y), colors[color])
-            else:
+            if color is None:
                 z = point[0]
 
                 z_real2 = z[0]*z[0]
@@ -81,13 +81,46 @@ def draw_and_calculate(canvas):
 
                 if z_abs2 > 4:
                     point[3] = color = point[2] % len(colors)  # color
-                    canvas.draw_point((x, y), colors[color])
-                    canvas.draw_point((x, CANVAS_HEIGHT - y), colors[color])
                 else:
+                    color = None
                     c = point[1]
                     point[0] = (z_real2 - z_imag2 + c[0],  # z
                                 z[0]*z[1]*2 + c[1])
                     point[2] += 1  # number of iterations
+
+            if contiguous_color != color:
+                if contiguous_color is not None:
+                    contiguous_color = colors[contiguous_color]
+                    if contiguous_x0 + 1 == x:
+                        canvas.draw_point((contiguous_x0, y),
+                                          contiguous_color)
+                        canvas.draw_point((contiguous_x0, CANVAS_HEIGHT - y),
+                                          contiguous_color)
+                    else:
+                        draw_hline(canvas,
+                                   contiguous_x0, x - 1, y,
+                                   contiguous_color)
+                        draw_hline(canvas,
+                                   contiguous_x0, x - 1, CANVAS_HEIGHT - y,
+                                   contiguous_color)
+
+                contiguous_color = color
+                contiguous_x0 = x
+
+        if contiguous_color is not None:
+            contiguous_color = colors[contiguous_color]
+            if contiguous_x0 + 1 == len(line):
+                canvas.draw_point((contiguous_x0, y),
+                                  contiguous_color)
+                canvas.draw_point((contiguous_x0, CANVAS_HEIGHT - y),
+                                  contiguous_color)
+            else:
+                draw_hline(canvas,
+                           contiguous_x0, len(line) - 1, y,
+                           contiguous_color)
+                draw_hline(canvas,
+                           contiguous_x0, len(line) - 1, CANVAS_HEIGHT - y,
+                           contiguous_color)
 
     if nb_iter >= nb_iter_max:
         frame.set_draw_handler(draw_only)
@@ -98,16 +131,65 @@ def draw_and_calculate(canvas):
                          20, 'Black')
 
 
+if codeskulptor_is():
+    def draw_hline(canvas, x0, x1, y, color):
+        """
+        Draw a horizontal line
+        (point by point
+        because CodeSkulptor draw_line() is problematic with line_width=1).
+        """
+        for x in range(x0, x1 + 1):
+            canvas.draw_point((x, y), color)
+else:
+    def draw_hline(canvas, x0, x1, y, color):
+        """
+        Draw a horizontal line.
+        """
+        canvas.draw_line((x0, y), (x1, y), 1, color)
+
+
 def draw_only(canvas):
     """
     Draw image of Mandelbrot set from grid.
     """
     for y, line in enumerate(grid):
+        contiguous_color = None
+        contiguous_x0 = 0
+
         for x, point in enumerate(line):
             color = point[3]
-            if color is not None:
-                canvas.draw_point((x, y), colors[color])
-                canvas.draw_point((x, CANVAS_HEIGHT - y), colors[color])
+            if contiguous_color != color:
+                if contiguous_color is not None:
+                    contiguous_color = colors[contiguous_color]
+                    if contiguous_x0 + 1 == x:
+                        canvas.draw_point((contiguous_x0, y),
+                                          contiguous_color)
+                        canvas.draw_point((contiguous_x0, CANVAS_HEIGHT - y),
+                                          contiguous_color)
+                    else:
+                        draw_hline(canvas,
+                                   contiguous_x0, x - 1, y,
+                                   contiguous_color)
+                        draw_hline(canvas,
+                                   contiguous_x0, x - 1, CANVAS_HEIGHT - y,
+                                   contiguous_color)
+
+                contiguous_color = color
+                contiguous_x0 = x
+
+        contiguous_color = colors[contiguous_color]
+        if contiguous_x0 + 1 == len(line):
+            canvas.draw_point((contiguous_x0, y),
+                              contiguous_color)
+            canvas.draw_point((contiguous_x0, CANVAS_HEIGHT - y),
+                              contiguous_color)
+        else:
+            draw_hline(canvas,
+                       contiguous_x0, len(line) - 1, y,
+                       contiguous_color)
+            draw_hline(canvas,
+                       contiguous_x0, len(line) - 1, CANVAS_HEIGHT - y,
+                       contiguous_color)
 
     if _FPS_AVERAGE:
         canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20),
