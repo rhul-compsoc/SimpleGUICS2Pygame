@@ -1,3 +1,11 @@
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user19_hLghEN2n2P_0.py" target="_blank">DDR clone</a> by (Emily <span class="small-caps">Wachtel</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3
+
+http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3
+
+
+
 + Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg
