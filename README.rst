@@ -103,6 +103,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Updated ``cs2both.py``.
 
   - Updated example/Mandelbrot_Set.py (optimized draw).
   - Updated media and CodeSkulptor programs links.
