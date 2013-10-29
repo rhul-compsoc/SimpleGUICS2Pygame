@@ -41,7 +41,8 @@ Next in the ``somewhere/SimpleGUICS2Pygame-?/SimpleGUICS2Pygame`` subdirectory r
 
 
 Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
-(except for the Timer class) Pygame_ .
+(except for the Timer class) Pygame_
+(and must be installed separately).
 
 On Window$:
 
@@ -103,6 +104,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Updated documentation.
+
   - Updated ``cs2both.py``.
 
   - Updated example/Mandelbrot_Set.py (optimized draw).

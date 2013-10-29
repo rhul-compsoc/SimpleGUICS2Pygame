@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-SimpleGUICS2Pygame package (October 9, 2013)
+SimpleGUICS2Pygame package (October 29, 2013)
 
 It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -9,7 +9,8 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 
 Require Pygame_
 (except for the Timer class)
-(`Unofficial Windows Binaries`_).
+(`Unofficial Windows Binaries`_)
+(and must be installed separately).
 
 Module simpleplot require matplotlib_ .
 
