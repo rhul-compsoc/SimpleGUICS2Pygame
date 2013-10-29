@@ -53,7 +53,8 @@ Next in the ``somewhere/SimpleGUICS2Pygame-?/SimpleGUICS2Pygame`` subdirectory r
 
 
 Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
-(except for the Timer class) Pygame_ .
+(except for the Timer class) Pygame_
+(and must be installed separately).
 
 You can run the little script ``SimpleGUICS2Pygame_check.py``
 to check if required modules are installed.

@@ -1,12 +1,13 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (July 13, 2013)
+simpleplot (October 29, 2013)
 
 Replace the simpleplot module of CodeSkulptor.
 
 Require matplotlib_
-(`Unofficial Windows Binaries`_).
+(`Unofficial Windows Binaries`_)
+(and must be installed separately).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
