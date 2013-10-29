@@ -1666,7 +1666,7 @@ class Frame:
         If (Frame._keep_timers is None) and there is still running timers
         then ask in the canvas if they must be stopped.
 
-        (Available in SimpleGUI of CodeSkulptor
+        (Maybe available in SimpleGUI of CodeSkulptor
         but *not in CodeSkulptor documentation*!)
         """
         if Frame._keep_timers is not None or not Timer._timers_running:
@@ -2610,9 +2610,6 @@ class Control:
         """
         Return the text of the button or the label.
 
-        (Available in SimpleGUI of CodeSkulptor
-        but *not in CodeSkulptor documentation*!)
-
         :return: str
         """
         return self._text
@@ -3079,9 +3076,6 @@ class TextAreaControl:
         """
         Return the text of the input box.
 
-        (Available in SimpleGUI of CodeSkulptor
-        but *not in CodeSkulptor documentation*!)
-
         :return: str (or unicode in Python 2)
         """
         return self._text_input
@@ -3166,7 +3160,7 @@ class Timer:
         """
         Return the interval of this timer.
 
-        (Available in SimpleGUI of CodeSkulptor
+        (Maybe available in SimpleGUI of CodeSkulptor
         but *not in CodeSkulptor documentation*!)
 
         :return: (int or float) > 0
