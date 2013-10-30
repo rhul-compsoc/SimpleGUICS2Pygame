@@ -180,3 +180,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/
 
 
 + <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profil <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.spriters-resource.com/" target="_blank">Spriters</a>, <a href="http://www.models-resource.com/" target="_blank">Models</a>, <a href="http://www.textures-resource.com/" target="_blank">Textures</a>
+
+
+
++ <a rel="nofollow" href="http://www.wpclipart.com/" target="_blank">WPClipart</a>
