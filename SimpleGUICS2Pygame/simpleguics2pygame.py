@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (October 29, 2013)
+simpleguics2pygame (October 31, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -2858,7 +2858,7 @@ class TextAreaControl:
 
     def __init__(self,
                  frame,
-                 text,
+                 label_text,
                  input_handler, input_width):
         """
         Set a input box in the control panel.
@@ -2866,13 +2866,13 @@ class TextAreaControl:
         **Don't use directly**, use `Frame.add_input()`.
 
         :param frame: Frame
-        :param text: str
+        :param label_text: str
         :param input_handler: function (str) -> *
         :param input_width: int or float
         """
         assert _PYGAME_AVAILABLE
         assert isinstance(frame, Frame), type(frame)
-        assert isinstance(text, str), type(text)
+        assert isinstance(label_text, str), type(label_text)
         assert callable(input_handler), type(input_handler)
         assert isinstance(input_width, int) or isinstance(input_width, float),\
             type(input_width)
@@ -2883,9 +2883,10 @@ class TextAreaControl:
         self._width = (int(round(input_width)) if input_width >= 0
                        else frame._control_width)
 
-        self._text = text
-        self._text_cut = _text_to_text_cut(text, frame._control_width,
-                                           TextAreaControl._input_pygame_font)
+        self._label_text = label_text
+        self._label_text_cut = _text_to_text_cut(
+            label_text, frame._control_width,
+            TextAreaControl._input_pygame_font)
 
         self._x1 = 0
         self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
@@ -2893,7 +2894,7 @@ class TextAreaControl:
         self._x2 = None
         self._y2 = None
 
-        self._text_input = ''
+        self._input_text = ''
 
     def __repr__(self):
         """
@@ -2914,7 +2915,7 @@ class TextAreaControl:
 
         self._y2 = self._y1
 
-        for text in self._text_cut:
+        for text in self._label_text_cut:
             pygame_surface_text = TextAreaControl._label_pygame_font.render(
                 text, True, TextAreaControl._label_text_pygame_color)
 
@@ -2929,7 +2930,7 @@ class TextAreaControl:
         selected = (self._frame_parent._control_selected == self)
 
         pygame_surface_text = TextAreaControl._input_pygame_font.render(
-            self._text_input, True, TextAreaControl._input_pygame_color)
+            self._input_text, True, TextAreaControl._input_pygame_color)
 
         text_width, text_height = pygame_surface_text.get_size()
 
@@ -2989,19 +2990,19 @@ class TextAreaControl:
         assert isinstance(pressed, bool), type(pressed)
 
         if pressed:
-            old = self._text_input
+            old = self._input_text
             if ((pygame_event.key == pygame.K_RETURN)
                     or (pygame_event.key == 271)):        # Return
                 # Valid text and run handler
                 self._frame_parent._control_selected = None
                 self._frame_parent._draw_controlpanel()
-                self._input_handler(self._text_input)
+                self._input_handler(self._input_text)
 
                 return
             elif pygame_event.key == pygame.K_BACKSPACE:  # Backspace
                 # Delete last character
-                self._text_input = self._text_input[
-                    :(self._text_input.rstrip().rfind(' ') + 1
+                self._input_text = self._input_text[
+                    :(self._input_text.rstrip().rfind(' ') + 1
                       if pygame_event.mod & pygame.KMOD_CTRL
                       else -1)]
             elif pygame_event.key == pygame.K_TAB:        # Tab
@@ -3024,12 +3025,12 @@ class TextAreaControl:
                 return
             else:                                         # other key
                 # Add character
-                self._text_input += pygame_event.unicode
+                self._input_text += pygame_event.unicode
 
-            if self._text_input != old:
+            if self._input_text != old:
                 try:
-                    # Maybe self._text_input is unicode, try to convert to str
-                    self._text_input = str(self._text_input)
+                    # Maybe self._input_text is unicode, try to convert to str
+                    self._input_text = str(self._input_text)
                 except:
                     pass
 
@@ -3078,20 +3079,17 @@ class TextAreaControl:
 
         :return: str (or unicode in Python 2)
         """
-        return self._text_input
+        return self._input_text
 
-    def set_text(self, text):
+    def set_text(self, input_text):
         """
         Change the text in the input box.
 
-        :param text: str
+        :param input_text: str
         """
-        assert isinstance(text, str), type(text)
+        assert isinstance(input_text, str), type(input_text)
 
-        self._text_input = text
-        self._text_cut = _text_to_text_cut(text,
-                                           self._frame_parent._control_width,
-                                           TextAreaControl._input_pygame_font)
+        self._input_text = input_text
 
         self._frame_parent._draw_controlpanel()
 
