@@ -103,7 +103,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-*
+* 01.00.02 --- October 31, 2013
+
+  - Corrected bug in TextAreaControl.set_text(): the label text was also modified.
+
   - Updated documentation.
 
   - Updated ``cs2both.py``.
