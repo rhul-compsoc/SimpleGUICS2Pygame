@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor (June 22, 2013)
+codeskulptor (November 1st, 2013)
 
 Replace the codeskulptor module of CodeSkulptor.
 
@@ -22,7 +22,7 @@ def file2url(filename):
     return
     `'http://codeskulptor-assets.commondatastorage.googleapis.com/assets-Quick_fox.txt'`
 
-    .. _`CodeSkulptor documentation`: http://www.codeskulptor.org/docs.html
+    .. _`CodeSkulptor documentation`: http://www.codeskulptor.org/docs.html#file2url
 
     :param filename: str
 
@@ -40,3 +40,19 @@ def file2url(filename):
 
     return ('http://codeskulptor-{}.commondatastorage.googleapis.com/{}'
             .format(m.group(1), filename))
+
+
+def set_timeout(seconds):
+    """
+    Does nothing.
+
+    In CodeSkulptor, this function change the timeout imposed on all programs
+    (by default 5 seconds).
+    See `CodeSkulptor documentation`_.
+
+    .. _`CodeSkulptor documentation`: http://www.codeskulptor.org/docs.html#set-timeout
+
+    :param seconds: int >= 0
+    """
+    assert isinstance(seconds, int), type(seconds)
+    assert seconds >= 0, seconds
