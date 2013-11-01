@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (October 15, 2013)
+Mandelbrot Set. (November 1st, 2013)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -19,6 +19,10 @@ try:
     from user16_DmDJwXW1dy0Sw1u import codeskulptor_is, hex2
 
     import simplegui
+
+    from codeskulptor import set_timeout
+
+    set_timeout(10)
 except:
     from SimpleGUICS2Pygame.codeskulptor_lib import codeskulptor_is, hex2
 

@@ -103,27 +103,33 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+*
+
+  - Added ``set_timeout()`` function in ``codeskulptor`` module.
+  - Updated ``example/Mandelbrot_Set.py`` (used ``set_timeout()``).
+  - Updated CodeSkulptor programs links.
+
 * 01.00.02 --- October 31, 2013
 
-  - Corrected bug in TextAreaControl.set_text(): the label text was also modified.
+  - Corrected bug in ``TextAreaControl.set_text()``: the label text was also modified.
 
   - Updated documentation.
 
   - Updated ``cs2both.py``.
 
-  - Updated example/Mandelbrot_Set.py (optimized draw).
+  - Updated ``example/Mandelbrot_Set.py`` (optimized draw).
   - Updated media and CodeSkulptor programs links.
 
 * 01.00.01 --- October 9, 2013
 
-  - Adapted documentation and ``cs2both.py`` to changes of CodeSkulptor (int and float are now separate).
+  - Adapted documentation and ``cs2both.py`` to changes of CodeSkulptor (``int`` and ``float`` are now separate).
 
 * 01.00.00 --- July 13, 2013
 
   - Moved documentation to Read The Docs.
 
-  - Added simpleplot module.
-  - Updated example/Mandelbrot_Set.py (used vertical symetry).
+  - Added ``simpleplot`` module.
+  - Updated ``example/Mandelbrot_Set.py`` (used vertical symetry).
   - Updated media and CodeSkulptor programs links.
 
 * 00.92.00 --- June 27, 2013
@@ -133,14 +139,14 @@ Changes
 
   - Replaced ``Frame._already_frame`` by ``Frame._frame_instance``.
 
-  - Updated example/RiceRocks_Asteroids.py (collisions of asteroids and little asteroids).
+  - Updated ``example/RiceRocks_Asteroids.py`` (collisions of asteroids and little asteroids).
 
   - Added ``Frame._set_canvas_background_image()`` function.
 
   - Memoization of downloaded images and sounds.
   - Changed save in local directory to avoid conflict.
 
-  - Added test/test_image.py.
+  - Added ``test/test_image.py``.
 
   - Added ``--overwrite-downloaded-medias`` and ``--save-downloaded-medias`` options.
 
@@ -163,21 +169,21 @@ Changes
   - Some precisions and English corrections in the documentation.
   - Added some CodeSkulptor programs links.
 
-  - example/Memory.py: moved image locations.
-  - example/Nostalgic_Basic_Blitz.py : added spacebar information.
+  - ``example/Memory.py``: moved image locations.
+  - ``example/Nostalgic_Basic_Blitz.py`` : added spacebar information.
 
 * 00.90.10 --- June 19, 2013
 
   - Adapted button, label and input to display multine text.
   - Simplified handler functions transmitted to ``add_button()`` in some programs.
-  - Added example/Nostalgic_Basic_Blitz.py.
+  - Added ``example/Nostalgic_Basic_Blitz.py``.
 
   - Changed ``default_pygame_color`` param of ``_simpleguicolor_to_pygamecolor()`` function (now installation is ok even if Pygame not installed).
 
   - Moved ``_VERSION`` and ``_WEBSITE`` constants from ``simpleguics2pygame.py`` to ``__init__.py``.
   - Removed ``enumerate()`` function from ``codeskulptor_lib`` (now implemented natively by CodeSkulptor).
   - Added ``--display-fps`` option.
-  - Added example/RiceRocks_Asteroids.py.
+  - Added ``example/RiceRocks_Asteroids.py``.
   - Updated some CodeSkulptor programs links.
   - Added some new media links.
   - Added some details in documentations.
