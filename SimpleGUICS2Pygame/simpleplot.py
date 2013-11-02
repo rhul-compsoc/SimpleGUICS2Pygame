@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (October 29, 2013)
+simpleplot (November 1st, 2013)
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -49,8 +49,137 @@ Color used for each graph.
 #
 # Functions
 ############
+def _block():
+    """
+    If some plot windows are open
+    then block the program until closing all windows.
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+    matplotlib.pyplot.show()
+
+
+def plot_bars(framename, width, height, xlabel, ylabel, datasets,
+              legends=None,
+              _block=False, _filename=None):
+    """
+    Open a window titled `framename`
+    and plot graphes with `datasets` data.
+
+    `xlabel` and `ylabel` are labels of x-axis and y-axis.
+
+    `datasets` must be a sequence of data.
+    Each data must be:
+
+    * Sequence of pair x, y.
+      Each point (x, y) is represented by a vertical bar of height y.
+
+    * Or dict x: y.
+      Each point (x, y) is represented by a vertical bar of height y.
+
+    If `legends` is not None
+    then it must be a sequence of legend of each graph.
+
+    If `_block`
+    then block the program until closing the window
+    else continue and close the window when program stop.
+    **(Option not available in SimpleGUI of CodeSkulptor.)**
+
+    If `_filename` is not None
+    then save the image to this file.
+    **(Option not available in SimpleGUI of CodeSkulptor.)**
+
+    :param framename: str
+    :param width: int > 0
+    :param height: int > 0
+    :param xlabel: str
+    :param ylabel: str
+    :param datasets: (list or tuple)
+                     of (((list or tuple) of ([int or float, int or float]
+                     or (int or float, int or float)))
+                     or (dict (int or float): (int or float)))
+    :param legends: None or ((list or tuple) of same length as datasets)
+    :param _block: False
+    :param _filename: None or str
+    """
+    assert isinstance(framename, str), type(framename)
+
+    assert isinstance(width, int), type(width)
+    assert width > 0, width
+
+    assert isinstance(height, int), type(height)
+    assert height > 0, height
+
+    assert isinstance(xlabel, str), type(xlabel)
+    assert isinstance(ylabel, str), type(ylabel)
+
+    assert isinstance(datasets, list) or isinstance(datasets, tuple), \
+        type(datasets)
+    if __debug__:
+        for dataset in datasets:
+            assert isinstance(dataset, list) or isinstance(dataset, tuple) \
+                or isinstance(dataset, dict), type(datasets)
+            for x, y in (dataset.items() if isinstance(dataset, dict)
+                         else dataset):
+                assert isinstance(x, int) or isinstance(x, float), (type(x), x)
+                assert isinstance(y, int) or isinstance(y, float), (type(y), y)
+
+    assert ((legends is None) or isinstance(legends, list)
+            or isinstance(legends, tuple)), type(legends)
+    assert (legends is None) or (len(legends) == len(datasets)), legends
+
+    assert isinstance(_block, bool), type(_block)
+    assert (_filename is None) or isinstance(_filename, str), type(_filename)
+
+    fig = matplotlib.pyplot.figure()
+    fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
+                        forward=True)
+
+    fig.canvas.set_window_title(framename)
+    matplotlib.pyplot.title(framename)
+
+    from os.path import sep
+
+    icon_path = __file__.split(sep)[:-1]
+    try:
+        icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
+        matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
+            sep.join(icon_path))
+    except:
+        pass
+
+    matplotlib.pyplot.xlabel(xlabel)
+    matplotlib.pyplot.ylabel(ylabel)
+
+    matplotlib.pyplot.grid()
+
+    bar_width = 0.8/len(datasets)
+    for i, dataset in enumerate(datasets):
+        bar_lefts, bar_heights = zip(*(sorted(dataset.items())
+                                       if isinstance(dataset, dict)
+                                       else dataset))
+        matplotlib.pyplot.bar([x + bar_width*i for x in bar_lefts],
+                              bar_heights,
+                              width=bar_width,
+                              color=_COLORS[i % len(_COLORS)],
+                              edgecolor=_COLORS[i % len(_COLORS)],
+                              figure=fig,
+                              alpha=0.5)
+
+    ymin, ymax = matplotlib.pyplot.ylim()
+    matplotlib.pyplot.ylim(ymin, ymax + 1)
+
+    if legends is not None:
+        matplotlib.pyplot.legend(legends, loc='upper right')
+
+    matplotlib.pyplot.show(block=_block)
+
+    if _filename is not None:
+        matplotlib.pyplot.savefig(_filename)
+
+
 def plot_lines(framename, width, height, xlabel, ylabel, datasets,
-               points=False, legends=None):
+               points=False, legends=None,
+               _block=False, _filename=None):
     """
     Open a window titled `framename`
     and plot graphes with `datasets` data.
@@ -75,6 +204,15 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
     If `legends` is not None
     then it must be a sequence of legend of each graph.
 
+    If `_block`
+    then block the program until closing the window
+    else continue and close the window when program stop.
+    **(Option not available in SimpleGUI of CodeSkulptor.)**
+
+    If `_filename` is not None
+    then save the image to this file.
+    **(Option not available in SimpleGUI of CodeSkulptor.)**
+
     :param framename: str
     :param width: int > 0
     :param height: int > 0
@@ -86,6 +224,8 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
                      or (dict (int or float): (int or float)))
     :param points: bool
     :param legends: None or ((list or tuple) of same length as datasets)
+    :param _block: False
+    :param _filename: None or str
     """
     assert isinstance(framename, str), type(framename)
 
@@ -114,6 +254,9 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
     assert ((legends is None) or isinstance(legends, list)
             or isinstance(legends, tuple)), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
+
+    assert isinstance(_block, bool), type(_block)
+    assert (_filename is None) or isinstance(_filename, str), type(_filename)
 
     fig = matplotlib.pyplot.figure()
     fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
@@ -152,4 +295,7 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
     if legends is not None:
         matplotlib.pyplot.legend(legends, loc='upper right')
 
-    matplotlib.pyplot.show()
+    matplotlib.pyplot.show(block=_block)
+
+    if _filename is not None:
+        matplotlib.pyplot.savefig(_filename)

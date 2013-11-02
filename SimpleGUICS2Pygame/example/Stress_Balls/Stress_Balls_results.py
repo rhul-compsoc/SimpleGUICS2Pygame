@@ -3,7 +3,7 @@
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(July 6, 2013)
+(November 1st, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -15,8 +15,12 @@ http://www.opimedia.be/
 try:
     import codeskulptor  # to avoid other simpleplot available in Python
     import simpleplot
+
+    SIMPLEGUICS2PYGAME = False
 except:
     import SimpleGUICS2Pygame.simpleplot as simpleplot
+
+    SIMPLEGUICS2PYGAME = True
 
 
 # All my (old) results on Pentium Dual-Core 2.7GHz 2Gio, Windows 7 64 bits:
@@ -144,5 +148,7 @@ for legend in legends:
 try:
     simpleplot.plot_lines('Stress Balls', 800, 650, '# balls', 'FPS',
                           datas, True, legends)
+    if SIMPLEGUICS2PYGAME:
+        simpleplot._block()
 except Exception as e:  # to avoid fail if no simpleplot
     print('!simpleplot.plot_lines():' + str(e))

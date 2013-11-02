@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (October 31, 2013)
+simpleguics2pygame (November 1st, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1480,7 +1480,7 @@ class Frame:
         Set the function handler
         that will be executed each cycle fixed by `Frame._fps_average`.
 
-        :param timer_handler: function (Canvas) -> *
+        :param draw_handler: function (Canvas) -> *
         """
         assert callable(draw_handler), type(draw_handler)
 
@@ -1494,7 +1494,7 @@ class Frame:
 
         (The events are checked on each cycle fixed by `Frame._fps_average`.)
 
-        :param timer_handler: function (int >= 0) -> *
+        :param key_handler: function (int >= 0) -> *
         """
         assert callable(key_handler), type(key_handler)
 
@@ -1508,7 +1508,7 @@ class Frame:
 
         (The events are checked on each cycle fixed by `Frame._fps_average`.)
 
-        :param timer_handler: function (int >= 0) -> *
+        :param key_handler: function (int >= 0) -> *
         """
         assert callable(key_handler), type(key_handler)
 
@@ -1523,7 +1523,7 @@ class Frame:
 
         (The events are checked on each cycle fixed by `Frame._fps_average`.)
 
-        :param timer_handler: function ((int >= 0, int >= 0)) -> *
+        :param mouse_handler: function ((int >= 0, int >= 0)) -> *
         """
         assert callable(mouse_handler), type(mouse_handler)
 
@@ -1539,7 +1539,7 @@ class Frame:
 
         (The events are checked on each cycle fixed by `Frame._fps_average`.)
 
-        :param timer_handler: function ((int >= 0, int >= 0)) -> *
+        :param mouse_handler: function ((int >= 0, int >= 0)) -> *
         """
         assert callable(mouse_handler), type(mouse_handler)
 

@@ -103,7 +103,14 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-*
+* 01.01.00 --- November 1st, 2013
+
+  - Added ``_block`` and ``_filename`` parameters in ``simpleplot.plot_lines()`` function.
+  - Added ``plot_bars()`` function in ``simpleplot`` module.
+  - Added ``test/test_simpleplot_bars.py`` and ``test/test_simpleplot_lines.py``.
+  - Updated ``test/test_all.py``.
+  - Updated media links.
+  - Corrected minor errors in documentation.
 
   - Added ``set_timeout()`` function in ``codeskulptor`` module.
   - Updated ``example/Mandelbrot_Set.py`` (used ``set_timeout()``).

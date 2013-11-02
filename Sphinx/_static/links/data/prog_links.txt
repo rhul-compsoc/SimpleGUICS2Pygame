@@ -27,10 +27,10 @@ Spaceship_prototype.py
 http://www.codeskulptor.org/#user16_1qa7en5hZAxizGP.py
 Stopwatch.py
 
-http://www.codeskulptor.org/#user17_afi18yD6MhsFWGm.py
+http://www.codeskulptor.org/#user22_Vv2yg0FchfpSyge.py
 <strong>Stress_Balls</strong>.py
 
-http://www.codeskulptor.org/#user17_LfbbxAdSM2kx2j5.py
+http://www.codeskulptor.org/#user22_qJwTtc2z3PIeYcc.py
 Stress_Balls_results.py
 
 
@@ -77,6 +77,11 @@ test_objects.py
 http://www.codeskulptor.org/#user17_yqWMjasFmB40KiK.py
 test_text.py
 
+http://www.codeskulptor.org/#user22_uLvkvPh9rU4q3QR.py
+test_simpleplot_bars.py
+
+http://www.codeskulptor.org/#user22_rEMFSrr6nlYL5tO.py
+test_simpleplot_lines.py
 
 
 
