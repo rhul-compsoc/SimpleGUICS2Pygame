@@ -1,0 +1,19 @@
+script/SimpleGUICS2Pygame_check.py (October 9, 2013)
+====================================================
+python - version 2.7.5 (default, May 15 2013, 22:44:16) [MSC v.1500 64 bit (AMD64)]
+
+
+import matplotlib ok - Version 1.3.0rc4
+
+
+import pygame ok - Version 1.9.2pre
+pygame.init() ok
+
+
+import SimpleGUICS2Pygame ok - Version 01.01.00
+
+import SimpleGUICS2Pygame.codeskulptor ok
+import SimpleGUICS2Pygame.codeskulptor_lib ok
+import SimpleGUICS2Pygame.simplegui_lib ok
+import SimpleGUICS2Pygame.simpleguics2pygame ok
+import SimpleGUICS2Pygame.simpleplot ok

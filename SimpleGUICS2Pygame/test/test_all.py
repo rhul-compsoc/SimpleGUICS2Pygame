@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (June 22, 2013)
+Test all other test_*.py. (November 1st, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -63,7 +63,9 @@ except:
 filenames = sorted(glob.glob('*.py'))
 dir_results = 'results_py' + str(PYTHON_VERSION)
 
-del filenames[filenames.index('test_all.py')]
+filenames.remove('test_all.py')
+
+filenames.insert(0, 'SimpleGUICS2Pygame_check.py')
 
 filenames = [filename[:-3] for filename in filenames]
 
@@ -82,8 +84,13 @@ for i, filename in enumerate(filenames):
 
     if run_test:
         errors[filename] = os.system(
-            'python{0} {1}.py {2}/{1}.png > {2}/{1}.log'
-            .format(PYTHON_VERSION, filename, dir_results))
+            'python{0} {1}{2}.py {3}/{2}.png > {3}/{2}.log'
+            .format(PYTHON_VERSION,
+                    ('../script/'
+                     if filename == 'SimpleGUICS2Pygame_check'
+                     else ''),
+                    filename,
+                    dir_results))
     else:
         errors[filename] = 'skip running'
 
@@ -100,6 +107,10 @@ for i, filename in enumerate(filenames):
                 diff_img = PIL.ImageChops.difference(good_img, src_img)
                 imgs_diff[filename] = int(round(
                     PIL.ImageStat.Stat(diff_img).rms[0]))
+                if (filename in ('test_simpleplot_bars',
+                                 'test_simpleplot_lines')
+                        and (imgs_diff[filename] < 15)):
+                    imgs_diff[filename] = 0
             else:
                 imgs_diff[filename] = ('{} missing'
                                        .format(good_path
