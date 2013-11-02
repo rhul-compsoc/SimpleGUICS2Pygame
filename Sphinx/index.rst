@@ -47,7 +47,7 @@ If pip_ is installed on your platform you can do:
 
 
 Else, download the archive ``SimpleGUICS2Pygame-?.tar.gz``, unzip it ``somewhere``.
-Next in the ``somewhere/SimpleGUICS2Pygame-?/SimpleGUICS2Pygame`` subdirectory run:
+Next in the ``somewhere/SimpleGUICS2Pygame-?/`` subdirectory run:
 
 >>> python setup.py install
 
