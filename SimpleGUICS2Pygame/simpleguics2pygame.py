@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (November 1st, 2013)
+simpleguics2pygame (November 8, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -3342,6 +3342,12 @@ def load_image(url):
 
     (CodeSkulptor may supported other formats,
     dependant on browser support.)
+
+    I recommend PNG and JPG format.
+
+    CodeSkulptor loads images **asynchronously**
+    (the program continues without waiting for the images to be loaded).
+    To handle this problem, you can use ``simplegui_lib_loader.Loader`` class.
 
     :param url: str
 

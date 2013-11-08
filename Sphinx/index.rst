@@ -9,6 +9,9 @@ SimpleGUICS2Pygame package's documentation
    codeskulptor
    codeskulptor_lib
    simplegui_lib
+   simplegui_lib_draw
+   simplegui_lib_keys
+   simplegui_lib_loader
    simpleguics2pygame
    simpleguics2pygame_private
    simpleplot
@@ -164,7 +167,7 @@ You can write this
         import simpleplot
 
         import user16_DmDJwXW1dy0Sw1u as codeskulptor_lib
-        import user17_4TDF1HgJxDffzME as simplegui_lib
+        import user23_TP1JQZEx8Qd9ekV as simplegui_lib
     except:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
