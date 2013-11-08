@@ -103,7 +103,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-*
+* 01.02.00 --- November 8, 2013
+
+  - Splitted ``simplegui_lib.py`` in ``simplegui_lib.py``, ``simplegui_lib_draw.py`` and ``simplegui_lib_loader.py``.
+  - Added ``simplegui_lib_keys.py``.
+  - Added ``example/keys.py`` and ``example/loader.py``.
+  - Updated ``example/RiceRocks_Asteroids.py`` and ``example/Spaceship_prototype.py``.
+  - Updated ``script/SimpleGUICS2Pygame_check.py``.
+  - Updated ``test/test_image.py`` and ``test/test_text.py``.
+  - Updated media and CodeSkulptor programs links.
 
   - Corrected installation documentation.
 

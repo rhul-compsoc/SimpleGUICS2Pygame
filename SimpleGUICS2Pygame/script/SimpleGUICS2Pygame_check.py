@@ -4,7 +4,7 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(October 9, 2013)
+(November 8, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -22,8 +22,8 @@ from sys import version
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (October 9, 2013)
-====================================================
+    print("""script/SimpleGUICS2Pygame_check.py (November 8, 2013)
+=====================================================
 python - version""", version)
 
     print('\n')
@@ -91,6 +91,33 @@ python - version""", version)
         cmd = 'import SimpleGUICS2Pygame.simplegui_lib'
 
         import SimpleGUICS2Pygame.simplegui_lib
+
+        print(cmd, 'ok')
+    except Exception as e:
+        print(cmd, 'FAILED!', e)
+
+    try:
+        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_draw'
+
+        import SimpleGUICS2Pygame.simplegui_lib_draw
+
+        print(cmd, 'ok')
+    except Exception as e:
+        print(cmd, 'FAILED!', e)
+
+    try:
+        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_loader'
+
+        import SimpleGUICS2Pygame.simplegui_lib_loader
+
+        print(cmd, 'ok')
+    except Exception as e:
+        print(cmd, 'FAILED!', e)
+
+    try:
+        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_keys'
+
+        import SimpleGUICS2Pygame.simplegui_lib_keys
 
         print(cmd, 'ok')
     except Exception as e:

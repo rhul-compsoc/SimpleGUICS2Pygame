@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-RiceRocks (Asteroids) (July 6, 2013)
+RiceRocks (Asteroids) (November 8, 2013)
 
 My slightly retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,13 +24,13 @@ import math
 import random
 
 try:
-    from user17_4TDF1HgJxDffzME import Loader
+    from user23_XEsEdVoFmntP29T import Loader
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
 except:
-    from SimpleGUICS2Pygame.simplegui_lib import Loader
+    from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -1042,10 +1042,11 @@ def keyup(key):
 
 def quit():
     """
-    Stop timer and quit.
+    Stop timer and sounds, and quit.
     """
     if ricerocks.loaded:
         ricerocks.stop()
+        ricerocks.medias.pause_sounds()
         frame.stop()
 
 

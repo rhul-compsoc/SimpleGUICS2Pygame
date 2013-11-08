@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (July 6, 2013)
+Test draw images. (November 8, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -14,13 +14,13 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user17_4TDF1HgJxDffzME import Loader
+    from user23_XEsEdVoFmntP29T import Loader
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
 except:
-    from SimpleGUICS2Pygame.simplegui_lib import Loader
+    from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
