@@ -103,6 +103,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+*
+
+  - Updated ``example/Memory.py``.
+  - Updated media and CodeSkulptor programs links.
+
 * 01.02.00 --- November 8, 2013
 
   - Splitted ``simplegui_lib.py`` in ``simplegui_lib.py``, ``simplegui_lib_draw.py`` and ``simplegui_lib_loader.py``.
