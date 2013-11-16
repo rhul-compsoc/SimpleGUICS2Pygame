@@ -82,7 +82,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_8aI2mmAJn8zpAsS.py" target="_blank">Memory Cards</a>
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user24_XWXVheF2w2_0.py" target="_blank">Memory Cards</a>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/CodeSkulptor.jpg
 CodeSkulptor

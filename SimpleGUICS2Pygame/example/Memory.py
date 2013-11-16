@@ -2,12 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (June 22, 2013)
+Memory (November 16, 2013)
   8 x (2 indentical cards)
   or 4 x (4 indentical cards)
-
-My solution (slightly retouched) of the mini-project #5 of the course
-https://www.coursera.org/course/interactivepython (Coursera 2013).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,14 +17,23 @@ import random
 
 try:
     import simplegui
+
+    from user16_DmDJwXW1dy0Sw1u import assert_position
+    from user23_HY71NDvHu7WKaMa import draw_rect
 except:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+    from SimpleGUICS2Pygame.codeskulptor_lib import assert_position
+    from SimpleGUICS2Pygame.simplegui_lib_draw import draw_rect
 
     simplegui.Frame._hide_status = True
 
 
+USE_IMAGES = True  # change to False to avoid images
+
+
 # Globals variables
-if True:
+if USE_IMAGES:
     card_images = [
         simplegui.load_image(
             'http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/'
@@ -41,8 +47,8 @@ if True:
                          'CodeSkulptor.jpg',
                          'OPi.jpg',
                          'Memory.jpg')]
-else:  # to debug
-    card_images = [simplegui.load_image('')]*9
+else:
+    card_images = [simplegui.load_image('')]*9  # 9 failed images
 
 memory = None  # the principal variable, instance of Memory
 
@@ -51,34 +57,24 @@ nb_test_images_loaded = 20
 
 
 # Helper function
-def assert_pos(pos):
+def draw_border(canvas, pos, size, line_width, color, shift=4):
     """
-    Assertions to check valid position:
-    (int or float, int or float) or [int or float, int or float]
-    """
-    assert isinstance(pos, tuple) or isinstance(pos, list), type(pos)
-    assert len(pos) > 0, len(pos)
-
-    assert isinstance(pos[0], int) or isinstance(pos[0], float), type(pos[0])
-    assert pos[0] >= 0, pos
-
-    assert isinstance(pos[1], int) or isinstance(pos[1], float), type(pos[1])
-    assert pos[1] >= 1, pos
-
-
-def draw_rect(canvas, pos, size, line_width, color):
-    """
-    Draw a rectangle.
+    Draw a rounded rectangle.
 
     :param canvas: simplegui.Canvas
     :param pos: (int or float, int or float) or [int or float, int or float]
+    :param size: (int or float, int or float) or [int or float, int or float]
+    :param line_width: int >= 0
+    :param color: str
+    :param shift: int
     """
-    assert_pos(pos)
-    assert_pos(size)
+    assert_position(pos)
+    assert_position(size)
     assert isinstance(line_width, int) or isinstance(line_width, float), \
         type(line_width)
     assert line_width >= 0, line_width
     assert isinstance(color, str), type(str)
+    assert isinstance(shift, int), type(shift)
 
     x0 = pos[0]
     y0 = pos[1]
@@ -86,10 +82,14 @@ def draw_rect(canvas, pos, size, line_width, color):
     width = size[0] - 1
     height = size[1] - 1
 
-    canvas.draw_polygon(((x0, y0),
-                         (x0 + width, y0),
-                         (x0 + width, y0 + height),
-                         (x0, y0 + height)),
+    canvas.draw_polygon(((x0, y0 + shift),
+                         (x0 + shift, y0),
+                         (x0 + width - shift, y0),
+                         (x0 + width, y0 + shift),
+                         (x0 + width, y0 + height - shift),
+                         (x0 + width - shift, y0 + height),
+                         (x0 + shift, y0 + height),
+                         (x0, y0 + height - shift)),
                         line_width, color)
 
 
@@ -137,7 +137,7 @@ class Card:
 
         :param canvas: simplegui.canvas
         """
-        if self.image.get_width() > 0:
+        if self.image.get_width() > 0:  # draw image
             canvas.draw_image(self.image,
                               (self.image.get_width()/2.0,
                                self.image.get_height()/2.0),
@@ -147,7 +147,7 @@ class Card:
                                self.pos_y + self.image.get_height()/2.0),
                               (self.image.get_width(),
                                self.image.get_height()))
-        else:
+        else:                           # draw text number
             size = 50
             text = str(self.num)
             width = frame.get_canvas_textwidth(text, 50)
@@ -158,10 +158,10 @@ class Card:
                              size, 'White')
 
         if self.selected or (self.image.get_width() == 0):
-            draw_rect(canvas,
-                      (self.pos_x, self.pos_y), (Card.WIDTH, Card.HEIGHT),
-                      2, ('Yellow' if self.selected
-                          else 'White'))
+            draw_border(canvas,
+                        (self.pos_x, self.pos_y), (Card.WIDTH, Card.HEIGHT),
+                        3, ('Yellow' if self.selected
+                            else 'White'))
 
     def draw_verso(self, canvas):
         """
@@ -172,14 +172,14 @@ class Card:
         """
         img = card_images[-1]
 
-        if img.get_width() > 0:
+        if img.get_width() > 0:  # draw image
             canvas.draw_image(img,
                               (img.get_width()/2.0, img.get_height()/2.0),
                               (img.get_width(), img.get_height()),
                               (self.pos_x + img.get_width()/2.0,
                                self.pos_y + img.get_height()/2.0),
                               (img.get_width(), img.get_height()))
-        else:
+        else:                    # draw simple rectangle
             canvas.draw_line((self.pos_x + Card.WIDTH/2.0 - 1,
                               self.pos_y),
                              (self.pos_x + Card.WIDTH/2.0 - 1,
@@ -201,7 +201,7 @@ class Card:
 
         :return: bool
         """
-        assert_pos(pos)
+        assert_position(pos)
 
         return ((self.pos_x <= pos[0] < self.pos_x + Card.WIDTH)
                 and (self.pos_y <= pos[1] < self.pos_y + Card.HEIGHT))
@@ -263,9 +263,10 @@ class Memory:
         Expose the card pointed by position pos,
         and check if good cards are exposed.
 
-        Pre pos: (int or float, int or float) or [int or float, int or float]
+        :param pos: (int or float, int or float)
+                      or [int or float, int or float]
         """
-        assert_pos(pos)
+        assert_position(pos)
 
         for card in self.deck:
             if card.in_pos(pos):  # this is the pointed card
@@ -343,7 +344,7 @@ def restart_4x4():
     """
     global memory
 
-    label_game.set_text('4x4 game')
+    label_game.set_text('4 x (4 indentical cards)')
     memory = Memory(4, 4)
 
 
@@ -355,7 +356,7 @@ def restart_8x2():
     """
     global memory
 
-    label_game.set_text('8x2 game')
+    label_game.set_text('8 x (2 indentical cards)')
     memory = Memory(8, 2)
 
 
@@ -405,6 +406,7 @@ frame.set_draw_handler(draw_wait_images)
 
 timer = simplegui.create_timer(100, test_images_loaded)
 timer.start()
+
 test_images_loaded()
 
 
