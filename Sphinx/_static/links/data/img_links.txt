@@ -1,4 +1,4 @@
-+ Asteroid (Kim Lathrop) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ Asteroid (Kim <span class="small-caps">Lathrop</span>) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png
 
@@ -39,6 +39,8 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_bl
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_orange.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.f2013.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png
 

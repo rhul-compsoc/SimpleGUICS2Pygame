@@ -104,6 +104,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Updated ``example/Blackjack.py``.
+  - Updated ``example/Spaceship_prototype.py``.
 
   - Updated ``example/Memory.py``.
   - Updated media and CodeSkulptor programs links.

@@ -1,6 +1,6 @@
 + <a rel="nofollow" href="https://bitbucket.org/OPiMedia/simpleguics2pygame" target="_blank">SimpleGUICS2Pygame</a> examples
 
-http://www.codeskulptor.org/#user16_d3A2Qim7jXHHngj.py
+http://www.codeskulptor.org/#user26_ZSN0ghsIqwd8pbC.py
 Blackjack.py
 
 http://www.codeskulptor.org/#user16_1ZbqfmtFxX6rpHt.py
@@ -29,7 +29,7 @@ http://www.codeskulptor.org/#user16_VoETI6R7uXkBoHh.py
 http://www.codeskulptor.org/#user23_baOpoW7LVFepjLP.py
 <strong>RiceRocks_Asteroids</strong>.py
 
-http://www.codeskulptor.org/#user23_ULypsmN1deZN483.py
+http://www.codeskulptor.org/#user26_WL7ErNnKkL0NCZq.py
 Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user16_1qa7en5hZAxizGP.py
