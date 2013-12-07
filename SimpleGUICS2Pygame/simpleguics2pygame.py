@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (November 8, 2013)
+simpleguics2pygame (December 7, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1295,7 +1295,7 @@ class Frame:
         """
         Request to save the canvas image in a file.
 
-        (The images are saved on each cycle fixed by `Frame._fps_average`.)
+        (The images are saved on each cycle fixed by `Frame._fps`.)
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
@@ -1478,7 +1478,7 @@ class Frame:
                          draw_handler):
         """
         Set the function handler
-        that will be executed each cycle fixed by `Frame._fps_average`.
+        that will be executed each cycle fixed by `Frame._fps`.
 
         :param draw_handler: function (Canvas) -> *
         """
@@ -1492,7 +1492,7 @@ class Frame:
         Set the function handler
         that will be executed (with the key code) when a key is released.
 
-        (The events are checked on each cycle fixed by `Frame._fps_average`.)
+        (The events are checked on each cycle fixed by `Frame._fps`.)
 
         :param key_handler: function (int >= 0) -> *
         """
@@ -1506,7 +1506,7 @@ class Frame:
         Set the function handler
         that will be executed (with the key code) when a key is pressed.
 
-        (The events are checked on each cycle fixed by `Frame._fps_average`.)
+        (The events are checked on each cycle fixed by `Frame._fps`.)
 
         :param key_handler: function (int >= 0) -> *
         """
@@ -1521,7 +1521,7 @@ class Frame:
         that will be executed (with the position of the mouse)
         when the left button of mouse is **released**.
 
-        (The events are checked on each cycle fixed by `Frame._fps_average`.)
+        (The events are checked on each cycle fixed by `Frame._fps`.)
 
         :param mouse_handler: function ((int >= 0, int >= 0)) -> *
         """
@@ -1537,7 +1537,7 @@ class Frame:
         **for each** new mouse position
         when the left button of mouse is pressed.
 
-        (The events are checked on each cycle fixed by `Frame._fps_average`.)
+        (The events are checked on each cycle fixed by `Frame._fps`.)
 
         :param mouse_handler: function ((int >= 0, int >= 0)) -> *
         """
@@ -1808,7 +1808,7 @@ class Canvas:
             if self._frame_parent._display_fps_average:
                 self._pygame_surface.blit(
                     _simpleguifontface_to_pygamefont(None, 40)
-                    .render(str(round(self._frame_parent._fps_average)),
+                    .render(str(int(round(self._frame_parent._fps_average))),
                             True,
                             _SIMPLEGUICOLOR_TO_PYGAMECOLOR['red']),
                     (10, self._height - 40))
