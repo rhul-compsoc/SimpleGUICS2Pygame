@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack (June 22, 2013)
+Blackjack (December 7, 2013)
 
 My solution (slightly retouched) of the mini-project #6 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -86,12 +86,12 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
     """
     Draw a rectangle.
 
-    Pre: canvas: simplegui.Canvas
-         pos: (int or float, int or float) or [int or float, int or float]
-         size: (int or float, int or float) or [int or float, int or float]
-         line_width: int >= 0
-         line_color: str
-         fill_color: str
+    :param canvas: simplegui.Canvas
+    :param pos: (int or float, int or float) or [int or float, int or float]
+    :param size: (int or float, int or float) or [int or float, int or float]
+    :param line_width: int >= 0
+    :param line_color: str
+    :param fill_color: str
     """
     assert_pos(pos)
     assert_pos(size)
@@ -128,8 +128,8 @@ class Card:
         """
         Set a card.
 
-        Pre: suit: str in Deck._SUITS
-             rank: str in Deck._RANKS
+        :param suit: str in Deck._SUITS
+        :param rank: str in Deck._RANKS
         """
         assert isinstance(suit, str), type(suit)
         assert suit in Deck._SUITS, suit
@@ -143,7 +143,7 @@ class Card:
         """
         Return a representation of card.
 
-        Result: str
+        :return: str
         """
         return self._suit + self._rank
 
@@ -157,9 +157,10 @@ class Card:
         If the images cards_image or card_back are not loaded
         then draw rectangle instead.
 
-        Pre: canvas: simplegui.Canvas
-             pos:  (int or float, int or float) or [int or float, int or float]
-             hide: bool
+        :param canvas: simplegui.Canvas
+        :param pos: (int or float, int or float)
+                      or [int or float, int or float]
+        :param hide: bool
         """
         assert_pos(pos)
         assert isinstance(hide, bool), type(hide)
@@ -203,7 +204,7 @@ class Card:
         """
         Return the rank of the card.
 
-        Result: str
+        :return: str
         """
         return self._rank
 
@@ -211,7 +212,7 @@ class Card:
         """
         Return the suit of the card.
 
-        Result: str
+        :return: str
         """
         return self._suit
 
@@ -219,7 +220,7 @@ class Card:
         """
         Return the value of the card.
 
-        Result: 1 <= int <= 10
+        :return: 1 <= int <= 10
         """
         return Card._VALUES[self._rank]
 
@@ -254,7 +255,7 @@ class Deck:
         """
         Return the sequence of cards.
 
-        Result: str
+        :return: str
         """
         return ' '.join([str(card) for card in self._cards])
 
@@ -262,7 +263,7 @@ class Deck:
         """
         Return a card and remove of the deck.
 
-        Result: Card
+        :return: Card
         """
         assert len(self._cards) > 0
 
@@ -283,7 +284,7 @@ class Hand:
         """
         Set an empty hand.
 
-        Pre: is_dealer: bool
+        :param is_dealer: bool
         """
         assert isinstance(is_dealer, bool), type(is_dealer)
 
@@ -294,7 +295,7 @@ class Hand:
         """
         Return the sequence of cards.
 
-        Result: str
+        :return: str
         """
         return ' '.join([str(card) for card in self._cards])
 
@@ -302,7 +303,7 @@ class Hand:
         """
         Add the card in the hand.
 
-        Pre: card: Card
+        :param card: Card
         """
         assert isinstance(card, Card), type(card)
 
@@ -312,8 +313,9 @@ class Hand:
         """
         Draw all cards of the hand.
 
-        Pre: canvas: simplegui.Canvas
-             pos: (int or float, int or float) or [int or float, int or float]
+        :param canvas: simplegui.Canvas
+        :param pos: (int or float, int or float)
+                      or [int or float, int or float]
         """
         assert_pos(pos)
 
@@ -330,7 +332,7 @@ class Hand:
         """
         Return value of the hand.
 
-        Result: int >= 0
+        :return: int >= 0
         """
         ace_founded = False
 

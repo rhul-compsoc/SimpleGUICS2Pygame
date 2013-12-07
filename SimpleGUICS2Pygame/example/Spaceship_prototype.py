@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (November 8, 2013)
+Spaceship prototype (December 7, 2013)
 
-My solution (slightly retouched) of the mini-project #7 of the course
+My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
 
 Run on:
-  - Chrome 27
-  - Firefox 21
+  - Chrome 31
+  - Firefox 25
   - Safari 5.1.7 (without sounds).
   - and Python 2 and 3 with SimpleGUICS2Pygame.
 
@@ -24,15 +24,22 @@ import math
 import random
 
 try:
+    from user16_DmDJwXW1dy0Sw1u import assert_position
     from user23_XEsEdVoFmntP29T import Loader
 
     import simplegui
+
+    SIMPLEGUICS2PYGAME = False
 except:
+    from SimpleGUICS2Pygame.codeskulptor_lib import assert_position
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
+
+    SIMPLEGUICS2PYGAME = True
 
 
 #
@@ -70,52 +77,17 @@ my_ship = None
 
 
 #
-# Helper functions
-###################
+# Helper function
+##################
 def angle_to_vector(angle):
     """
     Return the vector corresponding to the angle expressed in radians.
 
-    :param: int or float
+    :param angle: int or float
 
     :return: (-1 <= float <= 1, -1 <= float <= 1)
     """
     return (math.cos(angle), math.sin(angle))
-
-
-def assert_position(position, non_negative=False, non_zero=False):
-    """
-    Assertions to check valid position:
-    (int or float, int or float) or [int or float, int or float].
-
-    If non_negative
-    then each int or float must be >= 0.
-
-    If non_zero
-    then each int or float must be != 0.
-
-    :param position: object
-    :param non_negative: bool
-    """
-    assert isinstance(non_negative, bool), type(non_negative)
-    assert isinstance(non_zero, bool), type(non_zero)
-
-    assert isinstance(position, tuple) or isinstance(position, list), \
-        type(position)
-    assert len(position) == 2, len(position)
-
-    assert isinstance(position[0], int) or isinstance(position[0], float), \
-        type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), \
-        type(position[1])
-
-    if non_negative:
-        assert position[0] >= 0, position
-        assert position[1] >= 0, position
-
-    if non_zero:
-        assert position[0] != 0, position
-        assert position[1] != 0, position
 
 
 #
@@ -295,7 +267,7 @@ class Ship(Sprite):
 
         self.thrust = False
 
-    def shoot(self):
+    def shot(self):
         """
         Launch a missile.
         """
@@ -369,28 +341,27 @@ def draw(canvas):
     """
     global time
 
-    # Animate background
+    # Draw static background
+    if not SIMPLEGUICS2PYGAME:
+        canvas.draw_image(loader.get_image('nebula'),
+                          nebula_info.get_center(), nebula_info.get_size(),
+                          (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                          (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    # Draw animated background
     time += 1
+    wtime = (time/4.0) % SCREEN_WIDTH
     center = debris_info.get_center()
     size = debris_info.get_size()
-    wtime = (time/8.0) % center[0]
 
-    canvas.draw_image(loader.get_image('nebula'),
-                      nebula_info.get_center(),
-                      nebula_info.get_size(),
-                      (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+    canvas.draw_image(loader.get_image('debris'),
+                      center, size,
+                      (wtime - SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
                       (SCREEN_WIDTH, SCREEN_HEIGHT))
-
     canvas.draw_image(loader.get_image('debris'),
-                      (center[0] - wtime, center[1]),
-                      (size[0] - 2*wtime, size[1]),
-                      (SCREEN_WIDTH/2.0 + 1.25*wtime, SCREEN_HEIGHT/2.0),
-                      (SCREEN_WIDTH - 2.5*wtime, SCREEN_HEIGHT))
-    canvas.draw_image(loader.get_image('debris'),
-                      (size[0] - wtime, center[1]),
-                      (2*wtime, size[1]),
-                      (1.25*wtime, SCREEN_HEIGHT/2.0),
-                      (2.5*wtime, SCREEN_HEIGHT))
+                      center, size,
+                      (wtime + SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                      (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # Display number of lives
     size = 30
@@ -445,7 +416,7 @@ def keydown(key):
     elif key == simplegui.KEY_MAP['up']:
         my_ship.thrust_on_off()
     elif key == simplegui.KEY_MAP['space']:
-        my_ship.shoot()
+        my_ship.shot()
 
 
 def keyup(key):
@@ -499,6 +470,9 @@ def start():
     """
     global timer
 
+    if SIMPLEGUICS2PYGAME:
+        frame._set_canvas_background_image(loader.get_image('nebula'))
+
     frame.set_draw_handler(draw)
 
     timer = simplegui.create_timer(1000, rock_spawner)
@@ -512,7 +486,7 @@ def start():
 if __name__ == '__main__':
     # Create frame
     frame = simplegui.create_frame('Spaceship prototype',
-                                   SCREEN_WIDTH, SCREEN_HEIGHT)
+                                   SCREEN_WIDTH, SCREEN_HEIGHT, 50)
 
     # Load medias
     loader = Loader(frame, SCREEN_WIDTH, start)
@@ -524,7 +498,7 @@ if __name__ == '__main__':
                      'debris')
     loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',
                      'missile')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.png',
+    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',
                      'nebula')
     loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
                      'ship')
@@ -544,8 +518,8 @@ if __name__ == '__main__':
     loader.load()
 
     # Initialize ship and rock
-    my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
-                   -math.pi/2, loader.get_image('ship'), ship_info)
+    my_ship = Ship((0, SCREEN_HEIGHT/2.0), (10, 0),
+                   0, loader.get_image('ship'), ship_info)
 
     # Register event handlers
     frame.set_keydown_handler(keydown)
