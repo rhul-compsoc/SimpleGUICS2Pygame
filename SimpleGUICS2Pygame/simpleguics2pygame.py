@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (December 7, 2013)
+simpleguics2pygame (December 10, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -14,6 +14,7 @@ Require Pygame_
 (and must be installed separately).
 
 `Online HTML documentation`_ on Read The Docs.
+(You can also use the online `SimpleGUI documentation on CodeSkulptor`_.)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -26,6 +27,7 @@ http://www.opimedia.be/
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
+.. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 """
 
