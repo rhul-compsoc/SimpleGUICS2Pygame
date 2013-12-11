@@ -104,6 +104,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+  - Updated ``script/cs2both.py``.
+
   - Corrected conversion of ``_fps_average`` to ``int`` in Python 2.
   - Corrected mentions of ``Frame._fps`` in comment.
 
