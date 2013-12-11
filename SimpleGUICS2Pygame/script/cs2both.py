@@ -6,7 +6,7 @@ script/cs2both.py
 
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(October 29, 2013)
+(December 11, 2013)
 
 A file codeskulptor_program.py is copied
 to codeskulptor_program.py.bak before changing.
@@ -18,7 +18,7 @@ Changes made :
   by
   try:
       import simplegui
-  except:
+  except ImportError:
       import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 - *Try* to check if a timer is started *after* the start frame.
 
@@ -54,7 +54,7 @@ Changes made :
   by
   try:
       import simplegui
-  except:
+  except ImportError:
       import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 - *Try* to check if a timer is started *after* the start frame.
 """)
@@ -135,7 +135,7 @@ if __name__ == '__main__':
                      '# https://bitbucket.org/OPiMedia/simpleguics2pygame',
                      'try:',
                      '    import simplegui',
-                     'except:',
+                     'except ImportError:',
                      '    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui')) + '\n'
 
     # Write
