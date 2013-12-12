@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (November 8, 2013)
+Test draw images. (December 12, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -14,12 +14,14 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user23_XEsEdVoFmntP29T import Loader
+    from user27_1vuhJpK9euOgnic import FPS
+    from user27_rSvHGawbvoYISaV import Loader
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
+    from SimpleGUICS2Pygame.simplegui_lib_fps import FPS
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
@@ -27,6 +29,7 @@ except:
     SIMPLEGUICS2PYGAME = True
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
 
 
 if SIMPLEGUICS2PYGAME:
@@ -115,15 +118,23 @@ def draw(canvas):
                       (img.get_width()*7/4, img.get_height()*11/4),
                       (img.get_width()/2, img.get_height()/2))
 
+    # Update and draw FPS (if started)
+    fps.draw_fct(canvas)
+
 
 # Main
 frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+
+fps = FPS()
 
 frame.add_label(TEST)
 frame.add_label('')
 frame.add_label(PYTHON_VERSION)
 frame.add_label(GUI_VERSION)
 frame.add_label(PYGAME_VERSION)
+frame.add_label('')
+frame.add_button('Start FPS', fps.start)
+frame.add_button('Stop FPS', fps.stop)
 frame.add_label('')
 frame.add_button('Quit', frame.stop)
 

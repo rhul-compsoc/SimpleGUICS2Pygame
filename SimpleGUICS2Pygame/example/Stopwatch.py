@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (June 22, 2013)
+Stopwatch: The Game (December 12, 2013)
 (Stop the timer when 0 decisecond.)
 
 My solution (slightly retouched) of the mini-project #3 of the course
@@ -17,10 +17,11 @@ http://www.opimedia.be/
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
 
 
 # Global variables

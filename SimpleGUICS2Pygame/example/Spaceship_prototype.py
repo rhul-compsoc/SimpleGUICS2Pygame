@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (December 7, 2013)
+Spaceship prototype (December 12, 2013)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -25,13 +25,15 @@ import random
 
 try:
     from user16_DmDJwXW1dy0Sw1u import assert_position
-    from user23_XEsEdVoFmntP29T import Loader
+    from user27_1vuhJpK9euOgnic import FPS
+    from user27_rSvHGawbvoYISaV import Loader
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
     from SimpleGUICS2Pygame.codeskulptor_lib import assert_position
+    from SimpleGUICS2Pygame.simplegui_lib_fps import FPS
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
@@ -399,6 +401,9 @@ def draw(canvas):
     if a_missile is not None:
         a_missile.update()
 
+    # Update and draw FPS (if started)
+    fps.draw_fct(canvas)
+
 
 def keydown(key):
     """
@@ -488,6 +493,9 @@ if __name__ == '__main__':
     frame = simplegui.create_frame('Spaceship prototype',
                                    SCREEN_WIDTH, SCREEN_HEIGHT, 50)
 
+    # Create FPS
+    fps = FPS()
+
     # Load medias
     loader = Loader(frame, SCREEN_WIDTH, start)
 
@@ -525,6 +533,9 @@ if __name__ == '__main__':
     frame.set_keydown_handler(keydown)
     frame.set_keyup_handler(keyup)
 
+    frame.add_button('Start FPS', fps.start)
+    frame.add_button('Stop FPS', fps.stop)
+    frame.add_label('')
     frame.add_button('Quit', quit)
 
     loader.wait_loaded()
