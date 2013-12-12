@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_loader (November 8, 2013)
+simplegui_lib_loader (December 12, 2013)
 
 A class to help load images and sounds
 in SimpleGUI of CodeSkulptor.
@@ -256,7 +256,7 @@ class Loader:
             from simplegui import load_image, load_sound
 
             SIMPLEGUICS2PYGAME = False
-        except:
+        except ImportError:
             from SimpleGUICS2Pygame.simpleguics2pygame import load_image, \
                 load_sound
 
@@ -333,7 +333,7 @@ class Loader:
 
         try:
             from simplegui import create_timer
-        except:
+        except ImportError:
             from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
 
         self._frame.set_draw_handler(self._draw_loading)

@@ -10,6 +10,7 @@ SimpleGUICS2Pygame package's documentation
    codeskulptor_lib
    simplegui_lib
    simplegui_lib_draw
+   simplegui_lib_fps
    simplegui_lib_keys
    simplegui_lib_loader
    simpleguics2pygame

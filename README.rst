@@ -105,6 +105,9 @@ Changes
 =======
 *
 
+  - Added ``simplegui_lib_fps.py``.
+  - Added several ``except ImportError``.
+
   - Corrected bug in ``_load_media()`` (issue #1).
   - Updated documentation to clarify local use of images and sounds.
 
