@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (December 10, 2013)
+simpleguics2pygame (December 12, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -455,7 +455,7 @@ def _load_media(type_of_media, url, local_dir):
 
         return media
 
-    # Build filename
+    # Build a "normalized" filename
     if version_info[0] >= 3:
         from urllib.parse import urlsplit
     else:
@@ -463,11 +463,13 @@ def _load_media(type_of_media, url, local_dir):
 
     from re import sub
 
-    filename = sub('[^._/0-9A-Za-z]', '_', join(dirname(argv[0]),
-                                                local_dir,
-                                                urlsplit(url)[1] + '/',
-                                                urlsplit(url)[2][1:]))
+    filename = sub('[^._/0-9A-Za-z]', '_',
+                   join(dirname(argv[0]),
+                        local_dir,
+                        urlsplit(url)[1] + '/',
+                        urlsplit(url)[2][1:]).replace('\\', '/'))
 
+    # Check if is correct file
     if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
         if Frame._print_load_medias:
             print("Sound format not supported '{}'".format(url))
@@ -604,8 +606,7 @@ def _set_option_from_argv():
     Read arguments in sys.argv
     and set options.
 
-    * ``--default-font``: Use Pygame default font instead serif, monospace...
-                          (this is faster if you print a lot of text).
+    * ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
     * ``--fullscreen``: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
@@ -613,13 +614,9 @@ def _set_option_from_argv():
     * ``--no-controlpanel``: Hide the control panel (and status boxes).
     * ``--no-load-sound``: Don't load any sound.
     * ``--no-status``: Hide two status boxes.
-    * ``--overwrite-downloaded-medias``: download all images and sounds
-                                         from Web and save in local directory
-                                         even if they already exist.
+    * ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
     * ``--print-load-medias``: Print URLs or locals filename loaded.
-    * ``--save-downloaded-medias``: save images and sounds downloaded from Web
-                                    that don't already exist
-                                    in local directory.
+    * ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
     * ``--stop-timers``: Stop all timers when close frame without ask.
 
     If an argument is not in this list
@@ -3338,6 +3335,11 @@ def load_image(url):
     from `Image._dir_search_first` local directory (`_img/` by default),
     and next if failed, try to loading from `url`.
 
+    For example,
+    ``load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png')``
+    try first to loading from
+    ``_img/commondatastorage.googleapis.com/codeskulptor_assets/lathrop/double_ship.png``.
+
     Supported formats are supported formats by Pygame to load:
     PNG, JPG, GIF (non animated)...
     (see http://www.pygame.org/docs/ref/image.html ).
@@ -3351,7 +3353,7 @@ def load_image(url):
     (the program continues without waiting for the images to be loaded).
     To handle this problem, you can use ``simplegui_lib_loader.Loader`` class.
 
-    :param url: str
+    :param url: str (**only URL**, not local filename)
 
     :return: Image
     """
@@ -3370,6 +3372,11 @@ def load_sound(url):
     from `Sound._dir_search_first` local directory (`_snd/` by default),
     and next if failed, try to loading from `url`.
 
+    For example,
+    ``load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')``
+    try first to loading from
+    ``_snd/commondatastorage.googleapis.com/codeskulptor_assets/jump.ogg``.
+
     Supported formats are supported formats by Pygame:
     OGG and uncompressed WAV
     (see http://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound ).
@@ -3379,7 +3386,7 @@ def load_sound(url):
 
     (The sound can be started by `Sound.play()`.)
 
-    :param url: str
+    :param url: str (**only URL**, not local filename)
 
     :return: Sound
     """

@@ -104,6 +104,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 *
+
+  - Corrected bug in ``_load_media()`` (issue #1).
+  - Updated documentation to clarify local use of images and sounds.
+
   - Updated ``script/cs2both.py``.
 
   - Corrected conversion of ``_fps_average`` to ``int`` in Python 2.

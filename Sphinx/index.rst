@@ -148,7 +148,7 @@ You can write this
 
     try:
         import simplegui
-    except:
+    except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
 and your program run both in CodeSkulptor and *standard Python*.
@@ -170,7 +170,7 @@ You can write this
 
         import user16_DmDJwXW1dy0Sw1u as codeskulptor_lib
         import user23_TP1JQZEx8Qd9ekV as simplegui_lib
-    except:
+    except ImportError:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
         import SimpleGUICS2Pygame.simpleplot as simpleplot
@@ -242,6 +242,11 @@ Run ``python yourprogram.py --save-downloaded-medias --print-load-medias`` once.
 Images and sounds used will be saved in local directory (``_img/`` et ``_snd`` by default).
 Next simply run ``python yourprogram.py`` and the medias will be loaded from these local directories.
 
+For example,
+``load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png')``
+save image to
+``_img/commondatastorage.googleapis.com/codeskulptor_assets/lathrop/double_ship.png``.
+
 
 Options
 ~~~~~~~
@@ -256,12 +261,9 @@ When you run a program you can use following options:
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
 * ``--no-load-sound``: Don't load any sound.
 * ``--no-status``: Hide two status boxes.
-* ``--overwrite-downloaded-medias``: download all images and sounds from Web
-                                     and save in local directory
-                                     even if they already exist.
+* ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
 * ``--print-load-medias``: Print URLs or local filenames loaded.
-* ``--save-downloaded-medias``: save images and sounds downloaded from Web
-                                that don't already exist in local directory.
+* ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
 * ``--stop-timers``: Stop all timers when close frame without ask.
 
 If an argument is not in this list then it is ignored and all next arguments are ignored.
