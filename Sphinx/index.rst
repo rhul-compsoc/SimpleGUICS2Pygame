@@ -169,8 +169,8 @@ You can write this
         import simplegui
         import simpleplot
 
-        import user16_DmDJwXW1dy0Sw1u as codeskulptor_lib
-        import user23_TP1JQZEx8Qd9ekV as simplegui_lib
+        import user27_5LlszPPJxQHFMbk as codeskulptor_lib
+        import user27_c2laE2GlGgcJuiH as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui

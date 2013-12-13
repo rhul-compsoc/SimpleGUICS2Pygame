@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack (December 7, 2013)
+Blackjack (December 13, 2013)
 
 My solution (slightly retouched) of the mini-project #6 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -18,10 +18,11 @@ import random
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
 
 
 # Cards sprite 949x392 (source: www.jfitz.com/cards/ )
@@ -521,14 +522,14 @@ def test_images_loaded():
 # Main
 if __name__ == '__main__':
     # Create frame
-    frame = simplegui.create_frame('Blackjack', FRAME_WIDTH, FRAME_HEIGHT)
+    frame = simplegui.create_frame('Blackjack', FRAME_WIDTH, FRAME_HEIGHT, 100)
 
     # Control panel
-    frame.add_button('Deal', deal, 200)
+    frame.add_button('Deal', deal, 100)
     frame.add_label('')
-    frame.add_button('Hit',  hit, 200)
+    frame.add_button('Hit',  hit, 100)
     frame.add_label('')
-    frame.add_button('Stand', stand, 200)
+    frame.add_button('Stand', stand, 100)
     frame.add_label('')
     frame.add_label('')
     frame.add_button('Quit', frame.stop)

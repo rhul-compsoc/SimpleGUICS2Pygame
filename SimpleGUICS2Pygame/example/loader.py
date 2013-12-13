@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_loader.Loader use. (December 12, 2013)
+Example of codeskulptor_lib_loader.Loader use. (December 13, 2013)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
@@ -52,7 +52,7 @@ def draw(canvas):
 
 
 # Main
-frame = simplegui.create_frame('Loader example', WIDTH, HEIGHT)
+frame = simplegui.create_frame('Loader example', WIDTH, HEIGHT, 50)
 
 
 def init():

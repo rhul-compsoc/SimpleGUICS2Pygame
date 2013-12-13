@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_keys.Keys use. (November 8, 2013)
+Example of codeskulptor_lib_keys.Keys use. (December 13, 2013)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html
@@ -17,8 +17,8 @@ http://www.opimedia.be/
 try:
     import simplegui
 
-    from user23_9gk3AFlrXCZJFMe import Keys
-except:
+    from user27_KX2DJkIN6iSjW19 import Keys
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     from SimpleGUICS2Pygame.simplegui_lib_keys import Keys
@@ -72,7 +72,7 @@ def deal_up_y(key_code):
     print('deal_up_y() function: %i' % key_code)
 
 
-frame = simplegui.create_frame('keys', 650, 160)
+frame = simplegui.create_frame('keys', 650, 160, 150)
 
 frame.add_button('Quit', frame.stop)
 

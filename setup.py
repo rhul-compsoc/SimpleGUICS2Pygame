@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (June 23, 2013)
+Setup of SimpleGUICS2Pygame package (December 13, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -13,7 +13,7 @@ http://www.opimedia.be/
 
 try:
     from setuptools import setup
-except:
+except ImportError:
     from distutils.core import setup
 
 

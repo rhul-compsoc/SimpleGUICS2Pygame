@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (November 1st, 2013)
+Mandelbrot Set. (December 13, 2013)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -16,14 +16,14 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user16_DmDJwXW1dy0Sw1u import codeskulptor_is, hex2
+    from user27_5LlszPPJxQHFMbk import codeskulptor_is, hex2
 
     import simplegui
 
     from codeskulptor import set_timeout
 
     set_timeout(10)
-except:
+except ImportError:
     from SimpleGUICS2Pygame.codeskulptor_lib import codeskulptor_is, hex2
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
@@ -247,7 +247,7 @@ def init():
 init()
 
 frame = simplegui.create_frame('Mandelbrot Viewer',
-                               CANVAS_WIDTH, CANVAS_HEIGHT)
+                               CANVAS_WIDTH, CANVAS_HEIGHT, 50)
 
 frame.add_button('Quit', frame.stop)
 

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Nostalgic Basic Blitz (June 22, 2013)
+Nostalgic Basic Blitz (December 13, 2013)
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -19,7 +19,7 @@ import random
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
@@ -438,7 +438,7 @@ def restart():
 # Main
 #######
 frame = simplegui.create_frame('Nostalgic Basic Blitz)',
-                               CANVAS_WIDTH, CANVAS_HEIGHT)
+                               CANVAS_WIDTH, CANVAS_HEIGHT, 100)
 
 frame.add_button('Restart', restart)
 frame.add_label('')

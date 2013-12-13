@@ -3,7 +3,7 @@
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(November 1st, 2013)
+(December 13, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -17,7 +17,7 @@ try:
     import simpleplot
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleplot as simpleplot
 
     SIMPLEGUICS2PYGAME = True

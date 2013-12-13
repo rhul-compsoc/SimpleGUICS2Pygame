@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Frame example (June 22, 2013)
+Frame example (December 13, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -13,7 +13,7 @@ http://www.opimedia.be/
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True

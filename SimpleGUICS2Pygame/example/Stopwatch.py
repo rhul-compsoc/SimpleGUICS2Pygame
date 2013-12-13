@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (December 12, 2013)
+Stopwatch: The Game (December 13, 2013)
 (Stop the timer when 0 decisecond.)
 
 My solution (slightly retouched) of the mini-project #3 of the course

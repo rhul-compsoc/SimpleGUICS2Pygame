@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor_lib (June 22, 2013)
+codeskulptor_lib (December 13, 2013)
 
 Some miscellaneous functions to help in CodeSkulptor.
 
@@ -13,6 +13,16 @@ http://www.opimedia.be/
 """
 
 
+# Private global variable
+#########################
+_codeskulptor_is = None
+"""
+Used to memoization by codeskulptor_is().
+"""
+
+
+# Functions
+###########
 def assert_position(position, non_negative=False, non_zero=False):
     """
     Assertions to check valid `position`:
@@ -56,12 +66,18 @@ def codeskulptor_is():
 
     :return: bool
     """
-    try:
-        from simplegui import KEY_MAP
+    global _codeskulptor_is
 
-        return True
-    except:
-        return False
+    if _codeskulptor_is is None:
+        try:
+            from codeskulptor import file2url
+            from simplegui import KEY_MAP
+
+            _codeskulptor_is = True
+        except ImportError:
+            _codeskulptor_is = False
+
+    return _codeskulptor_is
 
 
 def hex2(n, uppercase=True):
