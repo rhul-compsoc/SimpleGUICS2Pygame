@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (December 12, 2013)
+simpleguics2pygame (December 13, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1422,15 +1422,12 @@ class Frame:
 
     def get_canvas_image(self):
         """
-        Available in SimpleGUI of CodeSkulptor
-        but *not in CodeSkulptor documentation*!
+        NOT YET IMPLEMENTED! (Do nothing.)
 
-        It is a special method in CodeSkulptor,
-        **never execute this method**.
-
-        :raise: Exception if called ;-)
+        (Available in SimpleGUI of CodeSkulptor
+        but *not in CodeSkulptor documentation*!)
         """
-        raise Exception('Never execute this method!')
+        pass
 
     def get_canvas_textwidth(self,
                              text,

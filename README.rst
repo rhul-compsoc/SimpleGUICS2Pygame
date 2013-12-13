@@ -103,7 +103,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-*
+* 01.03.00 --- December 13, 2013
+
+  - Removed exception to ``get_canvas_image()``.
 
   - Updated almost all files to add ``except ImportError``.
   - Updated ``codeskulptor_lib .codeskulptor_is()``.
