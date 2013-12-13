@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Pong (June 22, 2013)
+Pong (December 13, 2013)
 
 My solution (slightly retouched) of the mini-project #4 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -19,10 +19,11 @@ import random
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
 
 
 pong = None

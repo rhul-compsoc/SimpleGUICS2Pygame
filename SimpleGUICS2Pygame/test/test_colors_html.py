@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML. (June 22, 2013)
+Test colors HTML. (December 13, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -12,12 +12,12 @@ http://www.opimedia.be/
 """
 
 try:
-    from user16_DmDJwXW1dy0Sw1u import hex2, hex_fig
+    from user27_5LlszPPJxQHFMbk import hex2, hex_fig
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
     from SimpleGUICS2Pygame.codeskulptor_lib import hex2, hex_fig
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui

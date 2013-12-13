@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (December 12, 2013)
+Spaceship prototype (December 13, 2013)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
 
 Run on:
   - Chrome 31
-  - Firefox 25
+  - Firefox 26
   - Safari 5.1.7 (without sounds).
   - and Python 2 and 3 with SimpleGUICS2Pygame.
 
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user16_DmDJwXW1dy0Sw1u import assert_position
+    from user27_5LlszPPJxQHFMbk import assert_position
     from user27_1vuhJpK9euOgnic import FPS
     from user27_rSvHGawbvoYISaV import Loader
 

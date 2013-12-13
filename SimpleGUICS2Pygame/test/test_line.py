@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw lines. (June 22, 2013)
+Test draw lines. (December 13, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -15,7 +15,7 @@ try:
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     SIMPLEGUICS2PYGAME = True

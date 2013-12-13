@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (November 1st, 2013)
+Test all other test_*.py. (December 13, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -25,17 +25,17 @@ try:
     import PIL.ImageStat
 
     to_compare_imgs = True
-except:
+except ImportError:
     to_compare_imgs = False
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
 try:
     from html import escape
-except:
+except ImportError:
     from cgi import escape
 
 
@@ -55,7 +55,7 @@ try:
     from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
     from SimpleGUICS2Pygame import _WEBSITE as SIMPLEGUICS2PYGAME_WEBSITE
     PYGAME_VERSION = simplegui._PYGAME_VERSION
-except:
+except ImportError:
     SIMPLEGUICS2PYGAME_VERSION = '?'
     SIMPLEGUICS2PYGAME_WEBSITE = 'http://www.opimedia.be/DS/SimpleGUICS2Pygame/'
     PYGAME_VERSION = '?'

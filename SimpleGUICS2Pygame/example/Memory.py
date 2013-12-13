@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (November 16, 2013)
+Memory (December 13, 2013)
   8 x (2 indentical cards)
   or 4 x (4 indentical cards)
 
@@ -18,9 +18,9 @@ import random
 try:
     import simplegui
 
-    from user16_DmDJwXW1dy0Sw1u import assert_position
+    from user27_5LlszPPJxQHFMbk import assert_position
     from user23_HY71NDvHu7WKaMa import draw_rect
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     from SimpleGUICS2Pygame.codeskulptor_lib import assert_position

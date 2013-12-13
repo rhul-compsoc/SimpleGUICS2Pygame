@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_keys (November 8, 2013)
+simplegui_lib_keys (December 13, 2013)
 
 A class to help manage keyboard handling
 in SimpleGUI of CodeSkulptor.
@@ -16,7 +16,7 @@ http://www.opimedia.be/
 
 try:
     import simplegui
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
 

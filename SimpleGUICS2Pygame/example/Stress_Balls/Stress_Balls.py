@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stress Ball (November 1st, 2013)
+Stress Ball (December 13, 2013)
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Safari: exception failed!
@@ -23,7 +23,7 @@ try:
     import simpleplot
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
     import SimpleGUICS2Pygame.simpleplot as simpleplot
 
