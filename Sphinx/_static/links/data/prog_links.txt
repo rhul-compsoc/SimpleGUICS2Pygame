@@ -26,9 +26,6 @@ http://www.codeskulptor.org/#user27_qvK5rwXXrZqr26f.py
 http://www.codeskulptor.org/#user27_V0d45vD8T9R9WQv.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user23_baOpoW7LVFepjLP.py
-<strong>RiceRocks_Asteroids</strong>.py
-
 http://www.codeskulptor.org/#user27_y3vpTHLFHAJIV3f.py
 Spaceship_prototype.py
 
@@ -437,9 +434,6 @@ more-8_collisions-balloon_pop.py
 
 http://www.codeskulptor.org/#user16_bordh1K5TC_0.py
 more-8_collisions-balloon_pop.py CORRECTED
-
-http://www.codeskulptor.org/#examples-ricerocks_template.py
-ricerocks_template.py
 
 http://www.codeskulptor.org/#exercises_sets_final_solution.py
 sets_final_solution.py
