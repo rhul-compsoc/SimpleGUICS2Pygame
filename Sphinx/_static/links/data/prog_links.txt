@@ -26,7 +26,10 @@ http://www.codeskulptor.org/#user27_qvK5rwXXrZqr26f.py
 http://www.codeskulptor.org/#user27_V0d45vD8T9R9WQv.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user27_y3vpTHLFHAJIV3f.py
+http://www.codeskulptor.org/#user27_nNXr8erFjcuvM6E.py
+<strong>RiceRocks_Asteroids</strong>.py
+
+http://www.codeskulptor.org/#user27_z453i0v9PF9tBpW.py
 Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user27_2gtVRjpzCpyETNX.py
@@ -46,7 +49,7 @@ http://www.codeskulptor.org/#user27_5LlszPPJxQHFMbk.py
 Module <strong>codeskulptor_lib</strong>.py
 Some miscellaneous functions to help in CodeSkulptor: <a rel="nofollow" href="../../codeskulptor_lib.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user27_c2laE2GlGgcJuiH.py
+http://www.codeskulptor.org/#user27_PVidBgddvZnsStv.py
 Module <strong>simplegui_lib</strong>.py
 Some functions and classes to help in SimpleGUI of CodeSkulptor, from simplegui_lib_draw, from simplegui_lib_fps, simplegui_lib_keys and simplegui_lib_loader: <a rel="nofollow" href="../../simplegui_lib.html" target="_blank">Documentation</a>.
 
@@ -54,7 +57,7 @@ http://www.codeskulptor.org/#user23_HY71NDvHu7WKaMa.py
 Module <strong>codeskulptor_lib_draw</strong>.py
 Draw functions to help in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_draw.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user27_1vuhJpK9euOgnic.py
+http://www.codeskulptor.org/#user27_0ymhUVX6zleSFrB.py
 Module <strong>codeskulptor_lib_fps</strong>.py
 A class to calculate and display FPS (Frames Per Second) in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_fps.html" target="_blank">Documentation</a>.
 
@@ -88,7 +91,7 @@ test_dir.py
 http://www.codeskulptor.org/#user27_x2tpW77htMyEPUz.py
 test_grid.py
 
-http://www.codeskulptor.org/#user27_Uswhfqcwdjq7WRh.py
+http://www.codeskulptor.org/#user27_e9rliFBDCen4tIQ.py
 test_image.py
 
 http://www.codeskulptor.org/#user27_VYTn8er4IPvVhpR.py

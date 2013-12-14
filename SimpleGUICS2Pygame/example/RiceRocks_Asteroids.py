@@ -2,16 +2,19 @@
 # -*- coding: latin-1 -*-
 
 """
-RiceRocks (Asteroids) (November 8, 2013)
+RiceRocks (Asteroids) (December 14, 2013)
 
 My slightly retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
 
 Run on (maybe very slow on some browsers):
-  - Chrome 27
-  - Firefox 21
+  - Chrome 31
+  - Firefox 26
   - Safari 5.1.7 (without sounds)
   - Python 2 and 3 with SimpleGUICS2Pygame.
+
+Fix me:
+  - Collision problem when divide a big asteroid in two little asteroids.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -24,12 +27,16 @@ import math
 import random
 
 try:
-    from user23_XEsEdVoFmntP29T import Loader
+    from user27_5LlszPPJxQHFMbk import assert_position
+    from user27_0ymhUVX6zleSFrB import FPS
+    from user27_rSvHGawbvoYISaV import Loader
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
-except:
+except ImportError:
+    from SimpleGUICS2Pygame.codeskulptor_lib import assert_position
+    from SimpleGUICS2Pygame.simplegui_lib_fps import FPS
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
@@ -71,41 +78,6 @@ def angle_to_vector(angle):
     return (math.cos(angle), math.sin(angle))
 
 
-def assert_position(position, non_negative=False, non_zero=False):
-    """
-    Assertions to check valid position:
-    (int or float, int or float) or [int or float, int or float].
-
-    If non_negative
-    then each int or float must be >= 0.
-
-    If non_zero
-    then each int or float must be != 0.
-
-    :param position: object
-    :param non_negative: bool
-    """
-    assert isinstance(non_negative, bool), type(non_negative)
-    assert isinstance(non_zero, bool), type(non_zero)
-
-    assert isinstance(position, tuple) or isinstance(position, list), \
-        type(position)
-    assert len(position) == 2, len(position)
-
-    assert isinstance(position[0], int) or isinstance(position[0], float), \
-        type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), \
-        type(position[1])
-
-    if non_negative:
-        assert position[0] >= 0, position
-        assert position[1] >= 0, position
-
-    if non_zero:
-        assert position[0] != 0, position
-        assert position[1] != 0, position
-
-
 def vector_to_angle(vector):
     """
     Return the angle (in radians) corresponding to the direction of vector.
@@ -140,13 +112,14 @@ class RiceRocks:
         self.nb_bombs = None
         self.score = 0
         self.started = False
-        self.time = 0.5
+        self.time = 0
 
         self.explosions = []
         self.live_explosions = []
         self.missiles = []
         self.rocks = []
 
+        self.animate_background_active = True
         self.music_active = True
         self.sounds_active = True
         self.timer = simplegui.create_timer(1000, self.rock_spawner)
@@ -184,22 +157,22 @@ class RiceRocks:
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw animated background
-        center = self.img_infos['debris'].get_center()
-        size = self.img_infos['debris'].get_size()
+        if self.animate_background_active:
+            center = self.img_infos['debris'].get_center()
+            size = self.img_infos['debris'].get_size()
 
-        y_offset = (self.time/8.0) % center[1]
+            wtime = (self.time/4.0) % SCREEN_WIDTH
 
-        canvas.draw_image(self.medias.get_image('debris'),
-                          (center[0], center[1] - y_offset),
-                          (size[0], size[1] - 2*y_offset),
-                          (SCREEN_WIDTH/2.0,
-                           SCREEN_HEIGHT/2.0 + 1.25*y_offset),
-                          (SCREEN_WIDTH, SCREEN_HEIGHT - 2.5*y_offset))
-        canvas.draw_image(self.medias.get_image('debris'),
-                          (center[0], size[1] - y_offset),
-                          (size[0], 2*y_offset),
-                          (SCREEN_WIDTH/2.0, 1.25*y_offset),
-                          (SCREEN_WIDTH, 2.5*y_offset))
+            canvas.draw_image(self.medias.get_image('debris'),
+                              center,
+                              size,
+                              (wtime - SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                              (SCREEN_WIDTH, SCREEN_HEIGHT))
+            canvas.draw_image(self.medias.get_image('debris'),
+                              center,
+                              size,
+                              (wtime + SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                              (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw missiles, ship, asteroids and explosions
         for missile in self.missiles:
@@ -256,7 +229,7 @@ class RiceRocks:
                             vel[0] *= mvel
                             vel[1] *= mvel
                             little2 = Asteroid(rock.position, vel,
-                                               rock.angle_velocity*2,
+                                               -rock.angle_velocity*2,
                                                rock.num, True)
 
                             while True:
@@ -411,6 +384,9 @@ class RiceRocks:
                               self.img_infos['splash'].get_center(), size,
                               (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), size)
 
+        # Update and draw FPS (if started)
+        fps.draw_fct(canvas)
+
     def load_medias(self):
         """
         Load images and sounds and waiting all is loaded,
@@ -553,7 +529,8 @@ class RiceRocks:
                             random.randrange(0, SCREEN_HEIGHT))
                 rock_vel = (random_vel(),
                             random_vel())
-                rock_ang_vel = random.random()*0.2 - 0.1
+                rock_ang_vel = random.choice((-1, 1))*(random.random()*0.05
+                                                       + 0.01)
 
                 rock = Asteroid(rock_pos, rock_vel,
                                 rock_ang_vel,
@@ -632,6 +609,12 @@ class ImageInfo:
 
         If radius is None
         then use maximum of size components.
+
+        If lifespan is None
+        then use infinity.
+
+        If draw_size is None
+        then use size value.
 
         :param center: (int or float, int or float)
                        or [int or float, int or float]
@@ -898,7 +881,7 @@ class Ship(Sprite):
         """
         self.angle += math.pi
 
-    def shoot(self):
+    def shot(self):
         """
         Launch a missile.
         """
@@ -948,9 +931,9 @@ class Ship(Sprite):
         """
         assert (right is None) or isinstance(right, bool), type(right)
 
-        ricerocks.my_ship.angle_velocity = {False: -0.075,
+        ricerocks.my_ship.angle_velocity = {False: -0.05,
                                             None: 0,
-                                            True: 0.075}[right]
+                                            True: 0.05}[right]
 
     def update(self):
         """
@@ -975,8 +958,8 @@ class Ship(Sprite):
             self.velocity[0] += acc[0]*.1
             self.velocity[1] += acc[1]*.1
 
-        self.velocity[0] *= .99
-        self.velocity[1] *= .99
+        self.velocity[0] *= .95
+        self.velocity[1] *= .95
 
 
 #
@@ -1000,6 +983,18 @@ def click(pos):
         ricerocks.start()
 
 
+def fps_on_off():
+    """
+    Active or inactive the calculation and drawing of FPS.
+    """
+    if fps.is_started():
+        fps.stop()
+        button_fps.set_text('FPS on')
+    else:
+        fps.start()
+        button_fps.set_text('FPS off')
+
+
 def keydown(key):
     """
     Event handler to deal key down.
@@ -1016,7 +1011,7 @@ def keydown(key):
         elif key == simplegui.KEY_MAP['down']:
             ricerocks.my_ship.flip()
         elif key == simplegui.KEY_MAP['space']:
-            ricerocks.my_ship.shoot()
+            ricerocks.my_ship.shot()
         elif key == simplegui.KEY_MAP['Z']:
             ricerocks.bomb_explode()
 
@@ -1058,6 +1053,16 @@ def stop():
         ricerocks.stop()
 
 
+def switch_animate_background():
+    """
+    Switch animate background on/off.
+    """
+    ricerocks.animate_background_active = not ricerocks.animate_background_active
+    button_animate_background.set_text('Static background'
+                                       if ricerocks.animate_background_active
+                                       else 'Animate background')
+
+
 def switch_music():
     """
     Switch music on/off.
@@ -1092,6 +1097,8 @@ if __name__ == '__main__':
     frame = simplegui.create_frame('RiceRocks (Asteroids)',
                                    SCREEN_WIDTH, SCREEN_HEIGHT, 150)
 
+    fps = FPS(x=0, y=0, font_size=32)
+
     ricerocks = RiceRocks()
     ricerocks.load_medias()
 
@@ -1099,6 +1106,9 @@ if __name__ == '__main__':
     frame.add_label('')
     button_music = frame.add_button('Music off', switch_music)
     button_sounds = frame.add_button('Sounds off', switch_sounds)
+    frame.add_label('')
+    button_animate_background = frame.add_button('Static background',
+                                                 switch_animate_background)
     frame.add_label('')
     frame.add_button('Quit', quit)
     frame.add_label('')
@@ -1113,5 +1123,9 @@ if __name__ == '__main__':
     frame.add_label('One bomb for every 10 asteroids destroyed.')
     frame.add_label('')
     frame.add_label('One live for every 50 asteroids destroyed.')
+
+    frame.add_label('')
+    frame.add_label('Useful to test:')
+    button_fps = frame.add_button('FPS on', fps_on_off)
 
     frame.start()

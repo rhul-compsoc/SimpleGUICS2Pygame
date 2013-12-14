@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (December 12, 2013)
+Test draw images. (December 14, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -14,7 +14,7 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user27_1vuhJpK9euOgnic import FPS
+    from user27_0ymhUVX6zleSFrB import FPS
     from user27_rSvHGawbvoYISaV import Loader
 
     import simplegui
@@ -122,6 +122,18 @@ def draw(canvas):
     fps.draw_fct(canvas)
 
 
+def fps_on_off():
+    """
+    Active or inactive the calculation and drawing of FPS.
+    """
+    if fps.is_started():
+        fps.stop()
+        button_fps.set_text('FPS on')
+    else:
+        fps.start()
+        button_fps.set_text('FPS off')
+
+
 # Main
 frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
@@ -133,8 +145,7 @@ frame.add_label(PYTHON_VERSION)
 frame.add_label(GUI_VERSION)
 frame.add_label(PYGAME_VERSION)
 frame.add_label('')
-frame.add_button('Start FPS', fps.start)
-frame.add_button('Stop FPS', fps.stop)
+button_fps = frame.add_button('FPS on', fps_on_off)
 frame.add_label('')
 frame.add_button('Quit', frame.stop)
 

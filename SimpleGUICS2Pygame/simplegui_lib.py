@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib (December 13, 2013)
+simplegui_lib (December 14, 2013)
 
 Some functions and classes to help
 in SimpleGUI of CodeSkulptor,
@@ -19,7 +19,7 @@ http://www.opimedia.be/
 
 try:
     from user23_HY71NDvHu7WKaMa import draw_rect, draw_text_side
-    from user27_1vuhJpK9euOgnic import FPS
+    from user27_0ymhUVX6zleSFrB import FPS
     from user27_KX2DJkIN6iSjW19 import Keys
     from user27_rSvHGawbvoYISaV import Loader
 except ImportError:

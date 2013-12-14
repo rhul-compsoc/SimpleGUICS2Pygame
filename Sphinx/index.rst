@@ -170,7 +170,7 @@ You can write this
         import simpleplot
 
         import user27_5LlszPPJxQHFMbk as codeskulptor_lib
-        import user27_c2laE2GlGgcJuiH as simplegui_lib
+        import user27_PVidBgddvZnsStv as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
