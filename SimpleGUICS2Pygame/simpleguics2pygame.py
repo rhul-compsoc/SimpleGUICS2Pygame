@@ -1298,7 +1298,7 @@ class Frame:
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        :param filemane: str
+        :param filename: str
         """
         assert isinstance(filename, str), type(filename)
 
@@ -1422,7 +1422,7 @@ class Frame:
 
     def get_canvas_image(self):
         """
-        NOT YET IMPLEMENTED! (Do nothing.)
+        NOT YET IMPLEMENTED! (Does nothing.)
 
         (Available in SimpleGUI of CodeSkulptor
         but *not in CodeSkulptor documentation*!)
@@ -1605,7 +1605,7 @@ class Frame:
                             self._control_selected = None
                             self._draw_controlpanel()
                 elif event.type == pygame.MOUSEBUTTONUP:    # mouse b. released
-                    if event.button == 1:  # left clic
+                    if event.button == 1:  # left click
                         x = event.pos[0] - self._canvas_x_offset
                         y = event.pos[1] - self._canvas_y_offset
                         if ((0 <= x < self._canvas._width)
