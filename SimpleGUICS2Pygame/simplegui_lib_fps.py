@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_fps (December 12, 2013)
+simplegui_lib_fps (December 14, 2013)
 
 A class to calculate and display FPS (Frames Per Second)
 in SimpleGUI of CodeSkulptor.
@@ -64,6 +64,14 @@ class FPS:
             canvas.draw_text(str(self._fps),
                              (self._x, self._y + self._font_size*3//4),
                              self._font_size, self._font_color)
+
+    def is_started(self):
+        """
+        If FPS is active
+        then return True,
+        else return False.
+        """
+        return self._timer is not None
 
     def start(self):
         """

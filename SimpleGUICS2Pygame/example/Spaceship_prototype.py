@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (December 13, 2013)
+Spaceship prototype (December 14, 2013)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -25,7 +25,7 @@ import random
 
 try:
     from user27_5LlszPPJxQHFMbk import assert_position
-    from user27_1vuhJpK9euOgnic import FPS
+    from user27_0ymhUVX6zleSFrB import FPS
     from user27_rSvHGawbvoYISaV import Loader
 
     import simplegui
@@ -405,6 +405,18 @@ def draw(canvas):
     fps.draw_fct(canvas)
 
 
+def fps_on_off():
+    """
+    Active or inactive the calculation and drawing of FPS.
+    """
+    if fps.is_started():
+        fps.stop()
+        button_fps.set_text('FPS on')
+    else:
+        fps.start()
+        button_fps.set_text('FPS off')
+
+
 def keydown(key):
     """
     Event handler to deal key down.
@@ -491,7 +503,7 @@ def start():
 if __name__ == '__main__':
     # Create frame
     frame = simplegui.create_frame('Spaceship prototype',
-                                   SCREEN_WIDTH, SCREEN_HEIGHT, 50)
+                                   SCREEN_WIDTH, SCREEN_HEIGHT, 100)
 
     # Create FPS
     fps = FPS()
@@ -533,8 +545,7 @@ if __name__ == '__main__':
     frame.set_keydown_handler(keydown)
     frame.set_keyup_handler(keyup)
 
-    frame.add_button('Start FPS', fps.start)
-    frame.add_button('Stop FPS', fps.stop)
+    button_fps = frame.add_button('FPS on', fps_on_off)
     frame.add_label('')
     frame.add_button('Quit', quit)
 
