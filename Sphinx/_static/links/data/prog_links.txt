@@ -97,13 +97,16 @@ test_image.py
 http://www.codeskulptor.org/#user27_VYTn8er4IPvVhpR.py
 test_line.py
 
+http://www.codeskulptor.org/#user27_EJoi1s2gfRJS0SP.py
+test_numeric.py
+
 http://www.codeskulptor.org/#user27_EV8KRlDscntoY3a.py
 test_objects.py
 
-http://www.codeskulptor.org/#user27_hM9E9TJSgfy7wLx.py
+http://www.codeskulptor.org/#user27_qufaRHoX9w66pBh.py
 test_simpleplot_bars.py
 
-http://www.codeskulptor.org/#user27_jX8sKrXsocYpGYo.py
+http://www.codeskulptor.org/#user27_qhSIvwwvveUrbi4.py
 test_simpleplot_lines.py
 
 http://www.codeskulptor.org/#user27_VolKZi2DGiGHFzR.py

@@ -4,7 +4,7 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(December 13, 2013)
+(December 15, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -82,6 +82,15 @@ python - version""", version)
         cmd = 'import SimpleGUICS2Pygame.codeskulptor_lib'
 
         import SimpleGUICS2Pygame.codeskulptor_lib
+
+        print(cmd, 'ok')
+    except Exception as e:
+        print(cmd, 'FAILED!', e)
+
+    try:
+        cmd = 'import SimpleGUICS2Pygame.numeric'
+
+        import SimpleGUICS2Pygame.numeric
 
         print(cmd, 'ok')
     except Exception as e:

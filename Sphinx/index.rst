@@ -8,6 +8,7 @@ SimpleGUICS2Pygame package's documentation
    package_init
    codeskulptor
    codeskulptor_lib
+   numeric
    simplegui_lib
    simplegui_lib_draw
    simplegui_lib_fps
@@ -166,6 +167,7 @@ You can write this
 
     try:
         import codeskulptor
+        import numeric
         import simplegui
         import simpleplot
 
@@ -173,6 +175,7 @@ You can write this
         import user27_PVidBgddvZnsStv as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
+        import SimpleGUICS2Pygame.numeric as numeric
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
         import SimpleGUICS2Pygame.simpleplot as simpleplot
 

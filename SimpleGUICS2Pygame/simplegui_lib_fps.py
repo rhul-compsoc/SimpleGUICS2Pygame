@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_fps (December 14, 2013)
+simplegui_lib_fps (December 15, 2013)
 
 A class to calculate and display FPS (Frames Per Second)
 in SimpleGUI of CodeSkulptor.
@@ -26,6 +26,7 @@ class FPS:
     * Start: ``fps.start()``
     * And put the ``draw_fct()`` in the end of your canvas' draw handler: ``fps.draw_fct(canvas)``
     """
+
     def __init__(self, x=10, y=10, font_color='Red', font_size=40):
         """
         Set an instance to calculate FPS and drawing on position (x, y).

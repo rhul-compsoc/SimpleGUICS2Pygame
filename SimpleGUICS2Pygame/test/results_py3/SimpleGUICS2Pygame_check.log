@@ -14,6 +14,7 @@ import SimpleGUICS2Pygame ok - Version 01.03.00
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
+import SimpleGUICS2Pygame.numeric ok
 import SimpleGUICS2Pygame.simplegui_lib ok
 import SimpleGUICS2Pygame.simplegui_lib_draw ok
 import SimpleGUICS2Pygame.simplegui_lib_fps ok

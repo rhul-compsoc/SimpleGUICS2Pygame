@@ -105,6 +105,8 @@ Changes
 =======
 *
 
+  - Added ``numeric`` (``Matrix`` object) module.
+
   - Corrected some typos by Maxim Rybalov. (Thank you.)
 
   - Updated ``simplegui_lib_fps.py``.

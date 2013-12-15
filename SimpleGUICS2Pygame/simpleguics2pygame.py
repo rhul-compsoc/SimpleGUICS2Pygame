@@ -585,7 +585,7 @@ def _pygamekey_to_simpleguikey(key):
     Return the code use by SimpleGUI to representing
     the `key` expressed by Pygame.
 
-    If `key` not in _PYGAMEKEY_TO_SIMPLEGUIKEY
+    If `key` not in `_PYGAMEKEY_TO_SIMPLEGUIKEY`
     then return `key`.
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
