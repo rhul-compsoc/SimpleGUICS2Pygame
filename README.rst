@@ -105,6 +105,8 @@ Changes
 =======
 *
 
+  - Corrected some typos by Maxim Rybalov. (Thank you.)
+
   - Updated ``simplegui_lib_fps.py``.
   - Updated ``example/RiceRocks_Asteroids.py``.
 
@@ -117,8 +119,8 @@ Changes
 
   - Added ``simplegui_lib_fps.py``.
 
-  - Corrected bug in ``_load_media()`` (issue #1).
-  - Updated documentation to clarify local use of images and sounds.
+  - Corrected bug in ``_load_media()`` (issue #1). (Thanks to Sean Flanigan.)
+  - Updated documentation to clarify local use of images and sounds. (Thanks to Ines Simicic.)
 
   - Updated ``script/cs2both.py``.
 
