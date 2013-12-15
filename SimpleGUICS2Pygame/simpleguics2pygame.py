@@ -1569,7 +1569,7 @@ class Frame:
                     if self._mousedrag_handler is not None:
                         x = event.pos[0] - self._canvas_x_offset
                         y = event.pos[1] - self._canvas_y_offset
-                        if pygame.mouse.get_pressed()[0]:  # left clic
+                        if pygame.mouse.get_pressed()[0]:  # left click
                             if (not (0 <= x < self._canvas._width)
                                     or not (0 <= y < self._canvas._height)):
                                 # Out of canvas
@@ -1582,7 +1582,7 @@ class Frame:
                                 self._draw_statusmouse((x, y), True)
                                 self._mousedrag_handler((x, y))
                 elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed
-                    if event.button == 1:  # left clic
+                    if event.button == 1:  # left click
                         if ((0
                              <= event.pos[0] - self._canvas_x_offset
                              < self._canvas._width)
