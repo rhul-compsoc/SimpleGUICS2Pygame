@@ -540,7 +540,7 @@ def _load_media(type_of_media, url, local_dir):
                 f.close()
                 if Frame._print_load_medias:
                     print("      {} in '{}'"
-                          .format(('Overwrited' if filename_exist
+                          .format(('Overwritten' if filename_exist
                                    else 'Saved'), filename))
             except Exception as e:
                 if Frame._print_load_medias:
