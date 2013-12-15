@@ -1312,7 +1312,7 @@ class Frame:
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        :param filemane: str
+        :param filename: str
         :param after: int or float >= 0
         """
         assert isinstance(filename, str), type(filename)
