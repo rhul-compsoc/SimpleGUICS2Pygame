@@ -3,20 +3,13 @@ SimpleGUICS2Pygame package's documentation
 .. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_32x32_t.png
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    package_init
-   codeskulptor
-   codeskulptor_lib
-   numeric
-   simplegui_lib
-   simplegui_lib_draw
-   simplegui_lib_fps
-   simplegui_lib_keys
-   simplegui_lib_loader
-   simpleguics2pygame
-   simpleguics2pygame_private
-   simpleplot
+
+   modules
+
+   ChangeLog
 
 
 
@@ -45,6 +38,8 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 .. _Python: http://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
 .. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_64x64_t.png
+
+
 
 Installation
 ------------
@@ -82,6 +77,20 @@ On Window$:
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 .. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
+Complete installation on Window$ in 4 steps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Download and run the good `Pygame` installation file: `Unofficial Windows Binaries Pygame`_
+
+2. Download and run the good `matplotlib` installation file: `Unofficial Windows Binaries matplotlib`_
+
+3. Download and run the good `pip` installation file: `Unofficial Windows Binaries pip`_
+
+4. Run in a console: ``pip install SimpleGUICS2Pygame``
+
+.. _`Unofficial Windows Binaries matplotlib`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+
+
 
 Examples
 --------
@@ -91,6 +100,7 @@ Or online:
 `Python programs running in CodeSkulptor`_ .
 
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.htm
+
 
 
 Author |OPi|

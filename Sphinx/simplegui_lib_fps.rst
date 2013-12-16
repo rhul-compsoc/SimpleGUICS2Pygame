@@ -1,4 +1,4 @@
-simplegui_lib_fps
+simplegui_lib_fps --- class to calculate and display Frames Per Second
 =================
 (Version saved in CodeSkulptor
 http://www.codeskulptor.org/#user27_0ymhUVX6zleSFrB.py .)

@@ -1,4 +1,4 @@
-simplegui_lib_draw
+simplegui_lib_draw --- draw functions
 ==================
 (Version saved in CodeSkulptor
 http://www.codeskulptor.org/#user23_HY71NDvHu7WKaMa.py .)

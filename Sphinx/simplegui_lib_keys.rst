@@ -1,4 +1,4 @@
-simplegui_lib_keys
+simplegui_lib_keys --- class to manage keyboard handling
 ==================
 (Version saved in CodeSkulptor
 http://www.codeskulptor.org/#user27_KX2DJkIN6iSjW19.py .)

@@ -1,4 +1,4 @@
-codeskulptor_lib
+codeskulptor_lib --- some miscellaneous functions
 ================
 (Version saved in CodeSkulptor
 http://www.codeskulptor.org/#user27_5LlszPPJxQHFMbk.py .)
