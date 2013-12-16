@@ -53,7 +53,10 @@ On Window$:
 
 * You can use 7-Zip_ to unzip archive.
 
+See `Complete installation on Window$ in 4 steps`_.
+
 .. _7-Zip: http://www.7-zip.org/
+.. _`Complete installation on Window$ in 4 steps`: http://simpleguics2pygame.readthedocs.org/en/latest/index.html#complete-installation-on-window-in-4-steps
 .. _pip: https://pypi.python.org/pypi/pip
 .. _Pygame: http://www.pygame.org/
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
@@ -103,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* December 16, 2013
+* 01.04.00 --- December 16, 2013
 
   - Customized documentation.
   - Splitted changes in a separated file.

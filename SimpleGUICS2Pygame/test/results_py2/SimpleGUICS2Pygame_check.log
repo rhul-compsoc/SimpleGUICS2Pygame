@@ -10,7 +10,7 @@ import pygame ok - Version 1.9.2pre
 pygame.init() ok
 
 
-import SimpleGUICS2Pygame ok - Version 01.03.00
+import SimpleGUICS2Pygame ok - Version 01.04.00
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

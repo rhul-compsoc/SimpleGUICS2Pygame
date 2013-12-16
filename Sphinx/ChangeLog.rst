@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* December 16, 2013
+* 01.04.00 --- December 16, 2013
 
   - Customized documentation.
   - Splitted changes in a separated file.
