@@ -253,13 +253,6 @@ http://www.codeskulptor.org/#user16_JERSJkUJn2WSSOk_3.py
 <strong>Fractal: Dragon Curve</strong> (Roger <span class="small-caps">Foreman</span>)
 Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=7174#post-36575" target="_blank"><i>Fractal</i></a>
 
-http://www.codeskulptor.org/#user27_q2SkNkuLrlQ9LHz.py
-Jewel Game (Ender <span class="small-caps">Kasim</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=5338" target="_blank"><i>Jewel Game</i></a>
-
-http://www.codeskulptor.org/#user27_9fI7T6mjwh_0.py
-<strong>Jewel Game</strong> (Ender <span class="small-caps">Kasim</span>) ADAPTED
-
 http://www.codeskulptor.org/#user14_ukoXFYBnla2yntE_1.py
 Memory (Soesilo <span class="small-caps">Wijono</span>)
 Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interactivepython-002/forum/thread?thread_id=4946" target="_blank"><i>Show Off &quot;Card / Number&quot; Extras (Image, Animation)</i></a>
@@ -295,6 +288,13 @@ Thread <a class="broken" rel="nofollow" href="https://class.coursera.org/interac
 
 http://www.codeskulptor.org/#user16_F5TtoDE53v_0.py
 <strong>Pitfall</strong> (Corrado <span class="small-caps">Musumeci</span>) ADAPATED
+
+http://www.codeskulptor.org/#user27_k063bQs8gFXh7Ox.py
+P-Jeweld (Ender <span class="small-caps">Kasim</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=5338" target="_blank"><i>Jewel Game</i></a>
+
+http://www.codeskulptor.org/#user28_uWCY9If554rxeGr.py
+<strong>P-Jeweld</strong> (Ender <span class="small-caps">Kasim</span>) ADAPTED
 
 http://www.codeskulptor.org/#user16_HasV5HkNlG_18.py
 Raycasting (Mike <span class="small-caps">Bendele</span>, with of Helder <span class="small-caps">Sepulveda</span>)

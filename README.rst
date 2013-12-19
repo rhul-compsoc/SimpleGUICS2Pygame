@@ -109,6 +109,7 @@ Changes
 * December 19, 2013
 
   - Added precision to Window$ installation.
+  - Updated CodeSkulptor programs links.
 
 * 01.04.00 --- December 16, 2013
 
