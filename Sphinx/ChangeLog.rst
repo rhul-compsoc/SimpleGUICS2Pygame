@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* December 18, 2013
+* December 19, 2013
 
   - Added precision to Window$ installation.
 

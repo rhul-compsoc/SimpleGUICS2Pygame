@@ -77,18 +77,21 @@ On Window$:
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 .. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
-Complete installation on Window$ in 4 steps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Complete installation on Window$ in few steps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Download and run the good `Pygame` installation file: `Unofficial Windows Binaries Pygame`_.
 
 2. Download and run the good `matplotlib` installation file: `Unofficial Windows Binaries matplotlib`_.
 
-3. Download and run the good `pip` installation file: `Unofficial Windows Binaries pip`_.
+3. Download and run the good `setuptools` installation file: `Unofficial Windows Binaries setuptools`_.
 
-4. Run in the Command Prompt: ``pip install SimpleGUICS2Pygame`` . (Probably the ``pip`` command aren't in your ``PATH``, so add it or move in the subdirectory of ``pip`` with the ``CD`` command. This subdirectory is something like ``C:\Python?\Scripts\`` .)
+4. Download and run the good `pip` installation file: `Unofficial Windows Binaries pip`_.
+
+5. Run in the Command Prompt: ``pip install SimpleGUICS2Pygame`` . (Probably the ``pip`` command aren't in your ``PATH``, so add it or move in the subdirectory of ``pip`` with the ``CD`` command. This subdirectory is something like ``C:\Python?\Scripts\`` .)
 
 .. _`Unofficial Windows Binaries matplotlib`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+.. _`Unofficial Windows Binaries setuptools`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
 
 
 
