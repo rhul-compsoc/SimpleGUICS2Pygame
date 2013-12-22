@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* December 19, 2013
+* December 22, 2013
 
   - Added precision to Window$ installation.
   - Updated CodeSkulptor programs links.

@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* December 19, 2013
+* December 22, 2013
 
   - Added precision to Window$ installation.
   - Updated CodeSkulptor programs links.
