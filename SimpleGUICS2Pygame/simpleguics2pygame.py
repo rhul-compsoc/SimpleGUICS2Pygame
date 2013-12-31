@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (December 15, 2013)
+simpleguics2pygame (December 31, 2013)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -440,7 +440,7 @@ def _load_media(type_of_media, url, local_dir):
     assert isinstance(url, str), type(url)
     assert isinstance(local_dir, str), type(local_dir)
 
-    from os.path import dirname, isfile, join
+    from os.path import dirname, isfile, join, splitext
     from sys import argv, version_info
 
     media_is_image = (type_of_media == 'Image')
@@ -463,11 +463,18 @@ def _load_media(type_of_media, url, local_dir):
 
     from re import sub
 
+    urlsplitted = urlsplit(url)
     filename = sub('[^._/0-9A-Za-z]', '_',
                    join(dirname(argv[0]),
                         local_dir,
-                        urlsplit(url)[1] + '/',
-                        urlsplit(url)[2][1:]).replace('\\', '/'))
+                        urlsplitted[1] + '/',
+                        urlsplitted[2][1:]).replace('\\', '/'))
+    if urlsplitted[3] != '':
+        filename = list(splitext(filename))
+        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted[3]))
+        filename = ''.join(filename)
+
+    del urlsplitted
 
     # Check if is correct file
     if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):

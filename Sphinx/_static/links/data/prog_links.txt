@@ -243,6 +243,20 @@ Chicken Shooter (Dennis <span class="small-caps">Della Corte</span>)
 http://www.codeskulptor.org/#user16_51xSwE0jKK_0.py
 <strong>Chicken Shooter</strong> (Dennis <span class="small-caps">Della Corte</span>) ADAPTED
 
+http://www.codeskulptor.org/#user26_h8UsCGgIqmyoQDy.py
+Classic Breakout game (Roberto <span class="small-caps">Diaz</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6387" target="_blank"><i>Classic Breakout game</i></a>
+
+http://www.codeskulptor.org/#user28_qLoYgDbTWgiS0ni.py
+<strong>Classic Breakout game</strong> (Roberto <span class="small-caps">Diaz</span>) ADAPTED
+
+http://www.codeskulptor.org/#user28_wBpHroOrjnRy2A1.py
+Fish Pond (Chris <span class="small-caps">Arbuthnott</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7055" target="_blank"><i>Fish Pond</i></a>
+
+http://www.codeskulptor.org/#user28_9FxkYgKObhWu03B.py
+<strong>Fish Pond</strong> (Chris <span class="small-caps">Arbuthnott</span>) ADAPTED
+
 http://www.codeskulptor.org/#user16_xfbbqbrHIbO8zDv_4.py
 <strong>Fractal</strong> (Roger <span class="small-caps">Foreman</span>)
 
@@ -292,6 +306,13 @@ Raycasting (Mike <span class="small-caps">Bendele</span>, with of Helder <span c
 
 http://www.codeskulptor.org/#user16_fRCKqpqKA5_0.py
 <strong>Raycasting</strong> (Mike <span class="small-caps">Bendele</span>, with of Helder <span class="small-caps">Sepulveda</span>) ADAPTED
+
+http://www.codeskulptor.org/#user28_ekPzwIkvoc8GTXK.py
+Sokoban (Rajesh <span class="small-caps">Vijayarajan</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7032" target="_blank"><i>Sokoban</i></a>
+
+http://www.codeskulptor.org/#user28_CsOtpCYCJtDcRXG.py
+<strong>Sokoban</strong> (Rajesh <span class="small-caps">Vijayarajan</span>) ADAPTED
 
 http://www.codeskulptor.org/#user16_SawZhBSY55_0.py
 <strong>Solarsystem</strong> (Diego <span class="small-caps">Romero</span>)
