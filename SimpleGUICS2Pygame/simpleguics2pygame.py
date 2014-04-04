@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (December 31, 2013)
+simpleguics2pygame (January 5, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -23,7 +23,6 @@ GPLv3 --- Copyright (C) 2013 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _`DragonSoft DS`: http://www.opimedia.be/DS/SimpleGUICS2Pygame/
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/

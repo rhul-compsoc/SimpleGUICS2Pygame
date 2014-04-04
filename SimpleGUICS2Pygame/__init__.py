@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-SimpleGUICS2Pygame package (December 16, 2013)
+SimpleGUICS2Pygame package (January 8, 2014)
 
 It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -16,6 +16,9 @@ Module simpleplot require matplotlib_ .
 
 
 `Online HTML documentation`_ on Read The Docs.
+
+| Sources and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
+| and on PyPI: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
