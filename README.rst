@@ -56,7 +56,7 @@ On Window$:
 See `Complete installation on Window$ in few steps`_.
 
 .. _7-Zip: http://www.7-zip.org/
-.. _`Complete installation on Window$ in few steps`: http://simpleguics2pygame.readthedocs.org/en/latest/index.html#complete-installation-on-window-in-few-steps
+.. _`Complete installation on Window$ in few steps`: https://simpleguics2pygame.readthedocs.org/en/latest/index.html#complete-installation-on-window-in-few-steps
 .. _pip: https://pypi.python.org/pypi/pip
 .. _Pygame: http://www.pygame.org/
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
@@ -106,12 +106,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* December 31, 2013
+* April 4, 2014
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).
 
   - Added precision to Window$ installation.
-  - Updated CodeSkulptor programs links.
+  - Updated media and CodeSkulptor programs links.
 
 * 01.04.00 --- December 16, 2013
 

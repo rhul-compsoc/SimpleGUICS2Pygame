@@ -1,11 +1,11 @@
 ChangeLog
 =========
-* December 31, 2013
+* April 4, 2014
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).
 
   - Added precision to Window$ installation.
-  - Updated CodeSkulptor programs links.
+  - Updated media and CodeSkulptor programs links.
 
 * 01.04.00 --- December 16, 2013
 

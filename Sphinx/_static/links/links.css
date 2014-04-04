@@ -12,6 +12,9 @@ a.mail:visited {
 }
 
 
+body { margin: 0px; }
+
+
 div.images a.image,
 div.sounds div.sound {
     background-color: #f0f0f0;
@@ -89,7 +92,7 @@ h1 span {
 }
 
 
-h2 { margin: 0px; }
+h2 { margin: 0px 0px 0px 1ex; }
 
 
 strong { font-size: larger; }
@@ -103,11 +106,39 @@ ul { margin: 0px 0px 1em; }
 ul li { margin: 0px 0px 1ex; }
 
 
+.clear { clear: both; }
+
 .colophon {
     border-top: solid 1px black;
+    margin-right: 1ex;
     padding: 1ex 0px;
     text-align: right;
 }
+
+.doc-link {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1ex;
+}
+
+.doc-link a {
+    background-color: #2980b9;
+    color: #fcfcfc;
+    display: block;
+
+    font-family: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    padding: 1ex;
+    text-decoration: none;
+}
+.doc-link a:hover { background-color: #2e8ece; }
+
+.doc-link a img {
+    padding-right: 1ex;
+}
+
 
 .small-caps { font-variant: small-caps; }
 
