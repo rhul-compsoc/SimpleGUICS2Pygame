@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* April 4, 2014
+* April 14, 2014
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).
 

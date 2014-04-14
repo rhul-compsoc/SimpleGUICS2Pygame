@@ -8,11 +8,11 @@ Frame_example.py
 
 http://www.codeskulptor.org/#user27_NnNOOPwNj3vEZ6R.py
 keys.py
-Example of codeskulptor_lib_keys.Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
+Example of codeskulptor_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
 http://www.codeskulptor.org/#user27_rpbaaPHgqAISVx5.py
 loader.py
-Example of codeskulptor_lib_loader.Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
+Example of codeskulptor_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
 http://www.codeskulptor.org/#user27_78xdzJfVMDvuAF0.py
 <strong>Mandelbrot_Set</strong>.py
@@ -229,7 +229,7 @@ http://www.codeskulptor.org/#user19_Sd5A76hlsV_0.py
 
 http://www.codeskulptor.org/#user26_v7F8DXdgeO_0.py
 3D Engine (Kieron <span class="small-caps">Wilkinson</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=4887" target="_blank"><i>3D Engine</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=4887" target="_blank"><i>3D Engine</i></a>
 
 http://www.codeskulptor.org/#user27_YWGY3iw6kU_0.py
 3D Engine (Kieron <span class="small-caps">Wilkinson</span>) ADAPTED
@@ -245,14 +245,14 @@ http://www.codeskulptor.org/#user16_51xSwE0jKK_0.py
 
 http://www.codeskulptor.org/#user26_h8UsCGgIqmyoQDy.py
 Classic Breakout game (Roberto <span class="small-caps">Diaz</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6387" target="_blank"><i>Classic Breakout game</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6387" target="_blank"><i>Classic Breakout game</i></a>
 
 http://www.codeskulptor.org/#user28_qLoYgDbTWgiS0ni.py
 <strong>Classic Breakout game</strong> (Roberto <span class="small-caps">Diaz</span>) ADAPTED
 
 http://www.codeskulptor.org/#user28_wBpHroOrjnRy2A1.py
 Fish Pond (Chris <span class="small-caps">Arbuthnott</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7055" target="_blank"><i>Fish Pond</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7055" target="_blank"><i>Fish Pond</i></a>
 
 http://www.codeskulptor.org/#user28_9FxkYgKObhWu03B.py
 <strong>Fish Pond</strong> (Chris <span class="small-caps">Arbuthnott</span>) ADAPTED
@@ -283,7 +283,7 @@ http://www.codeskulptor.org/#user17_v1lBHnqvBe_8.py
 
 http://www.codeskulptor.org/#user26_Mk6ZlCLlK2U7JpU.py
 Pang (Ender <span class="small-caps">Kasim</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6395" target="_blank"><i>Pang: An old arcade game</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6395" target="_blank"><i>Pang: An old arcade game</i></a>
 
 http://www.codeskulptor.org/#user27_a5Mn21Br8E_0.py
 <strong>Pang</strong> (Ender <span class="small-caps">Kasim</span>) ADAPTED
@@ -296,7 +296,7 @@ http://www.codeskulptor.org/#user16_F5TtoDE53v_0.py
 
 http://www.codeskulptor.org/#user27_k063bQs8gFXh7Ox.py
 P-Jeweld (Ender <span class="small-caps">Kasim</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=5338" target="_blank"><i>Jewel Game</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=5338" target="_blank"><i>Jewel Game</i></a>
 
 http://www.codeskulptor.org/#user28_uWCY9If554rxeGr.py
 <strong>P-Jeweld</strong> (Ender <span class="small-caps">Kasim</span>) ADAPTED
@@ -309,7 +309,7 @@ http://www.codeskulptor.org/#user16_fRCKqpqKA5_0.py
 
 http://www.codeskulptor.org/#user28_ekPzwIkvoc8GTXK.py
 Sokoban (Rajesh <span class="small-caps">Vijayarajan</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7032" target="_blank"><i>Sokoban</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7032" target="_blank"><i>Sokoban</i></a>
 
 http://www.codeskulptor.org/#user28_CsOtpCYCJtDcRXG.py
 <strong>Sokoban</strong> (Rajesh <span class="small-caps">Vijayarajan</span>) ADAPTED
@@ -325,7 +325,7 @@ http://www.codeskulptor.org/#user16_EGTMrlExln_0.py
 
 http://www.codeskulptor.org/#user28_G1uPGqBLiegH2Uw.py
 Tetris (Kunfeng <span class="small-caps">Qiu</span>)
-Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7011" target="_blank"><i>Tetris (with Chain Reaction)</i></a>
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=7011" target="_blank"><i>Tetris (with Chain Reaction)</i></a>
 
 http://www.codeskulptor.org/#user28_UOLZ1DC39UoK3ta.py
 <strong>Tetris</strong> (Kunfeng <span class="small-caps">Qiu</span>) ADAPTED

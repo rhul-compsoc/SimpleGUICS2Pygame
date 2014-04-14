@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* April 4, 2014
+* April 14, 2014
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).
 
