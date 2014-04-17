@@ -157,6 +157,12 @@ http://www.codeskulptor.org/#user16_eVd1AVpep0_0.py
 
 + <a rel="nofollow" href="http://www.codeskulptor.org/demos.html" target="_blank">CodeSkulptor Hall of Fame</a>
 
+http://www.codeskulptor.org/#demos-clock.py
+Analog Clock (Kostya <span class="small-caps">Shkryob</span>)
+
+http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py
+Analog Clock (Kostya <span class="small-caps">Shkryob</span>) ADAPTED
+
 http://www.codeskulptor.org/#demos_bunny_adventure.py
 Bunny's Big Adventure (Jenna <span class="small-caps">Netland</span>)
 
