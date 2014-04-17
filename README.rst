@@ -108,6 +108,7 @@ Changes
 =======
 * April 17, 2014
 
+  - Updated ``simplegui_lib_keys.py`` and ``example/keys.py``.
   - Updated ``example/Stopwatch.py``.
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).

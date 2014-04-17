@@ -1,8 +1,7 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_keys (December 13, 2013)
+simplegui_lib_keys (April 17, 2014)
 
 A class to help manage keyboard handling
 in SimpleGUI of CodeSkulptor.
@@ -10,7 +9,7 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -79,7 +78,7 @@ class Keys:
         def keydown(key_code):
             self._pressed_keys[key_code] = True
 
-            fct = self._keydown_fct.get(key_code, None)  # None necessary to avoid CodeSkulptor bug
+            fct = self._keydown_fct.get(key_code)
             if fct is not None:
                 fct(key_code)
 
@@ -93,7 +92,7 @@ class Keys:
             if key_code in self._pressed_keys:
                 del self._pressed_keys[key_code]
 
-            fct = self._keyup_fct.get(key_code, None)  # None necessary to avoid CodeSkulptor bug
+            fct = self._keyup_fct.get(key_code)
             if fct is not None:
                 fct(key_code)
 

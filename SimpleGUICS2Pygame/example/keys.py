@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_keys.Keys use. (December 13, 2013)
+Example of codeskulptor_lib_keys.Keys use. (April 17, 2014)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html
@@ -10,14 +10,14 @@ https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
 try:
     import simplegui
 
-    from user27_KX2DJkIN6iSjW19 import Keys
+    from user30_VE5zdyz5OZwgen9 import Keys
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -30,7 +30,7 @@ def draw(canvas):
     """
     for i, key_str in enumerate(('space', 'left', 'up', 'right', 'down')):
         canvas.draw_text(key_str,
-                         (5 + 80*i, 30),
+                         (5 + 120*i, 30),
                          30, ('White' if keys.is_pressed_key_map(key_str)
                               else 'Gray'))
     for i in range(10):  # 0..9

@@ -117,7 +117,7 @@ Author |OPi|
 
 License: GPLv3_ |GPLv3|
 -----------------------
-Copyright (C) 2013 Olivier Pirson
+Copyright (C) 2013, 2014 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -146,7 +146,7 @@ CodeSkulptor_ is an interpreter running in a browser.
 
 It is the environment used in the course
 `An Introduction to Interactive Programming in Python`_
-(Coursera 2013).
+(Coursera).
 
 .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/course/interactivepython
 
@@ -185,7 +185,7 @@ You can write this
         import simpleplot
 
         import user27_5LlszPPJxQHFMbk as codeskulptor_lib
-        import user27_PVidBgddvZnsStv as simplegui_lib
+        import user30_1apIoM42omYWLOB as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.numeric as numeric
