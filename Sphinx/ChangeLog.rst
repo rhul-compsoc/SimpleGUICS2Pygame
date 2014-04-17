@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* April 14, 2014
+* April 17, 2014
+
+  - Updated ``example/Stopwatch.py``.
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).
 

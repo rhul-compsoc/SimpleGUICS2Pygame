@@ -84,7 +84,7 @@ Author |OPi|
 
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013 Olivier Pirson
+Copyright (C) 2013, 2014 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* April 14, 2014
+* April 17, 2014
+
+  - Updated ``example/Stopwatch.py``.
 
   - Changed filename used by ``_load_media()`` (use now the query part of URLs).
 

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (December 13, 2013)
+Stopwatch: The Game (April 17, 2014)
 (Stop the timer when 0 decisecond.)
 
 My solution (slightly retouched) of the mini-project #3 of the course
@@ -11,7 +11,7 @@ https://www.coursera.org/course/interactivepython (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -24,10 +24,12 @@ except ImportError:
     simplegui.Frame._keep_timers = False
 
 
-# Global variables
-canvas_width = 300
-canvas_height = 160
+# Global constants
+CANVAS_WIDTH = 350
+CANVAS_HEIGHT = 180
 
+
+# Global variables
 nb_attempts = 0
 nb_success = 0
 
@@ -126,9 +128,9 @@ def draw(canvas):
     size = 60
     width = frame.get_canvas_textwidth(s, size, 'monospace')
     canvas.draw_text(s,
-                     ((canvas_width - width)//2,
-                      # (canvas_height - size)//2 + size*3//4
-                      (canvas_height*2 + size)//4),
+                     ((CANVAS_WIDTH - width)//2,
+                      # (CANVAS_HEIGHT - size)//2 + size*3//4
+                      (CANVAS_HEIGHT*2 + size)//4),
                      size, 'Lime', 'monospace')
 
     if nb_attempts > 0:
@@ -137,7 +139,7 @@ def draw(canvas):
         size = (30 if nb_success == nb_attempts
                 else 20)
         width = frame.get_canvas_textwidth(s, size, 'monospace')
-        canvas.draw_text(s, (canvas_width - width*5//4, size), size,
+        canvas.draw_text(s, (CANVAS_WIDTH - width*5//4, size), size,
                          ('Red' if percent_success < 25
                           else ('Yellow' if percent_success >= 75
                                 else 'White')),
@@ -148,13 +150,13 @@ def draw(canvas):
         size = 20
         width = frame.get_canvas_textwidth(s, size)
         canvas.draw_text(s,
-                         ((canvas_width - width)//2, (canvas_height - size)),
+                         ((CANVAS_WIDTH - width)//2, (CANVAS_HEIGHT - size)),
                          size, 'White')
 
 
 # Create frame
 frame = simplegui.create_frame('Stopwatch (Stop the timer when 0 decisecond)',
-                               canvas_width, canvas_height, 100)
+                               CANVAS_WIDTH, CANVAS_HEIGHT, 100)
 
 
 # Register event handlers
