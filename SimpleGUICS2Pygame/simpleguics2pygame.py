@@ -1872,6 +1872,7 @@ class Canvas:
         from math import pi
 
         self.PI = pi
+        self.RADIAN_TO_DEGREE = 180.0/pi
 
     def __repr__(self):
         """
@@ -2150,7 +2151,7 @@ class Canvas:
             if rotation != 0:
                 # Rotation
                 pygame_surface_image = pygame.transform.rotate(
-                    pygame_surface_image, -rotation*180/self.PI)
+                    pygame_surface_image, -rotation*self.RADIAN_TO_DEGREE)
 
             # Draw the result
             self._pygame_surface.blit(
