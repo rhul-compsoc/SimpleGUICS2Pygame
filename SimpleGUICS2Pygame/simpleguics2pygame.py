@@ -417,6 +417,90 @@ SimpleGUI keyboard characters contants.
 #
 # Private function
 ###################
+def _draw_about():
+    """
+    Little application that draw a short presentation of this module.
+    """
+    from sys import version
+    from webbrowser import open_new_tab
+
+    from SimpleGUICS2Pygame import _VERSION, _WEBSITE
+
+    Frame._hide_status = True
+
+    WIDTH = 520
+    HEIGHT = 300
+
+    def draw_about_handler(canvas):
+        """
+        Draw a short presentation of this module.
+
+        :param canvas: simpleguics2pygame.Canvas
+        """
+        size = 40
+        canvas.draw_line((0, size/2),
+                         (WIDTH - 1, size/2),
+                         size*1.3, '#f2f2f2')
+        canvas.draw_text('simpleguics2pygame ' + _VERSION,
+                         (10, size*3/4), size, 'Black')
+        canvas.draw_image(logo, (32, 32), (64, 64),
+                          (WIDTH - 42, HEIGHT - 42), (64, 64))
+
+        size = 20
+
+        for i, line in enumerate(
+            ('It is a standard Python (2 and 3) module',
+             'reimplementing the SimpleGUI particular module',
+             'of CodeSkulptor (a browser Python interpreter).',
+             None,
+             'Require Pygame.',
+             None,
+             'GPLv3',
+             'Copyright (C) 2013 Olivier Pirson',
+             'Olivier Pirson OPi --- http://www.opimedia.be/',
+             'olivier_pirson_opi@yahoo.fr')):
+            if line is not None:
+                canvas.draw_text(line, (10, 50 + size*(i + 3/4)),
+                                 size, 'Black')
+
+    logo = load_image('https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png')
+
+    frame = create_frame(
+        'SimpleGUICS2Pygame: short presentation of this module',
+        WIDTH, HEIGHT)
+    frame.set_canvas_background('White')
+
+    frame.add_label('Go to websites:')
+    frame.add_button('SimpleGUICS2Pygame',
+                     lambda: open_new_tab(_WEBSITE), 180)
+    frame.add_button('Olivier Pirson OPi',
+                     lambda: open_new_tab('http://www.opimedia.be/'), 180)
+
+    frame.add_label('')
+    frame.add_button('CodeSkulptor',
+                     lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
+    frame.add_button('Pygame',
+                     lambda: open_new_tab('http://www.pygame.org/'), 180)
+
+    frame.add_label('')
+    frame.add_button('GPL',
+                     lambda: open_new_tab(
+                         'http://www.gnu.org/licenses/gpl.html'),
+                     180)
+
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
+
+    frame.add_label('')
+    frame.add_label('Pygame ' + _PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_label('Python ' + version)
+
+    frame.set_draw_handler(draw_about_handler)
+
+    frame.start()
+
+
 def _load_media(type_of_media, url, local_dir):
     """
     Load an image or a sound from web or local directory,
@@ -513,10 +597,10 @@ def _load_media(type_of_media, url, local_dir):
         media_data = urlopen(url).read()
         if Frame._print_load_medias:
             print("{} downloaded '{}'".format(type_of_media, url))
-    except Exception as e:
+    except Exception as exc:
         if Frame._print_load_medias:
             print("{} downloading '{}' FAILED! {}".format(type_of_media,
-                                                          url, e))
+                                                          url, exc))
 
         return
 
@@ -536,25 +620,25 @@ def _load_media(type_of_media, url, local_dir):
                     if Frame._print_load_medias:
                         print("      Created '{}' directory"
                               .format(dirname(filename)))
-                except Exception as e:
+                except Exception as exc:
                     if Frame._print_load_medias:
                         print("      Creating '{}' directory FAILED!! {}"
-                              .format(dirname(filename), e))
+                              .format(dirname(filename), exc))
 
             try:
                 # Save to local file
-                f = open(filename, 'wb')
-                f.write(media_data)
-                f.close()
+                outfile = open(filename, 'wb')
+                outfile.write(media_data)
+                outfile.close()
                 if Frame._print_load_medias:
                     print("      {} in '{}'"
                           .format(('Overwritten' if filename_exist
                                    else 'Saved'), filename))
-            except Exception as e:
+            except Exception as exc:
                 if Frame._print_load_medias:
                     print("      {} in '{}' FAILED! {}"
                           .format(('Overwriting' if filename_exist
-                                   else 'Saving'), filename, e))
+                                   else 'Saving'), filename, exc))
         elif Frame._print_load_medias:
             print("      Local file '{}' already exist"
                   .format(filename))
@@ -638,9 +722,9 @@ def _set_option_from_argv():
     """
     from sys import argv
 
-    nb = 0
+    nb_module_arg = 0
     for arg in argv[1:]:
-        nb += 1
+        nb_module_arg += 1
         if arg == '--default-font':
             Frame._default_font = True
         elif arg == '--display-fps':
@@ -668,11 +752,11 @@ def _set_option_from_argv():
         elif arg == '--stop-timers':
             Frame._keep_timers = False
         else:
-            nb -= 1
+            nb_module_arg -= 1
 
             break
 
-    del argv[1:nb + 1]
+    del argv[1:nb_module_arg + 1]
 
 
 def _simpleguicolor_to_pygamecolor(color,
@@ -1187,14 +1271,15 @@ class Frame:
 
         if pressed is not None:
             key = _SIMPLEGUIKEY_TO_STATUSKEY.get(key, key)
-            s = 'Key: {} {}'.format(('Down' if pressed
-                                     else 'Up'), (key if isinstance(key, str)
-                                                  else '<{}>'.format(key)))
+            text = 'Key: {} {}'.format(('Down' if pressed
+                                        else 'Up'),
+                                       (key if isinstance(key, str)
+                                        else '<{}>'.format(key)))
         else:
-            s = 'Key:'
+            text = 'Key:'
 
         pygame_surface_text = Frame._statuskey_pygame_font.render(
-            s, True, Frame._statuskey_pygame_color)
+            text, True, Frame._statuskey_pygame_color)
         self._statuskey_pygame_surface.blit(
             pygame_surface_text,
             (5,
@@ -1240,14 +1325,14 @@ class Frame:
                          (0, 0,
                           self._control_width, Frame._statusmouse_height), 1)
 
-        s = ('Mouse: {} {}, {}'.format(('Move' if pressed
-                                        else 'Click'),
-                                       position[0], position[1])
-             if pressed is not None
-             else 'Mouse:')
+        text = ('Mouse: {} {}, {}'.format(('Move' if pressed
+                                           else 'Click'),
+                                          position[0], position[1])
+                if pressed is not None
+                else 'Mouse:')
 
         pygame_surface_text = Frame._statusmouse_pygame_font.render(
-            s, True, Frame._statusmouse_pygame_color)
+            text, True, Frame._statusmouse_pygame_color)
         self._statusmouse_pygame_surface.blit(
             pygame_surface_text,
             (5,
@@ -1328,6 +1413,9 @@ class Frame:
         assert after >= 0, after
 
         def save_canvas_and_stop():
+            """
+            Handler function will be executed.
+            """
             if self._running:
                 self._save_canvas_request(filename)
 
@@ -1370,12 +1458,12 @@ class Frame:
         assert callable(button_handler), type(button_handler)
         assert isinstance(width, int) or isinstance(width, float), type(width)
 
-        button = Control(self, text, button_handler, width)
-        self._controls.append(button)
+        control = Control(self, text, button_handler, width)
+        self._controls.append(control)
 
         self._draw_controlpanel()
 
-        return button
+        return control
 
     def add_input(self,
                   text,
@@ -1404,12 +1492,12 @@ class Frame:
         assert callable(input_handler), type(input_handler)
         assert isinstance(width, int) or isinstance(width, float), type(width)
 
-        input = TextAreaControl(self, text, input_handler, width)
-        self._controls.append(input)
+        control = TextAreaControl(self, text, input_handler, width)
+        self._controls.append(control)
 
         self._draw_controlpanel()
 
-        return input
+        return control
 
     def add_label(self, text):
         """
@@ -1421,12 +1509,12 @@ class Frame:
         """
         assert isinstance(text, str), type(text)
 
-        label = Control(self, text)
-        self._controls.append(label)
+        control = Control(self, text)
+        self._controls.append(control)
 
         self._draw_controlpanel()
 
-        return label
+        return control
 
     def get_canvas_image(self):
         """
@@ -1701,14 +1789,15 @@ class Frame:
 
                 :param canvas: simpleguics2pygame.Canvas
                 """
-                nb = len(Timer._timers_running)
-                if nb == 0:
+                nb_timers_running = len(Timer._timers_running)
+                if nb_timers_running == 0:
                     self._running = False
 
                 size = 20
                 canvas.draw_text('Stop {} running timer{}?'
-                                 .format(nb, ('s' if nb >= 2
-                                              else '')),
+                                 .format(nb_timers_running,
+                                         ('s' if nb_timers_running >= 2
+                                          else '')),
                                  (10, 10 + size*3/4), size, 'Black')
                 canvas.draw_text('(Yes/No)',
                                  (10, 10 + size*7/4), size, 'Black')
@@ -1782,7 +1871,7 @@ class Canvas:
 
         from math import pi
 
-        self.pi = pi
+        self.PI = pi
 
     def __repr__(self):
         """
@@ -2061,8 +2150,7 @@ class Canvas:
             if rotation != 0:
                 # Rotation
                 pygame_surface_image = pygame.transform.rotate(
-                    pygame_surface_image,
-                    -rotation*180/self.pi)
+                    pygame_surface_image, -rotation*180/self.PI)
 
             # Draw the result
             self._pygame_surface.blit(
@@ -3139,6 +3227,9 @@ class Timer:
         import threading
 
         def repeat_handler():
+            """
+            Function to create and start a new timer.
+            """
             Timer._timers_running[id(self)] = self
             self._timer = threading.Timer(self._interval/1000, self._handler)
             self._timer.start()
@@ -3416,81 +3507,4 @@ if __name__ == '__main__':
 
         exit()
 
-    from sys import version
-    from webbrowser import open_new_tab
-
-    from SimpleGUICS2Pygame import _VERSION, _WEBSITE
-
-    Frame._hide_status = True
-
-    WIDTH = 520
-    HEIGHT = 300
-
-    def draw_about(canvas):
-        """
-        Draw a short presentation of this module.
-
-        :param canvas: simpleguics2pygame.Canvas
-        """
-        size = 40
-        canvas.draw_line((0, size/2),
-                         (WIDTH - 1, size/2),
-                         size*1.3, '#f2f2f2')
-        canvas.draw_text('simpleguics2pygame ' + _VERSION,
-                         (10, size*3/4), size, 'Black')
-        canvas.draw_image(logo, (32, 32), (64, 64),
-                          (WIDTH - 42, HEIGHT - 42), (64, 64))
-
-        size = 20
-
-        for i, line in enumerate(
-            ('It is a standard Python (2 and 3) module',
-             'reimplementing the SimpleGUI particular module',
-             'of CodeSkulptor (a browser Python interpreter).',
-             None,
-             'Require Pygame.',
-             None,
-             'GPLv3',
-             'Copyright (C) 2013 Olivier Pirson',
-             'Olivier Pirson OPi --- http://www.opimedia.be/',
-             'olivier_pirson_opi@yahoo.fr')):
-            if line is not None:
-                canvas.draw_text(line, (10, 50 + size*(i + 3/4)),
-                                 size, 'Black')
-
-    logo = load_image('https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png')
-
-    frame = create_frame(
-        'SimpleGUICS2Pygame: short presentation of this module',
-        WIDTH, HEIGHT)
-    frame.set_canvas_background('White')
-
-    frame.add_label('Go to websites:')
-    frame.add_button('SimpleGUICS2Pygame',
-                     lambda: open_new_tab(_WEBSITE), 180)
-    frame.add_button('Olivier Pirson OPi',
-                     lambda: open_new_tab('http://www.opimedia.be/'), 180)
-
-    frame.add_label('')
-    frame.add_button('CodeSkulptor',
-                     lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
-    frame.add_button('Pygame',
-                     lambda: open_new_tab('http://www.pygame.org/'), 180)
-
-    frame.add_label('')
-    frame.add_button('GPL',
-                     lambda: open_new_tab(
-                         'http://www.gnu.org/licenses/gpl.html'),
-                     180)
-
-    frame.add_label('')
-    frame.add_button('Quit', frame.stop)
-
-    frame.add_label('')
-    frame.add_label('Pygame ' + _PYGAME_VERSION)
-    frame.add_label('')
-    frame.add_label('Python ' + version)
-
-    frame.set_draw_handler(draw_about)
-
-    frame.start()
+    _draw_about()
