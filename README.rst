@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* April 17, 2014
+* April 21, 2014
+
+  - Better order Pygame initalization.
 
   - Updated ``simplegui_lib_keys.py`` and ``example/keys.py``.
   - Updated ``example/Stopwatch.py``.

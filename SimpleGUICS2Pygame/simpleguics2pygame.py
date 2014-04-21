@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (January 5, 2014)
+simpleguics2pygame (April 21, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -58,10 +58,12 @@ if _PYGAME_AVAILABLE:
     import pygame.mixer
     import pygame.transform
 
-    pygame.mixer.init(44100)
-
     pygame.display.init()
     pygame.font.init()
+
+    pygame.mixer.init(44100)
+    # "Some platforms require [...] after the display modules have initialized"
+    # http://www.pygame.org/docs/ref/mixer.html#pygame.mixer.init
 
 
 #
