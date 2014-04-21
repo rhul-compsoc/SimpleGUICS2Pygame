@@ -4,12 +4,12 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(December 15, 2013)
+(April 21, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -22,139 +22,129 @@ from sys import version
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (December 13, 2013)
-======================================================
+    print("""script/SimpleGUICS2Pygame_check.py (April 21, 2014)
+===================================================
 python - version""", version)
 
     print('\n')
 
+    CMD = 'import matplotlib'
     try:
-        cmd = 'import matplotlib'
-
         import matplotlib
 
-        print(cmd, 'ok - Version', matplotlib.__version__)
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok - Version', matplotlib.__version__)
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
     print('\n')
 
+    CMD = 'import pygame'
     try:
-        cmd = 'import pygame'
-
         import pygame
 
-        print(cmd, 'ok - Version', pygame.version.ver)
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok - Version', pygame.version.ver)
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'pygame.init()'
     try:
-        cmd = 'pygame.init()'
-        pygame.init()
+        SUCCESS, FAILED = pygame.init()
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        if FAILED == 0:
+            print(CMD, SUCCESS, 'modules loaded ok')
+        else:
+            print(CMD, SUCCESS, 'modules loaded', FAILED, 'failed WARNING!')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
     print('\n')
 
+    CMD = 'import SimpleGUICS2Pygame'
     try:
-        cmd = 'import SimpleGUICS2Pygame'
-
         import SimpleGUICS2Pygame
 
-        print(cmd, 'ok - Version', SimpleGUICS2Pygame._VERSION)
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok - Version', SimpleGUICS2Pygame._VERSION)
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
     print()
 
+    CMD = 'import SimpleGUICS2Pygame.codeskulptor'
     try:
-        cmd = 'import SimpleGUICS2Pygame.codeskulptor'
-
         import SimpleGUICS2Pygame.codeskulptor
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.codeskulptor_lib'
     try:
-        cmd = 'import SimpleGUICS2Pygame.codeskulptor_lib'
-
         import SimpleGUICS2Pygame.codeskulptor_lib
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.numeric'
     try:
-        cmd = 'import SimpleGUICS2Pygame.numeric'
-
         import SimpleGUICS2Pygame.numeric
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simplegui_lib'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simplegui_lib'
-
         import SimpleGUICS2Pygame.simplegui_lib
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simplegui_lib_draw'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_draw'
-
         import SimpleGUICS2Pygame.simplegui_lib_draw
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simplegui_lib_fps'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_fps'
-
         import SimpleGUICS2Pygame.simplegui_lib_fps
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simplegui_lib_keys'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_keys'
-
         import SimpleGUICS2Pygame.simplegui_lib_keys
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simplegui_lib_loader'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simplegui_lib_loader'
-
         import SimpleGUICS2Pygame.simplegui_lib_loader
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simpleguics2pygame'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simpleguics2pygame'
-
         import SimpleGUICS2Pygame.simpleguics2pygame
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
 
+    CMD = 'import SimpleGUICS2Pygame.simpleplot'
     try:
-        cmd = 'import SimpleGUICS2Pygame.simpleplot'
-
         import SimpleGUICS2Pygame.simpleplot
 
-        print(cmd, 'ok')
-    except Exception as e:
-        print(cmd, 'FAILED!', e)
+        print(CMD, 'ok')
+    except Exception as exc:
+        print(CMD, 'FAILED!', exc)
