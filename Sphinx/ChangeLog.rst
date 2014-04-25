@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* April 21, 2014
+* April 25, 2014
 
   - Better order Pygame initalization.
   - Updated ``script/cs2both.py`` and ``script/SimpleGUICS2Pygame_check.py``.

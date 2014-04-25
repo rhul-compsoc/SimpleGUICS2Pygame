@@ -208,7 +208,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/
 
 
 
-+ <a rel="nofollow" href="http://cinnamonroll.blogsite.org/ulscg/" target="_blank">Universal LPC Sprite Sheet Character Generator</a>
++ <a rel="nofollow" href="http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/" target="_blank">Universal LPC Sprite Sheet Character Generator</a>
 
 
 
