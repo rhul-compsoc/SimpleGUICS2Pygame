@@ -2,6 +2,8 @@ ChangeLog
 =========
 * April 25, 2014
 
+  - Updated ``test/test_all.py``.
+
   - Better order Pygame initalization.
   - Updated ``script/cs2both.py`` and ``script/SimpleGUICS2Pygame_check.py``.
 
