@@ -1,6 +1,6 @@
 List dir() differences between CodeSkulptor and this "Python":
 
-CodeSkulptor simplegui 	!= Python 2.7.6 simplegui
+CodeSkulptor simplegui 	!= Python 2.7.3 simplegui
 --------------------------------------------------------
                        	   division
                        	   print_function
