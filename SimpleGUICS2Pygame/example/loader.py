@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_loader.Loader use. (December 13, 2013)
+Example of codeskulptor_lib_loader.Loader use. (April 26, 2014)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
@@ -10,7 +10,7 @@ https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -60,7 +60,7 @@ def init():
     Init function called after image loaded.
     """
     # Init your stuff...
-    frame.add_button('Quit', quit)
+    frame.add_button('Quit', quit_prog)
 
     music = loader.get_sound('soundtrack')  # get a sound by its name
     music.play()
@@ -80,7 +80,7 @@ def init():
     frame.set_draw_handler(draw)
 
 
-def quit():
+def quit_prog():
     """
     Stop sounds and frame
     """

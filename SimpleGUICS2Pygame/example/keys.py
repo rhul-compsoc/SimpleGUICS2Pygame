@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_keys.Keys use. (April 17, 2014)
+Example of codeskulptor_lib_keys.Keys use. (April 26, 2014)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html
@@ -10,7 +10,7 @@ https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -27,6 +27,8 @@ except ImportError:
 def draw(canvas):
     """
     Draw pressed keys.
+
+    :param canvas: simplegui.Canvas
     """
     for i, key_str in enumerate(('space', 'left', 'up', 'right', 'down')):
         canvas.draw_text(key_str,
@@ -46,29 +48,42 @@ def draw(canvas):
                          30, ('White' if keys.is_pressed_key_map(key_str)
                               else 'Gray'))
 
-    ks = keys.pressed_keys()
-    if ks:
-        ks.sort()
+    pressed_keys = keys.pressed_keys()
+    if pressed_keys:
+        pressed_keys.sort()
         canvas.draw_text("Pressed keys code: "
-                         + ', '.join([str(key_code) for key_code in ks]),
+                         + ', '.join([str(key_code)
+                                      for key_code in pressed_keys]),
                          (5, 140),
                          30, 'White')
 
 
 # Functions to associate with specified key events.
 def deal_down_space(key_code):
+    """
+    :param key_code: int
+    """
     print('deal_down_space() function: %i' % key_code)
 
 
 def deal_down_x(key_code):
+    """
+    :param key_code: int
+    """
     print('deal_down_x() function: %i' % key_code)
 
 
 def deal_up_space(key_code):
+    """
+    :param key_code: int
+    """
     print('deal_up_space() function: %i' % key_code)
 
 
 def deal_up_y(key_code):
+    """
+    :param key_code: int
+    """
     print('deal_up_y() function: %i' % key_code)
 
 

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Nostalgic Basic Blitz (December 13, 2013)
+Nostalgic Basic Blitz (April 26, 2014)
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -11,7 +11,7 @@ http://www.abebooks.fr/JEUX-BASIC-TRS-80-COULEUR-MONSAUT-Pierre/7821908154/bd
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -77,10 +77,10 @@ class Blitz:
         if self.__bomb is not None:
             self.__bomb.draw(canvas)
 
-        s = str(self.__city.nb_remaining_columns())
+        text = str(self.__city.nb_remaining_columns())
         size = 30
-        width = frame.get_canvas_textwidth(s, size)
-        canvas.draw_text(s, (CANVAS_WIDTH - width - 10, 10 + size*3.0/4),
+        width = frame.get_canvas_textwidth(text, size)
+        canvas.draw_text(text, (CANVAS_WIDTH - width - 10, 10 + size*3.0/4),
                          size, 'White')
 
     def launch_bomb(self):
@@ -201,7 +201,12 @@ class City:
         heights = [random.randint(4, HEIGHT - 8)//2
                    for i in range((WIDTH - 5)//2)]
 
+        assert heights
+
         self.__heights = [0, 0]
+
+        height = None
+
         for height in heights:
             height = height*2 + 1
             self.__heights.extend((max(height, self.__heights[-1]),
@@ -290,13 +295,13 @@ class City:
 
         :return: int >= 0
         """
-        nb = 0
+        nb_column = 0
 
         for height in self.__heights:
             if height > 0:
-                nb += 1
+                nb_column += 1
 
-        return nb
+        return nb_column
 
 
 class Plane:

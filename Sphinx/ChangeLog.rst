@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* April 25, 2014
+* April 26, 2014
+
+  - Cosmetic changes in some example programs.
 
   - Updated ``test/test_all.py``.
 

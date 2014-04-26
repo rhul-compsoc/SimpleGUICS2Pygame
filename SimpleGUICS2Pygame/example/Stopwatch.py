@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (April 17, 2014)
+Stopwatch: The Game (April 26, 2014)
 (Stop the timer when 0 decisecond.)
 
 My solution (slightly retouched) of the mini-project #3 of the course
@@ -11,7 +11,7 @@ https://www.coursera.org/course/interactivepython (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -26,7 +26,7 @@ except ImportError:
 
 # Global constants
 CANVAS_WIDTH = 350
-CANVAS_HEIGHT = 180
+CANVAS_HEIGHT = 220
 
 
 # Global variables
@@ -37,26 +37,26 @@ time = 0
 
 
 # Helper function
-def format(t):
+def format_time(decisecond):
     """
-    Convert time t in tenths of seconds
+    Convert time in tenths of seconds
     into formatted string m:ss.t
 
-    :param t: int >= 0
+    :param decisecond: int >= 0
 
     :return: str
     """
-    assert isinstance(t, int)
-    assert t >= 0
+    assert isinstance(decisecond, int)
+    assert decisecond >= 0
 
-    t, tenths = t//10, t % 10
-    minutes, seconds = t//60, t % 60
+    decisecond, tenths = decisecond//10, decisecond % 10
+    minutes, seconds = decisecond//60, decisecond % 60
 
     return '%d:%02d.%d' % (minutes, seconds, tenths)
 
 
 # Event handlers for buttons
-def quit():
+def quit_prog():
     """
     Stop timer and quit.
     """
@@ -124,32 +124,32 @@ def draw(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    s = format(time)
+    text = format_time(time)
     size = 60
-    width = frame.get_canvas_textwidth(s, size, 'monospace')
-    canvas.draw_text(s,
+    width = frame.get_canvas_textwidth(text, size, 'monospace')
+    canvas.draw_text(text,
                      ((CANVAS_WIDTH - width)//2,
                       # (CANVAS_HEIGHT - size)//2 + size*3//4
                       (CANVAS_HEIGHT*2 + size)//4),
                      size, 'Lime', 'monospace')
 
     if nb_attempts > 0:
-        s = '%d/%d' % (nb_success, nb_attempts)
+        text = '%d/%d' % (nb_success, nb_attempts)
         percent_success = nb_success*100//nb_attempts
         size = (30 if nb_success == nb_attempts
                 else 20)
-        width = frame.get_canvas_textwidth(s, size, 'monospace')
-        canvas.draw_text(s, (CANVAS_WIDTH - width*5//4, size), size,
+        width = frame.get_canvas_textwidth(text, size, 'monospace')
+        canvas.draw_text(text, (CANVAS_WIDTH - width*5//4, size), size,
                          ('Red' if percent_success < 25
                           else ('Yellow' if percent_success >= 75
                                 else 'White')),
                          'monospace')
 
     if timer.is_running():
-        s = 'Stop the timer when 0 decisecond.'
+        text = 'Stop the timer when 0 decisecond.'
         size = 20
-        width = frame.get_canvas_textwidth(s, size)
-        canvas.draw_text(s,
+        width = frame.get_canvas_textwidth(text, size)
+        canvas.draw_text(text,
                          ((CANVAS_WIDTH - width)//2, (CANVAS_HEIGHT - size)),
                          size, 'White')
 
@@ -161,10 +161,12 @@ frame = simplegui.create_frame('Stopwatch (Stop the timer when 0 decisecond)',
 
 # Register event handlers
 frame.add_button('Start', start, 100)
+frame.add_label('')
 frame.add_button('Stop', stop, 100)
+frame.add_label('')
 frame.add_button('Reset', reset, 100)
 frame.add_label('')
-frame.add_button('Quit', quit)
+frame.add_button('Quit', quit_prog)
 
 frame.set_draw_handler(draw)
 
@@ -172,11 +174,11 @@ timer = simplegui.create_timer(100, tick)
 
 
 # Main
-assert format(0) == '0:00.0'
-assert format(3) == '0:00.3'
-assert format(11) == '0:01.1'
-assert format(321) == '0:32.1'
-assert format(613) == '1:01.3'
-assert format(1234) == '2:03.4'
+assert format_time(0) == '0:00.0'
+assert format_time(3) == '0:00.3'
+assert format_time(11) == '0:01.1'
+assert format_time(321) == '0:32.1'
+assert format_time(613) == '1:01.3'
+assert format_time(1234) == '2:03.4'
 
 frame.start()

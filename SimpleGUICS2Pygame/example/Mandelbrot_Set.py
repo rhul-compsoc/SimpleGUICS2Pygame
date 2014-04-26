@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (December 13, 2013)
+Mandelbrot Set. (April 26, 2014)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -64,6 +64,8 @@ z1_imag = -1.5
 def draw_and_calculate(canvas):
     """
     Draw and calculate image of Mandelbrot set from grid.
+
+    :param canvas: simplegui.Canvas
     """
     global nb_iter
 
@@ -141,6 +143,12 @@ if codeskulptor_is():
         Draw a horizontal line
         (point by point
         because CodeSkulptor draw_line() is problematic with line_width=1).
+
+        :param canvas: simplegui.Canvas
+        :param x0: int >= 0
+        :param x1: int >= 0
+        :param y: int >= 0
+        :param color: str
         """
         for x in range(x0, x1 + 1):
             canvas.draw_point((x, y), color)
@@ -148,6 +156,12 @@ else:
     def draw_hline(canvas, x0, x1, y, color):
         """
         Draw a horizontal line.
+
+        :param canvas: simplegui.Canvas
+        :param x0: int >= 0
+        :param x1: int >= 0
+        :param y: int >= 0
+        :param color: str
         """
         canvas.draw_line((x0, y), (x1, y), 1, color)
 
@@ -155,6 +169,8 @@ else:
 def draw_only(canvas):
     """
     Draw image of Mandelbrot set from grid.
+
+    :param canvas: simplegui.Canvas
     """
     for y, line in enumerate(grid):
         contiguous_color = None

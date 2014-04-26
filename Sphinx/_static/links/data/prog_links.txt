@@ -3,24 +3,24 @@
 http://www.codeskulptor.org/#user27_1vzpsEBYDfVI81r.py
 Blackjack.py
 
-http://www.codeskulptor.org/#user27_BLL5v8SNwBWOqFv.py
+http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
 Frame_example.py
 
-http://www.codeskulptor.org/#user30_HfqmidRO10KK6FV.py
+http://www.codeskulptor.org/#user30_UchGVyspdrjn9WW.py
 keys.py
 Example of codeskulptor_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user27_rpbaaPHgqAISVx5.py
+http://www.codeskulptor.org/#user30_tZkk6D0JFl5L8vT.py
 loader.py
 Example of codeskulptor_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user27_78xdzJfVMDvuAF0.py
+http://www.codeskulptor.org/#user30_Wi9uk2Zi4soQklx.py
 <strong>Mandelbrot_Set</strong>.py
 
 http://www.codeskulptor.org/#user27_S7zfDzdiyLxd9b3.py
 <strong>Memory</strong>.py
 
-http://www.codeskulptor.org/#user27_qvK5rwXXrZqr26f.py
+http://www.codeskulptor.org/#user30_7GNxjcjxyJU7RFg.py
 <strong>Nostalgic_Basic_Blitz</strong>.py
 
 http://www.codeskulptor.org/#user27_V0d45vD8T9R9WQv.py
@@ -32,7 +32,7 @@ http://www.codeskulptor.org/#user27_nNXr8erFjcuvM6E.py
 http://www.codeskulptor.org/#user27_z453i0v9PF9tBpW.py
 Spaceship_prototype.py
 
-http://www.codeskulptor.org/#user30_bDL0gw7deBuJ8TB.py
+http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
 Stopwatch.py
 
 http://www.codeskulptor.org/#user27_1nknwP8VPkhkKX7.py

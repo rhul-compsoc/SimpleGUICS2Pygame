@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Frame example (December 13, 2013)
+Frame example (April 26, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -24,14 +24,19 @@ CANVAS_HEIGHT = 300
 
 
 def draw(canvas):
+    """
+    Draw a simple text.
+
+    :param canvas: simplegui.Canvas
+    """
     text = 'Canvas'
 
     font_size = 40
     text_width = frame.get_canvas_textwidth(text, font_size)
 
     canvas.draw_text(text,
-                     ((CANVAS_WIDTH - text_width)/2,
-                      CANVAS_HEIGHT/2 + font_size/4),
+                     ((CANVAS_WIDTH - text_width)//2,
+                      CANVAS_HEIGHT//2 + font_size//4),
                      font_size, 'Green')
 
 

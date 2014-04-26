@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* April 25, 2014
+* April 26, 2014
+
+  - Cosmetic changes in some example programs.
 
   - Updated ``test/test_all.py``.
 
