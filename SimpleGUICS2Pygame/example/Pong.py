@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Pong (December 13, 2013)
+Pong (April 26, 2014)
 
 My solution (slightly retouched) of the mini-project #4 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -10,7 +10,7 @@ https://www.coursera.org/course/interactivepython (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -26,36 +26,11 @@ except ImportError:
     simplegui.Frame._keep_timers = False
 
 
+DEBUG = False
+# DEBUG = True  # to help debug
+
+
 pong = None
-
-
-def hex_fig(n):
-    """
-    Return the hexadecimal figure of n.
-
-    :param n: 0 <= int < 16
-
-    :return: str (one character from 0123456789ABCDEF)
-    """
-    assert isinstance(n, int)
-    assert 0 <= n < 16
-
-    return (chr(ord('0') + n) if n < 10
-            else chr(ord('A') + n - 10))
-
-
-def hex2(n):
-    """
-    Return the hexadecimal representation of n.
-
-    :param n: 0 <= int < 256
-
-    :return: str (length == 2)
-    """
-    assert isinstance(n, int)
-    assert 0 <= n < 256
-
-    return hex_fig(n//16) + hex_fig(n % 16)
 
 
 # Classes
@@ -186,7 +161,7 @@ class Pong:
         self.paused = not self.paused
 
 
-class Moving_item:
+class MovingItem:
     """
     General moving item:
     self.pos: position Vector
@@ -234,9 +209,9 @@ class Moving_item:
         then return True,
         else return False.
 
-        :param other: Moving_item
+        :param other: MovingItem
         """
-        assert isinstance(other, Moving_item)
+        assert isinstance(other, MovingItem)
 
         return self.pos.same(other.pos)
 
@@ -246,9 +221,9 @@ class Moving_item:
         then return True,
         else return False.
 
-        :param other: Moving_item
+        :param other: MovingItem
         """
-        assert isinstance(other, Moving_item)
+        assert isinstance(other, MovingItem)
 
         return ((self.vel.x > 0 and other.vel.x > 0)
                 or (self.vel.x < 0 and other.vel.x < 0)
@@ -260,9 +235,9 @@ class Moving_item:
         then return True,
         else return False.
 
-        :param other: Moving_item
+        :param other: MovingItem
         """
-        assert isinstance(other, Moving_item)
+        assert isinstance(other, MovingItem)
 
         return ((self.vel.y > 0 and other.vel.y > 0)
                 or (self.vel.y < 0 and other.vel.y < 0)
@@ -275,7 +250,7 @@ class Moving_item:
         self.pos.add(self.vel)
 
 
-class Ball(Moving_item):
+class Ball(MovingItem):
     """
     Ball.
     """
@@ -307,11 +282,12 @@ class Ball(Moving_item):
 
         vel_x = random.randrange(120, 240)/60.0
 
-        Moving_item.__init__(self,
-                             Vector(Pong.HALF_WIDTH, Pong.HALF_HEIGHT),
-                             Vector((vel_x if right
-                                     else -vel_x),
-                                    -random.randrange(60, 180)/60.0))
+        MovingItem.__init__(self,
+                            Vector(Pong.HALF_WIDTH, Pong.HALF_HEIGHT),
+                            Vector((vel_x if right
+                                    else -vel_x),
+                                   (random.randrange(60, 180)/60.0
+                                    * random.choice((-1, 1)))))
         self.radius = radius
 
     def check_collision(self):
@@ -380,18 +356,20 @@ class Ball(Moving_item):
                     if self.touch(ball):
                         # Elastic collision (with radius as mass)
                         sound_balls_collision.play()
-                        sum = self.radius + ball.radius
-                        diff = self.radius - ball.radius
+                        radius_sum = self.radius + ball.radius
+                        radius_diff = self.radius - ball.radius
 
                         double = 2*ball.radius
-                        new_x = float(diff*self.vel.x + double*ball.vel.x)/sum
-                        new_y = float(diff*self.vel.y + double*ball.vel.y)/sum
+                        new_x = float(radius_diff*self.vel.x
+                                      + double*ball.vel.x)/radius_sum
+                        new_y = float(radius_diff*self.vel.y
+                                      + double*ball.vel.y)/radius_sum
 
                         double = 2*self.radius
                         ball.vel.x = float(double*self.vel.x
-                                           - diff*ball.vel.x)/sum
+                                           - radius_diff*ball.vel.x)/radius_sum
                         ball.vel.y = float(double*self.vel.y
-                                           - diff*ball.vel.y)/sum
+                                           - radius_diff*ball.vel.y)/radius_sum
 
                         self.vel.x = new_x
                         self.vel.y = new_y
@@ -405,12 +383,14 @@ class Ball(Moving_item):
         :param canvas: simplegui.Canvas
         """
         for i in range(self.radius, 2, -2):
-            color = '#' + hex2(255 - 10*i)*3
+            color = 255 - 10*i
+            color = '#' + ('0' + hex(color)[-1] if color < 16
+                           else hex(color)[-2:])*3
             canvas.draw_circle(self.pos.to_tuple(), i, 1, color, color)
 
-        # To debug
-        #canvas.draw_line((self.pos.x - self.radius, self.pos.y),
-        #                 (self.pos.x + self.radius, self.pos.y), 1, 'Red')
+        if DEBUG:
+            canvas.draw_line((self.pos.x - self.radius, self.pos.y),
+                             (self.pos.x + self.radius, self.pos.y), 1, 'Red')
 
     def faster(self):
         """
@@ -442,7 +422,7 @@ class Ball(Moving_item):
         return self.pos.distance(other.pos) <= (self.radius + other.radius)
 
 
-class Player(Moving_item):
+class Player(MovingItem):
     """
     Player left or right.
 
@@ -471,10 +451,10 @@ class Player(Moving_item):
         assert isinstance(key_up, str)
         assert isinstance(key_down, str)
 
-        Moving_item.__init__(self, Vector((Pong.WIDTH - 1 - Player.HALF_WIDTH
-                                           if right
-                                           else Player.HALF_WIDTH),
-                                          Pong.HALF_HEIGHT))
+        MovingItem.__init__(self, Vector((Pong.WIDTH - 1 - Player.HALF_WIDTH
+                                          if right
+                                          else Player.HALF_WIDTH),
+                                         Pong.HALF_HEIGHT))
 
         self.key_up = simplegui.KEY_MAP[key_up]
         self.key_down = simplegui.KEY_MAP[key_down]
@@ -496,15 +476,15 @@ class Player(Moving_item):
         canvas.draw_line((self.pos.x, y1), (self.pos.x, y1 + Player.HEIGHT),
                          Player.WIDTH, 'White')
 
-        # To debug
-        #canvas.draw_line((self.pos.x - Player.WIDTH,
-        #                  self.pos.y - Player.HALF_HEIGHT),
-        #                 (self.pos.x + Player.WIDTH,
-        #                  self.pos.y - Player.HALF_HEIGHT), 1, 'Red')
-        #canvas.draw_line((self.pos.x - Player.WIDTH,
-        #                  self.pos.y + Player.HALF_HEIGHT),
-        #                 (self.pos.x + Player.WIDTH,
-        #                  self.pos.y + Player.HALF_HEIGHT), 1, 'Red')
+        if DEBUG:
+            canvas.draw_line((self.pos.x - Player.WIDTH,
+                              self.pos.y - Player.HALF_HEIGHT),
+                             (self.pos.x + Player.WIDTH,
+                              self.pos.y - Player.HALF_HEIGHT), 1, 'Red')
+            canvas.draw_line((self.pos.x - Player.WIDTH,
+                              self.pos.y + Player.HALF_HEIGHT),
+                             (self.pos.x + Player.WIDTH,
+                              self.pos.y + Player.HALF_HEIGHT), 1, 'Red')
 
     def protect(self):
         """
@@ -518,7 +498,7 @@ class Player(Moving_item):
         then add self.vel to self.pos,
         else no move.
         """
-        Moving_item.update_pos(self)
+        MovingItem.update_pos(self)
 
         if self.pos.y < Player.HALF_HEIGHT:
             self.pos.y = Player.HALF_HEIGHT
@@ -545,49 +525,54 @@ def add_ball():
     pong.add_ball()
 
 
-def draw(c):
+def draw(canvas):
     """
     Event handler to draw all items.
+
+    :param canvas: simplegui.Canvas
     """
     # Mid line
-    c.draw_line((Pong.HALF_WIDTH, 0), (Pong.HALF_WIDTH, Pong.HEIGHT),
-                1, 'White')
+    canvas.draw_line((Pong.HALF_WIDTH, 0), (Pong.HALF_WIDTH, Pong.HEIGHT),
+                     1, 'White')
 
     # Gutters
-    c.draw_line((Player.WIDTH, 0), (Player.WIDTH, Pong.HEIGHT),
-                1, ('Red' if pong.players[0].protected
-                    else 'White'))
+    canvas.draw_line((Player.WIDTH, 0), (Player.WIDTH, Pong.HEIGHT),
+                     1, ('Red' if pong.players[0].protected
+                         else 'White'))
     x = Pong.WIDTH - 1 - Player.WIDTH
-    c.draw_line((x, 0), (x, Pong.HEIGHT),
-                1, ('Red' if pong.players[1].protected
-                    else 'White'))
+    canvas.draw_line((x, 0), (x, Pong.HEIGHT),
+                     1, ('Red' if pong.players[1].protected
+                         else 'White'))
 
     # Scores
     SIZE = 60
-    s = str(pong.players[0].score)
-    c.draw_text(s,
-                (Pong.HALF_WIDTH - 100 - frame.get_canvas_textwidth(s, SIZE),
-                 100),
-                SIZE, 'Green')
-    c.draw_text(str(pong.players[1].score), (Pong.HALF_WIDTH + 100, 100),
-                SIZE, 'Green')
+    text = str(pong.players[0].score)
+    canvas.draw_text(text,
+                     (Pong.HALF_WIDTH - 100 - frame.get_canvas_textwidth(text,
+                                                                         SIZE),
+                      100),
+                     SIZE, 'Green')
+    canvas.draw_text(str(pong.players[1].score), (Pong.HALF_WIDTH + 100, 100),
+                     SIZE, 'Green')
 
     if not pong.paused:
         # Players
         for player in pong.players:
             player.update_pos()
-            player.draw(c)
+            player.draw(canvas)
 
         # Ball
         for ball in pong.balls:
             ball.update_pos()
-            ball.draw(c)
+            ball.draw(canvas)
             ball.check_collision()
 
 
 def keydown(key):
     """
     Event handler to deal key down.
+
+    :param key: int >= 0
     """
     if key == pong.players[0].key_up:
         pong.players[0].key_up_active = True
@@ -610,6 +595,8 @@ def keydown(key):
 def keyup(key):
     """
     Event handler to deal key up.
+
+    :param key: int >= 0
     """
     if key == pong.players[0].key_up:
         pong.players[0].key_up_active = False
@@ -664,7 +651,7 @@ def protect_right():
                                    else 'Protect') + ' right player')
 
 
-def quit():
+def quit_prog():
     """
     Stop timer and quit.
     """
@@ -711,8 +698,7 @@ button_protect_right = frame.add_button('Protect right player',
 frame.add_label('')
 frame.add_button('Add ball', add_ball, 200)
 frame.add_label('')
-frame.add_button('Quit', quit)
-frame.add_label('')
+frame.add_button('Quit', quit_prog)
 frame.add_label('')
 frame.add_label('Left player keys: W (or Z), S')
 frame.add_label('Right player keys: Up, Down')

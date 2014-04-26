@@ -23,7 +23,7 @@ http://www.codeskulptor.org/#user27_S7zfDzdiyLxd9b3.py
 http://www.codeskulptor.org/#user30_7GNxjcjxyJU7RFg.py
 <strong>Nostalgic_Basic_Blitz</strong>.py
 
-http://www.codeskulptor.org/#user27_V0d45vD8T9R9WQv.py
+http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
 http://www.codeskulptor.org/#user27_nNXr8erFjcuvM6E.py

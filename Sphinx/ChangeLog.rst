@@ -2,6 +2,8 @@ ChangeLog
 =========
 * April 26, 2014
 
+  - Updated ``example/Pong.py``.
+
   - Cosmetic changes in some example programs.
 
   - Updated ``test/test_all.py``.
