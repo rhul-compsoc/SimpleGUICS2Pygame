@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (April 21, 2014)
+simpleguics2pygame (April 26, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -19,7 +19,7 @@ Require Pygame_
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
@@ -767,8 +767,8 @@ def _simpleguicolor_to_pygamecolor(color,
 
     * '#rrggbb',
     * '#rgb',
-    * 'rbg(red,blue,green)',
-    * 'rgba(red,blue,green,alpha)'
+    * 'rgb(red,green,blue)',
+    * 'rgba(red,green,blue,alpha)'
     * or constant name in `_SIMPLEGUICOLOR_TO_PYGAMECOLOR` \
       (`default_pygame_color` if the constant name are not founded).
 
@@ -792,7 +792,7 @@ def _simpleguicolor_to_pygamecolor(color,
     if color[0] == '#':        # format #rrggbb or #rgb
         return pygame.Color(color if len(color) == 7
                             else '#' + color[1]*2 + color[2]*2 + color[3]*2)
-    elif color[:4] == 'rgb(':  # format rbg(red,blue,green)
+    elif color[:4] == 'rgb(':  # format rgb(red,green,blue)
         assert color[-1] == ')', color
 
         color = color[4:-1].split(',')
@@ -802,7 +802,7 @@ def _simpleguicolor_to_pygamecolor(color,
         return pygame.Color(max(0, min(255, int(color[0]))),
                             max(0, min(255, int(color[1]))),
                             max(0, min(255, int(color[2]))))
-    elif color[:5] == 'rgba(':  # format rbga(red,blue,green,alpha)
+    elif color[:5] == 'rgba(':  # format rgba(red,green,blue,alpha)
         assert color[-1] == ')', color
 
         color = color[5:-1].split(',')
