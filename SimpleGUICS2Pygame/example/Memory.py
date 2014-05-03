@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (December 13, 2013)
-  8 x (2 indentical cards)
-  or 4 x (4 indentical cards)
+Memory (May 3, 2014)
+  Game with 8 x (2 indentical cards)
+         or 4 x (4 indentical cards)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -48,7 +48,7 @@ if USE_IMAGES:
                          'OPi.jpg',
                          'Memory.jpg')]
 else:
-    card_images = [simplegui.load_image('')]*9  # 9 failed images
+    card_images = [simplegui.load_image('')]*9  # 9 (same) failed images
 
 memory = None  # the principal variable, instance of Memory
 
@@ -310,6 +310,8 @@ class Memory:
 def draw(canvas):
     """
     Event handler to draw all cards.
+
+    :param canvas: simplegui.Canvas
     """
     memory.draw(canvas)
 
@@ -317,6 +319,8 @@ def draw(canvas):
 def draw_wait_images(canvas):
     """
     Draw waiting message when images loading.
+
+    :param canvas: simplegui.Canvas
     """
     percent = nb_images_loaded*100.0/len(card_images)
 
@@ -332,6 +336,8 @@ def draw_wait_images(canvas):
 def mouseclick(pos):
     """
     Event handler to deal clic on a card.
+
+    :param pos: (int >= 0, int >= 0)
     """
     memory.expose(pos)
 

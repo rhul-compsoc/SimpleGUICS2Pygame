@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* April 26, 2014
+* May 3, 2014
+
+  - Updated ``example/Memory.py``.
 
   - Updated ``example/Pong.py``.
 

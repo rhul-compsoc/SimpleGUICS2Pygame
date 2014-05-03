@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* April 26, 2014
+* May 3, 2014
+
+  - Updated ``example/Memory.py``.
 
   - Updated ``example/Pong.py``.
 
