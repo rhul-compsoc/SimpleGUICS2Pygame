@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack (December 13, 2013)
+Blackjack (May 9, 2014)
 
 My solution (slightly retouched) of the mini-project #6 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -10,7 +10,7 @@ https://www.coursera.org/course/interactivepython (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -25,12 +25,15 @@ except ImportError:
     simplegui.Frame._keep_timers = False
 
 
-# Cards sprite 949x392 (source: www.jfitz.com/cards/ )
-cards_image = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png')
-card_back = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/card_back.png')
-
-
 # Global constants
+##################
+DEBUG = False
+# DEBUG = True  # to help debug
+
+# Cards sprite 949x392 (source: www.jfitz.com/cards/ )
+CARDS_IMAGE = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png')
+CARD_BACK = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/card_back.png')
+
 CARD_SIZE = (73, 98)
 CARD_CENTER = (36.5, 49)
 
@@ -51,15 +54,20 @@ GREEN = 'Green'
 GREEN_LIGHT = '#40d040'
 GREEN_DARK = '#007000'
 
+NB_IMAGES_TO_LOAD = 2
+
 
 # Global variables
+##################
 deck = None
+
+hand_dealer = None
+hand_player = None
 
 in_play = False
 
 max_test_images_loaded = 20
 nb_images_loaded = 0
-nb_images_to_load = 2
 
 outcome = None
 
@@ -68,6 +76,7 @@ score_player = 0
 
 
 # Helper functions
+##################
 def assert_pos(pos):
     """
     Assertions to check valid position:
@@ -116,6 +125,7 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
 
 
 # Classes
+#########
 class Card:
     """
     Card.
@@ -155,7 +165,7 @@ class Card:
         If hide
         then the first card are drawed face down.
 
-        If the images cards_image or card_back are not loaded
+        If the images CARDS_IMAGE or CARD_BACK are not loaded
         then draw rectangle instead.
 
         :param canvas: simplegui.Canvas
@@ -169,16 +179,16 @@ class Card:
         drawed = False
 
         if hide:
-            if card_back.get_width() > 0:
-                canvas.draw_image(card_back,
+            if CARD_BACK.get_width() > 0:
+                canvas.draw_image(CARD_BACK,
                                   CARD_BACK_CENTER, CARD_BACK_SIZE,
                                   (pos[0] + CARD_BACK_CENTER[0],
                                    pos[1] + CARD_BACK_CENTER[1]), CARD_SIZE)
                 drawed = True
         else:
-            if cards_image.get_width() > 0:
+            if CARDS_IMAGE.get_width() > 0:
                 canvas.draw_image(
-                    cards_image,
+                    CARDS_IMAGE,
                     (CARD_CENTER[0]
                      + CARD_SIZE[0]*Deck._RANKS.index(self._rank),
                      CARD_CENTER[1]
@@ -192,11 +202,12 @@ class Card:
             draw_rect(canvas, pos, CARD_SIZE, 3, 'Black', ('Maroon' if hide
                                                            else 'White'))
             if not hide:
-                s = str(self)
+                text = str(self)
                 canvas.draw_text(
-                    s,
+                    text,
                     (pos[0] + (CARD_SIZE[0]
-                               - frame.get_canvas_textwidth(s, size))/2.0,
+                               - frame.get_canvas_textwidth(text,
+                                                            FONT_SIZE))/2.0,
                      pos[1] + CARD_SIZE[1]/2.0 + FONT_SIZE/4.0),
                     FONT_SIZE, ('Red' if self.get_suit() in ('H', 'D')
                                 else 'Black'))
@@ -320,7 +331,7 @@ class Hand:
         """
         assert_pos(pos)
 
-        if False:  # to debug
+        if DEBUG:
             canvas.draw_text(str(self.get_value()),
                              (pos[0] - 50, pos[1] + FONT_SIZE),
                              FONT_SIZE, 'Black')
@@ -337,17 +348,18 @@ class Hand:
         """
         ace_founded = False
 
-        v = 0
+        value = 0
         for card in self._cards:
-            v += card.get_value()
+            value += card.get_value()
             if card.get_rank() == 'A':
                 ace_founded = True
 
-        return (v + 10 if ace_founded and (v + 10 <= 21)
-                else v)
+        return (value + 10 if ace_founded and (value + 10 <= 21)
+                else value)
 
 
 # Event handlers
+################
 def deal():
     """
     Start a new round.
@@ -372,7 +384,7 @@ def deal():
     hand_dealer = Hand(True)
     hand_player = Hand()
 
-    for i in range(2):
+    for _ in range(2):
         hand_player.add_card(deck.deal_card())
         hand_dealer.add_card(deck.deal_card())
 
@@ -380,6 +392,8 @@ def deal():
 def draw(canvas):
     """
     Draw all the game.
+
+    :param canvas: simplegui.Canvas
     """
     canvas.draw_circle((FRAME_WIDTH/2.0,
                         FRAME_HEIGHT - FRAME_WIDTH*3/2.0 - 25),
@@ -403,11 +417,11 @@ def draw(canvas):
                      (FRAME_WIDTH - 20, y - FONT_SIZE - 10), 3, GREEN_LIGHT)
     canvas.draw_line((20, y), (FRAME_WIDTH - 20, y), 3, GREEN_LIGHT)
 
-    s = ('HIT OR STAND?' if in_play
-         else 'NEW DEAL?')
-    canvas.draw_text(s,
+    text = ('HIT OR STAND?' if in_play
+            else 'NEW DEAL?')
+    canvas.draw_text(text,
                      ((FRAME_WIDTH
-                       - frame.get_canvas_textwidth(s, FONT_SIZE))/2.0,
+                       - frame.get_canvas_textwidth(text, FONT_SIZE))/2.0,
                       y - FONT_SIZE/4.0 - 3),
                      FONT_SIZE, GREEN_LIGHT)
 
@@ -419,10 +433,10 @@ def draw(canvas):
              250), FONT_SIZE, 'WHITE')
 
     if deck is not None:
-        s = 'SCORE: %d | %d' % (score_dealer, score_player)
-        canvas.draw_text(s,
+        text = 'SCORE: %d | %d' % (score_dealer, score_player)
+        canvas.draw_text(text,
                          (FRAME_WIDTH
-                          - frame.get_canvas_textwidth(s, FONT_SIZE)
+                          - frame.get_canvas_textwidth(text, FONT_SIZE)
                           - 20, 20 + FONT_SIZE*3/4.0),
                          FONT_SIZE, 'Black')
 
@@ -433,8 +447,10 @@ def draw(canvas):
 def draw_wait_images(canvas):
     """
     Draw waiting message when images loading.
+
+    :param canvas: simplegui.Canvas
     """
-    percent = nb_images_loaded*100.0/nb_images_to_load
+    percent = nb_images_loaded*100.0/NB_IMAGES_TO_LOAD
 
     canvas.draw_line((0, 150), (FRAME_WIDTH, 150), 20, 'White')
     if percent > 0:
@@ -502,16 +518,14 @@ def test_images_loaded():
     Check the number of images already loaded.
 
     Global change: nb_images_loaded
-                   nb_images_to_load
     """
     global max_test_images_loaded
     global nb_images_loaded
-    global nb_images_to_load
 
-    nb_images_loaded = sum([1 for img in [card_back, cards_image]
+    nb_images_loaded = sum([1 for img in [CARD_BACK, CARDS_IMAGE]
                             if img.get_width() > 0])
 
-    if ((nb_images_loaded == nb_images_to_load)
+    if ((nb_images_loaded == NB_IMAGES_TO_LOAD)
             or (max_test_images_loaded <= 0)):
         timer.stop()
         frame.set_draw_handler(draw)
@@ -520,6 +534,7 @@ def test_images_loaded():
 
 
 # Main
+######
 if __name__ == '__main__':
     # Create frame
     frame = simplegui.create_frame('Blackjack', FRAME_WIDTH, FRAME_HEIGHT, 100)
@@ -527,7 +542,7 @@ if __name__ == '__main__':
     # Control panel
     frame.add_button('Deal', deal, 100)
     frame.add_label('')
-    frame.add_button('Hit',  hit, 100)
+    frame.add_button('Hit', hit, 100)
     frame.add_label('')
     frame.add_button('Stand', stand, 100)
     frame.add_label('')
@@ -541,4 +556,5 @@ if __name__ == '__main__':
     timer.start()
     test_images_loaded()
 
+    deal()
     frame.start()
