@@ -38,9 +38,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_bl
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_orange.png
 
-http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.f2013.png
+http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_blue.s2014.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png
 

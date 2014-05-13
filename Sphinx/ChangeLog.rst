@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* May 9, 2014
+* May 13, 2014
 
   - Updated ``example/Blackjack.py``.
 

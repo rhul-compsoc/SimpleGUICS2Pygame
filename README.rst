@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* May 9, 2014
+* May 13, 2014
 
   - Updated ``example/Blackjack.py``.
 
