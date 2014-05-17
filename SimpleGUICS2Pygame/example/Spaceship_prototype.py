@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (December 14, 2013)
+Spaceship prototype (May 17, 2014)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -16,7 +16,7 @@ Run on:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -340,6 +340,8 @@ class Ship(Sprite):
 def draw(canvas):
     """
     Draw all stuffs.
+
+    :param canvas: simplegui.Canvas
     """
     global time
 
@@ -373,14 +375,14 @@ def draw(canvas):
     canvas.draw_text(str(lives), (20, 20 + size*7.0/4), size, 'White', font)
 
     # Display score
-    s = 'Score'
-    width = frame.get_canvas_textwidth(s, size, font)
-    canvas.draw_text(s, (SCREEN_WIDTH - 20 - width, 20 + size*3.0/4),
+    text = 'Score'
+    width = frame.get_canvas_textwidth(text, size, font)
+    canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size*3.0/4),
                      size, 'White', font)
 
-    s = str(score)
-    width = frame.get_canvas_textwidth(s, size, font)
-    canvas.draw_text(s, (SCREEN_WIDTH - 20 - width, 20 + size*7.0/4),
+    text = str(score)
+    width = frame.get_canvas_textwidth(text, size, font)
+    canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size*7.0/4),
                      size, 'White', font)
 
     # Draw ship and sprites
@@ -420,6 +422,8 @@ def fps_on_off():
 def keydown(key):
     """
     Event handler to deal key down.
+
+    :param key: int >= 0
     """
     global keydown_left
     global keydown_right
@@ -439,6 +443,8 @@ def keydown(key):
 def keyup(key):
     """
     Event handler to deal key up.
+
+    :param key: int >= 0
     """
     global keydown_left
     global keydown_right
@@ -455,7 +461,7 @@ def keyup(key):
         my_ship.thrust_on_off()
 
 
-def quit():
+def quit_prog():
     """
     Stop timer and sounds, and quit.
     """
@@ -547,7 +553,7 @@ if __name__ == '__main__':
 
     button_fps = frame.add_button('FPS on', fps_on_off)
     frame.add_label('')
-    frame.add_button('Quit', quit)
+    frame.add_button('Quit', quit_prog)
 
     loader.wait_loaded()
 

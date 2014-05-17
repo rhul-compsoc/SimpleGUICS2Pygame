@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* May 13, 2014
+* May 17, 2014
+
+  - Updated ``example/Spaceship_prototype.py``.
 
   - Updated ``example/Blackjack.py``.
 

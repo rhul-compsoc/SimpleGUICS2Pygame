@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* May 13, 2014
+* May 17, 2014
+
+  - Updated ``example/Spaceship_prototype.py``.
 
   - Updated ``example/Blackjack.py``.
 
