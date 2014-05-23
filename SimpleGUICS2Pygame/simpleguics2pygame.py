@@ -42,7 +42,7 @@ try:
     `True` if Pygame is available,
     else `False`.
     """
-except:
+except ImportError:
     _PYGAME_AVAILABLE = False
 
     _PYGAME_VERSION = None
@@ -1411,7 +1411,7 @@ class Frame:
         """
         assert isinstance(filename, str), type(filename)
 
-        Frame._save_canvas_requests.append(filename)
+        self._save_canvas_requests.append(filename)
 
     def _save_canvas_and_stop(self, filename, after=1000):
         """
@@ -1887,8 +1887,7 @@ class Canvas:
 
         from math import pi
 
-        self.PI = pi
-        self.RADIAN_TO_DEGREE = 180.0/pi
+        self._RADIAN_TO_DEGREE = 180.0/pi
 
     def __repr__(self):
         """
@@ -2167,7 +2166,7 @@ class Canvas:
             if rotation != 0:
                 # Rotation
                 pygame_surface_image = pygame.transform.rotate(
-                    pygame_surface_image, -rotation*self.RADIAN_TO_DEGREE)
+                    pygame_surface_image, -rotation*self._RADIAN_TO_DEGREE)
 
             # Draw the result
             self._pygame_surface.blit(
