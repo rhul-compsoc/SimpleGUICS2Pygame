@@ -108,6 +108,7 @@ Changes
 =======
 * May 23, 2014
 
+  - Off the mixer if no sound is loaded.
   - Updated ``example/RiceRocks_Asteroids.py``.
 
   - Updated ``example/Spaceship_prototype.py``.

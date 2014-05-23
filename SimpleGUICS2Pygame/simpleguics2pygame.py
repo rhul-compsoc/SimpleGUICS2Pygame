@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (April 26, 2014)
+simpleguics2pygame (May 23, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -61,14 +61,16 @@ if _PYGAME_AVAILABLE:
     pygame.display.init()
     pygame.font.init()
 
-    pygame.mixer.init(44100)
-    # "Some platforms require [...] after the display modules have initialized"
-    # http://www.pygame.org/docs/ref/mixer.html#pygame.mixer.init
-
 
 #
 # Private global constants
 ###########################
+_MIXER_FREQUENCY = 22050
+"""
+Sound frequency used by the mixer module of Pygame.
+"""
+
+
 _PYGAMEKEY_TO_SIMPLEGUIKEY = {97:  65,  # A or a
                               98:  66,  # ...
                               99:  67,
@@ -513,7 +515,10 @@ def _load_media(type_of_media, url, local_dir):
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
-    Side effect: Each new url is added to `Frame._pygamemedias_cached`.
+    Side effects:
+
+    * Each new url is added to `Frame._pygamemedias_cached`.
+    * If media is a sound then Sound._mixer_initialized is set to True.
 
     :param type_of_media: Image or Sound
     :param url: str
@@ -531,8 +536,11 @@ def _load_media(type_of_media, url, local_dir):
     media_is_image = (type_of_media == 'Image')
 
     cached = Frame._pygamemedias_cached.get(url)
-    if cached is not None:
-        # Already in cache
+    if cached is not None:  # Already in cache
+        if (not media_is_image) and (not Sound._mixer_initialized):
+            Sound._mixer_initialized = True
+            pygame.mixer.init(_MIXER_FREQUENCY)
+
         media = (cached.copy() if media_is_image
                  else pygame.mixer.Sound(cached))
         if Frame._print_load_medias:
@@ -571,6 +579,10 @@ def _load_media(type_of_media, url, local_dir):
 
     # Load...
     if not Frame._save_downloaded_medias_overwrite and filename_exist:
+        if (not media_is_image) and (not Sound._mixer_initialized):
+            Sound._mixer_initialized = True
+            pygame.mixer.init(_MIXER_FREQUENCY)
+
         try:
             # Load from local file
             media = (pygame.image.load(filename) if media_is_image
@@ -603,6 +615,10 @@ def _load_media(type_of_media, url, local_dir):
                                                           url, exc))
 
         return
+
+    if (not media_is_image) and (not Sound._mixer_initialized):
+        Sound._mixer_initialized = True
+        pygame.mixer.init(_MIXER_FREQUENCY)
 
     media = (pygame.image.load(BytesIO(media_data)) if media_is_image
              else pygame.mixer.Sound(BytesIO(media_data)))
@@ -2792,16 +2808,22 @@ class Sound:
     Sound similar to SimpleGUI `Sound` of CodeSkulptor.
     """
 
+    _dir_search_first = '_snd/'
+    """
+    `load_sound()` try **first** to loading sound from this directory,
+    and next if failed, try to loading from URL.
+    """
+
     _load_disabled = False
     """
     If `True`
     then load sounds are disabled.
     """
 
-    _dir_search_first = '_snd/'
+    _mixer_initialized = False
     """
-    `load_sound()` try **first** to loading sound from this directory,
-    and next if failed, try to loading from URL.
+    If `True`
+    then pygame.mixer is initialized.
     """
 
     def __init__(self, url):
@@ -2819,6 +2841,8 @@ class Sound:
         self._pygame_sound = (None if Sound._load_disabled or (url == '')
                               else _load_media('Sound', url,
                                                Sound._dir_search_first))
+
+        assert (self._pygame_sound is None) or Sound._mixer_initialized
 
     def __repr__(self):
         """
