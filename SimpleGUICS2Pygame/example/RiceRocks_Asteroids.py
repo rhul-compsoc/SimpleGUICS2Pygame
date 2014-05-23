@@ -2,9 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-RiceRocks (Asteroids) (December 14, 2013)
+RiceRocks (Asteroids) (May 23, 2014)
 
-My slightly retouched solution of the mini-project #8 of the course
+My retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
 
 Run on (maybe very slow on some browsers):
@@ -19,7 +19,7 @@ Fix me:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -59,7 +59,7 @@ SCREEN_HEIGHT = 600
 ###################
 frame = None
 
-ricerock = None
+ricerocks = None
 
 
 #
@@ -123,6 +123,9 @@ class RiceRocks:
         self.music_active = True
         self.sounds_active = True
         self.timer = simplegui.create_timer(1000, self.rock_spawner)
+
+        self.img_infos = None
+        self.medias = None
 
     def bomb_explode(self):
         """
@@ -309,20 +312,23 @@ class RiceRocks:
                                              % SCREEN_HEIGHT)
 
                         # Elastic collision (with radius*3 as mass)
-                        sum = (rock.radius + other.radius)*3
-                        diff = (rock.radius - other.radius)*3
+                        # https://en.wikipedia.org/wiki/Elastic_collision
+                        tmp_sum = (rock.radius + other.radius)*3
+                        tmp_diff = (rock.radius - other.radius)*3
 
                         double = 2*3*other.radius
-                        new_x = (float(diff*rock.velocity[0]
-                                       + double*other.velocity[0])/sum)
-                        new_y = (float(diff*rock.velocity[1]
-                                       + double*other.velocity[1])/sum)
+                        new_x = (float(tmp_diff*rock.velocity[0]
+                                       + double*other.velocity[0])/tmp_sum)
+                        new_y = (float(tmp_diff*rock.velocity[1]
+                                       + double*other.velocity[1])/tmp_sum)
 
                         double = 2*3*rock.radius
-                        other.velocity[0] = float(double*rock.velocity[0]
-                                                  - diff*other.velocity[0])/sum
-                        other.velocity[1] = float(double*rock.velocity[1]
-                                                  - diff*other.velocity[1])/sum
+                        other.velocity[0] = float(
+                            double*rock.velocity[0]
+                            - tmp_diff*other.velocity[0])/tmp_sum
+                        other.velocity[1] = float(
+                            double*rock.velocity[1]
+                            - tmp_diff*other.velocity[1])/tmp_sum
 
                         rock.velocity[0] = new_x
                         rock.velocity[1] = new_y
@@ -362,19 +368,19 @@ class RiceRocks:
         size = 36
         font = 'sans-serif'
 
-        s1 = 'Score'
-        width1 = frame.get_canvas_textwidth(s1, size, font)
-        s2 = str(self.score)
-        width2 = frame.get_canvas_textwidth(s2, size, font)
+        text1 = 'Score'
+        width1 = frame.get_canvas_textwidth(text1, size, font)
+        text2 = str(self.score)
+        width2 = frame.get_canvas_textwidth(text2, size, font)
 
-        canvas.draw_text(s1, (SCREEN_WIDTH - 22 - width1, 22 + size*3.0/4),
+        canvas.draw_text(text1, (SCREEN_WIDTH - 22 - width1, 22 + size*3.0/4),
                          size, 'Gray', font)
-        canvas.draw_text(s2, (SCREEN_WIDTH - 22 - width2, 22 + size*7.0/4),
+        canvas.draw_text(text2, (SCREEN_WIDTH - 22 - width2, 22 + size*7.0/4),
                          size, 'Gray', font)
 
-        canvas.draw_text(s1, (SCREEN_WIDTH - 20 - width1, 20 + size*3.0/4),
+        canvas.draw_text(text1, (SCREEN_WIDTH - 20 - width1, 20 + size*3.0/4),
                          size, 'White', font)
-        canvas.draw_text(s2, (SCREEN_WIDTH - 20 - width2, 20 + size*7.0/4),
+        canvas.draw_text(text2, (SCREEN_WIDTH - 20 - width2, 20 + size*7.0/4),
                          size, 'White', font)
 
         # Draw splash screen if game not started
@@ -451,7 +457,7 @@ class RiceRocks:
 
             frame.set_mouseclick_handler(click)
 
-            if ricerocks.music_active:
+            if self.music_active:
                 self.medias.get_sound('intro').play()
 
             self.loaded = True
@@ -524,7 +530,7 @@ class RiceRocks:
                            (random.random()*0.3*(
                             self.score/2 + 1)))*random.choice((-1, 1))
 
-            for i in range(10):
+            for _ in range(10):
                 rock_pos = (random.randrange(0, SCREEN_WIDTH),
                             random.randrange(0, SCREEN_HEIGHT))
                 rock_vel = (random_vel(),
@@ -537,8 +543,8 @@ class RiceRocks:
                                 random.randint(1, 3))
 
                 too_close = False
-                for r in self.rocks:
-                    if r.collide(rock):
+                for rock2 in self.rocks:
+                    if rock2.collide(rock):
                         too_close = True
 
                         break
@@ -555,7 +561,7 @@ class RiceRocks:
         """
         Start the game.
         """
-        if ricerocks.music_active:
+        if self.music_active:
             self.medias.get_sound('intro').rewind()
             self.medias.get_sound('soundtrack').play()
 
@@ -592,7 +598,7 @@ class RiceRocks:
 
         self.my_ship.stop()
 
-        if ricerocks.music_active:
+        if self.music_active:
             self.medias.get_sound('soundtrack').rewind()
             self.medias.get_sound('intro').play()
 
@@ -885,15 +891,13 @@ class Ship(Sprite):
         """
         Launch a missile.
         """
-        v = angle_to_vector(ricerocks.my_ship.angle)
+        vector = angle_to_vector(self.angle)
 
         ricerocks.missiles.append(
-            Sprite((ricerocks.my_ship.position[0]
-                    + ricerocks.my_ship.radius*v[0],
-                    ricerocks.my_ship.position[1]
-                    + ricerocks.my_ship.radius*v[1]),
-                   (ricerocks.my_ship.velocity[0] + v[0]*6,
-                    ricerocks.my_ship.velocity[1] + v[1]*6),
+            Sprite((self.position[0] + self.radius*vector[0],
+                    self.position[1] + self.radius*vector[1]),
+                   (self.velocity[0] + vector[0]*6,
+                    self.velocity[1] + vector[1]*6),
                    self.angle, 0,
                    'missile'))
 
@@ -931,9 +935,9 @@ class Ship(Sprite):
         """
         assert (right is None) or isinstance(right, bool), type(right)
 
-        ricerocks.my_ship.angle_velocity = {False: -0.05,
-                                            None: 0,
-                                            True: 0.05}[right]
+        self.angle_velocity = {False: -0.05,
+                               None: 0,
+                               True: 0.05}[right]
 
     def update(self):
         """
@@ -969,6 +973,8 @@ def click(pos):
     """
     If click on splash screen
     then start the game.
+
+    :param pos: (int >= 0, int >= 0)
     """
     center = (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0)
     size = ricerocks.img_infos['splash'].get_size()
@@ -998,6 +1004,8 @@ def fps_on_off():
 def keydown(key):
     """
     Event handler to deal key down.
+
+    :param key: int >= 0
     """
     if ricerocks.started:
         if key == simplegui.KEY_MAP['left']:
@@ -1019,6 +1027,8 @@ def keydown(key):
 def keyup(key):
     """
     Event handler to deal key up.
+
+    :param key: int >= 0
     """
     if ricerocks.started:
         if key == simplegui.KEY_MAP['left']:
@@ -1032,10 +1042,10 @@ def keyup(key):
         elif key == simplegui.KEY_MAP['up']:
             ricerocks.my_ship.thrust_on_off()
         elif key == 27:  # Escape
-            quit()
+            quit_prog()
 
 
-def quit():
+def quit_prog():
     """
     Stop timer and sounds, and quit.
     """
@@ -1095,7 +1105,7 @@ def switch_sounds():
 #######
 if __name__ == '__main__':
     frame = simplegui.create_frame('RiceRocks (Asteroids)',
-                                   SCREEN_WIDTH, SCREEN_HEIGHT, 150)
+                                   SCREEN_WIDTH, SCREEN_HEIGHT, 200)
 
     fps = FPS(x=0, y=0, font_size=32)
 
@@ -1110,7 +1120,7 @@ if __name__ == '__main__':
     button_animate_background = frame.add_button('Static background',
                                                  switch_animate_background)
     frame.add_label('')
-    frame.add_button('Quit', quit)
+    frame.add_button('Quit', quit_prog)
     frame.add_label('')
     frame.add_label('Turn: Left and Right')
     frame.add_label('Accelerate: Up')

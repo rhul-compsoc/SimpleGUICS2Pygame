@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* May 17, 2014
+* May 23, 2014
+
+  - Updated ``example/RiceRocks_Asteroids.py``.
 
   - Updated ``example/Spaceship_prototype.py``.
 
