@@ -1,5 +1,5 @@
 simplegui_lib --- simply import the following modules
-=============
+=====================================================
 
 .. toctree::
    simplegui_lib_draw
