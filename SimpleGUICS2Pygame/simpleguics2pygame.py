@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (May 23, 2014)
+simpleguics2pygame (May 24, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -845,8 +845,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
-    Side effect: Each new font with new size
-                 is added to `Frame._pygamefonts_cached`.
+    Side effect: Each new font with new size is added to `Frame._pygamefonts_cached`.
     See `Frame._pygamefonts_cached_clear`.
 
     :param font_face: None
@@ -997,8 +996,7 @@ class Frame:
     _print_load_medias = False
     """
     If `True`
-    then print URLs or locals filename loaded
-         by `load_image()` and `load_sound()`.
+    then print URLs or locals filename loaded by `load_image()` and `load_sound()`.
     """
 
     _pygamefonts_cached = {}
@@ -1034,16 +1032,14 @@ class Frame:
     _save_downloaded_medias = False
     """
     If `True`
-    then save images and sounds downloaded from Web
-         that don't already exist in local directory.
+    then save images and sounds downloaded from Web that don't already exist in local directory.
     See Frame._save_downloaded_medias_overwrite.
     """
 
     _save_downloaded_medias_overwrite = False
     """
     If `True` and `Frame._save_downloaded_medias`
-    then download all images and sounds from Web
-         and save in local directory even if they already exist.
+    then download all images and sounds from Web and save in local directory even if they already exist.
     """
 
     _statuskey_background_pygame_color = (
@@ -1376,8 +1372,7 @@ class Frame:
 
     def _pos_in_control(self, x, y):
         """
-        If position (`x`, `y`) is on the zone
-          of one `Control` or `TextAreaControl`
+        If position (`x`, `y`) is on the zone of one `Control` or `TextAreaControl`
         then return it
         else return `None`.
 
@@ -2280,7 +2275,7 @@ class Canvas:
 
         :param point_list: non empty (tuple or list)
                            of ((int or float, int or float)
-                               or [int or float, int or float])
+                           or [int or float, int or float])
         :param line_width: (int or float) > 0
         :param line_color: str
         :param fill_color: None or str
@@ -2350,7 +2345,7 @@ class Canvas:
 
         :param point_list: non empty (tuple or list)
                            of ((int or float, int or float)
-                               or [int or float, int or float])
+                           or [int or float, int or float])
         :param line_width: (int or float) > 0
         :param line_color: str
         """
@@ -2531,7 +2526,7 @@ class Control:
 
         :param frame: Frame
         :param text: str
-        :param button_handler: None or (function () -> *)
+        :param button_handler: None or (function () -> \*)
         :param button_width: None or int or float
         """
         assert _PYGAME_AVAILABLE

@@ -1,6 +1,5 @@
 SimpleGUICS2Pygame package's documentation
 ==========================================
-.. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_32x32_t.png
 
 .. toctree::
    :maxdepth: 3

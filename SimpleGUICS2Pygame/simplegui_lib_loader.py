@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_loader (December 12, 2013)
+simplegui_lib_loader (May 24, 2014)
 
 A class to help load images and sounds
 in SimpleGUI of CodeSkulptor.
@@ -9,7 +9,7 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -112,7 +112,7 @@ class Loader:
 
         Example:
         If `url` == `'http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png'`
-           and `name` == `None`
+        and `name` == `None`
         then `'asteroid_blue.png'` is used.
 
         :param url: str
@@ -137,7 +137,7 @@ class Loader:
 
         Example:
         If `url` == `'http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg'`
-           and `name` == `None`
+        and `name` == `None`
         then `'Epoq-Lepidoptera.ogg'` is used.
 
         :param url: str
@@ -246,10 +246,7 @@ class Loader:
         **Start loading** of all images and sounds added
         since last `Loader.load()` execution.
 
-        * In standard Python with SimpleGUICS2Pygame:
-        draw a progression bar on canvas
-        and wait until the loading is finished.
-
+        * In standard Python with SimpleGUICS2Pygame: draw a progression bar on canvas and wait until the loading is finished.
         * In SimpleGUI of CodeSkulptor: *don't* wait.
         """
         try:

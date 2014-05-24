@@ -5,3 +5,4 @@
     :special-members:
     :members:
     :exclude-members: get_canvas_image
+    :noindex:

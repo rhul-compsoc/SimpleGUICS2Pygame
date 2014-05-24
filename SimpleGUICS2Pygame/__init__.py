@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-SimpleGUICS2Pygame package (January 8, 2014)
+SimpleGUICS2Pygame package (May 24, 2014)
 
 It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -23,10 +23,11 @@ Module simpleplot require matplotlib_ .
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _matplotlib: http://matplotlib.org/
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
@@ -64,7 +65,7 @@ Website of the project.
 #
 # GPLv3
 # ------
-# Copyright (C) 2013 Olivier Pirson
+# Copyright (C) 2013, 2014 Olivier Pirson
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

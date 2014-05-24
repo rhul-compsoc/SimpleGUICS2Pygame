@@ -106,10 +106,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* May 23, 2014
+* May 24, 2014
 
   - Off the mixer if no sound is loaded.
   - Updated ``example/RiceRocks_Asteroids.py``.
+  - Updated documentation.
 
   - Updated ``example/Spaceship_prototype.py``.
 
