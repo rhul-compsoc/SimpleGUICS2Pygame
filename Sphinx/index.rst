@@ -38,6 +38,7 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
 .. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_64x64_t.png
 
+|
 
 
 Installation
