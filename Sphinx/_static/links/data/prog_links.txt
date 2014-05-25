@@ -164,16 +164,16 @@ http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py
 Analog Clock (Kostya <span class="small-caps">Shkryob</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos_bunny_adventure.py
-Bunny's Big Adventure (Jenna <span class="small-caps">Netland</span>)
+Bunny&rsquo;s Big Adventure (Jenna <span class="small-caps">Netland</span>)
 
 http://www.codeskulptor.org/#demos_bunny_game_objects.py
-Bunny's Big Adventure (game objects require Bunny's Big Adventure, Jenna <span class="small-caps">Netland</span>)
+Bunny&rsquo;s Big Adventure (game objects require Bunny&rsquo;s Big Adventure, Jenna <span class="small-caps">Netland</span>)
 
 http://www.codeskulptor.org/#save2_cxBnS2wLPz.py
-Bunny's Big Adventure (Jenna <span class="small-caps">Netland</span>) ADAPTED
+Bunny&rsquo;s Big Adventure (Jenna <span class="small-caps">Netland</span>) ADAPTED
 
 http://www.codeskulptor.org/#user16_fn3IdoDS8y_0.py
-Bunny's Big Adventure (game objects require by Bunny's Big Adventure, Jenna <span class="small-caps">Netland</span>) ADAPTED
+Bunny&rsquo;s Big Adventure (game objects require by Bunny&rsquo;s Big Adventure, Jenna <span class="small-caps">Netland</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-ddr.py
 DDR clone (Emily <span class="small-caps">Wachtel</span>)
@@ -185,13 +185,20 @@ http://www.codeskulptor.org/#demos-towerdefence.py
 Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>)
 
 http://www.codeskulptor.org/#user16_pkjMxzxZCY_0.py
-Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>) ADAPTED (but I don't understand anything in this game!)
+Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>) ADAPTED (but I don&rsquo;t understand anything in this game!)
 
 http://www.codeskulptor.org/#demos-game_of_life.py
 Game of Life (Jonathan <span class="small-caps">Nixon</span>)
 
 http://www.codeskulptor.org/#user19_kx6pNaJ16J_0.py
 <strong>Game of Life</strong> (Jonathan <span class="small-caps">Nixon</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos-pang.py
+Pang (Ender <span class="small-caps">Kasim</span>)
+Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6395" target="_blank"><i>Pang: An old arcade game</i></a>
+
+http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py
+<strong>Pang</strong> (Ender <span class="small-caps">Kasim</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-automata.py
 Psychedelic 1D Cellular Automata (Scott <span class="small-caps">Reynolds</span>)
@@ -212,7 +219,7 @@ http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py
 <strong>Pyman</strong> (Lawrence <span class="small-caps">Strickland</span>) ADAPTED (but big speed problem in Python, too fast!)
 
 http://www.codeskulptor.org/#demos-riceracer.py
-Rice Racer (Steve <span class="small-caps">Knock</span>) (don't work in Python, due to incorrect use of classes)
+Rice Racer (Steve <span class="small-caps">Knock</span>) (don&rsquo;t work in Python, due to incorrect use of classes)
 
 http://www.codeskulptor.org/#demos-starwars.py
 Star Wars (Steve <span class="small-caps">Knock</span>)
@@ -221,7 +228,7 @@ http://www.codeskulptor.org/#user16_aLi8h3NpYe_0.py
 <strong>Star Wars</strong> (Steve <span class="small-caps">Knock</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-adventures_of_tom.py
-The Adventures of Tom (Derek <span class="small-caps">Peirce</span>) (don't work in Python, due to incorrect use of classes)
+The Adventures of Tom (Derek <span class="small-caps">Peirce</span>) (don&rsquo;t work in Python, due to incorrect use of classes)
 
 http://www.codeskulptor.org/#demos-tile_flood.py
 Tile Flood (Sergey <span class="small-caps">Efimov</span>)
@@ -286,13 +293,6 @@ Pacific Defender (Bob <span class="small-caps">Lewis</span>)
 
 http://www.codeskulptor.org/#user17_v1lBHnqvBe_8.py
 <strong>Pacific Defender</strong> (Bob <span class="small-caps">Lewis</span>) ADAPTED
-
-http://www.codeskulptor.org/#user26_Mk6ZlCLlK2U7JpU.py
-Pang (Ender <span class="small-caps">Kasim</span>)
-Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-003/forum/thread?thread_id=6395" target="_blank"><i>Pang: An old arcade game</i></a>
-
-http://www.codeskulptor.org/#user27_a5Mn21Br8E_0.py
-<strong>Pang</strong> (Ender <span class="small-caps">Kasim</span>) ADAPTED
 
 http://www.codeskulptor.org/#user16_Iuy7xIrAnI_25.py
 Pitfall (Corrado <span class="small-caps">Musumeci</span>)

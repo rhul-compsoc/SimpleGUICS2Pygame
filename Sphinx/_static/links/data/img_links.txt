@@ -1,3 +1,15 @@
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="small-caps">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_background.png
+
+http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_hour_arrow.png
+
+http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_minute_arrow.png
+
+http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_second_arrow.png
+
+
+
 + Asteroid (Kim <span class="small-caps">Lathrop</span>) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png
@@ -135,6 +147,30 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/card_back.png
 Red verso
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="small-caps">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/9v5ehnO.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/FDqGDmc.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/HfReHl5.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/IHXoEES.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/LdTCEUo.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/Nl5u05O.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/NljADnB.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pX44tkA.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/VCC6wZL.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/Vlt8FBC.png
 
 
 

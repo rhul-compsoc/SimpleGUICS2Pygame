@@ -26,6 +26,10 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
++  <a rel="nofollow" href="http://freemusicarchive.org/" target="_blank">Free Music Archive</a>
+
+
+
 +  <a rel="nofollow" href="http://www.freesfx.co.uk/" target="_blank">freeSFX</a> (profil <a rel="nofollow" href="http://www.freesfx.co.uk/users/opimedia/" target="_blank">opimedia</a>)
 
 
@@ -39,6 +43,16 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 + <a rel="nofollow" href="http://opengameart.org/" target="_blank">OpenGameArt.org</a>&thinsp;: <a rel="nofollow" href="http://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid[]=12" target="_blank">Music</a>, <a rel="nofollow" href="http://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid[]=13" target="_blank">Sound Effects</a>
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="small-caps">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/paza-moduless.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3
 
 
 
