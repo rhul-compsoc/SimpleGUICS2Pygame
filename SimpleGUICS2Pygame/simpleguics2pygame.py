@@ -797,17 +797,22 @@ def _simpleguicolor_to_pygamecolor(color,
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
+    pygame_color = Frame._pygamecolors_cached.get(color)
+    if pygame_color is not None:
+        return pygame_color
+
     assert _PYGAME_AVAILABLE
     assert isinstance(color, str), type(color)
     assert len(color) > 0
-    #assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
+    # assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
     #        or (color[:4] == 'rgb(')
     #        or (color[:5] == 'rgba(')
     #        or (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
 
     if color[0] == '#':        # format #rrggbb or #rgb
-        return pygame.Color(color if len(color) == 7
-                            else '#' + color[1]*2 + color[2]*2 + color[3]*2)
+        pygame_color = pygame.Color(
+            color if len(color) == 7
+            else '#' + color[1]*2 + color[2]*2 + color[3]*2)
     elif color[:4] == 'rgb(':  # format rgb(red,green,blue)
         assert color[-1] == ')', color
 
@@ -815,9 +820,9 @@ def _simpleguicolor_to_pygamecolor(color,
 
         assert len(color) == 3, color
 
-        return pygame.Color(max(0, min(255, int(color[0]))),
-                            max(0, min(255, int(color[1]))),
-                            max(0, min(255, int(color[2]))))
+        pygame_color = pygame.Color(max(0, min(255, int(color[0]))),
+                                    max(0, min(255, int(color[1]))),
+                                    max(0, min(255, int(color[2]))))
     elif color[:5] == 'rgba(':  # format rgba(red,green,blue,alpha)
         assert color[-1] == ')', color
 
@@ -825,13 +830,18 @@ def _simpleguicolor_to_pygamecolor(color,
 
         assert len(color) == 4, color
 
-        return pygame.Color(max(0, min(255, int(color[0]))),
-                            max(0, min(255, int(color[1]))),
-                            max(0, min(255, int(color[2]))),
-                            max(0, min(255, int(round(float(color[3])*255)))))
+        pygame_color = pygame.Color(
+            max(0, min(255, int(color[0]))),
+            max(0, min(255, int(color[1]))),
+            max(0, min(255, int(color[2]))),
+            max(0, min(255, int(round(float(color[3])*255)))))
     else:                       # constant name
-        return _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
-                                                  default_pygame_color)
+        pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
+                                                          default_pygame_color)
+
+    Frame._pygamecolors_cached[color] = pygame_color
+
+    return pygame_color
 
 
 def _simpleguifontface_to_pygamefont(font_face, font_size):
@@ -997,6 +1007,11 @@ class Frame:
     """
     If `True`
     then print URLs or locals filename loaded by `load_image()` and `load_sound()`.
+    """
+
+    _pygamecolors_cached = {}
+    """
+    `Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
     """
 
     _pygamefonts_cached = {}

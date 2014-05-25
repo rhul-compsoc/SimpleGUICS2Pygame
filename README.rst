@@ -108,6 +108,7 @@ Changes
 =======
 * May 25, 2014
 
+  - Added cache for colors.
   - First public version of ``.hgignore`` and ``Makefile``.
   - Off the mixer if no sound is loaded.
   - Updated ``example/RiceRocks_Asteroids.py``.
