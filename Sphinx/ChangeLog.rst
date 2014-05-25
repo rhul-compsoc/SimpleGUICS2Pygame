@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* May 25, 2014
+* 01.05.00 --- May 25, 2014
 
   - Added cache for colors and option ``--print-stats-cache``.
   - First public version of ``.hgignore`` and ``Makefile``.

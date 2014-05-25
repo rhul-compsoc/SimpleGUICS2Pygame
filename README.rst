@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* May 25, 2014
+* 01.05.00 --- May 25, 2014
 
   - Added cache for colors and option ``--print-stats-cache``.
   - First public version of ``.hgignore`` and ``Makefile``.
@@ -138,18 +138,6 @@ Changes
   - Updated media and CodeSkulptor programs links.
 
 * 01.04.00 --- December 16, 2013
-
-  - Customized documentation.
-  - Splitted changes in a separated file.
-
-  - Added ``numeric`` (``Matrix`` object) module.
-
-  - Corrected some typos by Maxim Rybalov. (Thank you.)
-
-  - Updated ``simplegui_lib_fps.py``.
-  - Updated ``example/RiceRocks_Asteroids.py``.
-
-* 01.03.00 --- December 13, 2013
 
 ...
 
