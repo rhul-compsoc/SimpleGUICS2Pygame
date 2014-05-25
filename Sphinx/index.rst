@@ -105,6 +105,14 @@ Or online:
 
 
 
+Known bugs
+----------
+On my GNU/Linux Debian_ Wheezy, the Pygame mixer initialization blocks the program if another application play also sounds. (And sound never work!)
+
+.. _Debian: http://www.debian.org/
+
+
+
 Author |OPi|
 ------------
 | Olivier Pirson OPi --- http://www.opimedia.be/
