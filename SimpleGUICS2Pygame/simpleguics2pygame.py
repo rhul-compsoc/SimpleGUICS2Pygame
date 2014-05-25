@@ -816,25 +816,25 @@ def _simpleguicolor_to_pygamecolor(color,
     elif color[:4] == 'rgb(':  # format rgb(red,green,blue)
         assert color[-1] == ')', color
 
-        color = color[4:-1].split(',')
+        channels = color[4:-1].split(',')
 
-        assert len(color) == 3, color
+        assert len(channels) == 3, channels
 
-        pygame_color = pygame.Color(max(0, min(255, int(color[0]))),
-                                    max(0, min(255, int(color[1]))),
-                                    max(0, min(255, int(color[2]))))
+        pygame_color = pygame.Color(max(0, min(255, int(channels[0]))),
+                                    max(0, min(255, int(channels[1]))),
+                                    max(0, min(255, int(channels[2]))))
     elif color[:5] == 'rgba(':  # format rgba(red,green,blue,alpha)
         assert color[-1] == ')', color
 
-        color = color[5:-1].split(',')
+        channels = color[5:-1].split(',')
 
-        assert len(color) == 4, color
+        assert len(channels) == 4, channels
 
         pygame_color = pygame.Color(
-            max(0, min(255, int(color[0]))),
-            max(0, min(255, int(color[1]))),
-            max(0, min(255, int(color[2]))),
-            max(0, min(255, int(round(float(color[3])*255)))))
+            max(0, min(255, int(channels[0]))),
+            max(0, min(255, int(channels[1]))),
+            max(0, min(255, int(channels[2]))),
+            max(0, min(255, int(round(float(channels[3])*255)))))
     else:                       # constant name
         pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
                                                           default_pygame_color)
