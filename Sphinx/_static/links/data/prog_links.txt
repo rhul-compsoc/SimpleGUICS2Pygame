@@ -6,13 +6,13 @@ Blackjack.py
 http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
 Frame_example.py
 
-http://www.codeskulptor.org/#user30_UchGVyspdrjn9WW.py
+http://www.codeskulptor.org/#user33_NBnGYFDBSbzFIuL.py
 keys.py
-Example of codeskulptor_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
+Example of simplegui_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user30_tZkk6D0JFl5L8vT.py
+http://www.codeskulptor.org/#user33_wPIWeS5KhjX1vMO.py
 loader.py
-Example of codeskulptor_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
+Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
 http://www.codeskulptor.org/#user30_Wi9uk2Zi4soQklx.py
 <strong>Mandelbrot_Set</strong>.py
@@ -20,16 +20,16 @@ http://www.codeskulptor.org/#user30_Wi9uk2Zi4soQklx.py
 http://www.codeskulptor.org/#user31_OKLsQepyN3JSx4l.py
 <strong>Memory</strong>.py
 
-http://www.codeskulptor.org/#user30_7GNxjcjxyJU7RFg.py
+http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 <strong>Nostalgic_Basic_Blitz</strong>.py
 
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user33_t27piyyexB2it9z.py
+http://www.codeskulptor.org/#user33_YFEE0KdewbVaBpL.py
 <strong>RiceRocks_Asteroids</strong>.py
 
-http://www.codeskulptor.org/#user32_KDprlTWRMo9K9GI.py
+http://www.codeskulptor.org/#user33_roHVIgcGB5Psy8p.py
 Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
@@ -49,24 +49,24 @@ http://www.codeskulptor.org/#user27_5LlszPPJxQHFMbk.py
 Module <strong>codeskulptor_lib</strong>.py
 Some miscellaneous functions to help in CodeSkulptor: <a rel="nofollow" href="../../codeskulptor_lib.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user30_1apIoM42omYWLOB.py
+http://www.codeskulptor.org/#user33_0s57m3vvNl5OZ5s.py
 Module <strong>simplegui_lib</strong>.py
 Some functions and classes to help in SimpleGUI of CodeSkulptor, from simplegui_lib_draw, from simplegui_lib_fps, simplegui_lib_keys and simplegui_lib_loader: <a rel="nofollow" href="../../simplegui_lib.html" target="_blank">Documentation</a>.
 
 http://www.codeskulptor.org/#user23_HY71NDvHu7WKaMa.py
-Module <strong>codeskulptor_lib_draw</strong>.py
+Module <strong>simplegui_lib_draw</strong>.py
 Draw functions to help in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_draw.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user27_0ymhUVX6zleSFrB.py
-Module <strong>codeskulptor_lib_fps</strong>.py
+http://www.codeskulptor.org/#user33_Bhc7VzXKbXGVQV1.py
+Module <strong>simplegui_lib_fps</strong>.py
 A class to calculate and display FPS (Frames Per Second) in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_fps.html" target="_blank">Documentation</a>.
 
 http://www.codeskulptor.org/#user30_VE5zdyz5OZwgen9.py
-Module <strong>codeskulptor_lib_keys</strong>.py
+Module <strong>simplegui_lib_keys</strong>.py
 A class to help manage keyboard handling in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user27_rSvHGawbvoYISaV.py
-Module <strong>codeskulptor_lib_loader</strong>.py
+http://www.codeskulptor.org/#user33_PJRhxILEqeTIZKf.py
+Module <strong>simplegui_lib_loader</strong>.py
 A class to help load images and sounds in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
 
@@ -91,7 +91,7 @@ test_dir.py
 http://www.codeskulptor.org/#user27_x2tpW77htMyEPUz.py
 test_grid.py
 
-http://www.codeskulptor.org/#user27_e9rliFBDCen4tIQ.py
+http://www.codeskulptor.org/#user33_bSzKAzyvLLiXVaF.py
 test_image.py
 
 http://www.codeskulptor.org/#user27_VYTn8er4IPvVhpR.py

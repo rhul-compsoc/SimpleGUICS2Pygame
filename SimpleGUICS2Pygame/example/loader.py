@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_loader.Loader use. (April 26, 2014)
+Example of simplegui_lib_loader.Loader use. (May 25, 2014)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
@@ -17,7 +17,7 @@ http://www.opimedia.be/
 try:
     import simplegui
 
-    from user27_rSvHGawbvoYISaV import Loader
+    from user33_PJRhxILEqeTIZKf import Loader
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -26,7 +26,7 @@ except ImportError:
     simplegui.Frame._hide_status = True
 
 
-WIDTH = 300
+WIDTH = 400
 HEIGHT = 200
 
 

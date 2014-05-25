@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib (April 17, 2014)
+simplegui_lib (May 25, 2014)
 
 Some functions and classes to help
 in SimpleGUI of CodeSkulptor,
@@ -19,9 +19,9 @@ http://www.opimedia.be/
 
 try:
     from user23_HY71NDvHu7WKaMa import draw_rect, draw_text_side
-    from user27_0ymhUVX6zleSFrB import FPS
+    from user33_Bhc7VzXKbXGVQV1 import FPS
     from user30_VE5zdyz5OZwgen9 import Keys
-    from user27_rSvHGawbvoYISaV import Loader
+    from user33_PJRhxILEqeTIZKf import Loader
 except ImportError:
     from SimpleGUICS2Pygame.simplegui_lib_draw import draw_rect, draw_text_side
     from SimpleGUICS2Pygame.simplegui_lib_fps import FPS

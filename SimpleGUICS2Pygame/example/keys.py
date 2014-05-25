@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of codeskulptor_lib_keys.Keys use. (April 26, 2014)
+Example of simplegui_lib_keys.Keys use. (May 25, 2014)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html

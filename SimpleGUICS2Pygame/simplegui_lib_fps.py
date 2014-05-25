@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_fps (December 15, 2013)
+simplegui_lib_fps (May 25, 2014)
 
 A class to calculate and display FPS (Frames Per Second)
 in SimpleGUI of CodeSkulptor.
@@ -9,7 +9,7 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -93,6 +93,9 @@ class FPS:
             from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
 
         def update():
+            """
+            Update counters.
+            """
             if self._timer is not None:
                 self._nb_seconds += 1
                 self._fps = int(round(float(self._nb_frames_drawed)

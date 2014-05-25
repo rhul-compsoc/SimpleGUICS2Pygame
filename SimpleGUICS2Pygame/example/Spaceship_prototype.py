@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (May 17, 2014)
+Spaceship prototype (May 25, 2014)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -25,8 +25,8 @@ import random
 
 try:
     from user27_5LlszPPJxQHFMbk import assert_position
-    from user27_0ymhUVX6zleSFrB import FPS
-    from user27_rSvHGawbvoYISaV import Loader
+    from user33_Bhc7VzXKbXGVQV1 import FPS
+    from user33_PJRhxILEqeTIZKf import Loader
 
     import simplegui
 

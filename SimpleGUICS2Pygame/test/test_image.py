@@ -2,20 +2,20 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (December 14, 2013)
+Test draw images. (May 25, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
 import math
 
 try:
-    from user27_0ymhUVX6zleSFrB import FPS
-    from user27_rSvHGawbvoYISaV import Loader
+    from user33_Bhc7VzXKbXGVQV1 import FPS
+    from user33_PJRhxILEqeTIZKf import Loader
 
     import simplegui
 
