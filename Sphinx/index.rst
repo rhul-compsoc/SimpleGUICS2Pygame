@@ -290,6 +290,7 @@ When you run a program you can use following options:
 * ``--no-status``: Hide two status boxes.
 * ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
 * ``--print-load-medias``: Print URLs or local filenames loaded.
+* ``--print-stats-cache``: After frame stopped, print some statistics of caches.
 * ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
 * ``--stop-timers``: Stop all timers when close frame without ask.
 

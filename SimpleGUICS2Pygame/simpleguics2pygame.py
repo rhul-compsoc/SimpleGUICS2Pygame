@@ -688,6 +688,17 @@ def _pos_round(position):
     return (int(round(position[0])), int(round(position[1])))
 
 
+def _print_stats_cache():
+    """
+    Print some statistics of cached items.
+    """
+    print("""# cached colors: {}
+# cached fonts: {}
+# cached medias: {}""".format(len(Frame._pygamecolors_cached),
+                              len(Frame._pygamefonts_cached),
+                              len(Frame._pygamemedias_cached)))
+
+
 def _pygamekey_to_simpleguikey(key):
     """
     Return the code use by SimpleGUI to representing
@@ -724,6 +735,7 @@ def _set_option_from_argv():
     * ``--no-status``: Hide two status boxes.
     * ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
     * ``--print-load-medias``: Print URLs or locals filename loaded.
+    * ``--print-stats-cache``: After frame stopped, print some statistics of caches.
     * ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
     * ``--stop-timers``: Stop all timers when close frame without ask.
 
@@ -760,11 +772,13 @@ def _set_option_from_argv():
         elif arg == '--overwrite-downloaded-medias':
             Frame._save_downloaded_medias = True
             Frame._save_downloaded_medias_overwrite = True
+        elif arg == '--print-load-medias':
+            Frame._print_load_medias = True
+        elif arg == '--print-stats-cache':
+            Frame._print_stats_cache = True
         elif arg == '--save-downloaded-medias':
             Frame._save_downloaded_medias = True
             Frame._save_downloaded_medias_overwrite = False
-        elif arg == '--print-load-medias':
-            Frame._print_load_medias = True
         elif arg == '--stop-timers':
             Frame._keep_timers = False
         else:
@@ -790,12 +804,15 @@ def _simpleguicolor_to_pygamecolor(color,
 
     See http://www.opimedia.be/DS/mementos/colors.htm
 
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    Side effect: Each new color is added to `Frame._pygamecolors_cached`.
+    See `Frame._pygamecolors_cached_clear`.
+
     :param color: str
     :param default_pygame_color: pygame.Color
 
     :return: pygame.Color
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
     """
     pygame_color = Frame._pygamecolors_cached.get(color)
     if pygame_color is not None:
@@ -1009,6 +1026,12 @@ class Frame:
     then print URLs or locals filename loaded by `load_image()` and `load_sound()`.
     """
 
+    _print_stats_cache = False
+    """
+    If `True`
+    then print some statistics of caches after frame stopped.
+    """
+
     _pygamecolors_cached = {}
     """
     `Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
@@ -1106,6 +1129,21 @@ class Frame:
     """
     `pygame.font.Font` of status mouse box..
     """
+
+    @classmethod
+    def _pygamecolors_cached_clear(cls):
+        """
+        Empty the cache of Pygame colors used.
+
+        Each color used is cached to accelerate drawing.
+        If you use many many different colors maybe use this function
+        to free memory.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        Side effect: Empty `Frame._pygamecolors_cached`.
+        """
+        cls._pygamecolors_cached = {}
 
     @classmethod
     def _pygamefonts_cached_clear(cls):
@@ -1776,6 +1814,12 @@ class Frame:
         Frame._frame_instance = None
 
         pygame.display.quit()
+
+        if Frame._print_stats_cache:
+            _print_stats_cache()
+
+        Frame._pygamecolors_cached_clear()
+        Frame._pygamefonts_cached_clear()
 
     def stop(self):
         """
