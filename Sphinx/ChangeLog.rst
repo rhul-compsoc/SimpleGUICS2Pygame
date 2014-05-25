@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* May 24, 2014
+* May 25, 2014
 
   - Off the mixer if no sound is loaded.
   - Updated ``example/RiceRocks_Asteroids.py``.

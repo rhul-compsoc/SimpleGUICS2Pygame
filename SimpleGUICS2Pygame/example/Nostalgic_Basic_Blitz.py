@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Nostalgic Basic Blitz (April 26, 2014)
+Nostalgic Basic Blitz (May 25, 2014)
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -199,7 +199,7 @@ class City:
         Set randomly a city.
         """
         heights = [random.randint(4, HEIGHT - 8)//2
-                   for i in range((WIDTH - 5)//2)]
+                   for _ in range((WIDTH - 5)//2)]
 
         assert heights
 
