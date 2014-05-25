@@ -108,6 +108,7 @@ Changes
 =======
 * May 25, 2014
 
+  - First public version of ``.hgignore`` and ``Makefile``.
   - Off the mixer if no sound is loaded.
   - Updated ``example/RiceRocks_Asteroids.py``.
   - Updated documentation.
