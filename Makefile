@@ -66,7 +66,7 @@ sdist:
 .PHONY: html htmltgz links
 
 html:	links
-	@$(CD) Sphinx; export PYTHONPATH=$(PWD); $(MAKE) html
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
 htmltgz:	html
 		@$(CD) Sphinx/_build; $(TAR) -czvf SimpleGUICS2Pygame_html.tar html
@@ -97,13 +97,13 @@ test2:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 2"
 	@$(ECHO) "=================="
-	@$(CD) SimpleGUICS2Pygame/test; $(PYTHON2) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) test_all.py
 
 test3:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 3"
 	@$(ECHO) "=================="
-	@$(CD) SimpleGUICS2Pygame/test; $(PYTHON3) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) test_all.py
 
 tests:	test2 test3
 
