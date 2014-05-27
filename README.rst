@@ -106,6 +106,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+* May 27, 2014
+
+  - Updated media and CodeSkulptor programs links.
+
 * 01.05.00 --- May 25, 2014
 
   - Added cache for colors and option ``--print-stats-cache``.

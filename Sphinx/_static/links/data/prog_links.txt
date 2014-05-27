@@ -187,6 +187,12 @@ Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>)
 http://www.codeskulptor.org/#user16_pkjMxzxZCY_0.py
 Elemental Tower Defence (Scott <span class="small-caps">Reynolds</span>) ADAPTED (but I don&rsquo;t understand anything in this game!)
 
+http://www.codeskulptor.org/#demos-galaxy_invaders.py
+Galaxy Invaders (Igor <span class="small-caps">Petetskih</span>)
+
+http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py
+<strong>Galaxy Invaders</strong> (Igor <span class="small-caps">Petetskih</span>) ADAPTED
+
 http://www.codeskulptor.org/#demos-game_of_life.py
 Game of Life (Jonathan <span class="small-caps">Nixon</span>)
 

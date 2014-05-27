@@ -38,6 +38,26 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
++  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profil <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_hit.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_shoot.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/bonus.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/explosion_02.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/explosion%2001.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/pause.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/player_shoot.wav
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3
+
+
+
 + <a rel="nofollow" href="http://www.archive.org/" target="_blank">Internet Archives</a>/ <a rel="nofollow" href="http://archive.org/details/audio" target="_blank">Audio Archive</a>
 
 

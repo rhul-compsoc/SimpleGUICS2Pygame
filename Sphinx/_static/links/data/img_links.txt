@@ -68,6 +68,62 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/space%20station.png
 
 +  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profil <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
 
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_3_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_3_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_3_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_4_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_4_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_4_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_5_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_5_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_5_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_6_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_6_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_6_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_7_1.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_7_2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_7_3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back01.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back02.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back03.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back04.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back05.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back06.jpg
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back07.jpg
+
 
 
 + <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/Community_Graphics_Resources" target="_blank">Community Graphics Resources</a> of <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/About" target="_blank">O.H.R.RPG.C.E.</a>
@@ -95,6 +151,10 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week6-emotions.png
 http://commondatastorage.googleapis.com/codeskulptor-assets/week8-bunny_sprite.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 
 
