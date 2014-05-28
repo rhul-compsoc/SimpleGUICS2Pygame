@@ -227,6 +227,12 @@ http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py
 http://www.codeskulptor.org/#demos-riceracer.py
 Rice Racer (Steve <span class="small-caps">Knock</span>) (don&rsquo;t work in Python, due to incorrect use of classes)
 
+http://www.codeskulptor.org/#demos-Rubik.py
+Rubik&rsquo;s Cube (Karen <span class="small-caps">Ward</span>, Dennis <span class="small-caps">della Corte</span>)
+
+http://www.codeskulptor.org/#user33_eg2RVgcIpLed7nz.py
+<strong>Rubik&rsquo;s Cube</strong> (Karen <span class="small-caps">Ward</span>, Dennis <span class="small-caps">della Corte</span>) ADAPTED
+
 http://www.codeskulptor.org/#demos-starwars.py
 Star Wars (Steve <span class="small-caps">Knock</span>)
 
