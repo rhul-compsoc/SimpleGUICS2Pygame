@@ -231,7 +231,7 @@ http://www.codeskulptor.org/#demos-Rubik.py
 Rubik&rsquo;s Cube (Karen <span class="small-caps">Ward</span>, Dennis <span class="small-caps">della Corte</span>)
 
 http://www.codeskulptor.org/#user33_eg2RVgcIpLed7nz.py
-<strong>Rubik&rsquo;s Cube</strong> (Karen <span class="small-caps">Ward</span>, Dennis <span class="small-caps">della Corte</span>) ADAPTED
+Rubik&rsquo;s Cube (Karen <span class="small-caps">Ward</span>, Dennis <span class="small-caps">della Corte</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-starwars.py
 Star Wars (Steve <span class="small-caps">Knock</span>)
@@ -241,6 +241,12 @@ http://www.codeskulptor.org/#user16_aLi8h3NpYe_0.py
 
 http://www.codeskulptor.org/#demos-adventures_of_tom.py
 The Adventures of Tom (Derek <span class="small-caps">Peirce</span>) (don&rsquo;t work in Python, due to incorrect use of classes)
+
+http://www.codeskulptor.org/#demos-descent.py
+The Descent (Jiaqi <span class="small-caps">Liu</span>)
+
+http://www.codeskulptor.org/#save2_WIzjLAwh92.py
+The Descent (Jiaqi <span class="small-caps">Liu</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-tile_flood.py
 Tile Flood (Sergey <span class="small-caps">Efimov</span>)

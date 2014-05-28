@@ -157,6 +157,21 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg
 
 
 
++ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="small-caps">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/bomb.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Crumble%20Sound.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gotitem.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/spring.mp3
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3
+
+
 
 + <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profil <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.sounds-resource.com/" target="_blank">Sounds</a>
 

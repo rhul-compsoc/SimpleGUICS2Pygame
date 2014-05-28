@@ -294,6 +294,78 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/
 
 
 
++ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="small-caps">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/1p_mode.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/2p_mode.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/bomb_24_24.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break3.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break4.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break5.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break6.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/break7.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/diamond_25_25.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/explosion_alpha.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/gold_30_23.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/high_score_button.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/how_to.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/how_to_button.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/intro.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/lamp.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/left_block.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/normal.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/person.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/person_right.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/person2.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/person2_right.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/pork_chop_25_25.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/red_stone_23_23.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/right_block.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/spike.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/spike_top.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/spring.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/start.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/zombie_381_48.png
+
+http://codeskulptor-demos.commondatastorage.googleapis.com/descent/zombie_reverse_381_48.png
+
+
+
 + <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profil <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.spriters-resource.com/" target="_blank">Spriters</a>, <a href="http://www.models-resource.com/" target="_blank">Models</a>, <a href="http://www.textures-resource.com/" target="_blank">Textures</a>
 
 
