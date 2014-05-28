@@ -68,6 +68,38 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/space%20station.png
 
 +  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profil <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
 
+
+
++ <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/Community_Graphics_Resources" target="_blank">Community Graphics Resources</a> of <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/About" target="_blank">O.H.R.RPG.C.E.</a>
+
+
+
++  <a rel="nofollow" href="http://hello.eboy.com/eboy/" target="_blank">eBoy</a>
+
+
+
++ Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/asteroid1.opengameart.warspawn.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/explosion.hasgraphics.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle2.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week6-emotions.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week8-bunny_sprite.png
+
+http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
+
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_2.png
@@ -123,38 +155,6 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back05
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back06.jpg
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back07.jpg
-
-
-
-+ <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/Community_Graphics_Resources" target="_blank">Community Graphics Resources</a> of <a rel="nofollow" href="http://rpg.hamsterrepublic.com/ohrrpgce/About" target="_blank">O.H.R.RPG.C.E.</a>
-
-
-
-+  <a rel="nofollow" href="http://hello.eboy.com/eboy/" target="_blank">eBoy</a>
-
-
-
-+ Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/asteroid1.opengameart.warspawn.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/explosion.hasgraphics.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle2.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/week6-emotions.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/week8-bunny_sprite.png
-
-http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
-
-
-
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 
 

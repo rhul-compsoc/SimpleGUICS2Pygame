@@ -40,6 +40,10 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 +  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profil <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
 
+
+
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
+
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_hit.wav
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_shoot.wav
