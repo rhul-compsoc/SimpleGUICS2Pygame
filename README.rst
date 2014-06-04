@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* May 28, 2014
+* June 4, 2014
 
   - Updated media and CodeSkulptor programs links.
 

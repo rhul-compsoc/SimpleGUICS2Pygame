@@ -256,7 +256,7 @@ http://www.codeskulptor.org/#user19_Sd5A76hlsV_0.py
 
 
 
-+ By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013, 2014)
 
 http://www.codeskulptor.org/#user26_v7F8DXdgeO_0.py
 3D Engine (Kieron <span class="small-caps">Wilkinson</span>)
@@ -265,8 +265,22 @@ Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-
 http://www.codeskulptor.org/#user27_YWGY3iw6kU_0.py
 3D Engine (Kieron <span class="small-caps">Wilkinson</span>) ADAPTED
 
+http://www.codeskulptor.org/#user33_LAnBofUUkve1Qq0.py
+Amiga Tribute Demo (Jason <span class="small-caps">Butwell</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-004/forum/thread?thread_id=6107" target="_blank"><i>Amiga Tribute Demo</i></a>
+
+http://www.codeskulptor.org/#user33_jyTuKmjjPoQEs8x.py
+Amiga Tribute Demo (Jason <span class="small-caps">Butwell</span>) ADAPTED
+
 http://www.codeskulptor.org/#user16_KeOVeTmuOn2iucr_0.py
-<strong>Bouncing balls</strong> (Andrew <span class="small-caps">Meadows</span>)
+Bouncing balls (Andrew <span class="small-caps">Meadows</span>)
+
+http://www.codeskulptor.org/#user31_OSZd7TWcrlNBUJY.py
+Chess (Matthew <span class="small-caps">Phillips</span>)
+Thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-004/forum/thread?thread_id=4526" target="_blank"><i>Chess Game</i></a>
+
+http://www.codeskulptor.org/#user33_49qNv8QY2GYypLB.py
+Chess (Matthew <span class="small-caps">Phillips</span>) ADAPTED
 
 http://www.codeskulptor.org/#user16_JXs6TOMaOOZQJKF.py
 Chicken Shooter (Dennis <span class="small-caps">Della Corte</span>)

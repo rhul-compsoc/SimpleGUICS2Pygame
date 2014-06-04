@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* May 28, 2014
+* June 4, 2014
 
   - Updated media and CodeSkulptor programs links.
 
