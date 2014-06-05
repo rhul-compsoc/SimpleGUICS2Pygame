@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (May 24, 2014)
+simpleguics2pygame (June 5, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -2160,75 +2160,74 @@ class Canvas:
 
         pygame_surface_image = image._pygame_surface
 
-        if pygame_surface_image is not None:
-            width_source, height_source = width_height_source
+        if pygame_surface_image is None:
+            return
 
-            x0_source = center_source[0] - width_source/2
-            y0_source = center_source[1] - height_source/2
+        width_source, height_source = width_height_source
 
-            if x0_source >= 0:
-                x0_source = int(round(x0_source))
-            elif -1 < x0_source:
-                width_source -= x0_source
-                x0_source = 0
-            else:
-                return
+        x0_source = center_source[0] - width_source/2
+        y0_source = center_source[1] - height_source/2
 
-            if y0_source >= 0:
-                y0_source = int(round(y0_source))
-            elif -1 < y0_source:
-                height_source -= y0_source
-                y0_source = 0
-            else:
-                return
+        if x0_source >= 0:
+            x0_source = int(round(x0_source))
+        elif -1 < x0_source:  # rounding error correcting
+            width_source -= x0_source
+            x0_source = 0
+        else:                 # outside of source image
+            return
 
-            width_source = int(round(width_source))
-            height_source = int(round(height_source))
+        if y0_source >= 0:
+            y0_source = int(round(y0_source))
+        elif -1 < y0_source:  # rounding error correcting
+            height_source -= y0_source
+            y0_source = 0
+        else:                 # outside of source image
+            return
 
-            if ((x0_source + width_source > image.get_width() + 1)
-                    or (y0_source + height_source > image.get_height() + 1)):
-                # Bigger than image
-                return
+        width_source = int(round(width_source))
+        height_source = int(round(height_source))
 
-            if x0_source + width_source > image.get_width():
-                # Keep this image (seem too big, maybe rounding error)
-                width_source -= 1
+        if ((x0_source + width_source > image.get_width() + 1)
+                or (y0_source + height_source > image.get_height() + 1)):
+            # Bigger than source image
+            return
 
-            if y0_source + height_source > image.get_height():
-                # Keep this image (seem too big, maybe rounding error)
-                height_source -= 1
+        if x0_source + width_source > image.get_width():
+            # Keep this image (seem too big, maybe rounding error)
+            width_source -= 1
 
-        if pygame_surface_image is not None:
-            if ((x0_source != 0)
-                    or (y0_source != 0)
-                    or (width_source != image.get_width())
-                    or (height_source != image.get_height())):
-                # Get a piece
-                pygame_surface_image = pygame_surface_image.subsurface(
-                    (x0_source, y0_source,
-                     width_source, height_source))
+        if y0_source + height_source > image.get_height():
+            # Keep this image (seem too big, maybe rounding error)
+            height_source -= 1
 
-            width_height_dest = _pos_round(width_height_dest)
+        if ((x0_source != 0)
+                or (y0_source != 0)
+                or (width_source != image.get_width())
+                or (height_source != image.get_height())):
+            # Get a piece
+            pygame_surface_image = pygame_surface_image.subsurface(
+                (x0_source, y0_source,
+                 width_source, height_source))
 
-            if ((width_height_dest[0] != width_source)
-                    or (width_height_dest[1] != height_source)):
-                # Resize
-                pygame_surface_image = pygame.transform.scale(
-                    pygame_surface_image,
-                    width_height_dest)
+        width_height_dest = _pos_round(width_height_dest)
 
-            if rotation != 0:
-                # Rotation
-                pygame_surface_image = pygame.transform.rotate(
-                    pygame_surface_image, -rotation*self._RADIAN_TO_DEGREE)
-
-            # Draw the result
-            self._pygame_surface.blit(
+        if ((width_height_dest[0] != width_source)
+                or (width_height_dest[1] != height_source)):
+            # Resize
+            pygame_surface_image = pygame.transform.scale(
                 pygame_surface_image,
-                (int(round(center_dest[0]
-                           - pygame_surface_image.get_width()/2)),
-                 int(round(center_dest[1]
-                           - pygame_surface_image.get_height()/2))))
+                width_height_dest)
+
+        if rotation != 0:
+            # Rotation
+            pygame_surface_image = pygame.transform.rotate(
+                pygame_surface_image, -rotation*self._RADIAN_TO_DEGREE)
+
+        # Draw the result
+        self._pygame_surface.blit(
+            pygame_surface_image,
+            (int(round(center_dest[0] - pygame_surface_image.get_width()/2)),
+             int(round(center_dest[1] - pygame_surface_image.get_height()/2))))
 
     def draw_line(self,
                   point1, point2,
