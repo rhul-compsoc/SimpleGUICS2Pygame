@@ -54,7 +54,10 @@ Next in the ``somewhere/SimpleGUICS2Pygame-?/`` subdirectory run:
 >>> python setup.py install
 
 
-Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
+Module ``simpleplot`` require matplotlib_
+(and must be installed separately).
+
+Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` require
 (except for the Timer class) Pygame_
 (and must be installed separately).
 
@@ -72,6 +75,7 @@ On Window$:
 * You can use 7-Zip_ to unzip archive.
 
 .. _7-Zip: http://www.7-zip.org/
+.. _matplotlib: http://matplotlib.org/
 .. _pip: https://pypi.python.org/pypi/pip
 .. _Pygame: http://www.pygame.org/
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
@@ -80,15 +84,15 @@ On Window$:
 Complete installation on Window$ in few steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download and run the good `Pygame` installation file: `Unofficial Windows Binaries Pygame`_.
+1. Download and run the good `Pygame` installation file: `Unofficial Windows Binaries Pygame`_.  (Only require for ``simplegui_lib``, its submodules and ``simpleguics2pygame``.)
 
-2. Download and run the good `matplotlib` installation file: `Unofficial Windows Binaries matplotlib`_.
+2. Download and run the good `matplotlib` installation file (**and** all its requirements): `Unofficial Windows Binaries matplotlib`_. (Only require for ``simpleplot``.)
 
 3. Download and run the good `setuptools` installation file: `Unofficial Windows Binaries setuptools`_.
 
 4. Download and run the good `pip` installation file: `Unofficial Windows Binaries pip`_.
 
-5. Run in the Command Prompt: ``pip install SimpleGUICS2Pygame`` . (Probably the ``pip`` command aren't in your ``PATH``, so add it or move in the subdirectory of ``pip`` with the ``CD`` command. This subdirectory is something like ``C:\Python?\Scripts\`` .)
+5. Run in the *Command Prompt*: ``pip install SimpleGUICS2Pygame`` . (Probably the ``pip`` command aren't in your ``PATH``, so add it or move in the subdirectory of ``pip`` with the ``CD`` command. This subdirectory is something like ``C:\Python?\Scripts\`` .)
 
 .. _`Unofficial Windows Binaries matplotlib`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
 .. _`Unofficial Windows Binaries setuptools`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
