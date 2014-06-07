@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 5, 2014)
+simpleguics2pygame (June 7, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -32,6 +32,8 @@ http://www.opimedia.be/
 
 from __future__ import division
 from __future__ import print_function
+
+from math import pi as _PI
 
 
 try:
@@ -121,6 +123,12 @@ _PYGAMEKEY_TO_SIMPLEGUIKEY = {97:  65,  # A or a
 `Dict` {`int` Pygame key code : corresponding `int` SimpleGUI key code}.
 
 **(Not available in SimpleGUI of CodeSkulptor.)**
+"""
+
+
+_RADIAN_TO_DEGREE = 180.0/_PI
+"""
+Multiplicative constant to convert radian to degree.
 """
 
 
@@ -430,12 +438,12 @@ def _draw_about():
 
     Frame._hide_status = True
 
-    WIDTH = 520
-    HEIGHT = 300
+    WIDTH = 560
+    HEIGHT = 320
 
     def draw_about_handler(canvas):
         """
-        Draw a short presentation of this module.
+        Draw a short presentation of this package.
 
         :param canvas: simpleguics2pygame.Canvas
         """
@@ -443,7 +451,7 @@ def _draw_about():
         canvas.draw_line((0, size/2),
                          (WIDTH - 1, size/2),
                          size*1.3, '#f2f2f2')
-        canvas.draw_text('simpleguics2pygame ' + _VERSION,
+        canvas.draw_text('SimpleGUICS2Pygame ' + _VERSION,
                          (10, size*3/4), size, 'Black')
         canvas.draw_image(logo, (32, 32), (64, 64),
                           (WIDTH - 42, HEIGHT - 42), (64, 64))
@@ -451,14 +459,15 @@ def _draw_about():
         size = 20
 
         for i, line in enumerate(
-            ('It is a standard Python (2 and 3) module',
+            ('It is primarily a standard Python (2 and 3) module',
              'reimplementing the SimpleGUI particular module',
              'of CodeSkulptor (a browser Python interpreter).',
              None,
-             'Require Pygame.',
+             'Require malplotlib for simpleplot.',
+             'Require Pygame for simpleguics2pygame.',
              None,
              'GPLv3',
-             'Copyright (C) 2013 Olivier Pirson',
+             'Copyright (C) 2013, 2014 Olivier Pirson',
              'Olivier Pirson OPi --- http://www.opimedia.be/',
              'olivier_pirson_opi@yahoo.fr')):
             if line is not None:
@@ -468,7 +477,7 @@ def _draw_about():
     logo = load_image('https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png')
 
     frame = create_frame(
-        'SimpleGUICS2Pygame: short presentation of this module',
+        'SimpleGUICS2Pygame: short presentation of this package',
         WIDTH, HEIGHT)
     frame.set_canvas_background('White')
 
@@ -481,6 +490,8 @@ def _draw_about():
     frame.add_label('')
     frame.add_button('CodeSkulptor',
                      lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
+    frame.add_button('matplolib',
+                     lambda: open_new_tab('http://matplotlib.org/'), 180)
     frame.add_button('Pygame',
                      lambda: open_new_tab('http://www.pygame.org/'), 180)
 
@@ -518,7 +529,8 @@ def _load_media(type_of_media, url, local_dir):
     Side effects:
 
     * Each new url is added to `Frame._pygamemedias_cached`.
-    * If media is a sound then Sound._mixer_initialized is set to True.
+    * If media is a sound then Sound._mixer_initialized is set to `True`.
+    * If `Frame._print_load_medias` then print loading informations to stderr.
 
     :param type_of_media: Image or Sound
     :param url: str
@@ -531,7 +543,7 @@ def _load_media(type_of_media, url, local_dir):
     assert isinstance(local_dir, str), type(local_dir)
 
     from os.path import dirname, isfile, join, splitext
-    from sys import argv, version_info
+    from sys import argv, stderr, version_info
 
     media_is_image = (type_of_media == 'Image')
 
@@ -544,7 +556,10 @@ def _load_media(type_of_media, url, local_dir):
         media = (cached.copy() if media_is_image
                  else pygame.mixer.Sound(cached))
         if Frame._print_load_medias:
-            print("{} '{}' got in cache".format(type_of_media, url))
+            print("{} '{}' got in cache".format(type_of_media, url),
+                  file=stderr)
+
+        stderr.flush()
 
         return media
 
@@ -572,7 +587,11 @@ def _load_media(type_of_media, url, local_dir):
     # Check if is correct file
     if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
         if Frame._print_load_medias:
-            print("Sound format not supported '{}'".format(url))
+            print("Sound format not supported '{}'".format(url),
+                  file=stderr)
+
+        stderr.flush()
+
         return None
 
     filename_exist = isfile(filename)
@@ -589,8 +608,10 @@ def _load_media(type_of_media, url, local_dir):
                      else pygame.mixer.Sound(filename))
             if Frame._print_load_medias:
                 print("{} loaded '{}' instead '{}'".format(type_of_media,
-                                                           filename, url))
+                                                           filename, url),
+                      file=stderr)
 
+            stderr.flush()
             Frame._pygamemedias_cached[url] = media
 
             return media
@@ -608,11 +629,15 @@ def _load_media(type_of_media, url, local_dir):
         # Download from url
         media_data = urlopen(url).read()
         if Frame._print_load_medias:
-            print("{} downloaded '{}'".format(type_of_media, url))
+            print("{} downloaded '{}'".format(type_of_media, url),
+                  file=stderr)
     except Exception as exc:
         if Frame._print_load_medias:
             print("{} downloading '{}' FAILED! {}".format(type_of_media,
-                                                          url, exc))
+                                                          url, exc),
+                  file=stderr)
+
+        stderr.flush()
 
         return
 
@@ -635,11 +660,13 @@ def _load_media(type_of_media, url, local_dir):
                     makedirs(dirname(filename))
                     if Frame._print_load_medias:
                         print("      Created '{}' directory"
-                              .format(dirname(filename)))
+                              .format(dirname(filename)),
+                              file=stderr)
                 except Exception as exc:
                     if Frame._print_load_medias:
                         print("      Creating '{}' directory FAILED!! {}"
-                              .format(dirname(filename), exc))
+                              .format(dirname(filename), exc),
+                              file=stderr)
 
             try:
                 # Save to local file
@@ -649,17 +676,22 @@ def _load_media(type_of_media, url, local_dir):
                 if Frame._print_load_medias:
                     print("      {} in '{}'"
                           .format(('Overwritten' if filename_exist
-                                   else 'Saved'), filename))
+                                   else 'Saved'), filename),
+                          file=stderr)
             except Exception as exc:
                 if Frame._print_load_medias:
                     print("      {} in '{}' FAILED! {}"
                           .format(('Overwriting' if filename_exist
-                                   else 'Saving'), filename, exc))
+                                   else 'Saving'), filename, exc),
+                          file=stderr)
         elif Frame._print_load_medias:
             print("      Local file '{}' already exist"
-                  .format(filename))
+                  .format(filename),
+                  file=stderr)
 
     Frame._pygamemedias_cached[url] = media
+
+    stderr.flush()
 
     return media
 
@@ -690,13 +722,19 @@ def _pos_round(position):
 
 def _print_stats_cache():
     """
-    Print some statistics of cached items.
+    Print to stderr some statistics of cached colors, fonts and medias.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
     """
+    from sys import stderr
+
     print("""# cached colors: {}
 # cached fonts: {}
 # cached medias: {}""".format(len(Frame._pygamecolors_cached),
                               len(Frame._pygamefonts_cached),
-                              len(Frame._pygamemedias_cached)))
+                              len(Frame._pygamemedias_cached)),
+          file=stderr)
+    stderr.flush()
 
 
 def _pygamekey_to_simpleguikey(key):
@@ -807,7 +845,7 @@ def _simpleguicolor_to_pygamecolor(color,
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
     Side effect: Each new color is added to `Frame._pygamecolors_cached`.
-    See `Frame._pygamecolors_cached_clear`.
+    See `Frame._pygamecolors_cached_clear()`.
 
     :param color: str
     :param default_pygame_color: pygame.Color
@@ -873,7 +911,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
     Side effect: Each new font with new size is added to `Frame._pygamefonts_cached`.
-    See `Frame._pygamefonts_cached_clear`.
+    See `Frame._pygamefonts_cached_clear()`.
 
     :param font_face: None
                       or (str == key of _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)
@@ -1175,7 +1213,8 @@ class Frame:
         :param control_width: (int or float) >= 0
         """
         assert _PYGAME_AVAILABLE
-        assert Frame._frame_instance is None
+        assert Frame._frame_instance is None, \
+            "You can't instantiate two Frame!"
 
         assert isinstance(title, str), type(title)
 
@@ -1939,10 +1978,6 @@ class Canvas:
 
         self._pygame_surface = pygame.Surface((canvas_width, canvas_height))
 
-        from math import pi
-
-        self._RADIAN_TO_DEGREE = 180.0/pi
-
     def __repr__(self):
         """
         Return `'<Canvas object>'`.
@@ -2100,6 +2135,11 @@ class Canvas:
 
         `rotation` specify a clockwise rotation in radians.
 
+        Each new Pygame surface used is added to `image._pygamesurfaces_cached`
+        or `image._pygamesurfaces_rotated_cached`.
+        See `Image._pygamesurfaces_cached_clear()`
+        and `Image._pygamesurfaces_rotated_cached_clear()`.
+
         :param image: Image
         :param center_source: (int or float, int or float)
                               or [int or float, int or float]
@@ -2200,28 +2240,49 @@ class Canvas:
             # Keep this image (seem too big, maybe rounding error)
             height_source -= 1
 
-        if ((x0_source != 0)
-                or (y0_source != 0)
-                or (width_source != image.get_width())
-                or (height_source != image.get_height())):
-            # Get a piece
-            pygame_surface_image = pygame_surface_image.subsurface(
-                (x0_source, y0_source,
-                 width_source, height_source))
+        rotation = int(round(-rotation*_RADIAN_TO_DEGREE)) % 360
 
-        width_height_dest = _pos_round(width_height_dest)
+        key = (x0_source, y0_source, width_source, height_source,
+               width_height_dest[0], width_height_dest[1],
+               rotation)
+        if key in image._pygamesurfaces_cached:
+            pygame_surface_image = image._pygamesurfaces_cached[key]
+        else:
+            if key[:-1] in image._pygamesurfaces_cached:
+                pygame_surface_image = image._pygamesurfaces_cached[key[:-1]]
+            else:
+                if ((x0_source != 0)
+                        or (y0_source != 0)
+                        or (width_source != image.get_width())
+                        or (height_source != image.get_height())):
+                    # Get a piece
+                    pygame_surface_image = pygame_surface_image.subsurface(
+                        (x0_source, y0_source,
+                         width_source, height_source))
 
-        if ((width_height_dest[0] != width_source)
-                or (width_height_dest[1] != height_source)):
-            # Resize
-            pygame_surface_image = pygame.transform.scale(
-                pygame_surface_image,
-                width_height_dest)
+                width_height_dest = _pos_round(width_height_dest)
 
-        if rotation != 0:
-            # Rotation
-            pygame_surface_image = pygame.transform.rotate(
-                pygame_surface_image, -rotation*self._RADIAN_TO_DEGREE)
+                if ((width_height_dest[0] != width_source)
+                        or (width_height_dest[1] != height_source)):
+                    # Resize
+                    pygame_surface_image = pygame.transform.scale(
+                        pygame_surface_image, width_height_dest)
+
+                image._pygamesurfaces_cached[key[:-1]] = pygame_surface_image
+
+            if rotation != 0:
+                # Rotation
+                pygame_surface_image = pygame.transform.rotate(
+                    pygame_surface_image, rotation)
+
+            if (len(image._pygamesurfaces_cached)
+                    > image._pygamesurfaces_cache_max_size):
+                if Frame._print_stats_cache:
+                    image._print_stats_cache()
+
+                image._pygamesurfaces_cached = {}
+
+            image._pygamesurfaces_cached[key] = pygame_surface_image
 
         # Draw the result
         self._pygame_surface.blit(
@@ -2805,6 +2866,18 @@ class Image:
     and next if failed, try to loading from URL.
     """
 
+    _pygamesurfaces_cache_default_max_size = 200
+    """
+    Default maximum number of Pygame surfaces
+    in the `self._pygamesurfaces_cached`.
+    """
+
+    _pygamesurfaces_rotated_cache_default_max_size = 360
+    """
+    Default maximum number of Pygame surfaces
+    in the `self._pygamesurfaces_rotated_cached`.
+    """
+
     def __init__(self, url):
         """
         Set an image.
@@ -2816,9 +2889,18 @@ class Image:
         assert _PYGAME_AVAILABLE
         assert isinstance(url, str), type(url)
 
+        self._url = url
+
         self._pygame_surface = (None if url == ''
                                 else _load_media('Image', url,
                                                  Image._dir_search_first))
+        self._pygamesurfaces_cached = {}
+        self._pygamesurfaces_rotated_cached = {}
+
+        self._pygamesurfaces_cache_max_size = \
+            Image._pygamesurfaces_cache_default_max_size
+        self._pygamesurfaces_rotated_cache_max_size = \
+            Image._pygamesurfaces_rotated_cache_default_max_size
 
     def __repr__(self):
         """
@@ -2827,6 +2909,36 @@ class Image:
         :return: str
         """
         return '<Image object>'
+
+    def _print_stats_cache(self):
+        """
+        Print to stderr some statistics of cached Pygame surfaces
+        used by this image.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        from sys import stderr
+
+        print('{:4} {:4} {}'.format(len(self._pygamesurfaces_cached),
+                                    len(self._pygamesurfaces_rotated_cached),
+                                    self._url),
+              file=stderr)
+
+    def _pygamesurfaces_cached_clear(self):
+        """
+        Empty the cache of Pygame not rotated surfaces used by this image.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        self._pygamesurfaces_cached = {}
+
+    def _pygamesurfaces_rotated_cached_clear(self):
+        """
+        Empty the cache of Pygame rotated surfaces used by this image.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        """
+        self._pygamesurfaces_rotated_cached = {}
 
     def get_height(self):
         """
@@ -3580,7 +3692,11 @@ _set_option_from_argv()
 #######
 if __name__ == '__main__':
     if not _PYGAME_AVAILABLE:
-        print('Pygame not available! See http://www.pygame.org/')
+        from sys import stderr
+
+        print("""Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""",
+              file=stderr)
 
         exit()
 

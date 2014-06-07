@@ -1,6 +1,12 @@
 ChangeLog
 =========
-* June 6, 2014
+* June 7, 2014
+
+  - Added a (first version) cache mechanism to Pygame surfaces used by ``Image``.
+  - Added ``Image._url`` attribute.
+  - Moved ``_RADIAN_TO_DEGREE``.
+  - Print now to ``stderr`` instead ``stdout``.
+  - Updated ``_draw_about()``.
 
   - Updated documentation.
 
