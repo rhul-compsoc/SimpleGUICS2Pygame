@@ -2140,6 +2140,11 @@ class Canvas:
         See `Image._pygamesurfaces_cached_clear()`
         and `Image._pygamesurfaces_rotated_cached_clear()`.
 
+        If number of surfaces in this caches
+        is greater than `image._pygamesurfaces_cache_max_size`
+        or  `image._pygamesurfaces_rotated_cache_max_size`
+        then empty this caches.
+
         :param image: Image
         :param center_source: (int or float, int or float)
                               or [int or float, int or float]
@@ -2198,11 +2203,10 @@ class Canvas:
         assert isinstance(rotation, int) or isinstance(rotation, float), \
             type(rotation)
 
-        pygame_surface_image = image._pygame_surface
-
-        if pygame_surface_image is None:
+        if image._pygame_surface is None:
             return
 
+        # Calculate parameters
         width_source, height_source = width_height_source
 
         x0_source = center_source[0] - width_source/2
@@ -2242,47 +2246,69 @@ class Canvas:
 
         rotation = int(round(-rotation*_RADIAN_TO_DEGREE)) % 360
 
+        # Get in cache or build Pygame surface
         key = (x0_source, y0_source, width_source, height_source,
                width_height_dest[0], width_height_dest[1],
                rotation)
-        if key in image._pygamesurfaces_cached:
-            pygame_surface_image = image._pygamesurfaces_cached[key]
-        else:
-            if key[:-1] in image._pygamesurfaces_cached:
-                pygame_surface_image = image._pygamesurfaces_cached[key[:-1]]
-            else:
-                if ((x0_source != 0)
-                        or (y0_source != 0)
-                        or (width_source != image.get_width())
-                        or (height_source != image.get_height())):
-                    # Get a piece
-                    pygame_surface_image = pygame_surface_image.subsurface(
+        pygame_surface_image = (
+            image._pygamesurfaces_cached.get(key[:-1])
+            if rotation == 0
+            else image._pygamesurfaces_rotated_cached.get(key))
+
+        if pygame_surface_image is None:
+            if rotation != 0:  # Get in not rotated cache
+                pygame_surface_image = \
+                    image._pygamesurfaces_cached.get(key[:-1])
+
+            if pygame_surface_image is None:  # Build piece and/or resize
+                pygame_surface_image = (
+                    image._pygame_surface
+                    if ((x0_source == 0)
+                        and (y0_source == 0)
+                        and (width_source == image.get_width())
+                        and (height_source == image.get_height()))
+                    # Get a piece in source
+                    else image._pygame_surface.subsurface(
                         (x0_source, y0_source,
-                         width_source, height_source))
+                         width_source, height_source)))
 
                 width_height_dest = _pos_round(width_height_dest)
 
                 if ((width_height_dest[0] != width_source)
                         or (width_height_dest[1] != height_source)):
-                    # Resize
+                    # Resize to destination dimensions
                     pygame_surface_image = pygame.transform.scale(
                         pygame_surface_image, width_height_dest)
 
                 image._pygamesurfaces_cached[key[:-1]] = pygame_surface_image
 
-            if rotation != 0:
-                # Rotation
+                if (len(image._pygamesurfaces_cached)
+                        > image._pygamesurfaces_cache_max_size):
+                    if Frame._print_stats_cache:
+                        image._print_stats_cache(
+                            'Empty surfaces         cache ')
+
+                    image._pygamesurfaces_cached = {}
+
+                image._pygamesurfaces_cached[key[:-1]] = pygame_surface_image
+
+            if rotation != 0:  # Rotate
                 pygame_surface_image = pygame.transform.rotate(
                     pygame_surface_image, rotation)
 
-            if (len(image._pygamesurfaces_cached)
-                    > image._pygamesurfaces_cache_max_size):
-                if Frame._print_stats_cache:
-                    image._print_stats_cache()
+                image._pygamesurfaces_rotated_cached[key] = \
+                    pygame_surface_image
 
-                image._pygamesurfaces_cached = {}
+                if (len(image._pygamesurfaces_rotated_cached)
+                        > image._pygamesurfaces_rotated_cache_max_size):
+                    if Frame._print_stats_cache:
+                        image._print_stats_cache(
+                            'Empty surfaces rotated cache ')
 
-            image._pygamesurfaces_cached[key] = pygame_surface_image
+                    image._pygamesurfaces_rotated_cached = {}
+
+                image._pygamesurfaces_rotated_cached[key] = \
+                    pygame_surface_image
 
         # Draw the result
         self._pygame_surface.blit(
@@ -2866,13 +2892,13 @@ class Image:
     and next if failed, try to loading from URL.
     """
 
-    _pygamesurfaces_cache_default_max_size = 200
+    _pygamesurfaces_cache_default_max_size = 1000
     """
     Default maximum number of Pygame surfaces
     in the `self._pygamesurfaces_cached`.
     """
 
-    _pygamesurfaces_rotated_cache_default_max_size = 360
+    _pygamesurfaces_rotated_cache_default_max_size = 1000
     """
     Default maximum number of Pygame surfaces
     in the `self._pygamesurfaces_rotated_cached`.
@@ -2910,18 +2936,24 @@ class Image:
         """
         return '<Image object>'
 
-    def _print_stats_cache(self):
+    def _print_stats_cache(self, text='', short_url=True):
         """
         Print to stderr some statistics of cached Pygame surfaces
         used by this image.
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param text: str
+        :param short_url: bool
         """
         from sys import stderr
 
-        print('{:4} {:4} {}'.format(len(self._pygamesurfaces_cached),
-                                    len(self._pygamesurfaces_rotated_cached),
-                                    self._url),
+        print('{} {:4} {:4} {}'
+              .format(text,
+                      len(self._pygamesurfaces_cached),
+                      len(self._pygamesurfaces_rotated_cached),
+                      (self._url.split('/')[-1] if short_url
+                       else self._url)),
               file=stderr)
 
     def _pygamesurfaces_cached_clear(self):
