@@ -61,7 +61,7 @@ Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` requir
 (except for the Timer class) Pygame_
 (and must be installed separately).
 
-You can run the little script ``SimpleGUICS2Pygame_check.py``
+You can run the little script_ ``SimpleGUICS2Pygame_check.py``
 to check if required modules are installed.
 
 
@@ -78,6 +78,7 @@ On Window$:
 .. _matplotlib: http://matplotlib.org/
 .. _pip: https://pypi.python.org/pypi/pip
 .. _Pygame: http://www.pygame.org/
+.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 .. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
@@ -183,7 +184,7 @@ You can write this
 and your program run both in CodeSkulptor and *standard Python*.
 
 
-| In this package a little script ``cs2both.py`` can help to quickly make this changement on program downloaded from CodeSkulptor.
+| In this package a little script_ ``cs2both.py`` can help to quickly make this changement on program downloaded from CodeSkulptor.
 | Run ``python cs2both.py yourprogram.py``.
 | The file ``yourprogram.py`` is copied to ``yourprogram.py.bak`` before changing.
 
