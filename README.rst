@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* June 7, 2014
+* June 8, 2014
 
   - Added a cache mechanism to Pygame surfaces used by ``Image``.
   - Added ``Image._url`` attribute.
