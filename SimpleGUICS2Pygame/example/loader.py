@@ -18,10 +18,14 @@ try:
     import simplegui
 
     from user34_7pdNdCOBbyLqAZs import Loader
+
+    SIMPLEGUICS2PYGAME = False
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
+
+    SIMPLEGUICS2PYGAME = True
 
     simplegui.Frame._hide_status = True
 
@@ -86,7 +90,7 @@ def quit_prog():
     """
     loader.pause_sounds()  # stop all sounds
     frame.stop()
-    if frame._print_stats_cache:
+    if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
         loader.print_stats_cache()
 
 

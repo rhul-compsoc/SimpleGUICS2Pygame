@@ -6,16 +6,16 @@ http://www.codeskulptor.org/#user34_7pdNdCOBbyLqAZs.py .)
 Examples of use in :
 
 * `example/loader.py`:
-  http://www.codeskulptor.org/#user34_3HMnjk3QnC8Hluc.py
+  http://www.codeskulptor.org/#user34_ma4NCNG4WslqLbB.py
 
 * `test/test_image.py`:
-  http://www.codeskulptor.org/#user34_4e1qDsBZ3YkgvCk.py
+  http://www.codeskulptor.org/#user34_gteXRnHw9UOp8cv.py
 
 * `example/Spaceship_prototype.py`:
-  http://www.codeskulptor.org/#user34_wsyf9aWL22E5cqA.py
+  http://www.codeskulptor.org/#user34_NSkPH4XilUfJWDe.py
 
 * `example/RiceRocks_Asteroids.py`:
-  http://www.codeskulptor.org/#user34_OwoRlzSPftyjbmL.py
+  http://www.codeskulptor.org/#user34_4j9GXU9L8qhJvlR.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_loader
     :special-members:

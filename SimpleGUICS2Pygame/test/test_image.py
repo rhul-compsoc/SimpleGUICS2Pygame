@@ -170,5 +170,5 @@ loader.load()
 loader.wait_loaded()
 
 frame.start()
-if frame._print_stats_cache:
+if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
     loader.print_stats_cache()

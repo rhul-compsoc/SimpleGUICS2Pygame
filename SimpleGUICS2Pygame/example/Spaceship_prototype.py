@@ -468,7 +468,7 @@ def quit_prog():
     timer.stop()
     loader.pause_sounds()
     frame.stop()
-    if frame._print_stats_cache:
+    if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
         loader.print_stats_cache()
 
 

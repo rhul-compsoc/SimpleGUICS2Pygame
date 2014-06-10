@@ -1053,7 +1053,7 @@ def quit_prog():
         ricerocks.stop()
         ricerocks.medias.pause_sounds()
         frame.stop()
-        if frame._print_stats_cache:
+        if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
             ricerocks.medias.print_stats_cache()
 
 
