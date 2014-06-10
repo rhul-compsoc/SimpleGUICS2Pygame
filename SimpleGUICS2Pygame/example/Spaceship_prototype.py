@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (May 25, 2014)
+Spaceship prototype (June 10, 2014)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -26,7 +26,7 @@ import random
 try:
     from user27_5LlszPPJxQHFMbk import assert_position
     from user33_Bhc7VzXKbXGVQV1 import FPS
-    from user33_PJRhxILEqeTIZKf import Loader
+    from user34_7pdNdCOBbyLqAZs import Loader
 
     import simplegui
 
@@ -468,6 +468,8 @@ def quit_prog():
     timer.stop()
     loader.pause_sounds()
     frame.stop()
+    if frame._print_stats_cache:
+        loader.print_stats_cache()
 
 
 def rock_spawner():

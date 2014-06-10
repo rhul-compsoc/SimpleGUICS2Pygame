@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (May 25, 2014)
+Test draw images. (June 10, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -15,7 +15,7 @@ import math
 
 try:
     from user33_Bhc7VzXKbXGVQV1 import FPS
-    from user33_PJRhxILEqeTIZKf import Loader
+    from user34_7pdNdCOBbyLqAZs import Loader
 
     import simplegui
 
@@ -170,3 +170,5 @@ loader.load()
 loader.wait_loaded()
 
 frame.start()
+if frame._print_stats_cache:
+    loader.print_stats_cache()

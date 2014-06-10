@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_loader.Loader use. (May 25, 2014)
+Example of simplegui_lib_loader.Loader use. (June 10, 2014)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
@@ -17,7 +17,7 @@ http://www.opimedia.be/
 try:
     import simplegui
 
-    from user33_PJRhxILEqeTIZKf import Loader
+    from user34_7pdNdCOBbyLqAZs import Loader
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -86,6 +86,8 @@ def quit_prog():
     """
     loader.pause_sounds()  # stop all sounds
     frame.stop()
+    if frame._print_stats_cache:
+        loader.print_stats_cache()
 
 
 loader = Loader(frame,  # the frame
