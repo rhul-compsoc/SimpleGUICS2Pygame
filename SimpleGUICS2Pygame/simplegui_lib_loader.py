@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_loader (May 24, 2014)
+simplegui_lib_loader (June 10, 2014)
 
 A class to help load images and sounds
 in SimpleGUI of CodeSkulptor.
@@ -37,6 +37,12 @@ class Loader:
     Interval in ms betweed two check.
     """
 
+    __SIMPLEGUICS2PYGAME = False
+    """
+    `True` if SimpleGUICS2Pygame are used,
+    else `False`.
+    """
+
     def __init__(self, frame, progression_bar_width,
                  after_function, max_waiting=5000):
         """
@@ -63,6 +69,16 @@ class Loader:
         self._sounds = {}
 
         self.__max_waiting_remain_started = False
+
+        self.__max_waiting_remain = None
+        self.__timer = None
+
+        try:
+            from SimpleGUICS2Pygame.simpleguics2pygame import load_image
+
+            Loader.__SIMPLEGUICS2PYGAME = True
+        except ImportError:
+            pass
 
     def _draw_loading(self, canvas):
         """
@@ -149,6 +165,17 @@ class Loader:
 
         self._sounds[(url.split('/')[-1] if name is None
                       else name)] = url
+
+    def cache_clear(self):
+        """
+        * In standard Python with SimpleGUICS2Pygame: Empty the cache of Pygame surfaces used by each image of this Loader. See `Image._pygamesurfaces_cached_clear`_ .
+        * In SimpleGUI of CodeSkulptor: do nothing.
+
+        .. _`Image._pygamesurfaces_cached_clear`: simpleguics2pygame_private.html#SimpleGUICS2Pygame.simpleguics2pygame.Image._pygamesurfaces_cached_clear
+        """
+        if Loader.__SIMPLEGUICS2PYGAME:
+            for name, image in sorted(self._images.items()):
+                image._pygamesurfaces_cached_clear()
 
     def get_image(self, name):
         """
@@ -249,35 +276,29 @@ class Loader:
         * In standard Python with SimpleGUICS2Pygame: draw a progression bar on canvas and wait until the loading is finished.
         * In SimpleGUI of CodeSkulptor: *don't* wait.
         """
-        try:
-            from simplegui import load_image, load_sound
-
-            SIMPLEGUICS2PYGAME = False
-        except ImportError:
+        if Loader.__SIMPLEGUICS2PYGAME:
             from SimpleGUICS2Pygame.simpleguics2pygame import load_image, \
                 load_sound
+        else:
+            from simplegui import load_image, load_sound
 
-            SIMPLEGUICS2PYGAME = True
-
-        self._SIMPLEGUICS2PYGAME = SIMPLEGUICS2PYGAME
-
-        if SIMPLEGUICS2PYGAME:
+        if Loader.__SIMPLEGUICS2PYGAME:
             handler_saved = self._frame._canvas._draw_handler
             self._frame._canvas._draw_handler = self._draw_loading
 
         for name in self._sounds:
-            if SIMPLEGUICS2PYGAME:
+            if Loader.__SIMPLEGUICS2PYGAME:
                 self._frame._canvas._draw()
             if isinstance(self._sounds[name], str):
                 self._sounds[name] = load_sound(self._sounds[name])
 
         for name in self._images:
-            if SIMPLEGUICS2PYGAME:
+            if Loader.__SIMPLEGUICS2PYGAME:
                 self._frame._canvas._draw()
             if isinstance(self._images[name], str):
                 self._images[name] = load_image(self._images[name])
 
-        if SIMPLEGUICS2PYGAME:
+        if Loader.__SIMPLEGUICS2PYGAME:
             self._frame._canvas._draw()
             self._frame._canvas._draw_handler = handler_saved
 
@@ -288,6 +309,20 @@ class Loader:
         for name in self._sounds:
             if not isinstance(self._sounds[name], str):
                 self._sounds[name].pause()
+
+    def print_stats_cache(self):
+        """
+        * In standard Python with SimpleGUICS2Pygame: Print to stderr some statistics of cached Pygame surfaces used by each image of this Loader. See `Image._print_stats_cache`_ .
+        * In SimpleGUI of CodeSkulptor: do nothing.
+
+        .. _`Image._print_stats_cache`: simpleguics2pygame_private.html#SimpleGUICS2Pygame.simpleguics2pygame.Image._print_stats_cache
+        """
+        if Loader.__SIMPLEGUICS2PYGAME:
+            max_length = max([len(name) for name in self._images])
+            for name, image in sorted(self._images.items()):
+                image._print_stats_cache('Loader %s%s'
+                                         % (name,
+                                            ' '*(max_length - len(name))))
 
     def wait_loaded(self):
         """
@@ -328,10 +363,10 @@ class Loader:
         self.__max_waiting_remain_started = True
         self.__max_waiting_remain = self._max_waiting
 
-        try:
-            from simplegui import create_timer
-        except ImportError:
+        if Loader.__SIMPLEGUICS2PYGAME:
             from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
+        else:
+            from simplegui import create_timer
 
         self._frame.set_draw_handler(self._draw_loading)
         self.__timer = create_timer(Loader._interval, check_if_loaded)
