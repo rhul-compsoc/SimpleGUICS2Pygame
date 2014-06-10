@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 8, 2014)
+simpleguics2pygame (June 10, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -2969,7 +2969,8 @@ class Image:
                           self._pygamesurfaces_cached_counts[1],
                           self._draw_count,
                           (sum(self._pygamesurfaces_cached_counts)*100
-                           // self._draw_count),
+                           // self._draw_count if self._draw_count != 0
+                           else ''),
                           (self._url.split('/')[-1] if short_url
                            else self._url)),
                   file=stderr)
@@ -2989,6 +2990,10 @@ class Image:
         from collections import OrderedDict
 
         self._pygamesurfaces_cached = OrderedDict()
+
+        if __debug__:
+            self._pygamesurfaces_cached_counts = [0, 0]
+            self._draw_count = 0
 
     def get_height(self):
         """
