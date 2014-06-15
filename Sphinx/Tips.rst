@@ -118,7 +118,7 @@ Be careful
 Download medias
 ---------------
 Run ``python yourprogram.py --save-downloaded-medias --print-load-medias`` once.
-Images and sounds used will be saved in local directory (``_img/`` et ``_snd`` by default).
+Images and sounds used will be saved in local directory (``_img/`` et ``_snd/`` by default).
 Next simply run ``python yourprogram.py`` and the medias will be loaded from these local directories.
 
 For example,
