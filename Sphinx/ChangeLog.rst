@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* June 10, 2014
+* June 15, 2014
   - Added ``Loader.cache_clear()`` and ``Loader.print_stats_cache()``.
 
   - Added a cache mechanism to Pygame surfaces used by ``Image``.
