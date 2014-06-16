@@ -106,13 +106,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* June 16, 2014
+* 01.06.00 --- June 16, 2014
+
+  - Updated ``numeric``.
   - Updated ``example/Spaceship_prototype.py`` and ``example/RiceRocks_Asteroids.py``.
   - Updated ``test/test_dir.py``.
 
   - Added ``Loader.cache_clear()`` and ``Loader.print_stats_cache()``.
 
-  - Added a cache mechanism to Pygame surfaces used by ``Image``.
+  - **Added a cache mechanism to Pygame surfaces used by ``Image``** (improve speed of ``draw_image()``).
   - Added ``Image._url`` attribute.
   - Moved ``_RADIAN_TO_DEGREE``.
   - Print now to ``stderr`` instead ``stdout``.
