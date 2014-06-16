@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-RiceRocks (Asteroids) (June 10, 2014)
+RiceRocks (Asteroids) (June 16, 2014)
 
 My retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -519,18 +519,18 @@ class RiceRocks:
         If the maximum is not reached
         then spawns a rock (not too close to the ship).
         """
-        if len(self.rocks) < 12:
+        if len(self.rocks) < 10:
             too_close = True
 
             def random_vel():
                 """
                 :return: int or float
                 """
-                return min(3,
-                           (random.random()*0.3*(
-                            self.score/2 + 1)))*random.choice((-1, 1))
+                return (min(2,
+                            (random.random()*(self.score/10.0 + 0.1)))
+                        * random.choice((-1, 1)))
 
-            for _ in range(10):
+            for _ in range(10):  # try 10 times
                 rock_pos = (random.randrange(0, SCREEN_WIDTH),
                             random.randrange(0, SCREEN_HEIGHT))
                 rock_vel = (random_vel(),
@@ -548,6 +548,7 @@ class RiceRocks:
                         too_close = True
 
                         break
+
                 too_close = (too_close
                              or (self.my_ship.distance(rock)
                                  < (self.my_ship.radius + rock.radius)*3))
@@ -958,12 +959,12 @@ class Ship(Sprite):
 
         # Update velocity
         if self.thrust:
-            acc = angle_to_vector(self.angle)
-            self.velocity[0] += acc[0]*.1
-            self.velocity[1] += acc[1]*.1
+            acceleration = angle_to_vector(self.angle)
+            self.velocity[0] += acceleration[0]*.25
+            self.velocity[1] += acceleration[1]*.25
 
-        self.velocity[0] *= .95
-        self.velocity[1] *= .95
+        self.velocity[0] *= .98
+        self.velocity[1] *= .98
 
 
 #
@@ -1020,7 +1021,7 @@ def keydown(key):
             ricerocks.my_ship.flip()
         elif key == simplegui.KEY_MAP['space']:
             ricerocks.my_ship.shot()
-        elif key == simplegui.KEY_MAP['Z']:
+        elif key == simplegui.KEY_MAP['B']:
             ricerocks.bomb_explode()
 
 
@@ -1128,13 +1129,15 @@ if __name__ == '__main__':
     frame.add_label('Accelerate: Up')
     frame.add_label('Flip: Down')
     frame.add_label('Fire: Space')
-    frame.add_label('Bomb: Z (or W)')
+    frame.add_label('Bomb: B')
     frame.add_label('Esc: Quit')
 
     frame.add_label('')
-    frame.add_label('One bomb for every 10 asteroids destroyed.')
+    frame.add_label('One bomb for every 10')
+    frame.add_label('asteroids destroyed.')
     frame.add_label('')
-    frame.add_label('One live for every 50 asteroids destroyed.')
+    frame.add_label('One live for every 50')
+    frame.add_label('asteroids destroyed.')
 
     frame.add_label('')
     frame.add_label('Useful to test:')

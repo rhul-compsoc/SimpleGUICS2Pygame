@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (June 10, 2014)
+Spaceship prototype (June 16, 2014)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -275,12 +275,12 @@ class Ship(Sprite):
         """
         global a_missile
 
-        v = angle_to_vector(my_ship.angle)
+        vector = angle_to_vector(my_ship.angle)
 
-        a_missile = Sprite((my_ship.position[0] + my_ship.radius*v[0],
-                            my_ship.position[1] + my_ship.radius*v[1]),
-                           (my_ship.velocity[0] + v[0]*10,
-                            my_ship.velocity[1] + v[1]*10),
+        a_missile = Sprite((my_ship.position[0] + my_ship.radius*vector[0],
+                            my_ship.position[1] + my_ship.radius*vector[1]),
+                           (my_ship.velocity[0] + vector[0]*10,
+                            my_ship.velocity[1] + vector[1]*10),
                            0, 0,
                            loader.get_image('missile'), missile_info,
                            loader.get_sound('missile'))
@@ -323,12 +323,12 @@ class Ship(Sprite):
         self.angle += self.angle_velocity
 
         if self.thrust:
-            v = angle_to_vector(self.angle)
-            self.velocity[0] += v[0]
-            self.velocity[1] += v[1]
+            acceleration = angle_to_vector(self.angle)
+            self.velocity[0] += acceleration[0] * 0.25
+            self.velocity[1] += acceleration[1] * 0.25
 
-        self.velocity[0] *= .95
-        self.velocity[1] *= .95
+        self.velocity[0] *= .98
+        self.velocity[1] *= .98
 
         self.position = ((self.position[0] + self.velocity[0]) % SCREEN_WIDTH,
                          (self.position[1] + self.velocity[1]) % SCREEN_HEIGHT)

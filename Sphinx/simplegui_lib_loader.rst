@@ -12,10 +12,10 @@ Examples of use in :
   http://www.codeskulptor.org/#user34_gteXRnHw9UOp8cv.py
 
 * `example/Spaceship_prototype.py`:
-  http://www.codeskulptor.org/#user34_NSkPH4XilUfJWDe.py
+  http://www.codeskulptor.org/#user34_LO41K5v5RlvQI8q.py
 
 * `example/RiceRocks_Asteroids.py`:
-  http://www.codeskulptor.org/#user34_4j9GXU9L8qhJvlR.py
+  http://www.codeskulptor.org/#user34_reDFipHer5qIcGY.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_loader
     :special-members:

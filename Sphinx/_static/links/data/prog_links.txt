@@ -26,10 +26,10 @@ http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user34_4j9GXU9L8qhJvlR.py
+http://www.codeskulptor.org/#user34_reDFipHer5qIcGY.py
 <strong>RiceRocks_Asteroids</strong>.py
 
-http://www.codeskulptor.org/#user34_NSkPH4XilUfJWDe.py
+http://www.codeskulptor.org/#user34_LO41K5v5RlvQI8q.py
 Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
