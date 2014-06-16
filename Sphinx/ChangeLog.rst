@@ -2,6 +2,7 @@ ChangeLog
 =========
 * June 16, 2014
   - Updated ``example/Spaceship_prototype.py`` and ``example/RiceRocks_Asteroids.py``.
+  - Updated ``test/test_dir.py``.
 
   - Added ``Loader.cache_clear()`` and ``Loader.print_stats_cache()``.
 

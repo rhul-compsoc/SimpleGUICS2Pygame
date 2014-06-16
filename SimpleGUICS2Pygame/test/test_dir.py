@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (December 13, 2013)
+Test dir() content. (June 16, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -15,10 +15,16 @@ from sys import argv
 
 try:
     import simplegui
+    import codeskulptor
+    import numeric
+    import simpleplot
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.codeskulptor as codeskulptor
+    import SimpleGUICS2Pygame.numeric as numeric
+    import SimpleGUICS2Pygame.simpleplot as simpleplot
 
     SIMPLEGUICS2PYGAME = True
 
@@ -40,10 +46,19 @@ else:
 TEST = 'test dir'
 
 
-"""
-Results of dir() in CodeSkulptor
-"""
 CODESKULPTOR_DIRS = {
+    'codeskulptor': ('__name__',
+                     'file2url', 'set_timeout'),
+
+    'numeric': ('__name__',
+                'identity',
+                'Matrix'),
+    'numeric.Matrix': ('__init__',
+                       '__add__', '__getitem__', '__module__', '__mul__',
+                       '__setitem__', '__str__', '__sub__',
+                       'abs', 'copy', 'getcol', 'getrow', 'inverse', 'scale',
+                       'shape', 'summation', 'transpose'),
+
     'simplegui': ('__name__',
                   'KEY_MAP',
                   'Canvas', 'Control', 'Frame', 'Image',
@@ -51,46 +66,62 @@ CODESKULPTOR_DIRS = {
                   'create_frame', 'create_invisible_canvas',
                   'create_sound', 'create_timer',
                   'load_image', 'load_sound'),
-    'Canvas': ('__init__', '__module__',
-               'draw_circle', 'draw_image', 'draw_line',
-               'draw_point', 'draw_polygon', 'draw_polyline', 'draw_text'),
-    'Control': ('__init__', '__module__',
-                'get_text', 'set_text'),
-    'Frame': ('__init__', '__module__',
-              'add_button', 'add_input', 'add_label',
-              'get_canvas_image', 'get_canvas_textwidth',
-              'set_canvas_background', 'set_draw_handler',
-              'set_keydown_handler', 'set_keyup_handler',
-              'set_mouseclick_handler', 'set_mousedrag_handler',
-              'start', 'stop'),
-    'Image': ('__init__', '__module__',
-              'get_height', 'get_width'),
-    'Sound': ('__init__', '__module__',
-              'pause', 'play', 'rewind', 'set_volume'),
-    'TextAreaControl': ('__init__', '__module__',
-                        'get_text', 'set_text'),
-    'Timer': ('__init__', '__module__',
-              'get_interval', 'is_running', 'start', 'stop')}
+    'simplegui.Canvas': ('__init__', '__module__',
+                         'draw_circle', 'draw_image', 'draw_line',
+                         'draw_point', 'draw_polygon', 'draw_polyline',
+                         'draw_text'),
+    'simplegui.Control': ('__init__', '__module__',
+                          'get_text', 'set_text'),
+    'simplegui.Frame': ('__init__', '__module__',
+                        'add_button', 'add_input', 'add_label',
+                        'get_canvas_image', 'get_canvas_textwidth',
+                        'set_canvas_background', 'set_draw_handler',
+                        'set_keydown_handler', 'set_keyup_handler',
+                        'set_mouseclick_handler', 'set_mousedrag_handler',
+                        'start', 'stop'),
+    'simplegui.Image': ('__init__', '__module__',
+                        'get_height', 'get_width'),
+    'simplegui.Sound': ('__init__', '__module__',
+                        'pause', 'play', 'rewind', 'set_volume'),
+    'simplegui.TextAreaControl': ('__init__', '__module__',
+                                  'get_text', 'set_text'),
+    'simplegui.Timer': ('__init__', '__module__',
+                        'get_interval', 'is_running', 'start', 'stop'),
 
+    'simpleplot': ('__name__',
+                   'plot_bars', 'plot_lines')}
+"""
+Results of dir() in CodeSkulptor
+"""
+
+DIRS = {
+    'codeskulptor': dir(codeskulptor),
+
+    'numeric': dir(numeric),
+    'numeric.Matrix': dir(numeric.Matrix),
+
+    'simplegui': dir(simplegui),
+    'simplegui.Canvas': dir(simplegui.Canvas),
+    'simplegui.Control': dir(simplegui.Control),
+    'simplegui.Frame': dir(simplegui.Frame),
+    'simplegui.Image': dir(simplegui.Image),
+    'simplegui.Sound': dir(simplegui.Sound),
+    'simplegui.TextAreaControl': dir(simplegui.TextAreaControl),
+    'simplegui.Timer': dir(simplegui.Timer),
+
+    'simpleplot': dir(simpleplot)}
 """
 Results of dir() in this environment
 """
-DIRS = {
-    'simplegui': dir(simplegui),
-    'Canvas': dir(simplegui.Canvas),
-    'Control': dir(simplegui.Control),
-    'Frame': dir(simplegui.Frame),
-    'Image': dir(simplegui.Image),
-    'Sound': dir(simplegui.Sound),
-    'TextAreaControl': dir(simplegui.TextAreaControl),
-    'Timer': dir(simplegui.Timer)}
 
+assert set(CODESKULPTOR_DIRS.keys()) == set(DIRS.keys())
+
+
+different = False
 """
-Sequence of elements to compare.
+`True` if founded a difference,
+else `False`.
 """
-LIST = ('simplegui',
-        'Canvas', 'Control', 'Frame', 'Image',
-        'Sound', 'TextAreaControl', 'Timer')
 
 
 def print_cmp_seq(a, title_a,
@@ -103,6 +134,8 @@ def print_cmp_seq(a, title_a,
     :param b: list or tuple
     :param title_b: str
     """
+    global different
+
     assert isinstance(a, list) or isinstance(a, tuple), type(a)
     assert isinstance(title_a, str), title_a
     assert isinstance(b, list) or isinstance(b, tuple), type(b)
@@ -118,30 +151,42 @@ def print_cmp_seq(a, title_a,
 
     head = ((title_a + ' '*indent)[:indent]
             + '\t!= ' + title_b + '\n' + '-'*(indent + 11 + len(title_b)))
-    for i in ab:
-        if (i[:2] == '__') and (i[-2:] == '__') and (i != '__init__'):
-            continue
-        if (len(argv) == 2) and (i[0] == '_'):
-            continue
+    for name in ab:
+        if name in a_b:
+            if head:
+                print(head)
+                head = None
+            print(name)
+            different = True
+        elif name in b_a:
+            if ((name != '__init__')
+                    and (name[:2] == '__') and (name[-2:] == '__')):
+                # Exclude additional special functions
+                continue
 
-        if i in a_b:
+            if ((len(argv) == 2)
+                and ((name[0] == '_')
+                     or (name in ('division', 'matplotlib',
+                                  'print_function', 'pygame')))):
+                # Exclude additional private functions and local directives
+                continue
+
             if head:
                 print(head)
                 head = None
-            print(i)
-        elif i in b_a:
-            if head:
-                print(head)
-                head = None
-            print(' '*indent + '\t   ' + i)
+            print(' '*indent + '\t   ' + name)
+            different = True
 
     if not head:
         print('')
 
 
 # Main
-print('List dir() differences between CodeSkulptor and this "Python":\n')
+print('List dir() differences between CodeSkulptor (June 2014) and this "Python":\n')
 
-for k in LIST:
+for k in sorted(CODESKULPTOR_DIRS.keys()):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,
                   DIRS[k], PYTHON_VERSION + ' ' + k)
+
+if not different:
+    print('No difference.')
