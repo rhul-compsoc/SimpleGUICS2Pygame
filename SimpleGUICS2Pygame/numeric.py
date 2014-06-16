@@ -1,27 +1,27 @@
 # -*- coding: latin-1 -*-
 
 """
-numeric (December 15, 2013)
+numeric (June 16, 2014)
 
 Replace the numeric module of CodeSkulptor.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
 from __future__ import division
 
-from sys import float_info
+from sys import float_info as _SYS_FLOAT_INFO
 
 
 # Global constant
 #################
-_EPSILON = float_info.epsilon
+_EPSILON = _SYS_FLOAT_INFO.epsilon
 """
-The default value epsilon.
+The default epsilon value.
 """
 
 
