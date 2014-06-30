@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* June 30, 2014
+
+  - Added private members in all documentation.
+
 * 01.06.00 --- June 16, 2014
 
   - Updated ``numeric``.

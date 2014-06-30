@@ -106,6 +106,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+* June 30, 2014
+
+  - Added private members in all documentation.
+
 * 01.06.00 --- June 16, 2014
 
   - Updated ``numeric``.
