@@ -14,4 +14,5 @@ http://www.codeskulptor.org/#user34_4ecfMGjlR5PTBqO.py .)
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib
     :special-members:
+    :private-members:
     :members:

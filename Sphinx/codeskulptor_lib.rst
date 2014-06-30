@@ -5,4 +5,5 @@ http://www.codeskulptor.org/#user27_5LlszPPJxQHFMbk.py .)
 
 .. automodule:: SimpleGUICS2Pygame.codeskulptor_lib
     :special-members:
+    :private-members:
     :members:

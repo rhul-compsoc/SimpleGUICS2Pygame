@@ -19,4 +19,5 @@ Examples of use in :
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_loader
     :special-members:
+    :private-members:
     :members:

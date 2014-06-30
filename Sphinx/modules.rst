@@ -10,6 +10,5 @@ All modules of this package
    simplegui_lib
 
    simpleguics2pygame
-   simpleguics2pygame_private
 
    simpleplot

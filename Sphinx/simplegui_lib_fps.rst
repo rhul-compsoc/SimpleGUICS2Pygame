@@ -16,4 +16,5 @@ Examples of use in :
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_fps
     :special-members:
+    :private-members:
     :members:
