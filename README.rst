@@ -106,9 +106,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* July 17, 2014
+* 01.06.01 --- July 17, 2014
 
   - Added width parameter in ``add_label()``.
+  - Corrected gz archive of HTML offline documentation.
 
   - Added private members in all documentation.
 
@@ -131,37 +132,6 @@ Changes
   - Updated media and CodeSkulptor programs links.
 
 * 01.05.00 --- May 25, 2014
-
-  - Added cache for colors and option ``--print-stats-cache``.
-  - First public version of ``.hgignore`` and ``Makefile``.
-  - Off the mixer if no sound is loaded.
-  - Updated ``example/RiceRocks_Asteroids.py``.
-  - Updated documentation.
-
-  - Updated ``example/Spaceship_prototype.py``.
-
-  - Updated ``example/Blackjack.py``.
-
-  - Updated ``example/Memory.py``.
-
-  - Updated ``example/Pong.py``.
-
-  - Cosmetic changes in some example programs.
-
-  - Updated ``test/test_all.py``.
-
-  - Better order Pygame initalization.
-  - Updated ``script/cs2both.py`` and ``script/SimpleGUICS2Pygame_check.py``.
-
-  - Updated ``simplegui_lib_keys.py`` and ``example/keys.py``.
-  - Updated ``example/Stopwatch.py``.
-
-  - Changed filename used by ``_load_media()`` (use now the query part of URLs).
-
-  - Added precision to Window$ installation.
-  - Updated media and CodeSkulptor programs links.
-
-* 01.04.00 --- December 16, 2013
 
 ...
 

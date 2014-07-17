@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2014-05-25
+# Makefile of SimpleGUICS2Pygame --- 2014-07-17
 
 .SUFFIXES:
 
@@ -69,7 +69,7 @@ html:	links
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
 htmltgz:	html
-		@$(CD) Sphinx/_build; $(TAR) -czvf SimpleGUICS2Pygame_html.tar html
+		@$(CD) Sphinx/_build; $(TAR) -cvf SimpleGUICS2Pygame_html.tar html
 		@$(CD) Sphinx/_build; $(GZIP) -9 SimpleGUICS2Pygame_html.tar
 		@$(RM) Sphinx/_build/SimpleGUICS2Pygame_html.tar
 		@$(GZIP) -t Sphinx/_build/SimpleGUICS2Pygame_html.tar.gz

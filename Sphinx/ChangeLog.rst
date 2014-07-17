@@ -1,8 +1,9 @@
 ChangeLog
 =========
-* July 17, 2014
+* 01.06.01 --- July 17, 2014
 
   - Added width parameter in ``add_label()``.
+  - Corrected gz archive of HTML offline documentation.
 
   - Added private members in all documentation.
 
