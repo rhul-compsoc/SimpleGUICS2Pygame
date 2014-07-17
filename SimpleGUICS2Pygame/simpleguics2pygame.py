@@ -1602,15 +1602,24 @@ class Frame:
 
         return control
 
-    def add_label(self, text):
+    def add_label(self, text, width=None):
         """
         Add a label in the control panel.
 
+        The `width` parameter is *not* used.
+
+        In CodeSkulptor, this parameter is not documented.
+        See `SimpleGUI add_label documentation`_.
+
+        .. _`SimpleGUI add_label documentation`: http://www.codeskulptor.org/docs.html#frame-add_label
+
         :param text: str
+        :param width: None or int
 
         :return: Control
         """
         assert isinstance(text, str), type(text)
+        assert (width is None) or isinstance(width, str), type(width)
 
         control = Control(self, text)
         self._controls.append(control)

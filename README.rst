@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* June 30, 2014
+* July 17, 2014
+
+  - Added width parameter in ``add_label()``.
 
   - Added private members in all documentation.
 
