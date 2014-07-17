@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (June 10, 2014)
+simpleguics2pygame (July 17, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1551,9 +1551,9 @@ class Frame:
         When the button are pressed and released,
         `button_handler` are executed.
 
-        :frame text: str
-        :frame button_handler: function () -> *
-        :frame width: int or float
+        :param text: str
+        :param button_handler: function () -> *
+        :param width: int or float
 
         :return: Control
         """
@@ -1585,9 +1585,9 @@ class Frame:
         this input box lost the focus
         and `input_handler` are executed with the input text.
 
-        :frame text: str
-        :frame input_handler: function (str) -> *
-        :frame width: int or float
+        :param text: str
+        :param input_handler: function (str) -> *
+        :param width: int or float
 
         :return: Control
         """
@@ -1606,7 +1606,7 @@ class Frame:
         """
         Add a label in the control panel.
 
-        :frame text: str
+        :param text: str
 
         :return: Control
         """
