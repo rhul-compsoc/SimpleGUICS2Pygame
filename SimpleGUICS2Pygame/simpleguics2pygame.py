@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (July 17, 2014)
+simpleguics2pygame (July 18, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1619,7 +1619,7 @@ class Frame:
         :return: Control
         """
         assert isinstance(text, str), type(text)
-        assert (width is None) or isinstance(width, str), type(width)
+        assert (width is None) or isinstance(width, int), type(width)
 
         control = Control(self, text)
         self._controls.append(control)
