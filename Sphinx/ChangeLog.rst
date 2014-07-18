@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* 01.06.02 --- July 18, 2014
+
+  - Corrected stupid error in ``add_label()``.
+
 * 01.06.01 --- July 17, 2014
 
   - Added width parameter in ``add_label()``.
