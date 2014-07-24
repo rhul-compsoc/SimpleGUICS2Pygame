@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (July 18, 2014)
+simpleguics2pygame (July 24, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1544,22 +1544,28 @@ class Frame:
     def add_button(self,
                    text,
                    button_handler,
-                   width=0):
+                   width=None):
         """
         Add a button in the control panel.
 
         When the button are pressed and released,
         `button_handler` are executed.
 
+        If `width` is not `None`
+        then `text` is possibly cutted.
+
+        But, in CodeSkulptor, the accurate appearance is browser dependent.
+        And in SimpleGUICS2Pygame, the accurate appearance is font dependent.
+
         :param text: str
         :param button_handler: function () -> *
-        :param width: int or float
+        :param width: None or int
 
         :return: Control
         """
         assert isinstance(text, str), type(text)
         assert callable(button_handler), type(button_handler)
-        assert isinstance(width, int) or isinstance(width, float), type(width)
+        assert (width is None) or isinstance(width, int), type(width)
 
         control = Control(self, text, button_handler, width)
         self._controls.append(control)
@@ -1587,13 +1593,13 @@ class Frame:
 
         :param text: str
         :param input_handler: function (str) -> *
-        :param width: int or float
+        :param width: int
 
         :return: Control
         """
         assert isinstance(text, str), type(text)
         assert callable(input_handler), type(input_handler)
-        assert isinstance(width, int) or isinstance(width, float), type(width)
+        assert isinstance(width, int), type(width)
 
         control = TextAreaControl(self, text, input_handler, width)
         self._controls.append(control)
@@ -1606,12 +1612,11 @@ class Frame:
         """
         Add a label in the control panel.
 
-        The `width` parameter is *not* used.
+        If `width` is not `None`
+        then `text` is possibly cutted.
 
-        In CodeSkulptor, this parameter is not documented.
-        See `SimpleGUI add_label documentation`_.
-
-        .. _`SimpleGUI add_label documentation`: http://www.codeskulptor.org/docs.html#frame-add_label
+        But, in CodeSkulptor, the accurate appearance is browser dependent.
+        And in SimpleGUICS2Pygame, the accurate appearance is font dependent.
 
         :param text: str
         :param width: None or int
@@ -1621,7 +1626,7 @@ class Frame:
         assert isinstance(text, str), type(text)
         assert (width is None) or isinstance(width, int), type(width)
 
-        control = Control(self, text)
+        control = Control(self, text, width=width)
         self._controls.append(control)
 
         self._draw_controlpanel()
@@ -2685,9 +2690,11 @@ class Control:
     def __init__(self,
                  frame,
                  text,
-                 button_handler=None, button_width=0):
+                 button_handler=None, width=None):
         """
-        Set a button or a label in the control panel.
+        Set a button (if button_handler is not None)
+        or a label (if button_handler is None)
+        in the control panel.
 
         **Don't use directly**,
         use `Frame.add_button()` or `Frame.add_label()`.
@@ -2695,28 +2702,26 @@ class Control:
         :param frame: Frame
         :param text: str
         :param button_handler: None or (function () -> \*)
-        :param button_width: None or int or float
+        :param width: None or int
         """
         assert _PYGAME_AVAILABLE
         assert isinstance(frame, Frame), type(frame)
         assert isinstance(text, str), type(text)
         assert (button_handler is None) or callable(button_handler), \
             type(button_handler)
-        assert (isinstance(button_width, int)
-                or isinstance(button_width, float)), type(button_width)
+        assert (width is None) or isinstance(width, int), type(width)
 
         self._frame_parent = frame
 
         self._button_handler = button_handler  # if is None then it's a label,
                                                # else it's a button
-        self._button_width = (max(0, int(round(button_width)))
-                              if button_handler is not None
-                              else None)
+        self._width = (max(0, int(round(width))) if width is not None
+                       else None)
 
         self._text = text
         self._text_cut = _text_to_text_cut(
             text,
-            (self._button_width if self._button_width
+            (self._width if self._width is not None
              else self._frame_parent._control_width),
             (Control._label_pygame_font if button_handler is not None
              else Control._button_pygame_font))
@@ -2791,8 +2796,8 @@ class Control:
 
         # Button
         width = (width_max + Control._button_padding_x*2
-                 if self._button_width is None
-                 else max(self._button_width,
+                 if self._width is None
+                 else max(self._width,
                           width_max + Control._button_padding_x*2))
 
         height = height_total + Control._button_padding_y*2
@@ -2896,7 +2901,7 @@ class Control:
         self._text = text
         self._text_cut = _text_to_text_cut(
             text,
-            (self._button_width if self._button_width
+            (self._width if self._width
              else self._frame_parent._control_width),
             (Control._label_pygame_font if self._button_handler is not None
              else Control._button_pygame_font))
