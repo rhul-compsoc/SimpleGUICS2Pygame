@@ -73,6 +73,9 @@ A class to help load images and sounds in SimpleGUI of CodeSkulptor: <a rel="nof
 
 + SimpleGUICS2Pygame test
 
+http://www.codeskulptor.org/#user36_ESjiq8vAaRAtmlm.py
+test_button_label.py
+
 http://www.codeskulptor.org/#user27_yS4RO6vEwnnwcuz.py
 test_circle.py
 
