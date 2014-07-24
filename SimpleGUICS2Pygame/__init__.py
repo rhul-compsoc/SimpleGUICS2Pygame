@@ -33,6 +33,7 @@ http://www.opimedia.be/
 .. _Python: http://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
+* v.01.06.03 --- July 24, 2014
 * v.01.06.02 --- July 18, 2014
 * v.01.06.01 --- July 17, 2014
 * v.01.06.00 --- June 16, 2014
@@ -55,7 +56,7 @@ http://www.opimedia.be/
 .. _`Complete changelog`: https://simpleguics2pygame.readthedocs.org/en/latest/ChangeLog.html
 """
 
-_VERSION = '01.06.02'
+_VERSION = '01.06.03'
 """
 Version of SimpleGUICS2Pygame package.
 """

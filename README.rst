@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* July 24, 2014
+* 01.06.03 --- July 24, 2014
 
   - Implemented ``width`` parameter in ``add_label()``.
   - Added ``test/test_button_label.py``.
@@ -117,7 +117,7 @@ Changes
 
 * 01.06.01 --- July 17, 2014
 
-  - Added width parameter in ``add_label()``.
+  - Added (fake) width parameter in ``add_label()``.
   - Corrected gz archive of HTML offline documentation.
 
   - Added private members in all documentation.
