@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (July 24, 2014)
+simpleguics2pygame (July 28, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1760,6 +1760,8 @@ class Frame:
 
         **This function is blocking
         until `Frame.stop()` execution or closing window.**
+
+        (In SimpleGUI of CodeSkulptor this function is *not* blocking.)
         """
         self._running = True
 
