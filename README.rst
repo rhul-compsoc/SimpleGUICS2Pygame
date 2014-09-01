@@ -108,6 +108,7 @@ Changes
 =======
 * September 1st, 2014
 
+  - Added ``plot_scatter()`` function in ``simpleplot`` module.
   - Updated documentation.
 
 * 01.06.03 --- July 24, 2014
