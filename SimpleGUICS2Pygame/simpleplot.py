@@ -118,6 +118,7 @@ def plot_bars(framename, width, height, xlabel, ylabel, datasets,
         for dataset in datasets:
             assert isinstance(dataset, list) or isinstance(dataset, tuple) \
                 or isinstance(dataset, dict), type(datasets)
+            assert dataset
             for x, y in (dataset.items() if isinstance(dataset, dict)
                          else dataset):
                 assert isinstance(x, int) or isinstance(x, float), (type(x), x)
@@ -244,6 +245,7 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
         for dataset in datasets:
             assert isinstance(dataset, list) or isinstance(dataset, tuple) \
                 or isinstance(dataset, dict), type(datasets)
+            assert dataset
             for x, y in (dataset.items() if isinstance(dataset, dict)
                          else dataset):
                 assert isinstance(x, int) or isinstance(x, float), (type(x), x)
