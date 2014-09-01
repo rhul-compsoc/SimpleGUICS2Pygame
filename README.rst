@@ -108,7 +108,7 @@ Changes
 =======
 * September 1st, 2014
 
-  - Updated documention.
+  - Updated documentation.
 
 * 01.06.03 --- July 24, 2014
 
