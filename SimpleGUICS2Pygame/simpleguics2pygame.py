@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (July 28, 2014)
+simpleguics2pygame (September 1st, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -2448,7 +2448,7 @@ class Canvas:
 
         If `line_width` > 1, ends are poorly made!
 
-        :param point_list: non empty (tuple or list)
+        :param point_list: not empty (tuple or list)
                            of ((int or float, int or float)
                            or [int or float, int or float])
         :param line_width: (int or float) > 0
@@ -2518,7 +2518,7 @@ class Canvas:
 
         If `line_width` > 1, ends are poorly made!
 
-        :param point_list: non empty (tuple or list)
+        :param point_list: not empty (tuple or list)
                            of ((int or float, int or float)
                            or [int or float, int or float])
         :param line_width: (int or float) > 0
@@ -3697,7 +3697,7 @@ def load_image(url):
     ``_img/commondatastorage.googleapis.com/codeskulptor_assets/lathrop/double_ship.png``.
 
     Supported formats are supported formats by Pygame to load:
-    PNG, JPG, GIF (non animated)...
+    PNG, JPG, GIF (not animated)...
     (see http://www.pygame.org/docs/ref/image.html ).
 
     (CodeSkulptor may supported other formats,

@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (November 1st, 2013)
+simpleplot (September 1st, 2014)
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -12,7 +12,7 @@ Require matplotlib_
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 
 .. _matplotlib: http://matplotlib.org/
@@ -70,10 +70,10 @@ def plot_bars(framename, width, height, xlabel, ylabel, datasets,
     `datasets` must be a sequence of data.
     Each data must be:
 
-    * Sequence of pair x, y.
+    * Sequence (not empty) of pair x, y.
       Each point (x, y) is represented by a vertical bar of height y.
 
-    * Or dict x: y.
+    * Or dict (not empty) x: y.
       Each point (x, y) is represented by a vertical bar of height y.
 
     If `legends` is not None
@@ -189,11 +189,11 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
     `datasets` must be a sequence of data.
     Each data must be:
 
-    * Sequence of pair x, y.
+    * Sequence (not empty) of pair x, y.
       Each point (x, y) is plotted (in given order)
       and connected with line to previous and next points.
 
-    * Or dict x: y.
+    * Or dict (not empty) x: y.
       Each point (x, y) is plotted (in ascending order of x value)
       and connected with line to previous and next points.
 

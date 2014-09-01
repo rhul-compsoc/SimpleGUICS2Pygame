@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* September 1st, 2014
+
+  - Updated documention.
+
 * 01.06.03 --- July 24, 2014
 
   - Implemented ``width`` parameter in ``add_label()``.
