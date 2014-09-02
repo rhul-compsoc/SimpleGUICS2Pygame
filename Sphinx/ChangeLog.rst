@@ -1,8 +1,9 @@
 ChangeLog
 =========
-* September 1st, 2014
+* September 2, 2014
 
   - Added ``plot_scatter()`` function in ``simpleplot`` module.
+  - Added ``test/test_simpleplot_scatter.py``.
   - Updated documentation.
 
 * 01.06.03 --- July 24, 2014
@@ -29,7 +30,7 @@ ChangeLog
 
   - Added ``Loader.cache_clear()`` and ``Loader.print_stats_cache()``.
 
-  - **Added a cache mechanism to Pygame surfaces used by ``Image``** (improve speed of ``draw_image()``).
+  - Added a cache mechanism to Pygame surfaces used by ``Image`` (**improve speed** of ``draw_image()``).
   - Added ``Image._url`` attribute.
   - Moved ``_RADIAN_TO_DEGREE``.
   - Print now to ``stderr`` instead ``stdout``.
