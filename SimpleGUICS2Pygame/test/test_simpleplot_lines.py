@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test simpleplot lines. (December 15, 2013)
+Test simpleplot lines. (September 1st, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -46,10 +46,12 @@ if SIMPLEGUICS2PYGAME:
 simpleplot.plot_lines('Test', 400, 400, 'x', 'y', (datalist, dataset))
 
 if filename is None:
-    simpleplot.plot_lines('Test', 400, 400, 'x', 'y', (datalist, dataset),
+    simpleplot.plot_lines('Test plot_lines', 400, 400, 'x', 'y',
+                          (datalist, dataset),
                           True, ('datalist', 'dataset'))
 else:
-    simpleplot.plot_lines('Test', 400, 400, 'x', 'y', (datalist, dataset),
+    simpleplot.plot_lines('Test plot_lines', 400, 400, 'x', 'y',
+                          (datalist, dataset),
                           True, ('datalist', 'dataset'),
                           _filename=filename)
 

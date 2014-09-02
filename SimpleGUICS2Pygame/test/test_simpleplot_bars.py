@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test simpleplot bars. (December 15, 2013)
+Test simpleplot bars. (September 1st, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -44,10 +44,12 @@ if SIMPLEGUICS2PYGAME:
         filename = argv[1]
 
 if filename is None:
-    simpleplot.plot_bars('Test', 400, 400, 'x', 'y', (datalist, dataset),
+    simpleplot.plot_bars('Test plot_bars', 400, 400, 'x', 'y',
+                         (datalist, dataset),
                          ('datalist', 'dataset'))
 else:
-    simpleplot.plot_bars('Test', 400, 400, 'x', 'y', (datalist, dataset),
+    simpleplot.plot_bars('Test plot_bars', 400, 400, 'x', 'y',
+                         (datalist, dataset),
                          ('datalist', 'dataset'),
                          _filename=filename)
 
