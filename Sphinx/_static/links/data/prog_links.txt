@@ -88,7 +88,7 @@ test_colors_html.py
 http://www.codeskulptor.org/#user27_TXdraE9nYDbAglY.py
 test_colors_html_rgba.py
 
-http://www.codeskulptor.org/#user34_czINJENBy7hBTKJ.py
+http://www.codeskulptor.org/#user37_UiXfCWf1wUEb6hG.py
 test_dir.py
 
 http://www.codeskulptor.org/#user27_x2tpW77htMyEPUz.py
@@ -106,11 +106,14 @@ test_numeric.py
 http://www.codeskulptor.org/#user27_EV8KRlDscntoY3a.py
 test_objects.py
 
-http://www.codeskulptor.org/#user27_qufaRHoX9w66pBh.py
+http://www.codeskulptor.org/#user37_MMW1T1HduHgPdOK.py
 test_simpleplot_bars.py
 
-http://www.codeskulptor.org/#user27_qhSIvwwvveUrbi4.py
+http://www.codeskulptor.org/#user37_T7OQUrpo4AWDCn9.py
 test_simpleplot_lines.py
+
+http://www.codeskulptor.org/#user37_Ci47NMgGMw4NCOD.py
+test_simpleplot_scatter.py
 
 http://www.codeskulptor.org/#user27_VolKZi2DGiGHFzR.py
 test_text.py

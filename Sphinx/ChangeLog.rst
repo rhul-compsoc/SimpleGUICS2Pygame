@@ -6,6 +6,7 @@ ChangeLog
   - Added ``test/test_simpleplot_scatter.py``.
   - Updated ``test/test_dir.py``.
   - Updated documentation.
+  - Updated CodeSkulptor programs links.
 
 * 01.06.03 --- July 24, 2014
 
