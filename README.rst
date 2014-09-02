@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* September 2, 2014
+* 01.07.00 --- September 2, 2014
 
   - Added ``plot_scatter()`` function in ``simpleplot`` module.
   - Added ``test/test_simpleplot_scatter.py``.
