@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (June 16, 2014)
+Test dir() content. (September 1st, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -89,7 +89,7 @@ CODESKULPTOR_DIRS = {
                         'get_interval', 'is_running', 'start', 'stop'),
 
     'simpleplot': ('__name__',
-                   'plot_bars', 'plot_lines')}
+                   'plot_bars', 'plot_lines', 'plot_scatter')}
 """
 Results of dir() in CodeSkulptor
 """

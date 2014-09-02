@@ -4,6 +4,7 @@ ChangeLog
 
   - Added ``plot_scatter()`` function in ``simpleplot`` module.
   - Added ``test/test_simpleplot_scatter.py``.
+  - Updated ``test/test_dir.py``.
   - Updated documentation.
 
 * 01.06.03 --- July 24, 2014
