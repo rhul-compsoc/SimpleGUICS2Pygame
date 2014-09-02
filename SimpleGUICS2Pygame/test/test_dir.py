@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (September 1st, 2014)
+Test dir() content. (September 2, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -182,7 +182,7 @@ def print_cmp_seq(a, title_a,
 
 
 # Main
-print('List dir() differences between CodeSkulptor (June 2014) and this "Python":\n')
+print('List dir() differences between CodeSkulptor (September 2014) and this "Python":\n')
 
 for k in sorted(CODESKULPTOR_DIRS.keys()):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,
