@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (September 1st, 2014)
+simpleguics2pygame (October 4, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -160,6 +160,7 @@ if _PYGAME_AVAILABLE:
         'darkcyan': pygame.Color('#008b8b'),
         'darkgoldenrod': pygame.Color('#b8860b'),
         'darkgray': pygame.Color('#a9a9a9'),
+        'darkgrey': pygame.Color('#a9a9a9'),
         'darkgreen': pygame.Color('#006400'),
         'darkkhaki': pygame.Color('#bdb76b'),
         'darkmagenta': pygame.Color('#8b008b'),
@@ -171,6 +172,7 @@ if _PYGAME_AVAILABLE:
         'darkseagreen': pygame.Color('#8fbc8f'),
         'darkslateblue': pygame.Color('#483d8b'),
         'darkslategray': pygame.Color('#2f4f4f'),
+        'darkslategrey': pygame.Color('#2f4f4f'),
         'darkturquoise': pygame.Color('#00ced1'),
         'darkviolet': pygame.Color('#9400d3'),
         'deeppink': pygame.Color('#ff1493'),
@@ -187,6 +189,7 @@ if _PYGAME_AVAILABLE:
         'gold': pygame.Color('#ffd700'),
         'goldenrod': pygame.Color('#daa520'),
         'gray': pygame.Color('#808080'),
+        'grey': pygame.Color('#808080'),
         'green': pygame.Color('#008000'),
         'greenyellow': pygame.Color('#adff2f'),
         'honeydew': pygame.Color('#f0fff0'),
@@ -204,12 +207,14 @@ if _PYGAME_AVAILABLE:
         'lightcyan': pygame.Color('#e0ffff'),
         'lightgoldenrodyellow': pygame.Color('#fafad2'),
         'lightgray': pygame.Color('#d3d3d3'),
+        'lightgrey': pygame.Color('#d3d3d3'),
         'lightgreen': pygame.Color('#90ee90'),
         'lightpink': pygame.Color('#ffb6c1'),
         'lightsalmon': pygame.Color('#ffa07a'),
         'lightseagreen': pygame.Color('#20b2aa'),
         'lightskyblue': pygame.Color('#87cefa'),
         'lightslategray': pygame.Color('#778899'),
+        'lightslategrey': pygame.Color('#778899'),
         'lightsteelblue': pygame.Color('#b0c4de'),
         'lightyellow': pygame.Color('#ffffe0'),
         'lime': pygame.Color('#00ff00'),
@@ -262,6 +267,7 @@ if _PYGAME_AVAILABLE:
         'skyblue': pygame.Color('#87ceeb'),
         'slateblue': pygame.Color('#6a5acd'),
         'slategray': pygame.Color('#708090'),
+        'slategrey': pygame.Color('#708090'),
         'snow': pygame.Color('#fffafa'),
         'springgreen': pygame.Color('#00ff7f'),
         'steelblue': pygame.Color('#4682b4'),
@@ -281,7 +287,9 @@ if _PYGAME_AVAILABLE:
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
-    See http://www.opimedia.be/DS/mementos/colors.htm
+    See http://www.opimedia.be/DS/mementos/colors.htm ,
+    http://www.w3.org/TR/css3-color/#html4
+    and http://www.w3.org/TR/css3-color/#svg-color
 
     List from http://www.w3schools.com/html/html_colornames.asp
     """
@@ -835,12 +843,15 @@ def _simpleguicolor_to_pygamecolor(color,
 
     * '#rrggbb',
     * '#rgb',
-    * 'rgb(red,green,blue)',
-    * 'rgba(red,green,blue,alpha)'
+    * 'rgb(red, green, blue)',
+    * 'rgba(red, green, blue, alpha)'
+    * 'hsl(hue, saturation, lightness)'
+    * 'hsla(hue, saturation, lightness, alpha)'
     * or constant name in `_SIMPLEGUICOLOR_TO_PYGAMECOLOR` \
       (`default_pygame_color` if the constant name are not founded).
 
     See http://www.opimedia.be/DS/mementos/colors.htm
+    and http://www.w3.org/TR/css3-color/
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
@@ -859,38 +870,88 @@ def _simpleguicolor_to_pygamecolor(color,
     assert _PYGAME_AVAILABLE
     assert isinstance(color, str), type(color)
     assert len(color) > 0
-    # assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
+    #assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
     #        or (color[:4] == 'rgb(')
     #        or (color[:5] == 'rgba(')
+    #        or (color[:4] == 'hsl(')
+    #        or (color[:5] == 'hsla(')
     #        or (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
 
-    if color[0] == '#':        # format #rrggbb or #rgb
+    if color[0] == '#':  # format #rrggbb or #rgb
+        # See http://www.w3.org/TR/css3-color/#numerical
         pygame_color = pygame.Color(
             color if len(color) == 7
             else '#' + color[1]*2 + color[2]*2 + color[3]*2)
-    elif color[:4] == 'rgb(':  # format rgb(red,green,blue)
-        assert color[-1] == ')', color
+    elif color[:3] == 'rgb':
+        # See http://www.w3.org/TR/css3-color/#rgb-color
+        if color[3] == '(':  # format rgb(red, green, blue)
+            assert color[-1] == ')', color
 
-        channels = color[4:-1].split(',')
+            channels = color[4:-1].split(',')
 
-        assert len(channels) == 3, channels
+            assert len(channels) == 3, channels
 
-        pygame_color = pygame.Color(max(0, min(255, int(channels[0]))),
-                                    max(0, min(255, int(channels[1]))),
-                                    max(0, min(255, int(channels[2]))))
-    elif color[:5] == 'rgba(':  # format rgba(red,green,blue,alpha)
-        assert color[-1] == ')', color
+            pygame_color = pygame.Color(max(0, min(255, int(channels[0]))),
+                                        max(0, min(255, int(channels[1]))),
+                                        max(0, min(255, int(channels[2]))))
+        else:                # format rgba(red, green, blue, alpha)
+            assert color[3:5] == 'a(', color
+            assert color[-1] == ')', color
 
-        channels = color[5:-1].split(',')
+            channels = color[5:-1].split(',')
 
-        assert len(channels) == 4, channels
+            assert len(channels) == 4, channels
 
-        pygame_color = pygame.Color(
-            max(0, min(255, int(channels[0]))),
-            max(0, min(255, int(channels[1]))),
-            max(0, min(255, int(channels[2]))),
-            max(0, min(255, int(round(float(channels[3])*255)))))
-    else:                       # constant name
+            pygame_color = pygame.Color(
+                max(0, min(255, int(channels[0]))),
+                max(0, min(255, int(channels[1]))),
+                max(0, min(255, int(channels[2]))),
+                max(0, min(255, int(round(float(channels[3])*255)))))
+    elif color[:3] == 'hsl':
+        # See http://www.w3.org/TR/css3-color/#hsl-color
+
+        from colorsys import hls_to_rgb
+
+        if color[3] == '(':  # format hsl(hue, saturation, lightness)
+            assert color[-1] == ')', color
+
+            datas = color[4:-1].split(',')
+
+            assert len(datas) == 3, datas
+            assert datas[1][-1] == '%', datas[1]
+            assert datas[2][-1] == '%', datas[2]
+
+            red, green, blue = hls_to_rgb(
+                max(0, min(1, (float(datas[0]) % 360)/360)),
+                max(0, min(1, float(datas[2][:-1])/100)),
+                max(0, min(1, float(datas[1][:-1])/100)))
+
+            pygame_color = pygame.Color(int(round(red*255)),
+                                        int(round(green*255)),
+                                        int(round(blue*255)))
+        else:                # format hsla(hue, saturation, lightness, alpha)
+            assert color[3:5] == 'a(', color
+            assert color[-1] == ')', color
+
+            datas = color[5:-1].split(',')
+
+            assert len(datas) == 4, datas
+            assert datas[1][-1] == '%', datas[1]
+            assert datas[2][-1] == '%', datas[2]
+
+            red, green, blue = hls_to_rgb(
+                max(0, min(1, (float(datas[0]) % 360)/360)),
+                max(0, min(1, float(datas[2][:-1])/100)),
+                max(0, min(1, float(datas[1][:-1])/100)))
+
+            pygame_color = pygame.Color(
+                int(round(red*255)),
+                int(round(green*255)),
+                int(round(blue*255)),
+                max(0, min(255, int(round(float(datas[3])*255)))))
+    else:                # constant name
+        # See http://www.w3.org/TR/css3-color/#html4
+        # and http://www.w3.org/TR/css3-color/#svg-color
         pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
                                                           default_pygame_color)
 
