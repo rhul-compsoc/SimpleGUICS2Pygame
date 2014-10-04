@@ -2,17 +2,17 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML in rgba() format. (December 13, 2013)
+Test colors HTML in rgba() format. (October 4, 2014)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
 try:
-    from user27_5LlszPPJxQHFMbk import rgba
+    from user38_ZmhOVHGm2lhVRhk import rgba
 
     import simplegui
 
@@ -46,30 +46,45 @@ TEST = 'test colors HTML rgba()'
 WIDTH = 512
 HEIGHT = 410
 
+state_transparency = True
+
 
 def draw(canvas):
     """
     Draw (with draw_line()) range of colors
-    in rbga(red, blue, green, alpha) format.
+    in rgba(red, blue, green, alpha) format.
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
-    for i in range(256):  # Format rbga(red, blue, green, alpha)
+    for i in range(256):  # Format rgba(red, blue, green, alpha)
         for a in range(10):
             canvas.draw_line((i*2, 10 + a*10), ((i + 1)*2, 10 + a*10), 10,
-                             rgba(i, i, i, a/9.0))
+                             rgba(i, i, i, (a/10.0 if state_transparency
+                                            else 1)))
 
         for a in range(10):
             canvas.draw_line((i*2, 110 + a*10), ((i + 1)*2, 110 + a*10), 10,
-                             rgba(i, 0, 0, a/9.0))
+                             rgba(i, 0, 0, (a/10.0 if state_transparency
+                                            else 1)))
 
         for a in range(10):
             canvas.draw_line((i*2, 210 + a*10), ((i + 1)*2, 210 + a*10), 10,
-                             rgba(0, i, 0, a/9.0))
+                             rgba(0, i, 0, (a/10.0 if state_transparency
+                                            else 1)))
 
         for a in range(10):
             canvas.draw_line((i*2, 310 + a*10), ((i + 1)*2, 310 + a*10), 10,
-                             rgba(0, 0, i, a/9.0))
+                             rgba(0, 0, i, (a/10.0 if state_transparency
+                                            else 1)))
+
+
+def switch_transparency():
+    """
+    Switch between transparency mode and opaque mode.
+    """
+    global state_transparency
+
+    state_transparency = not state_transparency
 
 
 # Main
@@ -80,6 +95,8 @@ frame.add_label('')
 frame.add_label(PYTHON_VERSION)
 frame.add_label(GUI_VERSION)
 frame.add_label(PYGAME_VERSION)
+frame.add_label('')
+frame.add_button('Switch transparency', switch_transparency)
 frame.add_label('')
 frame.add_button('Quit', frame.stop)
 

@@ -6,6 +6,7 @@ ChangeLog
   - Added HSL and HSLA colors format.
   - Added ``test/test_colors_html_hsla.py``.
   - Updated ``codeskulptor_lib``.
+  - Updated ``test/test_colors_html_rgba.py``.
 
   - Updated media links.
 
