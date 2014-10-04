@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-SimpleGUICS2Pygame package (September 2, 2014)
+SimpleGUICS2Pygame package (October 4, 2014)
 
 It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -33,6 +33,7 @@ http://www.opimedia.be/
 .. _Python: http://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
+* v.01.08.00 --- October 4, 2014
 * v.01.07.00 --- September 2, 2014
 * v.01.06.03 --- July 24, 2014
 * v.01.06.02 --- July 18, 2014
@@ -57,7 +58,7 @@ http://www.opimedia.be/
 .. _`Complete changelog`: https://simpleguics2pygame.readthedocs.org/en/latest/ChangeLog.html
 """
 
-_VERSION = '01.07.00'
+_VERSION = '01.08.00'
 """
 Version of SimpleGUICS2Pygame package.
 """
