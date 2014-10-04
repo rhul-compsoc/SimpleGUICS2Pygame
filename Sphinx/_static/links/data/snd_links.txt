@@ -12,6 +12,8 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__
 
 + Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
+http://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg
+
 http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg

@@ -86,6 +86,8 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/explosion.hasgraphic
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg
 
+http://commondatastorage.googleapis.com/codeskulptor-assets/data_clustering/USA_Counties.png
+
 http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle.png
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/week5-triangle2.png
