@@ -14,10 +14,10 @@ http://www.codeskulptor.org/#user34_ma4NCNG4WslqLbB.py
 loader.py
 Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user30_Wi9uk2Zi4soQklx.py
+http://www.codeskulptor.org/#user38_1ghZBJ6lfUcyMj1.py
 <strong>Mandelbrot_Set</strong>.py
 
-http://www.codeskulptor.org/#user31_OKLsQepyN3JSx4l.py
+http://www.codeskulptor.org/#user38_APz6mNW62D5bHdz.py
 <strong>Memory</strong>.py
 
 http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
@@ -26,10 +26,10 @@ http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user34_reDFipHer5qIcGY.py
+http://www.codeskulptor.org/#user38_LBRVzKh4KE7cAP8.py
 <strong>RiceRocks_Asteroids</strong>.py
 
-http://www.codeskulptor.org/#user34_LO41K5v5RlvQI8q.py
+http://www.codeskulptor.org/#user38_J7e2Fkeh89SJl4q.py
 Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
@@ -45,7 +45,7 @@ Stress_Balls_results.py
 
 + SimpleGUICS2Pygame <strong>modules</strong>
 
-http://www.codeskulptor.org/#user27_5LlszPPJxQHFMbk.py
+http://www.codeskulptor.org/#user38_ZmhOVHGm2lhVRhk.py
 Module <strong>codeskulptor_lib</strong>.py
 Some miscellaneous functions to help in CodeSkulptor: <a rel="nofollow" href="../../codeskulptor_lib.html" target="_blank">Documentation</a>.
 
@@ -82,10 +82,13 @@ test_circle.py
 http://www.codeskulptor.org/#user27_R9TkjcdQzQJQYwH.py
 test_colors_constants.py
 
-http://www.codeskulptor.org/#user27_qQXgXckcKAEZEVN.py
+http://www.codeskulptor.org/#user38_PGvlsAAHr3fDQGy.py
 test_colors_html.py
 
-http://www.codeskulptor.org/#user27_TXdraE9nYDbAglY.py
+http://www.codeskulptor.org/#user38_dWTecD7vTFqhq5Q.py
+test_colors_html_hsla.py
+
+http://www.codeskulptor.org/#user38_j5XljCOHJpfq9OZ.py
 test_colors_html_rgba.py
 
 http://www.codeskulptor.org/#user37_UiXfCWf1wUEb6hG.py
@@ -159,6 +162,12 @@ Tetris prototype (Sarah <span class="small-caps">Davies</span>)
 http://www.codeskulptor.org/#user16_eVd1AVpep0_0.py
 <strong>Tetris</strong> prototype (Sarah <span class="small-caps">Davies</span>) ADAPTED
 
+http://www.codeskulptor.org/#alg_counties_simplegui.py
+Visualizer for county-based cancer data
+
+http://www.codeskulptor.org/#user38_boBRhn8xEiaR2UK.py
+Visualizer for county-based cancer data ADAPTED
+
 
 
 + <a rel="nofollow" href="http://www.codeskulptor.org/demos.html" target="_blank">CodeSkulptor Hall of Fame</a>
@@ -180,6 +189,12 @@ Bunny&rsquo;s Big Adventure (Jenna <span class="small-caps">Netland</span>) ADAP
 
 http://www.codeskulptor.org/#user16_fn3IdoDS8y_0.py
 Bunny&rsquo;s Big Adventure (game objects require by Bunny&rsquo;s Big Adventure, Jenna <span class="small-caps">Netland</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos_card_animation.py
+Card Animation (Simon <span class="small-caps">Nicholson</span>)
+
+http://www.codeskulptor.org/#user38_XGSkQMugrgoabVX.py
+Card Animation (Simon <span class="small-caps">Nicholson</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-ddr.py
 DDR clone (Emily <span class="small-caps">Wachtel</span>)
@@ -204,6 +219,18 @@ Game of Life (Jonathan <span class="small-caps">Nixon</span>)
 
 http://www.codeskulptor.org/#user19_kx6pNaJ16J_0.py
 <strong>Game of Life</strong> (Jonathan <span class="small-caps">Nixon</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos_hex.py
+Hex (Vladimir <span class="small-caps">Cvetkovic</span>)
+
+http://www.codeskulptor.org/#user38_1AgwOF3jnpHn3Dm.py
+<strong>Hex</strong> (Vladimir <span class="small-caps">Cvetkovic</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos_lunar_lander.py
+Lunar Lander (John <span class="small-caps">Zavadil</span>)
+
+http://www.codeskulptor.org/#user38_asuy99WcGJddHD6.py
+Lunar Lander (John <span class="small-caps">Zavadil</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-pang.py
 Pang (Ender <span class="small-caps">Kasim</span>)
@@ -238,6 +265,12 @@ Rubik&rsquo;s Cube (Karen <span class="small-caps">Ward</span>, Dennis <span cla
 
 http://www.codeskulptor.org/#user33_eg2RVgcIpLed7nz.py
 Rubik&rsquo;s Cube (Karen <span class="small-caps">Ward</span>, Dennis <span class="small-caps">della Corte</span>) ADAPTED
+
+http://www.codeskulptor.org/#demos_sine_wave.py
+Sine Wave Text (Jason <span class="small-caps">Butwell</span>)
+
+http://www.codeskulptor.org/#user38_2xloMPb7GsDDoFb.py
+Sine Wave Text (Jason <span class="small-caps">Butwell</span>) ADAPTED
 
 http://www.codeskulptor.org/#demos-starwars.py
 Star Wars (Steve <span class="small-caps">Knock</span>)

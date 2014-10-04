@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (June 16, 2014)
+Spaceship prototype (October 4, 2014)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -24,7 +24,7 @@ import math
 import random
 
 try:
-    from user27_5LlszPPJxQHFMbk import assert_position
+    from user38_ZmhOVHGm2lhVRhk import assert_position
     from user33_Bhc7VzXKbXGVQV1 import FPS
     from user34_7pdNdCOBbyLqAZs import Loader
 

@@ -5,6 +5,7 @@ ChangeLog
   - Added alternative grey colors.
   - Added HSL and HSLA colors format.
   - Added ``test/test_colors_html_hsla.py``.
+  - Updated CodeSkulptor programs links.
   - Updated ``codeskulptor_lib``.
   - Updated ``test/test_colors_html_rgba.py``.
 

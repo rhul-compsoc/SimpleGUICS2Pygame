@@ -9,10 +9,10 @@ Examples of use in :
   http://www.codeskulptor.org/#user34_gteXRnHw9UOp8cv.py
 
 * `example/Spaceship_prototype.py`:
-  http://www.codeskulptor.org/#user34_LO41K5v5RlvQI8q.py
+  http://www.codeskulptor.org/#user38_J7e2Fkeh89SJl4q.py
 
 * `example/RiceRocks_Asteroids.py`:
-  http://www.codeskulptor.org/#user34_reDFipHer5qIcGY.py
+  http://www.codeskulptor.org/#user38_LBRVzKh4KE7cAP8.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_fps
     :special-members:

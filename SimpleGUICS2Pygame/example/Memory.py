@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (May 3, 2014)
+Memory (October 4, 2014)
   Game with 8 x (2 indentical cards)
          or 4 x (4 indentical cards)
 
@@ -18,7 +18,7 @@ import random
 try:
     import simplegui
 
-    from user27_5LlszPPJxQHFMbk import assert_position
+    from user38_ZmhOVHGm2lhVRhk import assert_position
     from user23_HY71NDvHu7WKaMa import draw_rect
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui

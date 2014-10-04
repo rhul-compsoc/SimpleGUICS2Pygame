@@ -2,17 +2,17 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML. (December 13, 2013)
+Test colors HTML. (October 4, 2013)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
 try:
-    from user27_5LlszPPJxQHFMbk import hex2, hex_fig
+    from user38_ZmhOVHGm2lhVRhk import hex2, hex_fig
 
     import simplegui
 

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Mandelbrot Set. (April 26, 2014)
+Mandelbrot Set. (October 4, 2014)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -16,7 +16,7 @@ http://www.opimedia.be/
 import math
 
 try:
-    from user27_5LlszPPJxQHFMbk import codeskulptor_is, hex2
+    from user38_ZmhOVHGm2lhVRhk import codeskulptor_is, hex2
 
     import simplegui
 
