@@ -2,8 +2,9 @@ ChangeLog
 =========
 * October 4, 2014
 
-  - Added HSL and HSLA colors format.
   - Added alternative grey colors.
+  - Added HSL and HSLA colors format.
+  - Added ``test/test_colors_html_hsla.py``.
   - Updated ``codeskulptor_lib``.
 
   - Updated media links.
