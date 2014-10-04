@@ -110,6 +110,7 @@ Changes
 
   - Added HSL and HSLA colors format.
   - Added alternative grey colors.
+  - Updated ``codeskulptor_lib``.
 
   - Updated media links.
 

@@ -4,6 +4,7 @@ ChangeLog
 
   - Added HSL and HSLA colors format.
   - Added alternative grey colors.
+  - Updated ``codeskulptor_lib``.
 
   - Updated media links.
 
@@ -97,7 +98,7 @@ ChangeLog
   - Removed exception to ``get_canvas_image()``.
 
   - Updated almost all files to add ``except ImportError``.
-  - Updated ``codeskulptor_lib .codeskulptor_is()``.
+  - Updated ``codeskulptor_lib.codeskulptor_is()``.
 
   - Added ``simplegui_lib_fps.py``.
 

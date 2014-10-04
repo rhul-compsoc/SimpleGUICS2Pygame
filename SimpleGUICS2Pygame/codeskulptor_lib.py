@@ -1,14 +1,14 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor_lib (December 13, 2013)
+codeskulptor_lib (October 4, 2014)
 
 Some miscellaneous functions to help in CodeSkulptor.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -115,11 +115,90 @@ def hex_fig(n, uppercase=True):
                       + n - 10)))
 
 
+def hsl(hue, saturation, lightness):
+    """
+    Return the string HTML representation of the color
+    in 'hsl(hue, lightness, saturation)' format.
+
+    :param hue: float or int
+    :param saturation: 0 <= float or int <= 100
+    :param lightness: 0 <= float or int <= 100
+
+    :return: str
+    """
+    assert isinstance(hue, float) or isinstance(hue, int)
+
+    assert isinstance(saturation, float) or isinstance(saturation, int)
+    assert 0 <= saturation <= 100
+
+    assert isinstance(lightness, float) or isinstance(lightness, int)
+    assert 0 <= lightness <= 100
+
+    # %s to avoid CodeSkulptor %% bug
+    return 'hsla(%d, %d%s, %d%s)' % (hue % 360,
+                                     saturation, '%',
+                                     lightness, '%')
+
+
+def hsla(hue, saturation, lightness,
+         alpha=1):
+    """
+    Return the string HTML representation of the color
+    in 'hsla(hue, lightness, saturation, alpha)' format.
+
+    :param hue: float or int
+    :param saturation: 0 <= float or int <= 100
+    :param lightness: 0 <= float or int <= 100
+    :param alpha: 0 <= float or int <= 1
+
+    :return: str
+    """
+    assert isinstance(hue, float) or isinstance(hue, int)
+
+    assert isinstance(saturation, float) or isinstance(saturation, int)
+    assert 0 <= saturation <= 100
+
+    assert isinstance(lightness, float) or isinstance(lightness, int)
+    assert 0 <= lightness <= 100
+
+    assert isinstance(alpha, float) or isinstance(alpha, int)
+    assert 0 <= alpha <= 1
+
+    # %s to avoid CodeSkulptor %% bug
+    return 'hsla(%d, %d%s, %d%s, %f)' % (hue % 360,
+                                         saturation, '%',
+                                         lightness, '%',
+                                         alpha)
+
+
+def rgb(red, green, blue):
+    """
+    Return the string HTML representation of the color
+    in 'rgb(red, blue, green)' format.
+
+    :param red:   0 <= int <= 255
+    :param green: 0 <= int <= 255
+    :param blue:  0 <= int <= 255
+
+    :return: str
+    """
+    assert isinstance(red, int)
+    assert 0 <= red < 256
+
+    assert isinstance(green, int)
+    assert 0 <= green < 256
+
+    assert isinstance(blue, int)
+    assert 0 <= blue < 256
+
+    return 'rgba(%d, %d, %d)' % (red, green, blue)
+
+
 def rgba(red, green, blue,
          alpha=1):
     """
     Return the string HTML representation of the color
-    in 'rgba(red,blue,green,alpha)' format.
+    in 'rgba(red, blue, green, alpha)' format.
 
     :param red:   0 <= int <= 255
     :param green: 0 <= int <= 255
@@ -130,13 +209,14 @@ def rgba(red, green, blue,
     """
     assert isinstance(red, int)
     assert 0 <= red < 256
+
     assert isinstance(green, int)
     assert 0 <= green < 256
+
     assert isinstance(blue, int)
     assert 0 <= blue < 256
+
     assert isinstance(alpha, float) or isinstance(alpha, int)
     assert 0 <= alpha <= 1
 
-    return 'rgba(%d, %d, %d, %s)' % (red, green, blue,
-                                     # To avoid CodeSkulptor %f bug on Firefox!
-                                     str(alpha))
+    return 'rgba(%d, %d, %d, %f)' % (red, green, blue, alpha)
