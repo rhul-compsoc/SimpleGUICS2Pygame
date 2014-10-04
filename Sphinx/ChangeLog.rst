@@ -1,6 +1,7 @@
 ChangeLog
 =========
 * October 4, 2014
+
   - Added HSL and HSLA colors format.
   - Added alternative grey colors.
 

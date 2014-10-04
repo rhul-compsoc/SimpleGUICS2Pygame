@@ -107,6 +107,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 * October 4, 2014
+
   - Added HSL and HSLA colors format.
   - Added alternative grey colors.
 
