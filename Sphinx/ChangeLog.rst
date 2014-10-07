@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* October 7, 2014
+
+  - Updated documentation.
+
 * 01.08.00 --- October 4, 2014
 
   - Added alternative grey colors.

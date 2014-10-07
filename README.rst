@@ -106,6 +106,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
+* October 7, 2014
+
+  - Updated documentation.
+
+
 * 01.08.00 --- October 4, 2014
 
   - Added alternative grey colors.

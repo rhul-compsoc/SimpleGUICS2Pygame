@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (October 4, 2014)
+simpleguics2pygame (October 7, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -2981,6 +2981,8 @@ class Image:
     """
     `load_image()` try **first** to loading image from this directory,
     and next if failed, try to loading from URL.
+    
+    This local directory is relative to the directory of your program.
     """
 
     _pygamesurfaces_cache_default_max_size = 1000
@@ -3108,6 +3110,8 @@ class Sound:
     """
     `load_sound()` try **first** to loading sound from this directory,
     and next if failed, try to loading from URL.
+    
+    This local directory is relative to the directory of your program.
     """
 
     _load_disabled = False
@@ -3752,6 +3756,8 @@ def load_image(url):
     from `Image._dir_search_first` local directory (`_img/` by default),
     and next if failed, try to loading from `url`.
 
+    This local directory is relative to the directory of your program.
+
     For example,
     ``load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png')``
     try first to loading from
@@ -3788,6 +3794,8 @@ def load_sound(url):
     SimpleGUICS2Pygame try **first** to loading sound
     from `Sound._dir_search_first` local directory (`_snd/` by default),
     and next if failed, try to loading from `url`.
+
+    This local directory is relative to the directory of your program.
 
     For example,
     ``load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')``
