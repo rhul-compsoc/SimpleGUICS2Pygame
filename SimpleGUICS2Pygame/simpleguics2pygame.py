@@ -580,14 +580,16 @@ def _load_media(type_of_media, url, local_dir):
     from re import sub
 
     urlsplitted = urlsplit(url)
-    filename = sub('[^._/0-9A-Za-z]', '_',
-                   join(dirname(argv[0]),
-                        local_dir,
-                        urlsplitted[1] + '/',
-                        urlsplitted[2][1:]).replace('\\', '/'))
-    if urlsplitted[3] != '':
+
+    filename = join(dirname(argv[0]),
+                    local_dir,
+                    sub('[^._/0-9A-Za-z]', '_',
+                        join(urlsplitted.netloc + '/',
+                             urlsplitted.path[1:]).replace('\\', '/')))
+
+    if urlsplitted.query != '':  # add "normalized" query part
         filename = list(splitext(filename))
-        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted[3]))
+        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted.query))
         filename = ''.join(filename)
 
     del urlsplitted
@@ -2981,7 +2983,7 @@ class Image:
     """
     `load_image()` try **first** to loading image from this directory,
     and next if failed, try to loading from URL.
-    
+
     This local directory is relative to the directory of your program.
     """
 
@@ -3110,7 +3112,7 @@ class Sound:
     """
     `load_sound()` try **first** to loading sound from this directory,
     and next if failed, try to loading from URL.
-    
+
     This local directory is relative to the directory of your program.
     """
 
