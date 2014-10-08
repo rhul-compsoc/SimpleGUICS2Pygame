@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (October 7, 2014)
+simpleguics2pygame (October 8, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -761,7 +761,9 @@ def _pygamekey_to_simpleguikey(key):
 
     :return: int >= 0
     """
-    assert _PYGAME_AVAILABLE
+    assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
     assert isinstance(key, int), type(key)
     assert key >= 0, key
 
@@ -869,9 +871,12 @@ def _simpleguicolor_to_pygamecolor(color,
     if pygame_color is not None:
         return pygame_color
 
-    assert _PYGAME_AVAILABLE
+    assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
     assert isinstance(color, str), type(color)
     assert len(color) > 0
+
     #assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
     #        or (color[:4] == 'rgb(')
     #        or (color[:5] == 'rgba(')
@@ -1275,7 +1280,9 @@ class Frame:
         :param canvas_height: (int or float) >= 0
         :param control_width: (int or float) >= 0
         """
-        assert _PYGAME_AVAILABLE
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
         assert Frame._frame_instance is None, \
             "You can't instantiate two Frame!"
 
@@ -2037,7 +2044,9 @@ class Canvas:
         :param canvas_width: int >= 0
         :param canvas_height: int >= 0
         """
-        assert _PYGAME_AVAILABLE
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
         assert (frame is None) or isinstance(frame, Frame), type(frame)
 
         assert isinstance(canvas_width, int), type(canvas_width)
@@ -2769,7 +2778,9 @@ class Control:
         :param button_handler: None or (function () -> \*)
         :param width: None or int
         """
-        assert _PYGAME_AVAILABLE
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
         assert isinstance(frame, Frame), type(frame)
         assert isinstance(text, str), type(text)
         assert (button_handler is None) or callable(button_handler), \
@@ -3001,7 +3012,9 @@ class Image:
 
         :param url: str
         """
-        assert _PYGAME_AVAILABLE
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
         assert isinstance(url, str), type(url)
 
         self._url = url
@@ -3136,7 +3149,9 @@ class Sound:
 
         :param url: str
         """
-        assert _PYGAME_AVAILABLE
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
         assert isinstance(url, str), type(url)
 
         self._pygame_channel = None
@@ -3289,7 +3304,9 @@ class TextAreaControl:
         :param input_handler: function (str) -> *
         :param input_width: int or float
         """
-        assert _PYGAME_AVAILABLE
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
         assert isinstance(frame, Frame), type(frame)
         assert isinstance(label_text, str), type(label_text)
         assert callable(input_handler), type(input_handler)
@@ -3655,7 +3672,9 @@ def create_frame(title,
 
     :return: Frame
     """
-    assert _PYGAME_AVAILABLE
+    assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
     assert isinstance(title, str), type(title)
 
     assert isinstance(canvas_width, int) or isinstance(canvas_width, float), \
@@ -3708,7 +3727,9 @@ def create_sound(sound_data, sample_rate=8000, num_channels=1):
 
     :return: Sound
     """
-    assert _PYGAME_AVAILABLE
+    assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
     assert isinstance(sound_data, tuple) or isinstance(sound_data, list), \
         type(sound_data)
     if __debug__:
@@ -3782,7 +3803,9 @@ def load_image(url):
 
     :return: Image
     """
-    assert _PYGAME_AVAILABLE
+    assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
     assert isinstance(url, str), type(url)
 
     return Image(url)
@@ -3817,7 +3840,9 @@ def load_sound(url):
 
     :return: Sound
     """
-    assert _PYGAME_AVAILABLE
+    assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
     assert isinstance(url, str), type(url)
 
     return Sound(url)
@@ -3840,6 +3865,6 @@ if __name__ == '__main__':
 See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""",
               file=stderr)
 
-        exit()
+        exit(1)
 
     _draw_about()

@@ -106,7 +106,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* October 7, 2014
+* October 8, 2014
+
+  - Added information when pygame is not installed.
 
   - Corrected local filename bug in ``_load_media()``. (Thanks to Sergey Sorokin.)
   - Updated documentation.
