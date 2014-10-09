@@ -106,7 +106,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* October 8, 2014
+* 01.08.01 --- October 9, 2014
 
   - Added information when pygame is not installed.
 

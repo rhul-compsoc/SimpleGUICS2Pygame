@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* October 8, 2014
+* 01.08.01 --- October 9, 2014
 
   - Added information when pygame is not installed.
 
