@@ -46,8 +46,6 @@ Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
 
 On Window$:
 
-* You can use the binary installer ``SimpleGUICS2Pygame-?.exe`` if it available to your machine.
-
 * You can easily install pip and Pygame,
   see `Unofficial Windows Binaries pip`_ and `Unofficial Windows Binaries Pygame`_.
 
