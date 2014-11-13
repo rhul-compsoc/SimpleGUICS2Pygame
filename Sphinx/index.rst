@@ -103,7 +103,10 @@ Author |OPi|
 
 .. |OPi| image:: _static/img/OPi_t.png
 
-|
+|Donate|_
+
+.. _Donate: http://www.opimedia.be/donate/index.htm
+.. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
 
 
 
