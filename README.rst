@@ -78,6 +78,11 @@ Author |OPi|
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
 
+|Donate|_
+
+.. _Donate: http://www.opimedia.be/donate/index.htm
+.. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
+
 
 
 License: GPLv3_ |GPLv3|
