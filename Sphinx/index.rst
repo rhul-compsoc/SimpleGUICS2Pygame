@@ -13,11 +13,11 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 
 |SimpleGUICS2Pygame|
 
-`Online HTML documentation`_ on Read The Docs.
+`Online HTML documentation`_ on **Read The Docs**.
 (You can also use the online `SimpleGUI documentation on CodeSkulptor`_.)
 
 | Sources and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
-| and on PyPI: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
+| and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
