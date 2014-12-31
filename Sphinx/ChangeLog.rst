@@ -1,10 +1,12 @@
 ChangeLog
 =========
-* 01.08.01 --- October 9, 2014
+* 01.08.01 --- December 31, 2014
+
+  - Added Donate button in ``_draw_about()`` panel.
 
   - Added information when pygame is not installed.
 
-  - **Corrected local filename bug in ``_load_media()``.** (Thanks to Sergey Sorokin.)
+  - Corrected local filename bug in ``_load_media()``. (Thanks to Sergey Sorokin.)
   - Updated documentation.
 
 * 01.08.00 --- October 4, 2014

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (October 8, 2014)
+simpleguics2pygame (December 31, 2014)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -447,7 +447,7 @@ def _draw_about():
     Frame._hide_status = True
 
     WIDTH = 560
-    HEIGHT = 320
+    HEIGHT = 360
 
     def draw_about_handler(canvas):
         """
@@ -494,6 +494,8 @@ def _draw_about():
                      lambda: open_new_tab(_WEBSITE), 180)
     frame.add_button('Olivier Pirson OPi',
                      lambda: open_new_tab('http://www.opimedia.be/'), 180)
+    frame.add_button('Donate',
+                     lambda: open_new_tab('http://www.opimedia.be/donate'), 180)
 
     frame.add_label('')
     frame.add_button('CodeSkulptor',

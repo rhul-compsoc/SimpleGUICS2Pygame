@@ -111,11 +111,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* 01.08.01 --- October 9, 2014
+* 01.08.01 --- December 31, 2014
+
+  - Added Donate button in ``_draw_about()`` panel.
 
   - Added information when pygame is not installed.
 
-  - **Corrected local filename bug in ``_load_media()``.** (Thanks to Sergey Sorokin.)
+  - Corrected local filename bug in ``_load_media()``. (Thanks to Sergey Sorokin.)
   - Updated documentation.
 
 
