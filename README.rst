@@ -119,8 +119,10 @@ Changes
 
   - Added information when pygame is not installed.
 
-  - Corrected local filename bug in ``_load_media()``. (Thanks to Sergey Sorokin.)
+  - Corrected local filename bug in ``_load_media()``. (Thanks to `Sergey Sorokin`_.)
   - Updated documentation.
+
+.. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
 
 * 01.08.00 --- October 4, 2014
 

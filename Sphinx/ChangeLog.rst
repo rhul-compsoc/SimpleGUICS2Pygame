@@ -8,8 +8,10 @@ ChangeLog
 
   - Added information when pygame is not installed.
 
-  - Corrected local filename bug in ``_load_media()``. (Thanks to Sergey Sorokin.)
+  - Corrected local filename bug in ``_load_media()``. (Thanks to `Sergey Sorokin`_.)
   - Updated documentation.
+
+.. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
 
 * 01.08.00 --- October 4, 2014
 
@@ -102,10 +104,12 @@ ChangeLog
 
   - Added ``numeric`` (``Matrix`` object) module.
 
-  - Corrected some typos by Maxim Rybalov. (Thank you.)
+  - Corrected some typos by `Maxim Rybalov`_. (Thank you.)
 
   - Updated ``simplegui_lib_fps.py``.
   - Updated ``example/RiceRocks_Asteroids.py``.
+
+.. _`Maxim Rybalov`: https://www.linkedin.com/in/mrybalov
 
 * 01.03.00 --- December 13, 2013
 
@@ -116,8 +120,8 @@ ChangeLog
 
   - Added ``simplegui_lib_fps.py``.
 
-  - Corrected bug in ``_load_media()`` (issue #1). (Thanks to Sean Flanigan.)
-  - Updated documentation to clarify local use of images and sounds. (Thanks to Ines Simicic.)
+  - Corrected bug in ``_load_media()`` (issue #1). (Thanks to `Sean Flanigan`_.)
+  - Updated documentation to clarify local use of images and sounds. (Thanks to `Ines Simicic`_.)
 
   - Updated ``script/cs2both.py``.
 
@@ -129,6 +133,9 @@ ChangeLog
 
   - Updated ``example/Memory.py``.
   - Updated media and CodeSkulptor programs links.
+
+.. _`Sean Flanigan`: https://github.com/seanf
+.. _`Ines Simicic`: http://i--s.weebly.com/
 
 * 01.02.00 --- November 8, 2013
 
