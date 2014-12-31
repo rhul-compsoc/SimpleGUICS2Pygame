@@ -1,8 +1,10 @@
 ChangeLog
 =========
-* 01.08.01 --- December 31, 2014
+* December 31, 2014
 
   - Added Donate button in ``_draw_about()`` panel.
+
+* 01.08.01 --- October 9, 2014
 
   - Added information when pygame is not installed.
 
