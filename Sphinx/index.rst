@@ -100,13 +100,16 @@ Author |OPi|
 ------------
 | Olivier Pirson OPi --- http://www.opimedia.be/
 | olivier_pirson_opi@yahoo.fr
+|
 
 .. |OPi| image:: _static/img/OPi_t.png
 
-|Donate|_
+| If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
+| Go to the links: |Donate|_
+|
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
-.. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
+.. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
 
 
 

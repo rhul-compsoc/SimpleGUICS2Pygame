@@ -78,7 +78,9 @@ Author |OPi|
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
 
-|Donate|_
+| If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
+| Go to the links: |Donate|_
+|
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
 .. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
