@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (December 31, 2014)
+simpleguics2pygame (January 1st, 2015)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -779,6 +779,7 @@ def _set_option_from_argv():
 
     * ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
+    * ``--fps n``: Set Frame Per Second (default is 60 FPS).
     * ``--fullscreen``: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
     * ``--no-border``: Window without border.
@@ -803,12 +804,21 @@ def _set_option_from_argv():
     from sys import argv
 
     nb_module_arg = 0
-    for arg in argv[1:]:
+    i = 1
+    while i < len(argv):
+        arg = argv[i]
         nb_module_arg += 1
         if arg == '--default-font':
             Frame._default_font = True
         elif arg == '--display-fps':
             Frame._display_fps_average = True
+        elif arg == '--fps':
+            nb_module_arg += 1
+            i += 1
+            try:
+                Frame._fps = max(0, int(argv[i]))
+            except (IndexError, ValueError):
+                Frame._fps = 0
         elif arg == '--fullscreen':
             Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.HWSURFACE
         elif arg == '--keep-timers':
@@ -837,6 +847,8 @@ def _set_option_from_argv():
             nb_module_arg -= 1
 
             break
+
+        i += 1
 
     del argv[1:nb_module_arg + 1]
 

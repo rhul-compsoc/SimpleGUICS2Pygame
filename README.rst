@@ -111,7 +111,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* December 31, 2014
+* January 1st, 2015
+
+  - Added ``--fps n`` option.
 
   - Added Donate button in ``_draw_about()`` panel.
 
