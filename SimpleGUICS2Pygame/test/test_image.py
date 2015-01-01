@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (June 10, 2014)
+Test draw images. (January 1st, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -118,6 +118,10 @@ def draw(canvas):
                       (img.get_width()*7/4, img.get_height()*11/4),
                       (img.get_width()/2, img.get_height()/2))
 
+    canvas.draw_image(logo,
+                      (32, 32), (64, 64),
+                      (WIDTH/2, HEIGHT/2), (64, 64))
+
     # Update and draw FPS (if started)
     fps.draw_fct(canvas)
 
@@ -154,6 +158,11 @@ def init():
     """
     Init after image loaded.
     """
+    if not SIMPLEGUICS2PYGAME:
+        global logo
+
+        logo = loader.get_image('logo')
+
     frame.set_draw_handler(draw)
 
     if SIMPLEGUICS2PYGAME:
@@ -165,9 +174,16 @@ def init():
 loader = Loader(frame, WIDTH, init)
 loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
                  'double_ship')
+if not SIMPLEGUICS2PYGAME:
+    loader.add_image('http://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',
+                     'logo')
 loader.load()
 
 loader.wait_loaded()
+
+if SIMPLEGUICS2PYGAME:
+    logo = simplegui._load_local_image(
+        '../_img/SimpleGUICS2Pygame_64x64_t.png')
 
 frame.start()
 if SIMPLEGUICS2PYGAME and frame._print_stats_cache:

@@ -3,6 +3,7 @@ ChangeLog
 * January 1st, 2015
 
   - Added ``_load_local_image()`` and ``_load_local_sound()`` functions.
+  - Updated ``test/test_image.py``.
 
   - Added ``--fps n`` option.
 
