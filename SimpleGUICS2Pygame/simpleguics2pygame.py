@@ -19,7 +19,7 @@ Require Pygame_
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
@@ -66,7 +66,7 @@ if _PYGAME_AVAILABLE:
 
 #
 # Private global constants
-###########################
+##########################
 _MIXER_FREQUENCY = 22050
 """
 Sound frequency used by the mixer module of Pygame.
@@ -359,7 +359,7 @@ _SIMPLEGUIKEY_TO_STATUSKEY = {32: 'space',
 
 #
 # Global constant
-##################
+#################
 KEY_MAP = {'space': 32,
            'left':  37,
            'up':    38,
@@ -433,11 +433,13 @@ SimpleGUI keyboard characters contants.
 
 
 #
-# Private function
-###################
+# "Private" functions
+#####################
 def _draw_about():
     """
     Little application that draw a short presentation of this module.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
     """
     from sys import version
     from webbrowser import open_new_tab
@@ -461,6 +463,10 @@ def _draw_about():
                          size*1.3, '#f2f2f2')
         canvas.draw_text('SimpleGUICS2Pygame ' + _VERSION,
                          (10, size*3/4), size, 'Black')
+        canvas.draw_image(logo_opi, (20.5, 17), (41, 34),
+                          (30.5, HEIGHT - 27), (41, 34))
+        canvas.draw_image(logo_gpl, (44, 15.5), (88, 31),
+                          (WIDTH/2, HEIGHT - 25.5), (88, 31))
         canvas.draw_image(logo, (32, 32), (64, 64),
                           (WIDTH - 42, HEIGHT - 42), (64, 64))
 
@@ -475,14 +481,22 @@ def _draw_about():
              'Require Pygame for simpleguics2pygame.',
              None,
              'GPLv3',
-             'Copyright (C) 2013, 2014 Olivier Pirson',
+             'Copyright (C) 2013, 2014, 2015 Olivier Pirson',
              'Olivier Pirson OPi --- http://www.opimedia.be/',
              'olivier_pirson_opi@yahoo.fr')):
             if line is not None:
                 canvas.draw_text(line, (10, 50 + size*(i + 3/4)),
                                  size, 'Black')
 
-    logo = load_image('https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png')
+    from os.path import dirname, join
+    from sys import argv
+
+    logo = _load_local_image(join(dirname(argv[0]),
+                                  '_img/SimpleGUICS2Pygame_64x64_t.png'))
+    logo_opi = _load_local_image(join(dirname(argv[0]),
+                                      '_img/OPi_t.png'))
+    logo_gpl = _load_local_image(join(dirname(argv[0]),
+                                      '_img/gplv3-88x31.png'))
 
     frame = create_frame(
         'SimpleGUICS2Pygame: short presentation of this package',
@@ -495,7 +509,8 @@ def _draw_about():
     frame.add_button('Olivier Pirson OPi',
                      lambda: open_new_tab('http://www.opimedia.be/'), 180)
     frame.add_button('Donate',
-                     lambda: open_new_tab('http://www.opimedia.be/donate'), 180)
+                     lambda: open_new_tab('http://www.opimedia.be/donate'),
+                     180)
 
     frame.add_label('')
     frame.add_button('CodeSkulptor',
@@ -524,22 +539,113 @@ def _draw_about():
     frame.start()
 
 
+def _load_local_image(filename):
+    """
+    Create and return an image by loading a file from `filename`.
+    Not founded file and errors are ignored.
+
+    I recommend to use only Internet resources with the `load_image()` function.
+    Then you can use your program **both**
+    in standard Python and in CodeSkulptor.
+    (See http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#download-medias .)
+
+    But if it is necessary,
+    you can load local image with this "private" function.
+
+    Supported formats are the same as the `load_image()` function.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    :param filename: str (**only a valid filename**, not URL)
+
+    :return: _LocalImage
+    """
+    assert isinstance(filename, str), type(filename)
+
+    return _LocalImage(filename)
+
+
+def _load_local_media(type_of_media, filename):
+    """
+    Load an image or a sound from local file `filename`.
+
+    **Don't use directly**,
+    this function is use by `_LocalImage` and `_LocalSound` classes.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    Side effects:
+
+    * If the media is a valid sound then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+
+    :param type_of_media: Image or Sound
+    :param filename: str
+
+    :return: pygame.Surface or pygame.mixer.Sound or None
+    """
+    assert type_of_media in ('Image', 'Sound'), type(type_of_media)
+    assert isinstance(filename, str), type(filename)
+
+    from os.path import isfile
+
+    if not isfile(filename):
+        return
+
+    media_is_image = (type_of_media == 'Image')
+
+    if (not media_is_image) and (not Sound._mixer_initialized):
+        Sound._mixer_initialized = True
+        pygame.mixer.init(_MIXER_FREQUENCY)
+
+    media = (pygame.image.load(filename) if media_is_image
+             else pygame.mixer.Sound(filename))
+
+    return media
+
+
+def _load_local_sound(filename):
+    """
+    Create and return a sound by loading a file from `filename`.
+    Not founded file and errors are ignored.
+
+    I recommend to use only Internet resources with the `load_sound()` function.
+    Then you can use your program **both**
+    in standard Python and in CodeSkulptor.
+    (See http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#download-medias .)
+
+    But if it is necessary,
+    you can load local sound with this "private" function.
+
+    Supported formats are the same as the `load_sound()` function.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    :param filename: str (**only a valid filename**, not URL)
+
+    :return: _LocalSound
+    """
+    assert isinstance(filename, str), type(filename)
+
+    return _LocalSound(filename)
+
+
 def _load_media(type_of_media, url, local_dir):
     """
-    Load an image or a sound from web or local directory,
+    Load an image or a sound from Web or local directory,
     and save if asked with Frame._save_downloaded_medias
     and Frame._save_downloaded_medias_overwrite.
 
     If local_dir don't exist it is created.
 
-    **Don't use directly**, this function is use by  `Image` ad `Sound()`.
+    **Don't use directly**,
+    this function is use by `Image` and `Sound` classes.
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
     Side effects:
 
     * Each new url is added to `Frame._pygamemedias_cached`.
-    * If media is a sound then Sound._mixer_initialized is set to `True`.
+    * If the media is a valid sound then init the pygame.mixer and set Sound._mixer_initialized to `True`.
     * If `Frame._print_load_medias` then print loading informations to stderr.
 
     :param type_of_media: Image or Sound
@@ -763,9 +869,6 @@ def _pygamekey_to_simpleguikey(key):
 
     :return: int >= 0
     """
-    assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
-
     assert isinstance(key, int), type(key)
     assert key >= 0, key
 
@@ -853,8 +956,9 @@ def _set_option_from_argv():
     del argv[1:nb_module_arg + 1]
 
 
-def _simpleguicolor_to_pygamecolor(color,
-                                   default_pygame_color=_SIMPLEGUICOLOR_TO_PYGAMECOLOR['_default']):
+def _simpleguicolor_to_pygamecolor(
+        color,
+        default_pygame_color=_SIMPLEGUICOLOR_TO_PYGAMECOLOR['_default']):
     """
     Return a `pygame.Color` object
     corresponding to the SimpleGUI string `color` in format:
@@ -884,9 +988,6 @@ def _simpleguicolor_to_pygamecolor(color,
     pygame_color = Frame._pygamecolors_cached.get(color)
     if pygame_color is not None:
         return pygame_color
-
-    assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
     assert isinstance(color, str), type(color)
     assert len(color) > 0
@@ -992,7 +1093,8 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
-    Side effect: Each new font with new size is added to `Frame._pygamefonts_cached`.
+    Side effect:
+    Each new font with new size is added to `Frame._pygamefonts_cached`.
     See `Frame._pygamefonts_cached_clear()`.
 
     :param font_face: None
@@ -1067,7 +1169,7 @@ def _text_to_text_cut(text, width, pygame_font):
 
 #
 # Classes
-##########
+#########
 class Frame:
     """
     Frame similar to SimpleGUI `Frame` of CodeSkulptor.
@@ -1143,7 +1245,8 @@ class Frame:
     _print_load_medias = False
     """
     If `True`
-    then print URLs or locals filename loaded by `load_image()` and `load_sound()`.
+    then print URLs or locals filename loaded by `load_image()`
+    and `load_sound()`.
     """
 
     _print_stats_cache = False
@@ -1190,14 +1293,16 @@ class Frame:
     _save_downloaded_medias = False
     """
     If `True`
-    then save images and sounds downloaded from Web that don't already exist in local directory.
+    then save images and sounds downloaded from Web
+    that don't already exist in local directory.
     See Frame._save_downloaded_medias_overwrite.
     """
 
     _save_downloaded_medias_overwrite = False
     """
     If `True` and `Frame._save_downloaded_medias`
-    then download all images and sounds from Web and save in local directory even if they already exist.
+    then download all images and sounds from Web
+    and save in local directory even if they already exist.
     """
 
     _statuskey_background_pygame_color = (
@@ -1548,7 +1653,8 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
     def _pos_in_control(self, x, y):
         """
-        If position (`x`, `y`) is on the zone of one `Control` or `TextAreaControl`
+        If position (`x`, `y`)
+        is on the zone of one `Control` or `TextAreaControl`
         then return it
         else return `None`.
 
@@ -3157,7 +3263,7 @@ class Sound:
 
     def __init__(self, url):
         """
-        Set a sound.
+        Set a sound (if not Sound._load_disabled).
 
         **Don't use directly**, use `load_sound()`.
 
@@ -3655,8 +3761,91 @@ class Timer:
 
 
 #
+# "Private" classes
+###################
+class _LocalImage(Image):
+    """
+    Child of Image to load local file image.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+
+    def __init__(self, filename):
+        """
+        Set an image.
+
+        **Don't use directly**, use `_load_local_image()`.
+
+        :param filename: str
+        """
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
+        assert isinstance(filename, str), type(filename)
+
+        self._url = filename
+
+        self._pygame_surface = (None if filename == ''
+                                else _load_local_media('Image', filename))
+
+        from collections import OrderedDict
+
+        self._pygamesurfaces_cached = OrderedDict()
+
+        self._pygamesurfaces_cache_max_size = \
+            Image._pygamesurfaces_cache_default_max_size
+
+        if __debug__:
+            self._pygamesurfaces_cached_counts = [0, 0]
+            self._draw_count = 0
+
+    def __repr__(self):
+        """
+        Return `'<_LocalImage object>'`.
+
+        :return: str
+        """
+        return '<_LocalImage object>'
+
+
+class _LocalSound(Sound):
+    """
+    Child of Sound to load local file sound.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+
+    def __init__(self, filename):
+        """
+        Set a sound (if not Sound._load_disabled).
+
+        **Don't use directly**, use `_local_load_sound()`.
+
+        :param filename: str
+        """
+        assert _PYGAME_AVAILABLE, """Pygame not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+
+        assert isinstance(filename, str), type(filename)
+
+        self._pygame_channel = None
+        self._pygame_sound = (None if Sound._load_disabled or (filename == '')
+                              else _load_local_media('Sound', filename))
+
+        assert (self._pygame_sound is None) or Sound._mixer_initialized
+
+    def __repr__(self):
+        """
+        Return `'<_LocalSound object>'`.
+
+        :return: str
+        """
+        return '<_LocalSound object>'
+
+
+#
 # SimpleGUI functions
-######################
+#####################
 def create_frame(title,
                  canvas_width, canvas_height,
                  control_width=200):
@@ -3787,7 +3976,7 @@ def create_timer(interval, timer_handler):
 def load_image(url):
     """
     Create and return an image by loading a file from `url`.
-    Not founded file and errors are ignored.
+    Not founded URL and errors are ignored.
 
     SimpleGUICS2Pygame try **first** to loading image
     from `Image._dir_search_first` local directory (`_img/` by default),
@@ -3813,7 +4002,7 @@ def load_image(url):
     (the program continues without waiting for the images to be loaded).
     To handle this problem, you can use ``simplegui_lib_loader.Loader`` class.
 
-    :param url: str (**only URL**, not local filename)
+    :param url: str (**only a valid URL**, not local filename)
 
     :return: Image
     """
@@ -3828,7 +4017,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 def load_sound(url):
     """
     Create and return a sound by loading a file from `url`.
-    Not founded file and errors are ignored.
+    Not founded URL and errors are ignored.
 
     SimpleGUICS2Pygame try **first** to loading sound
     from `Sound._dir_search_first` local directory (`_snd/` by default),
@@ -3850,7 +4039,7 @@ def load_sound(url):
 
     (The sound can be started by `Sound.play()`.)
 
-    :param url: str (**only URL**, not local filename)
+    :param url: str (**only a valid URL**, not local filename)
 
     :return: Sound
     """
@@ -3864,13 +4053,13 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
 #
 # Set options
-##############
+#############
 _set_option_from_argv()
 
 
 #
 # Main
-#######
+######
 if __name__ == '__main__':
     if not _PYGAME_AVAILABLE:
         from sys import stderr

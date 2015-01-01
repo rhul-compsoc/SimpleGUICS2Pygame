@@ -89,7 +89,7 @@ Author |OPi|
 
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014 Olivier Pirson
+Copyright (C) 2013, 2014, 2015 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -112,6 +112,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Changes
 =======
 * January 1st, 2015
+
+  - Added ``_load_local_image()`` and ``_load_local_sound()`` functions.
 
   - Added ``--fps n`` option.
 

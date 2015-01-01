@@ -2,6 +2,8 @@ ChangeLog
 =========
 * January 1st, 2015
 
+  - Added ``_load_local_image()`` and ``_load_local_sound()`` functions.
+
   - Added ``--fps n`` option.
 
   - Added Donate button in ``_draw_about()`` panel.
