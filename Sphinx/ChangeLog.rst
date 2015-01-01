@@ -1,8 +1,8 @@
 ChangeLog
 =========
-* January 1st, 2015
+* 01.09.00 --- January 1st, 2015
 
-  - Added ``_load_local_image()`` and ``_load_local_sound()`` functions.
+  - **Added ``_load_local_image()`` and ``_load_local_sound()`` functions.**
   - Added ``test/test_sound.py``.
   - Updated ``test/test_dir.py``.
   - Updated ``test/test_image.py``.
