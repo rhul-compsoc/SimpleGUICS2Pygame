@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (September 2, 2014)
+Test dir() content. (January 1st, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -31,16 +31,10 @@ except ImportError:
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
-    from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
-    PYGAME_VERSION = 'Pygame ' + pygame_version
-    GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
     PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/
-    PYGAME_VERSION = ''
-    GUI_VERSION = 'simplegui'
 
 
 TEST = 'test dir'
@@ -182,7 +176,7 @@ def print_cmp_seq(a, title_a,
 
 
 # Main
-print('List dir() differences between CodeSkulptor (September 2014) and this "Python":\n')
+print('List dir() differences between CodeSkulptor (January 2015) and this "Python":\n')
 
 for k in sorted(CODESKULPTOR_DIRS.keys()):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,
