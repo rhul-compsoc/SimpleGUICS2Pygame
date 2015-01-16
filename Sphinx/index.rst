@@ -105,7 +105,7 @@ Author |OPi|
 .. |OPi| image:: _static/img/OPi_t.png
 
 | If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
-| Go to the links: |Donate|_
+| Go to the link |Donate|_
 |
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
