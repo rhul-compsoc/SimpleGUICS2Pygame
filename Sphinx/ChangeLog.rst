@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* January 23, 2015
+
+  - Updated media links.
+
 * 01.09.00 --- January 1st, 2015
 
   - **Added ``_load_local_image()`` and ``_load_local_sound()`` functions.**

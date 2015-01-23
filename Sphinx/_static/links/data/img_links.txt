@@ -100,6 +100,10 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
++  <a lang="fr" href="http://www.opimedia.be/DS/webdev/liens.htm#free-images" target="_blank">&quot;Free&quot; images</a>
+
+
+
 + <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
