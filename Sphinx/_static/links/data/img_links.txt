@@ -66,7 +66,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/space%20station.png
 
 
 
-+  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profil <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
++  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
 
 
 
@@ -372,7 +372,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/descent/zombie_revers
 
 
 
-+ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profil <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.spriters-resource.com/" target="_blank">Spriters</a>, <a href="http://www.models-resource.com/" target="_blank">Models</a>, <a href="http://www.textures-resource.com/" target="_blank">Textures</a>
++ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.spriters-resource.com/" target="_blank">Spriters</a>, <a href="http://www.models-resource.com/" target="_blank">Models</a>, <a href="http://www.textures-resource.com/" target="_blank">Textures</a>
 
 
 

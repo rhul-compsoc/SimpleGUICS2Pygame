@@ -32,15 +32,15 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
-+  <a rel="nofollow" href="http://www.freesfx.co.uk/" target="_blank">freeSFX</a> (profil <a rel="nofollow" href="http://www.freesfx.co.uk/users/opimedia/" target="_blank">opimedia</a>)
++  <a rel="nofollow" href="http://www.freesfx.co.uk/" target="_blank">freeSFX</a> (profile <a rel="nofollow" href="http://www.freesfx.co.uk/users/opimedia/" target="_blank">opimedia</a>)
 
 
 
-+  <a rel="nofollow" href="http://www.freesound.org/" target="_blank">Freesound.org</a> (profil <a rel="nofollow" href="http://www.freesound.org/people/OPiMedia/" target="_blank">O<span class="small-caps">Pi</span>Media</a>)
++  <a rel="nofollow" href="http://www.freesound.org/" target="_blank">Freesound.org</a> (profile <a rel="nofollow" href="http://www.freesound.org/people/OPiMedia/" target="_blank">O<span class="small-caps">Pi</span>Media</a>)
 
 
 
-+  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profil <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
++  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
 
 
 
@@ -183,7 +183,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3
 
 
 
-+ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profil <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.sounds-resource.com/" target="_blank">Sounds</a>
++ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.sounds-resource.com/" target="_blank">Sounds</a>
 
 
 
