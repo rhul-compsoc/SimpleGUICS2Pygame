@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (January 1st, 2015)
+simpleguics2pygame (February 17, 2015)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1810,6 +1810,8 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
         :param text: str
         :param width: None or int
+                      (Maybe available in SimpleGUI of CodeSkulptor
+                      but *not in CodeSkulptor documentation*!)
 
         :return: Control
         """

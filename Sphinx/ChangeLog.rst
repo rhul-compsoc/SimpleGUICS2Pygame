@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* January 23, 2015
+* February 17, 2015
+
+  - Updated documentation.
 
   - Updated media links.
 

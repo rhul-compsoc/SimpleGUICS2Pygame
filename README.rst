@@ -111,7 +111,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Changes
 =======
-* January 23, 2015
+* February 17, 2015
+
+  - Updated documentation.
 
   - Updated media links.
 
