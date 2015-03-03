@@ -43,6 +43,10 @@ Next in the ``somewhere/SimpleGUICS2Pygame-?/`` subdirectory run:
 
 >>> python setup.py install
 
+In both cases, you must use **admin access**. So with Linux you will probably do:
+
+>>> sudo [your command]
+
 
 Module ``simpleplot`` require matplotlib_
 (and must be installed separately).
