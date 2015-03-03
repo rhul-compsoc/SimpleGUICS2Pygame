@@ -116,6 +116,18 @@ Author |OPi|
 .. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
 
 
+Note that
+---------
+
+* SimpleGUITk_ is an *other implementation*, using Tkinter and some others packages.It is really less complete and not updated. However it works for some programs.
+
+* simplegui_ is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
+
+.. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk/1.1.3
+
+.. _simplegui: https://pypi.python.org/pypi/simplegui/0.1.1
+
+
 
 Summary
 =======
