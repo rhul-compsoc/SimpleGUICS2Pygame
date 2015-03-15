@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2014-07-17
+# Makefile of SimpleGUICS2Pygame --- 2015-03-15
 
 .SUFFIXES:
 
@@ -63,12 +63,12 @@ sdist:
 #######
 # Doc #
 #######
-.PHONY: html htmltgz links
+.PHONY: docs docstgz links
 
-html:	links
+docs:	links
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
-htmltgz:	html
+docstgz:	html
 		@$(CD) Sphinx/_build; $(TAR) -cvf SimpleGUICS2Pygame_html.tar html
 		@$(CD) Sphinx/_build; $(GZIP) -9 SimpleGUICS2Pygame_html.tar
 		@$(RM) Sphinx/_build/SimpleGUICS2Pygame_html.tar
@@ -112,7 +112,7 @@ tests:	test2 test3
 #########
 # Clean #
 #########
-.PHONY:	clean cleanbuild cleandist cleandoc distclean
+.PHONY:	clean cleanbuild cleandist cleandocs distclean
 clean:	cleanbuild
 	$(RM) -r *.pyc *.pyo */*.pyc */*.pyo */*/*.pyc */*/*.pyo */*/*/*.pyc */*/*/*.pyo */*/*/*/*.pyc */*/*/*/*.pyo */*/*/*/*/*.pyc */*/*/*/*/*.pyo
 	-$(RMDIR) __pycache__ */__pycache__ */*/__pycache__ */*/*/__pycache__ */*/*/*/__pycache__
@@ -125,11 +125,11 @@ cleanbuild:
 	$(PYTHON3) setup.py clean
 	$(RM) -r build
 
-cleandist:	cleandoc
+cleandist:	cleandocs
 		$(RM) dist/*
 		-$(RMDIR) dist
 
-cleandoc:
+cleandocs:
 		@$(CD) Sphinx; $(MAKE) clean
 
 distclean:	clean cleandist
