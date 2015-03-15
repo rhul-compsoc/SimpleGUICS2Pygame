@@ -17,13 +17,20 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 |SimpleGUICS2Pygame|
 
 `Online HTML documentation`_ on **Read The Docs**.
+(You can also use the online `SimpleGUI documentation on CodeSkulptor`_.)
+Read Compatibility_ and Tips_ sections.
+
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 | and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _Compatibility: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#compatibility
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Python: http://www.python.org/
+.. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
+.. _Tips: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html
+
 .. |SimpleGUICS2Pygame| image:: https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png
 
 
@@ -33,21 +40,45 @@ If pip_ is installed on your platform you can do:
 
 >>> pip install SimpleGUICS2Pygame
 
+(If several Python implementations are installed,
+maybe you must use something like `pip2` or `pip3` instead `pip` command.)
 
-Else, download the archive ``SimpleGUICS2Pygame-?.tar.gz``, unzip it ``somewhere``.
+
+Without pip, download the archive ``SimpleGUICS2Pygame-?.tar.gz``, unzip it ``somewhere``.
 Next in the ``somewhere/SimpleGUICS2Pygame-?/`` subdirectory run:
 
 >>> python setup.py install
 
+In both cases, you must use **admin access**. So with Linux you will probably do:
 
-Modules ``simplegui_lib`` and ``simpleguics2pygame`` require
-(except for the Timer class) Pygame_
+>>> sudo [your command]
+
+
+Module ``simpleplot`` require matplotlib_
 (and must be installed separately).
 
-On Window$:
 
-* You can easily install pip and Pygame,
-  see `Unofficial Windows Binaries pip`_ and `Unofficial Windows Binaries Pygame`_.
+Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (except for the Timer class)
+require Pygame_
+(and must be installed separately).
+
+You can run the little script_ ``SimpleGUICS2Pygame_check.py``
+to check if required modules are installed.
+
+.. _matplotlib: http://matplotlib.org/
+.. _pip: https://pypi.python.org/pypi/pip
+.. _Pygame: http://www.pygame.org/
+.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
+
+
+
+On Window$
+----------
+
+* You can easily install matplotlib, pip and Pygame;
+  see `Unofficial Windows Binaries matplotlib`_,
+  `Unofficial Windows Binaries pip`_
+  and `Unofficial Windows Binaries Pygame`_.
 
 * You can use 7-Zip_ to unzip archive.
 
@@ -55,14 +86,13 @@ See `Complete installation on Window$ in few steps`_.
 
 .. _7-Zip: http://www.7-zip.org/
 .. _`Complete installation on Window$ in few steps`: https://simpleguics2pygame.readthedocs.org/en/latest/index.html#complete-installation-on-window-in-few-steps
-.. _pip: https://pypi.python.org/pypi/pip
-.. _Pygame: http://www.pygame.org/
+.. _`Unofficial Windows Binaries matplotlib`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 .. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
 
-Examples
-========
+Examples of CodeSkulptor and SimpleGUICS2Pygame use
+===================================================
 You can see examples in ``SimpleGUICS2Pygame/example/`` subdirectory from the sources archives.
 
 Or online:
@@ -83,8 +113,8 @@ Author |OPi|
 | Go to the link |Donate|_
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
-.. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
 
+.. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
 
 
 License: GPLv3_ |GPLv3|
@@ -105,13 +135,25 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 .. _GPLv3: http://www.gnu.org/licenses/gpl.html
+
 .. |GPLv3| image:: http://www.gnu.org/graphics/gplv3-88x31.png
 
+
+Note that
+=========
+
+* SimpleGUITk_ is an *other implementation*, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
+
+* simplegui_ is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
+
+.. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk/1.1.3
+
+.. _simplegui: https://pypi.python.org/pypi/simplegui/0.1.1
 
 
 Changes
 =======
-* March 3, 2015
+* March 15, 2015
 
   - Updated documentation.
 

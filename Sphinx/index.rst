@@ -15,14 +15,19 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 
 `Online HTML documentation`_ on **Read The Docs**.
 (You can also use the online `SimpleGUI documentation on CodeSkulptor`_.)
+Read Compatibility_ and Tips_ sections.
+
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 | and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _Compatibility: Tips.html#compatibility
 .. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
 .. _Python: http://www.python.org/
-.. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
+.. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
+.. _Tips: Tips.html
+
 .. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_64x64_t.png
 
 |
@@ -51,8 +56,8 @@ In both cases, you must use **admin access**. So with Linux you will probably do
 Module ``simpleplot`` require matplotlib_
 (and must be installed separately).
 
-Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` require
-(except for the Timer class) Pygame_
+Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (except for the Timer class)
+require Pygame_
 (and must be installed separately).
 
 You can run the little script_ ``SimpleGUICS2Pygame_check.py``
@@ -113,6 +118,7 @@ Author |OPi|
 |
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
+
 .. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
 
 

@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* March 3, 2015
+* March 15, 2015
 
   - Updated documentation.
 

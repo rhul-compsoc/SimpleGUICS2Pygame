@@ -1,6 +1,6 @@
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014 Olivier Pirson
+Copyright (C) 2013, 2014, 2015 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,4 +16,5 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 .. _GPLv3: http://www.gnu.org/licenses/gpl.html
+
 .. |GPLv3| image:: _static/img/gplv3-88x31.png

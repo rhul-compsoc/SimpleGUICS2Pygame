@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (February 18, 2015)
+simpleguics2pygame (March 15, 2015)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -1948,8 +1948,12 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         """
         Start the frame and these handler events.
 
-        **This function is blocking
-        until `Frame.stop()` execution or closing window.**
+        .. warning::
+           ``Frame.start()`` is blocking
+           until ``Frame.stop()`` execution or closing window.
+           So timers must be started *before*,
+           and states must be initialized *before*.
+           (Or maybe after by a handler function.)
 
         (In SimpleGUI of CodeSkulptor this function is *not* blocking.)
         """
@@ -3737,6 +3741,13 @@ class Timer:
     def start(self):
         """
         Start this timer.
+
+        .. warning::
+           ``Frame.start()`` is blocking
+           until ``Frame.stop()`` execution or closing window.
+           So timers must be started *before*,
+           and states must be initialized *before*.
+           (Or maybe after by a handler function.)
 
         (Side effect: Add `id(self)`: `self` in `Timer._timers_running`.)
         """

@@ -3,13 +3,15 @@ Tips
 
 CodeSkulptor
 ------------
-CodeSkulptor_ is an interpreter running in a browser.
+CodeSkulptor_ is a Python implementation running in a browser.
+It implements a subset of Python 2.
 
 It is the environment used in the course
 `An Introduction to Interactive Programming in Python`_
 (Coursera).
 
 .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/course/interactivepython
+.. _CodeSkulptor: http://www.codeskulptor.org/
 
 
 To use a program from CodeSkulptor in *standard Python* (with this package),
@@ -18,7 +20,7 @@ you need to change
 by
 ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``.
 
-You can write this
+**You can write** this
 
 .. code-block:: python
 
@@ -27,7 +29,7 @@ You can write this
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-and your program run both in CodeSkulptor and *standard Python*.
+and your program **run both** in CodeSkulptor and *standard Python*.
 
 
 | In this package a little script_ ``cs2both.py`` can help to quickly make this changement on program downloaded from CodeSkulptor.
@@ -35,6 +37,8 @@ and your program run both in CodeSkulptor and *standard Python*.
 | The file ``yourprogram.py`` is copied to ``yourprogram.py.bak`` before changing.
 
 .. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
+
+|
 
 You can write this
 
@@ -74,9 +78,53 @@ See the official HTML colors:
 http://www.opimedia.be/DS/mementos/colors.htm .
 
 
+Command line options
+--------------------
+When you run a program you can use following options:
+``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
+
+* ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
+* ``--display-fps``: Display FPS average on the canvas.
+* ``--fps n``: Set Frame Per Second (default is 60 FPS).
+* ``--fullscreen``: Fullscreen mode.
+* ``--keep-timers``: Keep running timers when close frame without ask.
+* ``--no-border``: Window without border.
+* ``--no-controlpanel``: Hide the control panel (and status boxes).
+* ``--no-load-sound``: Don't load any sound.
+* ``--no-status``: Hide two status boxes.
+* ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
+* ``--print-load-medias``: Print URLs or local filenames loaded.
+* ``--print-stats-cache``: After frame stopped, print some statistics of caches.
+* ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
+* ``--stop-timers``: Stop all timers when close frame without ask.
+
+If an argument is not in this list then it is ignored and all next arguments are ignored.
+
+Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
+
+SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
+
+Example: ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
+run ``yourprogram.py`` with the control panel hidden and timers will stoped.
+But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
+``yourprogram.py`` application receive ``--foo --fullscreen`` options.
+
+
 Compatibility
 -------------
-Be careful
+
+Compatibility between SimpleGUI of CodeSkupltor and SimpleGUICS2Pygame
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* .. warning::
+    ``Frame.start()`` is blocking until ``Frame.stop()`` execution or closing window.
+    So timers must be started *before*, and states must be initialized *before*.
+    (Or maybe after by a handler function.)
+
+Compatibility between Python 2 and Python 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CodeSkulptor_ implements a subset of Python 2.
 
 * The division ``/`` don't have the same behavior in Python 2 and Python 3:
   http://docs.python.org/3/whatsnew/3.0.html#integers .
@@ -110,10 +158,6 @@ Be careful
   *on the top* of your program, and Python 2 mimic Python 3 print function.
   But then *CodeSkulptor failed*!)
 
-* ``Frame.start()`` is blocking until ``Frame.stop()`` execution or closing window.
-  So timers must be started *before*, and states must be initialized *before*.
-  (Or maybe after by a handler function.)
-
 
 Download medias
 ---------------
@@ -127,51 +171,19 @@ save image to
 ``_img/commondatastorage.googleapis.com/codeskulptor_assets/lathrop/double_ship.png``.
 
 
-Options
--------
-When you run a program you can use following options:
-``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
-
-* ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
-* ``--display-fps``: Display FPS average on the canvas.
-* ``--fps n``: Set Frame Per Second (default is 60 FPS).
-* ``--fullscreen``: Fullscreen mode.
-* ``--keep-timers``: Keep running timers when close frame without ask.
-* ``--no-border``: Window without border.
-* ``--no-controlpanel``: Hide the control panel (and status boxes).
-* ``--no-load-sound``: Don't load any sound.
-* ``--no-status``: Hide two status boxes.
-* ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
-* ``--print-load-medias``: Print URLs or local filenames loaded.
-* ``--print-stats-cache``: After frame stopped, print some statistics of caches.
-* ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
-* ``--stop-timers``: Stop all timers when close frame without ask.
-
-If an argument is not in this list then it is ignored and all next arguments are ignored.
-
-Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
-
-SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
-
-Example: ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
-run ``yourprogram.py`` with the control panel hidden and timers will stoped.
-But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
-``yourprogram.py`` application receive ``--foo --fullscreen`` options.
-
-
-Python option
--------------
+Python assertions option
+------------------------
 Run
 ``python yourprogram.py``
 then asserts is active and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
-It is a good point to develop and write correct programs.
+It is a good point to develop and write *correct programs*.
 But if you want just run a program (or run faster),
 ``python -O yourprogram.py``
 then all asserts is *inactive*.
 
 
-Ressources
-----------
+Ressources: images, sounds, programs
+------------------------------------
 `Online images & sounds links`_
 
 .. _`Online images & sounds links`: _static/links/img_snd_links.htm
