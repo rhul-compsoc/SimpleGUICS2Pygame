@@ -1,10 +1,12 @@
 ChangeLog
 =========
-* March 15, 2015
+* April 18, 2015
+
+  - Corrected ``test/test_sound.py``.
 
   - Updated documentation.
 
-  - Updated media links.
+  - Updated media and CodeSkulptor programs links.
 
 * 01.09.00 --- January 1st, 2015
 
