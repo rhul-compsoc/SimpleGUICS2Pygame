@@ -153,7 +153,9 @@ Note that
 
 Changes
 =======
-* April 18, 2015
+* April 25, 2015
+
+  - Added ``example/stop_example.py``.
 
   - Corrected ``test/test_sound.py``.
 

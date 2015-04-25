@@ -32,6 +32,9 @@ http://www.codeskulptor.org/#user38_LBRVzKh4KE7cAP8.py
 http://www.codeskulptor.org/#user38_J7e2Fkeh89SJl4q.py
 Spaceship_prototype.py
 
+http://www.codeskulptor.org/#user39_ctukWjF5xLSdrwm.py
+stop_example.py
+
 http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
 Stopwatch.py
 
