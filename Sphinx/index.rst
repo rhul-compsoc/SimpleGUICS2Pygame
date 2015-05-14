@@ -5,11 +5,24 @@ It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
-| Simply change
-|   ``import simplegui``
-| by
-|   ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``
-| in your CodeSkulptor program and run it in *standard Python* with this module (and Pygame).
+Simply change
+
+.. code-block:: python
+
+   import simplegui
+
+by
+
+.. code-block:: python
+
+    try:
+        import simplegui
+    except ImportError:
+        import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+in your CodeSkulptor program
+and your program **run both** in CodeSkulptor
+and *standard Python* with this module (and Pygame).
 
 |SimpleGUICS2Pygame|
 

@@ -8,11 +8,24 @@ It is primarily a standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
-| Simply change
-|   ``import simplegui``
-| by
-|   ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``
-| in your CodeSkulptor program and run it in *standard Python* with this module (and Pygame).
+Simply change
+
+.. code-block:: python
+
+   import simplegui
+
+by
+
+.. code-block:: python
+
+    try:
+        import simplegui
+    except ImportError:
+        import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+in your CodeSkulptor program
+and your program **run both** in CodeSkulptor
+and *standard Python* with this module (and Pygame).
 
 |SimpleGUICS2Pygame|
 
@@ -153,7 +166,7 @@ Note that
 
 Changes
 =======
-* April 25, 2015
+* May 14, 2015
 
   - Added ``example/stop_example.py``.
 
@@ -208,17 +221,6 @@ Changes
   - Added ``test/test_button_label.py``.
 
 * 01.06.02 --- July 18, 2014
-
-  - Corrected stupid error in ``add_label()``.
-
-* 01.06.01 --- July 17, 2014
-
-  - Added (fake) width parameter in ``add_label()``.
-  - Corrected gz archive of HTML offline documentation.
-
-  - Added private members in all documentation.
-
-* 01.06.00 --- June 16, 2014
 
 ...
 
