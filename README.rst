@@ -39,7 +39,7 @@ Read Compatibility_ and Tips_ sections.
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _Compatibility: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#compatibility
-.. _`Online HTML documentation`: https://readthedocs.org/docs/simpleguics2pygame/en/latest/
+.. _`Online HTML documentation`: http://simpleguics2pygame.readthedocs.org/
 .. _Python: http://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
 .. _Tips: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html
