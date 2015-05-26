@@ -83,7 +83,14 @@ Test installation
 You can run the little script_ ``SimpleGUICS2Pygame_check.py``
 to check if all required modules are installed.
 
+Examples of good installation:
+`result in Python 2`_
+and
+`result in Python 3`_.
+
 .. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
+.. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
+.. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
 
 
 Update
