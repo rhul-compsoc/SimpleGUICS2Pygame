@@ -75,14 +75,17 @@ Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (excep
 require Pygame_
 (and must be installed separately).
 
-You can run the little script_ ``SimpleGUICS2Pygame_check.py``
-to check if required modules are installed.
-
 .. _matplotlib: http://matplotlib.org/
 .. _pip: https://pypi.python.org/pypi/pip
 .. _Pygame: http://www.pygame.org/
-.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
 
+
+Test installation
+-----------------
+You can run the little script_ ``SimpleGUICS2Pygame_check.py``
+to check if all required modules are installed.
+
+.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
 
 
 On Window$
@@ -166,7 +169,7 @@ Note that
 
 Changes
 =======
-* May 14, 2015
+* May 26, 2015
 
   - Added ``example/stop_example.py``.
 

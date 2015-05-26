@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* May 14, 2015
+* May 26, 2015
 
   - Added ``example/stop_example.py``.
 
