@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stop example (April 25, 2015)
+Stop example (May 27, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -17,6 +17,7 @@ except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
+    simplegui.Frame._keep_timers = False
 
 
 CANVAS_WIDTH = 400
