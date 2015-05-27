@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame (May 14, 2015)
+simpleguics2pygame/__init__ (May 27, 2015)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -435,110 +435,6 @@ SimpleGUI keyboard characters contants.
 #
 # "Private" functions
 #####################
-def _draw_about():
-    """
-    Little application that draw a short presentation of this module.
-
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-    """
-    from sys import version
-    from webbrowser import open_new_tab
-
-    from SimpleGUICS2Pygame import _VERSION, _WEBSITE
-
-    Frame._hide_status = True
-
-    WIDTH = 560
-    HEIGHT = 360
-
-    def draw_about_handler(canvas):
-        """
-        Draw a short presentation of this package.
-
-        :param canvas: simpleguics2pygame.Canvas
-        """
-        size = 40
-        canvas.draw_line((0, size/2),
-                         (WIDTH - 1, size/2),
-                         size*1.3, '#f2f2f2')
-        canvas.draw_text('SimpleGUICS2Pygame ' + _VERSION,
-                         (10, size*3/4), size, 'Black')
-        canvas.draw_image(logo_opi, (20.5, 17), (41, 34),
-                          (30.5, HEIGHT - 27), (41, 34))
-        canvas.draw_image(logo_gpl, (44, 15.5), (88, 31),
-                          (WIDTH/2, HEIGHT - 25.5), (88, 31))
-        canvas.draw_image(logo, (32, 32), (64, 64),
-                          (WIDTH - 42, HEIGHT - 42), (64, 64))
-
-        size = 20
-
-        for i, line in enumerate(
-            ('It is primarily a standard Python (2 and 3) module',
-             'reimplementing the SimpleGUI particular module',
-             'of CodeSkulptor (a browser Python interpreter).',
-             None,
-             'Require malplotlib for simpleplot.',
-             'Require Pygame for simpleguics2pygame.',
-             None,
-             'GPLv3',
-             'Copyright (C) 2013, 2014, 2015 Olivier Pirson',
-             'Olivier Pirson OPi --- http://www.opimedia.be/',
-             'olivier_pirson_opi@yahoo.fr')):
-            if line is not None:
-                canvas.draw_text(line, (10, 50 + size*(i + 3/4)),
-                                 size, 'Black')
-
-    from os.path import dirname, join
-    from sys import argv
-
-    logo = _load_local_image(join(dirname(argv[0]),
-                                  '_img/SimpleGUICS2Pygame_64x64_t.png'))
-    logo_opi = _load_local_image(join(dirname(argv[0]),
-                                      '_img/OPi_t.png'))
-    logo_gpl = _load_local_image(join(dirname(argv[0]),
-                                      '_img/gplv3-88x31.png'))
-
-    frame = create_frame(
-        'SimpleGUICS2Pygame: short presentation of this package',
-        WIDTH, HEIGHT)
-    frame.set_canvas_background('White')
-
-    frame.add_label('Go to websites:')
-    frame.add_button('SimpleGUICS2Pygame',
-                     lambda: open_new_tab(_WEBSITE), 180)
-    frame.add_button('Olivier Pirson OPi',
-                     lambda: open_new_tab('http://www.opimedia.be/'), 180)
-    frame.add_button('Donate',
-                     lambda: open_new_tab('http://www.opimedia.be/donate'),
-                     180)
-
-    frame.add_label('')
-    frame.add_button('CodeSkulptor',
-                     lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
-    frame.add_button('matplolib',
-                     lambda: open_new_tab('http://matplotlib.org/'), 180)
-    frame.add_button('Pygame',
-                     lambda: open_new_tab('http://www.pygame.org/'), 180)
-
-    frame.add_label('')
-    frame.add_button('GPL',
-                     lambda: open_new_tab(
-                         'http://www.gnu.org/licenses/gpl.html'),
-                     180)
-
-    frame.add_label('')
-    frame.add_button('Quit', frame.stop)
-
-    frame.add_label('')
-    frame.add_label('Pygame ' + _PYGAME_VERSION)
-    frame.add_label('')
-    frame.add_label('Python ' + version)
-
-    frame.set_draw_handler(draw_about_handler)
-
-    frame.start()
-
-
 def _load_local_image(filename):
     """
     Create and return an image by loading a file from `filename`.
@@ -4066,19 +3962,3 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 # Set options
 #############
 _set_option_from_argv()
-
-
-#
-# Main
-######
-if __name__ == '__main__':
-    if not _PYGAME_AVAILABLE:
-        from sys import stderr
-
-        print("""Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""",
-              file=stderr)
-
-        exit(1)
-
-    _draw_about()

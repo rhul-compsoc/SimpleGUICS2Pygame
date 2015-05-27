@@ -2,6 +2,8 @@ ChangeLog
 =========
 * May 27, 2015
 
+  - Prepared splitting of the big file ``simpleguics2pygame.py``.
+
   - Added ``example/stop_example.py``.
 
   - Corrected ``test/test_sound.py``.

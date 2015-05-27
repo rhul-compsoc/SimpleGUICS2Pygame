@@ -26,6 +26,9 @@ http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
+http://www.codeskulptor.org/#user40_BlEy0uQGCHrxyUD.py
+presentation.py
+
 http://www.codeskulptor.org/#user38_LBRVzKh4KE7cAP8.py
 <strong>RiceRocks_Asteroids</strong>.py
 
