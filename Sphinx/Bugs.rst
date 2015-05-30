@@ -1,7 +1,5 @@
 Known bugs
 ==========
-* On my GNU/Linux Debian_ Wheezy, the Pygame mixer initialization blocks the program if another application play also sounds.
-
-* Some wrong data documentation in offline HTML documentation.
+* On my GNU/Linux Debian_ Wheezy, for a time the Pygame mixer initialization blocked the program when another application play also sounds.
 
 .. _Debian: http://www.debian.org/
