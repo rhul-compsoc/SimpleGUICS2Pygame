@@ -140,6 +140,15 @@ ul li { margin: 0px 0px 1ex; }
 }
 
 
+.infos-top {
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+
+    margin-bottom: 1ex;
+    padding: 1ex 0 1ex 1.4em;
+}
+
+
 .small-caps { font-variant: small-caps; }
 
 .smallskip  { margin-top: 1ex; }
