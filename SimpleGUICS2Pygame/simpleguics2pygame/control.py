@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (May 29, 2015)
+simpleguics2pygame/control (May 30, 2015)
 
 Classes Control and TextAreaControl.
 
@@ -24,7 +24,7 @@ from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
 if _PYGAME_AVAILABLE:
     import pygame
 
-from SimpleGUICS2Pygame.simpleguics2pygame.colors \
+from SimpleGUICS2Pygame.simpleguics2pygame._colors \
     import _SIMPLEGUICOLOR_TO_PYGAMECOLOR
 
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts \

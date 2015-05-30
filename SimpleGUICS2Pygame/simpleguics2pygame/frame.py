@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (May 29, 2015)
+simpleguics2pygame/frame (May 30, 2015)
 
 Class Frame.
 
@@ -25,7 +25,7 @@ from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
 if _PYGAME_AVAILABLE:
     import pygame
 
-from SimpleGUICS2Pygame.simpleguics2pygame.colors \
+from SimpleGUICS2Pygame.simpleguics2pygame._colors \
     import _SIMPLEGUICOLOR_TO_PYGAMECOLOR
 
 
@@ -756,7 +756,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         """
         assert isinstance(color, str), type(color)
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.colors \
+        from SimpleGUICS2Pygame.simpleguics2pygame._colors \
             import _simpleguicolor_to_pygamecolor
 
         self._canvas._background_pygame_color = \

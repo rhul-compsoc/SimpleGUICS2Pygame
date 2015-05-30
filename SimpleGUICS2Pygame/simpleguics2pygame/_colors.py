@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/colors (May 29, 2015)
+simpleguics2pygame/_colors (May 30, 2015)
 
 Colors helpers.
 

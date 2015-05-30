@@ -25,7 +25,7 @@ from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
 if _PYGAME_AVAILABLE:
     import pygame
 
-from SimpleGUICS2Pygame.simpleguics2pygame.colors \
+from SimpleGUICS2Pygame.simpleguics2pygame._colors \
     import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, \
     _simpleguicolor_to_pygamecolor
 
