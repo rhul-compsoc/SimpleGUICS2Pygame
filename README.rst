@@ -176,7 +176,7 @@ Note that
 
 Changes
 =======
-* May 30, 2015
+* v.02.00.00 WORKING VERSION --- May 30, 2015
 
   - Splitted the big file ``simpleguics2pygame.py``.
   - Added ``example/presentation.py``.
