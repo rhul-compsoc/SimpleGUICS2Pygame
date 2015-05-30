@@ -30,9 +30,6 @@ http://www.opimedia.be/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 """
 
-from __future__ import division
-from __future__ import print_function
-
 
 #
 # Init Pygame
@@ -48,19 +45,19 @@ except NameError:
 #
 # Import all
 ############
-from SimpleGUICS2Pygame.simpleguics2pygame.keys import *
+from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *
 
 from SimpleGUICS2Pygame.simpleguics2pygame.control import *
 
+from SimpleGUICS2Pygame.simpleguics2pygame.frame import *
+
 from SimpleGUICS2Pygame.simpleguics2pygame.image import *
+
+from SimpleGUICS2Pygame.simpleguics2pygame.keys import *
 
 from SimpleGUICS2Pygame.simpleguics2pygame.sound import *
 
 from SimpleGUICS2Pygame.simpleguics2pygame.timer import *
-
-from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *
-
-from SimpleGUICS2Pygame.simpleguics2pygame.frame import *
 
 try:
     del canvas
@@ -68,17 +65,7 @@ except NameError:
     pass
 
 try:
-    del colors
-except NameError:
-    pass
-
-try:
     del control
-except NameError:
-    pass
-
-try:
-    del fonts
 except NameError:
     pass
 
@@ -108,6 +95,27 @@ except NameError:
     pass
 
 
+try:
+    del _colors
+except NameError:
+    pass
+
+try:
+    del _fonts
+except NameError:
+    pass
+
+try:
+    del _media
+except NameError:
+    pass
+
+try:
+    del _pygame_lib
+except NameError:
+    pass
+
+
 #
 # Set options
 #############
@@ -119,4 +127,9 @@ try:
 except NameError:
     pass
 
-_set_option_from_argv()
+try:
+    _set_option_from_argv()
+
+    del _set_option_from_argv
+except NameError:
+    pass

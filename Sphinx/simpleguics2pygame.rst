@@ -10,6 +10,7 @@
    simpleguics2pygame/sound
    simpleguics2pygame/timer
 
+   simpleguics2pygame/_pygame_lib
 
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame
