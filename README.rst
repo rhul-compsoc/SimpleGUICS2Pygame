@@ -179,6 +179,7 @@ Changes
 * May 30, 2015
 
   - Splitted the big file ``simpleguics2pygame.py``.
+  - Added ``example/presentation.py``.
 
   - Added ``example/stop_example.py``.
 
