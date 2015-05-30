@@ -1,0 +1,258 @@
+#!/usr/bin/env python
+# -*- coding: latin-1 -*-
+
+"""
+simpleguics2pygame/_media (May 29, 2015)
+
+Media helpers.
+
+Piece of SimpleGUICS2Pygame.
+https://bitbucket.org/OPiMedia/simpleguics2pygame
+
+GPLv3 --- Copyright (C) 2015 Olivier Pirson
+http://www.opimedia.be/
+"""
+
+from __future__ import division
+from __future__ import print_function
+
+
+__all__ = ['_load_local_media', '_load_media']
+
+
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
+if _PYGAME_AVAILABLE:
+    import pygame
+
+
+#
+# "Private" functions
+#####################
+def _load_local_media(type_of_media, filename):
+    """
+    Load an image or a sound from local file `filename`.
+
+    **Don't use directly**,
+    this function is use by `_LocalImage` and `_LocalSound` classes.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    Side effects:
+
+    * If the media is a valid sound then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+
+    :param type_of_media: Image or Sound
+    :param filename: str
+
+    :return: pygame.Surface or pygame.mixer.Sound or None
+    """
+    assert type_of_media in ('Image', 'Sound'), type(type_of_media)
+    assert isinstance(filename, str), type(filename)
+
+    from os.path import isfile
+
+    if not isfile(filename):
+        return
+
+    media_is_image = (type_of_media == 'Image')
+
+    from SimpleGUICS2Pygame.simpleguics2pygame.sound \
+        import _MIXER_FREQUENCY, Sound
+
+    if (not media_is_image) and (not Sound._mixer_initialized):
+        Sound._mixer_initialized = True
+        pygame.mixer.init(_MIXER_FREQUENCY)
+
+    media = (pygame.image.load(filename) if media_is_image
+             else pygame.mixer.Sound(filename))
+
+    return media
+
+
+def _load_media(type_of_media, url, local_dir):
+    """
+    Load an image or a sound from Web or local directory,
+    and save if asked with Frame._save_downloaded_medias
+    and Frame._save_downloaded_medias_overwrite.
+
+    If local_dir don't exist it is created.
+
+    **Don't use directly**,
+    this function is use by `Image` and `Sound` classes.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    Side effects:
+
+    * Each new url is added to `Frame._pygamemedias_cached`.
+    * If the media is a valid sound then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+    * If `Frame._print_load_medias` then print loading informations to stderr.
+
+    :param type_of_media: Image or Sound
+    :param url: str
+    :param local_dir: str
+
+    :return: pygame.Surface or pygame.mixer.Sound or None
+    """
+    assert type_of_media in ('Image', 'Sound'), type(type_of_media)
+    assert isinstance(url, str), type(url)
+    assert isinstance(local_dir, str), type(local_dir)
+
+    from os.path import dirname, isfile, join, splitext
+    from sys import argv, stderr, version_info
+
+    media_is_image = (type_of_media == 'Image')
+
+    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+    from SimpleGUICS2Pygame.simpleguics2pygame.sound \
+        import _MIXER_FREQUENCY, Sound
+
+    cached = Frame._pygamemedias_cached.get(url)
+    if cached is not None:  # Already in cache
+        if (not media_is_image) and (not Sound._mixer_initialized):
+            Sound._mixer_initialized = True
+            pygame.mixer.init(_MIXER_FREQUENCY)
+
+        media = (cached.copy() if media_is_image
+                 else pygame.mixer.Sound(cached))
+        if Frame._print_load_medias:
+            print("{} '{}' got in cache".format(type_of_media, url),
+                  file=stderr)
+
+        stderr.flush()
+
+        return media
+
+    # Build a "normalized" filename
+    if version_info[0] >= 3:
+        from urllib.parse import urlsplit
+    else:
+        from urlparse import urlsplit
+
+    from re import sub
+
+    urlsplitted = urlsplit(url)
+
+    filename = join(dirname(argv[0]),
+                    local_dir,
+                    sub('[^._/0-9A-Za-z]', '_',
+                        join(urlsplitted.netloc + '/',
+                             urlsplitted.path[1:]).replace('\\', '/')))
+
+    if urlsplitted.query != '':  # add "normalized" query part
+        filename = list(splitext(filename))
+        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted.query))
+        filename = ''.join(filename)
+
+    del urlsplitted
+
+    # Check if is correct file
+    if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
+        if Frame._print_load_medias:
+            print("Sound format not supported '{}'".format(url),
+                  file=stderr)
+
+        stderr.flush()
+
+        return None
+
+    filename_exist = isfile(filename)
+
+    # Load...
+    if not Frame._save_downloaded_medias_overwrite and filename_exist:
+        if (not media_is_image) and (not Sound._mixer_initialized):
+            Sound._mixer_initialized = True
+            pygame.mixer.init(_MIXER_FREQUENCY)
+
+        try:
+            # Load from local file
+            media = (pygame.image.load(filename) if media_is_image
+                     else pygame.mixer.Sound(filename))
+            if Frame._print_load_medias:
+                print("{} loaded '{}' instead '{}'".format(type_of_media,
+                                                           filename, url),
+                      file=stderr)
+
+            stderr.flush()
+            Frame._pygamemedias_cached[url] = media
+
+            return media
+        except:
+            pass
+
+    from io import BytesIO
+
+    if version_info[0] >= 3:
+        from urllib.request import urlopen
+    else:
+        from urllib2 import urlopen
+
+    try:
+        # Download from url
+        media_data = urlopen(url).read()
+        if Frame._print_load_medias:
+            print("{} downloaded '{}'".format(type_of_media, url),
+                  file=stderr)
+    except Exception as exc:
+        if Frame._print_load_medias:
+            print("{} downloading '{}' FAILED! {}".format(type_of_media,
+                                                          url, exc),
+                  file=stderr)
+
+        stderr.flush()
+
+        return
+
+    if (not media_is_image) and (not Sound._mixer_initialized):
+        Sound._mixer_initialized = True
+        pygame.mixer.init(_MIXER_FREQUENCY)
+
+    media = (pygame.image.load(BytesIO(media_data)) if media_is_image
+             else pygame.mixer.Sound(BytesIO(media_data)))
+
+    if Frame._save_downloaded_medias:
+        if Frame._save_downloaded_medias_overwrite or not filename_exist:
+            from os.path import isdir
+
+            if not isdir(dirname(filename)):
+                from os import makedirs
+
+                try:
+                    # Create local directory
+                    makedirs(dirname(filename))
+                    if Frame._print_load_medias:
+                        print("      Created '{}' directory"
+                              .format(dirname(filename)),
+                              file=stderr)
+                except Exception as exc:
+                    if Frame._print_load_medias:
+                        print("      Creating '{}' directory FAILED!! {}"
+                              .format(dirname(filename), exc),
+                              file=stderr)
+
+            try:
+                # Save to local file
+                outfile = open(filename, 'wb')
+                outfile.write(media_data)
+                outfile.close()
+                if Frame._print_load_medias:
+                    print("      {} in '{}'"
+                          .format(('Overwritten' if filename_exist
+                                   else 'Saved'), filename),
+                          file=stderr)
+            except Exception as exc:
+                if Frame._print_load_medias:
+                    print("      {} in '{}' FAILED! {}"
+                          .format(('Overwriting' if filename_exist
+                                   else 'Saving'), filename, exc),
+                          file=stderr)
+        elif Frame._print_load_medias:
+            print("      Local file '{}' already exist"
+                  .format(filename),
+                  file=stderr)
+
+    Frame._pygamemedias_cached[url] = media
+
+    stderr.flush()
+
+    return media
