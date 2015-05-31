@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (May 29, 2015)
+simpleguics2pygame/sound (May 31, 2015)
 
 Class Sound.
 
@@ -44,10 +44,13 @@ def _load_local_sound(filename):
     Create and return a sound by loading a file from `filename`.
     Not founded file and errors are ignored.
 
-    I recommend to use only Internet resources with the `load_sound()` function.
+    I recommend to use only Internet resources
+    with the `load_sound()` function.
     Then you can use your program **both**
     in standard Python and in CodeSkulptor.
-    (See http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#download-medias .)
+    (See `Tips.html#download-medias`_ .)
+
+    .. _`Tips.html#download-medias`: ../Tips.html#download-medias
 
     But if it is necessary,
     you can load local sound with this "private" function.

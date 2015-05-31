@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_loader (June 10, 2014)
+simplegui_lib_loader (May 31, 2015)
 
 A class to help load images and sounds
 in SimpleGUI of CodeSkulptor.
@@ -9,7 +9,7 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -168,13 +168,16 @@ class Loader:
 
     def cache_clear(self):
         """
-        * In standard Python with SimpleGUICS2Pygame: Empty the cache of Pygame surfaces used by each image of this Loader. See `Image._pygamesurfaces_cached_clear`_ .
+        * In standard Python with SimpleGUICS2Pygame:\
+          Empty the cache of Pygame surfaces\
+          used by each image of this Loader.\
+          See `Image._pygamesurfaces_cached_clear`_ .
         * In SimpleGUI of CodeSkulptor: do nothing.
 
-        .. _`Image._pygamesurfaces_cached_clear`: simpleguics2pygame_private.html#SimpleGUICS2Pygame.simpleguics2pygame.Image._pygamesurfaces_cached_clear
+        .. _`Image._pygamesurfaces_cached_clear`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._pygamesurfaces_cached_clear
         """
         if Loader.__SIMPLEGUICS2PYGAME:
-            for name, image in sorted(self._images.items()):
+            for _, image in sorted(self._images.items()):
                 image._pygamesurfaces_cached_clear()
 
     def get_image(self, name):
@@ -273,7 +276,9 @@ class Loader:
         **Start loading** of all images and sounds added
         since last `Loader.load()` execution.
 
-        * In standard Python with SimpleGUICS2Pygame: draw a progression bar on canvas and wait until the loading is finished.
+        * In standard Python with SimpleGUICS2Pygame:\
+          draw a progression bar on canvas\
+          and wait until the loading is finished.
         * In SimpleGUI of CodeSkulptor: *don't* wait.
         """
         if Loader.__SIMPLEGUICS2PYGAME:
@@ -312,10 +317,12 @@ class Loader:
 
     def print_stats_cache(self):
         """
-        * In standard Python with SimpleGUICS2Pygame: Print to stderr some statistics of cached Pygame surfaces used by each image of this Loader. See `Image._print_stats_cache`_ .
+        * In standard Python with SimpleGUICS2Pygame:\
+          Print to stderr some statistics of cached Pygame surfaces\
+          used by each image of this Loader. See `Image._print_stats_cache`_ .
         * In SimpleGUI of CodeSkulptor: do nothing.
 
-        .. _`Image._print_stats_cache`: simpleguics2pygame_private.html#SimpleGUICS2Pygame.simpleguics2pygame.Image._print_stats_cache
+        .. _`Image._print_stats_cache`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._print_stats_cache
         """
         if Loader.__SIMPLEGUICS2PYGAME:
             max_length = max([len(name) for name in self._images])

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (May 29, 2015)
+simpleguics2pygame/image (May 31, 2015)
 
 Class Image.
 
@@ -35,10 +35,13 @@ def _load_local_image(filename):
     Create and return an image by loading a file from `filename`.
     Not founded file and errors are ignored.
 
-    I recommend to use only Internet resources with the `load_image()` function.
+    I recommend to use only Internet resources
+    with the `load_image()` function.
     Then you can use your program **both**
     in standard Python and in CodeSkulptor.
-    (See http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#download-medias .)
+    (See `Tips.html#download-medias`_ .)
+
+    .. _`Tips.html#download-medias`: ../Tips.html#download-medias
 
     But if it is necessary,
     you can load local image with this "private" function.
