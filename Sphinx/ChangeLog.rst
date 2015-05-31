@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* v.02.00.00 WORKING VERSION --- May 30, 2015
+* 02.00.00 WORKING VERSION --- May 31, 2015
 
   - Splitted the big file ``simpleguics2pygame.py``.
   - Added ``example/presentation.py``.
@@ -31,7 +31,7 @@ ChangeLog
   - Corrected local filename bug in ``_load_media()``. (Thanks to `Sergey Sorokin`_.)
   - Updated documentation.
 
-.. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
+  .. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
 
 * 01.08.00 --- October 4, 2014
 
@@ -129,7 +129,7 @@ ChangeLog
   - Updated ``simplegui_lib_fps.py``.
   - Updated ``example/RiceRocks_Asteroids.py``.
 
-.. _`Maxim Rybalov`: https://www.linkedin.com/in/mrybalov
+  .. _`Maxim Rybalov`: https://www.linkedin.com/in/mrybalov
 
 * 01.03.00 --- December 13, 2013
 
@@ -154,8 +154,8 @@ ChangeLog
   - Updated ``example/Memory.py``.
   - Updated media and CodeSkulptor programs links.
 
-.. _`Sean Flanigan`: https://github.com/seanf
-.. _`Ines Simicic`: http://i--s.weebly.com/
+  .. _`Sean Flanigan`: https://github.com/seanf
+  .. _`Ines Simicic`: http://i--s.weebly.com/
 
 * 01.02.00 --- November 8, 2013
 

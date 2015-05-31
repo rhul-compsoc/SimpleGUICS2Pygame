@@ -83,7 +83,7 @@ Command line options
 When you run a program you can use following options:
 ``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
 
-* ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
+* ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you display a lot of text).
 * ``--display-fps``: Display FPS average on the canvas.
 * ``--fps n``: Set Frame Per Second (default is 60 FPS).
 * ``--fullscreen``: Fullscreen mode.

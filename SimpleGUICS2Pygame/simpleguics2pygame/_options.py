@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (May 29, 2015)
+simpleguics2pygame/_options (May 31, 2015)
 
 Options helpers.
 
@@ -33,7 +33,7 @@ def _set_option_from_argv():
     Read arguments in sys.argv
     and set options.
 
-    * ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you print a lot of text).
+    * ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you display a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
     * ``--fps n``: Set Frame Per Second (default is 60 FPS).
     * ``--fullscreen``: Fullscreen mode.
