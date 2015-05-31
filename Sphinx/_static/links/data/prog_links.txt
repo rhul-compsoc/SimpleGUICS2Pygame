@@ -10,7 +10,7 @@ http://www.codeskulptor.org/#user33_NBnGYFDBSbzFIuL.py
 keys.py
 Example of simplegui_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user34_ma4NCNG4WslqLbB.py
+http://www.codeskulptor.org/#user40_vkEF5X2cpcjngiS.py
 loader.py
 Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
@@ -29,10 +29,10 @@ http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 http://www.codeskulptor.org/#user40_BlEy0uQGCHrxyUD.py
 presentation.py
 
-http://www.codeskulptor.org/#user38_LBRVzKh4KE7cAP8.py
+http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
 <strong>RiceRocks_Asteroids</strong>.py
 
-http://www.codeskulptor.org/#user38_J7e2Fkeh89SJl4q.py
+http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
 Spaceship_prototype.py
 
 http://www.codeskulptor.org/#user40_zqoFUp2L1bPdD72.py
@@ -55,7 +55,7 @@ http://www.codeskulptor.org/#user38_ZmhOVHGm2lhVRhk.py
 Module <strong>codeskulptor_lib</strong>.py
 Some miscellaneous functions to help in CodeSkulptor: <a rel="nofollow" href="../../codeskulptor_lib.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user34_4ecfMGjlR5PTBqO.py
+http://www.codeskulptor.org/#user40_sK3vMO7yQIMVwUr.py
 Module <strong>simplegui_lib</strong>.py
 Some functions and classes to help in SimpleGUI of CodeSkulptor, from simplegui_lib_draw, from simplegui_lib_fps, simplegui_lib_keys and simplegui_lib_loader: <a rel="nofollow" href="../../simplegui_lib.html" target="_blank">Documentation</a>.
 
@@ -71,7 +71,7 @@ http://www.codeskulptor.org/#user30_VE5zdyz5OZwgen9.py
 Module <strong>simplegui_lib_keys</strong>.py
 A class to help manage keyboard handling in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user34_7pdNdCOBbyLqAZs.py
+http://www.codeskulptor.org/#user40_nMs7JxzimyImAv2.py
 Module <strong>simplegui_lib_loader</strong>.py
 A class to help load images and sounds in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
@@ -103,7 +103,7 @@ test_dir.py
 http://www.codeskulptor.org/#user27_x2tpW77htMyEPUz.py
 test_grid.py
 
-http://www.codeskulptor.org/#user39_TStrVL43Hf_0.py
+http://www.codeskulptor.org/#user40_Spj28CwFZj4oaMx.py
 test_image.py
 
 http://www.codeskulptor.org/#user27_VYTn8er4IPvVhpR.py

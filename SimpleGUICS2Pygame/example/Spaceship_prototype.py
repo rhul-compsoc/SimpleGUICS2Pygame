@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Spaceship prototype (October 4, 2014)
+Spaceship prototype (May 31, 2015)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -16,7 +16,7 @@ Run on:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -26,7 +26,7 @@ import random
 try:
     from user38_ZmhOVHGm2lhVRhk import assert_position
     from user33_Bhc7VzXKbXGVQV1 import FPS
-    from user34_7pdNdCOBbyLqAZs import Loader
+    from user40_nMs7JxzimyImAv2 import Loader
 
     import simplegui
 

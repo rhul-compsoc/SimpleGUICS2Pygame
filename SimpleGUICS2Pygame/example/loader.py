@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_loader.Loader use. (June 10, 2014)
+Example of simplegui_lib_loader.Loader use. (May 31, 2015)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
@@ -10,14 +10,14 @@ https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
 try:
     import simplegui
 
-    from user34_7pdNdCOBbyLqAZs import Loader
+    from user40_nMs7JxzimyImAv2 import Loader
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:

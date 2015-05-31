@@ -6,13 +6,13 @@ http://www.codeskulptor.org/#user33_Bhc7VzXKbXGVQV1.py .)
 Examples of use in :
 
 * `test/test_image.py`:
-  http://www.codeskulptor.org/#user39_TStrVL43Hf_0.py
+  http://www.codeskulptor.org/#user40_Spj28CwFZj4oaMx.py
 
 * `example/Spaceship_prototype.py`:
-  http://www.codeskulptor.org/#user38_J7e2Fkeh89SJl4q.py
+  http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
 
 * `example/RiceRocks_Asteroids.py`:
-  http://www.codeskulptor.org/#user38_LBRVzKh4KE7cAP8.py
+  http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_fps
     :special-members:

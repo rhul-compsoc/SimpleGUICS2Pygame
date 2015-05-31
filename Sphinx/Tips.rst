@@ -51,7 +51,7 @@ You can write this
         import simpleplot
 
         import user38_ZmhOVHGm2lhVRhk as codeskulptor_lib
-        import user34_4ecfMGjlR5PTBqO as simplegui_lib
+        import user40_sK3vMO7yQIMVwUr as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.numeric as numeric
