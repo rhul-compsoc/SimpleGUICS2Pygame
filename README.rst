@@ -176,7 +176,9 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- May 31, 2015
+* 02.00.00 WORKING VERSION --- June 1st, 2015
+
+  - Updated ``script/SimpleGUICS2Pygame_check.py``.
 
   - Splitted the big file ``simpleguics2pygame.py``.
   - Added ``example/presentation.py``.

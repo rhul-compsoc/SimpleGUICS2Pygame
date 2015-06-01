@@ -4,30 +4,31 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(April 21, 2014)
+(June 1st, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
 from __future__ import print_function
 
-from sys import version
+import sys
 
 
 ########
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (April 21, 2014)
+    print("""script/SimpleGUICS2Pygame_check.py (June 1st, 2014)
 ===================================================
-python - version""", version)
+python - version""", sys.version)
 
     print('\n')
 
+    # matplotlib
     CMD = 'import matplotlib'
     try:
         import matplotlib
@@ -38,27 +39,30 @@ python - version""", version)
 
     print('\n')
 
+    # Pygame
     CMD = 'import pygame'
     try:
         import pygame
 
         print(CMD, 'ok - Version', pygame.version.ver)
-    except Exception as exc:
-        print(CMD, 'FAILED!', exc)
 
-    CMD = 'pygame.init()'
-    try:
-        SUCCESS, FAILED = pygame.init()
+        CMD = 'pygame.init()'
+        try:
+            SUCCESS, FAILED = pygame.init()
 
-        if FAILED == 0:
-            print(CMD, SUCCESS, 'modules loaded ok')
-        else:
-            print(CMD, SUCCESS, 'modules loaded', FAILED, 'failed WARNING!')
+            if FAILED == 0:
+                print(' ', CMD, SUCCESS, 'modules loaded ok')
+            else:
+                print(' ', CMD, SUCCESS, 'modules loaded',
+                      FAILED, 'failed WARNING!')
+        except Exception as exc:
+            print(' ', CMD, 'FAILED!', exc)
     except Exception as exc:
         print(CMD, 'FAILED!', exc)
 
     print('\n')
 
+    # SimpleGUICS2Pygame
     CMD = 'import SimpleGUICS2Pygame'
     try:
         import SimpleGUICS2Pygame

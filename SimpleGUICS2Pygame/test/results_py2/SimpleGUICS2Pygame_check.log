@@ -1,4 +1,4 @@
-script/SimpleGUICS2Pygame_check.py (April 21, 2014)
+script/SimpleGUICS2Pygame_check.py (June 1st, 2014)
 ===================================================
 python - version 2.7.3 (default, Mar 13 2014, 11:03:55) 
 [GCC 4.7.2]
@@ -8,10 +8,10 @@ import matplotlib ok - Version 1.3.1
 
 
 import pygame ok - Version 1.9.1release
-pygame.init() 6 modules loaded ok
+  pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 01.09.00
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
