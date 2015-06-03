@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2015-03-15
+# Makefile of SimpleGUICS2Pygame --- 2015-06-03
 
 .SUFFIXES:
 
@@ -118,8 +118,6 @@ clean:	cleanbuild
 	-$(RMDIR) __pycache__ */__pycache__ */*/__pycache__ */*/*/__pycache__ */*/*/*/__pycache__
 	$(RM) SimpleGUICS2Pygame.egg-info/*
 	-$(RMDIR) SimpleGUICS2Pygame.egg-info
-	$(RM) SimpleGUICS2Pygame/example/_img/*.jpg SimpleGUICS2Pygame/example/_img/*.png SimpleGUICS2Pygame/example/_snd/*.ogg
-	-$(RMDIR) SimpleGUICS2Pygame/example/_img SimpleGUICS2Pygame/example/_snd
 
 cleanbuild:
 	$(PYTHON3) setup.py clean
