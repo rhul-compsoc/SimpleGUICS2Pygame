@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test play sounds. (April 18, 2015)
+Test play sounds. (June 3, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -25,10 +25,10 @@ except ImportError:
 
 TEST = 'test sound'
 
-sound_jump = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')
+sound_jump_ogg = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')
 
 if SIMPLEGUICS2PYGAME:
-    local_sound_chirp = simplegui._load_local_sound('_snd/chirp_1s.wav')
+    local_sound_chirp_wav = simplegui._load_local_sound('_snd/chirp_1s.wav')
 
 
 def wait(seconds):
@@ -49,10 +49,10 @@ def wait(seconds):
 wait(1)
 
 print('Play "jump.ogg"')
-sound_jump.play()
+sound_jump_ogg.play()
 wait(1)
 
 if SIMPLEGUICS2PYGAME:
     print('Play local "chirp_1s.wav"')
-    local_sound_chirp.play()
-    wait(local_sound_chirp._get_length())
+    local_sound_chirp_wav.play()
+    wait(local_sound_chirp_wav._get_length())

@@ -176,7 +176,9 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- June 1st, 2015
+* 02.00.00 WORKING VERSION --- June 3, 2015
+
+  - Updated ``test/test_sound.py``.
 
   - Updated ``script/SimpleGUICS2Pygame_check.py``.
 
