@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_media (May 29, 2015)
+simpleguics2pygame/_media (June 3, 2015)
 
 Media helpers.
 
@@ -17,7 +17,21 @@ from __future__ import division
 from __future__ import print_function
 
 
-__all__ = ['_load_local_media', '_load_media']
+from io import BytesIO
+from os import makedirs
+from os.path import dirname, isdir, isfile, join, splitext
+from re import sub
+from sys import argv, stderr, version_info
+
+if version_info[0] >= 3:
+    from urllib.parse import urlsplit
+    from urllib.request import urlopen
+else:
+    from urlparse import urlsplit
+    from urllib2 import urlopen
+
+
+__all__ = []
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
@@ -39,7 +53,8 @@ def _load_local_media(type_of_media, filename):
 
     Side effects:
 
-    * If the media is a valid sound then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+    * If the media is a valid sound\
+      then init the pygame.mixer and set Sound._mixer_initialized to `True`.
 
     :param type_of_media: Image or Sound
     :param filename: str
@@ -49,10 +64,8 @@ def _load_local_media(type_of_media, filename):
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(filename, str), type(filename)
 
-    from os.path import isfile
-
     if not isfile(filename):
-        return
+        return None
 
     media_is_image = (type_of_media == 'Image')
 
@@ -85,7 +98,8 @@ def _load_media(type_of_media, url, local_dir):
     Side effects:
 
     * Each new url is added to `Frame._pygamemedias_cached`.
-    * If the media is a valid sound then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+    * If the media is a valid sound\
+      then init the pygame.mixer and set Sound._mixer_initialized to `True`.
     * If `Frame._print_load_medias` then print loading informations to stderr.
 
     :param type_of_media: Image or Sound
@@ -97,9 +111,6 @@ def _load_media(type_of_media, url, local_dir):
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(url, str), type(url)
     assert isinstance(local_dir, str), type(local_dir)
-
-    from os.path import dirname, isfile, join, splitext
-    from sys import argv, stderr, version_info
 
     media_is_image = (type_of_media == 'Image')
 
@@ -118,41 +129,19 @@ def _load_media(type_of_media, url, local_dir):
         if Frame._print_load_medias:
             print("{} '{}' got in cache".format(type_of_media, url),
                   file=stderr)
-
-        stderr.flush()
+            stderr.flush()
 
         return media
 
     # Build a "normalized" filename
-    if version_info[0] >= 3:
-        from urllib.parse import urlsplit
-    else:
-        from urlparse import urlsplit
+    filename = __normalized_filename(url, local_dir)
 
-    from re import sub
-
-    urlsplitted = urlsplit(url)
-
-    filename = join(dirname(argv[0]),
-                    local_dir,
-                    sub('[^._/0-9A-Za-z]', '_',
-                        join(urlsplitted.netloc + '/',
-                             urlsplitted.path[1:]).replace('\\', '/')))
-
-    if urlsplitted.query != '':  # add "normalized" query part
-        filename = list(splitext(filename))
-        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted.query))
-        filename = ''.join(filename)
-
-    del urlsplitted
-
-    # Check if is correct file
+    # Check if is correct extension
     if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
         if Frame._print_load_medias:
             print("Sound format not supported '{}'".format(url),
                   file=stderr)
-
-        stderr.flush()
+            stderr.flush()
 
         return None
 
@@ -172,20 +161,13 @@ def _load_media(type_of_media, url, local_dir):
                 print("{} loaded '{}' instead '{}'".format(type_of_media,
                                                            filename, url),
                       file=stderr)
+                stderr.flush()
 
-            stderr.flush()
             Frame._pygamemedias_cached[url] = media
 
             return media
-        except:
+        except Exception as exc:
             pass
-
-    from io import BytesIO
-
-    if version_info[0] >= 3:
-        from urllib.request import urlopen
-    else:
-        from urllib2 import urlopen
 
     try:
         # Download from url
@@ -193,30 +175,35 @@ def _load_media(type_of_media, url, local_dir):
         if Frame._print_load_medias:
             print("{} downloaded '{}'".format(type_of_media, url),
                   file=stderr)
+            stderr.flush()
     except Exception as exc:
         if Frame._print_load_medias:
             print("{} downloading '{}' FAILED! {}".format(type_of_media,
                                                           url, exc),
                   file=stderr)
+            stderr.flush()
 
-        stderr.flush()
-
-        return
+        return None
 
     if (not media_is_image) and (not Sound._mixer_initialized):
         Sound._mixer_initialized = True
         pygame.mixer.init(_MIXER_FREQUENCY)
 
-    media = (pygame.image.load(BytesIO(media_data)) if media_is_image
-             else pygame.mixer.Sound(BytesIO(media_data)))
+    try:
+        media = (pygame.image.load(BytesIO(media_data)) if media_is_image
+                 else pygame.mixer.Sound(BytesIO(media_data)))
+    except Exception as exc:
+        if Frame._print_load_medias:
+            print("{} Pygame loading '{}' FAILED! {}".format(type_of_media,
+                                                             url, exc),
+                  file=stderr)
+            stderr.flush()
+
+        return None
 
     if Frame._save_downloaded_medias:
         if Frame._save_downloaded_medias_overwrite or not filename_exist:
-            from os.path import isdir
-
             if not isdir(dirname(filename)):
-                from os import makedirs
-
                 try:
                     # Create local directory
                     makedirs(dirname(filename))
@@ -251,8 +238,40 @@ def _load_media(type_of_media, url, local_dir):
                   .format(filename),
                   file=stderr)
 
+    if Frame._print_load_medias:
+        stderr.flush()
+
     Frame._pygamemedias_cached[url] = media
 
-    stderr.flush()
-
     return media
+
+
+#
+# Private functions
+###################
+def __normalized_filename(url, local_dir):
+    """
+    Build a "normalized" filename from url.
+
+    :param url: str
+    :param local_dir: str
+
+    :return: str
+    """
+    assert isinstance(url, str), type(url)
+    assert isinstance(local_dir, str), type(local_dir)
+
+    urlsplitted = urlsplit(url)
+
+    filename = join(dirname(argv[0]),
+                    local_dir,
+                    sub('[^._/0-9A-Za-z]', '_',
+                        join(urlsplitted.netloc + '/',
+                             urlsplitted.path[1:]).replace('\\', '/')))
+
+    if urlsplitted.query != '':  # add "normalized" query part
+        filename = list(splitext(filename))
+        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted.query))
+        filename = ''.join(filename)
+
+    return filename

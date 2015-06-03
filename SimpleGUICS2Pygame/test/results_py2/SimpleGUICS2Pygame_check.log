@@ -1,7 +1,38 @@
-script/SimpleGUICS2Pygame_check.py (June 1st, 2014)
-===================================================
+script/SimpleGUICS2Pygame_check.py (June 3, 2014)
+=================================================
+PATH:
+  /home/opi/bin
+  /usr/local/bin
+  /usr/bin
+  /bin
+  /usr/local/games
+  /usr/games
+  /home/opi/.rvm/bin
+  /home/opi/progs/clang/bin
+
+PYTHONPATH:
+  /home/opi/data/hg/SimpleGUICS2Pygame
+  /home/opi/data/hg/SimpleGUICS2Pygame/
+
+
 python - version 2.7.3 (default, Mar 13 2014, 11:03:55) 
 [GCC 4.7.2]
+
+sys.path:
+  /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/script
+  /usr/local/lib/python2.7/dist-packages/fibonacci-0.0.0-py2.7.egg
+  /home/opi/data/hg/SimpleGUICS2Pygame
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-linux2
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/PIL
+  /usr/lib/python2.7/dist-packages/gtk-2.0
+  /usr/lib/pymodules/python2.7
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode
 
 
 import matplotlib ok - Version 1.3.1
