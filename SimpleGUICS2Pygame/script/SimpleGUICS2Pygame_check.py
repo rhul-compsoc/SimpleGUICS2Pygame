@@ -4,7 +4,7 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(June 1st, 2015)
+(June 3, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -15,6 +15,7 @@ http://www.opimedia.be/
 
 from __future__ import print_function
 
+import os
 import sys
 
 
@@ -22,9 +23,32 @@ import sys
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (June 1st, 2014)
-===================================================
-python - version""", sys.version)
+    print("""script/SimpleGUICS2Pygame_check.py (June 3, 2014)
+=================================================""")
+
+    # Environment variables
+    print('PATH:')
+    path_str = os.getenv('PATH')
+    if path_str is not None:
+        for path in path_str.split(os.pathsep):
+            print(' ', path)
+
+    print()
+
+    print('PYTHONPATH:')
+    path_str = os.getenv('PYTHONPATH')
+    if path_str is not None:
+        for path in path_str.split(os.pathsep):
+            print(' ', path)
+
+    print('\n')
+
+    # Python
+    print('python - version', sys.version, end='\n\n')
+
+    print('sys.path:')
+    for path in sys.path:
+        print(' ', path)
 
     print('\n')
 
