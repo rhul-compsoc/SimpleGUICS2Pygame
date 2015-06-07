@@ -28,22 +28,40 @@ and *standard Python* with this module (and Pygame).
 
 `Online HTML documentation`_ on **Read The Docs**.
 (You can also use the online `SimpleGUI documentation on CodeSkulptor`_.)
-Read Compatibility_ and Tips_ sections.
 
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 | and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _Compatibility: Tips.html#compatibility
 .. _`Online HTML documentation`: http://simpleguics2pygame.readthedocs.org/
 .. _Python: http://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
-.. _Tips: Tips.html
 
 .. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_64x64_t.png
 
 |
+
+
+If you have some problem
+------------------------
+First, read this short main documentation page,
+this Tips_ page
+(with the Compatibility_ section).
+
+If you have problem with some command,
+you can see its documentation in the `modules page`_.
+
+Next, you can search in Stack Overflow.
+If you don't find answer, you can ask question like this_.
+
+Finally you can email me.
+I will try to help you with pleasure.
+
+.. _Compatibility: Tips.html#compatibility
+.. _`modules page`: modules.html
+.. _this: https://stackoverflow.com/questions/16387770/how-to-integrate-simplegui-with-python-2-7-and-3-0-shell
+.. _Tips: Tips.html
 
 
 Installation
@@ -137,6 +155,9 @@ Author |OPi|
 
 .. |OPi| image:: _static/img/OPi_t.png
 
+
+Support me
+----------
 | If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
 | Go to the link |Donate|_
 |

@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION --- June 3, 2015
+* 02.00.00 WORKING VERSION --- June 7, 2015
 
   - Updated ``test/test_sound.py``.
 
