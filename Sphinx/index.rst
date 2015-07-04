@@ -174,9 +174,9 @@ Note that
 
 * simplegui_ is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
 
-.. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk/1.1.3
+.. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk
 
-.. _simplegui: https://pypi.python.org/pypi/simplegui/
+.. _simplegui: https://pypi.python.org/pypi/simplegui
 
 
 
