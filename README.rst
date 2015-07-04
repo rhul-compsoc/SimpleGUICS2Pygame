@@ -193,12 +193,12 @@ Note that
 
 .. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk/1.1.3
 
-.. _simplegui: https://pypi.python.org/pypi/simplegui/0.1.1
+.. _simplegui: https://pypi.python.org/pypi/simplegui/
 
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- June 7, 2015
+* 02.00.00 WORKING VERSION --- July 4, 2015
 
   - Updated ``test/test_sound.py``.
 

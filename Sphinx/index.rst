@@ -176,7 +176,7 @@ Note that
 
 .. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk/1.1.3
 
-.. _simplegui: https://pypi.python.org/pypi/simplegui/0.1.1
+.. _simplegui: https://pypi.python.org/pypi/simplegui/
 
 
 
