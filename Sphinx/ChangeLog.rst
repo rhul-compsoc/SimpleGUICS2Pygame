@@ -2,6 +2,8 @@ ChangeLog
 =========
 * 02.00.00 WORKING VERSION --- August 12, 2015
 
+  - Corrected "Read the Docs" subpackage problem.
+
   - Updated ``test/test_sound.py``.
 
   - Updated ``script/SimpleGUICS2Pygame_check.py``.
