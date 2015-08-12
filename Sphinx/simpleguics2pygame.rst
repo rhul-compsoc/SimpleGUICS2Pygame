@@ -13,7 +13,7 @@
    simpleguics2pygame/_pygame_lib
 
 
-.. automodule:: SimpleGUICS2Pygame.simpleguics2pygame
+.. automodule:: SimpleGUICS2Pygame.simpleguics2pygame.__init__
     :special-members:
     :private-members:
     :members:
