@@ -50,7 +50,8 @@ this Tips_ page
 (with the Compatibility_ section).
 
 If you have problem with some command,
-you can see its documentation in the `modules page`_.
+you can see its documentation in the `modules page`_
+or by the :ref:`genindex` page .
 
 Next, you can search in Stack Overflow.
 If you don't find answer, you can ask question like this_.
