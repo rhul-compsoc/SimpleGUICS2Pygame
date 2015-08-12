@@ -198,7 +198,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- July 4, 2015
+* 02.00.00 WORKING VERSION --- August 12, 2015
 
   - Updated ``test/test_sound.py``.
 

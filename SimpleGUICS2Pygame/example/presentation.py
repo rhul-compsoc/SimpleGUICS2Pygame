@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (May 27, 2015)
+presentation (August 12, 2015)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -22,7 +22,6 @@ except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
 
     SIMPLEGUICS2PYGAME = True
 
