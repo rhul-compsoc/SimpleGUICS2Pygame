@@ -17,8 +17,3 @@
     :special-members:
     :private-members:
     :members:
-
-.. automodule:: simpleguics2pygame
-    :special-members:
-    :private-members:
-    :members:
