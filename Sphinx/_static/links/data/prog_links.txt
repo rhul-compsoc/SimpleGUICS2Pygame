@@ -112,16 +112,16 @@ test_line.py
 http://www.codeskulptor.org/#user27_EJoi1s2gfRJS0SP.py
 test_numeric.py
 
-http://www.codeskulptor.org/#user27_EV8KRlDscntoY3a.py
+http://www.codeskulptor.org/#user40_0P64mgwQyrajLb2.py
 test_objects.py
 
-http://www.codeskulptor.org/#user37_MMW1T1HduHgPdOK.py
+http://www.codeskulptor.org/#user40_fCKMO75e3WuuWfn.py
 test_simpleplot_bars.py
 
-http://www.codeskulptor.org/#user37_T7OQUrpo4AWDCn9.py
+http://www.codeskulptor.org/#user40_JZtqdZIgQMJDiLK.py
 test_simpleplot_lines.py
 
-http://www.codeskulptor.org/#user37_Ci47NMgGMw4NCOD.py
+http://www.codeskulptor.org/#user40_o7kbLPpYmnGZtlf.py
 test_simpleplot_scatter.py
 
 http://www.codeskulptor.org/#user40_u9XFrLRkjARyjsA.py

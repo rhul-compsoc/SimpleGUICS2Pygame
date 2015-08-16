@@ -70,7 +70,7 @@ def draw(canvas):
 
 
 # Main
-frame = simplegui.create_frame(TEST, 0, 200, 400)
+frame = simplegui.create_frame(TEST, 0, 400, 400)
 
 frame.add_label(TEST)
 frame.add_label('')
