@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (September 1st, 2014)
+simpleplot (August 16, 2015)
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -12,20 +12,33 @@ Require matplotlib_
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 
 .. _matplotlib: http://matplotlib.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
 """
 
-try:
-    import matplotlib.pyplot
-except Exception as e:
-    import os
+from __future__ import print_function
 
-    if os.environ.get('READTHEDOCS', None) != 'True':
-        raise Exception('matplotlib not installed! ' + str(e))
+try:
+    from matplotlib import __version__ as _MATPLOTLIB_VERSION
+
+    import matplotlib.pyplot
+
+    _MATPLOTLIB_AVAILABLE = True
+    """
+    `True` if matplotlib is available,
+    else `False`.
+    """
+except ImportError:
+    _MATPLOTLIB_AVAILABLE = False
+
+    _MATPLOTLIB_VERSION = None
+    """
+    `matplotlib.__version__` if Pygame is available,
+    else `None`.
+    """
 
 
 #
@@ -55,7 +68,8 @@ def _block():
     then block the program until closing all windows.
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
-    matplotlib.pyplot.show()
+    if _MATPLOTLIB_AVAILABLE:
+        matplotlib.pyplot.show()
 
 
 def plot_bars(framename, width, height, xlabel, ylabel, datasets,
@@ -131,6 +145,16 @@ def plot_bars(framename, width, height, xlabel, ylabel, datasets,
 
     assert isinstance(_block, bool), type(_block)
     assert (_filename is None) or isinstance(_filename, str), type(_filename)
+
+    if not _MATPLOTLIB_AVAILABLE:
+        from sys import stderr
+
+        print("""Fake 'plot_bars' function
+because matplotlib is not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""",
+              file=stderr)
+
+        return
 
     fig = matplotlib.pyplot.figure()
     fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
@@ -262,6 +286,16 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
     assert isinstance(_block, bool), type(_block)
     assert (_filename is None) or isinstance(_filename, str), type(_filename)
 
+    if not _MATPLOTLIB_AVAILABLE:
+        from sys import stderr
+
+        print("""Fake 'plot_lines' function
+because matplotlib is not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""",
+              file=stderr)
+
+        return
+
     fig = matplotlib.pyplot.figure()
     fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
                         forward=True)
@@ -378,6 +412,16 @@ def plot_scatter(framename, width, height, xlabel, ylabel, datasets,
 
     assert isinstance(_block, bool), type(_block)
     assert (_filename is None) or isinstance(_filename, str), type(_filename)
+
+    if not _MATPLOTLIB_AVAILABLE:
+        from sys import stderr
+
+        print("""Fake 'plot_scatter' function
+because matplotlib is not available!
+See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""",
+              file=stderr)
+
+        return
 
     fig = matplotlib.pyplot.figure()
     fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),

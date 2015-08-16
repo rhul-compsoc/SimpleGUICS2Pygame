@@ -2,6 +2,8 @@ ChangeLog
 =========
 * 02.00.00 WORKING VERSION --- August 16, 2015
 
+  - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
+
   - Corrected "Read the Docs" subpackage problem.
 
   - Updated ``test/test_sound.py``.

@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test simpleplot lines. (September 2, 2014)
+Test simpleplot lines. (August 16, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -21,16 +21,6 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-
-if SIMPLEGUICS2PYGAME:
-    from sys import version as python_version
-    from matplotlib import __version__ as matplotlib_version
-
-    PYTHON_VERSION = 'Python ' + python_version.split()[0]
-    MATPLOTLIB_VERSION = 'matplotlib ' + matplotlib_version
-else:
-    PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/
-    MATPLOTLIB_VERSION = ''
 
 datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]
 dataset = {1: 3, 2: 4, 5: 5, 8: 4, 9: 3}
