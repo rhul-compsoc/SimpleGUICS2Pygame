@@ -4,7 +4,7 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(June 3, 2015)
+(August 16, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -23,8 +23,8 @@ import sys
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (June 3, 2014)
-=================================================""")
+    print("""script/SimpleGUICS2Pygame_check.py (August 16, 2015)
+====================================================""")
 
     # Environment variables
     print('PATH:')
@@ -85,6 +85,36 @@ if __name__ == '__main__':
         print(CMD, 'FAILED!', exc)
 
     print('\n')
+
+    # simplegui
+    CMD = 'import simplegui'
+    try:
+        import simplegui
+
+        print(CMD, """PROBLEM - The package simplegui is installed!
+  It is a Python package which has the same name as SimpleGUI of CodeSkulptor,
+  but it is totally something else.
+  If you don't uninstall it,
+  you must replace the recommended import of SimpleGUICS2Pygame.
+
+""")
+    except Exception as exc:
+        pass
+
+    # SimpleGUITk
+    CMD = 'import simpleguitk'
+    try:
+        import simpleguitk
+
+        print(CMD, """WARNING - The package simpleguitk is installed!
+  It is an other implementation of SimpleGUI of CodeSkulptor,
+  using Tkinter and some others packages.
+  If you don't uninstall it,
+  you must be careful with the import of SimpleGUICS2Pygame.
+
+""")
+    except Exception as exc:
+        pass
 
     # SimpleGUICS2Pygame
     CMD = 'import SimpleGUICS2Pygame'

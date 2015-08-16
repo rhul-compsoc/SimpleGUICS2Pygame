@@ -171,7 +171,7 @@ Support me
 Note that
 ---------
 
-* SimpleGUITk_ is an *other implementation*, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
+* SimpleGUITk_ is an *other implementation* of SimpleGUI of CodeSkulptor, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
 
 * simplegui_ is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
 

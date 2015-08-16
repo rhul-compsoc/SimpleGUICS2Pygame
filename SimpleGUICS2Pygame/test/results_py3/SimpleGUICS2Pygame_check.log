@@ -1,5 +1,5 @@
-script/SimpleGUICS2Pygame_check.py (June 3, 2014)
-=================================================
+script/SimpleGUICS2Pygame_check.py (August 16, 2015)
+====================================================
 PATH:
   /home/opi/bin
   /usr/local/bin
@@ -12,7 +12,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/hg/SimpleGUICS2Pygame
-  /home/opi/data/hg/SimpleGUICS2Pygame/
+  
 
 
 python - version 3.2.3 (default, Feb 20 2013, 14:44:27) 
@@ -21,6 +21,7 @@ python - version 3.2.3 (default, Feb 20 2013, 14:44:27)
 sys.path:
   /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/script
   /home/opi/data/hg/SimpleGUICS2Pygame
+  /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/test
   /usr/lib/python3.2
   /usr/lib/python3.2/plat-linux2
   /usr/lib/python3.2/lib-dynload
@@ -35,7 +36,7 @@ import pygame ok - Version 1.9.2a0
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION August 16
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
