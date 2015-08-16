@@ -12,3 +12,8 @@ Examples of use in :
     :special-members:
     :private-members:
     :members:
+
+
+[source_]
+
+.. _source: _modules/SimpleGUICS2Pygame/simplegui_lib_keys.html

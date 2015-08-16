@@ -5,3 +5,8 @@ numeric --- replace the numeric module of CodeSkulptor
     :special-members:
     :private-members:
     :members:
+
+
+[source_]
+
+.. _source: _modules/SimpleGUICS2Pygame/numeric.html

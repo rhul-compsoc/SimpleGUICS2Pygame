@@ -10,3 +10,8 @@ Package SimpleGUICS2Pygame
 .. autodata:: _VERSION
 
 .. autodata:: _WEBSITE
+
+
+[source_]
+
+.. _source: _modules/SimpleGUICS2Pygame/package_init.html
