@@ -1,55 +1,4 @@
-+ <a rel="nofollow" href="https://bitbucket.org/OPiMedia/simpleguics2pygame" target="_blank">SimpleGUICS2Pygame</a> examples
-
-http://www.codeskulptor.org/#user31_nv8xdWX8PbNEWXc.py
-Blackjack.py
-
-http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-Frame_example.py
-
-http://www.codeskulptor.org/#user33_NBnGYFDBSbzFIuL.py
-keys.py
-Example of simplegui_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
-
-http://www.codeskulptor.org/#user40_vkEF5X2cpcjngiS.py
-loader.py
-Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
-
-http://www.codeskulptor.org/#user38_1ghZBJ6lfUcyMj1.py
-<strong>Mandelbrot_Set</strong>.py
-
-http://www.codeskulptor.org/#user38_APz6mNW62D5bHdz.py
-<strong>Memory</strong>.py
-
-http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
-<strong>Nostalgic_Basic_Blitz</strong>.py
-
-http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
-<strong>Pong</strong>.py
-
-http://www.codeskulptor.org/#user40_E5kBXRovU9GBPh6.py
-presentation.py
-
-http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
-<strong>RiceRocks_Asteroids</strong>.py
-
-http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
-Spaceship_prototype.py
-
-http://www.codeskulptor.org/#user40_zqoFUp2L1bPdD72.py
-stop_example.py
-
-http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
-Stopwatch.py
-
-http://www.codeskulptor.org/#user27_1nknwP8VPkhkKX7.py
-<strong>Stress_Balls</strong>.py
-
-http://www.codeskulptor.org/#user27_buxBSBpVXVgxYMC.py
-Stress_Balls_results.py
-
-
-
-+ SimpleGUICS2Pygame <strong>modules</strong>
++ SimpleGUICS2Pygame helper <strong>modules</strong>
 
 http://www.codeskulptor.org/#user38_ZmhOVHGm2lhVRhk.py
 Module <strong>codeskulptor_lib</strong>.py
@@ -77,7 +26,7 @@ A class to help load images and sounds in SimpleGUI of CodeSkulptor: <a rel="nof
 
 
 
-+ SimpleGUICS2Pygame test
++ SimpleGUICS2Pygame <strong>test</strong>
 
 http://www.codeskulptor.org/#user36_ESjiq8vAaRAtmlm.py
 test_button_label.py
@@ -129,6 +78,57 @@ test_sound.py
 
 http://www.codeskulptor.org/#user27_VolKZi2DGiGHFzR.py
 test_text.py
+
+
+
++ SimpleGUICS2Pygame <strong>examples</strong>
+
+http://www.codeskulptor.org/#user31_nv8xdWX8PbNEWXc.py
+Blackjack.py
+
+http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
+Frame_example.py
+
+http://www.codeskulptor.org/#user33_NBnGYFDBSbzFIuL.py
+keys.py
+Example of simplegui_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
+
+http://www.codeskulptor.org/#user40_vkEF5X2cpcjngiS.py
+loader.py
+Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
+
+http://www.codeskulptor.org/#user38_1ghZBJ6lfUcyMj1.py
+<strong>Mandelbrot_Set</strong>.py
+
+http://www.codeskulptor.org/#user38_APz6mNW62D5bHdz.py
+<strong>Memory</strong>.py
+
+http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
+<strong>Nostalgic_Basic_Blitz</strong>.py
+
+http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
+<strong>Pong</strong>.py
+
+http://www.codeskulptor.org/#user40_E5kBXRovU9GBPh6.py
+presentation.py
+
+http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
+<strong>RiceRocks_Asteroids</strong>.py
+
+http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
+Spaceship_prototype.py
+
+http://www.codeskulptor.org/#user40_zqoFUp2L1bPdD72.py
+stop_example.py
+
+http://www.codeskulptor.org/#user30_GYUwivTrkELXBWk.py
+Stopwatch.py
+
+http://www.codeskulptor.org/#user27_1nknwP8VPkhkKX7.py
+<strong>Stress_Balls</strong>.py
+
+http://www.codeskulptor.org/#user27_buxBSBpVXVgxYMC.py
+Stress_Balls_results.py
 
 
 
