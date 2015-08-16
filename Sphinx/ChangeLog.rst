@@ -3,6 +3,7 @@ ChangeLog
 * 02.00.00 WORKING VERSION --- August 16, 2015
 
   - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
+  - Updated ``test/test_objects.py``.
 
   - Corrected "Read the Docs" subpackage problem.
 

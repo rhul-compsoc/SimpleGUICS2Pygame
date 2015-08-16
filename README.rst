@@ -201,6 +201,7 @@ Changes
 * 02.00.00 WORKING VERSION --- August 16, 2015
 
   - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
+  - Updated ``test/test_objects.py``.
 
   - Corrected "Read the Docs" subpackage problem.
 
@@ -257,13 +258,6 @@ Changes
   - Updated ``test/test_dir.py``.
   - Updated documentation.
   - Updated CodeSkulptor programs links.
-
-* 01.06.03 --- July 24, 2014
-
-  - Implemented ``width`` parameter in ``add_label()``.
-  - Added ``test/test_button_label.py``.
-
-* 01.06.02 --- July 18, 2014
 
 ...
 

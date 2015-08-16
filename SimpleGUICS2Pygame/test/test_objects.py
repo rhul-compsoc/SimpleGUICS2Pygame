@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test __repr__() et __str__() methods of objects. (December 13, 2013)
+Test __repr__() et __str__() methods of objects. (August 16, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -25,11 +25,11 @@ except ImportError:
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
-    from pygame.version import ver as pygame_version
     from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_VERSION
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
-    PYGAME_VERSION = 'Pygame ' + pygame_version
+    PYGAME_VERSION = 'Pygame ' + str(_PYGAME_VERSION)
     GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
     PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/
@@ -38,9 +38,6 @@ else:
 
 
 TEST = 'test objects'
-
-WIDTH = 400
-HEIGHT = 200
 
 
 def draw(canvas):
@@ -52,22 +49,28 @@ def draw(canvas):
     image = simplegui.load_image('')
     sound = simplegui.load_sound('')
     timer = simplegui.create_timer(1000, lambda: None)
+    timer.stop()
 
-    for name, o in (('button', button),
-                    ('canvas', canvas),
-                    ('frame',  frame),
-                    ('image',  image),
-                    ('input',  input),
-                    ('label',  label),
-                    ('sound',  sound),
-                    ('timer',  timer)):
-        print(name + str(type(o)) + repr(o) + str(o))
+    for name, obj in (('button', button),
+                      ('canvas', canvas),
+                      ('frame', frame),
+                      ('image', image),
+                      ('input', input),
+                      ('label', label),
+                      ('sound', sound),
+                      ('timer', timer)):
+        print(name + str(type(obj)) + repr(obj) + str(obj))
 
-    frame.stop()
+    from sys import argv
+
+    if len(argv) == 2:
+        frame.stop()
+
+    frame.set_draw_handler(lambda canvas: None)
 
 
 # Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+frame = simplegui.create_frame(TEST, 0, 200, 400)
 
 frame.add_label(TEST)
 frame.add_label('')
