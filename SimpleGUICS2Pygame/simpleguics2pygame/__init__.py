@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/__init__ (May 30, 2015)
+simpleguics2pygame/__init__ (August 16, 2015)
 
 Standard Python_ (2 **and** 3) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -29,6 +29,25 @@ http://www.opimedia.be/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 """
+
+
+#
+# Set options
+#############
+from SimpleGUICS2Pygame.simpleguics2pygame._options \
+    import _set_option_from_argv
+
+try:
+    del _options
+except NameError:
+    pass
+
+try:
+    _set_option_from_argv()
+
+    del _set_option_from_argv
+except NameError:
+    pass
 
 
 #
@@ -107,29 +126,5 @@ except NameError:
 
 try:
     del _media
-except NameError:
-    pass
-
-try:
-    del _pygame_lib
-except NameError:
-    pass
-
-
-#
-# Set options
-#############
-from SimpleGUICS2Pygame.simpleguics2pygame._options \
-    import _set_option_from_argv
-
-try:
-    del _options
-except NameError:
-    pass
-
-try:
-    _set_option_from_argv()
-
-    del _set_option_from_argv
 except NameError:
     pass

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (May 30, 2015)
+simpleguics2pygame/frame (August 16, 2015)
 
 Class Frame.
 
@@ -21,9 +21,12 @@ __all__ = ['Frame',
            'create_frame']
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
-if _PYGAME_AVAILABLE:
+try:
     import pygame
+
+    _PYGAME_AVAILABLE = True
+except ImportError:
+    _PYGAME_AVAILABLE = False
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors \
     import _SIMPLEGUICOLOR_TO_PYGAMECOLOR

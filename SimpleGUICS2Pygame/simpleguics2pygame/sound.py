@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (May 31, 2015)
+simpleguics2pygame/sound (August 16, 2015)
 
 Class Sound.
 
@@ -22,9 +22,12 @@ __all__ = ['Sound',
            '_load_local_sound']
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
-if _PYGAME_AVAILABLE:
+try:
     import pygame
+
+    _PYGAME_AVAILABLE = True
+except ImportError:
+    _PYGAME_AVAILABLE = False
 
 
 #

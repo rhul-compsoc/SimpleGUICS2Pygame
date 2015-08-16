@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (May 31, 2015)
+simpleguics2pygame/_options (August 16, 2015)
 
 Options helpers.
 
@@ -20,9 +20,12 @@ from __future__ import print_function
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
-if _PYGAME_AVAILABLE:
+try:
     import pygame
+
+    _PYGAME_AVAILABLE = True
+except ImportError:
+    _PYGAME_AVAILABLE = False
 
 
 #
@@ -33,7 +36,8 @@ def _set_option_from_argv():
     Read arguments in sys.argv
     and set options.
 
-    * ``--default-font``: Use Pygame default font instead serif, monospace... (this is faster if you display a lot of text).
+    * ``--default-font``: Use Pygame default font instead serif, monospace...
+      (this is faster if you display a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
     * ``--fps n``: Set Frame Per Second (default is 60 FPS).
     * ``--fullscreen``: Fullscreen mode.
@@ -42,10 +46,13 @@ def _set_option_from_argv():
     * ``--no-controlpanel``: Hide the control panel (and status boxes).
     * ``--no-load-sound``: Don't load any sound.
     * ``--no-status``: Hide two status boxes.
-    * ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
+    * ``--overwrite-downloaded-medias``: Download all images and sounds
+      from Web and save in local directory even if they already exist.
     * ``--print-load-medias``: Print URLs or locals filename loaded.
-    * ``--print-stats-cache``: After frame stopped, print some statistics of caches.
-    * ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
+    * ``--print-stats-cache``: After frame stopped,
+      print some statistics of caches.
+    * ``--save-downloaded-medias``: Save images and sounds downloaded
+      from Web that don't already exist in local directory.
     * ``--stop-timers``: Stop all timers when close frame without ask.
 
     If an argument is not in this list
@@ -79,11 +86,14 @@ def _set_option_from_argv():
             except (IndexError, ValueError):
                 Frame._fps = 0
         elif arg == '--fullscreen':
-            Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.HWSURFACE
+            if _PYGAME_AVAILABLE:
+                Frame._pygame_mode_flags |= (pygame.FULLSCREEN
+                                             | pygame.HWSURFACE)
         elif arg == '--keep-timers':
             Frame._keep_timers = True
         elif arg == '--no-border':
-            Frame._pygame_mode_flags |= pygame.NOFRAME
+            if _PYGAME_AVAILABLE:
+                Frame._pygame_mode_flags |= pygame.NOFRAME
         elif arg == '--no-controlpanel':
             Frame._hide_controlpanel = True
         elif arg == '--no-load-sound':

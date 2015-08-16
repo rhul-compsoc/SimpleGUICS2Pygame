@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (May 29, 2015)
+simpleguics2pygame/canvas (August 16, 2015)
 
 Class Canvas.
 
@@ -21,9 +21,12 @@ __all__ = ['Canvas',
            'create_invisible_canvas']
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
-if _PYGAME_AVAILABLE:
+try:
     import pygame
+
+    _PYGAME_AVAILABLE = True
+except ImportError:
+    _PYGAME_AVAILABLE = False
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors \
     import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, \

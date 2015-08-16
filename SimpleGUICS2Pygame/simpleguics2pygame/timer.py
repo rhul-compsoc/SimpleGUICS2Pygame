@@ -2,9 +2,11 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/timer (May 29, 2015)
+simpleguics2pygame/timer (August 16, 2015)
 
 Class Timer.
+
+**Don't require Pygame.**
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -19,11 +21,6 @@ from __future__ import print_function
 
 __all__ = ['Timer',
            'create_timer']
-
-
-from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
-if _PYGAME_AVAILABLE:
-    import pygame
 
 
 #

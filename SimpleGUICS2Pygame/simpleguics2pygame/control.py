@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (May 30, 2015)
+simpleguics2pygame/control (August 16, 2015)
 
 Classes Control and TextAreaControl.
 
@@ -20,9 +20,12 @@ from __future__ import print_function
 __all__ = ['Control', 'TextAreaControl']
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
-if _PYGAME_AVAILABLE:
+try:
     import pygame
+
+    _PYGAME_AVAILABLE = True
+except ImportError:
+    _PYGAME_AVAILABLE = False
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors \
     import _SIMPLEGUICOLOR_TO_PYGAMECOLOR
