@@ -55,6 +55,9 @@ test_grid.py
 http://www.codeskulptor.org/#user40_Spj28CwFZj4oaMx.py
 test_image.py
 
+http://www.codeskulptor.org/#user40_IEL5FRBnsbP2ukn.py
+test_input.py
+
 http://www.codeskulptor.org/#user27_VYTn8er4IPvVhpR.py
 test_line.py
 

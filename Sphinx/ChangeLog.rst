@@ -3,6 +3,7 @@ ChangeLog
 * 02.00.00 WORKING VERSION --- August 19, 2015
 
   - Improved dealing of input box.
+  - Added ``test/test_input.py``.
 
   - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
   - Updated ``test/test_objects.py``.
