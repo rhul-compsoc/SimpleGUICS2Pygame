@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (August 16, 2015)
+simpleguics2pygame/control (August 19, 2015)
 
 Classes Control and TextAreaControl.
 
@@ -461,6 +461,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         self._x2 = None
         self._y2 = None
 
+        self._input_pos = 0
         self._input_text = ''
 
     def __repr__(self):
@@ -501,6 +502,17 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
         text_width, text_height = pygame_surface_text.get_size()
 
+        if self._input_pos < len(self._input_text):
+            pygame_surface_text_before_cursor = \
+                TextAreaControl._input_pygame_font.render(
+                    self._input_text[:self._input_pos], True,
+                    TextAreaControl._input_pygame_color)
+
+            text_before_cursor_width, _ = \
+                pygame_surface_text_before_cursor.get_size()
+        else:
+            text_before_cursor_width = text_width
+
         rect_y = self._y2 + 2
         rect_height = text_height + 2 + TextAreaControl._input_padding_y*2
 
@@ -512,6 +524,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
             (self._x1, rect_y,
              self._width, rect_height),
             0)
+
         pygame.draw.rect(self._frame_parent._controlpanel_pygame_surface,
                          TextAreaControl._input_pygame_color,
                          (self._x1, rect_y,
@@ -525,83 +538,164 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         offset_text_x = max(0, text_width - max_text_width)
         text_width = min(text_width, max_text_width)
 
+        cursor_x = text_x - offset_text_x + text_before_cursor_width
+        if (text_width >= max_text_width) and (text_x + 10 > cursor_x):
+            diff = text_x + (10
+                             if self._input_pos > 0
+                             else 0) - cursor_x
+            offset_text_x -= diff
+            text_width += diff
+            cursor_x += diff
+
+        if selected:
+            # Draw cursor
+            pygame.draw.line(self._frame_parent._controlpanel_pygame_surface,
+                             self._input_mark_pygame_color,
+                             (cursor_x, text_y - 1),
+                             (cursor_x, text_y + text_height + 1), 1)
+
+        # Draw text
         self._frame_parent._controlpanel_pygame_surface.blit(
             pygame_surface_text,
             (text_x, text_y),
             (offset_text_x, 0, text_width, text_height))
 
-        if selected:
-            text_x += text_width + 1
-            pygame.draw.line(self._frame_parent._controlpanel_pygame_surface,
-                             self._input_mark_pygame_color,
-                             (text_x, text_y),
-                             (text_x, text_y + text_height), 2)
-
         # Set bottom-right position
         self._x2 = self._x1 + max(label_width, self._width)
         self._y2 += rect_height
 
-    def _key(self, pygame_event, pressed):
+    def _key(self, pygame_event):
         """
         Deal key pressed
         when this `TextAreaControl` have focus.
 
-        If `pressed`
-        then add character to text in the input box.
-
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
         :param pygame_event: pygame.Event KEYDOWN or KEYUP
-        :param pressed: bool
         """
-        assert isinstance(pressed, bool), type(pressed)
+        assert 0 <= self._input_pos <= len(self._input_text), \
+            (self._input_pos, len(self._input_text), self._input_text)
 
-        if pressed:
-            old = self._input_text
-            if ((pygame_event.key == pygame.K_RETURN)
-                    or (pygame_event.key == 271)):        # Return
-                # Valid text and run handler
-                self._frame_parent._control_selected = None
+        if pygame_event.key == pygame.K_END:                  # End
+            # Set position to end
+            if self._input_pos < len(self._input_text):
+                self._input_pos = len(self._input_text)
                 self._frame_parent._draw_controlpanel()
-                self._input_handler(self._input_text)
 
-                return
-            elif pygame_event.key == pygame.K_BACKSPACE:  # Backspace
-                # Delete last character
-                self._input_text = self._input_text[
-                    :(self._input_text.rstrip().rfind(' ') + 1
-                      if pygame_event.mod & pygame.KMOD_CTRL
-                      else -1)]
-            elif pygame_event.key == pygame.K_TAB:        # Tab
-                # Give focus to the next input box (if exist)
-                i = 0
-                while self._frame_parent._controls[i] != self:
-                    i += 1
+            return
+        elif pygame_event.key == pygame.K_ESCAPE:             # Escape
+            # Erase all
+            if self._input_pos != '':
+                self._input_pos = 0
+                self._input_text = ''
+                self._frame_parent._draw_controlpanel()
+
+            return
+        elif pygame_event.key == pygame.K_HOME:               # Home
+            # Set position to begining
+            if self._input_pos > 0:
+                self._input_pos = 0
+                self._frame_parent._draw_controlpanel()
+
+            return
+        elif pygame_event.key == pygame.K_LEFT:               # Left
+            # Move backward position
+            if self._input_pos > 0:
+                self._input_pos = (
+                    self._input_text[:self._input_pos].rstrip().rfind(' ') + 1
+                    if pygame_event.mod & pygame.KMOD_CTRL
+                    else self._input_pos - 1)
+                self._frame_parent._draw_controlpanel()
+
+            return
+        elif ((pygame_event.key == pygame.K_RETURN)
+                or (pygame_event.key == pygame.K_KP_ENTER)):  # Return
+            # Valid text and run handler
+            self._frame_parent._control_selected = None
+            self._frame_parent._draw_controlpanel()
+            self._input_handler(self._input_text)
+
+            return
+        elif pygame_event.key == pygame.K_RIGHT:              # Right
+            # Move forward position
+            if self._input_pos < len(self._input_text):
+                if pygame_event.mod & pygame.KMOD_CTRL:
+                    i = self._input_pos
+                    while ((i < len(self._input_text))
+                           and (self._input_text[i] == ' ')):
+                        i += 1
+                    i = self._input_text.find(' ', i)
+                    self._input_pos = (i
+                                       if i >= 0
+                                       else len(self._input_text))
+                else:
+                    self._input_pos += 1
+                self._frame_parent._draw_controlpanel()
+
+            return
+        elif pygame_event.key == pygame.K_TAB:                # Tab
+            # Give focus to the next input box (if exist)
+            i = 0
+            while self._frame_parent._controls[i] != self:
                 i += 1
-                while ((i < len(self._frame_parent._controls))
-                       and not isinstance(self._frame_parent._controls[i],
-                                          TextAreaControl)):
+            i += 1
+            while ((i < len(self._frame_parent._controls))
+                   and not isinstance(self._frame_parent._controls[i],
+                                      TextAreaControl)):
+                i += 1
+
+            self._frame_parent._control_selected = (
+                self._frame_parent._controls[i]
+                if i < len(self._frame_parent._controls)
+                else None)
+            self._frame_parent._draw_controlpanel()
+
+            return
+
+        old = self._input_text
+
+        if pygame_event.key == pygame.K_BACKSPACE:  # Backspace
+            # Delete previous character(s)
+            new_pos = (
+                self._input_text[:self._input_pos].rstrip().rfind(' ') + 1
+                if pygame_event.mod & pygame.KMOD_CTRL
+                else self._input_pos - 1)
+            self._input_text = (self._input_text[:new_pos]
+                                + self._input_text[self._input_pos:])
+            self._input_pos = new_pos
+        elif pygame_event.key == pygame.K_DELETE:   # Delete
+            # Delete next character(s)
+            if pygame_event.mod & pygame.KMOD_CTRL:
+                i = self._input_pos
+                while ((i < len(self._input_text))
+                       and (self._input_text[i] == ' ')):
                     i += 1
+                i = self._input_text.find(' ', i)
+                self._input_text = (self._input_text[:self._input_pos]
+                                    + (self._input_text[i:]
+                                       if i >= 0
+                                       else ''))
+            else:
+                self._input_text = (self._input_text[:self._input_pos]
+                                    + self._input_text[self._input_pos + 1:])
+        elif len(pygame_event.unicode) == 1:        # Other key
+            # Add character
+            self._input_text = (self._input_text[:self._input_pos]
+                                + pygame_event.unicode
+                                + self._input_text[self._input_pos:])
+            self._input_pos += 1
 
-                self._frame_parent._control_selected = (
-                    self._frame_parent._controls[i]
-                    if i < len(self._frame_parent._controls)
-                    else None)
-                self._frame_parent._draw_controlpanel()
+        if self._input_text != old:
+            # Text was modified
+            try:
+                # In Python 2, maybe self._input_text is unicode,
+                # try to convert to str
+                self._input_text = str(self._input_text)
+                self._input_pos = min(self._input_pos, len(self._input_text))
+            except:
+                pass
 
-                return
-            else:                                         # other key
-                # Add character
-                self._input_text += pygame_event.unicode
-
-            if self._input_text != old:
-                try:
-                    # Maybe self._input_text is unicode, try to convert to str
-                    self._input_text = str(self._input_text)
-                except:
-                    pass
-
-                self._frame_parent._draw_controlpanel()
+            self._frame_parent._draw_controlpanel()
 
     def _mouse_left_button(self, pressed):
         """

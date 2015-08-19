@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (August 16, 2015)
+simpleguics2pygame/frame (August 19, 2015)
 
 Class Frame.
 
@@ -930,7 +930,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
                     if ((self._control_selected is not None)
                         and isinstance(self._control_selected,
                                        TextAreaControl)):
-                        self._control_selected._key(event, True)
+                        self._control_selected._key(event)
                     elif self._keydown_handler is not None:
                         key = _pygamekey_to_simpleguikey(event.key)
                         self._draw_statuskey(key, True)
@@ -939,7 +939,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
                     if ((self._control_selected is not None)
                         and isinstance(self._control_selected,
                                        TextAreaControl)):
-                        self._control_selected._key(event, False)
+                        pass
                     elif self._keyup_handler is not None:
                         key = _pygamekey_to_simpleguikey(event.key)
                         self._draw_statuskey(key, False)
