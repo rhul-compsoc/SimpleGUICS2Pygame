@@ -1,7 +1,7 @@
 Compatibility
 =============
 
-Compatibility between SimpleGUI of CodeSkupltor and SimpleGUICS2Pygame
+Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 ----------------------------------------------------------------------
 
 * .. warning::
