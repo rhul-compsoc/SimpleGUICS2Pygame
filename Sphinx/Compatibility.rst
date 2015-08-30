@@ -3,17 +3,33 @@ Compatibility
 
 Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 ----------------------------------------------------------------------
+* With SimpleGUI of CodeSkulptor_, some things (like fonts, buttons...) are browser dependents.
+  That is to say that there are some differences from one browser to another.
+  Therefore it is normal that these elements are also slightly different with SimpleGUICS2Pygame.
+
+* With SimpleGUI of CodeSkulptor_, supported sound formats are also browser dependents.
+
+  .. warning::
+    With SimpleGUICS2Pygame, MP3 is **not** supported. Only OGG and uncompressed WAV are supported.
+
+  I recommend to always use the OGG format.
+  See Tips_.
+
+.. _Tips: Tips.html#ressources-images-sounds-programs
 
 * .. warning::
-    With SimpleGUICS2Pygame ``Frame.start()`` is blocking
+    With SimpleGUICS2Pygame, ``Frame.start()`` is blocking
     until ``Frame.stop()`` execution or closing window.
     So timers must be started *before*, and states must be initialized *before*.
     (Or maybe after by a handler function.)
+
 
 Compatibility between Python 2 and Python 3
 -------------------------------------------
 
 CodeSkulptor_ implements a subset of Python 2.
+
+You can use SimpleGUICS2Pygame with Python 2 and Python 3.
 
 * The division ``/`` don't have the same behavior in Python 2 and Python 3:
   http://docs.python.org/3/whatsnew/3.0.html#integers .
@@ -46,3 +62,5 @@ CodeSkulptor_ implements a subset of Python 2.
   ``from __future__ import print_function``
   *on the top* of your program, and Python 2 mimic Python 3 print function.
   But then *CodeSkulptor failed*!)
+
+.. _CodeSkulptor: http://www.codeskulptor.org/
