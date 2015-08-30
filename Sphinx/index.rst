@@ -46,8 +46,8 @@ and *standard Python* with this module (and Pygame).
 If you have some problem
 ------------------------
 First, read this short main documentation page,
-this Tips_ page
-(with the Compatibility_ section).
+this Compatibility_ page
+and this Tips_ page.
 
 If you have problem with some command,
 you can see its documentation in the `modules page`_
@@ -59,7 +59,7 @@ If you don't find answer, you can ask question like this_.
 Finally you can email me.
 I will try to help you with pleasure.
 
-.. _Compatibility: Tips.html#compatibility
+.. _Compatibility: Compatibility.html
 .. _`modules page`: modules.html
 .. _this: https://stackoverflow.com/questions/16387770/how-to-integrate-simplegui-with-python-2-7-and-3-0-shell
 .. _Tips: Tips.html
@@ -190,6 +190,8 @@ Summary
    package_init
 
    modules
+
+   Compatibility
 
    Tips
 

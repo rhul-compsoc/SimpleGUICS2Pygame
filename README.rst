@@ -47,8 +47,8 @@ and *standard Python* with this module (and Pygame).
 If you have some problem
 ========================
 First, read this short main `documentation page`_,
-this Tips_ page
-(with the Compatibility_ section).
+this Compatibility_ page
+and this Tips_ page.
 
 If you have problem with some command,
 you can see its documentation in the `modules page`_.
@@ -60,7 +60,7 @@ Finally you can email me.
 I will try to help you with pleasure.
 
 .. _`documentation page`: http://simpleguics2pygame.readthedocs.org/
-.. _Compatibility: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#compatibility
+.. _Compatibility: http://simpleguics2pygame.readthedocs.org/en/latest/Compatibility.html
 .. _`modules page`: http://simpleguics2pygame.readthedocs.org/en/latest/modules.html
 .. _this: https://stackoverflow.com/questions/16387770/how-to-integrate-simplegui-with-python-2-7-and-3-0-shell
 .. _Tips: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html
@@ -198,7 +198,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- August 19, 2015
+* 02.00.00 WORKING VERSION --- August 30, 2015
 
   - Improved dealing of input box.
   - Added ``test/test_input.py``.
