@@ -148,6 +148,8 @@ Author |OPi|
 | Olivier Pirson OPi --- http://www.opimedia.be/
 | olivier_pirson_opi@yahoo.fr
 |
+| Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia
+|
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
 
@@ -198,7 +200,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- August 30, 2015
+* 02.00.00 WORKING VERSION --- September 13, 2015
 
   - Improved dealing of input box.
   - Added ``test/test_input.py``.

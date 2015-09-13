@@ -153,6 +153,8 @@ Author |OPi|
 | Olivier Pirson OPi --- http://www.opimedia.be/
 | olivier_pirson_opi@yahoo.fr
 |
+| Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia
+|
 
 .. |OPi| image:: _static/img/OPi_t.png
 

@@ -18,3 +18,25 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 .. _GPLv3: http://www.gnu.org/licenses/gpl.html
 
 .. |GPLv3| image:: _static/img/gplv3-88x31.png
+
+
+Author |OPi|
+------------
+| Olivier Pirson OPi --- http://www.opimedia.be/
+| olivier_pirson_opi@yahoo.fr
+|
+| Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia
+|
+
+.. |OPi| image:: _static/img/OPi_t.png
+
+
+Support me
+----------
+| If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
+| Go to the link |Donate|_
+|
+
+.. _Donate: http://www.opimedia.be/donate/index.htm
+
+.. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png

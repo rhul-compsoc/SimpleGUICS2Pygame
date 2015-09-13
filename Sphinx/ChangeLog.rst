@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION --- August 30, 2015
+* 02.00.00 WORKING VERSION --- September 13, 2015
 
   - Improved dealing of input box.
   - Added ``test/test_input.py``.
