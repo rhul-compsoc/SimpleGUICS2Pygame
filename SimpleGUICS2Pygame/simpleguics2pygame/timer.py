@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/timer (August 16, 2015)
+simpleguics2pygame/timer (October 2nd, 2015)
 
 Class Timer.
 
@@ -115,6 +115,7 @@ class Timer:
         Start this timer.
 
         .. warning::
+           With SimpleGUICS2Pygame,
            ``Frame.start()`` is blocking
            until ``Frame.stop()`` execution or closing window.
            So timers must be started *before*,

@@ -10,18 +10,31 @@ Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 * With SimpleGUI of CodeSkulptor_, supported sound formats are also browser dependents.
 
   .. warning::
-    With SimpleGUICS2Pygame, MP3 is **not** supported. Only OGG and uncompressed WAV are supported.
+    With SimpleGUICS2Pygame,
+    MP3 is **not** supported. Only OGG and uncompressed WAV are supported.
 
   I recommend to always use the OGG format.
   See Tips_.
 
-.. _Tips: Tips.html#ressources-images-sounds-programs
-
 * .. warning::
-    With SimpleGUICS2Pygame, ``Frame.start()`` is blocking
+    With SimpleGUICS2Pygame,
+    ``Frame.start()`` is blocking
     until ``Frame.stop()`` execution or closing window.
     So timers must be started *before*, and states must be initialized *before*.
     (Or maybe after by a handler function.)
+
+* .. warning::
+    With SimpleGUICS2Pygame,
+    if your program is terminated,
+    then the opened windows by
+    ``plot_bars()``, ``plot_lines()`` and ``plot_scatter()``
+    will be closed automatically.
+    You can use the specific function ``_block()``
+    to block the program until closing all windows.
+
+* See Tips_ to run specific code.
+
+.. _Tips: Tips.html
 
 
 Compatibility between Python 2 and Python 3

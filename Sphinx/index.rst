@@ -58,6 +58,7 @@ If you don't find answer, you can ask question like this_.
 
 Finally you can email me.
 I will try to help you with pleasure.
+(You can write me in French.)
 
 .. _Compatibility: Compatibility.html
 .. _`modules page`: modules.html

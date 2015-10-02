@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (August 19, 2015)
+simpleguics2pygame/frame (October 2nd, 2015)
 
 Class Frame.
 
@@ -841,6 +841,7 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         Start the frame and these handler events.
 
         .. warning::
+           With SimpleGUICS2Pygame,
            ``Frame.start()`` is blocking
            until ``Frame.stop()`` execution or closing window.
            So timers must be started *before*,

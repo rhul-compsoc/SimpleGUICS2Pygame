@@ -39,29 +39,48 @@ and your program **run both** in CodeSkulptor and *standard Python*.
 .. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
 
 |
+|
 
-You can write this
+To use also the **other modules**,
+you can write this.
+But specify only those you use.
 
 .. code-block:: python
 
     try:
+        import simplegui
+
         import codeskulptor
         import numeric
-        import simplegui
         import simpleplot
 
         import user38_ZmhOVHGm2lhVRhk as codeskulptor_lib
         import user40_sK3vMO7yQIMVwUr as simplegui_lib
     except ImportError:
+        import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
         import SimpleGUICS2Pygame.codeskulptor as codeskulptor
         import SimpleGUICS2Pygame.numeric as numeric
-        import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
         import SimpleGUICS2Pygame.simpleplot as simpleplot
 
         import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib
 
-to use also the other modules. But specify only those you use.
+To run **specific code** on CodeSkulptor_ or with SimpleGUICS2Pygame,
+you can write this
+
+.. code-block:: python
+
+    try:
+        import simplegui
+
+        SIMPLEGUICS2PYGAME = False
+    except ImportError:
+        import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+        SIMPLEGUICS2PYGAME = True
+
+And then you can run specific code simply by testing ``SIMPLEGUICS2PYGAME``.
 
 
 Colors

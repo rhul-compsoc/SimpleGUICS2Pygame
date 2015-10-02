@@ -1,13 +1,25 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (August 16, 2015)
+simpleplot (October 2nd, 2015)
 
 Replace the simpleplot module of CodeSkulptor.
 
 Require matplotlib_
 (`Unofficial Windows Binaries`_)
 (and must be installed separately).
+
+.. warning::
+  With SimpleGUICS2Pygame,
+  if your program is terminated,
+  then the opened windows by
+  ``plot_bars()``, ``plot_lines()`` and ``plot_scatter()``
+  will be closed automatically.
+  You can use the specific function ``_block()``
+  to block the program until closing all windows.
+  See Tips_ to run specific code.
+
+.. _Tips: Tips.html
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
