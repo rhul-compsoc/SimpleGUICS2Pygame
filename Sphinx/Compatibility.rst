@@ -26,7 +26,7 @@ Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 * .. warning::
     With SimpleGUICS2Pygame,
     if your program is terminated,
-    then the opened windows by
+    then windows opened by
     ``plot_bars()``, ``plot_lines()`` and ``plot_scatter()``
     will be closed automatically.
     You can use the specific function ``_block()``
