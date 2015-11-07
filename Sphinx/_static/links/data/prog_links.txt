@@ -284,12 +284,6 @@ Sine Wave Text (Jason <span class="small-caps">Butwell</span>)
 http://www.codeskulptor.org/#user38_2xloMPb7GsDDoFb.py
 Sine Wave Text (Jason <span class="small-caps">Butwell</span>) ADAPTED
 
-http://www.codeskulptor.org/#user40_lK9qI0yzG3ZemSr.py
-Sokoban (Manuel <span class="small-caps">Sgobino</span>) ADAPTED
-
-http://www.codeskulptor.org/#user40_Oq675GoILL0imJ2.py
-<strong>Sokoban</strong> (Manuel <span class="small-caps">Sgobino</span>) ADAPTED
-
 http://www.codeskulptor.org/#demos-starwars.py
 Star Wars (Steve <span class="small-caps">Knock</span>)
 
@@ -414,6 +408,12 @@ Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-
 
 http://www.codeskulptor.org/#user28_CsOtpCYCJtDcRXG.py
 <strong>Sokoban</strong> (Rajesh <span class="small-caps">Vijayarajan</span>) ADAPTED
+
+http://www.codeskulptor.org/#user40_lK9qI0yzG3ZemSr.py
+Sokoban (Manuel <span class="small-caps">Sgobino</span>) ADAPTED
+
+http://www.codeskulptor.org/#user40_Oq675GoILL0imJ2.py
+<strong>Sokoban</strong> (Manuel <span class="small-caps">Sgobino</span>) ADAPTED
 
 http://www.codeskulptor.org/#user16_SawZhBSY55_0.py
 <strong>Solarsystem</strong> (Diego <span class="small-caps">Romero</span>)
