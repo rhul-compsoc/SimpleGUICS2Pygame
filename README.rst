@@ -200,7 +200,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- October 2nd, 2015
+* 02.00.00 WORKING VERSION --- November 7, 2015
 
   - Improved dealing of input box.
   - Added ``test/test_input.py``.

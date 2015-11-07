@@ -284,6 +284,12 @@ Sine Wave Text (Jason <span class="small-caps">Butwell</span>)
 http://www.codeskulptor.org/#user38_2xloMPb7GsDDoFb.py
 Sine Wave Text (Jason <span class="small-caps">Butwell</span>) ADAPTED
 
+http://www.codeskulptor.org/#user40_lK9qI0yzG3ZemSr.py
+Sokoban (Manuel <span class="small-caps">Sgobino</span>) ADAPTED
+
+http://www.codeskulptor.org/#user40_Oq675GoILL0imJ2.py
+<strong>Sokoban</strong> (Manuel <span class="small-caps">Sgobino</span>) ADAPTED
+
 http://www.codeskulptor.org/#demos-starwars.py
 Star Wars (Steve <span class="small-caps">Knock</span>)
 
@@ -345,6 +351,12 @@ Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-
 
 http://www.codeskulptor.org/#user28_qLoYgDbTWgiS0ni.py
 <strong>Classic Breakout game</strong> (Roberto <span class="small-caps">Diaz</span>) ADAPTED
+
+http://www.codeskulptor.org/#user40_d7T6JWi5cWW0GXX.py
+Collision Detection Comparison (Jason <span class="small-caps">Ong</span>)
+
+http://www.codeskulptor.org/#user40_BbDROUwu9VOoQb3.py
+<strong>Collision Detection Comparison</strong> (Jason <span class="small-caps">Ong</span>) ADAPTED
 
 http://www.codeskulptor.org/#user28_wBpHroOrjnRy2A1.py
 Fish Pond (Chris <span class="small-caps">Arbuthnott</span>)
