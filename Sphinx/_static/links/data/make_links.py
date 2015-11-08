@@ -4,17 +4,22 @@
 Module
   to make_img_snd_links.py
   and make_prog_links.py .
-(June 23, 2013)
+(November 8, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
 from __future__ import print_function
 
+
+try:
+    from urllib.parse import unquote
+except ImportError:
+    from urllib import unquote
 
 import os.path
 
@@ -43,12 +48,12 @@ def print_html_list_img(data, dest_file):
     {}
     <div class="images">""".format(items[0]), file=dest_file)
 
-        for url, info, info2 in items[1:]:
+        for url, info, _ in items[1:]:
             assert isinstance(url, str), type(url)
             assert isinstance(info, str), type(info)
 
             if info == '':
-                info = '<tt>{}</tt>'.format(os.path.basename(url))
+                info = '<tt>{}</tt>'.format(url_to_info(url))
 
             print("""      <a class="image" href="{0}" target="_blank" onmouseover="img_load(this, '{0}');"><img src="#" alt="[Loading&hellip;]"><span class="size"><span></span></span>
         {1}
@@ -89,7 +94,7 @@ def print_html_list_link(data, dest_file):
             assert isinstance(info, str), type(info)
 
             if info == '':
-                info = '<tt>{}</tt>'.format(os.path.basename(url))
+                info = '<tt>{}</tt>'.format(url_to_info(url))
 
             print("""      <li class="prog">
         <a class="info" href="{0}" target="_blank">{1}</a>{2}
@@ -128,12 +133,12 @@ def print_html_list_snd(data, dest_file):
     {}
     <div class="sounds">""".format(items[0]), file=dest_file)
 
-        for url, info, info2 in items[1:]:
+        for url, info, _ in items[1:]:
             assert isinstance(url, str), type(url)
             assert isinstance(info, str), type(info)
 
             if info == '':
-                info = '<tt>{}</tt>'.format(os.path.basename(url))
+                info = '<tt>{}</tt>'.format(url_to_info(url))
 
             print("""      <div class="sound">
         <a href="{0}" target="_blank">{1}</a>
@@ -158,9 +163,9 @@ def read_txt(filename):
 
     data = []
 
-    f = open(filename)
-    lines = [line.strip() for line in f]
-    f.close()
+    fin = open(filename)
+    lines = [line.strip() for line in fin]
+    fin.close()
 
     acc = []
 
@@ -194,3 +199,14 @@ def read_txt(filename):
         data.append(acc)
 
     return data
+
+
+def url_to_info(url):
+    """
+    Return a clean info name extracted from url.
+
+    :param url: str
+
+    :return: str
+    """
+    return os.path.basename(unquote(url))
