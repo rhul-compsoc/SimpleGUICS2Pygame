@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (May 30, 2015)
+simpleguics2pygame/_colors (November 8, 2015)
 
 Colors helpers.
 
@@ -247,8 +247,8 @@ def _simpleguicolor_to_pygamecolor(
             color if len(color) == 7
             else '#' + color[1]*2 + color[2]*2 + color[3]*2)
     elif color[:3] == 'rgb':
-        # See http://www.w3.org/TR/css3-color/#rgb-color
         if color[3] == '(':  # format rgb(red, green, blue)
+            # See http://www.w3.org/TR/css3-color/#rgb-color
             assert color[-1] == ')', color
 
             channels = color[4:-1].split(',')
@@ -259,6 +259,7 @@ def _simpleguicolor_to_pygamecolor(
                                         max(0, min(255, int(channels[1]))),
                                         max(0, min(255, int(channels[2]))))
         else:                # format rgba(red, green, blue, alpha)
+            # See http://www.w3.org/TR/css3-color/#rgba-color
             assert color[3:5] == 'a(', color
             assert color[-1] == ')', color
 
@@ -272,11 +273,10 @@ def _simpleguicolor_to_pygamecolor(
                 max(0, min(255, int(channels[2]))),
                 max(0, min(255, int(round(float(channels[3])*255)))))
     elif color[:3] == 'hsl':
-        # See http://www.w3.org/TR/css3-color/#hsl-color
-
         from colorsys import hls_to_rgb
 
         if color[3] == '(':  # format hsl(hue, saturation, lightness)
+            # See http://www.w3.org/TR/css3-color/#hsl-color
             assert color[-1] == ')', color
 
             datas = color[4:-1].split(',')
@@ -294,6 +294,7 @@ def _simpleguicolor_to_pygamecolor(
                                         int(round(green*255)),
                                         int(round(blue*255)))
         else:                # format hsla(hue, saturation, lightness, alpha)
+            # See http://www.w3.org/TR/css3-color/#hsla-color
             assert color[3:5] == 'a(', color
             assert color[-1] == ')', color
 
