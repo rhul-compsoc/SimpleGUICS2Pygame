@@ -30,7 +30,8 @@ if _PYGAME_AVAILABLE:
 #########################
 if _PYGAME_AVAILABLE:
     _SIMPLEGUICOLOR_TO_PYGAMECOLOR = {
-        '_default': pygame.Color('#ff0000'),
+        '_default': pygame.Color('#ff0000'),  # red, probably indicates error
+        'transparent': pygame.Color('#00000000'),
         'aliceblue': pygame.Color('#f0f8ff'),
         'antiquewhite': pygame.Color('#faebd7'),
         'aqua': pygame.Color('#00ffff'),

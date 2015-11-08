@@ -3,6 +3,7 @@ ChangeLog
 * 02.00.00 WORKING VERSION --- November 8, 2015
 
   - Added alpha possibility on background color.
+  - Added ``transparent`` "color" name.
 
   - Improved dealing of input box.
   - Added ``test/test_input.py``.
