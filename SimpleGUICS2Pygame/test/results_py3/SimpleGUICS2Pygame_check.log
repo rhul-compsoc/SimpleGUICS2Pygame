@@ -7,6 +7,9 @@ PATH:
   /bin
   /usr/local/games
   /usr/games
+  /usr/lib/jvm/java-8-oracle/bin
+  /usr/lib/jvm/java-8-oracle/db/bin
+  /usr/lib/jvm/java-8-oracle/jre/bin
   /home/opi/.rvm/bin
   /home/opi/progs/clang/bin
 
@@ -36,7 +39,7 @@ import pygame ok - Version 1.9.2a0
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION August 19
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION October 2nd
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
