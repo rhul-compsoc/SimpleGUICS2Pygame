@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (August 16, 2015)
+simpleguics2pygame/canvas (November 8, 2015)
 
 Class Canvas.
 
@@ -147,7 +147,15 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         if ((self._draw_handler is not None)
                 and (self._frame_parent is not None)):
             if self._background_pygame_surface_image is None:
-                self._pygame_surface.fill(self._background_pygame_color)
+                if self._background_pygame_color.a == 255:
+                    # Without alpha
+                    self._pygame_surface.fill(self._background_pygame_color)
+                elif self._background_pygame_color.a > 0:
+                    # With alpha (not null)
+                    s_alpha = pygame.Surface((self._width, self._height),
+                                             pygame.SRCALPHA)
+                    s_alpha.fill(self._background_pygame_color)
+                    self._pygame_surface.blit(s_alpha, (0, 0))
             else:
                 self._pygame_surface.blit(
                     self._background_pygame_surface_image, (0, 0))
