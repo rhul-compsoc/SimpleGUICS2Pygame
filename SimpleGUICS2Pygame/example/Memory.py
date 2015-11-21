@@ -19,7 +19,7 @@ try:
     import simplegui
 
     from user38_ZmhOVHGm2lhVRhk import assert_position
-    from user40_GjCFdIeSPOViuUZ import draw_rect
+    from user40_AeChfAkzlcqs3wG import draw_rect
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 

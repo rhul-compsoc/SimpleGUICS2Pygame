@@ -12,7 +12,7 @@ http://www.opimedia.be/
 """
 
 try:
-    from user40_GjCFdIeSPOViuUZ import draw_text_multi, draw_text_side
+    from user40_AeChfAkzlcqs3wG import draw_text_multi, draw_text_side
 
     import simplegui
 

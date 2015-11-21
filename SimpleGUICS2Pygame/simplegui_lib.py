@@ -18,7 +18,7 @@ http://www.opimedia.be/
 """
 
 try:
-    from user40_GjCFdIeSPOViuUZ \
+    from user40_AeChfAkzlcqs3wG \
         import draw_rect, draw_text_multi, draw_text_side
     from user33_Bhc7VzXKbXGVQV1 import FPS
     from user30_VE5zdyz5OZwgen9 import Keys

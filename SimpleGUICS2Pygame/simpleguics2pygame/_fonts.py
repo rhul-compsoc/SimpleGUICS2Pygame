@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_fonts (May 29, 2015)
+simpleguics2pygame/_fonts (November 21, 2015)
 
 Fonts helpers.
 
@@ -52,6 +52,8 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
     Side effect:
     Each new font with new size is added to `Frame._pygamefonts_cached`.
     See `Frame._pygamefonts_cached_clear()`.
+
+    .. _`Frame._pygamefonts_cached_clear()`: frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame._pygamefonts_cached_clear
 
     :param font_face: None
                       or (str == key of _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)

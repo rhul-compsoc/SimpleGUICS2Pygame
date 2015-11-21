@@ -141,6 +141,45 @@ save image to
 ``_img/commondatastorage.googleapis.com/codeskulptor_assets/lathrop/double_ship.png``.
 
 
+Helper functions
+----------------
+This package contains 5 modules with several helper functions that you can also import online in CodeSkulptor:
+
+  * `codeskulptor_lib`_ — some miscellaneous functions
+  * `simplegui_lib_draw`_ — draw functions
+  * `simplegui_lib_fps`_ — class to calculate and display Frames Per Second
+  * `simplegui_lib_keys`_ — class to manage keyboard handling
+  * `simplegui_lib_loader`_ — class to load images and sounds
+
+.. _`codeskulptor_lib`: codeskulptor_lib.html
+.. _`simplegui_lib_draw`: simplegui_lib_draw.html
+.. _`simplegui_lib_fps`: simplegui_lib_fps.html
+.. _`simplegui_lib_keys`: simplegui_lib_keys.html
+.. _`simplegui_lib_loader`: simplegui_lib_loader.html
+
+For example, to draw multiline text you can use `draw_text_multi()`_ from the `simplegui_lib_draw`_ module by:
+
+.. _`draw_text_multi()`: simplegui_lib_draw.html#SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_multi
+
+.. code-block:: python
+
+    try:
+        import simplegui
+
+        import user40_AeChfAkzlcqs3wG as simplegui_lib_draw
+    except ImportError:
+        import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+        import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib_draw
+
+    …
+
+    draw_text_multi(canvas,
+                    """line 1
+    line 2
+    line 3""", (x, y), size, 'white', 'serif')
+
+
 Python assertions option
 ------------------------
 Run

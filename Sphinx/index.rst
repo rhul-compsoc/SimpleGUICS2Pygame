@@ -145,7 +145,9 @@ Complete installation on Window$ in few steps
 
 Examples of CodeSkulptor and SimpleGUICS2Pygame use
 ---------------------------------------------------
-You can see examples in ``SimpleGUICS2Pygame/example/`` subdirectory from the sources archives.
+You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sources archives.
+
+.. _`SimpleGUICS2Pygame/example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/example/
 
 Or online:
 `Python programs running in CodeSkulptor`_ .

@@ -72,7 +72,7 @@ def draw_text_multi(canvas,
                     font_face='serif',
                     _font_size_coef=3.0/4):
     """
-    Draw the `text` at the position `point`.
+    Draw the `text` (possibly with several lines) at the position `point`.
 
     If `text` is a str,
     then split it on each end of line.

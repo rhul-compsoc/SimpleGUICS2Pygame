@@ -8,7 +8,7 @@ http://www.codeskulptor.org/#user40_Jax5K1pl4O1JMFp.py
 Module <strong>simplegui_lib</strong>.py
 Some functions and classes to help in SimpleGUI of CodeSkulptor, from simplegui_lib_draw, from simplegui_lib_fps, simplegui_lib_keys and simplegui_lib_loader: <a rel="nofollow" href="../../simplegui_lib.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user40_GjCFdIeSPOViuUZ.py
+http://www.codeskulptor.org/#user40_AeChfAkzlcqs3wG.py
 Module <strong>simplegui_lib_draw</strong>.py
 Draw functions to help in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_draw.html" target="_blank">Documentation</a>.
 
@@ -79,7 +79,7 @@ test_simpleplot_scatter.py
 http://www.codeskulptor.org/#user40_u9XFrLRkjARyjsA.py
 test_sound.py
 
-http://www.codeskulptor.org/#user40_emtspIdwnG51YDd.py
+http://www.codeskulptor.org/#user40_HKPb1SRZU1rgDhI.py
 test_text.py
 
 
@@ -103,7 +103,7 @@ Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simpl
 http://www.codeskulptor.org/#user38_1ghZBJ6lfUcyMj1.py
 <strong>Mandelbrot_Set</strong>.py
 
-http://www.codeskulptor.org/#user40_Xpbijey4M5CXtKD.py
+http://www.codeskulptor.org/#user40_5SABMHJKKtk1FoT.py
 <strong>Memory</strong>.py
 
 http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py

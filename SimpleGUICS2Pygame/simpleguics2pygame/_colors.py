@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (November 8, 2015)
+simpleguics2pygame/_colors (November 21, 2015)
 
 Colors helpers.
 
@@ -220,6 +220,8 @@ def _simpleguicolor_to_pygamecolor(
 
     Side effect: Each new color is added to `Frame._pygamecolors_cached`.
     See `Frame._pygamecolors_cached_clear()`.
+
+    .. _`Frame._pygamecolors_cached_clear()`: frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame._pygamecolors_cached_clear
 
     :param color: str
     :param default_pygame_color: pygame.Color
