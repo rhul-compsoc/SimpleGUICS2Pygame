@@ -307,7 +307,9 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
         Each new Pygame surface used
         is added to `image._pygamesurfaces_cached`.
-        See `Image._pygamesurfaces_cached_clear()`.
+        See `Image._pygamesurfaces_cached_clear()`_ .
+
+        .. _`Image._pygamesurfaces_cached_clear()`: image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._pygamesurfaces_cached_clear
 
         If number of surfaces in this caches
         is greater than `image._pygamesurfaces_cache_max_size`
@@ -737,6 +739,12 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
         `_font_size_coef` is used to adjust the vertical positioning.
         **(This paramater is not available in SimpleGUI of CodeSkulptor.)**
+
+        :warning: This method can't draw multiline text.
+
+        To draw multiline text, see `simplegui_lib_draw.draw_text_multi()`_ .
+
+        .. _`simplegui_lib_draw.draw_text_multi()`: ../simplegui_lib_draw.html#SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_multi
 
         :param text: str
         :param point: (int or float, int or float)

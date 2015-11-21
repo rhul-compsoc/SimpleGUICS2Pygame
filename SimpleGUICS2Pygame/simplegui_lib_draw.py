@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_draw (November 8, 2013)
+simplegui_lib_draw (November 21, 2015)
 
 Draw functions to help
 in SimpleGUI of CodeSkulptor.
@@ -9,9 +9,16 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
+
+try:
+    from SimpleGUICS2Pygame import _VERSION
+
+    __SIMPLEGUICS2PYGAME = True
+except ImportError:
+    __SIMPLEGUICS2PYGAME = False
 
 
 #
@@ -59,6 +66,72 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
                         line_width, line_color, fill_color)
 
 
+def draw_text_multi(canvas,
+                    text, point,
+                    font_size, font_color,
+                    font_face='serif',
+                    _font_size_coef=3.0/4):
+    """
+    Draw the `text` at the position `point`.
+
+    If `text` is a str,
+    then split it on each end of line.
+
+    If `text` is a tuple or a list of str,
+    then print each str on a separated line.
+
+    See `simplegui.draw_text()`_ .
+
+    .. _`simplegui.draw_text()`: simpleguics2pygame/canvas.html#SimpleGUICS2Pygame.simpleguics2pygame.canvas.Canvas.draw_text
+
+    :param canvas: simplegui.Canvas
+    :param text: str or (tuple of str) or (list of str)
+    :param point: (int or float, int or float) or [int or float, int or float]
+    :param font_size: (int or float) >= 0
+    :param font_color: str
+    :param font_face: str == 'monospace', 'sans-serif', 'serif'
+    :param _font_size_coef: int or float
+
+    :raise: ValueError if text contains unprintable whitespace character
+    """
+    assert isinstance(text, str) \
+        or isinstance(text, tuple) or isinstance(text, list), type(text)
+
+    assert isinstance(point, tuple) or isinstance(point, list), type(point)
+    assert len(point) == 2, len(point)
+    assert isinstance(point[0], int) or isinstance(point[0], float), \
+        type(point[0])
+    assert isinstance(point[1], int) or isinstance(point[1], float), \
+        type(point[1])
+
+    assert isinstance(font_size, int) or isinstance(font_size, float), \
+        type(font_size)
+    assert font_size >= 0, font_size
+
+    assert isinstance(font_color, str), type(font_color)
+    assert isinstance(font_face, str), type(font_face)
+    assert (isinstance(_font_size_coef, int)
+            or isinstance(_font_size_coef, float)), type(_font_size_coef)
+
+    if isinstance(text, str):
+        # Convert each Window$ and M@c end of line to standard end of line
+        # and then split
+        text = text.replace('\n\r', '\n').replace('\r', '\n').split('\n')
+
+    x, y = point
+
+    for line in text:
+        assert isinstance(line, str), type(line)
+
+        if __SIMPLEGUICS2PYGAME:
+            canvas.draw_text(line, (x, y), font_size, font_color, font_face,
+                             _font_size_coef=_font_size_coef)
+        else:
+            canvas.draw_text(line, (x, y), font_size, font_color, font_face)
+
+        y += font_size
+
+
 def draw_text_side(frame, canvas,
                    text, point,
                    font_size, font_color,
@@ -69,7 +142,9 @@ def draw_text_side(frame, canvas,
     """
     Draw the `text` string at the position `point`.
 
-    See `simplegui.draw_text()`.
+    See `simplegui.draw_text()`_ .
+
+    .. _`simplegui.draw_text()`: simpleguics2pygame/canvas.html#SimpleGUICS2Pygame.simpleguics2pygame.canvas.Canvas.draw_text
 
     If `rectangle_color` != `None`
     then draw a rectangle around the text.
