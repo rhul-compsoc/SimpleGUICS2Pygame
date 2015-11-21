@@ -27,7 +27,11 @@ and *standard Python* with this module (and Pygame).
 |SimpleGUICS2Pygame|
 
 `Online HTML documentation`_ on **Read The Docs**.
-(You can also use the online `SimpleGUI documentation on CodeSkulptor`_.)
+(You can also see the online `SimpleGUI documentation on CodeSkulptor`_.)
+
+(**This is the online HTML documentation of the working version.**
+You can find the HTML documentation of the last stable version in the Bitbucket download section
+https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads .)
 
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
