@@ -55,7 +55,7 @@ But specify only those you use.
         import simpleplot
 
         import user38_ZmhOVHGm2lhVRhk as codeskulptor_lib
-        import user40_sK3vMO7yQIMVwUr as simplegui_lib
+        import user40_Jax5K1pl4O1JMFp as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 

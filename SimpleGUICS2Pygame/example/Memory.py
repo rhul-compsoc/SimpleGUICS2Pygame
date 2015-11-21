@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (October 4, 2014)
+Memory (November 21, 2015)
   Game with 8 x (2 indentical cards)
          or 4 x (4 indentical cards)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -19,7 +19,7 @@ try:
     import simplegui
 
     from user38_ZmhOVHGm2lhVRhk import assert_position
-    from user23_HY71NDvHu7WKaMa import draw_rect
+    from user40_GjCFdIeSPOViuUZ import draw_rect
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -155,13 +155,13 @@ class Card:
                              (self.pos_x + (Card.WIDTH - width)//2,
                               self.pos_y + (Card.HEIGHT - size)/2.0
                               + size*3.0/4),
-                             size, 'White')
+                             size, 'white')
 
         if self.selected or (self.image.get_width() == 0):
             draw_border(canvas,
                         (self.pos_x, self.pos_y), (Card.WIDTH, Card.HEIGHT),
-                        3, ('Yellow' if self.selected
-                            else 'White'))
+                        3, ('yellow' if self.selected
+                            else 'white'))
 
     def draw_verso(self, canvas):
         """
@@ -184,11 +184,11 @@ class Card:
                               self.pos_y),
                              (self.pos_x + Card.WIDTH/2.0 - 1,
                               self.pos_y + Card.HEIGHT - 1),
-                             Card.WIDTH, 'Green')
+                             Card.WIDTH, 'green')
             draw_rect(canvas,
                       (self.pos_x + 3, self.pos_y + 3),
                       (Card.WIDTH - 6, Card.HEIGHT - 6),
-                      1, 'Red')
+                      1, 'red')
 
     def in_pos(self, pos):
         """
@@ -324,13 +324,13 @@ def draw_wait_images(canvas):
     """
     percent = nb_images_loaded*100.0/len(card_images)
 
-    canvas.draw_line((0, 150), (490, 150), 20, 'White')
-    canvas.draw_line((0, 150), (490*percent/100.0, 150), 20, 'Green')
+    canvas.draw_line((0, 150), (490, 150), 20, 'white')
+    canvas.draw_line((0, 150), (490*percent/100.0, 150), 20, 'green')
 
     size = 50
     canvas.draw_text('Loading... %d%%' % int(percent),
                      (10, 80 + size*30.0/4),
-                     size, 'White')
+                     size, 'white')
 
 
 def mouseclick(pos):

@@ -4,6 +4,7 @@ ChangeLog
 
   - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
   - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
+  - Updated ``test/test_text.py``.
 
   - Added alpha possibility on background color.
   - Added ``transparent`` "color" name.

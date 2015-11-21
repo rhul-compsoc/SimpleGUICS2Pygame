@@ -2,23 +2,24 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw text. (December 13, 2013)
+Test draw text. (November 21, 2015)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015 Olivier Pirson
 http://www.opimedia.be/
 """
 
 try:
-    from user23_HY71NDvHu7WKaMa import draw_text_side
+    from user40_GjCFdIeSPOViuUZ import draw_text_multi, draw_text_side
 
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    from SimpleGUICS2Pygame.simplegui_lib_draw import draw_text_side
+    from SimpleGUICS2Pygame.simplegui_lib_draw \
+        import draw_text_multi, draw_text_side
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -54,54 +55,68 @@ def draw(canvas):
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
     for x in range(0, WIDTH, 20):
-        canvas.draw_line((x, 0), (x, HEIGHT - 1), 1, 'Silver')
+        canvas.draw_line((x, 0), (x, HEIGHT - 1), 1, 'silver')
 
     for y in range(0, HEIGHT, 20):
-        canvas.draw_line((0, y), (WIDTH - 1, y), 1, 'Silver')
+        canvas.draw_line((0, y), (WIDTH - 1, y), 1, 'silver')
 
+    # Test canvas.draw_text()
     size = 80
 
     text = 'Text'
     y = 120
 
     canvas.draw_text(text, (0, y), size, 'rgba(255,255,255,.5)')
-    canvas.draw_text(text, (200, y), size, 'White', 'serif')
-    canvas.draw_text(text, (400, y), size, 'White', 'sans-serif')
-    canvas.draw_text(text, (600, y), size, 'White', 'monospace')
+    canvas.draw_text(text, (200, y), size, 'white', 'serif')
+    canvas.draw_text(text, (400, y), size, 'white', 'sans-serif')
+    canvas.draw_text(text, (600, y), size, 'white', 'monospace')
 
-    text = 'Text'
     y = 240
 
     canvas.draw_text(text, (0, y), size, 'rgba(255,255,255,.5)')
-    canvas.draw_text(text, (200, y), size, 'White', 'serif')
-    canvas.draw_text(text, (400, y), size, 'White', 'sans-serif')
-    canvas.draw_text(text, (600, y), size, 'White', 'monospace')
+    canvas.draw_text(text, (200, y), size, 'white', 'serif')
+    canvas.draw_text(text, (400, y), size, 'white', 'sans-serif')
+    canvas.draw_text(text, (600, y), size, 'white', 'monospace')
 
+    # Test simplegui_lib_draw.draw_text_multi()
+    size = 20
+
+    draw_text_multi(canvas,
+                    """line 1
+line 2
+line 3""", (200, size), size, 'white', 'serif')
+
+    draw_text_multi(canvas,
+                    ('item 1',
+                     'item 2',
+                     'item 3'), (300, size), size, 'white', 'serif')
+
+    # Test simplegui_lib_draw.draw_text_side()
     size = 40
 
     draw_text_side(frame, canvas,
-                   'Left top', (0, 0), size, 'Red',
-                   rectangle_color='Orange',
+                   'Left top', (0, 0), size, 'red',
+                   rectangle_color='orange',
                    side_x=-1, side_y=-1)
 
     draw_text_side(frame, canvas,
-                   'Left bottom', (0, HEIGHT - 1), size, 'Red',
-                   rectangle_color='Orange',
+                   'Left bottom', (0, HEIGHT - 1), size, 'red',
+                   rectangle_color='orange',
                    side_x=-1, side_y=1)
 
     draw_text_side(frame, canvas,
-                   'Right top', (WIDTH - 1, 0), size, 'Red',
-                   rectangle_color='Orange',
+                   'Right top', (WIDTH - 1, 0), size, 'red',
+                   rectangle_color='orange',
                    side_x=1, side_y=-1)
 
     draw_text_side(frame, canvas,
-                   'Right bottom', (WIDTH - 1, HEIGHT - 1), size, 'Red',
-                   rectangle_color='Orange',
+                   'Right bottom', (WIDTH - 1, HEIGHT - 1), size, 'red',
+                   rectangle_color='orange',
                    side_x=1, side_y=1)
 
     draw_text_side(frame, canvas,
-                   'Center', (WIDTH/2, HEIGHT/2), size, 'Red',
-                   rectangle_color='Orange', rectangle_fill_color='Yellow',
+                   'Center', (WIDTH/2, HEIGHT/2), size, 'red',
+                   rectangle_color='orange', rectangle_fill_color='yellow',
                    side_x=0, side_y=0)
 
 
