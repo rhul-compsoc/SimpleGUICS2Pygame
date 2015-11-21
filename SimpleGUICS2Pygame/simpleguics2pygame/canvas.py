@@ -44,9 +44,9 @@ Multiplicative constant to convert radian to degree.
 """
 
 
-from re import compile
+from re import compile as re_compile
 
-_RE_UNPRINTABLE_WHITESPACE_CHAR = compile('[\t\n\r\f\v]')
+_RE_UNPRINTABLE_WHITESPACE_CHAR = re_compile('[\t\n\r\f\v]')
 """
 Regular expression pattern to unprintable whitespace character.
 """
