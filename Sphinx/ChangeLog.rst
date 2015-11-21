@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION --- November 8, 2015
+* 02.00.00 WORKING VERSION --- November 21, 2015
+
+  - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
 
   - Added alpha possibility on background color.
   - Added ``transparent`` "color" name.

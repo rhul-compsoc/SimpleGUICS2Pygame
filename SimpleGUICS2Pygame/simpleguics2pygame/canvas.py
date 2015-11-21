@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (November 8, 2015)
+simpleguics2pygame/canvas (November 21, 2015)
 
 Class Canvas.
 
@@ -41,6 +41,14 @@ from math import pi
 _RADIAN_TO_DEGREE = 180.0/pi
 """
 Multiplicative constant to convert radian to degree.
+"""
+
+
+from re import compile
+
+_RE_UNPRINTABLE_WHITESPACE_CHAR = compile('[\t\n\r\f\v]')
+"""
+Regular expression pattern to unprintable whitespace character.
 """
 
 
@@ -738,6 +746,8 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
         :param font_face: str == 'monospace', 'sans-serif', 'serif'
         :param _font_size_coef: int or float
 
+        :raise: ValueError if text contains unprintable whitespace character
+
         **(Alpha color channel don't work!!!)**
         """
         assert isinstance(text, str), type(text)
@@ -764,6 +774,12 @@ See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
 
         assert (isinstance(_font_size_coef, int)
                 or isinstance(_font_size_coef, float)), type(_font_size_coef)
+
+        if text == '':
+            return
+
+        if _RE_UNPRINTABLE_WHITESPACE_CHAR.search(text):
+            raise ValueError('text may not contain non-printing characters')
 
         font_color = _simpleguicolor_to_pygamecolor(font_color)
         font_size = int(round(font_size))

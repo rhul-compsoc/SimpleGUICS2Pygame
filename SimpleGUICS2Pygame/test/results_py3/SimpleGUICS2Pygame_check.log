@@ -15,7 +15,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/hg/SimpleGUICS2Pygame
-  
+  /home/opi/data/hg/SimpleGUICS2Pygame/
 
 
 python - version 3.2.3 (default, Feb 20 2013, 14:44:27) 
@@ -24,7 +24,6 @@ python - version 3.2.3 (default, Feb 20 2013, 14:44:27)
 sys.path:
   /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/script
   /home/opi/data/hg/SimpleGUICS2Pygame
-  /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/test
   /usr/lib/python3.2
   /usr/lib/python3.2/plat-linux2
   /usr/lib/python3.2/lib-dynload
