@@ -172,12 +172,13 @@ For example, to draw multiline text you can use `draw_text_multi()`_ from the `s
 
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib_draw
 
-    …
-
-    draw_text_multi(canvas,
-                    """line 1
+    def draw(canvas):
+        …
+        draw_text_multi(canvas,
+                        """line 1
     line 2
     line 3""", (x, y), size, 'white', 'serif')
+        …
 
 
 Python assertions option
