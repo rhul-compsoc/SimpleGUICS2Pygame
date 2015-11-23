@@ -15,7 +15,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/hg/SimpleGUICS2Pygame
-  /home/opi/data/hg/SimpleGUICS2Pygame/
+  
 
 
 python - version 2.7.3 (default, Mar 13 2014, 11:03:55) 
@@ -25,6 +25,7 @@ sys.path:
   /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/script
   /usr/local/lib/python2.7/dist-packages/fibonacci-0.0.0-py2.7.egg
   /home/opi/data/hg/SimpleGUICS2Pygame
+  /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/test
   /usr/lib/python2.7
   /usr/lib/python2.7/plat-linux2
   /usr/lib/python2.7/lib-tk
@@ -45,7 +46,7 @@ import pygame ok - Version 1.9.1release
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION November 21
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION November 23
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

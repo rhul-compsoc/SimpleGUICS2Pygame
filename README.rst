@@ -201,7 +201,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- November 21, 2015
+* 02.00.00 WORKING VERSION --- November 23, 2015
 
   - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
   - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.

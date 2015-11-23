@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (November 21, 2015)
+simpleguics2pygame/_colors (November 23, 2015)
 
 Colors helpers.
 
@@ -244,6 +244,8 @@ def _simpleguicolor_to_pygamecolor(
     #        or (color[:5] == 'hsla(')
     #        or (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
 
+    color = color.lower()
+
     if color[0] == '#':  # format #rrggbb or #rgb
         # See http://www.w3.org/TR/css3-color/#numerical
         pygame_color = pygame.Color(
@@ -320,7 +322,7 @@ def _simpleguicolor_to_pygamecolor(
     else:                # constant name
         # See http://www.w3.org/TR/css3-color/#html4
         # and http://www.w3.org/TR/css3-color/#svg-color
-        pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color.lower(),
+        pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color,
                                                           default_pygame_color)
 
     Frame._pygamecolors_cached[color] = pygame_color
