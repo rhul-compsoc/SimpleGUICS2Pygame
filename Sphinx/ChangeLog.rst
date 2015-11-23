@@ -2,6 +2,8 @@ ChangeLog
 =========
 * 02.00.00 WORKING VERSION --- November 23, 2015
 
+  - Added ``script/pygame_check.py`` to check Pygame installation alone.
+
   - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
   - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
   - Updated ``test/test_text.py``.

@@ -108,6 +108,8 @@ Examples of good installation:
 and
 `result in Python 3`_.
 
+You can also test your Pygame installation alone with the other little script_ ``pygame_check.py``.
+
 .. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
 .. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
 .. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
@@ -202,6 +204,8 @@ Note that
 Changes
 =======
 * 02.00.00 WORKING VERSION --- November 23, 2015
+
+  - Added ``script/pygame_check.py`` to check Pygame installation alone.
 
   - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
   - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
