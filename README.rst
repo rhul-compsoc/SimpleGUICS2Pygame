@@ -148,7 +148,7 @@ Or online:
 
 Author |OPi|
 ============
-| Olivier Pirson OPi --- http://www.opimedia.be/
+| Olivier Pirson OPi — http://www.opimedia.be/
 | olivier_pirson_opi@yahoo.fr
 |
 | Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia
@@ -203,7 +203,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- January 6, 2016
+* 02.00.00 WORKING VERSION — January 6, 2016
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
 
@@ -237,7 +237,7 @@ Changes
 
   - Updated media and CodeSkulptor programs links.
 
-* 01.09.00 --- January 1st, 2015
+* 01.09.00 — January 1st, 2015
 
   - **Added ``_load_local_image()`` and ``_load_local_sound()`` functions.**
   - Added ``test/test_sound.py``.
@@ -248,7 +248,7 @@ Changes
 
   - Added Donate button in ``_draw_about()`` panel.
 
-* 01.08.01 --- October 9, 2014
+* 01.08.01 — October 9, 2014
 
   - Added information when pygame is not installed.
 
@@ -257,7 +257,7 @@ Changes
 
 .. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
 
-* 01.08.00 --- October 4, 2014
+* 01.08.00 — October 4, 2014
 
   - Added alternative grey colors.
   - Added HSL and HSLA colors format.
@@ -268,7 +268,7 @@ Changes
 
   - Updated media links.
 
-* 01.07.00 --- September 2, 2014
+* 01.07.00 — September 2, 2014
 
   - Added ``plot_scatter()`` function in ``simpleplot`` module.
   - Added ``test/test_simpleplot_scatter.py``.

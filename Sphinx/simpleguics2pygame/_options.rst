@@ -1,5 +1,5 @@
-simpleguics2pygame --- _options
-===============================
+simpleguics2pygame — _options
+=============================
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame._options
     :special-members:

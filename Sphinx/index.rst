@@ -159,7 +159,7 @@ Or online:
 
 Author |OPi|
 ------------
-| Olivier Pirson OPi --- http://www.opimedia.be/
+| Olivier Pirson OPi — http://www.opimedia.be/
 | olivier_pirson_opi@yahoo.fr
 |
 | Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia

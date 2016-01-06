@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION --- January 6, 2016
+* 02.00.00 WORKING VERSION — January 6, 2016
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
 
@@ -34,7 +34,7 @@ ChangeLog
 
   - Updated media and CodeSkulptor programs links.
 
-* 01.09.00 --- January 1st, 2015
+* 01.09.00 — January 1st, 2015
 
   - **Added ``_load_local_image()`` and ``_load_local_sound()`` functions.**
   - Added ``test/test_sound.py``.
@@ -45,7 +45,7 @@ ChangeLog
 
   - Added Donate button in ``_draw_about()`` panel.
 
-* 01.08.01 --- October 9, 2014
+* 01.08.01 — October 9, 2014
 
   - Added information when pygame is not installed.
 
@@ -54,7 +54,7 @@ ChangeLog
 
   .. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
 
-* 01.08.00 --- October 4, 2014
+* 01.08.00 — October 4, 2014
 
   - Added alternative grey colors.
   - Added HSL and HSLA colors format.
@@ -65,7 +65,7 @@ ChangeLog
 
   - Updated media links.
 
-* 01.07.00 --- September 2, 2014
+* 01.07.00 — September 2, 2014
 
   - Added ``plot_scatter()`` function in ``simpleplot`` module.
   - Added ``test/test_simpleplot_scatter.py``.
@@ -73,23 +73,23 @@ ChangeLog
   - Updated documentation.
   - Updated CodeSkulptor programs links.
 
-* 01.06.03 --- July 24, 2014
+* 01.06.03 — July 24, 2014
 
   - Implemented ``width`` parameter in ``add_label()``.
   - Added ``test/test_button_label.py``.
 
-* 01.06.02 --- July 18, 2014
+* 01.06.02 — July 18, 2014
 
   - Corrected stupid error in ``add_label()``.
 
-* 01.06.01 --- July 17, 2014
+* 01.06.01 — July 17, 2014
 
   - Added (fake) width parameter in ``add_label()``.
   - Corrected gz archive of HTML offline documentation.
 
   - Added private members in all documentation.
 
-* 01.06.00 --- June 16, 2014
+* 01.06.00 — June 16, 2014
 
   - Updated ``numeric``.
   - Updated ``example/Spaceship_prototype.py`` and ``example/RiceRocks_Asteroids.py``.
@@ -107,7 +107,7 @@ ChangeLog
 
   - Updated media and CodeSkulptor programs links.
 
-* 01.05.00 --- May 25, 2014
+* 01.05.00 — May 25, 2014
 
   - Added cache for colors and option ``--print-stats-cache``.
   - First public version of ``.hgignore`` and ``Makefile``.
@@ -138,7 +138,7 @@ ChangeLog
   - Added precision to Window$ installation.
   - Updated media and CodeSkulptor programs links.
 
-* 01.04.00 --- December 16, 2013
+* 01.04.00 — December 16, 2013
 
   - Customized documentation.
   - Splitted changes in a separated file.
@@ -152,7 +152,7 @@ ChangeLog
 
   .. _`Maxim Rybalov`: https://www.linkedin.com/in/mrybalov
 
-* 01.03.00 --- December 13, 2013
+* 01.03.00 — December 13, 2013
 
   - Removed exception to ``get_canvas_image()``.
 
@@ -178,7 +178,7 @@ ChangeLog
   .. _`Sean Flanigan`: https://github.com/seanf
   .. _`Ines Simicic`: http://i--s.weebly.com/
 
-* 01.02.00 --- November 8, 2013
+* 01.02.00 — November 8, 2013
 
   - Splitted ``simplegui_lib.py`` in ``simplegui_lib.py``, ``simplegui_lib_draw.py`` and ``simplegui_lib_loader.py``.
   - Added ``simplegui_lib_keys.py``.
@@ -190,7 +190,7 @@ ChangeLog
 
   - Corrected installation documentation.
 
-* 01.01.00 --- November 1st, 2013
+* 01.01.00 — November 1st, 2013
 
   - Added ``_block`` and ``_filename`` parameters in ``simpleplot.plot_lines()`` function.
   - Added ``plot_bars()`` function in ``simpleplot`` module.
@@ -203,7 +203,7 @@ ChangeLog
   - Updated ``example/Mandelbrot_Set.py`` (used ``set_timeout()``).
   - Updated CodeSkulptor programs links.
 
-* 01.00.02 --- October 31, 2013
+* 01.00.02 — October 31, 2013
 
   - Corrected bug in ``TextAreaControl.set_text()``: the label text was also modified.
 
@@ -214,11 +214,11 @@ ChangeLog
   - Updated ``example/Mandelbrot_Set.py`` (optimized draw).
   - Updated media and CodeSkulptor programs links.
 
-* 01.00.01 --- October 9, 2013
+* 01.00.01 — October 9, 2013
 
   - Adapted documentation and ``cs2both.py`` to changes of CodeSkulptor (``int`` and ``float`` are now separate).
 
-* 01.00.00 --- July 13, 2013
+* 01.00.00 — July 13, 2013
 
   - Moved documentation to Read The Docs.
 
@@ -226,7 +226,7 @@ ChangeLog
   - Updated ``example/Mandelbrot_Set.py`` (used vertical symetry).
   - Updated media and CodeSkulptor programs links.
 
-* 00.92.00 --- June 27, 2013
+* 00.92.00 — June 27, 2013
 
   - Changed ``simplegui_lib.Loader`` class to display progression loading in SimpleGUICS2Pygame
     (moved arguments from ``wait_loaded()`` function to ``__init__()``).
@@ -246,7 +246,7 @@ ChangeLog
 
   - Display versions in ``script/SimpleGUICS2Pygame_check.py``.
 
-* 00.91.00 --- June 23, 2013
+* 00.91.00 — June 23, 2013
 
   - Changed installation program to build distributions (now ``setuptools`` is used).
   - Added ``--print-load-medias`` option.
@@ -266,7 +266,7 @@ ChangeLog
   - ``example/Memory.py``: moved image locations.
   - ``example/Nostalgic_Basic_Blitz.py`` : added spacebar information.
 
-* 00.90.10 --- June 19, 2013
+* 00.90.10 — June 19, 2013
 
   - Adapted button, label and input to display multine text.
   - Simplified handler functions transmitted to ``add_button()`` in some programs.
@@ -283,6 +283,6 @@ ChangeLog
   - Added some details in documentations.
   - Some cosmetic changes.
 
-* 00.90.00 --- June 13, 2013
+* 00.90.00 — June 13, 2013
 
   - First public version.

@@ -1,5 +1,5 @@
-simpleguics2pygame --- _pygame_lib
-==================================
+simpleguics2pygame — _pygame_lib
+================================
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib
     :special-members:

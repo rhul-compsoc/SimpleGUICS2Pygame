@@ -1,5 +1,5 @@
-**simpleguics2pygame** --- the main module, **replace the simplegui** module of CodeSkulptor
-============================================================================================
+**simpleguics2pygame** — the main module, **replace the simplegui** module of CodeSkulptor
+==========================================================================================
 
 .. toctree::
    simpleguics2pygame/canvas

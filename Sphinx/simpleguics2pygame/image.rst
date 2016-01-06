@@ -1,5 +1,5 @@
-simpleguics2pygame --- image
-============================
+simpleguics2pygame — image
+==========================
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame.image
     :special-members:

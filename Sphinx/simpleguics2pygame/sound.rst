@@ -1,5 +1,5 @@
-simpleguics2pygame --- sound
-============================
+simpleguics2pygame — sound
+==========================
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame.sound
     :special-members:

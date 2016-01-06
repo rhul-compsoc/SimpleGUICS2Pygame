@@ -1,5 +1,5 @@
-simpleguics2pygame --- canvas
-=============================
+simpleguics2pygame — canvas
+===========================
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame.canvas
     :special-members:
