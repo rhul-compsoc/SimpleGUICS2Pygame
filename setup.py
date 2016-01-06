@@ -2,14 +2,16 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (December 13, 2013)
+Setup of SimpleGUICS2Pygame package (January 6, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
+
+import io
 
 try:
     from setuptools import setup
@@ -22,8 +24,8 @@ from SimpleGUICS2Pygame import _VERSION, _WEBSITE
 
 setup(name='SimpleGUICS2Pygame',
       version=_VERSION,
-      description='Primarily a standard Python module reimplementing the SimpleGUI particular module of CodeSkulptor (a browser Python interpreter).',
-      long_description=open('README.rst').read(),
+      description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a browser Python interpreter).',
+      long_description=io.open('README.rst', encoding='utf-8').read(),
 
       author='Olivier Pirson',
       author_email='olivier_pirson_opi@yahoo.fr',

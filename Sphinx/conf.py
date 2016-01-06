@@ -41,14 +41,14 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8'
 
 # The master toctree document.
 master_doc = 'index'
 
 # General information about the project.
 project = 'SimpleGUICS2Pygame'
-copyright = '2013, 2014, 2015 Olivier Pirson'
+copyright = '2013, 2014, 2015, 2016 Olivier Pirson'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
