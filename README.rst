@@ -169,7 +169,7 @@ Support me
 
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014, 2015 Olivier Pirson
+Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -203,7 +203,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION --- November 23, 2015
+* 02.00.00 WORKING VERSION --- January 6, 2016
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
 
