@@ -202,6 +202,8 @@ main > ul > li > ul > li > span { margin-left: 1em; }
 
 
 /* Images */
+main > ul > li > ul.images { padding-left: 0; }
+
 main > ul > li > ul.images > li {
     display: inline-block;
     margin-right: 1ex;
@@ -229,8 +231,8 @@ main > ul > li > ul.images > li > a:hover > img:first-child { display: block; }
 
 main > ul > li > ul.images > li > a > img.thumbnail {
     height: 30px;
+    max-width: 30px;
     vertical-align: top;
-    width: 30px;
 }
 
 main > ul > li > ul.images > li > a > span.name { padding: 0 1ex; }
@@ -252,6 +254,8 @@ main > ul > li > ul.images > li a:hover >  span.size > span { display: inline-bl
 
 
 /* Sounds */
+main > ul > li > ul.sounds { padding-left: 0; }
+
 main > ul > li > ul.sounds > li {
     display: inline-block;
     margin-right: 1ex;
