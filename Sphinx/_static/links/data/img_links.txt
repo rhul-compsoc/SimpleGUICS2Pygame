@@ -1,4 +1,4 @@
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="small-caps">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="surname">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_background.png
 
@@ -10,7 +10,7 @@ http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_second_
 
 
 
-+ Asteroid (Kim <span class="small-caps">Lathrop</span>) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ Asteroid (Kim <span class="surname">Lathrop</span>) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png
 
@@ -66,7 +66,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/space%20station.png
 
 
 
-+  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
++  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="surname">Pi</span></a>)
 
 
 
@@ -104,7 +104,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
 
@@ -177,25 +177,25 @@ http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/CodeSkulptor.jpg
 CodeSkulptor
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Guido_van_Rossum.jpg
-Guido <span class="small-caps">van Rossum</span>
+Guido <span class="surname">van Rossum</span>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Joe_Warren.jpg
-Joe <span class="small-caps">Warren</span>
+Joe <span class="surname">Warren</span>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/John_Greiner.jpg
-John <span class="small-caps">John_Greiner</span>
+John <span class="surname">John_Greiner</span>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/OPi.jpg
-O<span class="small-caps">Pi</span>
+O<span class="surname">Pi</span>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Python.jpg
 Python
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Scott_Rixner.jpg
-Scott <span class="small-caps">Rixner</span>
+Scott <span class="surname">Rixner</span>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Stephen_Wong.jpg
-Stephen <span class="small-caps">Wong</span>
+Stephen <span class="surname">Wong</span>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Memory.jpg
 T-shirt memory
@@ -216,7 +216,7 @@ Red verso
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="small-caps">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/pang/9v5ehnO.png
 
@@ -240,7 +240,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/pang/Vlt8FBC.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="small-caps">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/board.gif
 
@@ -248,7 +248,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/edibles.
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="small-caps">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/backdrop.jpg
 
@@ -300,7 +300,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="small-caps">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/descent/1p_mode.png
 
@@ -372,7 +372,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/descent/zombie_revers
 
 
 
-+ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.spriters-resource.com/" target="_blank">Spriters</a>, <a href="http://www.models-resource.com/" target="_blank">Models</a>, <a href="http://www.textures-resource.com/" target="_blank">Textures</a>
++ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="surname">Pi</span>Media</a>)&thinsp;: <a href="http://www.spriters-resource.com/" target="_blank">Spriters</a>, <a href="http://www.models-resource.com/" target="_blank">Models</a>, <a href="http://www.textures-resource.com/" target="_blank">Textures</a>
 
 
 

@@ -1,4 +1,32 @@
 /* -*- coding: latin-1 -*- */
+@font-face {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    src: local("Lato Regular"), local("Lato-Regular"), url(https://media.readthedocs.org/fonts/Lato-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), url(https://media.readthedocs.org/fonts/RobotoSlab-Regular.ttf) format("truetype");
+}
+
+
+
+body,
+footer, header,
+main {
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    color: #2980B9;
+    text-decoration: none;
+}
 
 a.broken { text-decoration: line-through; }
 
@@ -12,160 +40,247 @@ a.mail:visited {
 }
 
 
-body { margin: 0px; }
-
-
-div.images a.image,
-div.sounds div.sound {
-    background-color: #f0f0f0;
-
-    border: solid 1px black;
-    border-radius: 1ex;
-
-    display: inline-block;
-    margin: .5ex;
-    padding: 1px 1ex;
-    vertical-align: top;
+img {
+    border: 0;
+    vertical-align: middle;
 }
-
-div.images a.image { display: inline-block; }
-
-div.images a.image img {
-    background-color: white;
-
-    border-bottom: solid 1px black;
-    border-left: solid 1px black;
-
-    box-shadow: -1ex 1ex 1ex silver;
-    display: none;
-    max-height: 100%;
-    max-width: 80%;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    z-index: 1001;
-}
-
-div.images a.image:hover img { display: block; }
-
-
-div.images a.image span.size { position: relative; }
-
-div.images a.image span.size span {
-    background-color: #f0f0f0;
-
-    border: solid 1px black;
-    border-radius: 1ex;
-
-    box-shadow: -1ex 1ex 1ex silver;
-    display: none;
-    left: 0px;
-    padding: 1px 1ex;
-    position: absolute;
-    top: 1ex;
-    z-index: 1002;
-}
-
-div.images a.image:hover span.size span { display: inline-block; }
-
-
-ul.progs li.prog { margin-left: 1em; }
-
-ul.progs li.prog a.info {
-    background-color: #f0f0f0;
-
-    border: solid 1px black;
-    border-radius: 1ex;
-
-    display: inline-block;
-    padding: 1px 1ex;
-}
-
-ul.progs li.prog span.info2 { margin-left: 1em; }
-
-
-h1 { margin: 0px; }
-
-h1 span {
-    font-size: medium;
-    font-weight: normal;
-}
-
-
-h2 { margin: 0px 0px 0px 1ex; }
-
 
 strong { font-size: larger; }
 
 
-tt { font-family: Dina, monospace; }
-
-
-ul { margin: 0px 0px 1em; }
-
-ul li { margin: 0px 0px 1ex; }
-
-
 .clear { clear: both; }
 
-.colophon {
-    border-top: solid 1px black;
-    margin-right: 1ex;
-    padding: 1ex 0px;
-    text-align: right;
+.smallskip  { margin-top: 1ex; }
+
+.surname { font-variant: small-caps; }
+
+.url { font-family: monospace; }
+
+
+
+.adapted {
+    opacity: 0.5;
+    text-transform: uppercase;
 }
 
-.doc-link {
-    float: left;
-    margin-right: 1em;
-    margin-bottom: 1ex;
-}
-
-.doc-link a {
+a.link-SimpleGUICS2Pygame-doc {
     background-color: #2980b9;
     color: #fcfcfc;
-    display: block;
+    display: inline-block;
 
-    font-family: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
 
     padding: 1ex;
-    text-decoration: none;
 }
-.doc-link a:hover { background-color: #2e8ece; }
+a.link-SimpleGUICS2Pygame-doc:hover { background-color: #2e8ece; }
 
-.doc-link a img {
-    padding-right: 1ex;
+
+a.logo-SimpleGUICS2Pygame-doc {
+    background-image: url(https://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png);
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+
+    line-height: 20px;
+    min-height: 20px;
+    padding-left: 40px;
+    vertical-align: middle;
 }
 
 
-.infos-top {
-    border-bottom: solid 1px black;
+body {
+    background-color: #fcfcfc;
+    font-family: Lato, Arial, sans-serif;
+}
+
+body > footer {
     border-top: solid 1px black;
+    text-align: right;
+}
 
-    margin-bottom: 1ex;
-    padding: 1ex 0 1ex 1.4em;
+body > footer > div { margin: 0 1em 1ex 0; }
+body > footer > div:first-child { margin: 0 0 1ex 0; }
+
+body > footer > div a.logo-SimpleGUICS2Pygame-doc {
+    background-position: 10px center;
+    background-size: 64px 64px;
+
+    height: 64px;
+    line-height: 64px;
+
+    padding-left: 84px;
+    padding-right: 1em;
 }
 
 
-.small-caps { font-variant: small-caps; }
 
-.smallskip  { margin-top: 1ex; }
+body > header > div:first-child {
+    height: 70px;
+    line-height: 70px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+body > header > div:first-child > nav a.link-SimpleGUICS2Pygame-doc {
+    float: left;
+    height: 70px;
+    line-height: 70px;
+    margin-right: 1em;
+
+    padding-bottom: 0;
+    padding-top: 0;
+
+    vertical-align: middle;
+}
+@media (max-width: 800px) {
+    body > header > div:first-child > nav { display: none; }
+}
+
+
+body > header > div:first-child > h1 {
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-size: x-large;
+
+    margin: 0 0 0 1em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+body > header > div.infos {
+    background-color: #343131;
+    clear: both;
+    color: #b3b3b3;
+    padding: 0 1ex;
+    text-align: center;
+}
+
+body > header > div.infos a.link-SimpleGUICS2Pygame-doc { margin-left: 0.5ex; }
+
+
+
+main > h2 {
+    border-top: 2px solid black;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    margin: 0;
+    padding-left: 1em;
+}
+
+main > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+main > ul > li {
+    border-top: 1px dotted gray;
+    margin: 0;
+    padding: 1ex 1em;
+}
+main > ul > li:nth-child(2n + 1) { background-color: #f0f0f0; }
+
+
+main > ul > li > ul {
+    list-style-type: none;
+    padding-left: 1.4em;
+}
+
+main > ul > li > ul > li { margin: 0 0 1ex; }
+
+main > ul > li > ul > li > a {
+    background-color: #e8e8e8;
+
+    display: inline-block;
+    padding: 1px 1ex;
+}
+main > ul > li:nth-child(2n + 1) > ul > li > a { background-color: #e0e0e0; }
+
+main > ul > li > ul > li > a:hover { background-color: #d8d8d8; }
+main > ul > li:nth-child(2n + 1) > ul > li > a:hover { background-color: #d0d0d0; }
+
+main > ul > li > ul > li > span { margin-left: 1em; }
+
+
+/* Images */
+main > ul > li > ul.images > li {
+    display: inline-block;
+    margin-right: 1ex;
+}
+
+main > ul > li > ul.images > li > a {
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    white-space: nowrap;
+}
+
+main > ul > li > ul.images > li > a > img:first-child {
+    background-color: white;
+    box-shadow: -1ex 1ex 1ex gray;
+    display: none;
+    max-height: 100%;
+    max-width: 50%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1001;
+}
+main > ul > li > ul.images > li > a:hover > img:first-child { display: block; }
+
+main > ul > li > ul.images > li > a > img.thumbnail {
+    height: 30px;
+    vertical-align: top;
+    width: 30px;
+}
+
+main > ul > li > ul.images > li > a > span.name { padding: 0 1ex; }
+
+main > ul > li > ul.images > li > a > span.size { position: relative; }
+
+main > ul > li > ul.images > li > a > span.size > span {
+    background-color: black;
+    box-shadow: -1ex 1ex 1ex gray;
+    color: white;
+    display: none;
+    font-family: monospace;
+    padding: 2px 1ex;
+    position: absolute;
+    top: 3ex;
+    z-index: 1002;
+}
+main > ul > li > ul.images > li a:hover >  span.size > span { display: inline-block; }
+
+
+/* Sounds */
+main > ul > li > ul.sounds > li {
+    display: inline-block;
+    margin-right: 1ex;
+}
+
+main > ul > li > ul.sounds > li > a {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 1ex;
+    white-space: nowrap;
+}
+
+main > ul > li > ul.sounds > li > audio {
+    display: inline-block;
+    min-height: 30px;
+    vertical-align: middle;
+}
 
 
 
 #no-javascript {
     background-color: #fff0f0;
-
-    border: solid 1px red;
-    border-radius: 1ex;
-
     color: red;
     display: inline;
     font-weight: bolder;
+    line-height: 20px;
+    min-height: 20px;
     padding: 1ex;
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
 }

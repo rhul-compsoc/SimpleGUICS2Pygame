@@ -5,12 +5,12 @@
 Make 'img_snd_links.htm' file
   from img_links.txt
        snd_links.txt
-(June 29, 2013)
+(January 11, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     shutil.copy(DIR_DATA + 'img_snd_links_top.htm', DIR_DEST + FILE_DEST)
 
-    f = (open(DIR_DEST + FILE_DEST, mode='a', encoding='latin_1', newline='\n')
+    f = (open(DIR_DEST + FILE_DEST, mode='a', encoding='utf_8', newline='\n')
          if sys.version_info[0] >= 3
          else open(DIR_DEST + FILE_DEST, mode='a'))
 

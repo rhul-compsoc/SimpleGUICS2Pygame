@@ -2,7 +2,7 @@
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user19_hLghEN2n2P_0.py" target="_blank">DDR clone</a> by (Emily <span class="small-caps">Wachtel</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user19_hLghEN2n2P_0.py" target="_blank">DDR clone</a> by (Emily <span class="surname">Wachtel</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3
 
@@ -36,15 +36,15 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
-+  <a rel="nofollow" href="http://www.freesound.org/" target="_blank">Freesound.org</a> (profile <a rel="nofollow" href="http://www.freesound.org/people/OPiMedia/" target="_blank">O<span class="small-caps">Pi</span>Media</a>)
++  <a rel="nofollow" href="http://www.freesound.org/" target="_blank">Freesound.org</a> (profile <a rel="nofollow" href="http://www.freesound.org/people/OPiMedia/" target="_blank">O<span class="surname">Pi</span>Media</a>)
 
 
 
-+  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="small-caps">Pi</span></a>)
++  <a rel="nofollow" href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a rel="nofollow" href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="surname">Pi</span></a>)
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="small-caps">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_hit.wav
 
@@ -68,11 +68,11 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_
 
 
 
-+ <a rel="nofollow" href="http://opengameart.org/" target="_blank">OpenGameArt.org</a>&thinsp;: <a rel="nofollow" href="http://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid[]=12" target="_blank">Music</a>, <a rel="nofollow" href="http://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid[]=13" target="_blank">Sound Effects</a>
++ <a rel="nofollow" href="http://opengameart.org/" target="_blank">OpenGameArt.org</a>&thinsp;: <a rel="nofollow" href="http://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid%5B%5D=12" target="_blank">Music</a>, <a rel="nofollow" href="http://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid%5B%5D=13" target="_blank">Sound Effects</a>
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="small-caps">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3
 
@@ -82,7 +82,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="small-caps">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012) (<a rel="nofollow" href="http://www.noiseforfun.com/" target="_blank">NoiseForFun.com</a>, <a rel="nofollow" href="http://www.playonloop.com/" target="_blank">PlayOnLoop.com</a>)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012) (<a rel="nofollow" href="http://www.noiseforfun.com/" target="_blank">NoiseForFun.com</a>, <a rel="nofollow" href="http://www.playonloop.com/" target="_blank">PlayOnLoop.com</a>)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/ateapill.ogg
 
@@ -98,7 +98,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/theygotc
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="small-caps">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/fx/engine-1.ogg
 
@@ -167,7 +167,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="small-caps">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3
 
@@ -183,7 +183,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3
 
 
 
-+ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="small-caps">Pi</span>Media</a>)&thinsp;: <a href="http://www.sounds-resource.com/" target="_blank">Sounds</a>
++ <a href="http://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="http://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="surname">Pi</span>Media</a>)&thinsp;: <a href="http://www.sounds-resource.com/" target="_blank">Sounds</a>
 
 
 
