@@ -307,7 +307,7 @@ http://www.codeskulptor.org/#user19_Sd5A76hlsV_0.py
 
 
 
-+ By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013, 2014)
++ By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013 &ndash;&nbsp;2016)
 
 http://www.codeskulptor.org/#user26_v7F8DXdgeO_0.py
 3D Engine (Kieron <span class="small-caps">Wilkinson</span>)
@@ -315,6 +315,12 @@ Old thread <a rel="nofollow" href="https://class.coursera.org/interactivepython-
 
 http://www.codeskulptor.org/#user27_YWGY3iw6kU_0.py
 3D Engine (Kieron <span class="small-caps">Wilkinson</span>) ADAPTED
+
+http://www.codeskulptor.org/#user41_X4iBUdwt5h_0.py
+A Bronx Tale (Andreu <span class="small-caps">Alvarruiz</span>)
+
+http://www.codeskulptor.org/#user41_ARjDWPhCodbsSXn.py
+<strong>A Bronx Tale</strong> (Andreu <span class="small-caps">Alvarruiz</span>) ADAPTED
 
 http://www.codeskulptor.org/#user33_LAnBofUUkve1Qq0.py
 Amiga Tribute Demo (Jason <span class="small-caps">Butwell</span>)

@@ -203,7 +203,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — January 6, 2016
+* 02.00.00 WORKING VERSION — January 11, 2016
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
 
