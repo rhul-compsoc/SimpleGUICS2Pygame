@@ -3,7 +3,7 @@ Compatibility
 
 Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 ----------------------------------------------------------------------
-* With SimpleGUI of CodeSkulptor_, some things (like fonts, buttons...) are browser dependents.
+* With SimpleGUI of CodeSkulptor_, some things (like fonts, buttons…) are browser dependents.
   That is to say that there are some differences from one browser to another.
   Therefore it is normal that these elements are also slightly different with SimpleGUICS2Pygame.
 
