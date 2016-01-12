@@ -203,7 +203,9 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — January 11, 2016
+* 02.00.00 WORKING VERSION — January 12, 2016
+
+  - Splitted media links to image links and sound links.
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
 
@@ -248,35 +250,7 @@ Changes
 
   - Added Donate button in ``_draw_about()`` panel.
 
-* 01.08.01 — October 9, 2014
-
-  - Added information when pygame is not installed.
-
-  - Corrected local filename bug in ``_load_media()``. (Thanks to `Sergey Sorokin`_.)
-  - Updated documentation.
-
-.. _`Sergey Sorokin`: https://bitbucket.org/SergeyVlSorokin
-
-* 01.08.00 — October 4, 2014
-
-  - Added alternative grey colors.
-  - Added HSL and HSLA colors format.
-  - Added ``test/test_colors_html_hsla.py``.
-  - Updated CodeSkulptor programs links.
-  - Updated ``codeskulptor_lib``.
-  - Updated ``test/test_colors_html_rgba.py``.
-
-  - Updated media links.
-
-* 01.07.00 — September 2, 2014
-
-  - Added ``plot_scatter()`` function in ``simpleplot`` module.
-  - Added ``test/test_simpleplot_scatter.py``.
-  - Updated ``test/test_dir.py``.
-  - Updated documentation.
-  - Updated CodeSkulptor programs links.
-
-...
+…
 
 `Complete changelog`_
 

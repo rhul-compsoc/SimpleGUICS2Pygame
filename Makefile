@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2015-06-03
+# Makefile of SimpleGUICS2Pygame --- 2016-01-12
 
 .SUFFIXES:
 
@@ -75,8 +75,9 @@ docstgz:	html
 		@$(GZIP) -t Sphinx/_build/SimpleGUICS2Pygame_html.tar.gz
 
 links:
-	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_img_snd_links.py
+	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_img_links.py
 	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_prog_links.py
+	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_snd_links.py
 	-@$(CD) Sphinx/_static/links/data; $(RM) -r __pycache__/*.pyc; $(RMDIR) __pycache__
 
 

@@ -2,10 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-Make 'img_snd_links.htm' file
+Make 'img_links.htm' file
   from img_links.txt
-       snd_links.txt
-(January 11, 2016)
+(January 12, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -26,7 +25,7 @@ import make_links
 DIR_DATA = ''
 DIR_DEST = '../'
 
-FILE_DEST = 'img_snd_links.htm'
+FILE_DEST = 'img_links.htm'
 
 
 ########
@@ -36,21 +35,14 @@ if __name__ == '__main__':
     print("Make '{}' file...".format(DIR_DEST + FILE_DEST), end='')
     sys.stdout.flush()
 
-    shutil.copy(DIR_DATA + 'img_snd_links_top.htm', DIR_DEST + FILE_DEST)
+    shutil.copy(DIR_DATA + 'img_links_top.htm', DIR_DEST + FILE_DEST)
 
     f = (open(DIR_DEST + FILE_DEST, mode='a', encoding='utf_8', newline='\n')
          if sys.version_info[0] >= 3
          else open(DIR_DEST + FILE_DEST, mode='a'))
 
-    print("""
-<h2 id="Images">Images</h2>""", file=f)
     make_links.print_html_list_img(
         make_links.read_txt(DIR_DATA + 'img_links.txt'), f)
-
-    print("""
-<h2 id="Sounds">Sounds</h2>""", file=f)
-    make_links.print_html_list_snd(
-        make_links.read_txt(DIR_DATA + 'snd_links.txt'), f)
 
     print(file=f)
 

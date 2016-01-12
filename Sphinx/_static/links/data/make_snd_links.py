@@ -2,8 +2,8 @@
 # -*- coding: latin-1 -*-
 
 """
-Make 'prog_links.htm' file
-  from prog_links.txt
+Make 'snd_links.htm' file
+  from snd_links.txt
 (January 12, 2016)
 
 Piece of SimpleGUICS2Pygame.
@@ -25,7 +25,7 @@ import make_links
 DIR_DATA = ''
 DIR_DEST = '../'
 
-FILE_DEST = 'prog_links.htm'
+FILE_DEST = 'snd_links.htm'
 
 
 ########
@@ -35,14 +35,14 @@ if __name__ == '__main__':
     print("Make '{}' file...".format(DIR_DEST + FILE_DEST), end='')
     sys.stdout.flush()
 
-    shutil.copy(DIR_DATA + 'prog_links_top.htm', DIR_DEST + FILE_DEST)
+    shutil.copy(DIR_DATA + 'snd_links_top.htm', DIR_DEST + FILE_DEST)
 
     f = (open(DIR_DEST + FILE_DEST, mode='a', encoding='utf_8', newline='\n')
          if sys.version_info[0] >= 3
          else open(DIR_DEST + FILE_DEST, mode='a'))
 
-    make_links.print_html_list_link(
-        make_links.read_txt(DIR_DATA + 'prog_links.txt'), f)
+    make_links.print_html_list_snd(
+        make_links.read_txt(DIR_DATA + 'snd_links.txt'), f)
 
     print(file=f)
 

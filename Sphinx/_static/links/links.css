@@ -139,12 +139,13 @@ body > header > div:first-child > nav a.link-SimpleGUICS2Pygame-doc {
 }
 
 body > header > div:first-child > nav > ul {
+    background-color: #343131;
     box-shadow: 1ex 1ex 1ex black;
     display: none;
     left: 0;
     list-style-type: none;
     margin: 0;
-    padding: 0 1em 0 0;
+    padding: 2ex 1em 2ex 0;
     position: absolute;
     top: 70px;
     z-index: 2001;
@@ -167,7 +168,7 @@ body > header > div:first-child > nav > ul > li > a {
     padding: 0 0 0 1em;
     width: 100%;
 }
-body > header > div:first-child > nav > ul > li > a:hover { background-color: #4e4a4a; }
+body > header > div:first-child > nav > ul > li:hover > a { background-color: #4e4a4a; }
 
 body > header > div:first-child > nav > ul > li.selected > a {
     background-color: #fcfcfc;
@@ -194,13 +195,6 @@ body > header > div.infos {
 body > header > div.infos a.link-SimpleGUICS2Pygame-doc { margin-left: 0.5ex; }
 
 
-
-main > h2 {
-    border-top: 2px solid black;
-    font-family: "Roboto Slab", Arial, sans-serif;
-    margin: 0;
-    padding-left: 1em;
-}
 
 main > ul {
     list-style-type: none;
