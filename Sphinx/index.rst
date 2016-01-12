@@ -212,6 +212,10 @@ Summary
 
    ChangeLog
 
+   List of online programs <http://simpleguics2pygame.readthedocs.org/en/latest/_static/links/prog_links.html>
+   List of online images <http://simpleguics2pygame.readthedocs.org/en/latest/_static/links/img_links.html>
+   List of online sounds <http://simpleguics2pygame.readthedocs.org/en/latest/_static/links/snd_links.html>
+
 
 
 Indices and tables
