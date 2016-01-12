@@ -2,6 +2,7 @@ ChangeLog
 =========
 * 02.00.00 WORKING VERSION — January 12, 2016
 
+  - Added ``--last`` command line option.
   - Splitted media links to image links and sound links.
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.

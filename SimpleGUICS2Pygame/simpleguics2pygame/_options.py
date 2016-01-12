@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (August 16, 2015)
+simpleguics2pygame/_options (January 12, 2016)
 
 Options helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -42,6 +42,8 @@ def _set_option_from_argv():
     * ``--fps n``: Set Frame Per Second (default is 60 FPS).
     * ``--fullscreen``: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
+    * ``--last``: Mark this argument
+      as the last  SimpleGUICS2Pygame's argument. (Do nothing else.)
     * ``--no-border``: Window without border.
     * ``--no-controlpanel``: Hide the control panel (and status boxes).
     * ``--no-load-sound``: Don't load any sound.
@@ -61,6 +63,10 @@ def _set_option_from_argv():
     Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
 
     This function is executed when the module is imported.
+
+    (See `Tips.html#command-line-options`_ for usage examples.)
+
+    .. _`Tips.html#command-line-options`: ../Tips.html#command-line-options
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
@@ -91,6 +97,8 @@ def _set_option_from_argv():
                                              | pygame.HWSURFACE)
         elif arg == '--keep-timers':
             Frame._keep_timers = True
+        elif arg == '--last':
+            break
         elif arg == '--no-border':
             if _PYGAME_AVAILABLE:
                 Frame._pygame_mode_flags |= pygame.NOFRAME

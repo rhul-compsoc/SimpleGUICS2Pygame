@@ -107,6 +107,7 @@ When you run a program you can use following options:
 * ``--fps n``: Set Frame Per Second (default is 60 FPS).
 * ``--fullscreen``: Fullscreen mode.
 * ``--keep-timers``: Keep running timers when close frame without ask.
+* ``--last``: Mark this argument as the last  SimpleGUICS2Pygame's argument. (Do nothing else.)
 * ``--no-border``: Window without border.
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
 * ``--no-load-sound``: Don't load any sound.
@@ -123,10 +124,14 @@ Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
 
 SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
 
-Example: ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
-run ``yourprogram.py`` with the control panel hidden and timers will stoped.
-But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
-``yourprogram.py`` application receive ``--foo --fullscreen`` options.
+Examples:
+  * | ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
+    | run ``yourprogram.py`` with the control panel hidden and timers will stoped. But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
+    | ``yourprogram.py`` application receive ``--foo --fullscreen`` options.
+
+  * | ``python yourprogram.py --no-controlpanel --last --stop-timers --foo --fullscreen``
+    | run ``yourprogram.py`` with the control panel hidden. But SimpleGUICS2Pygame ignore ``--stop-timers``, ``--foo`` and ``--fullscreen``.
+    | ``yourprogram.py`` application receive ``--stop-timers --foo --fullscreen`` options.
 
 
 Download medias
