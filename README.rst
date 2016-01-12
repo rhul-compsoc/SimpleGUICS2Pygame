@@ -143,7 +143,7 @@ You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sou
 Or online:
 `Python programs running in CodeSkulptor`_ .
 
-.. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.org/en/latest/_static/links/prog_links.htm
+.. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.org/en/latest/_static/links/prog_links.html
 
 
 Author |OPi|

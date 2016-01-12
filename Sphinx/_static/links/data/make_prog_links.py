@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Make 'prog_links.htm' file
+Make 'prog_links.html' file
   from prog_links.txt
 (January 12, 2016)
 
@@ -25,7 +25,7 @@ import make_links
 DIR_DATA = ''
 DIR_DEST = '../'
 
-FILE_DEST = 'prog_links.htm'
+FILE_DEST = 'prog_links.html'
 
 
 ########
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     print("Make '{}' file...".format(DIR_DEST + FILE_DEST), end='')
     sys.stdout.flush()
 
-    shutil.copy(DIR_DATA + 'prog_links_top.htm', DIR_DEST + FILE_DEST)
+    shutil.copy(DIR_DATA + 'prog_links_top.html', DIR_DEST + FILE_DEST)
 
     f = (open(DIR_DEST + FILE_DEST, mode='a', encoding='utf_8', newline='\n')
          if sys.version_info[0] >= 3
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     print(file=f)
 
-    f_bottom = open(DIR_DATA + 'links_bottom.htm')
+    f_bottom = open(DIR_DATA + 'links_bottom.html')
     for line in f_bottom:
         print(line[:-1], file=f)
     f_bottom.close()

@@ -196,12 +196,12 @@ Ressources: images, sounds, programs
 ------------------------------------
 Online images_ & sounds_ links
 
-.. _images: _static/links/img_links.htm
-.. _sounds: _static/links/snd_links.htm
+.. _images: _static/links/img_links.html
+.. _sounds: _static/links/snd_links.html
 
 `Python programs running in CodeSkulptor`_
 
-.. _`Python programs running in CodeSkulptor`: _static/links/prog_links.htm
+.. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 
 Sounds
