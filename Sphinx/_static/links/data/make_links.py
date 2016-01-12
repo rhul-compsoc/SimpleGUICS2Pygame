@@ -2,9 +2,10 @@
 
 """
 Module
-  to make_img_snd_links.py
-  and make_prog_links.py .
-(January 11, 2016)
+  to make_img_links.py ,
+     make_prog_links.py ,
+     make_snd_links.py
+(January 12, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame

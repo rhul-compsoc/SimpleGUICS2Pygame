@@ -194,9 +194,10 @@ then all asserts is *inactive*.
 
 Ressources: images, sounds, programs
 ------------------------------------
-`Online images & sounds links`_
+Online images_ & sounds_ links
 
-.. _`Online images & sounds links`: _static/links/img_snd_links.htm
+.. _images: _static/links/img_links.htm
+.. _sounds: _static/links/snd_links.htm
 
 `Python programs running in CodeSkulptor`_
 
