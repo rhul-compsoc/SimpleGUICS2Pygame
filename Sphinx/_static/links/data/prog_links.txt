@@ -91,6 +91,7 @@ Blackjack.py
 
 http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
 Frame_example.py
+Very simple canvas example.
 
 http://www.codeskulptor.org/#user33_NBnGYFDBSbzFIuL.py
 keys.py
@@ -112,8 +113,9 @@ http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user40_E5kBXRovU9GBPh6.py
+http://www.codeskulptor.org/#user41_QcerjZ2K6AZl01R.py
 presentation.py
+Little draw images and texts.
 
 http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
 <strong>RiceRocks_Asteroids</strong>.py

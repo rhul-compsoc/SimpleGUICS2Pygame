@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (August 12, 2015)
+presentation (January 13, 2016)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -10,7 +10,7 @@ a short presentation of SimpleGUICS2Pygame package.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -46,7 +46,7 @@ def main():
             print(url)
 
         _VERSION = ''
-        _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame'
+        _WEBSITE = 'https://simpleguics2pygame.readthedocs.org/'
 
     WIDTH = 560
     HEIGHT = 360
@@ -81,7 +81,7 @@ def main():
              'Require Pygame for simpleguics2pygame.',
              None,
              'GPLv3',
-             'Copyright (C) 2013, 2014, 2015 Olivier Pirson',
+             'Copyright (C) 2013 - 2016 Olivier Pirson',
              'Olivier Pirson OPi --- http://www.opimedia.be/',
              'olivier_pirson_opi@yahoo.fr')):
             if line is not None:

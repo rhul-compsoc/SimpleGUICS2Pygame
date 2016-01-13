@@ -66,7 +66,7 @@ _VERSION = '02.00.00 WORKING VERSION January 13, 2016'
 Version of SimpleGUICS2Pygame package.
 """
 
-_WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame'
+_WEBSITE = 'https://simpleguics2pygame.readthedocs.org/'
 """
 Website of the project.
 """

@@ -4,6 +4,7 @@ ChangeLog
 
   - Added ``--last`` command line option.
   - Added ``test/test_command_line_options.py``.
+  - Replaced ``_WEBSITE`` value by documentation link.
   - Splitted media links to image links and sound links.
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
@@ -27,7 +28,7 @@ ChangeLog
 
   - Updated ``script/SimpleGUICS2Pygame_check.py``.
 
-  - Splitted the big file ``simpleguics2pygame.py``.
+  - **Splitted the big file ``simpleguics2pygame.py``.**
   - Added ``example/presentation.py``.
 
   - Added ``example/stop_example.py``.

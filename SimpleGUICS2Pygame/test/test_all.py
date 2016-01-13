@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (April 25, 2014)
+Test all other test_*.py. (January 13, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -57,7 +57,7 @@ try:
     PYGAME_VERSION = simplegui._PYGAME_VERSION
 except ImportError:
     SIMPLEGUICS2PYGAME_VERSION = '?'
-    SIMPLEGUICS2PYGAME_WEBSITE = 'http://www.opimedia.be/DS/SimpleGUICS2Pygame/'
+    SIMPLEGUICS2PYGAME_WEBSITE = 'https://simpleguics2pygame.readthedocs.org/'
     PYGAME_VERSION = '?'
 
 filenames = sorted(glob.glob('*.py'))

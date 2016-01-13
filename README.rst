@@ -143,6 +143,12 @@ You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sou
 Or online:
 `Python programs running in CodeSkulptor`_ .
 
+Two simple online examples:
+  * `Frame_example.py`_: very simple canvas example
+  * `presentation.py`_: little draw images and texts
+
+.. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user41_QcerjZ2K6AZl01R.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.org/en/latest/_static/links/prog_links.html
 
 
@@ -150,6 +156,8 @@ Message to developers
 =====================
 This is a **free software**, so you can download it, **modify it** and **submit your modifications**.
 You can also **redistribute** your own version (keeping the GPL license).
+
+Complete **sources** on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 
 Author |OPi|
@@ -251,6 +259,7 @@ Changes
 
   - Added ``--last`` command line option.
   - Added ``test/test_command_line_options.py``.
+  - Replaced ``_WEBSITE`` value by documentation link.
   - Splitted media links to image links and sound links.
 
   - Added ``script/pygame_check.py`` to check Pygame installation alone.
@@ -274,7 +283,7 @@ Changes
 
   - Updated ``script/SimpleGUICS2Pygame_check.py``.
 
-  - Splitted the big file ``simpleguics2pygame.py``.
+  - **Splitted the big file ``simpleguics2pygame.py``.**
   - Added ``example/presentation.py``.
 
   - Added ``example/stop_example.py``.
