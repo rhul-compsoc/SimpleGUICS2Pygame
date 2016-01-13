@@ -4,7 +4,7 @@
 SimpleGUICS2Pygame
 ==================
 
-It is primarily a standard Python_ (2 **and** 3) module
+It is primarily a standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
@@ -146,6 +146,12 @@ Or online:
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.org/en/latest/_static/links/prog_links.html
 
 
+Message to developers
+=====================
+This is a **free software**, so you can download it, **modify it** and **submit your modifications**.
+You can also **redistribute** your own version (keeping the GPL license).
+
+
 Author |OPi|
 ============
 | Olivier Pirson OPi — http://www.opimedia.be/
@@ -159,8 +165,11 @@ Author |OPi|
 
 Support me
 ==========
-| If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
-| Go to the link |Donate|_
+This package is a completely **free software** (GPL license).
+So it is **completely free** (like "free speech" and like "free beer").
+However you can **support me** financially by donating.
+
+Go to the link |Donate|_. **Thank you!**
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
 
@@ -191,19 +200,54 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Note that
 =========
+* `SimpleGUI of CodeSkulptor`_ (Scott Rixner) is a specific module of CodeSkulptor_, written in JavaScript.
 
-* SimpleGUITk_ is an *other implementation* of SimpleGUI of CodeSkulptor, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
+  CodeSkulptor is a Python implementation running **in a browser**.
+  It implements a subset of Python **2**.
+  It is the environment used in the course
+  `An Introduction to Interactive Programming in Python`_
+  (Rice University, Coursera).
 
-* simplegui_ is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
+* **SimpleGUICS2Pygame** (Olivier Pirson) is **this package**.
+  It is fully compatible with Python **2 and 3**.
 
-.. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk
+  It contains
+  ``codeskulptor``, ``numeric``, ``simpleguics2pygame`` and ``simpleplot`` modules
+  that reimplement
+  ``codeskulptor``, ``numeric``, ``simplegui`` and ``simpleplot`` modules of CodeSkulptor.
 
-.. _simplegui: https://pypi.python.org/pypi/simplegui
+  .. warning::
+     SimpleGUICS2Pygame was **designed to mimic behavior of CodeSkulptor**.
+     So `load_image()`_ and `load_sound()`_ methods can load medias only from URL, not local files.
+     However SimpleGUICS2Pygame can save these medias to a specific local directory.
+     See the `Download medias`_ tips.
+
+     You can also use *specific* `_load_local_image()`_ and `_load_local_sound()`_ methods
+     to load local files. But be careful, each specific method doesn't exist in CodeSkulptor.
+
+     There exist some **little differences between SimpleGUICS2Pygame and SimpleGUI** of CodeSkulptor.
+     See Compatibility_ notes.
+
+     .. _`Download medias`: http://simpleguics2pygame.readthedocs.org/en/latest/Tips.html#download-medias
+     .. _`load_image()`: http://simpleguics2pygame.readthedocs.org/en/latest/simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.load_image
+     .. _`_load_local_image()`: http://simpleguics2pygame.readthedocs.org/en/latest/simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image._load_local_image
+     .. _`_load_local_sound()`: http://simpleguics2pygame.readthedocs.org/en/latest/simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound._load_local_sound
+     .. _`load_sound()`: http://simpleguics2pygame.readthedocs.org/en/latest/simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound.load_sound
+
+* SimpleGUITk_ (David Holm) is *another implementation* of SimpleGUI of CodeSkulptor, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
+
+.. warning::
+   * simplegui_ (Florian Berger) is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
+
+   .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/course/interactivepython1
+   .. _simplegui: https://pypi.python.org/pypi/simplegui
+   .. _`SimpleGUI of CodeSkulptor`: http://www.codeskulptor.org/docs.html#Frames
+   .. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk
 
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — January 12, 2016
+* 02.00.00 WORKING VERSION — January 13, 2016
 
   - Added ``--last`` command line option.
   - Added ``test/test_command_line_options.py``.
@@ -244,13 +288,7 @@ Changes
 * 01.09.00 — January 1st, 2015
 
   - **Added ``_load_local_image()`` and ``_load_local_sound()`` functions.**
-  - Added ``test/test_sound.py``.
-  - Updated ``test/test_dir.py``.
-  - Updated ``test/test_image.py``.
-
-  - Added ``--fps n`` option.
-
-  - Added Donate button in ``_draw_about()`` panel.
+  - …
 
 …
 

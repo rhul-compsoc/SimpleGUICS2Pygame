@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — January 12, 2016
+* 02.00.00 WORKING VERSION — January 13, 2016
 
   - Added ``--last`` command line option.
   - Added ``test/test_command_line_options.py``.

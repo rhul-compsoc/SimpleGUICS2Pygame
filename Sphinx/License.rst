@@ -33,9 +33,11 @@ Author |OPi|
 
 Support me
 ----------
-| If you are happy with this **free and free** project you can **support** me financially by donating **on my PayPal account** or with **Flattr**.
-| Go to the link |Donate|_
-|
+This package is a completely **free software**.
+So it is **completely free** (like "free speech" and like "free beer").
+However you can **support me** financially by donating.
+
+Go to the link |Donate|_. **Thank you!**
 
 .. _Donate: http://www.opimedia.be/donate/index.htm
 

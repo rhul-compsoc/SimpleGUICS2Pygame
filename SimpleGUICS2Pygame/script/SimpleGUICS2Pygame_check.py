@@ -4,12 +4,12 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(August 16, 2015)
+(January 13, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -23,8 +23,8 @@ import sys
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (August 16, 2015)
-====================================================""")
+    print("""script/SimpleGUICS2Pygame_check.py (January 13, 2016)
+=====================================================""")
 
     # Environment variables
     print('PATH:')
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         import simpleguitk
 
         print(CMD, """WARNING - The package simpleguitk is installed!
-  It is an other implementation of SimpleGUI of CodeSkulptor,
+  It is another implementation of SimpleGUI of CodeSkulptor,
   using Tkinter and some others packages.
   If you don't uninstall it,
   you must be careful with the import of SimpleGUICS2Pygame.

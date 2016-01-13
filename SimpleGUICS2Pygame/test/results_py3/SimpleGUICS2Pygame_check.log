@@ -1,5 +1,5 @@
-script/SimpleGUICS2Pygame_check.py (August 16, 2015)
-====================================================
+script/SimpleGUICS2Pygame_check.py (January 13, 2016)
+=====================================================
 PATH:
   /home/opi/bin
   /usr/local/bin
@@ -39,7 +39,7 @@ import pygame ok - Version 1.9.2a0
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION January 12, 2016
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION January 13, 2016
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

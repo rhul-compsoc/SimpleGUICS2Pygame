@@ -2,7 +2,7 @@
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user19_hLghEN2n2P_0.py" target="_blank">DDR clone</a> by (Emily <span class="surname">Wachtel</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user19_hLghEN2n2P_0.py" target="_blank">DDR clone</a> by (Emily <span class="surname">Wachtel</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3
 
@@ -10,7 +10,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__
 
 
 
-+ Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/Collision8-Bit.ogg
 
@@ -44,7 +44,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_hit.wav
 
@@ -72,7 +72,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3
 
@@ -82,7 +82,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012) (<a rel="nofollow" href="http://www.noiseforfun.com/" target="_blank">NoiseForFun.com</a>, <a rel="nofollow" href="http://www.playonloop.com/" target="_blank">PlayOnLoop.com</a>)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012) (<a rel="nofollow" href="http://www.noiseforfun.com/" target="_blank">NoiseForFun.com</a>, <a rel="nofollow" href="http://www.playonloop.com/" target="_blank">PlayOnLoop.com</a>)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/ateapill.ogg
 
@@ -98,7 +98,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/theygotc
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/fx/engine-1.ogg
 
@@ -147,7 +147,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/musi
 
 
 
-+ <a rel="nofollow" href="http://www.sounddogs.com/" target="_blank">SoundDogs.com</a> (not free) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.sounddogs.com/" target="_blank">SoundDogs.com</a> (not free) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/explosion.mp3
 
@@ -167,7 +167,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3
 

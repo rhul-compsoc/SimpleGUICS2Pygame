@@ -445,7 +445,7 @@ http://www.codeskulptor.org/#user16_1WZB5ONMqmVd8TF.py
 
 
 
-+ Examples of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), Week 3
++ Examples of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), Week 3
 
 http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-hidden_picture.py
 interactive_drawing-hidden_picture.py

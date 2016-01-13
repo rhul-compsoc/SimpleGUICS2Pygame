@@ -2,9 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/__init__ (November 21, 2015)
+simpleguics2pygame/__init__ (January 13, 2016)
 
-Standard Python_ (2 **and** 3) module
+Standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
 
@@ -19,7 +19,7 @@ Require Pygame_
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/

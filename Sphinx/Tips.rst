@@ -8,9 +8,9 @@ It implements a subset of Python 2.
 
 It is the environment used in the course
 `An Introduction to Interactive Programming in Python`_
-(Coursera).
+(Rice University, Coursera).
 
-.. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/course/interactivepython
+.. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/course/interactivepython1
 .. _CodeSkulptor: http://www.codeskulptor.org/
 
 

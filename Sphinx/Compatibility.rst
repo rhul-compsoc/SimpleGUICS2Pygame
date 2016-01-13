@@ -50,7 +50,7 @@ You can use SimpleGUICS2Pygame with Python 2 and Python 3.
   * In Python 2 (and CodeSkulptor): ``3/2 == 1`` and ``3/2.0 == 1.5``
   * In Python 3: ``3/2 == 3/2.0 == 1.5``
 
-  ``3//2 == 1`` and ``3//2.0 == 1.0`` everywehre.
+  ``3//2 == 1`` and ``3//2.0 == 1.0`` **everywehre**.
 
   (You can add
   ``from __future__ import division``
@@ -69,7 +69,7 @@ You can use SimpleGUICS2Pygame with Python 2 and Python 3.
   * In Python 2 (and CodeSkulptor): ``print 'Hello real world!', 42``
   * In Python 3: ``print('Hello real world!', 42)``
 
-  With only one argument, ``print('Hello real world! ' + str(42))`` run everywhere.
+  With only one argument, ``print('Hello real world! ' + str(42))`` run **everywhere**.
 
   (You can add
   ``from __future__ import print_function``
