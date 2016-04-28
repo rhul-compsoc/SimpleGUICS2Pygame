@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2016-01-12
+# Makefile of SimpleGUICS2Pygame --- 2016-04-28
 
 .SUFFIXES:
 
@@ -85,7 +85,7 @@ links:
 ########
 # Test #
 ########
-.PHONY: checkTxt test2 test3 tests
+.PHONY: checkTxt requirement2 requirement3 requirements test2 test3 tests
 
 checkTxt:
 	@$(CHECKTXT) .hgignore Makefile "*.py" "*.rst" "*.txt"
@@ -93,6 +93,22 @@ checkTxt:
 	@$(CHECKTXT) "Sphinx/_static/*.css*"
 	@$(CHECKTXT) "Sphinx/_static/links/*" "Sphinx/_static/links/*/*"
 	@$(CHECKTXT) "SimpleGUICS2Pygame/*.py" "SimpleGUICS2Pygame/*/*.py" "SimpleGUICS2Pygame/*/*/*.py"
+
+
+requirement2:
+	@$(ECHO) "========================="
+	@$(ECHO) "Requirement with Python 2"
+	@$(ECHO) "========================="
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON2) SimpleGUICS2Pygame_check.py
+
+requirement3:
+	@$(ECHO) "========================="
+	@$(ECHO) "Requirement with Python 3"
+	@$(ECHO) "========================="
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON3) SimpleGUICS2Pygame_check.py
+
+requirements: requirement2 requirement3
+
 
 test2:
 	@$(ECHO) "=================="
