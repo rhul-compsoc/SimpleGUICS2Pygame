@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (August 16, 2015)
+simpleguics2pygame/sound (April 28, 2016)
 
 Class Sound.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -108,7 +108,7 @@ class Sound:
         :param url: str
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(url, str), type(url)
 
@@ -210,7 +210,7 @@ class _LocalSound(Sound):
         :param filename: str
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(filename, str), type(filename)
 
@@ -249,7 +249,7 @@ def create_sound(sound_data, sample_rate=8000, num_channels=1):
     :return: Sound
     """
     assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
     assert isinstance(sound_data, tuple) or isinstance(sound_data, list), \
         type(sound_data)
@@ -297,7 +297,7 @@ def load_sound(url):
     :return: Sound
     """
     assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
     assert isinstance(url, str), type(url)
 

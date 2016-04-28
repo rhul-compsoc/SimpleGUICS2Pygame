@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (November 21, 2015)
+simpleguics2pygame/canvas (April 28, 2016)
 
 Class Canvas.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -114,7 +114,7 @@ class Canvas:
         :param canvas_height: int >= 0
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 

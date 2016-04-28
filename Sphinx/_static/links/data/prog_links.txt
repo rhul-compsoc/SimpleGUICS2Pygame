@@ -52,7 +52,7 @@ test_dir.py
 http://www.codeskulptor.org/#user27_x2tpW77htMyEPUz.py
 test_grid.py
 
-http://www.codeskulptor.org/#user40_Spj28CwFZj4oaMx.py
+http://www.codeskulptor.org/#user41_9kUTy61wGRvxDt1.py
 test_image.py
 
 http://www.codeskulptor.org/#user40_IEL5FRBnsbP2ukn.py
@@ -93,11 +93,11 @@ http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
 Frame_example.py
 Very simple canvas example.
 
-http://www.codeskulptor.org/#user33_NBnGYFDBSbzFIuL.py
+http://www.codeskulptor.org/#user41_5bMhgzvyGEqu8B7.py
 keys.py
 Example of simplegui_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user40_vkEF5X2cpcjngiS.py
+http://www.codeskulptor.org/#user41_woIs9K9nLFu8HuO.py
 loader.py
 Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
@@ -113,7 +113,7 @@ http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user41_QcerjZ2K6AZl01R.py
+http://www.codeskulptor.org/#user41_5aWbA47fAsKjeUa.py
 presentation.py
 Little draw images and texts.
 

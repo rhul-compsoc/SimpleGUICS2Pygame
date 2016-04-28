@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (May 31, 2015)
+Test draw images. (April 28, 2016)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -175,7 +175,7 @@ loader = Loader(frame, WIDTH, init)
 loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
                  'double_ship')
 if not SIMPLEGUICS2PYGAME:
-    loader.add_image('http://simpleguics2pygame.readthedocs.org/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',
+    loader.add_image('http://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',
                      'logo')
 loader.load()
 

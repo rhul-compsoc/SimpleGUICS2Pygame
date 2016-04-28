@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (January 13, 2016)
+presentation (April 28, 2016)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -46,7 +46,7 @@ def main():
             print(url)
 
         _VERSION = ''
-        _WEBSITE = 'https://simpleguics2pygame.readthedocs.org/'
+        _WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'
 
     WIDTH = 560
     HEIGHT = 360
@@ -152,7 +152,7 @@ def main():
 if __name__ == '__main__':
     if SIMPLEGUICS2PYGAME and not simplegui._PYGAME_AVAILABLE:
         print("""Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation""")
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
 
         exit(1)
 

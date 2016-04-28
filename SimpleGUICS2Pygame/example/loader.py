@@ -2,15 +2,15 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_loader.Loader use. (May 31, 2015)
+Example of simplegui_lib_loader.Loader use. (April 28, 2016)
 
 Documentation:
-https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_loader.html
+https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_loader.html
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 

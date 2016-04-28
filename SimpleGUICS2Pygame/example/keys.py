@@ -2,15 +2,15 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_keys.Keys use. (May 25, 2014)
+Example of simplegui_lib_keys.Keys use. (April 28, 2016)
 
 Documentation:
-https://simpleguics2pygame.readthedocs.org/en/latest/simplegui_lib_keys.html
+https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_keys.html
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 

@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (October 2nd, 2015)
+simpleguics2pygame/frame (April 28, 2016)
 
 Class Frame.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -265,7 +265,7 @@ class Frame:
         :param control_width: (int or float) >= 0
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert Frame._frame_instance is None, \
             "You can't instantiate two Frame!"
@@ -1092,7 +1092,7 @@ def create_frame(title,
     :return: Frame
     """
     assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
     assert isinstance(title, str), type(title)
 

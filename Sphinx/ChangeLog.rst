@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — January 13, 2016
+* 02.00.00 WORKING VERSION — April 28, 2016
+
+  - Replaced links of *Read the Docs*.
 
   - Added ``--last`` command line option.
   - Added ``test/test_command_line_options.py``.

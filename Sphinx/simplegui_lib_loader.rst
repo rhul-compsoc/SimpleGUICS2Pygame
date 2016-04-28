@@ -6,10 +6,10 @@ http://www.codeskulptor.org/#user40_nMs7JxzimyImAv2.py .)
 Examples of use in :
 
 * `example/loader.py`:
-  http://www.codeskulptor.org/#user40_vkEF5X2cpcjngiS.py
+  http://www.codeskulptor.org/#user41_woIs9K9nLFu8HuO.py
 
 * `test/test_image.py`:
-  http://www.codeskulptor.org/#user40_Spj28CwFZj4oaMx.py
+  http://www.codeskulptor.org/#user41_9kUTy61wGRvxDt1.py
 
 * `example/Spaceship_prototype.py`:
   http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py

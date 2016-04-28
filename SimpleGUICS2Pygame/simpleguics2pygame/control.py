@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (August 19, 2015)
+simpleguics2pygame/control (April 28, 2016)
 
 Classes Control and TextAreaControl.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -150,7 +150,7 @@ class Control:
         :param width: None or int
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 
@@ -434,7 +434,7 @@ class TextAreaControl:
         :param input_width: int or float
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.org/en/latest/#installation"""
+See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 
