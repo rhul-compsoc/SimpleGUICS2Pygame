@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (April 28, 2016)
+simpleplot (April 29, 2016)
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -163,7 +163,7 @@ def plot_bars(framename, width, height, xlabel, ylabel, datasets,
 
         print("""Fake 'plot_bars' function
 because matplotlib is not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
               file=stderr)
 
         return
@@ -303,7 +303,7 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
 
         print("""Fake 'plot_lines' function
 because matplotlib is not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
               file=stderr)
 
         return
@@ -430,7 +430,7 @@ def plot_scatter(framename, width, height, xlabel, ylabel, datasets,
 
         print("""Fake 'plot_scatter' function
 because matplotlib is not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
               file=stderr)
 
         return

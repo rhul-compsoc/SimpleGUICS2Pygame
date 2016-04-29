@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (April 28, 2016)
+simpleguics2pygame/image (April 29, 2016)
 
 Class Image.
 
@@ -93,7 +93,7 @@ class Image:
         :param url: str
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(url, str), type(url)
 
@@ -217,7 +217,7 @@ class _LocalImage(Image):
         :param filename: str
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(filename, str), type(filename)
 
@@ -286,7 +286,7 @@ def load_image(url):
     :return: Image
     """
     assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
     assert isinstance(url, str), type(url)
 

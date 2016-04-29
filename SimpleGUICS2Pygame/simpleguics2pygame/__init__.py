@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/__init__ (April 28, 2016)
+simpleguics2pygame/__init__ (April 29, 2016)
 
 Standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -23,7 +23,7 @@ GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _`Online HTML documentation`: http://simpleguics2pygame.readthedocs.io/
+.. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Pygame: http://www.pygame.org/
 .. _Python: http://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame

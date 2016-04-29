@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (April 28, 2016)
+simpleguics2pygame/canvas (April 29, 2016)
 
 Class Canvas.
 
@@ -114,7 +114,7 @@ class Canvas:
         :param canvas_height: int >= 0
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 

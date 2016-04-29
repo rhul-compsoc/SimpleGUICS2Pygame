@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (April 28, 2016)
+presentation (April 29, 2016)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -152,7 +152,7 @@ def main():
 if __name__ == '__main__':
     if SIMPLEGUICS2PYGAME and not simplegui._PYGAME_AVAILABLE:
         print("""Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
 
         exit(1)
 

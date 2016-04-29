@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (April 28, 2016)
+simpleguics2pygame/frame (April 29, 2016)
 
 Class Frame.
 
@@ -265,7 +265,7 @@ class Frame:
         :param control_width: (int or float) >= 0
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert Frame._frame_instance is None, \
             "You can't instantiate two Frame!"
@@ -1092,7 +1092,7 @@ def create_frame(title,
     :return: Frame
     """
     assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
     assert isinstance(title, str), type(title)
 

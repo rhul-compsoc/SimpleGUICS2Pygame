@@ -38,7 +38,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads .)
 | and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _`Online HTML documentation`: http://simpleguics2pygame.readthedocs.io/
+.. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Python: http://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
 
@@ -159,7 +159,7 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user41_5aWbA47fAsKjeUa.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user41_TIM2VGlZELIi1Xc.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 
@@ -264,9 +264,9 @@ Summary
 
    ChangeLog
 
-   List of online programs <http://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html>
-   List of online images <http://simpleguics2pygame.readthedocs.io/en/latest/_static/links/img_links.html>
-   List of online sounds <http://simpleguics2pygame.readthedocs.io/en/latest/_static/links/snd_links.html>
+   List of online programs <https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html>
+   List of online images <https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/img_links.html>
+   List of online sounds <https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/snd_links.html>
 
 
 

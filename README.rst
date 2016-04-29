@@ -36,7 +36,7 @@ and *standard Python* with this module (and Pygame).
 | and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _`Online HTML documentation`: http://simpleguics2pygame.readthedocs.io/
+.. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Python: http://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
 
@@ -58,11 +58,11 @@ If you don't find answer, you can ask question like this_.
 Finally you can email me.
 I will try to help you with pleasure.
 
-.. _`documentation page`: http://simpleguics2pygame.readthedocs.io/
-.. _Compatibility: http://simpleguics2pygame.readthedocs.io/en/latest/Compatibility.html
-.. _`modules page`: http://simpleguics2pygame.readthedocs.io/en/latest/modules.html
+.. _`documentation page`: https://simpleguics2pygame.readthedocs.io/
+.. _Compatibility: https://simpleguics2pygame.readthedocs.io/en/latest/Compatibility.html
+.. _`modules page`: https://simpleguics2pygame.readthedocs.io/en/latest/modules.html
 .. _this: https://stackoverflow.com/questions/16387770/how-to-integrate-simplegui-with-python-2-7-and-3-0-shell
-.. _Tips: http://simpleguics2pygame.readthedocs.io/en/latest/Tips.html
+.. _Tips: https://simpleguics2pygame.readthedocs.io/en/latest/Tips.html
 
 
 Installation
@@ -148,7 +148,7 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user41_5aWbA47fAsKjeUa.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user41_TIM2VGlZELIi1Xc.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
 
 
@@ -236,11 +236,11 @@ Note that
      There exist some **little differences between SimpleGUICS2Pygame and SimpleGUI** of CodeSkulptor.
      See Compatibility_ notes.
 
-     .. _`Download medias`: http://simpleguics2pygame.readthedocs.io/en/latest/Tips.html#download-medias
-     .. _`load_image()`: http://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.load_image
-     .. _`_load_local_image()`: http://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image._load_local_image
-     .. _`_load_local_sound()`: http://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound._load_local_sound
-     .. _`load_sound()`: http://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound.load_sound
+     .. _`Download medias`: https://simpleguics2pygame.readthedocs.io/en/latest/Tips.html#download-medias
+     .. _`load_image()`: https://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.load_image
+     .. _`_load_local_image()`: https://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image._load_local_image
+     .. _`_load_local_sound()`: https://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound._load_local_sound
+     .. _`load_sound()`: https://simpleguics2pygame.readthedocs.io/en/latest/simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound.load_sound
 
 * SimpleGUITk_ (David Holm) is *another implementation* of SimpleGUI of CodeSkulptor, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
 
@@ -255,7 +255,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — April 28, 2016
+* 02.00.00 WORKING VERSION — April 29, 2016
 
   - Replaced links of *Read the Docs*.
 

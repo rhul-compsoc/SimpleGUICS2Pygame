@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (April 28, 2016)
+simpleguics2pygame/control (April 29, 2016)
 
 Classes Control and TextAreaControl.
 
@@ -150,7 +150,7 @@ class Control:
         :param width: None or int
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 
@@ -434,7 +434,7 @@ class TextAreaControl:
         :param input_width: int or float
         """
         assert _PYGAME_AVAILABLE, """Pygame not available!
-See http://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 
