@@ -159,6 +159,10 @@ You can also **redistribute** your own version (keeping the GPL license).
 
 Complete **sources** on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 
+See developers_'page.
+
+.. _developers: https://simpleguics2pygame.readthedocs.io/en/latest/Developers.html
+
 
 Author |OPi|
 ============
@@ -256,6 +260,8 @@ Note that
 Changes
 =======
 * 02.00.00 WORKING VERSION — May 18, 2016
+
+  - Added a developer's page in documentation.
 
   - Replaced links of *Read the Docs*.
 

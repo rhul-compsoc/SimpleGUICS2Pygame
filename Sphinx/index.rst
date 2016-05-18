@@ -170,6 +170,11 @@ You can also **redistribute** your own version (keeping the `GPL license`_).
 
 Complete **sources** on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 
+See developers_'page.
+
+.. _developers: Developers.html
+.. _`GPL license`: License.html
+
 
 Author |OPi|
 ------------
@@ -191,7 +196,6 @@ However you can **support me** financially by donating.
 Go to the link |Donate|_. **Thank you!**
 
 .. _Donate: http://www.opimedia.be/donate/index.html
-.. _`GPL license`: License.html
 
 .. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
 
@@ -261,6 +265,8 @@ Summary
    License
 
    Bugs
+
+   Developers
 
    ChangeLog
 

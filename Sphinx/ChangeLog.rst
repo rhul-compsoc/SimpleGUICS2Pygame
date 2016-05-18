@@ -2,6 +2,8 @@ ChangeLog
 =========
 * 02.00.00 WORKING VERSION — May 18, 2016
 
+  - Added a developer's page in documentation.
+
   - Replaced links of *Read the Docs*.
 
   - Added ``--last`` command line option.
