@@ -248,8 +248,8 @@ Note that
 
 
 
-Summary
-=======
+Table of contents
+=================
 
 .. toctree::
    :maxdepth: 3
