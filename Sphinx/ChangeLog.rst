@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — April 29, 2016
+* 02.00.00 WORKING VERSION — May 18, 2016
 
   - Replaced links of *Read the Docs*.
 
