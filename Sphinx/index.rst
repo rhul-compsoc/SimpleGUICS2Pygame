@@ -268,6 +268,8 @@ Summary
    List of online images <https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/img_links.html>
    List of online sounds <https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/snd_links.html>
 
+   Index <https://simpleguics2pygame.readthedocs.io/en/latest/genindex.html>
+
 
 
 Indices and tables
