@@ -183,7 +183,7 @@ However you can **support me** financially by donating.
 
 Go to the link |Donate|_. **Thank you!**
 
-.. _Donate: http://www.opimedia.be/donate/index.html
+.. _Donate: http://www.opimedia.be/donate/
 
 .. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
 
@@ -259,7 +259,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — May 18, 2016
+* 02.00.00 WORKING VERSION — August 1st, 2016
 
   - Added a developer's page in documentation.
 

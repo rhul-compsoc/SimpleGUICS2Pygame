@@ -39,6 +39,6 @@ However you can **support me** financially by donating.
 
 Go to the link |Donate|_. **Thank you!**
 
-.. _Donate: http://www.opimedia.be/donate/index.html
+.. _Donate: http://www.opimedia.be/donate/
 
 .. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
