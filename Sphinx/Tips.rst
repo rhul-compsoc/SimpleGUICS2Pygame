@@ -3,10 +3,10 @@ Tips
 
 CodeSkulptor
 ------------
-CodeSkulptor_ is a Python implementation running in a browser.
+CodeSkulptor_ is a Python implementation (in JavaScript) running in a browser.
 It implements a subset of Python 2.
 
-It is the environment used in the course
+It is the environment used in the MOOC
 `An Introduction to Interactive Programming in Python`_
 (Rice University, Coursera).
 
@@ -20,7 +20,7 @@ you need to change
 by
 ``import SimpleGUICS2Pygame.simpleguics2pygame as simplegui``.
 
-**You can write** this
+**The right way to do** is to write this
 
 .. code-block:: python
 
@@ -29,7 +29,12 @@ by
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-and your program **run both** in CodeSkulptor and *standard Python*.
+and your program **runs both** in CodeSkulptor and *standard Python*.
+
+So, if your program runs in CodeSkulptor, it imports ``simplegui``.
+Else, an ``ImportError`` exception will be raised,
+and then it will imports ``SimpleGUICS2Pygame.simpleguics2pygame``
+and it renamed to ``simplegui``.
 
 
 | In this package a little script_ ``cs2both.py`` can help to quickly make this changement on program downloaded from CodeSkulptor.
@@ -197,8 +202,8 @@ But if you want just run a program (or run faster),
 then all asserts is *inactive*.
 
 
-Ressources: images, sounds, programs
-------------------------------------
+Ressources: images, sounds and example programs
+-----------------------------------------------
 Online images_ & sounds_ links
 
 .. _images: _static/links/img_links.html

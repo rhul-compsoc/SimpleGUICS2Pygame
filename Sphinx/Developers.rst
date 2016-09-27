@@ -12,7 +12,7 @@ Hierarchy of files on Bitbucket
 -------------------------------
 * `SimpleGUICS2Pygame/`__: **source** code
 
-  * `example/`_: little programs and games
+  * `example/`_: little example programs and games
   * `script/`_
 
     * `cs2both.py`_: Python program to modify automatically your CodeSkulptor programs to run with SimpleGUICS2Pygame
@@ -20,7 +20,7 @@ Hierarchy of files on Bitbucket
     * `SimpleGUICS2Pygame_check.py`_: Python program to **check installation**
 
   * `simpleguics2pygame/`_: **main module** (splitted in several files) that reimplementing the ``simpleguics2pygame`` module of CodeSkulptor
-  * `test/`_: test files mainly to check compatibility with CodeSkulptor
+  * `test/`_: **test files**, mainly to check compatibility with CodeSkulptor
   * `codeskulptor.py`_: module that reimplementing the ``codeskulptor`` module of CodeSkulptor
   * `numeric.py`_: module that reimplementing the ``numeric`` module of CodeSkulptor
   * `simpleplot.py`_: module that reimplementing the ``simpleplot`` module of CodeSkulptor
@@ -32,7 +32,7 @@ Hierarchy of files on Bitbucket
   * …
 
 * `stuffs/`_: unimportant stuff
-* `_dist/`_: current and previous versions of installation **archive files**
+* `_dist/`_: last and previous versions of installation **archive files**
 * `_img/`_: logos
 
 * `Makefile`_: to build documentation, distributions, etc.
