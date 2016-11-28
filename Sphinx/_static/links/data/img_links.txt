@@ -1,4 +1,4 @@
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="surname">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="surname">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_background.png
 
@@ -10,7 +10,7 @@ http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_second_
 
 
 
-+ Asteroid (Kim <span class="surname">Lathrop</span>) used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ Asteroid (Kim <span class="surname">Lathrop</span>) used in <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png
 
@@ -78,7 +78,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/space%20station.png
 
 
 
-+ Examples used in <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ Examples used in <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/asteroid1.opengameart.warspawn.png
 
@@ -104,7 +104,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
 
@@ -206,7 +206,7 @@ T-shirt memory
 
 
 
-+ <a rel="nofollow" href="http://www.jfitz.com/cards/" target="_blank">Playing Cards</a> (jfitz.com) used in <a href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.jfitz.com/cards/" target="_blank">Playing Cards</a> (jfitz.com) used in <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png
 52 cards
@@ -216,7 +216,7 @@ Red verso
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/pang/9v5ehnO.png
 
@@ -240,7 +240,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/pang/Vlt8FBC.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/board.gif
 
@@ -248,7 +248,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/edibles.
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/backdrop.jpg
 
@@ -300,7 +300,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/descent/1p_mode.png
 

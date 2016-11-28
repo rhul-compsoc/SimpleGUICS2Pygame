@@ -251,7 +251,7 @@ Note that
 .. warning::
    * simplegui_ (Florian Berger) is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
 
-   .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/course/interactivepython1
+   .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/learn/interactive-python-1
    .. _simplegui: https://pypi.python.org/pypi/simplegui
    .. _`SimpleGUI of CodeSkulptor`: http://www.codeskulptor.org/docs.html#Frames
    .. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk
@@ -259,7 +259,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — September 27, 2016
+* 02.00.00 WORKING VERSION — Novembre 28, 2016
 
   - Added a developer's page in documentation.
 

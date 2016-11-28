@@ -309,7 +309,7 @@ http://www.codeskulptor.org/#user19_Sd5A76hlsV_0.py
 
 
 
-+ By students of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013 &ndash;&nbsp;2016)
++ By students of <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013 &ndash;&nbsp;2016)
 
 http://www.codeskulptor.org/#user26_v7F8DXdgeO_0.py
 3D Engine (Kieron <span class="surname">Wilkinson</span>)
@@ -447,7 +447,7 @@ http://www.codeskulptor.org/#user16_1WZB5ONMqmVd8TF.py
 
 
 
-+ Examples of <a rel="nofollow" href="https://www.coursera.org/course/interactivepython1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), Week 3
++ Examples of <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013), Week 3
 
 http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-hidden_picture.py
 interactive_drawing-hidden_picture.py
