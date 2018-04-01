@@ -3,12 +3,12 @@
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(December 13, 2013)
+(April 1st, 2018)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2018 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -31,7 +31,7 @@ except ImportError:
 #   - Python 3.3.2 (with -O option)
 #   - SimpleGUICS2Pygame 00.70.00 (with Pygame 1.9.2pre)
 #   - SimpleGUITk 1.1.1
-#       by David Holm, https://pypi.python.org/pypi/SimpleGUITk/
+#       by David Holm, https://pypi.org/project/SimpleGUITk
 #  https://class.coursera.org/interactivepython-002/forum/thread?thread_id=5767
 all_results = {'Chrome':
                ({1: 40, 10: 40, 20: 38, 30: 35, 40: 33, 50: 35, 75: 35,

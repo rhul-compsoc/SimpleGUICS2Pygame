@@ -33,7 +33,7 @@ and *standard Python* with this module (and Pygame).
 (You can also see the online `SimpleGUI documentation on CodeSkulptor`_.)
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
-| and on **PyPI**: https://pypi.python.org/pypi/SimpleGUICS2Pygame .
+| and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
@@ -94,7 +94,7 @@ require Pygame_
 (and must be installed separately).
 
 .. _matplotlib: http://matplotlib.org/
-.. _pip: https://pypi.python.org/pypi/pip
+.. _pip: https://pypi.org/project/pip
 .. _Pygame: http://www.pygame.org/
 
 
@@ -190,7 +190,7 @@ Go to the link |Donate|_. **Thank you!**
 
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
+Copyright (C) 2013, 2014, 2015, 2016, 2018 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -252,14 +252,14 @@ Note that
    * simplegui_ (Florian Berger) is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
 
    .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/learn/interactive-python-1
-   .. _simplegui: https://pypi.python.org/pypi/simplegui
+   .. _simplegui: https://pypi.org/project/simplegui
    .. _`SimpleGUI of CodeSkulptor`: http://www.codeskulptor.org/docs.html#Frames
-   .. _SimpleGUITk: https://pypi.python.org/pypi/SimpleGUITk
+   .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk
 
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — Novembre 28, 2016
+* 02.00.00 WORKING VERSION — April 1st, 2018
 
   - Added a developer's page in documentation.
 

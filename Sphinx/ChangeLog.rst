@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — Novembre 28, 2016
+* 02.00.00 WORKING VERSION — April 1st, 2018
 
   - Added a developer's page in documentation.
 
