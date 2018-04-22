@@ -259,7 +259,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — April 1st, 2018
+* 02.00.00 WORKING VERSION — April 22, 2018
 
   - Added a developer's page in documentation.
 
