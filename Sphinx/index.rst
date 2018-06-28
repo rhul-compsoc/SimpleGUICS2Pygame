@@ -159,7 +159,7 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user41_TIM2VGlZELIi1Xc.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user44_XaGVASfiYWdEymp.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 
@@ -176,15 +176,18 @@ See developers_'page.
 .. _`GPL license`: License.html
 
 
-Author |OPi|
-------------
-| Olivier Pirson OPi — http://www.opimedia.be/
-| olivier_pirson_opi@yahoo.fr
-|
-| Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia
-|
+Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
+-------------------------------------------------------
+🌐 Website: http://www.opimedia.be/
 
-.. |OPi| image:: _static/img/OPi_t.png
+💾 Bitbucket: https://bitbucket.org/OPiMedia/
+
+* 📧 olivier.pirson.opi@gmail.com
+* Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
+* diaspora* (Framasphere*): https://framasphere.org/u/opimedia
+* other profiles: http://www.opimedia.be/about/
+
+.. |OPi| image:: http://www.opimedia.be/_png/OPi.png
 
 
 Support me

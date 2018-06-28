@@ -43,6 +43,7 @@ and *standard Python* with this module (and Pygame).
 .. |SimpleGUICS2Pygame| image:: https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png
 
 
+
 If you have some problem
 ========================
 First, read this short main `documentation page`_,
@@ -63,6 +64,7 @@ I will try to help you with pleasure.
 .. _`modules page`: https://simpleguics2pygame.readthedocs.io/en/latest/modules.html
 .. _this: https://stackoverflow.com/questions/16387770/how-to-integrate-simplegui-with-python-2-7-and-3-0-shell
 .. _Tips: https://simpleguics2pygame.readthedocs.io/en/latest/Tips.html
+
 
 
 Installation
@@ -134,6 +136,7 @@ See `Complete installation on Window$ in few steps`_.
 .. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
 
+
 Examples of CodeSkulptor and SimpleGUICS2Pygame use
 ===================================================
 You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sources archives.
@@ -148,8 +151,9 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user41_TIM2VGlZELIi1Xc.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user44_XaGVASfiYWdEymp.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
+
 
 
 Message to developers
@@ -164,15 +168,20 @@ See developers_'page.
 .. _developers: https://simpleguics2pygame.readthedocs.io/en/latest/Developers.html
 
 
-Author |OPi|
-============
-| Olivier Pirson OPi — http://www.opimedia.be/
-| olivier_pirson_opi@yahoo.fr
-|
-| https://bitbucket.org/OPiMedia
-| https://twitter.com/OPirson — https://framasphere.org/u/opimedia
+
+Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
+=======================================================
+🌐 Website: http://www.opimedia.be/
+
+💾 Bitbucket: https://bitbucket.org/OPiMedia/
+
+* 📧 olivier.pirson.opi@gmail.com
+* Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
+* diaspora* (Framasphere*): https://framasphere.org/u/opimedia
+* other profiles: http://www.opimedia.be/about/
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
+
 
 
 Support me
@@ -186,6 +195,7 @@ Go to the link |Donate|_. **Thank you!**
 .. _Donate: http://www.opimedia.be/donate/
 
 .. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
+
 
 
 License: GPLv3_ |GPLv3|
@@ -208,6 +218,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 .. _GPLv3: http://www.gnu.org/licenses/gpl.html
 
 .. |GPLv3| image:: http://www.gnu.org/graphics/gplv3-88x31.png
+
 
 
 Note that
@@ -257,9 +268,10 @@ Note that
    .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk
 
 
+
 Changes
 =======
-* 02.00.00 WORKING VERSION — April 22, 2018
+* 02.00.00 WORKING VERSION — June 28, 2018
 
   - Added a developer's page in documentation.
 

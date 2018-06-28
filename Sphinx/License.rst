@@ -1,6 +1,6 @@
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
+Copyright (C) 2013, 2014, 2015, 2016, 2018 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,15 +20,18 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 .. |GPLv3| image:: _static/img/gplv3-88x31.png
 
 
-Author |OPi|
-------------
-| Olivier Pirson OPi — http://www.opimedia.be/
-| olivier_pirson_opi@yahoo.fr
-|
-| Other free softwares on my Bitbucket account: https://bitbucket.org/OPiMedia
-|
+Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
+-------------------------------------------------------
+🌐 Website: http://www.opimedia.be/
 
-.. |OPi| image:: _static/img/OPi_t.png
+💾 Bitbucket: https://bitbucket.org/OPiMedia/
+
+* 📧 olivier.pirson.opi@gmail.com
+* Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
+* diaspora* (Framasphere*): https://framasphere.org/u/opimedia
+* other profiles: http://www.opimedia.be/about/
+
+.. |OPi| image:: http://www.opimedia.be/_png/OPi.png
 
 
 Support me

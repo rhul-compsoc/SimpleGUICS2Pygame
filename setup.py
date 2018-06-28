@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (January 6, 2016)
+Setup of SimpleGUICS2Pygame package (June 28, 2018)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2016, 2018 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -28,7 +28,7 @@ setup(name='SimpleGUICS2Pygame',
       long_description=io.open('README.rst', encoding='utf-8').read(),
 
       author='Olivier Pirson',
-      author_email='olivier_pirson_opi@yahoo.fr',
+      author_email='olivier.pirson.opi@gmail.com',
       url=_WEBSITE,
 
       packages=['SimpleGUICS2Pygame'],
