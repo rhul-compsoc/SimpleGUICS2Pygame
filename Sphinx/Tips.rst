@@ -96,7 +96,7 @@ The color parameter used by drawing functions must be in the following formats:
 * ``'#rgb'`` with r, g, b  hexadecimal numbers on 1 figure
 * ``'rbg(red,blue,green)'`` with red, blue, green 0 <= integer <= 255
 * ``'rgba(red,blue,green,alpha)'`` with red, blue, green 0 <= integer <= 255 and alpha between 0 and 1
-* a constant name in this list http://www.w3schools.com/html/html_colornames.asp .
+* a constant name in this list https://www.w3schools.com/colors/colors_names.asp .
 
 See the official HTML colors:
 http://www.opimedia.be/DS/mementos/colors.htm .

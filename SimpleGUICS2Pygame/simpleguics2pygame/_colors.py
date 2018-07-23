@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (November 23, 2015)
+simpleguics2pygame/_colors (July 23, 2018)
 
 Colors helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2018 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -188,7 +188,7 @@ if _PYGAME_AVAILABLE:
     http://www.w3.org/TR/css3-color/#html4
     and http://www.w3.org/TR/css3-color/#svg-color
 
-    List from http://www.w3schools.com/html/html_colornames.asp
+    List from https://www.w3schools.com/colors/colors_names.asp
     """
 else:
     _SIMPLEGUICOLOR_TO_PYGAMECOLOR = {'_default': None}

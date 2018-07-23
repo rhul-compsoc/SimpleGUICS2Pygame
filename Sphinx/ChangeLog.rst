@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — June 28, 2018
+* 02.00.00 WORKING VERSION — July 23, 2018
 
   - Added a developer's page in documentation.
 
@@ -39,7 +39,7 @@ ChangeLog
 
   - Corrected ``test/test_sound.py``.
 
-  - Updated documentation. (Thanks to `John Gray`.)
+  - Updated documentation. (Thanks to `John Gray` and `Tom Keller`.)
 
   - Updated media and CodeSkulptor programs links.
 
