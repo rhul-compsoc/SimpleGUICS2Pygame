@@ -2,7 +2,8 @@ ChangeLog
 =========
 * 02.00.00 WORKING VERSION — January 29, 2020
 
-  - Corrected files included in MANIFEST.in for distribution building.
+  - Converted from Mercurial version control system to Git.
+  - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
 
   - Added a developer's page in documentation.
 

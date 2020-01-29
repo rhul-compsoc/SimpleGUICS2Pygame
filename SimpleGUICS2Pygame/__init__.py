@@ -6,6 +6,7 @@ SimpleGUICS2Pygame package (January 29, 2020)
 It is primarily a standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
+This is in fact a package also with other modules adapted from CodeSkulptor.
 
 Require Pygame_
 (except for the Timer class)
@@ -27,10 +28,10 @@ GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2018, 2020 Olivier Pirson
 http://www.opimedia.be/
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
-.. _matplotlib: http://matplotlib.org/
+.. _matplotlib: https://matplotlib.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
-.. _Pygame: http://www.pygame.org/
-.. _Python: http://www.python.org/
+.. _Pygame: https://www.pygame.org/
+.. _Python: https://www.python.org/
 .. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
 * v.02.00.00 WORKING VERSION --- January 29, 2020
@@ -88,5 +89,5 @@ Website of the project.
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
 #

@@ -13,9 +13,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-.. _GPLv3: http://www.gnu.org/licenses/gpl.html
+.. _GPLv3: https://www.gnu.org/licenses/gpl.html
 
 .. |GPLv3| image:: _static/img/gplv3-88x31.png
 

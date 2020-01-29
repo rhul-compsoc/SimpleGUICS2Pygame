@@ -1,0 +1,17 @@
+todo.txt
+
+dist/*
+build/*
+SimpleGUICS2Pygame.egg-info/*
+
+Sphinx/_build/*
+
+
+
+
+*.pyc
+*.pyo
+
+__pycache__/*
+
+*~

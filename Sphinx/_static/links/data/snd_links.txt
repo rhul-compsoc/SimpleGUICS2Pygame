@@ -147,7 +147,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/musi
 
 
 
-+ <a rel="nofollow" href="http://www.sounddesigners.org/" target="_blank">Sound Designers .Org</a>: <a rel="nofollow" href="http://www.sounddesigners.org/sonotheque.html" target="_blank">La SonothÃ¨que</a>
++ <a rel="nofollow" href="http://www.sounddesigners.org/" target="_blank">Sound Designers .Org</a>: <a rel="nofollow" href="http://www.sounddesigners.org/sonotheque.html" target="_blank">La Sonothèque</a>
 
 
 

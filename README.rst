@@ -7,6 +7,7 @@ SimpleGUICS2Pygame
 It is primarily a standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
+This is in fact a package also with other modules adapted from CodeSkulptor.
 
 Simply change
 
@@ -37,10 +38,12 @@ and *standard Python* with this module (and Pygame).
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
-.. _Python: http://www.python.org/
+.. _Python: https://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
 
 .. |SimpleGUICS2Pygame| image:: https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png
+
+|
 
 
 
@@ -64,6 +67,8 @@ I will try to help you with pleasure.
 .. _`modules page`: https://simpleguics2pygame.readthedocs.io/en/latest/modules.html
 .. _this: https://stackoverflow.com/questions/16387770/how-to-integrate-simplegui-with-python-2-7-and-3-0-shell
 .. _Tips: https://simpleguics2pygame.readthedocs.io/en/latest/Tips.html
+
+|
 
 
 
@@ -95,9 +100,11 @@ Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (excep
 require Pygame_
 (and must be installed separately).
 
-.. _matplotlib: http://matplotlib.org/
+.. _matplotlib: https://matplotlib.org/
 .. _pip: https://pypi.org/project/pip
-.. _Pygame: http://www.pygame.org/
+.. _Pygame: https://www.pygame.org/
+
+|
 
 
 Test installation
@@ -112,9 +119,11 @@ and
 
 You can also test your Pygame installation alone with the other little script_ ``pygame_check.py``.
 
-.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
-.. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
-.. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
+.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
+.. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
+.. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
+
+|
 
 
 On Window$
@@ -135,13 +144,15 @@ See `Complete installation on Window$ in few steps`_.
 .. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
 .. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
+|
+
 
 
 Examples of CodeSkulptor and SimpleGUICS2Pygame use
 ===================================================
 You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sources archives.
 
-.. _`SimpleGUICS2Pygame/example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/example/
+.. _`SimpleGUICS2Pygame/example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/example/
 
 Or online:
 `Python programs running in CodeSkulptor`_ .
@@ -151,8 +162,10 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user44_XaGVASfiYWdEymp.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user47_vA52sTrGMElpRNd.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
+
+|
 
 
 
@@ -166,6 +179,8 @@ Complete **sources** on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2py
 See developers_'page.
 
 .. _developers: https://simpleguics2pygame.readthedocs.io/en/latest/Developers.html
+
+|
 
 
 
@@ -183,6 +198,8 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
 
+|
+
 
 
 Support me
@@ -196,6 +213,8 @@ Go to the link |Donate|_. **Thank you!**
 .. _Donate: http://www.opimedia.be/donate/
 
 .. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
+
+|
 
 
 
@@ -214,11 +233,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-.. _GPLv3: http://www.gnu.org/licenses/gpl.html
+.. _GPLv3: https://www.gnu.org/licenses/gpl.html
 
-.. |GPLv3| image:: http://www.gnu.org/graphics/gplv3-88x31.png
+.. |GPLv3| image:: https://www.gnu.org/graphics/gplv3-88x31.png
+
+|
 
 
 
@@ -268,13 +289,16 @@ Note that
    .. _`SimpleGUI of CodeSkulptor`: http://www.codeskulptor.org/docs.html#Frames
    .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk
 
+|
+
 
 
 Changes
 =======
 * 02.00.00 WORKING VERSION — January 29, 2020
 
-  - Corrected files included in MANIFEST.in for distribution building.
+  - Converted from Mercurial version control system to Git.
+  - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
 
   - Added a developer's page in documentation.
 

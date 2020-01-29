@@ -5,12 +5,12 @@ Module
   to make_img_links.py ,
      make_prog_links.py ,
      make_snd_links.py
-(January 12, 2016)
+(January 29, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -172,7 +172,7 @@ def read_txt(filename):
 
     data = []
 
-    fin = open(filename)
+    fin = open(filename, encoding='latin-1')
     lines = [line.strip() for line in fin]
     fin.close()
 

@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (April 29, 2016)
+simpleguics2pygame/canvas (January 29 29, 2020)
 
 Class Canvas.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -197,7 +197,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         Supported formats are supported formats by Pygame to save:
         TGA, PNG, JPEG or BMP
-        (see http://www.pygame.org/docs/ref/image.html#pygame.image.save ).
+        (see https://www.pygame.org/docs/ref/image.html#pygame.image.save ).
 
         If `filename` extension is not recognized
         then TGA format is used.

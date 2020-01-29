@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (April 29, 2016)
+simpleguics2pygame/image (January 29, 2020)
 
 Class Image.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -270,7 +270,7 @@ def load_image(url):
 
     Supported formats are supported formats by Pygame to load:
     PNG, JPG, GIF (not animated)...
-    (see http://www.pygame.org/docs/ref/image.html ).
+    (see https://www.pygame.org/docs/ref/image.html ).
 
     (CodeSkulptor may supported other formats,
     dependant on browser support.)

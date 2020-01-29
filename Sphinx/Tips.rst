@@ -41,7 +41,7 @@ and it renamed to ``simplegui``.
 | Run ``python cs2both.py yourprogram.py``.
 | The file ``yourprogram.py`` is copied to ``yourprogram.py.bak`` before changing.
 
-.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
+.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
 
 |
 |

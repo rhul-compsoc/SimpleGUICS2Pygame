@@ -4,6 +4,7 @@ SimpleGUICS2Pygame package's documentation
 It is primarily a standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
 (a browser Python interpreter).
+This is in fact a package also with other modules adapted from CodeSkulptor.
 
 Simply change
 
@@ -29,9 +30,7 @@ and *standard Python* with this module (and Pygame).
 `Online HTML documentation`_ on **Read The Docs**.
 (You can also see the online `SimpleGUI documentation on CodeSkulptor`_.)
 
-(**This is the online HTML documentation of the working version.**
-You can find the HTML documentation of the last stable version in the Bitbucket download section
-https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads .)
+**This is the online HTML documentation of the working version 2.**
 
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -39,7 +38,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads .)
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
-.. _Python: http://www.python.org/
+.. _Python: https://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
 
 .. |SimpleGUICS2Pygame| image:: _static/img/SimpleGUICS2Pygame_64x64_t.png
@@ -97,9 +96,9 @@ Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (excep
 require Pygame_
 (and must be installed separately).
 
-.. _matplotlib: http://matplotlib.org/
+.. _matplotlib: https://matplotlib.org/
 .. _pip: https://pypi.org/project/pip
-.. _Pygame: http://www.pygame.org/
+.. _Pygame: https://www.pygame.org/
 
 
 Test installation
@@ -114,9 +113,9 @@ and
 
 You can also test your Pygame installation alone with the other little script_ ``pygame_check.py``.
 
-.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
-.. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
-.. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
+.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
+.. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
+.. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
 
 
 Update
@@ -149,7 +148,7 @@ Examples of CodeSkulptor and SimpleGUICS2Pygame use
 ---------------------------------------------------
 You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sources archives.
 
-.. _`SimpleGUICS2Pygame/example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/example/
+.. _`SimpleGUICS2Pygame/example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/example/
 
 Or online:
 `Python programs running in CodeSkulptor`_ .
@@ -159,7 +158,7 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user44_XaGVASfiYWdEymp.py
+.. _`presentation.py`: http://www.codeskulptor.org/#user47_vA52sTrGMElpRNd.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 
@@ -176,8 +175,8 @@ See developers_'page.
 .. _`GPL license`: License.html
 
 
-Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
--------------------------------------------------------
+Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
+------------------------------------------------------------------
 🌐 Website: http://www.opimedia.be/
 
 💾 Bitbucket: https://bitbucket.org/OPiMedia/
@@ -185,6 +184,7 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
 * 📧 olivier.pirson.opi@gmail.com
 * Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
 * diaspora* (Framasphere*): https://framasphere.org/u/opimedia
+* 👨‍💻 LinkedIn: https://www.linkedin.com/in/olivierpirson/ — CV: http://www.opimedia.be/CV/English.html
 * other profiles: http://www.opimedia.be/about/
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png

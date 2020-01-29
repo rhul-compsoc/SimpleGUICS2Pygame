@@ -40,24 +40,24 @@ Hierarchy of files on Bitbucket
 * …
 
 
-.. __: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/
-.. _`example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/example/
-.. _`script/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/
-.. _`cs2both.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/cs2both.py
-.. _`pygame_check.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/pygame_check.py
-.. _`SimpleGUICS2Pygame_check.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py
-.. _`simpleguics2pygame/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/simpleguics2pygame/
-.. _`test/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/test/
-.. _`codeskulptor.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/codeskulptor.py
-.. _`numeric.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/numeric.py
-.. _`simpleplot.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/SimpleGUICS2Pygame/simpleplot.py
-.. _`Sphinx/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/Sphinx/
-.. _`_static/links/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/Sphinx/_static/links/
-.. _`stuffs/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/stuffs/
-.. _`_dist/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/_dist/
-.. _`_img/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/_img/
-.. _`Makefile`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/Makefile
-.. _`setup.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/default/setup.py
+.. __: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/
+.. _`example/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/example/
+.. _`script/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
+.. _`cs2both.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/cs2both.py
+.. _`pygame_check.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/pygame_check.py
+.. _`SimpleGUICS2Pygame_check.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py
+.. _`simpleguics2pygame/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/simpleguics2pygame/
+.. _`test/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/
+.. _`codeskulptor.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/codeskulptor.py
+.. _`numeric.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/numeric.py
+.. _`simpleplot.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/simpleplot.py
+.. _`Sphinx/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/Sphinx/
+.. _`_static/links/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/Sphinx/_static/links/
+.. _`stuffs/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/stuffs/
+.. _`_dist/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/_dist/
+.. _`_img/`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/_img/
+.. _`Makefile`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/Makefile
+.. _`setup.py`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/setup.py
 
 
 .. warning::

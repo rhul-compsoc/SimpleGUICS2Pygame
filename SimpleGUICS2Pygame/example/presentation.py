@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (June 28, 2018)
+presentation (January 29, 2020)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -10,7 +10,7 @@ a short presentation of SimpleGUICS2Pygame package.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2016, 2018 Olivier Pirson
+GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -49,7 +49,7 @@ def main():
         _WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'
 
     WIDTH = 560
-    HEIGHT = 360
+    HEIGHT = 400
 
     def draw_about_handler(canvas):
         """
@@ -76,12 +76,14 @@ def main():
             ('It is primarily a standard Python (2 and 3) module',
              'reimplementing the SimpleGUI particular module',
              'of CodeSkulptor (a browser Python interpreter).',
+             'This is in fact a package also with other modules',
+             'adapted from CodeSkulptor.',
              None,
              'Require malplotlib for simpleplot.',
              'Require Pygame for simpleguics2pygame.',
              None,
              'GPLv3',
-             'Copyright (C) 2013 - 2018 Olivier Pirson',
+             'Copyright (C) 2013 - 2020 Olivier Pirson',
              'Olivier Pirson OPi --- http://www.opimedia.be/',
              'olivier.pirson.opi@gmail.com')):
             if line is not None:
@@ -122,14 +124,14 @@ def main():
     frame.add_button('CodeSkulptor',
                      lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
     frame.add_button('matplolib',
-                     lambda: open_new_tab('http://matplotlib.org/'), 180)
+                     lambda: open_new_tab('https://matplotlib.org/'), 180)
     frame.add_button('Pygame',
-                     lambda: open_new_tab('http://www.pygame.org/'), 180)
+                     lambda: open_new_tab('https://www.pygame.org/'), 180)
 
     frame.add_label('')
     frame.add_button('GPL',
                      lambda: open_new_tab(
-                         'http://www.gnu.org/licenses/gpl.html'),
+                         'https://www.gnu.org/licenses/gpl.html'),
                      180)
 
     frame.add_label('')

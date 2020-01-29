@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (April 29, 2016)
+simpleguics2pygame/frame (January 29, 2020)
 
 Class Frame.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -140,14 +140,14 @@ class Frame:
     """
     Default options of graphic mode.
 
-    See http://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
+    See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
     """
 
     _pygame_mode_depth = 0
     """
     Default number of bits used to represent color.
 
-    See http://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
+    See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
     """
 
     _save_canvas_requests = []

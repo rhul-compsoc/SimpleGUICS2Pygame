@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (April 29, 2016)
+simpleguics2pygame/sound (January 29, 2020)
 
 Class Sound.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -285,7 +285,7 @@ def load_sound(url):
 
     Supported formats are supported formats by Pygame:
     OGG and uncompressed WAV
-    (see http://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound ).
+    (see https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound ).
 
     (CodeSkulptor may supported also MP3,
     dependant on browser support.)

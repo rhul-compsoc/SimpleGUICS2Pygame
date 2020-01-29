@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (June 28, 2018)
+Setup of SimpleGUICS2Pygame package (January 29, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2016, 2018 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2016, 2018, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -24,7 +24,7 @@ from SimpleGUICS2Pygame import _VERSION, _WEBSITE
 
 setup(name='SimpleGUICS2Pygame',
       version=_VERSION,
-      description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a browser Python interpreter).',
+      description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a browser Python interpreter). In fact a package also with other modules adapted from CodeSkulptor.',
       long_description=io.open('README.rst', encoding='utf-8').read(),
 
       author='Olivier Pirson',

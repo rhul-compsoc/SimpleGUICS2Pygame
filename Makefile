@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2016-04-28
+# Makefile of SimpleGUICS2Pygame --- 2020-01-29
 
 .SUFFIXES:
 
@@ -68,7 +68,7 @@ sdist:
 docs:	links
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
-docstgz:	html
+docstgz:	docs
 		@$(CD) Sphinx/_build; $(TAR) -cvf SimpleGUICS2Pygame_html.tar html
 		@$(CD) Sphinx/_build; $(GZIP) -9 SimpleGUICS2Pygame_html.tar
 		@$(RM) Sphinx/_build/SimpleGUICS2Pygame_html.tar
