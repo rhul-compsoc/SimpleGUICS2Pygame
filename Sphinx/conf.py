@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'SimpleGUICS2Pygame'
-copyright = '2013-2018 Olivier Pirson'
+copyright = '2013-2020 Olivier Pirson'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

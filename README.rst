@@ -169,8 +169,8 @@ See developers_'page.
 
 
 
-Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
-=======================================================
+Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
+==================================================================
 🌐 Website: http://www.opimedia.be/
 
 💾 Bitbucket: https://bitbucket.org/OPiMedia/
@@ -178,6 +178,7 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
 * 📧 olivier.pirson.opi@gmail.com
 * Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
 * diaspora* (Framasphere*): https://framasphere.org/u/opimedia
+* 👨‍💻 LinkedIn: https://www.linkedin.com/in/olivierpirson/ — CV: http://www.opimedia.be/CV/English.html
 * other profiles: http://www.opimedia.be/about/
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
@@ -200,7 +201,7 @@ Go to the link |Donate|_. **Thank you!**
 
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014, 2015, 2016, 2018 Olivier Pirson
+Copyright (C) 2013, 2014, 2015, 2016, 2018, 2020 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -271,7 +272,9 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — July 23, 2018
+* 02.00.00 WORKING VERSION — January 29, 2020
+
+  - Corrected files included in MANIFEST.in for distribution building.
 
   - Added a developer's page in documentation.
 

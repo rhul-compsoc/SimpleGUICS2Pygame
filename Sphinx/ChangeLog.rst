@@ -1,6 +1,8 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — July 23, 2018
+* 02.00.00 WORKING VERSION — January 29, 2020
+
+  - Corrected files included in MANIFEST.in for distribution building.
 
   - Added a developer's page in documentation.
 
