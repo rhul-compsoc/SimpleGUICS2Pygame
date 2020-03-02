@@ -40,6 +40,7 @@ def _set_option_from_argv():
       (this is faster if you display a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
     * ``--fps n``: Set Frame Per Second (default is 60 FPS).
+    * ``--frame-padding``: Set the padding in pixels found around the canvas
     * ``--fullscreen``: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
     * ``--last``: Mark this argument
@@ -91,6 +92,13 @@ def _set_option_from_argv():
                 Frame._fps = max(0, int(argv[i]))
             except (IndexError, ValueError):
                 Frame._fps = 0
+        elif arg == '--frame-padding':
+            nb_module_arg += 1
+            i += 1
+            try:
+                Frame._frame_padding = max(0, int(argv[i]))
+            except (IndexError, ValueError):
+                Frame._frame_padding = 0
         elif arg == '--fullscreen':
             if _PYGAME_AVAILABLE:
                 Frame._pygame_mode_flags |= (pygame.FULLSCREEN

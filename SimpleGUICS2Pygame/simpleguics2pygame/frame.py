@@ -78,6 +78,11 @@ class Frame:
     Frames per second drawed (frequency of draw and check events)
     """
 
+    _frame_padding = 2
+    """
+    The padding in pixels around the canvas
+    """
+
     _frame_instance = None
     """
     The only instance of Frame.
@@ -291,7 +296,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._border_size = (0 if Frame._hide_controlpanel
                              else 25)
-        self._canvas_border_size = 2
+        self._canvas_border_size = Frame._frame_padding
 
         self._canvas_x_offset = (self._control_width + self._border_size*2
                                  + self._canvas_border_size)
