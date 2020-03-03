@@ -1,42 +1,47 @@
 script/SimpleGUICS2Pygame_check.py (January 13, 2016)
 =====================================================
 PATH:
+  /home/opi/.cargo/bin
   /home/opi/bin
   /usr/local/bin
   /usr/bin
   /bin
   /usr/local/games
   /usr/games
-  /home/opi/.rvm/bin
-  /home/opi/progs/clang/bin
+  /QUICK/progs/bin
+  /snap/bin
+  /QUICK/progs/Java
+  /home/opi/data/hg/vNu-scripts/vNu-scripts
+  /QUICK/progs/tikzit/bin
+  /home/opi/data/hg/tsv2htmltable_WORK/src/scripts
 
 PYTHONPATH:
-  /home/opi/data/hg/SimpleGUICS2Pygame
-  
+  /home/opi/data/git/current/simpleguics2pygame
+  /home/opi/data/git/current/simpleguics2pygame/
 
 
-python - version 3.4.2 (default, Oct  8 2014, 10:45:20) 
-[GCC 4.9.1]
+python - version 3.5.3 (default, Sep 27 2018, 17:25:39) 
+[GCC 6.3.0 20170516]
 
 sys.path:
-  /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/script
-  /home/opi/data/hg/SimpleGUICS2Pygame
-  /home/opi/data/hg/SimpleGUICS2Pygame/SimpleGUICS2Pygame/test
-  /usr/lib/python3.4
-  /usr/lib/python3.4/plat-x86_64-linux-gnu
-  /usr/lib/python3.4/lib-dynload
-  /usr/local/lib/python3.4/dist-packages
+  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
+  /home/opi/data/git/current/simpleguics2pygame
+  /usr/lib/python35.zip
+  /usr/lib/python3.5
+  /usr/lib/python3.5/plat-x86_64-linux-gnu
+  /usr/lib/python3.5/lib-dynload
+  /usr/local/lib/python3.5/dist-packages
   /usr/lib/python3/dist-packages
 
 
-import matplotlib ok - Version 1.4.2
+import matplotlib ok - Version 2.2.2
 
 
-import pygame ok - Version 1.9.2a0
+import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION April 29, 2016
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 3, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

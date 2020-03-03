@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- 2020-01-29
+# Makefile of SimpleGUICS2Pygame --- 2020-03-03
 
 .SUFFIXES:
 
@@ -120,7 +120,7 @@ test3:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 3"
 	@$(ECHO) "=================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); export PYGAME_HIDE_SUPPORT_PROMPT=hide; $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) test_all.py
 
 tests:	test2 test3
 
