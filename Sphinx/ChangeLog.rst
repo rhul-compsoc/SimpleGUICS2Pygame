@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — January 29, 2020
+* 02.00.00 WORKING VERSION — Mars 3, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -9,7 +9,7 @@ ChangeLog
 
   - Replaced links of *Read the Docs*.
 
-  - Added ``--last`` command line option.
+  - Added ``--frame-padding`` (thanks to `7coil`) and ``--last`` command line options.
   - Added ``test/test_command_line_options.py``.
   - Replaced ``_WEBSITE`` value by documentation link.
   - Splitted media links to image links and sound links.

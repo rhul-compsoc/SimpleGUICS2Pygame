@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (January 12, 2016)
+simpleguics2pygame/_options (March 3, 2020)
 
 Options helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -40,7 +40,7 @@ def _set_option_from_argv():
       (this is faster if you display a lot of text).
     * ``--display-fps``: Display FPS average on the canvas.
     * ``--fps n``: Set Frame Per Second (default is 60 FPS).
-    * ``--frame-padding``: Set the padding in pixels found around the canvas
+    * ``--frame-padding n``: Set the padding in pixels found around the canvas.
     * ``--fullscreen``: Fullscreen mode.
     * ``--keep-timers``: Keep running timers when close frame without ask.
     * ``--last``: Mark this argument

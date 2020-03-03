@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (January 29, 2020)
+simpleguics2pygame/frame (March 3, 2020)
 
 Class Frame.
 

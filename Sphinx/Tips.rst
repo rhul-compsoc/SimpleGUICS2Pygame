@@ -110,7 +110,7 @@ When you run a program you can use following options:
 * ``--default-font``: Use Pygame default font instead serif, monospace… (this is faster if you display a lot of text).
 * ``--display-fps``: Display FPS average on the canvas.
 * ``--fps n``: Set Frame Per Second (default is 60 FPS).
-* ``--frame-padding n``: Set the padding in pixels found around the canvas
+* ``--frame-padding n``: Set the padding in pixels found around the canvas.
 * ``--fullscreen``: Fullscreen mode.
 * ``--keep-timers``: Keep running timers when close frame without ask.
 * ``--last``: Mark this argument as the last  SimpleGUICS2Pygame's argument. (Do nothing else.)
