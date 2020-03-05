@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_keys (April 17, 2014)
+simplegui_lib_keys (March 5, 2020)
 
 A class to help manage keyboard handling
 in SimpleGUI of CodeSkulptor.
@@ -9,7 +9,7 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -36,7 +36,7 @@ class Keys:
 
     .. _`Keyboard Ghosting Explained!`: http://www.microsoft.com/appliedsciences/antighostingexplained.mspx
     .. _`Keyboard Ghosting Demonstration`: http://www.microsoft.com/appliedsciences/content/projects/KeyboardGhostingDemo.aspx
-    """
+    """  # noqa
 
     def __init__(self, frame, keys=None):
         """
@@ -76,6 +76,7 @@ class Keys:
         Active the key down handler.
         """
         def keydown(key_code):
+            """Function handler dealt by frame."""
             self._pressed_keys[key_code] = True
 
             fct = self._keydown_fct.get(key_code)
@@ -89,6 +90,7 @@ class Keys:
         Active the key up handler.
         """
         def keyup(key_code):
+            """Function handler dealt by frame."""
             if key_code in self._pressed_keys:
                 del self._pressed_keys[key_code]
 
@@ -149,7 +151,7 @@ class Keys:
 
         if fct is None:
             if key_code in self._keydown_fct:
-                del self._keydown_fct.pop[key_code]
+                del self._keydown_fct[key_code]
         else:
             self._keydown_fct[key_code] = fct
 
@@ -181,7 +183,7 @@ class Keys:
 
         if fct is None:
             if key_code in self._keyup_fct:
-                del self._keyup_fct.pop[key_code]
+                del self._keyup_fct[key_code]
         else:
             self._keyup_fct[key_code] = fct
 

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/frame (March 3, 2020)
+simpleguics2pygame/frame (March 5, 2020)
 
 Class Frame.
 
@@ -28,8 +28,7 @@ try:
 except ImportError:
     _PYGAME_AVAILABLE = False
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors \
-    import _SIMPLEGUICOLOR_TO_PYGAMECOLOR
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa
 
 
 #
@@ -277,16 +276,16 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(title, str), type(title)
 
-        assert (isinstance(canvas_width, int)
-                or isinstance(canvas_width, float)), type(canvas_width)
+        assert (isinstance(canvas_width, int) or
+                isinstance(canvas_width, float)), type(canvas_width)
         assert canvas_width >= 0, canvas_width
 
-        assert (isinstance(canvas_height, int)
-                or isinstance(canvas_height, float)), type(canvas_height)
+        assert (isinstance(canvas_height, int) or
+                isinstance(canvas_height, float)), type(canvas_height)
         assert canvas_height >= 0, canvas_height
 
-        assert (isinstance(control_width, int)
-                or isinstance(control_width, float)), type(control_width)
+        assert (isinstance(control_width, int) or
+                isinstance(control_width, float)), type(control_width)
         assert control_width >= 0, control_width
 
         Frame._frame_instance = self
@@ -298,8 +297,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                              else 25)
         self._canvas_border_size = Frame._frame_padding
 
-        self._canvas_x_offset = (self._control_width + self._border_size*2
-                                 + self._canvas_border_size)
+        self._canvas_x_offset = (self._control_width + self._border_size * 2 +
+                                 self._canvas_border_size)
         self._canvas_y_offset = self._border_size + self._canvas_border_size
 
         self._controls = []
@@ -320,12 +319,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         canvas_height = int(round(canvas_height))
 
         self._statusmouse_x_offset = 0
-        self._statusmouse_y_offset = (self._canvas_y_offset + canvas_height
-                                      - Frame._statusmouse_height)
+        self._statusmouse_y_offset = (self._canvas_y_offset + canvas_height -
+                                      Frame._statusmouse_height)
 
         self._statuskey_x_offset = self._statusmouse_x_offset
-        self._statuskey_y_offset = (self._statusmouse_y_offset
-                                    - 5 - Frame._statuskey_height)
+        self._statuskey_y_offset = (self._statusmouse_y_offset -
+                                    5 - Frame._statuskey_height)
 
         # Create the window
         from os.path import sep
@@ -338,10 +337,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             pass
 
         self._pygame_surface = pygame.display.set_mode(
-            ((self._canvas_x_offset + canvas_width
-              + self._canvas_border_size + self._border_size),
-             (self._canvas_y_offset + canvas_height
-              + self._canvas_border_size + self._border_size)),
+            ((self._canvas_x_offset + canvas_width +
+              self._canvas_border_size + self._border_size),
+             (self._canvas_y_offset + canvas_height +
+              self._canvas_border_size + self._border_size)),
             Frame._pygame_mode_flags,
             Frame._pygame_mode_depth)
         pygame.display.set_caption(title)
@@ -352,8 +351,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 self._pygame_surface, Frame._canvas_border_pygame_color,
                 (self._canvas_x_offset - i,
                  self._canvas_y_offset - i,
-                 canvas_width + 2*i,
-                 canvas_height + 2*i),
+                 canvas_width + 2 * i,
+                 canvas_height + 2 * i),
                 1)
 
         # Create the canvas
@@ -451,11 +450,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._statuskey_pygame_surface.blit(
             pygame_surface_text,
             (5,
-             (Frame._statuskey_height - pygame_surface_text.get_height())/2))
+             (Frame._statuskey_height - pygame_surface_text.get_height()) / 2))
 
         self._pygame_surface.blit(self._statuskey_pygame_surface,
-                                  ((self._border_size
-                                    + self._statuskey_x_offset),
+                                  ((self._border_size +
+                                    self._statuskey_x_offset),
                                    self._statuskey_y_offset))
 
         pygame.display.update((self._border_size + self._statuskey_x_offset,
@@ -504,11 +503,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._statusmouse_pygame_surface.blit(
             pygame_surface_text,
             (5,
-             (Frame._statusmouse_height - pygame_surface_text.get_height())/2))
+             (Frame._statusmouse_height - pygame_surface_text.get_height()) /
+             2))
 
         self._pygame_surface.blit(self._statusmouse_pygame_surface,
-                                  (self._border_size
-                                   + self._statusmouse_x_offset,
+                                  ((self._border_size +
+                                    self._statusmouse_x_offset),
                                    self._statusmouse_y_offset))
 
         pygame.display.update((self._border_size + self._statusmouse_x_offset,
@@ -543,8 +543,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(x, int) or isinstance(x, float), type(x)
         assert isinstance(y, int) or isinstance(y, float), type(y)
 
-        if (self._controls
-                and (self._controls[0]._y1 <= y <= self._controls[-1]._y2)):
+        if (self._controls and
+                (self._controls[0]._y1 <= y <= self._controls[-1]._y2)):
             for control in self._controls:
                 if control._pos_in(x, y):
                     return control
@@ -882,8 +882,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                         x = event.pos[0] - self._canvas_x_offset
                         y = event.pos[1] - self._canvas_y_offset
                         if pygame.mouse.get_pressed()[0]:  # left click
-                            if ((not 0 <= x < self._canvas._width)
-                                    or (not 0 <= y < self._canvas._height)):
+                            if ((not 0 <= x < self._canvas._width) or
+                                    (not 0 <= y < self._canvas._height)):
                                 # Out of canvas
                                 mouse_drag_out_of_canvas = True
 
@@ -895,12 +895,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                 self._mousedrag_handler((x, y))
                 elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed
                     if event.button == 1:  # left click
-                        if ((0
-                             <= event.pos[0] - self._canvas_x_offset
-                             < self._canvas._width)
-                            and (0
-                                 <= event.pos[1] - self._canvas_y_offset
-                                 < self._canvas._height)):  # in canvas
+                        if ((0 <=
+                             event.pos[0] - self._canvas_x_offset <
+                             self._canvas._width) and
+                                (0 <=
+                                 event.pos[1] - self._canvas_y_offset <
+                                 self._canvas._height)):  # in canvas
                             mouse_drag_out_of_canvas = False
 
                         if event.pos[0] < self._canvas_x_offset:
@@ -920,8 +920,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     if event.button == 1:  # left click
                         x = event.pos[0] - self._canvas_x_offset
                         y = event.pos[1] - self._canvas_y_offset
-                        if ((0 <= x < self._canvas._width)
-                                and (0 <= y < self._canvas._height)):
+                        if ((0 <= x < self._canvas._width) and
+                                (0 <= y < self._canvas._height)):
                             # In canvas
                             if self._mouseclic_handler is not None:
                                 self._draw_statusmouse((x, y), False)
@@ -933,8 +933,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                             if control is not None:
                                 control._mouse_left_button(False)
                 elif event.type == pygame.KEYDOWN:          # key pressed
-                    if ((self._control_selected is not None)
-                        and isinstance(self._control_selected,
+                    if ((self._control_selected is not None) and
+                            isinstance(self._control_selected,
                                        TextAreaControl)):
                         self._control_selected._key(event)
                     elif self._keydown_handler is not None:
@@ -942,8 +942,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                         self._draw_statuskey(key, True)
                         self._keydown_handler(key)
                 elif event.type == pygame.KEYUP:            # key released
-                    if ((self._control_selected is not None)
-                        and isinstance(self._control_selected,
+                    if ((self._control_selected is not None) and
+                            isinstance(self._control_selected,
                                        TextAreaControl)):
                         pass
                     elif self._keyup_handler is not None:
@@ -956,7 +956,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             # Wait (if necessary) next cycle
             self._fps_average = clock.get_fps()
             clock.tick(Frame._fps)
-            #clock.tick_busy_loop(Frame._fps)
+            # clock.tick_busy_loop(Frame._fps)
 
         self.stop()
 
@@ -1024,9 +1024,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                  .format(nb_timers_running,
                                          ('s' if nb_timers_running >= 2
                                           else '')),
-                                 (10, 10 + size*3/4), size, 'Black')
+                                 (10, 10 + size * 3 / 4), size, 'Black')
                 canvas.draw_text('(Yes/No)',
-                                 (10, 10 + size*7/4), size, 'Black')
+                                 (10, 10 + size * 7 / 4), size, 'Black')
 
             self._keydown_handler = None
             self._keyup_handler = None

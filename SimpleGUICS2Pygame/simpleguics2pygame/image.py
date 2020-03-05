@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (January 29, 2020)
+simpleguics2pygame/image (March 4, 2020)
 
 Class Image.
 
@@ -25,7 +25,7 @@ __all__ = ['Image',
 try:
     import pygame
 
-    _PYGAME_AVAILABLE = True
+    _PYGAME_AVAILABLE = bool(pygame)  # True
 except ImportError:
     _PYGAME_AVAILABLE = False
 
@@ -144,8 +144,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                           self._pygamesurfaces_cached_counts[0],
                           self._pygamesurfaces_cached_counts[1],
                           self._draw_count,
-                          (sum(self._pygamesurfaces_cached_counts)*100
-                           // self._draw_count if self._draw_count != 0
+                          ((sum(self._pygamesurfaces_cached_counts) * 100 //
+                            self._draw_count)
+                           if self._draw_count != 0
                            else ''),
                           (self._url.split('/')[-1] if short_url
                            else self._url)),

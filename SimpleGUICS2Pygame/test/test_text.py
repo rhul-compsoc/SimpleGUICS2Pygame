@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw text. (November 21, 2015)
+Test draw text. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -115,7 +115,7 @@ line 3""", (200, size), size, 'white', 'serif')
                    side_x=1, side_y=1)
 
     draw_text_side(frame, canvas,
-                   'Center', (WIDTH/2, HEIGHT/2), size, 'red',
+                   'Center', (WIDTH / 2, HEIGHT / 2), size, 'red',
                    rectangle_color='orange', rectangle_fill_color='yellow',
                    side_x=0, side_y=0)
 

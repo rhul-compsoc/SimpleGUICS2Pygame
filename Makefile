@@ -1,21 +1,48 @@
-# Makefile of SimpleGUICS2Pygame --- 2020-03-03
+# Makefile of SimpleGUICS2Pygame --- March 5, 2020
 
 .SUFFIXES:
 
-CD       = cd
-CHECKTXT = checkTxtPy.py
-CP       = cp -p
-ECHO     = echo
-GZIP     = gzip
-PYTHON2  = python2
-PYTHON3  = python3
-RM       = rm -f
-RMDIR    = rmdir
-SHELL    = sh
-TAR      = tar
+SRC = $(sort $(wildcard *.py)) $(sort $(wildcard SimpleGUICS2Pygame/*.py)) \
+	$(sort $(wildcard SimpleGUICS2Pygame/*/*.py)) \
+	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*.py)) \
+	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*/*.py))
+
+
+MYPY      = mypy  # http://www.mypy-lang.org/
+MYPYFLAGS = --ignore-missing-imports
+
+PEP8      = pep8  # https://pypi.org/project/pep8/
+PEP8FLAGS = -v --statistics  # --ignore=E501
+
+PYFLAKES      = pyflakes3  # https://pypi.org/project/pyflakes/
+PYFLAKESFLAGS =
+
+PYLINT      = pylint3  # https://www.pylint.org/
+PYLINTFLAGS = --disable=line-too-long,locally-disabled
+
+PYTHON2      = python2  # https://www.python.org/
+PYTHON2FLAGS =
+
+PYTHON3      = python3
+PYTHON3FLAGS =
+
+
+CHECKTXT = checkTxtPy.py  # not public program
+
+
+CD    = cd
+CP    = cp -p
+ECHO  = echo
+GZIP  = gzip
+RM    = rm -f
+RMDIR = rmdir
+SHELL = sh
+TAR   = tar
+TEE   = tee
 
 
 
+# default goal
 test3:
 
 
@@ -29,13 +56,13 @@ install2:
 	@$(ECHO) "==================="
 	@$(ECHO) "Install to Python 2"
 	@$(ECHO) "==================="
-	$(PYTHON2) setup.py install -O1
+	$(PYTHON2) $(PYTHON2FLAGS) setup.py install -O1
 
 install3:
 	@$(ECHO) "==================="
 	@$(ECHO) "Install to Python 3"
 	@$(ECHO) "==================="
-	$(PYTHON3) setup.py install -O1
+	$(PYTHON3) $(PYTHON3FLAGS) setup.py install -O1
 
 installs:	distclean install2 install3
 
@@ -49,14 +76,14 @@ installs:	distclean install2 install3
 all_dist:	sdist bdist_egg # bdist_wininst
 
 bdist_egg:
-	$(PYTHON2) setup.py bdist_egg
-	$(PYTHON3) setup.py bdist_egg
+	$(PYTHON2) $(PYTHON2FLAGS) setup.py bdist_egg
+	$(PYTHON3) $(PYTHON3FLAGS) setup.py bdist_egg
 
 bdist_wininst:
-	$(PYTHON3) setup.py bdist_wininst --no-target-compile --no-target-optimize --bitmap SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_152x261.bmp
+	$(PYTHON3) $(PYTHON3FLAGS) setup.py bdist_wininst --no-target-compile --no-target-optimize --bitmap SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_152x261.bmp
 
 sdist:
-	$(PYTHON3) setup.py sdist --formats=gztar
+	$(PYTHON3) $(PYTHON3FLAGS) setup.py sdist --formats=gztar
 
 
 
@@ -75,10 +102,45 @@ docstgz:	docs
 		@$(GZIP) -t Sphinx/_build/SimpleGUICS2Pygame_html.tar.gz
 
 links:
-	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_img_links.py
-	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_prog_links.py
-	@$(CD) Sphinx/_static/links/data; $(PYTHON3) make_snd_links.py
+	@$(CD) Sphinx/_static/links/data; $(PYTHON3) $(PYTHON3FLAGS) make_img_links.py
+	@$(CD) Sphinx/_static/links/data; $(PYTHON3) $(PYTHON3FLAGS) make_prog_links.py
+	@$(CD) Sphinx/_static/links/data; $(PYTHON3) $(PYTHON3FLAGS) make_snd_links.py
 	-@$(CD) Sphinx/_static/links/data; $(RM) -r __pycache__/*.pyc; $(RMDIR) __pycache__
+
+
+
+#################
+# Static checks #
+#################
+.PHONY: lint lintlog mypy pep8 pyflakes pylint
+
+lint:	pep8 pyflakes pylint mypy
+
+lintlog:
+	$(ECHO) "Lint" | $(TEE) lint.log
+	@$(ECHO) ===== pep8 ===== | $(TEE) -a lint.log
+	-$(PEP8) $(PEP8FLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== pyflakes ===== | $(TEE) -a lint.log
+	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== pylint ===== | $(TEE) -a lint.log
+	-$(PYLINT) $(PYLINTFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== mypy ===== | $(TEE) -a lint.log
+	-$(MYPY) $(MYPYFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+
+mypy:
+	-$(MYPY) $(MYPYFLAGS) $(SRC)
+
+pep8:
+	-$(PEP8) $(PEP8FLAGS) $(SRC)
+
+pyflakes:
+	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC)
+
+pylint:
+	-$(PYLINT) $(PYLINTFLAGS) $(SRC)
 
 
 
@@ -99,13 +161,13 @@ requirement2:
 	@$(ECHO) "========================="
 	@$(ECHO) "Requirement with Python 2"
 	@$(ECHO) "========================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON2) SimpleGUICS2Pygame_check.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON2) $(PYTHON2FLAGS) SimpleGUICS2Pygame_check.py
 
 requirement3:
 	@$(ECHO) "========================="
 	@$(ECHO) "Requirement with Python 3"
 	@$(ECHO) "========================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON3) SimpleGUICS2Pygame_check.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON3) $(PYTHON3FLAGS) SimpleGUICS2Pygame_check.py
 
 requirements: requirement2 requirement3
 
@@ -114,13 +176,13 @@ test2:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 2"
 	@$(ECHO) "=================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) $(PYTHON2FLAGS) test_all.py
 
 test3:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 3"
 	@$(ECHO) "=================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); export PYGAME_HIDE_SUPPORT_PROMPT=hide; $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); export PYGAME_HIDE_SUPPORT_PROMPT=hide; $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) $(PYTHON3FLAGS) test_all.py
 
 tests:	test2 test3
 
@@ -129,15 +191,16 @@ tests:	test2 test3
 #########
 # Clean #
 #########
-.PHONY:	clean cleanbuild cleandist cleandocs distclean
+.PHONY:	clean cleanbuild cleandist cleandocs distclean overclean
 clean:	cleanbuild
 	$(RM) -r *.pyc *.pyo */*.pyc */*.pyo */*/*.pyc */*/*.pyo */*/*/*.pyc */*/*/*.pyo */*/*/*/*.pyc */*/*/*/*.pyo */*/*/*/*/*.pyc */*/*/*/*/*.pyo
 	-$(RMDIR) __pycache__ */__pycache__ */*/__pycache__ */*/*/__pycache__ */*/*/*/__pycache__
 	$(RM) SimpleGUICS2Pygame.egg-info/*
 	-$(RMDIR) SimpleGUICS2Pygame.egg-info
+	$(RM) -r .mypy_cache
 
 cleanbuild:
-	$(PYTHON3) setup.py clean
+	$(PYTHON3) $(PYTHON3FLAGS) setup.py clean
 	$(RM) -r build
 
 cleandist:	cleandocs
@@ -148,3 +211,6 @@ cleandocs:
 		@$(CD) Sphinx; $(MAKE) clean
 
 distclean:	clean cleandist
+
+overclean:	distclean
+	$(RM) lint.log

@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (November 21, 2015)
+Memory (March 4, 2020)
   Game with 8 x (2 indentical cards)
          or 4 x (4 indentical cards)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -36,8 +36,8 @@ USE_IMAGES = True  # change to False to avoid images
 if USE_IMAGES:
     card_images = [
         simplegui.load_image(
-            'http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/'
-            + filename)
+            'http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/' +
+            filename)
         for filename in ('Guido_van_Rossum.jpg',
                          'Python.jpg',
                          'Joe_Warren.jpg',
@@ -48,7 +48,7 @@ if USE_IMAGES:
                          'OPi.jpg',
                          'Memory.jpg')]
 else:
-    card_images = [simplegui.load_image('')]*9  # 9 (same) failed images
+    card_images = [simplegui.load_image('')] * 9  # 9 (same) failed images
 
 memory = None  # the principal variable, instance of Memory
 
@@ -139,12 +139,12 @@ class Card:
         """
         if self.image.get_width() > 0:  # draw image
             canvas.draw_image(self.image,
-                              (self.image.get_width()/2.0,
-                               self.image.get_height()/2.0),
+                              (self.image.get_width() / 2.0,
+                               self.image.get_height() / 2.0),
                               (self.image.get_width(),
                                self.image.get_height()),
-                              (self.pos_x + self.image.get_width()/2.0,
-                               self.pos_y + self.image.get_height()/2.0),
+                              (self.pos_x + self.image.get_width() / 2.0,
+                               self.pos_y + self.image.get_height() / 2.0),
                               (self.image.get_width(),
                                self.image.get_height()))
         else:                           # draw text number
@@ -152,9 +152,9 @@ class Card:
             text = str(self.num)
             width = frame.get_canvas_textwidth(text, 50)
             canvas.draw_text(text,
-                             (self.pos_x + (Card.WIDTH - width)//2,
-                              self.pos_y + (Card.HEIGHT - size)/2.0
-                              + size*3.0/4),
+                             (self.pos_x + (Card.WIDTH - width) // 2,
+                              (self.pos_y + (Card.HEIGHT - size) / 2.0 +
+                               size * 3.0 / 4)),
                              size, 'white')
 
         if self.selected or (self.image.get_width() == 0):
@@ -174,15 +174,15 @@ class Card:
 
         if img.get_width() > 0:  # draw image
             canvas.draw_image(img,
-                              (img.get_width()/2.0, img.get_height()/2.0),
+                              (img.get_width() / 2.0, img.get_height() / 2.0),
                               (img.get_width(), img.get_height()),
-                              (self.pos_x + img.get_width()/2.0,
-                               self.pos_y + img.get_height()/2.0),
+                              (self.pos_x + img.get_width() / 2.0,
+                               self.pos_y + img.get_height() / 2.0),
                               (img.get_width(), img.get_height()))
         else:                    # draw simple rectangle
-            canvas.draw_line((self.pos_x + Card.WIDTH/2.0 - 1,
+            canvas.draw_line((self.pos_x + Card.WIDTH / 2.0 - 1,
                               self.pos_y),
-                             (self.pos_x + Card.WIDTH/2.0 - 1,
+                             (self.pos_x + Card.WIDTH / 2.0 - 1,
                               self.pos_y + Card.HEIGHT - 1),
                              Card.WIDTH, 'green')
             draw_rect(canvas,
@@ -203,8 +203,8 @@ class Card:
         """
         assert_position(pos)
 
-        return ((self.pos_x <= pos[0] < self.pos_x + Card.WIDTH)
-                and (self.pos_y <= pos[1] < self.pos_y + Card.HEIGHT))
+        return ((self.pos_x <= pos[0] < self.pos_x + Card.WIDTH) and
+                (self.pos_y <= pos[1] < self.pos_y + Card.HEIGHT))
 
 
 class Memory:
@@ -224,7 +224,7 @@ class Memory:
         assert isinstance(nb_repeat_cards, int), type(nb_repeat_cards)
         assert 0 < nb_repeat_cards <= len(card_images) - 2, nb_repeat_cards
 
-        assert nb_different_cards*nb_repeat_cards == 16, \
+        assert nb_different_cards * nb_repeat_cards == 16, \
             (nb_different_cards, nb_repeat_cards)
 
         self.nb_different_cards = nb_different_cards
@@ -236,14 +236,16 @@ class Memory:
 
         self.deck = [Card(i % nb_different_cards,
                           card_images[i % nb_different_cards])
-                     for i in range(nb_different_cards*nb_repeat_cards)]
+                     for i in range(nb_different_cards * nb_repeat_cards)]
         random.shuffle(self.deck)
 
         for i, card in enumerate(self.deck):
-            card.pos_x = 10 + \
-                (i % (nb_different_cards*nb_repeat_cards//2))*(Card.WIDTH + 10)
-            card.pos_y = 10 + \
-                (i//(nb_different_cards*nb_repeat_cards//2))*(Card.HEIGHT + 10)
+            card.pos_x = (10 +
+                          ((i % (nb_different_cards * nb_repeat_cards // 2)) *
+                           (Card.WIDTH + 10)))
+            card.pos_y = (10 +
+                          ((i // (nb_different_cards * nb_repeat_cards // 2)) *
+                           (Card.HEIGHT + 10)))
 
         self.selected_cards = []
 
@@ -322,14 +324,14 @@ def draw_wait_images(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    percent = nb_images_loaded*100.0/len(card_images)
+    percent = nb_images_loaded * 100.0 / len(card_images)
 
     canvas.draw_line((0, 150), (490, 150), 20, 'white')
-    canvas.draw_line((0, 150), (490*percent/100.0, 150), 20, 'green')
+    canvas.draw_line((0, 150), (490 * percent / 100.0, 150), 20, 'green')
 
     size = 50
     canvas.draw_text('Loading... %d%%' % int(percent),
-                     (10, 80 + size*30.0/4),
+                     (10, 80 + size * 30.0 / 4),
                      size, 'white')
 
 

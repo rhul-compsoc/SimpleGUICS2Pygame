@@ -140,9 +140,9 @@ See `Complete installation on Window$ in few steps`_.
 
 .. _7-Zip: http://www.7-zip.org/
 .. _`Complete installation on Window$ in few steps`: https://simpleguics2pygame.readthedocs.io/en/latest/index.html#complete-installation-on-window-in-few-steps
-.. _`Unofficial Windows Binaries matplotlib`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
-.. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
-.. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
+.. _`Unofficial Windows Binaries matplotlib`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+.. _`Unofficial Windows Binaries pip`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
+.. _`Unofficial Windows Binaries Pygame`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 
 |
 
@@ -295,51 +295,49 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — Mars 3, 2020
+* 02.00.00 WORKING VERSION — Mars 5, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
 
-  - Added a developer's page in documentation.
+  - Modules:
 
-  - Replaced links of *Read the Docs*.
+    - **Splitted the big file ``simpleguics2pygame.py``.**
+    - Added alpha possibility on background color.
+    - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
+    - Added ``--frame-padding`` (thanks to `7coil`) and ``--last`` command line options.
+    - Added ``transparent`` "color" name.
+    - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
+    - Improved dealing of input box.
+    - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
 
-  - Added ``--frame-padding`` (thanks to `7coil`) and ``--last`` command line options.
-  - Added ``test/test_command_line_options.py``.
-  - Replaced ``_WEBSITE`` value by documentation link.
-  - Splitted media links to image links and sound links.
+  - Documentation:
 
-  - Added ``script/pygame_check.py`` to check Pygame installation alone.
+    - Corrected "Read the Docs" subpackage problem.
+    - Added a developer's page.
+    - Replaced ``_WEBSITE`` value by documentation link.
+    - Updated. (Thanks to `John Gray` and `Tom Keller`.)
+    - Splitted media links to image links and sound links.
+    - Updated media and CodeSkulptor programs links.
 
-  - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
-  - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
-  - Updated ``test/test_text.py``.
+  - Program examples:
 
-  - Added alpha possibility on background color.
-  - Added ``transparent`` "color" name.
+    - Added ``example/presentation.py``.
+    - Added ``example/stop_example.py``.
 
-  - Improved dealing of input box.
-  - Added ``test/test_input.py``.
+  - Scripts:
 
-  - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
-  - Updated ``test/test_objects.py``.
+    - Added ``script/pygame_check.py`` to check Pygame installation alone.
+    - Updated ``script/SimpleGUICS2Pygame_check.py``.
 
-  - Corrected "Read the Docs" subpackage problem.
+  - Tests:
 
-  - Updated ``test/test_sound.py``.
-
-  - Updated ``script/SimpleGUICS2Pygame_check.py``.
-
-  - **Splitted the big file ``simpleguics2pygame.py``.**
-  - Added ``example/presentation.py``.
-
-  - Added ``example/stop_example.py``.
-
-  - Corrected ``test/test_sound.py``.
-
-  - Updated documentation. (Thanks to `John Gray` and `Tom Keller`.)
-
-  - Updated media and CodeSkulptor programs links.
+    - Added static checking in ``Makefile``, and corrected a lot of style warnings.
+    - Corrected and updated ``test/test_sound.py``.
+    - Added ``test/test_command_line_options.py``.
+    - Added ``test/test_input.py``.
+    - Updated ``test/test_objects.py``.
+    - Updated ``test/test_text.py``.
 
 * 01.09.00 — January 1st, 2015
 

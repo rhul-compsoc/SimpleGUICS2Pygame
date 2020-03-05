@@ -6,7 +6,7 @@ script/cs2both.py
 
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(April 21, 2014)
+(March 5, 2020)
 
 A file codeskulptor_program.py is copied
 to codeskulptor_program.py.bak before changing.
@@ -25,7 +25,7 @@ Changes made :
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -76,8 +76,8 @@ def main():
         exit()
 
     add_shebang = lines[0][:2]
-    add_coding = (not re.match(r'#\w*-\*- coding: \W+ -\*-$', lines[0])
-                  and not re.match(r'#\w*-\*- coding: \W+ -\*-$', lines[1]))
+    add_coding = (not re.match(r'#\w*-\*- coding: \W+ -\*-$', lines[0]) and
+                  not re.match(r'#\w*-\*- coding: \W+ -\*-$', lines[1]))
 
     change_import = False
     already_change_import = False
@@ -94,8 +94,8 @@ def main():
         exit()
 
     for line in lines:
-        if (not already_change_import
-                and re.search(r'^\w*import SimpleGUICS2Pygame', line)):
+        if (not already_change_import and
+                re.search(r'^\w*import SimpleGUICS2Pygame', line)):
             already_change_import = True
 
     if not already_change_import:
@@ -107,12 +107,12 @@ def main():
                           else '')
                 lines[i] = '\n' + indent + ('\n' + indent).join(
                     ("# Automatically modified by 'cs2both.py'",
-                     '# to run in CodeSkulptor *and* standard Python with SimpleGUICS2Pygame:',
+                     '# to run in CodeSkulptor *and* standard Python with SimpleGUICS2Pygame:',  # noqa
                      '# https://bitbucket.org/OPiMedia/simpleguics2pygame',
                      'try:',
                      '    import simplegui',
                      'except ImportError:',
-                     '    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui')) + '\n'
+                     '    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui')) + '\n'  # noqa
 
     # Write
     if add_shebang or add_coding or change_import or end_blank_line:
@@ -145,8 +145,8 @@ def main():
 
     while lines:
         line = lines.pop()
-        if re.search(r'^\w*f(rame)?\.start\(\)', line):  # f.start()
-                                                         #   or frame.start()
+        if re.search(r'^\w*f(rame)?\.start\(\)', line):
+            # f.start() or frame.start()
             break
         elif re.search(r'^\w*[^#]+\.start\(\)', line):   # other .start()
             print('Warning: Maybe a timer is started *after* the start frame.')

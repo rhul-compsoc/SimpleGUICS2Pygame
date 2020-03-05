@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
+# pylint: disable=invalid-name
 
 """
-Spaceship prototype (May 31, 2015)
+Spaceship prototype (March 5, 2020)
 
 My solution of the mini-project #7 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -16,7 +17,7 @@ Run on:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -117,12 +118,12 @@ class ImageInfo:
         """
         assert_position(center)
         assert_position(size, True, True)
-        assert ((radius is None)
-                or ((isinstance(radius, int) or isinstance(radius, float))
-                    and (radius > 0))), radius
-        assert ((lifespan is None)
-                or ((isinstance(lifespan, int) or isinstance(lifespan, float))
-                    and (lifespan > 0))), lifespan
+        assert ((radius is None) or
+                ((isinstance(radius, int) or isinstance(radius, float)) and
+                 (radius > 0))), radius
+        assert ((lifespan is None) or
+                ((isinstance(lifespan, int) or isinstance(lifespan, float)) and
+                 (lifespan > 0))), lifespan
         assert isinstance(animated, bool), type(animated)
 
         self._center = list(center)
@@ -199,8 +200,8 @@ class Sprite:
         assert_position(position)
         assert_position(velocity)
         assert isinstance(angle, int) or isinstance(angle, float), type(angle)
-        assert (isinstance(angle_velocity, int)
-                or isinstance(angle_velocity, float)), type(angle_velocity)
+        assert (isinstance(angle_velocity, int) or
+                isinstance(angle_velocity, float)), type(angle_velocity)
         assert isinstance(image_info, ImageInfo), type(image_info)
 
         self.position = list(position)
@@ -277,10 +278,10 @@ class Ship(Sprite):
 
         vector = angle_to_vector(my_ship.angle)
 
-        a_missile = Sprite((my_ship.position[0] + my_ship.radius*vector[0],
-                            my_ship.position[1] + my_ship.radius*vector[1]),
-                           (my_ship.velocity[0] + vector[0]*10,
-                            my_ship.velocity[1] + vector[1]*10),
+        a_missile = Sprite((my_ship.position[0] + my_ship.radius * vector[0],
+                            my_ship.position[1] + my_ship.radius * vector[1]),
+                           (my_ship.velocity[0] + vector[0] * 10,
+                            my_ship.velocity[1] + vector[1] * 10),
                            0, 0,
                            loader.get_image('missile'), missile_info,
                            loader.get_sound('missile'))
@@ -349,40 +350,41 @@ def draw(canvas):
     if not SIMPLEGUICS2PYGAME:
         canvas.draw_image(loader.get_image('nebula'),
                           nebula_info.get_center(), nebula_info.get_size(),
-                          (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                          (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                           (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # Draw animated background
     time += 1
-    wtime = (time/4.0) % SCREEN_WIDTH
+    wtime = (time / 4.0) % SCREEN_WIDTH
     center = debris_info.get_center()
     size = debris_info.get_size()
 
     canvas.draw_image(loader.get_image('debris'),
                       center, size,
-                      (wtime - SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                      (wtime - SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                       (SCREEN_WIDTH, SCREEN_HEIGHT))
     canvas.draw_image(loader.get_image('debris'),
                       center, size,
-                      (wtime + SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                      (wtime + SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                       (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # Display number of lives
     size = 30
     font = 'sans-serif'
 
-    canvas.draw_text('Lives', (20, 20 + size*3.0/4), size, 'White', font)
-    canvas.draw_text(str(lives), (20, 20 + size*7.0/4), size, 'White', font)
+    canvas.draw_text('Lives', (20, 20 + size * 3.0 / 4), size, 'White', font)
+    canvas.draw_text(str(lives), (20, 20 + size * 7.0 / 4),
+                     size, 'White', font)
 
     # Display score
     text = 'Score'
     width = frame.get_canvas_textwidth(text, size, font)
-    canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size*3.0/4),
+    canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size * 3.0 / 4),
                      size, 'White', font)
 
     text = str(score)
     width = frame.get_canvas_textwidth(text, size, font)
-    canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size*7.0/4),
+    canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size * 7.0 / 4),
                      size, 'White', font)
 
     # Draw ship and sprites
@@ -478,14 +480,14 @@ def rock_spawner():
     """
     global a_rock
 
-    a_rock = Sprite((random.randrange(SCREEN_WIDTH//16,
-                                      SCREEN_WIDTH*15//16),
-                     random.randrange(SCREEN_HEIGHT//16,
-                                      SCREEN_HEIGHT*15//16)),
-                    (random.randrange(2, 7)*random.choice((-1, 1)),
-                     random.randrange(2, 7)*random.choice((-1, 1))),
-                    (random.random() - 0.5)*math.pi,
-                    (random.random() - 0.5)/10.0,
+    a_rock = Sprite((random.randrange(SCREEN_WIDTH // 16,
+                                      SCREEN_WIDTH * 15 // 16),
+                     random.randrange(SCREEN_HEIGHT // 16,
+                                      SCREEN_HEIGHT * 15 // 16)),
+                    (random.randrange(2, 7) * random.choice((-1, 1)),
+                     random.randrange(2, 7) * random.choice((-1, 1))),
+                    (random.random() - 0.5) * math.pi,
+                    (random.random() - 0.5) / 10.0,
                     loader.get_image('asteroid'), asteroid_info)
 
 
@@ -520,15 +522,15 @@ if __name__ == '__main__':
     loader = Loader(frame, SCREEN_WIDTH, start)
 
     # Images by Kim Lathrop
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',
+    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',  # noqa
                      'asteroid')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png',
+    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png',  # noqa
                      'debris')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',
+    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',  # noqa
                      'missile')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',
+    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',  # noqa
                      'nebula')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
+    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
                      'ship')
 
     asteroid_info = ImageInfo((45, 45), (90, 90), 40)
@@ -538,15 +540,15 @@ if __name__ == '__main__':
     ship_info = ImageInfo((45, 45), (90, 90), 35)
 
     # Sounds from http://www.sounddogs.com/ (not free)
-    loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',
+    loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',  # noqa
                      'missile')
-    loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',
+    loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',  # noqa
                      'ship_thrust')
 
     loader.load()
 
     # Initialize ship and rock
-    my_ship = Ship((0, SCREEN_HEIGHT/2.0), (10, 0),
+    my_ship = Ship((0, SCREEN_HEIGHT / 2.0), (10, 0),
                    0, loader.get_image('ship'), ship_info)
 
     # Register event handlers

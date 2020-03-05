@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw circles. (December 13, 2013)
+Test draw circles. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -49,8 +49,8 @@ def draw(canvas):
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
-    x = WIDTH//3
-    y = HEIGHT//2
+    x = WIDTH // 3
+    y = HEIGHT // 2
 
     line_width = 11
 

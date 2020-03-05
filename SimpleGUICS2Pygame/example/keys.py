@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_keys.Keys use. (April 28, 2016)
+Example of simplegui_lib_keys.Keys use. (March 4, 2020)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_keys.html
@@ -10,7 +10,7 @@ https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_keys.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -32,28 +32,28 @@ def draw(canvas):
     """
     for i, key_str in enumerate(('space', 'left', 'up', 'right', 'down')):
         canvas.draw_text(key_str,
-                         (5 + 120*i, 30),
+                         (5 + 120 * i, 30),
                          30, ('White' if keys.is_pressed_key_map(key_str)
                               else 'Gray'))
     for i in range(10):  # 0..9
         key_str = chr(48 + i)
         canvas.draw_text(key_str,
-                         (5 + 25*i, 60),
+                         (5 + 25 * i, 60),
                          30, ('White' if keys.is_pressed_key_map(key_str)
                               else 'Gray'))
     for i in range(26):  # a..z
         key_str = chr(97 + i)
         canvas.draw_text(key_str,
-                         (5 + 25*i, 90),
+                         (5 + 25 * i, 90),
                          30, ('White' if keys.is_pressed_key_map(key_str)
                               else 'Gray'))
 
     pressed_keys = keys.pressed_keys()
     if pressed_keys:
         pressed_keys.sort()
-        canvas.draw_text("Pressed keys code: "
-                         + ', '.join([str(key_code)
-                                      for key_code in pressed_keys]),
+        canvas.draw_text('Pressed keys code: ' +
+                         ', '.join([str(key_code)
+                                    for key_code in pressed_keys]),
                          (5, 140),
                          30, 'White')
 

@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_loader (May 31, 2015)
+simplegui_lib_loader (March 5, 2020)
 
 A class to help load images and sounds
 in SimpleGUI of CodeSkulptor.
@@ -9,14 +9,14 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
 
 # Class
 ########
-class Loader:
+class Loader:  # pylint: disable=too-many-instance-attributes
     """
     Help to load images and sounds from Internet
     and wait finished.
@@ -53,8 +53,8 @@ class Loader:
         :param after_function: function () -> *
         :param max_waiting: (int or float) >= 0
         """
-        assert (isinstance(progression_bar_width, int)
-                or isinstance(progression_bar_width, float)), \
+        assert (isinstance(progression_bar_width, int) or
+                isinstance(progression_bar_width, float)), \
             type(progression_bar_width)
         assert progression_bar_width >= 0, progression_bar_width
 
@@ -74,9 +74,10 @@ class Loader:
         self.__timer = None
 
         try:
+            # Try import to check if running in SimpleGUICS2Pygame environment
             from SimpleGUICS2Pygame.simpleguics2pygame import load_image
 
-            Loader.__SIMPLEGUICS2PYGAME = True
+            Loader.__SIMPLEGUICS2PYGAME = bool(load_image)
         except ImportError:
             pass
 
@@ -92,28 +93,29 @@ class Loader:
         size = 30
 
         if (self._progression_bar_width > 0) and (nb > 0):
-            percent = (self.get_nb_images_loaded()
-                       + self.get_nb_sounds_loaded())*100.0/nb
+            percent = (self.get_nb_images_loaded() +
+                       self.get_nb_sounds_loaded()) * 100.0 / nb
 
-            y = 30 + size*3.0/4
+            y = 30 + size * 3.0 / 4
             canvas.draw_line((0, y),
                              (self._progression_bar_width, y), 20, 'White')
             if percent > 0:
                 canvas.draw_line((0, y),
-                                 (self._progression_bar_width*percent/100.0,
+                                 ((self._progression_bar_width * percent /
+                                   100.0),
                                   y),
                                  20, 'Green')
 
         canvas.draw_text('Loading... %d%%' % int(percent),
-                         (10, 10 + size*3.0/4),
+                         (10, 10 + size * 3.0 / 4),
                          size, 'White')
 
         if self.__max_waiting_remain_started:
-            nb = int(round(self.__max_waiting_remain/1000.0))
+            nb = int(round(self.__max_waiting_remain / 1000.0))
             canvas.draw_text('Abort after %d second%s...'
                              % (nb, ('s' if nb > 1
                                      else '')),
-                             (10, 50 + size*2*3.0/4),
+                             (10, 50 + size * 2 * 3.0 / 4),
                              size, 'White')
 
     def add_image(self, url, name=None):
@@ -134,7 +136,7 @@ class Loader:
         :param url: str
         :param name: None or str
         :param wait: bool
-        """
+        """  # noqa
         assert isinstance(url, str), type(url)
         assert (name is None) or isinstance(name, str), type(name)
 
@@ -159,7 +161,7 @@ class Loader:
         :param url: str
         :param name: None or str
         :param wait: bool
-        """
+        """  # noqa
         assert isinstance(url, str), type(url)
         assert (name is None) or isinstance(name, str), type(name)
 
@@ -175,10 +177,10 @@ class Loader:
         * In SimpleGUI of CodeSkulptor: do nothing.
 
         .. _`Image._pygamesurfaces_cached_clear`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._pygamesurfaces_cached_clear
-        """
+        """  # noqa
         if Loader.__SIMPLEGUICS2PYGAME:
             for _, image in sorted(self._images.items()):
-                image._pygamesurfaces_cached_clear()
+                image._pygamesurfaces_cached_clear()  # noqa  # pylint: disable=protected-access
 
     def get_image(self, name):
         """
@@ -222,8 +224,8 @@ class Loader:
         :return: int >= 0
         """
         return len([None for name in self._images
-                    if ((not isinstance(self._images[name], str))
-                        and (self._images[name].get_width() > 0))])
+                    if ((not isinstance(self._images[name], str)) and
+                        (self._images[name].get_width() > 0))])
 
     def get_nb_sounds(self):
         """
@@ -285,27 +287,27 @@ class Loader:
             from SimpleGUICS2Pygame.simpleguics2pygame import load_image, \
                 load_sound
         else:
-            from simplegui import load_image, load_sound
+            from simplegui import load_image, load_sound  # noqa  # pylint: disable=import-error
 
         if Loader.__SIMPLEGUICS2PYGAME:
-            handler_saved = self._frame._canvas._draw_handler
-            self._frame._canvas._draw_handler = self._draw_loading
+            handler_saved = self._frame._canvas._draw_handler  # noqa  # pylint: disable=protected-access
+            self._frame._canvas._draw_handler = self._draw_loading  # noqa  # pylint: disable=protected-access
 
         for name in self._sounds:
             if Loader.__SIMPLEGUICS2PYGAME:
-                self._frame._canvas._draw()
+                self._frame._canvas._draw()  # pylint: disable=protected-access
             if isinstance(self._sounds[name], str):
                 self._sounds[name] = load_sound(self._sounds[name])
 
         for name in self._images:
             if Loader.__SIMPLEGUICS2PYGAME:
-                self._frame._canvas._draw()
+                self._frame._canvas._draw()  # pylint: disable=protected-access
             if isinstance(self._images[name], str):
                 self._images[name] = load_image(self._images[name])
 
         if Loader.__SIMPLEGUICS2PYGAME:
-            self._frame._canvas._draw()
-            self._frame._canvas._draw_handler = handler_saved
+            self._frame._canvas._draw()  # pylint: disable=protected-access
+            self._frame._canvas._draw_handler = handler_saved  # noqa  # pylint: disable=protected-access
 
     def pause_sounds(self):
         """
@@ -323,13 +325,13 @@ class Loader:
         * In SimpleGUI of CodeSkulptor: do nothing.
 
         .. _`Image._print_stats_cache`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._print_stats_cache
-        """
+        """  # noqa
         if Loader.__SIMPLEGUICS2PYGAME:
             max_length = max([len(name) for name in self._images])
             for name, image in sorted(self._images.items()):
-                image._print_stats_cache('Loader %s%s'
+                image._print_stats_cache('Loader %s%s'  # noqa  # pylint: disable=protected-access
                                          % (name,
-                                            ' '*(max_length - len(name))))
+                                            ' ' * (max_length - len(name))))
 
     def wait_loaded(self):
         """
@@ -342,9 +344,9 @@ class Loader:
 
         See details in `get_nb_sounds_loaded()` documentation.
         """
-        if (((self.get_nb_images_loaded() == self.get_nb_images())
-             and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
-                or (self._max_waiting <= 0)):
+        if (((self.get_nb_images_loaded() == self.get_nb_images()) and
+             (self.get_nb_sounds_loaded() == self.get_nb_sounds())) or
+                (self._max_waiting <= 0)):
             self._after_function()
 
             return
@@ -356,9 +358,9 @@ class Loader:
             """
             self.__max_waiting_remain -= Loader._interval
 
-            if (((self.get_nb_images_loaded() == self.get_nb_images())
-                 and (self.get_nb_sounds_loaded() == self.get_nb_sounds()))
-                    or (self.__max_waiting_remain <= 0)):
+            if (((self.get_nb_images_loaded() == self.get_nb_images()) and
+                 (self.get_nb_sounds_loaded() == self.get_nb_sounds())) or
+                    (self.__max_waiting_remain <= 0)):
                 self.__max_waiting_remain = 0
                 self.__timer.stop()
                 self._frame.set_draw_handler(lambda canvas: None)
@@ -373,7 +375,7 @@ class Loader:
         if Loader.__SIMPLEGUICS2PYGAME:
             from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
         else:
-            from simplegui import create_timer
+            from simplegui import create_timer  # pylint: disable=import-error
 
         self._frame.set_draw_handler(self._draw_loading)
         self.__timer = create_timer(Loader._interval, check_if_loaded)

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/timer (October 2nd, 2015)
+simpleguics2pygame/timer (March 4, 2020)
 
 Class Timer.
 
@@ -11,7 +11,7 @@ Class Timer.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -71,7 +71,7 @@ class Timer:
             Function to create and start a new timer.
             """
             Timer._timers_running[id(self)] = self
-            self._timer = threading.Timer(self._interval/1000, self._handler)
+            self._timer = threading.Timer(self._interval / 1000, self._handler)
             self._timer.start()
             timer_handler()
 
@@ -128,7 +128,7 @@ class Timer:
             import threading
 
             Timer._timers_running[id(self)] = self
-            self._timer = threading.Timer(self._interval/1000, self._handler)
+            self._timer = threading.Timer(self._interval / 1000, self._handler)
             self._timer.start()
 
     def stop(self):

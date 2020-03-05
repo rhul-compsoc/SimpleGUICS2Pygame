@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors constants. (December 13, 2013)
+Test colors constants. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -49,8 +49,8 @@ def draw(canvas):
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
-    width = WIDTH//8
-    height = HEIGHT//3
+    width = WIDTH // 8
+    height = HEIGHT // 3
 
     size = 30
 
@@ -60,14 +60,15 @@ def draw(canvas):
                                'Silver', 'Teal', 'White', 'Yellow'),
                               ('Orange', 'Cyan', 'Magenta'))):
         for i, color in enumerate(line):
-            canvas.draw_line((i*width, height//2 - 1 + j*height),
-                             ((i + 1)*width, height//2 - 1 + j*height),
+            canvas.draw_line((i * width, height // 2 - 1 + j * height),
+                             ((i + 1) * width, height // 2 - 1 + j * height),
                              height, color)
 
             length = frame.get_canvas_textwidth(color, size)
             canvas.draw_text(color,
-                             (i*width + (width - length)//2,
-                              j*height + (height - size)//2 + size*3//4),
+                             (i * width + (width - length) // 2,
+                              (j * height + (height - size) // 2 +
+                               size * 3 // 4)),
                              size, 'White')
 
 

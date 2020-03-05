@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack (May 9, 2014)
+Blackjack (March 5, 2020)
 
 My solution (slightly retouched) of the mini-project #6 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -10,7 +10,7 @@ https://www.coursera.org/course/interactivepython (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -21,8 +21,8 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
 # Global constants
@@ -31,8 +31,8 @@ DEBUG = False
 # DEBUG = True  # to help debug
 
 # Cards sprite 949x392 (source: www.jfitz.com/cards/ )
-CARDS_IMAGE = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png')
-CARD_BACK = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/card_back.png')
+CARDS_IMAGE = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/cards.jfitz.png')  # noqa
+CARD_BACK = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/card_back.png')  # noqa
 
 CARD_SIZE = (73, 98)
 CARD_CENTER = (36.5, 49)
@@ -47,7 +47,7 @@ FONT_SIZE = 40
 FRAME_WIDTH = 800
 FRAME_HEIGHT = 600
 
-DEALER_POS = ((FRAME_WIDTH - CARD_SPACE)/2.0 - CARD_SIZE[0], 100)
+DEALER_POS = ((FRAME_WIDTH - CARD_SPACE) / 2.0 - CARD_SIZE[0], 100)
 PLAYER_POS = (DEALER_POS[0], 400)
 
 GREEN = 'Green'
@@ -189,10 +189,10 @@ class Card:
             if CARDS_IMAGE.get_width() > 0:
                 canvas.draw_image(
                     CARDS_IMAGE,
-                    (CARD_CENTER[0]
-                     + CARD_SIZE[0]*Deck._RANKS.index(self._rank),
-                     CARD_CENTER[1]
-                     + CARD_SIZE[1]*Deck._SUITS.index(self._suit)),
+                    ((CARD_CENTER[0] + CARD_SIZE[0] *
+                      Deck._RANKS.index(self._rank)),
+                     (CARD_CENTER[1] + CARD_SIZE[1] *
+                      Deck._SUITS.index(self._suit))),
                     CARD_SIZE,
                     (pos[0] + CARD_CENTER[0],
                      pos[1] + CARD_CENTER[1]), CARD_SIZE)
@@ -205,10 +205,10 @@ class Card:
                 text = str(self)
                 canvas.draw_text(
                     text,
-                    (pos[0] + (CARD_SIZE[0]
-                               - frame.get_canvas_textwidth(text,
-                                                            FONT_SIZE))/2.0,
-                     pos[1] + CARD_SIZE[1]/2.0 + FONT_SIZE/4.0),
+                    (pos[0] + (CARD_SIZE[0] -
+                               frame.get_canvas_textwidth(text,
+                                                          FONT_SIZE)) / 2.0,
+                     pos[1] + CARD_SIZE[1] / 2.0 + FONT_SIZE / 4.0),
                     FONT_SIZE, ('Red' if self.get_suit() in ('H', 'D')
                                 else 'Black'))
 
@@ -337,7 +337,8 @@ class Hand:
                              FONT_SIZE, 'Black')
 
         for i, card in enumerate(self._cards):
-            card.draw(canvas, [pos[0] + i*(CARD_SIZE[0] + CARD_SPACE), pos[1]],
+            card.draw(canvas, [pos[0] + i * (CARD_SIZE[0] + CARD_SPACE),
+                               pos[1]],
                       (i == 0) and self._is_dealer and in_play)
 
     def get_value(self):
@@ -395,9 +396,9 @@ def draw(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    canvas.draw_circle((FRAME_WIDTH/2.0,
-                        FRAME_HEIGHT - FRAME_WIDTH*3/2.0 - 25),
-                       FRAME_WIDTH*3/2.0, 50, '#803020', GREEN)
+    canvas.draw_circle((FRAME_WIDTH / 2.0,
+                        FRAME_HEIGHT - FRAME_WIDTH * 3 / 2.0 - 25),
+                       FRAME_WIDTH * 3 / 2.0, 50, '#803020', GREEN)
 
     canvas.draw_text('DEALER', (DEALER_POS[0], DEALER_POS[1] - 10),
                      FONT_SIZE, GREEN_LIGHT)
@@ -406,11 +407,14 @@ def draw(canvas):
                      FONT_SIZE, GREEN_LIGHT)
     draw_rect(canvas,
               (PLAYER_POS[0] - CARD_SPACE, PLAYER_POS[1] - CARD_SPACE),
-              (CARD_SIZE[0]*2 + CARD_SPACE*3, CARD_SIZE[1] + CARD_SPACE*2),
+              (CARD_SIZE[0] * 2 + CARD_SPACE * 3,
+               CARD_SIZE[1] + CARD_SPACE * 2),
               2, GREEN_LIGHT, GREEN_DARK)
 
-    canvas.draw_text('BLACKJACK', (20, 20 + FONT_SIZE*3/4.0), FONT_SIZE, 'Red')
-    canvas.draw_text('BLACK', (20, 20 + FONT_SIZE*3/4.0), FONT_SIZE, 'Black')
+    canvas.draw_text('BLACKJACK', (20, 20 + FONT_SIZE * 3 / 4.0), FONT_SIZE,
+                     'Red')
+    canvas.draw_text('BLACK', (20, 20 + FONT_SIZE * 3 / 4.0), FONT_SIZE,
+                     'Black')
 
     y = PLAYER_POS[1] - 70
     canvas.draw_line((20, y - FONT_SIZE - 10),
@@ -420,24 +424,24 @@ def draw(canvas):
     text = ('HIT OR STAND?' if in_play
             else 'NEW DEAL?')
     canvas.draw_text(text,
-                     ((FRAME_WIDTH
-                       - frame.get_canvas_textwidth(text, FONT_SIZE))/2.0,
-                      y - FONT_SIZE/4.0 - 3),
+                     ((FRAME_WIDTH -
+                       frame.get_canvas_textwidth(text, FONT_SIZE)) / 2.0,
+                      y - FONT_SIZE / 4.0 - 3),
                      FONT_SIZE, GREEN_LIGHT)
 
     if outcome is not None:
         canvas.draw_text(
             outcome,
-            ((FRAME_WIDTH
-              - frame.get_canvas_textwidth(outcome, FONT_SIZE))/2.0,
+            ((FRAME_WIDTH -
+              frame.get_canvas_textwidth(outcome, FONT_SIZE)) / 2.0,
              250), FONT_SIZE, 'WHITE')
 
     if deck is not None:
         text = 'SCORE: %d | %d' % (score_dealer, score_player)
         canvas.draw_text(text,
-                         (FRAME_WIDTH
-                          - frame.get_canvas_textwidth(text, FONT_SIZE)
-                          - 20, 20 + FONT_SIZE*3/4.0),
+                         ((FRAME_WIDTH -
+                           frame.get_canvas_textwidth(text, FONT_SIZE) - 20),
+                          20 + FONT_SIZE * 3 / 4.0),
                          FONT_SIZE, 'Black')
 
         hand_dealer.draw(canvas, DEALER_POS)
@@ -450,16 +454,16 @@ def draw_wait_images(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    percent = nb_images_loaded*100.0/NB_IMAGES_TO_LOAD
+    percent = nb_images_loaded * 100.0 / NB_IMAGES_TO_LOAD
 
     canvas.draw_line((0, 150), (FRAME_WIDTH, 150), 20, 'White')
     if percent > 0:
-        canvas.draw_line((0, 150), (FRAME_WIDTH*percent/100.0, 150),
+        canvas.draw_line((0, 150), (FRAME_WIDTH * percent / 100.0, 150),
                          20, 'Green')
 
     size = 50
     canvas.draw_text('Loading... %d%%' % int(percent),
-                     (10, 80 + size*3/4.0),
+                     (10, 80 + size * 3 / 4.0),
                      size, 'White')
 
 
@@ -525,8 +529,8 @@ def test_images_loaded():
     nb_images_loaded = sum([1 for img in [CARD_BACK, CARDS_IMAGE]
                             if img.get_width() > 0])
 
-    if ((nb_images_loaded == NB_IMAGES_TO_LOAD)
-            or (max_test_images_loaded <= 0)):
+    if ((nb_images_loaded == NB_IMAGES_TO_LOAD) or
+            (max_test_images_loaded <= 0)):
         timer.stop()
         frame.set_draw_handler(draw)
 

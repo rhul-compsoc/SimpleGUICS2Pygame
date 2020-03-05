@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
+# pylint: disable=invalid-name
 
 """
-Stress Ball (December 13, 2013)
+Stress Ball (March 5, 2020)
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Safari: exception failed!
@@ -14,7 +15,7 @@ Inspired by "Classy Balls" of Bill:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -32,20 +33,20 @@ except ImportError:
     simplegui.Frame._hide_status = True
 
 
-### Config >>>
+# ### Config >>>
 MAX_NB_SECONDS = 30  # number of seconds before next step
 
 ALPHA = False  # start with transparency if True
 REVERSE = False  # reverse list_nb_balls if true
 
-_FPS_AVERAGE = False  # use Frame._get_fps_average()
-                      #   (only with SimpleGUICS2Pygame)
+# Use Frame._get_fps_average() (only with SimpleGUICS2Pygame)
+_FPS_AVERAGE = False
 
 # Number of balls of each step
 list_nb_balls = [1, 10, 20, 30, 40, 50, 75,
                  100, 200, 300, 400, 500, 750,
                  1000, 1500, 2000]
-### <<< config
+# ### <<< config
 
 if REVERSE:
     list_nb_balls.reverse()
@@ -56,19 +57,19 @@ FONT_SIZE = 40
 WIDTH = 599
 HEIGHT = 407
 
-RGB_COLORS = ((0,   0,   128),
-              (0,   0,   255),
-              (0,   128, 0),
-              (0,   128, 128),
-              (0,   255, 0),
-              (0,   255, 255),
-              (128, 0,   0),
-              (128, 0,   128),
+RGB_COLORS = ((0, 0, 128),
+              (0, 0, 255),
+              (0, 128, 0),
+              (0, 128, 128),
+              (0, 255, 0),
+              (0, 255, 255),
+              (128, 0, 0),
+              (128, 0, 128),
               (128, 128, 0),
               (128, 128, 128),
               (192, 192, 192),
-              (255, 0,   0),
-              (255, 0,   255),
+              (255, 0, 0),
+              (255, 0, 255),
               (255, 165, 0),
               (255, 255, 0),
               (255, 255, 255))
@@ -245,9 +246,9 @@ def init():
                          47 + n % (HEIGHT - 100)],  # position
                         19 + n % 11,  # radius
                         n_to_rgba((n + 1) % len(RGB_COLORS),
-                                  .2 + float(n % 13)/15),  # color of border
+                                  .2 + float(n % 13) / 15),  # color of border
                         n_to_rgba((n + 2) % len(RGB_COLORS),
-                                  .2 + float((n + 3) % 14)/17),  # fill color
+                                  .2 + float((n + 3) % 14) / 17),  # fill color
                         [3 + n % 7, 2 + n % 5],  # velocity
                         (n + 2) % 6)  # shape
                    for n in range(nb_balls)])
@@ -291,13 +292,13 @@ def draw(canvas):
     s = '#%d | %d FPS' % (nb_balls,
                           (int(round(frame._get_fps_average())) if _FPS_AVERAGE
                            else fps))
-    canvas.draw_text(s, (12, 13 + FONT_SIZE*3//4), FONT_SIZE, 'Gray')
-    canvas.draw_text(s, (10, 10 + FONT_SIZE*3//4), FONT_SIZE, 'White')
+    canvas.draw_text(s, (12, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
+    canvas.draw_text(s, (10, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
 
     s = '%ds' % (MAX_NB_SECONDS - nb_seconds)
     x = WIDTH - 11 - frame.get_canvas_textwidth(s, FONT_SIZE)
-    canvas.draw_text(s, (x - 2, 13 + FONT_SIZE*3//4), FONT_SIZE, 'Gray')
-    canvas.draw_text(s, (x, 10 + FONT_SIZE*3//4), FONT_SIZE, 'White')
+    canvas.draw_text(s, (x - 2, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
+    canvas.draw_text(s, (x, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
 
 
 def next_step():
@@ -313,7 +314,7 @@ def print_fps():
     nb_seconds += 1
 
     fps = (frame._get_fps_average() if _FPS_AVERAGE
-           else int(round(float(nb_frames_drawed)/nb_seconds)))
+           else int(round(float(nb_frames_drawed) / nb_seconds)))
 
     if (nb_seconds > MAX_NB_SECONDS) or to_next_step:
         print('%d | %d' % (nb_balls, fps))
@@ -347,13 +348,13 @@ print("""Stress Balls:
 
 simplegui.Frame._stop_timers = True
 
-frame = simplegui.create_frame('Stress Balls'
-                               + (' ALPHA' if ALPHA
-                                  else '')
-                               + (' REVERSE' if REVERSE
-                                  else '')
-                               + (' _FPS_AVERAGE' if _FPS_AVERAGE
-                                  else ''),
+frame = simplegui.create_frame('Stress Balls' +
+                               (' ALPHA' if ALPHA
+                                else '') +
+                               (' REVERSE' if REVERSE
+                                else '') +
+                               (' _FPS_AVERAGE' if _FPS_AVERAGE
+                                else ''),
                                WIDTH, HEIGHT)
 
 frame.add_button('Un/Freeze', freeze_on_off)

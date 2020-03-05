@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (January 29 29, 2020)
+simpleguics2pygame/canvas (March 5, 2020)
 
 Class Canvas.
 
@@ -16,6 +16,9 @@ http://www.opimedia.be/
 from __future__ import division
 from __future__ import print_function
 
+import math
+import re
+
 
 __all__ = ['Canvas',
            'create_invisible_canvas']
@@ -28,25 +31,19 @@ try:
 except ImportError:
     _PYGAME_AVAILABLE = False
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors \
-    import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, \
-    _simpleguicolor_to_pygamecolor
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa
 
 
 #
 # Private global constants
 ##########################
-from math import pi
-
-_RADIAN_TO_DEGREE = 180.0/pi
+_RADIAN_TO_DEGREE = 180.0 / math.pi
 """
 Multiplicative constant to convert radian to degree.
 """
 
 
-from re import compile as re_compile
-
-_RE_UNPRINTABLE_WHITESPACE_CHAR = re_compile('[\t\n\r\f\v]')
+_RE_UNPRINTABLE_WHITESPACE_CHAR = re.compile('[\t\n\r\f\v]')
 """
 Regular expression pattern to unprintable whitespace character.
 """
@@ -152,8 +149,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
         """
-        if ((self._draw_handler is not None)
-                and (self._frame_parent is not None)):
+        if ((self._draw_handler is not None) and
+                (self._frame_parent is not None)):
             if self._background_pygame_surface_image is None:
                 if self._background_pygame_color.a == 255:
                     # Without alpha
@@ -227,13 +224,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param line_color: str
         :param fill_color: None or str
         """
-        assert (isinstance(center_point, tuple)
-                or isinstance(center_point, list)), type(center_point)
+        assert (isinstance(center_point, tuple) or
+                isinstance(center_point, list)), type(center_point)
         assert len(center_point) == 2, len(center_point)
-        assert (isinstance(center_point[0], int)
-                or isinstance(center_point[0], float)), type(center_point[0])
-        assert (isinstance(center_point[1], int)
-                or isinstance(center_point[1], float)), type(center_point[1])
+        assert (isinstance(center_point[0], int) or
+                isinstance(center_point[0], float)), type(center_point[0])
+        assert (isinstance(center_point[1], int) or
+                isinstance(center_point[1], float)), type(center_point[1])
 
         assert isinstance(radius, int) or isinstance(radius, float), \
             type(radius)
@@ -250,15 +247,15 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         line_width = (1 if line_width <= 1
                       else int(round(line_width)))
 
-        radius = int(round(radius)) + int(round(line_width//2))
+        radius = int(round(radius)) + int(round(line_width // 2))
 
         if radius > 1:
             line_color = _simpleguicolor_to_pygamecolor(line_color)
             if fill_color is not None:
                 fill_color = _simpleguicolor_to_pygamecolor(fill_color)
 
-            if ((line_color.a == 255)
-                    and ((fill_color is None) or (fill_color.a == 255))):
+            if ((line_color.a == 255) and
+                    ((fill_color is None) or (fill_color.a == 255))):
                 # Without alpha
                 if fill_color is not None:
                     pygame.draw.circle(self._pygame_surface, fill_color,
@@ -267,10 +264,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     pygame.draw.circle(self._pygame_surface, line_color,
                                        _pos_round(center_point),
                                        radius, min(line_width, radius))
-            elif ((line_color.a > 0)
-                  or ((fill_color is not None) and (fill_color.a > 0))):
+            elif ((line_color.a > 0) or
+                  ((fill_color is not None) and (fill_color.a > 0))):
                 # With one or two alpha (not null)
-                s_alpha = pygame.Surface((radius*2, radius*2), pygame.SRCALPHA)
+                s_alpha = pygame.Surface((radius * 2, radius * 2),
+                                         pygame.SRCALPHA)
 
                 if (fill_color is not None) and (fill_color.a > 0):
                     pygame.draw.circle(s_alpha, fill_color,
@@ -325,50 +323,50 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param width_height_dest: ((int or float) >= 0, (int or float) >= 0)
                                   or [(int or float) >= 0, (int or float) >= 0]
         :param rotation: int or float
-        """
+        """  # noqa
         from SimpleGUICS2Pygame.simpleguics2pygame.image import Image
 
         assert isinstance(image, Image), type(image)
 
-        assert (isinstance(center_source, tuple)
-                or isinstance(center_source, list)), type(center_source)
+        assert (isinstance(center_source, tuple) or
+                isinstance(center_source, list)), type(center_source)
         assert len(center_source) == 2, len(center_source)
-        assert (isinstance(center_source[0], int)
-                or isinstance(center_source[0], float)), type(center_source[0])
-        assert (isinstance(center_source[1], int)
-                or isinstance(center_source[1], float)), type(center_source[1])
+        assert (isinstance(center_source[0], int) or
+                isinstance(center_source[0], float)), type(center_source[0])
+        assert (isinstance(center_source[1], int) or
+                isinstance(center_source[1], float)), type(center_source[1])
 
-        assert (isinstance(width_height_source, tuple)
-                or isinstance(width_height_source, list)), \
+        assert (isinstance(width_height_source, tuple) or
+                isinstance(width_height_source, list)), \
             type(width_height_source)
         assert len(width_height_source) == 2, len(width_height_source)
-        assert (isinstance(width_height_source[0], int)
-                or isinstance(width_height_source[0], float)), \
+        assert (isinstance(width_height_source[0], int) or
+                isinstance(width_height_source[0], float)), \
             type(width_height_source[0])
         assert width_height_source[0] >= 0, width_height_source[0]
-        assert (isinstance(width_height_source[1], int)
-                or isinstance(width_height_source[1], float)), \
+        assert (isinstance(width_height_source[1], int) or
+                isinstance(width_height_source[1], float)), \
             type(width_height_source[1])
         assert width_height_source[1] >= 0, width_height_source[1]
 
-        assert (isinstance(center_dest, tuple)
-                or isinstance(center_dest, list)), type(center_dest)
+        assert (isinstance(center_dest, tuple) or
+                isinstance(center_dest, list)), type(center_dest)
         assert len(center_dest) == 2, len(center_dest)
-        assert (isinstance(center_dest[0], int)
-                or isinstance(center_dest[0], float)), type(center_dest[0])
-        assert (isinstance(center_dest[1], int)
-                or isinstance(center_dest[1], float)), type(center_dest[1])
+        assert (isinstance(center_dest[0], int) or
+                isinstance(center_dest[0], float)), type(center_dest[0])
+        assert (isinstance(center_dest[1], int) or
+                isinstance(center_dest[1], float)), type(center_dest[1])
 
-        assert (isinstance(width_height_dest, tuple)
-                or isinstance(width_height_dest, list)), \
+        assert (isinstance(width_height_dest, tuple) or
+                isinstance(width_height_dest, list)), \
             type(width_height_dest)
         assert len(width_height_dest) == 2, len(width_height_dest)
-        assert (isinstance(width_height_dest[0], int)
-                or isinstance(width_height_dest[0], float)), \
+        assert (isinstance(width_height_dest[0], int) or
+                isinstance(width_height_dest[0], float)), \
             type(width_height_dest[0])
         assert width_height_dest[0] >= 0, width_height_dest[0]
-        assert (isinstance(width_height_dest[1], int)
-                or isinstance(width_height_dest[1], float)), \
+        assert (isinstance(width_height_dest[1], int) or
+                isinstance(width_height_dest[1], float)), \
             type(width_height_dest[1])
         assert width_height_dest[1] >= 0, width_height_dest[1]
 
@@ -381,8 +379,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         # Calculate parameters
         width_source, height_source = width_height_source
 
-        x0_source = center_source[0] - width_source/2
-        y0_source = center_source[1] - height_source/2
+        x0_source = center_source[0] - width_source / 2
+        y0_source = center_source[1] - height_source / 2
 
         if x0_source >= 0:
             x0_source = int(round(x0_source))
@@ -403,8 +401,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         width_source = int(round(width_source))
         height_source = int(round(height_source))
 
-        if ((x0_source + width_source > image.get_width() + 1)
-                or (y0_source + height_source > image.get_height() + 1)):
+        if ((x0_source + width_source > image.get_width() + 1) or
+                (y0_source + height_source > image.get_height() + 1)):
             # Bigger than source image
             return
 
@@ -418,7 +416,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         width_height_dest = _pos_round(width_height_dest)
 
-        rotation = int(round(-rotation*_RADIAN_TO_DEGREE)) % 360
+        rotation = int(round(-rotation * _RADIAN_TO_DEGREE)) % 360
 
         # Get in cache or build Pygame surface
         from sys import version_info
@@ -457,30 +455,30 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 if __debug__:
                     image._pygamesurfaces_cached_counts[1] += 1
             else:                                 # Build piece and/or resize
-                if ((x0_source == 0) and (y0_source == 0)
-                        and (width_source == image.get_width())
-                        and (height_source == image.get_height())):
+                if ((x0_source == 0) and (y0_source == 0) and
+                        (width_source == image.get_width()) and
+                        (height_source == image.get_height())):
                     pygame_surface_image = image._pygame_surface
                 else:  # Get a piece in source
                     pygame_surface_image = image._pygame_surface.subsurface(
                         (x0_source, y0_source,
                          width_source, height_source))
 
-                if ((width_height_dest[0] != width_source)
-                        or (width_height_dest[1] != height_source)):
+                if ((width_height_dest[0] != width_source) or
+                        (width_height_dest[1] != height_source)):
                     # Resize to destination dimensions
                     pygame_surface_image = pygame.transform.scale(
                         pygame_surface_image, width_height_dest)
 
                 image._pygamesurfaces_cached[key_0] = pygame_surface_image
 
-                if (Frame._print_stats_cache
-                    and (len(image._pygamesurfaces_cached)
-                         == image._pygamesurfaces_cache_max_size)):
+                if (Frame._print_stats_cache and
+                        (len(image._pygamesurfaces_cached) ==
+                         image._pygamesurfaces_cache_max_size)):
                     image._print_stats_cache(
                         'Surfaces full cache              ')
-                elif (len(image._pygamesurfaces_cached)
-                      > image._pygamesurfaces_cache_max_size):
+                elif (len(image._pygamesurfaces_cached) >
+                      image._pygamesurfaces_cache_max_size):
                     image._pygamesurfaces_cached.popitem(False)
 
             if rotation != 0:  # Rotate
@@ -489,20 +487,22 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 image._pygamesurfaces_cached[key] = pygame_surface_image
 
-                if (Frame._print_stats_cache
-                    and (len(image._pygamesurfaces_cached)
-                         == image._pygamesurfaces_cache_max_size)):
+                if (Frame._print_stats_cache and
+                        (len(image._pygamesurfaces_cached) ==
+                         image._pygamesurfaces_cache_max_size)):
                     image._print_stats_cache(
                         'Surfaces full cache with rotated ')
-                elif (len(image._pygamesurfaces_cached)
-                      > image._pygamesurfaces_cache_max_size):
+                elif (len(image._pygamesurfaces_cached) >
+                      image._pygamesurfaces_cache_max_size):
                     image._pygamesurfaces_cached.popitem(False)
 
         # Draw the result
         self._pygame_surface.blit(
             pygame_surface_image,
-            (int(round(center_dest[0] - pygame_surface_image.get_width()/2)),
-             int(round(center_dest[1] - pygame_surface_image.get_height()/2))))
+            (int(round(center_dest[0] - pygame_surface_image.get_width() /
+                       2)),
+             int(round(center_dest[1] - pygame_surface_image.get_height() /
+                       2))))
         if __debug__:
             image._draw_count += 1
 
@@ -551,8 +551,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             x1, y1 = _pos_round(point1)
             x2, y2 = _pos_round(point2)
 
-            width = abs(x2 - x1) + line_width*2
-            height = abs(y2 - y1) + line_width*2
+            width = abs(x2 - x1) + line_width * 2
+            height = abs(y2 - y1) + line_width * 2
 
             x_min = min(x1, x2)
             y_min = min(y1, y2)
@@ -624,10 +624,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 assert isinstance(point, tuple) or isinstance(point, list), \
                     type(point)
                 assert len(point) == 2, len(point)
-                assert (isinstance(point[0], int)
-                        or isinstance(point[0], float)), type(point[0])
-                assert (isinstance(point[1], int)
-                        or isinstance(point[1], float)), type(point[1])
+                assert (isinstance(point[0], int) or
+                        isinstance(point[0], float)), type(point[0])
+                assert (isinstance(point[1], int) or
+                        isinstance(point[1], float)), type(point[1])
 
         assert isinstance(line_width, int) or isinstance(line_width, float), \
             type(line_width)
@@ -646,8 +646,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         point_list = [_pos_round(point) for point in point_list]
 
-        if ((line_color.a == 255)
-                and ((fill_color is None) or (fill_color.a == 255))):
+        if ((line_color.a == 255) and
+                ((fill_color is None) or (fill_color.a == 255))):
             # Without alpha
             if fill_color is not None:
                 pygame.draw.polygon(self._pygame_surface, fill_color,
@@ -655,8 +655,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             if line_color != fill_color:
                 pygame.draw.lines(self._pygame_surface, line_color, True,
                                   point_list, line_width)
-        elif ((line_color.a > 0)
-              or ((fill_color is not None) and (fill_color.a > 0))):
+        elif ((line_color.a > 0) or
+              ((fill_color is not None) and (fill_color.a > 0))):
             # With one or two alpha (not null)
             s_alpha = pygame.Surface((self._width, self._height),
                                      pygame.SRCALPHA)
@@ -693,10 +693,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 assert isinstance(point, tuple) or isinstance(point, list), \
                     type(point)
                 assert len(point) == 2, len(point)
-                assert (isinstance(point[0], int)
-                        or isinstance(point[0], float)), type(point[0])
-                assert (isinstance(point[1], int)
-                        or isinstance(point[1], float)), type(point[1])
+                assert (isinstance(point[0], int) or
+                        isinstance(point[0], float)), type(point[0])
+                assert (isinstance(point[1], int) or
+                        isinstance(point[1], float)), type(point[1])
 
         assert isinstance(line_width, int) or isinstance(line_width, float), \
             type(line_width)
@@ -727,7 +727,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                   text, point,
                   font_size, font_color,
                   font_face='serif',
-                  _font_size_coef=3/4):
+                  _font_size_coef=3 / 4):
         """
         Draw the `text` string at the position `point`.
 
@@ -757,7 +757,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :raise: ValueError if text contains unprintable whitespace character
 
         **(Alpha color channel don't work!!!)**
-        """
+        """  # noqa
         assert isinstance(text, str), type(text)
 
         assert isinstance(point, tuple) or isinstance(point, list), type(point)
@@ -780,8 +780,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(font_face, str), type(font_face)
         assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face
 
-        assert (isinstance(_font_size_coef, int)
-                or isinstance(_font_size_coef, float)), type(_font_size_coef)
+        assert (isinstance(_font_size_coef, int) or
+                isinstance(_font_size_coef, float)), type(_font_size_coef)
 
         if text == '':
             return
@@ -796,22 +796,23 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             pygame_surface_text = _simpleguifontface_to_pygamefont(
                 font_face, font_size).render(text, True, font_color)
 
-            #if font_color.a == 255:  # without alpha
+            # if font_color.a == 255:  # without alpha
             self._pygame_surface.blit(
                 pygame_surface_text,
                 (point[0],
-                 point[1] - pygame_surface_text.get_height()*_font_size_coef))
-            #else:                    # with alpha (not null)
-            #    # Don't work!!!
-            #    s_alpha = pygame.Surface((pygame_surface_text.get_width(),
-            #                              pygame_surface_text.get_height()),
-            #                             pygame.SRCALPHA)
-            #    s_alpha.blit(pygame_surface_text, (0, 0))
-            #    self._pygame_surface.blit(
-            #        s_alpha,
-            #        (point[0],
-            #         point[1]
-            #         - pygame_surface_text.get_height()*_font_size_coef))
+                 (point[1] -
+                  pygame_surface_text.get_height() * _font_size_coef)))
+            # else:                     # with alpha (not null)
+            #     # Don't work!!!
+            #     s_alpha = pygame.Surface((pygame_surface_text.get_width(),
+            #                               pygame_surface_text.get_height()),
+            #                              pygame.SRCALPHA)
+            #     s_alpha.blit(pygame_surface_text, (0, 0))
+            #     self._pygame_surface.blit(
+            #         s_alpha,
+            #         (point[0],
+            #          (point[1] -
+            #           pygame_surface_text.get_height() * _font_size_coef)))
 
 
 #

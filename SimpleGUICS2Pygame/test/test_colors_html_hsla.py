@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML in hsla() format. (October 4, 2014)
+Test colors HTML in hsla() format. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -60,21 +60,24 @@ def draw(canvas):
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
     for i in range(180):  # Format hsla(hue, lightness, saturation, alpha)
-        p = int(round(i*100.0/180))
+        p = int(round(i * 100.0 / 180))
 
         for a in range(10):
-            canvas.draw_line((i*2, 10 + a*10), ((i + 1)*2, 10 + a*10), 10,
-                             hsla(i, p, p, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 10 + a * 10),
+                             ((i + 1) * 2, 10 + a * 10), 10,
+                             hsla(i, p, p, (a / 10.0 if state_transparency
                                             else 1)))
 
         for a in range(10):
-            canvas.draw_line((i*2, 110 + a*10), ((i + 1)*2, 110 + a*10), 10,
-                             hsla(i, 50, 50, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 110 + a * 10),
+                             ((i + 1) * 2, 110 + a * 10), 10,
+                             hsla(i, 50, 50, (a / 10.0 if state_transparency
                                               else 1)))
 
         for a in range(10):
-            canvas.draw_line((i*2, 210 + a*10), ((i + 1)*2, 210 + a*10), 10,
-                             hsla(0, p, 50, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 210 + a * 10),
+                             ((i + 1) * 2, 210 + a * 10), 10,
+                             hsla(0, p, 50, (a / 10.0 if state_transparency
                                              else 1)))
 
 

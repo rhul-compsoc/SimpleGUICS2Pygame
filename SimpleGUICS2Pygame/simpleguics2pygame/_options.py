@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (March 3, 2020)
+simpleguics2pygame/_options (March 4, 2020)
 
 Options helpers.
 
@@ -101,8 +101,8 @@ def _set_option_from_argv():
                 Frame._frame_padding = 0
         elif arg == '--fullscreen':
             if _PYGAME_AVAILABLE:
-                Frame._pygame_mode_flags |= (pygame.FULLSCREEN
-                                             | pygame.HWSURFACE)
+                Frame._pygame_mode_flags |= (pygame.FULLSCREEN |
+                                             pygame.HWSURFACE)
         elif arg == '--keep-timers':
             Frame._keep_timers = True
         elif arg == '--last':

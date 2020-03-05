@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (April 29, 2016)
+simpleguics2pygame/control (March 5, 2020)
 
 Classes Control and TextAreaControl.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -27,11 +27,9 @@ try:
 except ImportError:
     _PYGAME_AVAILABLE = False
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors \
-    import _SIMPLEGUICOLOR_TO_PYGAMECOLOR
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._fonts \
-    import _simpleguifontface_to_pygamefont
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa
 
 
 #
@@ -162,8 +160,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._frame_parent = frame
 
-        self._button_handler = button_handler  # if is None then it's a label,
-                                               # else it's a button
+        # If is None then it's a label, else it's a button
+        self._button_handler = button_handler
+
         self._width = (max(0, int(round(width))) if width is not None
                        else None)
 
@@ -244,12 +243,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             seq.append((pygame_surface_text, text_width, text_height))
 
         # Button
-        width = (width_max + Control._button_padding_x*2
+        width = (width_max + Control._button_padding_x * 2
                  if self._width is None
                  else max(self._width,
-                          width_max + Control._button_padding_x*2))
+                          width_max + Control._button_padding_x * 2))
 
-        height = height_total + Control._button_padding_y*2
+        height = height_total + Control._button_padding_y * 2
 
         from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 
@@ -257,10 +256,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)
 
         for i, color in enumerate(
-            ((Control._button_selected_background_pygame_color
-              if self._frame_parent._control_selected == self
-              else Control._button_background_pygame_color),
-             Control._button_text_pygame_color)):
+                ((Control._button_selected_background_pygame_color
+                  if self._frame_parent._control_selected == self
+                  else Control._button_background_pygame_color),
+                 Control._button_text_pygame_color)):
             pygame.draw.polygon(pygame_surface_button, color,
                                 ((3, 0),
                                  (width - 4, 0),
@@ -276,7 +275,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         y = Control._button_padding_y
         for pygame_surface_text, text_width, text_height in seq:
             pygame_surface_button.blit(pygame_surface_text,
-                                       ((width - text_width)//2,
+                                       ((width - text_width) // 2,
                                         y))
             y += text_height
 
@@ -330,8 +329,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(x, int) or isinstance(x, float), type(x)
         assert isinstance(y, int) or isinstance(y, float), type(y)
 
-        return ((self._x1 <= x <= self._x2)
-                and (self._y1 <= y <= self._y2))
+        return ((self._x1 <= x <= self._x2) and
+                (self._y1 <= y <= self._y2))
 
     def get_text(self):
         """
@@ -514,7 +513,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             text_before_cursor_width = text_width
 
         rect_y = self._y2 + 2
-        rect_height = text_height + 2 + TextAreaControl._input_padding_y*2
+        rect_height = text_height + 2 + TextAreaControl._input_padding_y * 2
 
         pygame.draw.rect(
             self._frame_parent._controlpanel_pygame_surface,
@@ -534,7 +533,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         text_x = self._x1 + 1 + TextAreaControl._input_padding_x
         text_y = rect_y + 1 + TextAreaControl._input_padding_y
 
-        max_text_width = self._width - 2 - TextAreaControl._input_padding_x*2
+        max_text_width = self._width - 2 - TextAreaControl._input_padding_x * 2
         offset_text_x = max(0, text_width - max_text_width)
         text_width = min(text_width, max_text_width)
 
@@ -576,14 +575,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert 0 <= self._input_pos <= len(self._input_text), \
             (self._input_pos, len(self._input_text), self._input_text)
 
-        if pygame_event.key == pygame.K_END:                  # End
+        if pygame_event.key == pygame.K_END:             # End
             # Set position to end
             if self._input_pos < len(self._input_text):
                 self._input_pos = len(self._input_text)
                 self._frame_parent._draw_controlpanel()
 
             return
-        elif pygame_event.key == pygame.K_ESCAPE:             # Escape
+        elif pygame_event.key == pygame.K_ESCAPE:        # Escape
             # Erase all
             if self._input_pos != '':
                 self._input_pos = 0
@@ -591,14 +590,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 self._frame_parent._draw_controlpanel()
 
             return
-        elif pygame_event.key == pygame.K_HOME:               # Home
+        elif pygame_event.key == pygame.K_HOME:          # Home
             # Set position to begining
             if self._input_pos > 0:
                 self._input_pos = 0
                 self._frame_parent._draw_controlpanel()
 
             return
-        elif pygame_event.key == pygame.K_LEFT:               # Left
+        elif pygame_event.key == pygame.K_LEFT:          # Left
             # Move backward position
             if self._input_pos > 0:
                 self._input_pos = (
@@ -608,21 +607,21 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 self._frame_parent._draw_controlpanel()
 
             return
-        elif ((pygame_event.key == pygame.K_RETURN)
-                or (pygame_event.key == pygame.K_KP_ENTER)):  # Return
+        elif ((pygame_event.key == pygame.K_RETURN) or
+              (pygame_event.key == pygame.K_KP_ENTER)):  # Return
             # Valid text and run handler
             self._frame_parent._control_selected = None
             self._frame_parent._draw_controlpanel()
             self._input_handler(self._input_text)
 
             return
-        elif pygame_event.key == pygame.K_RIGHT:              # Right
+        elif pygame_event.key == pygame.K_RIGHT:         # Right
             # Move forward position
             if self._input_pos < len(self._input_text):
                 if pygame_event.mod & pygame.KMOD_CTRL:
                     i = self._input_pos
-                    while ((i < len(self._input_text))
-                           and (self._input_text[i] == ' ')):
+                    while ((i < len(self._input_text)) and
+                           (self._input_text[i] == ' ')):
                         i += 1
                     i = self._input_text.find(' ', i)
                     self._input_pos = (i
@@ -633,15 +632,15 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 self._frame_parent._draw_controlpanel()
 
             return
-        elif pygame_event.key == pygame.K_TAB:                # Tab
+        elif pygame_event.key == pygame.K_TAB:           # Tab
             # Give focus to the next input box (if exist)
             i = 0
             while self._frame_parent._controls[i] != self:
                 i += 1
             i += 1
-            while ((i < len(self._frame_parent._controls))
-                   and not isinstance(self._frame_parent._controls[i],
-                                      TextAreaControl)):
+            while ((i < len(self._frame_parent._controls)) and
+                   not isinstance(self._frame_parent._controls[i],
+                                  TextAreaControl)):
                 i += 1
 
             self._frame_parent._control_selected = (
@@ -660,29 +659,28 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 self._input_text[:self._input_pos].rstrip().rfind(' ') + 1
                 if pygame_event.mod & pygame.KMOD_CTRL
                 else self._input_pos - 1)
-            self._input_text = (self._input_text[:new_pos]
-                                + self._input_text[self._input_pos:])
+            self._input_text = (self._input_text[:new_pos] +
+                                self._input_text[self._input_pos:])
             self._input_pos = new_pos
         elif pygame_event.key == pygame.K_DELETE:   # Delete
             # Delete next character(s)
             if pygame_event.mod & pygame.KMOD_CTRL:
                 i = self._input_pos
-                while ((i < len(self._input_text))
-                       and (self._input_text[i] == ' ')):
+                while ((i < len(self._input_text)) and
+                       (self._input_text[i] == ' ')):
                     i += 1
                 i = self._input_text.find(' ', i)
-                self._input_text = (self._input_text[:self._input_pos]
-                                    + (self._input_text[i:]
-                                       if i >= 0
-                                       else ''))
+                self._input_text = (self._input_text[:self._input_pos] +
+                                    (self._input_text[i:] if i >= 0
+                                     else ''))
             else:
-                self._input_text = (self._input_text[:self._input_pos]
-                                    + self._input_text[self._input_pos + 1:])
+                self._input_text = (self._input_text[:self._input_pos] +
+                                    self._input_text[self._input_pos + 1:])
         elif len(pygame_event.unicode) == 1:        # Other key
             # Add character
-            self._input_text = (self._input_text[:self._input_pos]
-                                + pygame_event.unicode
-                                + self._input_text[self._input_pos:])
+            self._input_text = (self._input_text[:self._input_pos] +
+                                pygame_event.unicode +
+                                self._input_text[self._input_pos:])
             self._input_pos += 1
 
         if self._input_text != old:
@@ -731,8 +729,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(x, int) or isinstance(x, float), type(x)
         assert isinstance(y, int) or isinstance(y, float), type(y)
 
-        return ((self._x1 <= x <= self._x2)
-                and (self._y1 <= y <= self._y2))
+        return ((self._x1 <= x <= self._x2) and
+                (self._y1 <= y <= self._y2))
 
     def get_text(self):
         """

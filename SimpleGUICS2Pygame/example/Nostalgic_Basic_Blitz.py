@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
+# pylint: disable=invalid-name
 
 """
-Nostalgic Basic Blitz (May 25, 2014)
+Nostalgic Basic Blitz (March 5, 2020)
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -11,7 +12,7 @@ http://www.abebooks.fr/JEUX-BASIC-TRS-80-COULEUR-MONSAUT-Pierre/7821908154/bd
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -33,11 +34,11 @@ HEIGHT = 20
 
 SCALE = 2
 
-CHAR_WIDTH = 6*SCALE
-CHAR_HEIGHT = 14*SCALE
+CHAR_WIDTH = 6 * SCALE
+CHAR_HEIGHT = 14 * SCALE
 
-CANVAS_WIDTH = WIDTH*CHAR_WIDTH
-CANVAS_HEIGHT = HEIGHT*CHAR_HEIGHT
+CANVAS_WIDTH = WIDTH * CHAR_WIDTH
+CANVAS_HEIGHT = HEIGHT * CHAR_HEIGHT
 
 
 #
@@ -80,7 +81,8 @@ class Blitz:
         text = str(self.__city.nb_remaining_columns())
         size = 30
         width = frame.get_canvas_textwidth(text, size)
-        canvas.draw_text(text, (CANVAS_WIDTH - width - 10, 10 + size*3.0/4),
+        canvas.draw_text(text, (CANVAS_WIDTH - width - 10,
+                                10 + size * 3.0 / 4),
                          size, 'White')
 
     def launch_bomb(self):
@@ -118,8 +120,8 @@ class Blitz:
 
         :return: bool
         """
-        return ((self.__city.nb_remaining_columns() == 0)
-                and not self.__plane.crashed())
+        return ((self.__city.nb_remaining_columns() == 0) and
+                not self.__plane.crashed())
 
 
 class Bomb:
@@ -140,7 +142,7 @@ class Bomb:
         assert y >= 0, y
 
         self.__x = x
-        self.__pixel_y = y*CHAR_HEIGHT
+        self.__pixel_y = y * CHAR_HEIGHT
 
     def draw(self, canvas):
         """
@@ -150,9 +152,9 @@ class Bomb:
         """
         assert isinstance(canvas, simplegui.Canvas), type(canvas)
 
-        canvas.draw_line(((self.__x + 0.5)*CHAR_WIDTH - 1,
+        canvas.draw_line(((self.__x + 0.5) * CHAR_WIDTH - 1,
                           self.__pixel_y),
-                         ((self.__x + 0.5)*CHAR_WIDTH - 1,
+                         ((self.__x + 0.5) * CHAR_WIDTH - 1,
                           self.__pixel_y + CHAR_HEIGHT),
                          CHAR_WIDTH, 'Red')
 
@@ -180,13 +182,13 @@ class Bomb:
 
         :return: int >= 0
         """
-        return self.__pixel_y//CHAR_HEIGHT
+        return self.__pixel_y // CHAR_HEIGHT
 
     def update(self):
         """
         Update the bomb position.
         """
-        self.__pixel_y += CHAR_HEIGHT//3
+        self.__pixel_y += CHAR_HEIGHT // 3
 
 
 class City:
@@ -198,8 +200,8 @@ class City:
         """
         Set randomly a city.
         """
-        heights = [random.randint(4, HEIGHT - 8)//2
-                   for _ in range((WIDTH - 5)//2)]
+        heights = [random.randint(4, HEIGHT - 8) // 2
+                   for _ in range((WIDTH - 5) // 2)]
 
         assert heights
 
@@ -208,7 +210,7 @@ class City:
         height = None
 
         for height in heights:
-            height = height*2 + 1
+            height = height * 2 + 1
             self.__heights.extend((max(height, self.__heights[-1]),
                                    height))
         self.__heights.append(height)
@@ -229,9 +231,9 @@ class City:
         assert isinstance(y, int), type(y)
         assert y >= 0, y
 
-        return ((x < len(self.__heights))
-                and (self.__heights[x] > 0)
-                and (y >= HEIGHT - self.__heights[x]))
+        return ((x < len(self.__heights)) and
+                (self.__heights[x] > 0) and
+                (y >= HEIGHT - self.__heights[x]))
 
     def draw(self, canvas):
         """
@@ -246,18 +248,18 @@ class City:
             if height > 0:
                 if i % 2 == 0:
                     canvas.draw_line(
-                        ((i + 0.5)*CHAR_WIDTH - 1,
-                         CANVAS_HEIGHT - 1 - height*CHAR_HEIGHT),
-                        ((i + 0.5)*CHAR_WIDTH - 1,
+                        ((i + 0.5) * CHAR_WIDTH - 1,
+                         CANVAS_HEIGHT - 1 - height * CHAR_HEIGHT),
+                        ((i + 0.5) * CHAR_WIDTH - 1,
                          CANVAS_HEIGHT - 1),
                         CHAR_WIDTH, 'Yellow')
                 else:
                     for j in range(0, height, 2):
                         canvas.draw_line(
-                            ((i + 0.5)*CHAR_WIDTH - 1,
-                             CANVAS_HEIGHT - 1 - (j + 1)*CHAR_HEIGHT),
-                            ((i + 0.5)*CHAR_WIDTH - 1,
-                             CANVAS_HEIGHT - 1 - j*CHAR_HEIGHT),
+                            ((i + 0.5) * CHAR_WIDTH - 1,
+                             CANVAS_HEIGHT - 1 - (j + 1) * CHAR_HEIGHT),
+                            ((i + 0.5) * CHAR_WIDTH - 1,
+                             CANVAS_HEIGHT - 1 - j * CHAR_HEIGHT),
                             CHAR_WIDTH, 'Yellow')
 
     def kill_column_top(self, x, y):
@@ -348,19 +350,19 @@ class Plane:
 
         color = ('Orange' if self.__crashed
                  else 'Silver')
-        pixel_y = self.__y*CHAR_HEIGHT
+        pixel_y = self.__y * CHAR_HEIGHT
         canvas.draw_polygon(((self.__pixel_x,
-                              pixel_y + CHAR_HEIGHT/2),
+                              pixel_y + CHAR_HEIGHT / 2),
                              (self.__pixel_x + CHAR_WIDTH,
                               pixel_y + CHAR_HEIGHT),
-                             (self.__pixel_x + CHAR_WIDTH*3,
+                             (self.__pixel_x + CHAR_WIDTH * 3,
                               pixel_y + CHAR_HEIGHT),
-                             (self.__pixel_x + CHAR_WIDTH*4,
-                              pixel_y + CHAR_HEIGHT*1.5),
-                             (self.__pixel_x + CHAR_WIDTH*3,
-                              pixel_y + CHAR_HEIGHT*2 - 3),
+                             (self.__pixel_x + CHAR_WIDTH * 4,
+                              pixel_y + CHAR_HEIGHT * 1.5),
+                             (self.__pixel_x + CHAR_WIDTH * 3,
+                              pixel_y + CHAR_HEIGHT * 2 - 3),
                              (self.__pixel_x,
-                              pixel_y + CHAR_HEIGHT*2 - 3)),
+                              pixel_y + CHAR_HEIGHT * 2 - 3)),
                             1, color, color)
 
     def launch_bomb(self):
@@ -377,7 +379,7 @@ class Plane:
 
         :return: (int >= 0, int >= 0)
         """
-        return (self.__pixel_x//CHAR_WIDTH + 1,
+        return (self.__pixel_x // CHAR_WIDTH + 1,
                 self.__y + 2)
 
     def nose_pos(self):
@@ -386,7 +388,7 @@ class Plane:
 
         :return: (int >= 0, int >= 0)
         """
-        return (self.__pixel_x//CHAR_WIDTH + 3,
+        return (self.__pixel_x // CHAR_WIDTH + 3,
                 self.__y + 1)
 
     def update(self):
@@ -396,7 +398,7 @@ class Plane:
         if (self.__y < HEIGHT - 2) and not self.__crashed:
             self.__pixel_x += 2
             if self.__pixel_x > CANVAS_WIDTH:
-                self.__pixel_x = -CHAR_WIDTH*4
+                self.__pixel_x = -CHAR_WIDTH * 4
                 self.__y += 1
             elif blitz.won():
                 self.__y += 1

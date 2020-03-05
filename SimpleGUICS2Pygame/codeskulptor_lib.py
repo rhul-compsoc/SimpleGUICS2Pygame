@@ -1,21 +1,21 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor_lib (October 4, 2014)
+codeskulptor_lib (March 5, 2020)
 
 Some miscellaneous functions to help in CodeSkulptor.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
 
 # Private global variable
 #########################
-_codeskulptor_is = None
+_CODESKULPTOR_IS = None
 """
 Used to memoization by codeskulptor_is().
 """
@@ -66,21 +66,24 @@ def codeskulptor_is():
 
     :return: bool
     """
-    global _codeskulptor_is
+    # CodeSkulptor require global in top of function
+    global _CODESKULPTOR_IS  # pylint: disable=global-statement
 
-    if _codeskulptor_is is None:
+    if _CODESKULPTOR_IS is None:
         try:
+            # Try import to check if running in CodeSkulptor environment
             from codeskulptor import file2url
             from simplegui import KEY_MAP
 
-            _codeskulptor_is = True
+            url = file2url('try-codeskulptor-is')
+            _CODESKULPTOR_IS = (url != '') and ('A' in KEY_MAP)
         except ImportError:
-            _codeskulptor_is = False
+            _CODESKULPTOR_IS = False
 
-    return _codeskulptor_is
+    return _CODESKULPTOR_IS
 
 
-def hex2(n, uppercase=True):
+def hex2(n, uppercase=True):  # pylint: disable=invalid-name
     """
     Return 2 characters corresponding to the hexadecimal representation of `n`.
 
@@ -93,10 +96,10 @@ def hex2(n, uppercase=True):
     assert 0 <= n < 256
     assert isinstance(uppercase, bool), type(uppercase)
 
-    return hex_fig(n//16) + hex_fig(n % 16)
+    return hex_fig(n // 16) + hex_fig(n % 16)
 
 
-def hex_fig(n, uppercase=True):
+def hex_fig(n, uppercase=True):  # pylint: disable=invalid-name
     """
     Return the hexadecimal figure of `n`.
 
@@ -111,8 +114,7 @@ def hex_fig(n, uppercase=True):
 
     return (str(n) if n < 10
             else chr((ord('A' if uppercase
-                          else 'a')
-                      + n - 10)))
+                          else 'a') + n - 10)))
 
 
 def hsl(hue, saturation, lightness):

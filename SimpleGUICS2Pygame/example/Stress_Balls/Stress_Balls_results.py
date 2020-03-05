@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
+# pylint: disable=invalid-name
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(April 1st, 2018)
+(March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2018 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2018, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -16,11 +17,11 @@ try:
     import codeskulptor  # to avoid other simpleplot available in Python
     import simpleplot
 
-    SIMPLEGUICS2PYGAME = False
+    SIMPLEGUICS2PYGAME = bool(codeskulptor)  # False
 except ImportError:
     import SimpleGUICS2Pygame.simpleplot as simpleplot
 
-    SIMPLEGUICS2PYGAME = True
+    SIMPLEGUICS2PYGAME = bool(simpleplot)  # True
 
 
 # All my (old) results on Pentium Dual-Core 2.7GHz 2Gio, Windows 7 64 bits:
@@ -81,8 +82,7 @@ all_results = {'Chrome':
                  1000: 9, 1500: 6, 2000: 5},  # normal
                 {1: 45, 10: 38, 20: 35, 30: 36, 40: 34, 50: 35, 75: 33,
                  100: 31, 200: 24, 300: 20, 400: 17, 500: 15, 750: 11,
-                 1000: 9, 1500: 6, 2000: 5})  # REVERSE
-               }
+                 1000: 9, 1500: 6, 2000: 5})}  # REVERSE
 
 
 # Calculate average
@@ -103,7 +103,7 @@ for legend in all_results:
 
     for nb in nb_balls_b:
         alls_nb.add(nb)
-        results[nb] = int(round((data_a[nb] + data_b[nb])/2))
+        results[nb] = int(round((data_a[nb] + data_b[nb]) / 2))
 
     all_results[legend] = results
 
@@ -134,13 +134,13 @@ for legend in legends:
 # Display
 print('|'.join(['%4d' % nb for nb in alls_nb]) + '|Environment')
 
-print('----+'*len(alls_nb) + '-----------')
+print('----+' * len(alls_nb) + '-----------')
 for legend in legends:
     l = []
     for nb in alls_nb:
         fps = all_results[legend].get(nb, None)
         l.append(('%4d' % fps if fps is not None
-                  else ' '*4))
+                  else ' ' * 4))
     print('|'.join(l) + '|' + legend)
 
 

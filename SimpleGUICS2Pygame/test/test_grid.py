@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw points, lines and polygons. (December 13, 2013)
+Test draw points, lines and polygons. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -64,16 +64,16 @@ def draw(canvas):
 
     if state_method == 0:
         draw_grid1(canvas, 0, color1)
-        draw_grid2(canvas, HEIGHT//3, color2)
-        draw_grid3(canvas, HEIGHT*2//3, color3)
+        draw_grid2(canvas, HEIGHT // 3, color2)
+        draw_grid3(canvas, HEIGHT * 2 // 3, color3)
     elif state_method == 1:
         draw_grid3(canvas, 0, color3)
-        draw_grid1(canvas, HEIGHT//3, color1)
-        draw_grid2(canvas, HEIGHT*2//3, color2)
+        draw_grid1(canvas, HEIGHT // 3, color1)
+        draw_grid2(canvas, HEIGHT * 2 // 3, color2)
     else:
         draw_grid2(canvas, 0, color2)
-        draw_grid3(canvas, HEIGHT//3, color3)
-        draw_grid1(canvas, HEIGHT*2//3, color1)
+        draw_grid3(canvas, HEIGHT // 3, color3)
+        draw_grid1(canvas, HEIGHT * 2 // 3, color1)
 
 
 def draw_grid1(canvas, y_offset, color):
@@ -87,10 +87,11 @@ def draw_grid1(canvas, y_offset, color):
     s = 'points'
     width = frame.get_canvas_textwidth(s, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2),
+    canvas.draw_text(s, ((WIDTH - width) // 2,
+                         y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
                      SIZE, color)
 
-    for y in range(0, HEIGHT//3, 20):
+    for y in range(0, HEIGHT // 3, 20):
         y += y_offset
         for x in range(0, WIDTH):
             canvas.draw_point((x, y), color)
@@ -111,15 +112,16 @@ def draw_grid2(canvas, y_offset, color):
     s = 'lines'
     width = frame.get_canvas_textwidth(s, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2),
+    canvas.draw_text(s, ((WIDTH - width) // 2,
+                         y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
                      SIZE, color)
 
-    for y in range(0, HEIGHT//3, 20):
+    for y in range(0, HEIGHT // 3, 20):
         y += y_offset
         canvas.draw_line((0, y), (WIDTH - 1, y), 1, color)
 
     for x in range(0, WIDTH, 40):
-        canvas.draw_line((x, y_offset), (x, y_offset + HEIGHT//2 - 1),
+        canvas.draw_line((x, y_offset), (x, y_offset + HEIGHT // 2 - 1),
                          1, color)
 
 
@@ -134,10 +136,11 @@ def draw_grid3(canvas, y_offset, color):
     s = 'rectangles'
     width = frame.get_canvas_textwidth(s, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width)//2, y_offset + (HEIGHT/3 + SIZE/4)/2),
+    canvas.draw_text(s, ((WIDTH - width) // 2,
+                         y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
                      SIZE, color)
 
-    for y in range(0, HEIGHT//3, 20):
+    for y in range(0, HEIGHT // 3, 20):
         y += y_offset
         for x in range(0, WIDTH, 40):
             canvas.draw_polygon(((x, y), (x + 40, y),

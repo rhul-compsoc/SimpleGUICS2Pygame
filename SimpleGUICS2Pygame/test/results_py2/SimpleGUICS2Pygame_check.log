@@ -1,4 +1,4 @@
-script/SimpleGUICS2Pygame_check.py (January 13, 2016)
+script/SimpleGUICS2Pygame_check.py (March 5, 2020)
 =====================================================
 PATH:
   /home/opi/.cargo/bin
@@ -45,7 +45,7 @@ import pygame ok - Version 1.9.1release
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 3, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 5, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

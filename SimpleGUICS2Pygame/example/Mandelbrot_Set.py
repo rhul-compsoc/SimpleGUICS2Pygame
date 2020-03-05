@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
+# pylint: disable=invalid-name
 
 """
-Mandelbrot Set. (October 4, 2014)
+Mandelbrot Set. (March 5, 2020)
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -34,8 +35,8 @@ except ImportError:
 #
 # Global constants
 ###################
-_FPS_AVERAGE = not codeskulptor_is()  # draw FPS average
-                                      #   (only with SimpleGUICS2Pygame)
+# draw FPS average (only with SimpleGUICS2Pygame)
+_FPS_AVERAGE = not codeskulptor_is()
 
 CANVAS_WIDTH = 256
 CANVAS_HEIGHT = 256
@@ -81,8 +82,8 @@ def draw_and_calculate(canvas):
             if color is None:
                 z = point[0]
 
-                z_real2 = z[0]*z[0]
-                z_imag2 = z[1]*z[1]
+                z_real2 = z[0] * z[0]
+                z_imag2 = z[1] * z[1]
                 z_abs2 = z_real2 + z_imag2
 
                 if z_abs2 > 4:
@@ -91,7 +92,7 @@ def draw_and_calculate(canvas):
                     color = None
                     c = point[1]
                     point[0] = (z_real2 - z_imag2 + c[0],  # z
-                                z[0]*z[1]*2 + c[1])
+                                z[0] * z[1] * 2 + c[1])
                     point[2] += 1  # number of iterations
 
             if contiguous_color != color:
@@ -230,23 +231,23 @@ def init():
     assert nb_iter_max < 256, nb_iter_max
 
     colors = tuple(['#%s%s%s'
-                    % (hex2(255 - 256*int(math.log10(i)//nb_iter_max)),
-                       hex2(255 - 256*i//nb_iter_max),
-                       hex2(255 - 256*i//nb_iter_max))
+                    % (hex2(255 - 256 * int(math.log10(i) // nb_iter_max)),
+                       hex2(255 - 256 * i // nb_iter_max),
+                       hex2(255 - 256 * i // nb_iter_max))
                     for i in range(1, nb_iter_max)])
 
     nb_iter = 0
 
-    coef_c_real = (z1_real - z0_real)/(CANVAS_WIDTH - 1)
-    coef_c_imag = (z0_imag - z1_imag)/(CANVAS_HEIGHT - 1)
+    coef_c_real = (z1_real - z0_real) / (CANVAS_WIDTH - 1)
+    coef_c_imag = (z0_imag - z1_imag) / (CANVAS_HEIGHT - 1)
 
     grid = []
-    for y in range(CANVAS_HEIGHT//2 + 1):
-        c_imag = z0_imag - coef_c_imag*y
+    for y in range(CANVAS_HEIGHT // 2 + 1):
+        c_imag = z0_imag - coef_c_imag * y
 
         line = []
         for x in range(CANVAS_WIDTH):
-            c_real = z0_real + coef_c_real*x
+            c_real = z0_real + coef_c_real * x
             line.append([(0, 0),            # z
                          (c_real, c_imag),  # C
                          0,                 # number of iterations

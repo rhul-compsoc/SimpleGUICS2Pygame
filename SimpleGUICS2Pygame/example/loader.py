@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_loader.Loader use. (April 28, 2016)
+Example of simplegui_lib_loader.Loader use. (March 5, 2020)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_loader.html
@@ -10,7 +10,7 @@ https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_loader.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -42,16 +42,16 @@ def draw(canvas):
     """
     img = loader.get_image('asteroid')  # get an image by its name
     canvas.draw_image(img,
-                      (img.get_width()/2, img.get_height()/2),
+                      (img.get_width() / 2, img.get_height() / 2),
                       (img.get_width(), img.get_height()),
-                      (img.get_width()/2, img.get_height()/2),
+                      (img.get_width() / 2, img.get_height() / 2),
                       (img.get_width(), img.get_height()))
 
     img = loader.get_image('double_ship')  # get an image by its name
     canvas.draw_image(img,
-                      (img.get_width()/2, img.get_height()/2),
+                      (img.get_width() / 2, img.get_height() / 2),
                       (img.get_width(), img.get_height()),
-                      (img.get_width()/2, img.get_height()/2 + 100),
+                      (img.get_width() / 2, img.get_height() / 2 + 100),
                       (img.get_width(), img.get_height()))
 
 
@@ -99,17 +99,17 @@ loader = Loader(frame,  # the frame
                 init)   # the function to call after loading
 
 # Specified images to load with its URL and give them a name.
-loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',
+loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',  # noqa
                  'asteroid')
-loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
+loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
                  'double_ship')
 loader.add_image('xxx',
                  'incorrect url')
 
 # Specified sounds to load with its URL and give them a name.
-loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/explosion.ogg',
+loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/explosion.ogg',  # noqa
                  'explosion')
-loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/soundtrack.ogg',
+loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/soundtrack.ogg',  # noqa
                  'soundtrack')
 loader.add_sound('xxx',
                  'incorrect url')

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (March 3, 2020)
+Test all other test_*.py. (March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -143,7 +143,7 @@ def main():
     <a href="{0}" target="_blank">SimpleGUICS2Pygame</a>
     <span class="infos">{1} &ndash; test report &ndash; Python {2} &ndash; Pygame {3} &ndash; {4}</span>
   </h1>
-  <ol>""".format(SIMPLEGUICS2PYGAME_WEBSITE,
+  <ol>""".format(SIMPLEGUICS2PYGAME_WEBSITE,  # noqa
                  SIMPLEGUICS2PYGAME_VERSION,
                  PYTHON_VERSION,
                  PYGAME_VERSION,

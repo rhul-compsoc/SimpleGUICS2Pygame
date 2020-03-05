@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML in rgba() format. (October 4, 2014)
+Test colors HTML in rgba() format. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -58,23 +58,27 @@ def draw(canvas):
     """
     for i in range(256):  # Format rgba(red, blue, green, alpha)
         for a in range(10):
-            canvas.draw_line((i*2, 10 + a*10), ((i + 1)*2, 10 + a*10), 10,
-                             rgba(i, i, i, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 10 + a * 10),
+                             ((i + 1) * 2, 10 + a * 10), 10,
+                             rgba(i, i, i, (a / 10.0 if state_transparency
                                             else 1)))
 
         for a in range(10):
-            canvas.draw_line((i*2, 110 + a*10), ((i + 1)*2, 110 + a*10), 10,
-                             rgba(i, 0, 0, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 110 + a * 10),
+                             ((i + 1) * 2, 110 + a * 10), 10,
+                             rgba(i, 0, 0, (a / 10.0 if state_transparency
                                             else 1)))
 
         for a in range(10):
-            canvas.draw_line((i*2, 210 + a*10), ((i + 1)*2, 210 + a*10), 10,
-                             rgba(0, i, 0, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 210 + a * 10),
+                             ((i + 1) * 2, 210 + a * 10), 10,
+                             rgba(0, i, 0, (a / 10.0 if state_transparency
                                             else 1)))
 
         for a in range(10):
-            canvas.draw_line((i*2, 310 + a*10), ((i + 1)*2, 310 + a*10), 10,
-                             rgba(0, 0, i, (a/10.0 if state_transparency
+            canvas.draw_line((i * 2, 310 + a * 10),
+                             ((i + 1) * 2, 310 + a * 10), 10,
+                             rgba(0, 0, i, (a / 10.0 if state_transparency
                                             else 1)))
 
 

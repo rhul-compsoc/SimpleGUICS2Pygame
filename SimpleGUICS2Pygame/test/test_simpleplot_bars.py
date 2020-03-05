@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test simpleplot bars. (August 16, 2015)
+Test simpleplot bars. (March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -15,11 +15,11 @@ try:
     import simplegui  # to avoid other simpleplot available in Python
     import simpleplot
 
-    SIMPLEGUICS2PYGAME = False
+    SIMPLEGUICS2PYGAME = not bool(simplegui)  # False
 except ImportError:
     import SimpleGUICS2Pygame.simpleplot as simpleplot
 
-    SIMPLEGUICS2PYGAME = True
+    SIMPLEGUICS2PYGAME = bool(simpleplot)  # True
 
 
 datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]

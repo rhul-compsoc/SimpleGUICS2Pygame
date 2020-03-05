@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (July 23, 2018)
+simpleguics2pygame/_colors (March 5, 2020)
 
 Colors helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2018 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2018, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -20,7 +20,7 @@ from __future__ import print_function
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -227,7 +227,7 @@ def _simpleguicolor_to_pygamecolor(
     :param default_pygame_color: pygame.Color
 
     :return: pygame.Color
-    """
+    """  # noqa
     from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
 
     pygame_color = Frame._pygamecolors_cached.get(color)
@@ -237,12 +237,12 @@ def _simpleguicolor_to_pygamecolor(
     assert isinstance(color, str), type(color)
     assert len(color) > 0
 
-    #assert (((color[0] == '#') and ((len(color) == 4) or (len(color) == 7)))
-    #        or (color[:4] == 'rgb(')
-    #        or (color[:5] == 'rgba(')
-    #        or (color[:4] == 'hsl(')
-    #        or (color[:5] == 'hsla(')
-    #        or (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
+    # assert (((color[0] == '#') and (len(color) in (4, 7))) or
+    #         (color[:4] == 'rgb(') or
+    #         (color[:5] == 'rgba(') or
+    #         (color[:4] == 'hsl(') or
+    #         (color[:5] == 'hsla(') or
+    #         (color.lower() in _SIMPLEGUICOLOR_TO_PYGAMECOLOR)), color
 
     color = color.lower()
 
@@ -250,7 +250,7 @@ def _simpleguicolor_to_pygamecolor(
         # See http://www.w3.org/TR/css3-color/#numerical
         pygame_color = pygame.Color(
             color if len(color) == 7
-            else '#' + color[1]*2 + color[2]*2 + color[3]*2)
+            else '#' + color[1] * 2 + color[2] * 2 + color[3] * 2)
     elif color[:3] == 'rgb':
         if color[3] == '(':  # format rgb(red, green, blue)
             # See http://www.w3.org/TR/css3-color/#rgb-color
@@ -276,7 +276,7 @@ def _simpleguicolor_to_pygamecolor(
                 max(0, min(255, int(channels[0]))),
                 max(0, min(255, int(channels[1]))),
                 max(0, min(255, int(channels[2]))),
-                max(0, min(255, int(round(float(channels[3])*255)))))
+                max(0, min(255, int(round(float(channels[3]) * 255)))))
     elif color[:3] == 'hsl':
         from colorsys import hls_to_rgb
 
@@ -291,13 +291,13 @@ def _simpleguicolor_to_pygamecolor(
             assert datas[2][-1] == '%', datas[2]
 
             red, green, blue = hls_to_rgb(
-                max(0, min(1, (float(datas[0]) % 360)/360)),
-                max(0, min(1, float(datas[2][:-1])/100)),
-                max(0, min(1, float(datas[1][:-1])/100)))
+                max(0, min(1, (float(datas[0]) % 360) / 360)),
+                max(0, min(1, float(datas[2][:-1]) / 100)),
+                max(0, min(1, float(datas[1][:-1]) / 100)))
 
-            pygame_color = pygame.Color(int(round(red*255)),
-                                        int(round(green*255)),
-                                        int(round(blue*255)))
+            pygame_color = pygame.Color(int(round(red * 255)),
+                                        int(round(green * 255)),
+                                        int(round(blue * 255)))
         else:                # format hsla(hue, saturation, lightness, alpha)
             # See http://www.w3.org/TR/css3-color/#hsla-color
             assert color[3:5] == 'a(', color
@@ -310,15 +310,15 @@ def _simpleguicolor_to_pygamecolor(
             assert datas[2][-1] == '%', datas[2]
 
             red, green, blue = hls_to_rgb(
-                max(0, min(1, (float(datas[0]) % 360)/360)),
-                max(0, min(1, float(datas[2][:-1])/100)),
-                max(0, min(1, float(datas[1][:-1])/100)))
+                max(0, min(1, (float(datas[0]) % 360) / 360)),
+                max(0, min(1, float(datas[2][:-1]) / 100)),
+                max(0, min(1, float(datas[1][:-1]) / 100)))
 
             pygame_color = pygame.Color(
-                int(round(red*255)),
-                int(round(green*255)),
-                int(round(blue*255)),
-                max(0, min(255, int(round(float(datas[3])*255)))))
+                int(round(red * 255)),
+                int(round(green * 255)),
+                int(round(blue * 255)),
+                max(0, min(255, int(round(float(datas[3]) * 255)))))
     else:                # constant name
         # See http://www.w3.org/TR/css3-color/#html4
         # and http://www.w3.org/TR/css3-color/#svg-color

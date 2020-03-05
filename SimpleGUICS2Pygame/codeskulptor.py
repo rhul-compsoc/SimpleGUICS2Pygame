@@ -1,14 +1,14 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor (May 24, 2014)
+codeskulptor (March 5, 2020)
 
 Replace the codeskulptor module of CodeSkulptor.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -30,7 +30,7 @@ def file2url(filename):
                          (the good format is '^[a-zA-Z][a-zA-Z0-9]*[_-]')
 
     :return: str
-    """
+    """  # noqa
     from re import search
 
     match = search('^([a-zA-Z][a-zA-Z0-9]*)[_-]', filename)
@@ -53,6 +53,6 @@ def set_timeout(seconds):
     .. _`CodeSkulptor set_timeout documentation`: http://www.codeskulptor.org/docs.html#set-timeout
 
     :param seconds: int >= 0
-    """
+    """  # noqa
     assert isinstance(seconds, int), type(seconds)
     assert seconds >= 0, seconds

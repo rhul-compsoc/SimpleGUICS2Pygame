@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw lines. (December 13, 2013)
+Test draw lines. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -58,18 +58,18 @@ def draw(canvas):
 
     if state_direction:
         for i in range(0, HEIGHT + 1, 20):
-            canvas.draw_line((i, i), (WIDTH - i/2, i), 9,
+            canvas.draw_line((i, i), (WIDTH - i / 2, i), 9,
                              ('White' if state_colors
                               else 'Red'))
-            canvas.draw_line((i, i), (WIDTH - i/2, i), 3,
+            canvas.draw_line((i, i), (WIDTH - i / 2, i), 3,
                              ('Red' if state_colors
                               else 'White'))
     else:
         for i in range(0, WIDTH + 1, 20):
-            canvas.draw_line((i, i), (i, HEIGHT - i/2), 9,
+            canvas.draw_line((i, i), (i, HEIGHT - i / 2), 9,
                              ('White' if state_colors
                               else 'Red'))
-            canvas.draw_line((i, i), (i, HEIGHT - i/2), 3,
+            canvas.draw_line((i, i), (i, HEIGHT - i / 2), 3,
                              ('Red' if state_colors
                               else 'White'))
 

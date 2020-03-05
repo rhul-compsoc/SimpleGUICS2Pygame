@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test play sounds. (June 3, 2015)
+Test play sounds. (March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -25,7 +25,7 @@ except ImportError:
 
 TEST = 'test sound'
 
-sound_jump_ogg = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')
+sound_jump_ogg = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')  # noqa
 
 if SIMPLEGUICS2PYGAME:
     local_sound_chirp_wav = simplegui._load_local_sound('_snd/chirp_1s.wav')

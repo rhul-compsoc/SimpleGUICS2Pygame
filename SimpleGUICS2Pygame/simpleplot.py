@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (January 29, 2020)
+simpleplot (March 5, 2020)
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -28,8 +28,8 @@ GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 
 .. _matplotlib: https://matplotlib.org/
-.. _`Unofficial Windows Binaries`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
-"""
+.. _`Unofficial Windows Binaries`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+"""  # noqa
 
 from __future__ import print_function
 
@@ -84,7 +84,8 @@ def _block():
         matplotlib.pyplot.show()
 
 
-def plot_bars(framename, width, height, xlabel, ylabel, datasets,
+def plot_bars(framename, width, height,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+              xlabel, ylabel, datasets,
               legends=None,
               _block=False, _filename=None):
     """
@@ -151,8 +152,8 @@ def plot_bars(framename, width, height, xlabel, ylabel, datasets,
                 assert isinstance(x, int) or isinstance(x, float), (type(x), x)
                 assert isinstance(y, int) or isinstance(y, float), (type(y), y)
 
-    assert ((legends is None) or isinstance(legends, list)
-            or isinstance(legends, tuple)), type(legends)
+    assert ((legends is None) or isinstance(legends, list) or
+            isinstance(legends, tuple)), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
 
     assert isinstance(_block, bool), type(_block)
@@ -169,7 +170,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         return
 
     fig = matplotlib.pyplot.figure()
-    fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
+    fig.set_size_inches(width // fig.get_dpi(), height // fig.get_dpi(),
                         forward=True)
 
     fig.canvas.set_window_title(framename)
@@ -182,7 +183,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
         matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
             sep.join(icon_path))
-    except:
+    except:  # pylint: disable=bare-except
         pass
 
     matplotlib.pyplot.xlabel(xlabel)
@@ -190,12 +191,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
 
     matplotlib.pyplot.grid()
 
-    bar_width = 0.8/len(datasets)
+    bar_width = 0.8 / len(datasets)
     for i, dataset in enumerate(datasets):
         bar_lefts, bar_heights = zip(*(sorted(dataset.items())
                                        if isinstance(dataset, dict)
                                        else dataset))
-        matplotlib.pyplot.bar([x + bar_width*i for x in bar_lefts],
+        matplotlib.pyplot.bar([x + bar_width * i for x in bar_lefts],
                               bar_heights,
                               width=bar_width,
                               color=_COLORS[i % len(_COLORS)],
@@ -215,7 +216,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         matplotlib.pyplot.savefig(_filename)
 
 
-def plot_lines(framename, width, height, xlabel, ylabel, datasets,
+def plot_lines(framename, width, height,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+               xlabel, ylabel, datasets,
                points=False, legends=None,
                _block=False, _filename=None):
     """
@@ -291,8 +293,8 @@ def plot_lines(framename, width, height, xlabel, ylabel, datasets,
 
     assert isinstance(points, bool), type(points)
 
-    assert ((legends is None) or isinstance(legends, list)
-            or isinstance(legends, tuple)), type(legends)
+    assert ((legends is None) or isinstance(legends, list) or
+            isinstance(legends, tuple)), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
 
     assert isinstance(_block, bool), type(_block)
@@ -309,7 +311,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         return
 
     fig = matplotlib.pyplot.figure()
-    fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
+    fig.set_size_inches(width // fig.get_dpi(), height // fig.get_dpi(),
                         forward=True)
 
     fig.canvas.set_window_title(framename)
@@ -322,7 +324,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
         matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
             sep.join(icon_path))
-    except:
+    except:  # pylint: disable=bare-except
         pass
 
     matplotlib.pyplot.xlabel(xlabel)
@@ -351,7 +353,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         matplotlib.pyplot.savefig(_filename)
 
 
-def plot_scatter(framename, width, height, xlabel, ylabel, datasets,
+def plot_scatter(framename, width, height,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+                 xlabel, ylabel, datasets,
                  legends=None,
                  _block=False, _filename=None):
     """
@@ -418,8 +421,8 @@ def plot_scatter(framename, width, height, xlabel, ylabel, datasets,
                 assert isinstance(x, int) or isinstance(x, float), (type(x), x)
                 assert isinstance(y, int) or isinstance(y, float), (type(y), y)
 
-    assert ((legends is None) or isinstance(legends, list)
-            or isinstance(legends, tuple)), type(legends)
+    assert ((legends is None) or isinstance(legends, list) or
+            isinstance(legends, tuple)), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
 
     assert isinstance(_block, bool), type(_block)
@@ -436,7 +439,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         return
 
     fig = matplotlib.pyplot.figure()
-    fig.set_size_inches(width//fig.get_dpi(), height//fig.get_dpi(),
+    fig.set_size_inches(width // fig.get_dpi(), height // fig.get_dpi(),
                         forward=True)
 
     fig.canvas.set_window_title(framename)
@@ -449,7 +452,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
         matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
             sep.join(icon_path))
-    except:
+    except:  # pylint: disable=bare-except
         pass
 
     matplotlib.pyplot.xlabel(xlabel)
@@ -461,7 +464,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     xmax = float('-inf')
 
     for i, dataset in enumerate(datasets):
-        xs, ys = zip(*(sorted(dataset.items())
+        xs, ys = zip(*(sorted(dataset.items())  # pylint: disable=invalid-name
                        if isinstance(dataset, dict)
                        else dataset))
         xmin = min(xmin, min(xs))

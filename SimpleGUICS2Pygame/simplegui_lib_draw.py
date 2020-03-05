@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_draw (November 21, 2015)
+simplegui_lib_draw (March 5, 2020)
 
 Draw functions to help
 in SimpleGUI of CodeSkulptor.
@@ -9,14 +9,15 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
 try:
+    # Try import to check if running in SimpleGUICS2Pygame environment
     from SimpleGUICS2Pygame import _VERSION
 
-    __SIMPLEGUICS2PYGAME = True
+    __SIMPLEGUICS2PYGAME = (_VERSION != '')
 except ImportError:
     __SIMPLEGUICS2PYGAME = False
 
@@ -24,7 +25,8 @@ except ImportError:
 #
 # Functions
 ############
-def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
+def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
+              line_width, line_color, fill_color=None):
     """
     Draw a rectangle.
 
@@ -66,11 +68,11 @@ def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
                         line_width, line_color, fill_color)
 
 
-def draw_text_multi(canvas,
+def draw_text_multi(canvas,  # pylint: disable=too-many-arguments
                     text, point,
                     font_size, font_color,
                     font_face='serif',
-                    _font_size_coef=3.0/4):
+                    _font_size_coef=3.0 / 4):
     """
     Draw the `text` (possibly with several lines) at the position `point`.
 
@@ -93,9 +95,9 @@ def draw_text_multi(canvas,
     :param _font_size_coef: int or float
 
     :raise: ValueError if text contains unprintable whitespace character
-    """
-    assert isinstance(text, str) \
-        or isinstance(text, tuple) or isinstance(text, list), type(text)
+    """  # noqa
+    assert (isinstance(text, str) or isinstance(text, tuple) or
+            isinstance(text, list)), type(text)
 
     assert isinstance(point, tuple) or isinstance(point, list), type(point)
     assert len(point) == 2, len(point)
@@ -110,8 +112,8 @@ def draw_text_multi(canvas,
 
     assert isinstance(font_color, str), type(font_color)
     assert isinstance(font_face, str), type(font_face)
-    assert (isinstance(_font_size_coef, int)
-            or isinstance(_font_size_coef, float)), type(_font_size_coef)
+    assert (isinstance(_font_size_coef, int) or
+            isinstance(_font_size_coef, float)), type(_font_size_coef)
 
     if isinstance(text, str):
         # Convert each Window$ and M@c end of line to standard end of line
@@ -132,11 +134,11 @@ def draw_text_multi(canvas,
         y += font_size
 
 
-def draw_text_side(frame, canvas,
+def draw_text_side(frame, canvas,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
                    text, point,
                    font_size, font_color,
                    font_face='serif',
-                   font_size_coef=3.0/4,
+                   font_size_coef=3.0 / 4,
                    rectangle_color=None, rectangle_fill_color=None,
                    side_x=-1, side_y=1):
     """
@@ -172,7 +174,7 @@ def draw_text_side(frame, canvas,
     :param side_x: int or float
     :param side_y: int or float
     :param font_size_coef: int or float
-    """
+    """  # noqa
     assert isinstance(text, str), type(text)
 
     assert isinstance(point, tuple) or isinstance(point, list), type(point)
@@ -191,32 +193,32 @@ def draw_text_side(frame, canvas,
 
     assert (rectangle_color is None) or isinstance(rectangle_color, str), \
         type(rectangle_color)
-    assert ((rectangle_fill_color is None)
-            or isinstance(rectangle_fill_color, str)), \
+    assert ((rectangle_fill_color is None) or
+            isinstance(rectangle_fill_color, str)), \
         type(rectangle_fill_color)
 
     assert isinstance(side_x, int) or isinstance(side_x, float), type(side_x)
     assert isinstance(side_y, int) or isinstance(side_y, float), type(side_y)
-    assert (isinstance(font_size_coef, int)
-            or isinstance(font_size_coef, float)), type(font_size_coef)
+    assert (isinstance(font_size_coef, int) or
+            isinstance(font_size_coef, float)), type(font_size_coef)
 
     text_width = (frame.get_canvas_textwidth(text, font_size)
                   if font_face is None
                   else frame.get_canvas_textwidth(text, font_size, font_face))
 
-    text_height = font_size*font_size_coef
+    text_height = font_size * font_size_coef
 
     if side_x < 0:
         x = point[0]
     elif side_x == 0:
-        x = point[0] - text_width/2.0
+        x = point[0] - text_width / 2.0
     else:
         x = point[0] - text_width
 
     if side_y < 0:
         y = point[1] + text_height
     elif side_y == 0:
-        y = point[1] + text_height/2.0
+        y = point[1] + text_height / 2.0
     else:
         y = point[1]
 

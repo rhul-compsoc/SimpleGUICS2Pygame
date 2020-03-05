@@ -138,10 +138,10 @@ Complete installation on Window$ in few steps
 
 5. Run in the *Command Prompt* (maybe with *Administrator* rights): ``pip install SimpleGUICS2Pygame`` . (Probably the ``pip`` command aren't in your ``PATH``, so add it or move in the subdirectory of ``pip`` with the ``CD`` command. This subdirectory is something like ``C:\Python?\Scripts\`` .)
 
-.. _`Unofficial Windows Binaries matplotlib`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
-.. _`Unofficial Windows Binaries pip`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
-.. _`Unofficial Windows Binaries Pygame`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
-.. _`Unofficial Windows Binaries setuptools`: http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
+.. _`Unofficial Windows Binaries matplotlib`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+.. _`Unofficial Windows Binaries pip`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
+.. _`Unofficial Windows Binaries Pygame`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
+.. _`Unofficial Windows Binaries setuptools`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
 
 
 Examples of CodeSkulptor and SimpleGUICS2Pygame use

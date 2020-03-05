@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test numeric. (December 15, 2013)
+Test numeric. (March 4, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -304,13 +304,13 @@ if m_to_l(m) != [[90, -100, 110],
 
 for data in datas:
     m = numeric.Matrix(data)
-    m2 = m*numeric.identity(len(data[0]))
+    m2 = m * numeric.identity(len(data[0]))
     if not m_eq(m, m2):
         nb_errors += 1
         print('error: *: %s' % data)
         print(m2)
 
-    m2 = numeric.identity(len(data))*m
+    m2 = numeric.identity(len(data)) * m
     if not m_eq(m, m2):
         nb_errors += 1
         print('error: *: %s' % data)
@@ -318,25 +318,25 @@ for data in datas:
 
 a = numeric.Matrix(d2_2)
 b = numeric.Matrix(d2_2i)
-if not m_eq(a*b, numeric.identity(2)):
+if not m_eq(a * b, numeric.identity(2)):
     nb_errors += 1
     print('error: a * a^(-1)')
-    print(a*b)
-if not m_eq(b*a, numeric.identity(2)):
+    print(a * b)
+if not m_eq(b * a, numeric.identity(2)):
     nb_errors += 1
     print('error: a^(-1) * a')
-    print(b*a)
+    print(b * a)
 
 a = numeric.Matrix(d3_3)
 b = numeric.Matrix(d3_3i)
-if not m_eq(a*b, numeric.identity(3)):
+if not m_eq(a * b, numeric.identity(3)):
     nb_errors += 1
     print('error: a * a^(-1)')
-    print(a*b)
-if not m_eq(b*a, numeric.identity(3)):
+    print(a * b)
+if not m_eq(b * a, numeric.identity(3)):
     nb_errors += 1
     print('error: a^(-1) * a')
-    print(b*a)
+    print(b * a)
 
 
 # summation()
@@ -424,7 +424,7 @@ for k in range(1, 10):
         print(m)
 
     m = numeric.identity(k).scale(5).inverse()
-    if not m_eq(m, numeric.identity(k).scale(1.0/5)):
+    if not m_eq(m, numeric.identity(k).scale(1.0 / 5)):
         print('error: inverse(identity(%i)*5)' % k)
         print(m)
 

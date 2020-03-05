@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_fonts (November 21, 2015)
+simpleguics2pygame/_fonts (March 5, 2020)
 
 Fonts helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -60,10 +60,10 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
     :param font_size: int > 0
 
     :return: pygame.font.Font
-    """
-    assert ((font_face is None)
-            or (isinstance(font_face, str)
-                and font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)), \
+    """  # noqa
+    assert ((font_face is None) or
+            ((isinstance(font_face, str) and
+              (font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)))), \
         font_face
     assert isinstance(font_size, int), type(font_size)
     assert font_size > 0, font_size

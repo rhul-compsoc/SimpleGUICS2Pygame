@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (January 29, 2020)
+simpleguics2pygame/sound (March 4, 2020)
 
 Class Sound.
 
@@ -25,7 +25,7 @@ __all__ = ['Sound',
 try:
     import pygame
 
-    _PYGAME_AVAILABLE = True
+    _PYGAME_AVAILABLE = bool(pygame)  # True
 except ImportError:
     _PYGAME_AVAILABLE = False
 
@@ -149,8 +149,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         Pause this sound.
         (Use `Sound.play()` to resume.)
         """
-        if ((self._pygame_channel is not None)
-                and (self._pygame_channel.get_sound() == self._pygame_sound)):
+        if ((self._pygame_channel is not None) and
+                (self._pygame_channel.get_sound() == self._pygame_sound)):
             self._pygame_channel.pause()
 
     def play(self):
@@ -172,8 +172,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         If this sound has already been started
         then stop the sound and rewind to the begining.
         """
-        if ((self._pygame_channel is not None)
-                and (self._pygame_channel.get_sound() == self._pygame_sound)):
+        if ((self._pygame_channel is not None) and
+                (self._pygame_channel.get_sound() == self._pygame_sound)):
             self._pygame_sound.stop()
 
     def set_volume(self, volume):

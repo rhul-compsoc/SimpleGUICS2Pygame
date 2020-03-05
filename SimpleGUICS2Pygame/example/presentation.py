@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (January 29, 2020)
+presentation (March 5, 2020)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -58,36 +58,36 @@ def main():
         :param canvas: simplegui.Canvas
         """
         size = 40
-        canvas.draw_line((0, size/2),
-                         (WIDTH - 1, size/2),
-                         size*1.75, '#f2f2f2')
+        canvas.draw_line((0, size / 2),
+                         (WIDTH - 1, size / 2),
+                         size * 1.75, '#f2f2f2')
         canvas.draw_text('SimpleGUICS2Pygame ' + _VERSION,
                          (10, size), size, 'Black')
         canvas.draw_image(logo_opi, (20.5, 17), (41, 34),
                           (30.5, HEIGHT - 27), (41, 34))
         canvas.draw_image(logo_gpl, (44, 15.5), (88, 31),
-                          (WIDTH/2, HEIGHT - 25.5), (88, 31))
+                          (WIDTH / 2, HEIGHT - 25.5), (88, 31))
         canvas.draw_image(logo, (32, 32), (64, 64),
                           (WIDTH - 42, HEIGHT - 42), (64, 64))
 
         size = 20
 
         for i, line in enumerate(
-            ('It is primarily a standard Python (2 and 3) module',
-             'reimplementing the SimpleGUI particular module',
-             'of CodeSkulptor (a browser Python interpreter).',
-             'This is in fact a package also with other modules',
-             'adapted from CodeSkulptor.',
-             None,
-             'Require malplotlib for simpleplot.',
-             'Require Pygame for simpleguics2pygame.',
-             None,
-             'GPLv3',
-             'Copyright (C) 2013 - 2020 Olivier Pirson',
-             'Olivier Pirson OPi --- http://www.opimedia.be/',
-             'olivier.pirson.opi@gmail.com')):
+                ('It is primarily a standard Python (2 and 3) module',
+                 'reimplementing the SimpleGUI particular module',
+                 'of CodeSkulptor (a browser Python interpreter).',
+                 'This is in fact a package also with other modules',
+                 'adapted from CodeSkulptor.',
+                 None,
+                 'Require malplotlib for simpleplot.',
+                 'Require Pygame for simpleguics2pygame.',
+                 None,
+                 'GPLv3',
+                 'Copyright (C) 2013 - 2020 Olivier Pirson',
+                 'Olivier Pirson OPi --- http://www.opimedia.be/',
+                 'olivier.pirson.opi@gmail.com')):
             if line is not None:
-                canvas.draw_text(line, (10, 80 + size*(i + 3/4)),
+                canvas.draw_text(line, (10, 80 + size * (i + 3 / 4)),
                                  size, 'Black')
 
     if SIMPLEGUICS2PYGAME:
@@ -102,9 +102,9 @@ def main():
         logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),
                                                     '../_img/gplv3-88x31.png'))
     else:
-        logo = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')
-        logo_opi = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/OPi_t.png')
-        logo_gpl = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/gplv3-88x31.png')
+        logo = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')  # noqa
+        logo_opi = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
+        logo_gpl = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
 
     frame = simplegui.create_frame(
         'SimpleGUICS2Pygame: short presentation of this package',

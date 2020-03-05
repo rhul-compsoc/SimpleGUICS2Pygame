@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_fps (May 25, 2014)
+simplegui_lib_fps (March 5, 2020)
 
 A class to calculate and display FPS (Frames Per Second)
 in SimpleGUI of CodeSkulptor.
@@ -9,14 +9,14 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
 
 # Class
 ########
-class FPS:
+class FPS:  # pylint: disable=too-many-instance-attributes
     """
     Calculate and display FPS (Frames Per Second).
 
@@ -24,7 +24,8 @@ class FPS:
 
     * Create an instance of FPS: ``fps = FPS()``
     * Start: ``fps.start()``
-    * And put the ``draw_fct()`` in the end of your canvas' draw handler: ``fps.draw_fct(canvas)``
+    * And put the ``draw_fct()``
+      in the end of your canvas' draw handler: ``fps.draw_fct(canvas)``
     """
 
     def __init__(self, x=10, y=10, font_color='Red', font_size=40):
@@ -46,6 +47,9 @@ class FPS:
         self._x = x
         self._y = y
 
+        self._fps = None
+        self._nb_frames_drawed = None
+        self._nb_seconds = None
         self._timer = None
 
     def draw_fct(self, canvas):
@@ -63,7 +67,7 @@ class FPS:
             self._nb_frames_drawed += 1
 
             canvas.draw_text(str(self._fps),
-                             (self._x, self._y + self._font_size*3//4),
+                             (self._x, self._y + self._font_size * 3 // 4),
                              self._font_size, self._font_color)
 
     def is_started(self):
@@ -98,8 +102,8 @@ class FPS:
             """
             if self._timer is not None:
                 self._nb_seconds += 1
-                self._fps = int(round(float(self._nb_frames_drawed)
-                                      / self._nb_seconds))
+                self._fps = int(round(float(self._nb_frames_drawed) /
+                                      self._nb_seconds))
 
         self._timer = create_timer(1000, update)
 

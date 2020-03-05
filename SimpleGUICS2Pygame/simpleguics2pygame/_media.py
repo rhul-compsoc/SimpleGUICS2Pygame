@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_media (June 3, 2015)
+simpleguics2pygame/_media (June 4, 2015)
 
 Media helpers.
 
@@ -34,7 +34,7 @@ else:
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 

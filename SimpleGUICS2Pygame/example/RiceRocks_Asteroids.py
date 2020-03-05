@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
+# pylint: disable=invalid-name
 
 """
-RiceRocks (Asteroids) (May 31, 2015)
+RiceRocks (Asteroids) (March 5, 2020)
 
 My retouched solution of the mini-project #8 of the course
 https://www.coursera.org/course/interactivepython (Coursera 2013).
@@ -19,7 +20,7 @@ Fix me:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -156,7 +157,7 @@ class RiceRocks:
             canvas.draw_image(self.medias.get_image('nebula'),
                               self.img_infos['nebula'].get_center(),
                               self.img_infos['nebula'].get_size(),
-                              (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                              (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw animated background
@@ -164,17 +165,19 @@ class RiceRocks:
             center = self.img_infos['debris'].get_center()
             size = self.img_infos['debris'].get_size()
 
-            wtime = (self.time/4.0) % SCREEN_WIDTH
+            wtime = (self.time / 4.0) % SCREEN_WIDTH
 
             canvas.draw_image(self.medias.get_image('debris'),
                               center,
                               size,
-                              (wtime - SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                              (wtime - SCREEN_WIDTH / 2.0,
+                               SCREEN_HEIGHT / 2.0),
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
             canvas.draw_image(self.medias.get_image('debris'),
                               center,
                               size,
-                              (wtime + SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0),
+                              (wtime + SCREEN_WIDTH / 2.0,
+                               SCREEN_HEIGHT / 2.0),
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw missiles, ship, asteroids and explosions
@@ -218,21 +221,21 @@ class RiceRocks:
                             # Divide in two little asteroids
                             angle = vector_to_angle(missile.velocity)
                             mvel = math.sqrt(
-                                (rock.velocity[0]*rock.velocity[0]
-                                 + rock.velocity[1]*rock.velocity[1])/2.0)
+                                (rock.velocity[0] * rock.velocity[0] +
+                                 rock.velocity[1] * rock.velocity[1]) / 2.0)
 
-                            vel = list(angle_to_vector(angle - math.pi/4))
+                            vel = list(angle_to_vector(angle - math.pi / 4))
                             vel[0] *= mvel
                             vel[1] *= mvel
                             little1 = Asteroid(rock.position, vel,
-                                               rock.angle_velocity*2,
+                                               rock.angle_velocity * 2,
                                                rock.num, True)
 
-                            vel = list(angle_to_vector(angle + math.pi/4))
+                            vel = list(angle_to_vector(angle + math.pi / 4))
                             vel[0] *= mvel
                             vel[1] *= mvel
                             little2 = Asteroid(rock.position, vel,
-                                               -rock.angle_velocity*2,
+                                               -rock.angle_velocity * 2,
                                                rock.num, True)
 
                             while True:
@@ -271,9 +274,9 @@ class RiceRocks:
                 self.explosions.append(Sprite(rock.position, rock.velocity,
                                               0, rock.angle_velocity,
                                               'asteroid_collide_explosion'))
-                self.live_explosions.append(Sprite((self.lives*40, 40),
+                self.live_explosions.append(Sprite((self.lives * 40, 40),
                                                    (0, 0),
-                                                   -math.pi/2, 0,
+                                                   -math.pi / 2, 0,
                                                    'live_explosion'))
 
                 self.lives = max(0, self.lives - 1)
@@ -299,36 +302,36 @@ class RiceRocks:
                 for j in range(0, i):
                     other = self.rocks[j]
                     if rock.collide(other):
-                        rock.position[0] = (rock.position[0]
-                                            - rock.velocity[0]) % SCREEN_WIDTH
-                        rock.position[1] = (rock.position[1]
-                                            - rock.velocity[1]) % SCREEN_HEIGHT
+                        rock.position[0] = (rock.position[0] -
+                                            rock.velocity[0]) % SCREEN_WIDTH
+                        rock.position[1] = (rock.position[1] -
+                                            rock.velocity[1]) % SCREEN_HEIGHT
 
-                        other.position[0] = ((other.position[0]
-                                              - other.velocity[0])
-                                             % SCREEN_WIDTH)
-                        other.position[1] = ((other.position[1]
-                                              - other.velocity[1])
-                                             % SCREEN_HEIGHT)
+                        other.position[0] = ((other.position[0] -
+                                              other.velocity[0]) %
+                                             SCREEN_WIDTH)
+                        other.position[1] = ((other.position[1] -
+                                              other.velocity[1]) %
+                                             SCREEN_HEIGHT)
 
                         # Elastic collision (with radius*3 as mass)
                         # https://en.wikipedia.org/wiki/Elastic_collision
-                        tmp_sum = (rock.radius + other.radius)*3
-                        tmp_diff = (rock.radius - other.radius)*3
+                        tmp_sum = (rock.radius + other.radius) * 3
+                        tmp_diff = (rock.radius - other.radius) * 3
 
-                        double = 2*3*other.radius
-                        new_x = (float(tmp_diff*rock.velocity[0]
-                                       + double*other.velocity[0])/tmp_sum)
-                        new_y = (float(tmp_diff*rock.velocity[1]
-                                       + double*other.velocity[1])/tmp_sum)
+                        double = 2 * 3 * other.radius
+                        new_x = (float(tmp_diff * rock.velocity[0] +
+                                       double * other.velocity[0]) / tmp_sum)
+                        new_y = (float(tmp_diff * rock.velocity[1] +
+                                       double * other.velocity[1]) / tmp_sum)
 
-                        double = 2*3*rock.radius
+                        double = 2 * 3 * rock.radius
                         other.velocity[0] = float(
-                            double*rock.velocity[0]
-                            - tmp_diff*other.velocity[0])/tmp_sum
+                            double * rock.velocity[0] -
+                            tmp_diff * other.velocity[0]) / tmp_sum
                         other.velocity[1] = float(
-                            double*rock.velocity[1]
-                            - tmp_diff*other.velocity[1])/tmp_sum
+                            double * rock.velocity[1] -
+                            tmp_diff * other.velocity[1]) / tmp_sum
 
                         rock.velocity[0] = new_x
                         rock.velocity[1] = new_y
@@ -339,8 +342,8 @@ class RiceRocks:
             for i in range(self.lives):
                 canvas.draw_image(self.medias.get_image('ship'),
                                   info.get_center(), info.get_size(),
-                                  (40 + i*40, 40), (40, 40),
-                                  -math.pi/2)
+                                  (40 + i * 40, 40), (40, 40),
+                                  -math.pi / 2)
 
         # Draw and update live explosions
         for i in range(len(self.live_explosions) - 1, -1, -1):
@@ -350,7 +353,7 @@ class RiceRocks:
                               live_explosion.image_center,
                               live_explosion.image_size,
                               live_explosion.position, (40, 40),
-                              -math.pi/2)
+                              -math.pi / 2)
             live_explosion.update()
             if live_explosion.lifespan <= 0:  # explosion finished
                 del self.live_explosions[i]
@@ -361,8 +364,8 @@ class RiceRocks:
             for i in range(self.nb_bombs):
                 canvas.draw_image(self.medias.get_image('bomb'),
                                   info.get_center(), info.get_size(),
-                                  (40 + i*40, 80), (20, 40),
-                                  -math.pi/2)
+                                  (40 + i * 40, 80), (20, 40),
+                                  -math.pi / 2)
 
         # Display score
         size = 36
@@ -373,14 +376,18 @@ class RiceRocks:
         text2 = str(self.score)
         width2 = frame.get_canvas_textwidth(text2, size, font)
 
-        canvas.draw_text(text1, (SCREEN_WIDTH - 22 - width1, 22 + size*3.0/4),
+        canvas.draw_text(text1, (SCREEN_WIDTH - 22 - width1,
+                                 22 + size * 3.0 / 4),
                          size, 'Gray', font)
-        canvas.draw_text(text2, (SCREEN_WIDTH - 22 - width2, 22 + size*7.0/4),
+        canvas.draw_text(text2, (SCREEN_WIDTH - 22 - width2,
+                                 22 + size * 7.0 / 4),
                          size, 'Gray', font)
 
-        canvas.draw_text(text1, (SCREEN_WIDTH - 20 - width1, 20 + size*3.0/4),
+        canvas.draw_text(text1, (SCREEN_WIDTH - 20 - width1,
+                                 20 + size * 3.0 / 4),
                          size, 'White', font)
-        canvas.draw_text(text2, (SCREEN_WIDTH - 20 - width2, 20 + size*7.0/4),
+        canvas.draw_text(text2, (SCREEN_WIDTH - 20 - width2,
+                                 20 + size * 7.0 / 4),
                          size, 'White', font)
 
         # Draw splash screen if game not started
@@ -388,7 +395,7 @@ class RiceRocks:
             size = self.img_infos['splash'].get_size()
             canvas.draw_image(self.medias.get_image('splash'),
                               self.img_infos['splash'].get_center(), size,
-                              (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), size)
+                              (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0), size)
 
         # Update and draw FPS (if started)
         fps.draw_fct(canvas)
@@ -447,8 +454,9 @@ class RiceRocks:
 
             self.medias.get_sound('missile').set_volume(.5)
 
-            self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
-                                -math.pi/2, 'ship')
+            self.my_ship = Ship((SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
+                                (0, 0),
+                                -math.pi / 2, 'ship')
 
             frame.set_draw_handler(self.draw_and_update)
 
@@ -465,49 +473,49 @@ class RiceRocks:
         self.medias = Loader(frame, SCREEN_WIDTH, init)
 
         # Images by Kim Lathrop
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',  # noqa
                               'asteroid-1')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',  # noqa
                               'asteroid-2')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_brown.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_brown.png',  # noqa
                               'asteroid-3')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha.png',  # noqa
                               'asteroid_explosion')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha2.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_alpha2.png',  # noqa
                               'asteroid_collide_explosion')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot3.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot3.png',  # noqa
                               'bomb')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png',  # noqa
                               'debris')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',  # noqa
                               'missile')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',  # noqa
                               'nebula')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
                               'ship')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_orange.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/explosion_orange.png',  # noqa
                               'ship_explosion')
-        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/splash.png',
+        self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/splash.png',  # noqa
                               'splash')
 
         # Sounds from http://www.sounddogs.com/ (not free)
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/explosion.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/explosion.ogg',  # noqa
                               'asteroid_explosion')
-        self.medias.add_sound('http://rpg.hamsterrepublic.com/wiki-images/f/f4/StormMagic.ogg',
+        self.medias.add_sound('http://rpg.hamsterrepublic.com/wiki-images/f/f4/StormMagic.ogg',  # noqa
                               'bomb_explode')
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/extralife.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/extralife.ogg',  # noqa
                               'bomb_extra')
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/eatedible.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/eatedible.ogg',  # noqa
                               'collide')
-        self.medias.add_sound('http://rpg.hamsterrepublic.com/wiki-images/5/58/Death.ogg',
+        self.medias.add_sound('http://rpg.hamsterrepublic.com/wiki-images/5/58/Death.ogg',  # noqa
                               'death')
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg',  # noqa
                               'intro')
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/soundtrack.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/soundtrack.ogg',  # noqa
                               'soundtrack')
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',  # noqa
                               'missile')
-        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',
+        self.medias.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',  # noqa
                               'ship_thrust')
 
         self.medias.load()
@@ -527,16 +535,16 @@ class RiceRocks:
                 :return: int or float
                 """
                 return (min(2,
-                            (random.random()*(self.score/10.0 + 0.1)))
-                        * random.choice((-1, 1)))
+                            (random.random() * (self.score / 10.0 + 0.1))) *
+                        random.choice((-1, 1)))
 
             for _ in range(10):  # try 10 times
                 rock_pos = (random.randrange(0, SCREEN_WIDTH),
                             random.randrange(0, SCREEN_HEIGHT))
                 rock_vel = (random_vel(),
                             random_vel())
-                rock_ang_vel = random.choice((-1, 1))*(random.random()*0.05
-                                                       + 0.01)
+                rock_ang_vel = random.choice((-1, 1)) * (random.random() *
+                                                         0.05 + 0.01)
 
                 rock = Asteroid(rock_pos, rock_vel,
                                 rock_ang_vel,
@@ -549,9 +557,9 @@ class RiceRocks:
 
                         break
 
-                too_close = (too_close
-                             or (self.my_ship.distance(rock)
-                                 < (self.my_ship.radius + rock.radius)*3))
+                too_close = (too_close or
+                             (self.my_ship.distance(rock) <
+                              (self.my_ship.radius + rock.radius) * 3))
                 if not too_close:
                     break
 
@@ -572,8 +580,8 @@ class RiceRocks:
         self.nb_bombs = 0
         self.score = 0
 
-        self.my_ship = Ship((SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0), (0, 0),
-                            -math.pi/2, 'ship')
+        self.my_ship = Ship((SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0), (0, 0),
+                            -math.pi / 2, 'ship')
 
         self.explosions = []
         self.missiles = []
@@ -636,12 +644,12 @@ class ImageInfo:
         """
         assert_position(center)
         assert_position(size, True, True)
-        assert ((radius is None)
-                or ((isinstance(radius, int) or isinstance(radius, float))
-                    and (radius > 0))), radius
-        assert ((lifespan is None)
-                or ((isinstance(lifespan, int) or isinstance(lifespan, float))
-                    and (lifespan > 0))), lifespan
+        assert ((radius is None) or
+                ((isinstance(radius, int) or isinstance(radius, float)) and
+                 (radius > 0))), radius
+        assert ((lifespan is None) or
+                ((isinstance(lifespan, int) or isinstance(lifespan, float)) and
+                 (lifespan > 0))), lifespan
         assert isinstance(animated, bool), type(animated)
 
         if draw_size is None:
@@ -730,12 +738,12 @@ class Sprite:
         assert_position(position)
         assert_position(velocity)
         assert isinstance(angle, int) or isinstance(angle, float), type(angle)
-        assert (isinstance(angle_velocity, int)
-                or isinstance(angle_velocity, float)), type(angle_velocity)
+        assert (isinstance(angle_velocity, int) or
+                isinstance(angle_velocity, float)), type(angle_velocity)
         assert isinstance(media_name, str), type(media_name)
 
-        if (ricerocks.sounds_active
-                and (media_name in ricerocks.medias._sounds)):
+        if (ricerocks.sounds_active and
+                (media_name in ricerocks.medias._sounds)):
             sound = ricerocks.medias.get_sound(media_name)
             sound.rewind()
             sound.play()
@@ -766,9 +774,9 @@ class Sprite:
         """
         assert isinstance(other_sprite, Sprite), type(other_sprite)
 
-        return ((self.position[0] - other_sprite.position[0])**2
-                + (self.position[1] - other_sprite.position[1])**2
-                <= (self.radius + other_sprite.radius)**2)
+        return (((self.position[0] - other_sprite.position[0])**2 +
+                 (self.position[1] - other_sprite.position[1])**2) <=
+                (self.radius + other_sprite.radius)**2)
 
     def distance(self, other_sprite):
         """
@@ -780,8 +788,8 @@ class Sprite:
         """
         assert isinstance(other_sprite, Sprite), type(other_sprite)
 
-        return math.sqrt((self.position[0] - other_sprite.position[0])**2
-                         + (self.position[1] - other_sprite.position[1])**2)
+        return math.sqrt((self.position[0] - other_sprite.position[0])**2 +
+                         (self.position[1] - other_sprite.position[1])**2)
 
     def draw(self, canvas):
         """
@@ -807,10 +815,10 @@ class Sprite:
         """
         self.angle += self.angle_velocity
 
-        self.position[0] = (self.position[0]
-                            + self.velocity[0]) % SCREEN_WIDTH
-        self.position[1] = (self.position[1]
-                            + self.velocity[1]) % SCREEN_HEIGHT
+        self.position[0] = (self.position[0] +
+                            self.velocity[0]) % SCREEN_WIDTH
+        self.position[1] = (self.position[1] +
+                            self.velocity[1]) % SCREEN_HEIGHT
 
         if self.lifespan is not None:
             self.lifespan -= 1
@@ -840,8 +848,8 @@ class Asteroid(Sprite):
         """
         assert_position(position)
         assert_position(velocity)
-        assert (isinstance(angle_velocity, int)
-                or isinstance(angle_velocity, float)), type(angle_velocity)
+        assert (isinstance(angle_velocity, int) or
+                isinstance(angle_velocity, float)), type(angle_velocity)
         assert num in (1, 2, 3)
         assert isinstance(little, bool), type(little)
 
@@ -895,10 +903,10 @@ class Ship(Sprite):
         vector = angle_to_vector(self.angle)
 
         ricerocks.missiles.append(
-            Sprite((self.position[0] + self.radius*vector[0],
-                    self.position[1] + self.radius*vector[1]),
-                   (self.velocity[0] + vector[0]*6,
-                    self.velocity[1] + vector[1]*6),
+            Sprite((self.position[0] + self.radius * vector[0],
+                    self.position[1] + self.radius * vector[1]),
+                   (self.velocity[0] + vector[0] * 6,
+                    self.velocity[1] + vector[1] * 6),
                    self.angle, 0,
                    'missile'))
 
@@ -952,16 +960,16 @@ class Ship(Sprite):
         self.angle += self.angle_velocity
 
         # Update position
-        self.position[0] = (self.position[0]
-                            + self.velocity[0]) % SCREEN_WIDTH
-        self.position[1] = (self.position[1]
-                            + self.velocity[1]) % SCREEN_HEIGHT
+        self.position[0] = (self.position[0] +
+                            self.velocity[0]) % SCREEN_WIDTH
+        self.position[1] = (self.position[1] +
+                            self.velocity[1]) % SCREEN_HEIGHT
 
         # Update velocity
         if self.thrust:
             acceleration = angle_to_vector(self.angle)
-            self.velocity[0] += acceleration[0]*.25
-            self.velocity[1] += acceleration[1]*.25
+            self.velocity[0] += acceleration[0] * .25
+            self.velocity[1] += acceleration[1] * .25
 
         self.velocity[0] *= .98
         self.velocity[1] *= .98
@@ -977,16 +985,14 @@ def click(pos):
 
     :param pos: (int >= 0, int >= 0)
     """
-    center = (SCREEN_WIDTH/2.0, SCREEN_HEIGHT/2.0)
+    center = (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0)
     size = ricerocks.img_infos['splash'].get_size()
 
-    if ((not ricerocks.started)
-            and ((center[0] - size[0]/2.0)
-                 < pos[0]
-                 < (center[0] + size[0]/2.0))
-            and ((center[1] - size[1]/2.0)
-                 < pos[1]
-                 < (center[1] + size[1]/2.0))):
+    if ((not ricerocks.started) and
+            ((center[0] - size[0] / 2.0) < pos[0] <
+             (center[0] + size[0] / 2.0)) and
+            ((center[1] - size[1] / 2.0) < pos[1] <
+             (center[1] + size[1] / 2.0))):
         ricerocks.start()
 
 

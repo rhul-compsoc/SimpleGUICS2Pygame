@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/keys (May 29, 2015)
+simpleguics2pygame/keys (March 4, 2020)
 
 Keys helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -23,9 +23,9 @@ __all__ = ['KEY_MAP']
 #
 # Private global constants
 ##########################
-_PYGAMEKEY_TO_SIMPLEGUIKEY = {97:  65,  # A or a
-                              98:  66,  # ...
-                              99:  67,
+_PYGAMEKEY_TO_SIMPLEGUIKEY = {97: 65,  # A or a
+                              98: 66,  # ...
+                              99: 67,
                               100: 68,
                               101: 69,
                               102: 70,
@@ -47,28 +47,28 @@ _PYGAMEKEY_TO_SIMPLEGUIKEY = {97:  65,  # A or a
                               118: 86,
                               119: 87,
                               120: 88,
-                              121: 89,  # ...
-                              122: 90,  # Z or z
-                              256:  96,  # 0 on numeric keypad
-                              257:  97,  # ...
-                              258:  98,  #
-                              259:  99,  #
+                              121: 89,   # ...
+                              122: 90,   # Z or z
+                              256: 96,   # 0 on numeric keypad
+                              257: 97,   # ...
+                              258: 98,   #
+                              259: 99,   #
                               260: 100,  #
                               261: 101,  #
                               262: 102,  #
                               263: 103,  #
                               264: 104,  # ...
                               265: 105,  # 9 on numeric keypad
-                              273: 38,  # Up
-                              274: 40,  # Down
-                              275: 39,  # Right
-                              276: 37,  # Left
-                              303: 17,  # Shift left
-                              304: 17,  # Shitt right
-                              305: 16,  # Ctrl left
-                              306: 16,  # Ctrl right
-                              307: 18,  # Alt left
-                              308: 18}  # Alt right
+                              273: 38,   # Up
+                              274: 40,   # Down
+                              275: 39,   # Right
+                              276: 37,   # Left
+                              303: 17,   # Shift left
+                              304: 17,   # Shitt right
+                              305: 16,   # Ctrl left
+                              306: 16,   # Ctrl right
+                              307: 18,   # Alt left
+                              308: 18}   # Alt right
 """
 `Dict` {`int` Pygame key code : corresponding `int` SimpleGUI key code}.
 
@@ -128,10 +128,10 @@ _SIMPLEGUIKEY_TO_STATUSKEY = {32: 'space',
 # Global constant
 #################
 KEY_MAP = {'space': 32,
-           'left':  37,
-           'up':    38,
+           'left': 37,
+           'up': 38,
            'right': 39,
-           'down':  40,
+           'down': 40,
            '0': 48,
            '1': 49,
            '2': 50,

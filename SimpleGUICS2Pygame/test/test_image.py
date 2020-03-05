@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (April 29, 2016)
+Test draw images. (March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -65,62 +65,62 @@ def draw(canvas):
 
     # The complete image with ship twice
     canvas.draw_image(img,
-                      (img.get_width()/2, img.get_height()/2),
+                      (img.get_width() / 2, img.get_height() / 2),
                       (img.get_width(), img.get_height()),
-                      (img.get_width()/2, img.get_height()/2),
+                      (img.get_width() / 2, img.get_height() / 2),
                       (img.get_width(), img.get_height()))
 
     # The ship without thrust
     canvas.draw_image(img,
-                      (img.get_width()/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()/4, img.get_height()*3/2),
-                      (img.get_width()/2, img.get_height()))
+                      (img.get_width() / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() / 4, img.get_height() * 3 / 2),
+                      (img.get_width() / 2, img.get_height()))
     # The ship with thrust
     canvas.draw_image(img,
-                      (img.get_width()*3/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()*3/4, img.get_height()*3/2),
-                      (img.get_width()/2, img.get_height()))
+                      (img.get_width() * 3 / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() * 3 / 4, img.get_height() * 3 / 2),
+                      (img.get_width() / 2, img.get_height()))
 
     # The rotated ship without thrust
     canvas.draw_image(img,
-                      (img.get_width()/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()/4, img.get_height()*5/2),
-                      (img.get_width()/2, img.get_height()),
-                      -math.pi/2)
+                      (img.get_width() / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() / 4, img.get_height() * 5 / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      -math.pi / 2)
     # The rotated ship with thrust
     canvas.draw_image(img,
-                      (img.get_width()*3/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()*3/4, img.get_height()*5/2),
-                      (img.get_width()/2, img.get_height()),
-                      -math.pi/2)
+                      (img.get_width() * 3 / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() * 3 / 4, img.get_height() * 5 / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      -math.pi / 2)
 
     # The big ship with thrust
     canvas.draw_image(img,
-                      (img.get_width()*3/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()*6/4, img.get_height()*3/2),
-                      (img.get_width(), img.get_height()*4))
+                      (img.get_width() * 3 / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() * 6 / 4, img.get_height() * 3 / 2),
+                      (img.get_width(), img.get_height() * 4))
 
     # The little ship with thrust
     canvas.draw_image(img,
-                      (img.get_width()*3/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()*15/8, img.get_height()/2),
-                      (img.get_width()/4, img.get_height()))
+                      (img.get_width() * 3 / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() * 15 / 8, img.get_height() / 2),
+                      (img.get_width() / 4, img.get_height()))
 
     canvas.draw_image(img,
-                      (img.get_width()*3/4, img.get_height()/2),
-                      (img.get_width()/2, img.get_height()),
-                      (img.get_width()*7/4, img.get_height()*11/4),
-                      (img.get_width()/2, img.get_height()/2))
+                      (img.get_width() * 3 / 4, img.get_height() / 2),
+                      (img.get_width() / 2, img.get_height()),
+                      (img.get_width() * 7 / 4, img.get_height() * 11 / 4),
+                      (img.get_width() / 2, img.get_height() / 2))
 
     canvas.draw_image(logo,
                       (32, 32), (64, 64),
-                      (WIDTH/2, HEIGHT/2), (64, 64))
+                      (WIDTH / 2, HEIGHT / 2), (64, 64))
 
     # Update and draw FPS (if started)
     fps.draw_fct(canvas)
@@ -172,10 +172,10 @@ def init():
             frame._save_canvas_and_stop(argv[1])
 
 loader = Loader(frame, WIDTH, init)
-loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',
+loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
                  'double_ship')
 if not SIMPLEGUICS2PYGAME:
-    loader.add_image('https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',
+    loader.add_image('https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',  # noqa
                      'logo')
 loader.load()
 

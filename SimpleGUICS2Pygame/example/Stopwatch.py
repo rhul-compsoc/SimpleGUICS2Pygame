@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (April 26, 2014)
+Stopwatch: The Game (March 4, 2020)
 (Stop the timer when 0 decisecond.)
 
 My solution (slightly retouched) of the mini-project #3 of the course
@@ -11,7 +11,7 @@ https://www.coursera.org/course/interactivepython (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -49,8 +49,8 @@ def format_time(decisecond):
     assert isinstance(decisecond, int)
     assert decisecond >= 0
 
-    decisecond, tenths = decisecond//10, decisecond % 10
-    minutes, seconds = decisecond//60, decisecond % 60
+    decisecond, tenths = decisecond // 10, decisecond % 10
+    minutes, seconds = decisecond // 60, decisecond % 60
 
     return '%d:%02d.%d' % (minutes, seconds, tenths)
 
@@ -128,18 +128,18 @@ def draw(canvas):
     size = 60
     width = frame.get_canvas_textwidth(text, size, 'monospace')
     canvas.draw_text(text,
-                     ((CANVAS_WIDTH - width)//2,
-                      # (CANVAS_HEIGHT - size)//2 + size*3//4
-                      (CANVAS_HEIGHT*2 + size)//4),
+                     ((CANVAS_WIDTH - width) // 2,
+                      # (CANVAS_HEIGHT - size) // 2 + size * 3 // 4
+                      (CANVAS_HEIGHT * 2 + size) // 4),
                      size, 'Lime', 'monospace')
 
     if nb_attempts > 0:
         text = '%d/%d' % (nb_success, nb_attempts)
-        percent_success = nb_success*100//nb_attempts
+        percent_success = nb_success * 100 // nb_attempts
         size = (30 if nb_success == nb_attempts
                 else 20)
         width = frame.get_canvas_textwidth(text, size, 'monospace')
-        canvas.draw_text(text, (CANVAS_WIDTH - width*5//4, size), size,
+        canvas.draw_text(text, (CANVAS_WIDTH - width * 5 // 4, size), size,
                          ('Red' if percent_success < 25
                           else ('Yellow' if percent_success >= 75
                                 else 'White')),
@@ -150,7 +150,7 @@ def draw(canvas):
         size = 20
         width = frame.get_canvas_textwidth(text, size)
         canvas.draw_text(text,
-                         ((CANVAS_WIDTH - width)//2, (CANVAS_HEIGHT - size)),
+                         ((CANVAS_WIDTH - width) // 2, (CANVAS_HEIGHT - size)),
                          size, 'White')
 
 

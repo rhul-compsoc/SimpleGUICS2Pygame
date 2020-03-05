@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (January 1st, 2015)
+Test dir() content. (March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -143,8 +143,8 @@ def print_cmp_seq(a, title_a,
 
     indent = max(max([len(i) for i in a]), len(title_a))
 
-    head = ((title_a + ' '*indent)[:indent]
-            + '\t!= ' + title_b + '\n' + '-'*(indent + 11 + len(title_b)))
+    head = ((title_a + ' ' * indent)[:indent] +
+            '\t!= ' + title_b + '\n' + '-' * (indent + 11 + len(title_b)))
     for name in ab:
         if name in a_b:
             if head:
@@ -153,22 +153,22 @@ def print_cmp_seq(a, title_a,
             print(name)
             different = True
         elif name in b_a:
-            if ((name != '__init__')
-                    and (name[:2] == '__') and (name[-2:] == '__')):
+            if ((name != '__init__') and
+                    (name[:2] == '__') and (name[-2:] == '__')):
                 # Exclude additional special functions
                 continue
 
-            if ((len(argv) == 2)
-                and ((name[0] == '_')
-                     or (name in ('division', 'matplotlib',
-                                  'print_function', 'pygame')))):
+            if ((len(argv) == 2) and
+                    ((name[0] == '_') or
+                     (name in ('division', 'matplotlib',
+                               'print_function', 'pygame')))):
                 # Exclude additional private functions and local directives
                 continue
 
             if head:
                 print(head)
                 head = None
-            print(' '*indent + '\t   ' + name)
+            print(' ' * indent + '\t   ' + name)
             different = True
 
     if not head:
@@ -176,7 +176,7 @@ def print_cmp_seq(a, title_a,
 
 
 # Main
-print('List dir() differences between CodeSkulptor (January 2015) and this "Python":\n')
+print('List dir() differences between CodeSkulptor (January 2015) and this "Python":\n')  # noqa
 
 for k in sorted(CODESKULPTOR_DIRS.keys()):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,

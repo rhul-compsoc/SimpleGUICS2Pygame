@@ -1,14 +1,14 @@
 # -*- coding: latin-1 -*-
 
 """
-numeric (June 16, 2014)
+numeric (March 5, 2020)
 
 Replace the numeric module of CodeSkulptor.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -44,7 +44,7 @@ class Matrix:
 
         :param data: (not empty tuple or list) of (same size tuple or list) of (int or float)
         :param _copy: bool
-        """
+        """  # noqa
         assert isinstance(_copy, bool), type(_copy)
         if _copy:
             assert isinstance(data, tuple) or isinstance(data, list), \
@@ -87,10 +87,8 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(),
-                                                       other._nb_lines())
-        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(),
-                                                           other._nb_columns())
+        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(), other._nb_lines())  # noqa  # pylint: disable=protected-access
+        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(), other._nb_columns())  # noqa  # pylint: disable=protected-access
 
         return Matrix([[self[i, j] + other[i, j]
                         for j in range(self._nb_columns())]
@@ -105,7 +103,7 @@ class Matrix:
         :param i_j: (0 <= int < m, 0 <= int < n) or [0 <= int < m, 0 <= int < n]
 
         :return: float
-        """
+        """  # noqa
         assert isinstance(i_j, tuple) or isinstance(i_j, list), \
             type(i_j)
         assert len(i_j) == 2, len(i_j)
@@ -125,12 +123,11 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert self._nb_columns() == other._nb_lines(), (self._nb_columns(),
-                                                         other._nb_lines())
+        assert self._nb_columns() == other._nb_lines(), (self._nb_columns(), other._nb_lines())  # noqa  # pylint: disable=protected-access
 
-        return Matrix([[sum([self[i, k]*other[k, j]
+        return Matrix([[sum([self[i, k] * other[k, j]
                              for k in range(self._nb_columns())])
-                        for j in range(other._nb_columns())]
+                        for j in range(other._nb_columns())]  # noqa  # pylint: disable=protected-access
                        for i in range(self._nb_lines())],
                       _copy=False)
 
@@ -141,7 +138,7 @@ class Matrix:
 
         :param i_j: (0 <= int < m, 0 <= int < n) or [0 <= int < m, 0 <= int < n]
         :param value: int or float
-        """
+        """  # noqa
         assert isinstance(i_j, tuple) or isinstance(i_j, list), \
             type(i_j)
         assert len(i_j) == 2, len(i_j)
@@ -149,7 +146,7 @@ class Matrix:
         assert 0 <= i_j[0] < self._nb_lines(), (i_j[0], self._nb_lines())
         assert isinstance(i_j[1], int), type(i_j[1])
         assert 0 <= i_j[1] < self._nb_columns(), (i_j[1], self._nb_columns())
-        assert isinstance(value, int) or isinstance(value, float), type(valu)
+        assert isinstance(value, int) or isinstance(value, float), type(value)
 
         self._data[i_j[0]][i_j[1]] = float(value)
 
@@ -170,10 +167,8 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(),
-                                                       other._nb_lines())
-        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(),
-                                                           other._nb_columns())
+        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(), other._nb_lines())  # noqa  # pylint: disable=protected-access
+        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(), other._nb_columns())  # noqa  # pylint: disable=protected-access
 
         return Matrix([[self[i, j] - other[i, j]
                         for j in range(self._nb_columns())]
@@ -311,7 +306,7 @@ class Matrix:
         :return: Matrix (n x n)
 
         :raise: ValueError if the matrix is not inversible
-        """
+        """  # noqa
         assert self._nb_lines() == self._nb_columns(), (self._nb_lines(),
                                                         self._nb_columns())
         assert isinstance(_epsilon, float), type(_epsilon)
@@ -325,27 +320,28 @@ class Matrix:
         for i_with_pivot in range(n):
             for i in range(n):
                 if i != i_with_pivot:
-                    d = mat[i_with_pivot, i_with_pivot]
-                    if abs(d) <= _epsilon:
+                    diagonal = mat[i_with_pivot, i_with_pivot]
+                    if abs(diagonal) <= _epsilon:
                         raise ValueError('matrix has no inverse')
 
-                    factor = mat[i, i_with_pivot]/d
+                    factor = mat[i, i_with_pivot] / diagonal
                     for j in range(n):
-                        mat[i, j] -= mat[i_with_pivot, j]*factor
+                        mat[i, j] -= mat[i_with_pivot, j] * factor
                     mat[i, i_with_pivot] = 0
                     for j in range(n):
-                        inv[i, j] -= inv[i_with_pivot, j]*factor
+                        inv[i, j] -= inv[i_with_pivot, j] * factor
 
         # Scale rows
         for i in range(n):
             for j in range(n):
-                d = mat[i, i]
-                if abs(d) <= _epsilon:
+                diagonal = mat[i, i]
+                if abs(diagonal) <= _epsilon:
                     raise ValueError('matrix has no inverse')
 
-                inv[i, j] /= d
+                inv[i, j] /= diagonal
 
-        if all([abs(x) <= _epsilon for x in reversed(mat._data[-1])]):
+        if all([abs(x) <= _epsilon
+                for x in reversed(mat._data[-1])]):  # noqa  # pylint: disable=protected-access
             raise ValueError('matrix has no inverse')
 
         return inv
@@ -362,7 +358,7 @@ class Matrix:
         assert isinstance(factor, int) or isinstance(factor, float), \
             type(factor)
 
-        return Matrix([[self[i, j]*factor
+        return Matrix([[self[i, j] * factor
                         for j in range(self._nb_columns())]
                        for i in range(self._nb_lines())],
                       _copy=False)

@@ -2,12 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Stop example (May 27, 2015)
+Stop example (March 5, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -43,8 +43,8 @@ def draw(canvas):
     text_width = frame.get_canvas_textwidth(text, font_size)
 
     canvas.draw_text(text,
-                     ((CANVAS_WIDTH - text_width)//2,
-                      CANVAS_HEIGHT//2 + font_size//4),
+                     ((CANVAS_WIDTH - text_width) // 2,
+                      CANVAS_HEIGHT // 2 + font_size // 4),
                      font_size, 'Green')
 
 
@@ -58,7 +58,7 @@ def stop_all():
 
 
 # Main
-sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')
+sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')  # noqa
 sound.play()
 
 frame = simplegui.create_frame('Stop example', CANVAS_WIDTH, CANVAS_HEIGHT)
