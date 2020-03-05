@@ -29,7 +29,7 @@ except ImportError:
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 #
@@ -62,13 +62,13 @@ z1_imag = -1.5
 #
 # Functions
 ############
-def draw_and_calculate(canvas):
+def draw_and_calculate(canvas):  # pylint: disable=too-many-branches
     """
     Draw and calculate image of Mandelbrot set from grid.
 
     :param canvas: simplegui.Canvas
     """
-    global nb_iter
+    global nb_iter  # pylint: disable=global-statement
 
     print(nb_iter)
     nb_iter += 1
@@ -134,8 +134,8 @@ def draw_and_calculate(canvas):
         print('\nEnd.')
 
     if _FPS_AVERAGE:
-        canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20),
-                         20, 'Black')
+        canvas.draw_text('{:.3}'.format(frame._get_fps_average()),  # noqa  # pylint: disable=protected-access
+                         (5, 20), 20, 'Black')
 
 
 if codeskulptor_is():
@@ -213,8 +213,8 @@ def draw_only(canvas):
                        contiguous_color)
 
     if _FPS_AVERAGE:
-        canvas.draw_text('{:.3}'.format(frame._get_fps_average()), (5, 20),
-                         20, 'Black')
+        canvas.draw_text('{:.3}'.format(frame._get_fps_average()),  # noqa  # pylint: disable=protected-access
+                         (5, 20), 20, 'Black')
 
 
 def init():
@@ -222,9 +222,9 @@ def init():
     Set a grid of point information :
     [z, C, numbers of iterations, None or color number]
     """
-    global colors
-    global grid
-    global nb_iter
+    global colors  # pylint: disable=global-statement
+    global grid  # pylint: disable=global-statement
+    global nb_iter  # pylint: disable=global-statement
 
     print('Init.')
 

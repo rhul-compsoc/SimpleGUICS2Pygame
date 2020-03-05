@@ -3,10 +3,10 @@
 # pylint: disable=invalid-name
 
 """
-Spaceship prototype (March 5, 2020)
+Spaceship prototype (March 6, 2020)
 
-My solution of the mini-project #7 of the course
-https://www.coursera.org/course/interactivepython (Coursera 2013).
+My retouched solution of the mini-project #7 of the MOOC
+https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
 
 Run on:
   - Chrome 31
@@ -39,8 +39,8 @@ except ImportError:
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
     SIMPLEGUICS2PYGAME = True
 
@@ -55,28 +55,28 @@ SCREEN_HEIGHT = 600
 #
 # Global variables
 ###################
-frame = None
+FRAME = None
 
-keydown_left = False
-keydown_right = False
+KEYDOWN_LEFT = False
+KEYDOWN_RIGHT = False
 
-lives = 3
+LIVES = 3
 
-loader = None
+LOADER = None
 
-score = 0
+SCORE = 0
 
-time = 0.5
+TIME = 0.5
 
-timer = None
+TIMER = None
 
 
 # Sprites and (ship)
-a_missile = None
+A_MISSILE = None
 
-a_rock = None
+A_ROCK = None
 
-my_ship = None
+MY_SHIP = None
 
 
 #
@@ -100,7 +100,7 @@ class ImageInfo:
     """
     Informations to use with Sprite.
     """
-    def __init__(self, center, size,
+    def __init__(self, center, size,  # pylint: disable=too-many-arguments
                  radius=None, lifespan=None, animated=False):
         """
         Set informations.
@@ -177,11 +177,12 @@ class ImageInfo:
         return self._size
 
 
-class Sprite:
+class Sprite:  # pylint: disable=too-many-instance-attributes
     """
     Sprite class
     """
-    def __init__(self, position, velocity, angle,
+    def __init__(self, position,  # pylint: disable=too-many-arguments
+                 velocity, angle,
                  angle_velocity,
                  image, image_info,
                  sound=None):
@@ -246,7 +247,8 @@ class Ship(Sprite):
     """
     Ship class
     """
-    def __init__(self, position, velocity, angle,
+    def __init__(self, position,  # pylint: disable=too-many-arguments
+                 velocity, angle,
                  image, image_info):
         """
         Set ship sprite.
@@ -270,21 +272,21 @@ class Ship(Sprite):
 
         self.thrust = False
 
-    def shot(self):
+    def shot(self):  # pylint: disable=no-self-use
         """
         Launch a missile.
         """
-        global a_missile
+        global A_MISSILE  # pylint: disable=global-statement
 
-        vector = angle_to_vector(my_ship.angle)
+        vector = angle_to_vector(MY_SHIP.angle)
 
-        a_missile = Sprite((my_ship.position[0] + my_ship.radius * vector[0],
-                            my_ship.position[1] + my_ship.radius * vector[1]),
-                           (my_ship.velocity[0] + vector[0] * 10,
-                            my_ship.velocity[1] + vector[1] * 10),
+        A_MISSILE = Sprite((MY_SHIP.position[0] + MY_SHIP.radius * vector[0],
+                            MY_SHIP.position[1] + MY_SHIP.radius * vector[1]),
+                           (MY_SHIP.velocity[0] + vector[0] * 10,
+                            MY_SHIP.velocity[1] + vector[1] * 10),
                            0, 0,
-                           loader.get_image('missile'), missile_info,
-                           loader.get_sound('missile'))
+                           LOADER.get_image('missile'), MISSILE_INFO,
+                           LOADER.get_sound('missile'))
 
     def thrust_on_off(self):
         """
@@ -293,15 +295,15 @@ class Ship(Sprite):
         self.thrust = not self.thrust
 
         if self.thrust:
-            loader.get_sound('ship_thrust').play()
+            LOADER.get_sound('ship_thrust').play()
             # Sprite image with actif thrust
             self.image_center[0] += self.image_size[0]
         else:
-            loader.get_sound('ship_thrust').rewind()
+            LOADER.get_sound('ship_thrust').rewind()
             # Sprite image with inactif thrust
             self.image_center[0] -= self.image_size[0]
 
-    def turn(self, angle_move):
+    def turn(self, angle_move):  # pylint: disable=no-self-use
         """
         Turn the ship
         (in fact change angle_velocity).
@@ -311,7 +313,7 @@ class Ship(Sprite):
         assert isinstance(angle_move, int) or isinstance(angle_move, float), \
             type(angle_move)
 
-        my_ship.angle_velocity = angle_move
+        MY_SHIP.angle_velocity = angle_move
 
     def update(self):
         """
@@ -344,27 +346,27 @@ def draw(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    global time
+    global TIME  # pylint: disable=global-statement
 
     # Draw static background
     if not SIMPLEGUICS2PYGAME:
-        canvas.draw_image(loader.get_image('nebula'),
-                          nebula_info.get_center(), nebula_info.get_size(),
+        canvas.draw_image(LOADER.get_image('nebula'),
+                          NEBULA_INFO.get_center(), NEBULA_INFO.get_size(),
                           (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                           (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # Draw animated background
-    time += 1
-    wtime = (time / 4.0) % SCREEN_WIDTH
-    center = debris_info.get_center()
-    size = debris_info.get_size()
+    TIME += 1
+    wtime = (TIME / 4.0) % SCREEN_WIDTH
+    center = DEBRIS_INFO.get_center()
+    size_xy = DEBRIS_INFO.get_size()
 
-    canvas.draw_image(loader.get_image('debris'),
-                      center, size,
+    canvas.draw_image(LOADER.get_image('debris'),
+                      center, size_xy,
                       (wtime - SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                       (SCREEN_WIDTH, SCREEN_HEIGHT))
-    canvas.draw_image(loader.get_image('debris'),
-                      center, size,
+    canvas.draw_image(LOADER.get_image('debris'),
+                      center, size_xy,
                       (wtime + SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0),
                       (SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -373,51 +375,51 @@ def draw(canvas):
     font = 'sans-serif'
 
     canvas.draw_text('Lives', (20, 20 + size * 3.0 / 4), size, 'White', font)
-    canvas.draw_text(str(lives), (20, 20 + size * 7.0 / 4),
+    canvas.draw_text(str(LIVES), (20, 20 + size * 7.0 / 4),
                      size, 'White', font)
 
     # Display score
     text = 'Score'
-    width = frame.get_canvas_textwidth(text, size, font)
+    width = FRAME.get_canvas_textwidth(text, size, font)
     canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size * 3.0 / 4),
                      size, 'White', font)
 
-    text = str(score)
-    width = frame.get_canvas_textwidth(text, size, font)
+    text = str(SCORE)
+    width = FRAME.get_canvas_textwidth(text, size, font)
     canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size * 7.0 / 4),
                      size, 'White', font)
 
     # Draw ship and sprites
-    my_ship.draw(canvas)
+    MY_SHIP.draw(canvas)
 
-    if a_rock is not None:
-        a_rock.draw(canvas)
+    if A_ROCK is not None:
+        A_ROCK.draw(canvas)
 
-    if a_missile is not None:
-        a_missile.draw(canvas)
+    if A_MISSILE is not None:
+        A_MISSILE.draw(canvas)
 
     # Update ship and sprites
-    my_ship.update()
+    MY_SHIP.update()
 
-    if a_rock is not None:
-        a_rock.update()
+    if A_ROCK is not None:
+        A_ROCK.update()
 
-    if a_missile is not None:
-        a_missile.update()
+    if A_MISSILE is not None:
+        A_MISSILE.update()
 
     # Update and draw FPS (if started)
-    fps.draw_fct(canvas)
+    FPS_Drawer.draw_fct(canvas)
 
 
 def fps_on_off():
     """
     Active or inactive the calculation and drawing of FPS.
     """
-    if fps.is_started():
-        fps.stop()
+    if FPS_Drawer.is_started():
+        FPS_Drawer.stop()
         button_fps.set_text('FPS on')
     else:
-        fps.start()
+        FPS_Drawer.start()
         button_fps.set_text('FPS off')
 
 
@@ -427,19 +429,19 @@ def keydown(key):
 
     :param key: int >= 0
     """
-    global keydown_left
-    global keydown_right
+    global KEYDOWN_LEFT  # pylint: disable=global-statement
+    global KEYDOWN_RIGHT  # pylint: disable=global-statement
 
     if key == simplegui.KEY_MAP['left']:
-        keydown_left = True
-        my_ship.angle_velocity = -.05
+        KEYDOWN_LEFT = True
+        MY_SHIP.angle_velocity = -.05
     elif key == simplegui.KEY_MAP['right']:
-        keydown_right = True
-        my_ship.angle_velocity = .05
+        KEYDOWN_RIGHT = True
+        MY_SHIP.angle_velocity = .05
     elif key == simplegui.KEY_MAP['up']:
-        my_ship.thrust_on_off()
+        MY_SHIP.thrust_on_off()
     elif key == simplegui.KEY_MAP['space']:
-        my_ship.shot()
+        MY_SHIP.shot()
 
 
 def keyup(key):
@@ -448,39 +450,39 @@ def keyup(key):
 
     :param key: int >= 0
     """
-    global keydown_left
-    global keydown_right
+    global KEYDOWN_LEFT  # pylint: disable=global-statement
+    global KEYDOWN_RIGHT  # pylint: disable=global-statement
 
     if key == simplegui.KEY_MAP['left']:
-        keydown_left = False
-        my_ship.turn(0.05 if keydown_right
+        KEYDOWN_LEFT = False
+        MY_SHIP.turn(0.05 if KEYDOWN_RIGHT
                      else 0)
     elif key == simplegui.KEY_MAP['right']:
-        keydown_right = False
-        my_ship.turn(-0.05 if keydown_left
+        KEYDOWN_RIGHT = False
+        MY_SHIP.turn(-0.05 if KEYDOWN_LEFT
                      else 0)
     elif key == simplegui.KEY_MAP['up']:
-        my_ship.thrust_on_off()
+        MY_SHIP.thrust_on_off()
 
 
 def quit_prog():
     """
     Stop timer and sounds, and quit.
     """
-    timer.stop()
-    loader.pause_sounds()
-    frame.stop()
-    if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
-        loader.print_stats_cache()
+    TIMER.stop()
+    LOADER.pause_sounds()
+    FRAME.stop()
+    if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access
+        LOADER.print_stats_cache()
 
 
 def rock_spawner():
     """
     Timer handler that spawns a rock.
     """
-    global a_rock
+    global A_ROCK  # pylint: disable=global-statement
 
-    a_rock = Sprite((random.randrange(SCREEN_WIDTH // 16,
+    A_ROCK = Sprite((random.randrange(SCREEN_WIDTH // 16,
                                       SCREEN_WIDTH * 15 // 16),
                      random.randrange(SCREEN_HEIGHT // 16,
                                       SCREEN_HEIGHT * 15 // 16)),
@@ -488,22 +490,22 @@ def rock_spawner():
                      random.randrange(2, 7) * random.choice((-1, 1))),
                     (random.random() - 0.5) * math.pi,
                     (random.random() - 0.5) / 10.0,
-                    loader.get_image('asteroid'), asteroid_info)
+                    LOADER.get_image('asteroid'), ASTEROID_INFO)
 
 
 def start():
     """
     Start the game.
     """
-    global timer
+    global TIMER  # pylint: disable=global-statement
 
     if SIMPLEGUICS2PYGAME:
-        frame._set_canvas_background_image(loader.get_image('nebula'))
+        FRAME._set_canvas_background_image(LOADER.get_image('nebula'))  # noqa  # pylint: disable=protected-access
 
-    frame.set_draw_handler(draw)
+    FRAME.set_draw_handler(draw)
 
-    timer = simplegui.create_timer(1000, rock_spawner)
-    timer.start()
+    TIMER = simplegui.create_timer(1000, rock_spawner)
+    TIMER.start()
     rock_spawner()
 
 
@@ -512,55 +514,55 @@ def start():
 #######
 if __name__ == '__main__':
     # Create frame
-    frame = simplegui.create_frame('Spaceship prototype',
+    FRAME = simplegui.create_frame('Spaceship prototype',
                                    SCREEN_WIDTH, SCREEN_HEIGHT, 100)
 
     # Create FPS
-    fps = FPS()
+    FPS_Drawer = FPS()
 
     # Load medias
-    loader = Loader(frame, SCREEN_WIDTH, start)
+    LOADER = Loader(FRAME, SCREEN_WIDTH, start)
 
     # Images by Kim Lathrop
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',  # noqa
+    LOADER.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blue.png',  # noqa
                      'asteroid')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png',  # noqa
+    LOADER.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/debris2_blue.png',  # noqa
                      'debris')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',  # noqa
+    LOADER.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/shot2.png',  # noqa
                      'missile')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',  # noqa
+    LOADER.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png',  # noqa
                      'nebula')
-    loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
+    LOADER.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
                      'ship')
 
-    asteroid_info = ImageInfo((45, 45), (90, 90), 40)
-    debris_info = ImageInfo((320, 240), (640, 480))
-    missile_info = ImageInfo((5, 5), (10, 10), 3, 50)
-    nebula_info = ImageInfo((400, 300), (800, 600))
-    ship_info = ImageInfo((45, 45), (90, 90), 35)
+    ASTEROID_INFO = ImageInfo((45, 45), (90, 90), 40)
+    DEBRIS_INFO = ImageInfo((320, 240), (640, 480))
+    MISSILE_INFO = ImageInfo((5, 5), (10, 10), 3, 50)
+    NEBULA_INFO = ImageInfo((400, 300), (800, 600))
+    SHIP_INFO = ImageInfo((45, 45), (90, 90), 35)
 
     # Sounds from http://www.sounddogs.com/ (not free)
-    loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',  # noqa
+    LOADER.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/missile.ogg',  # noqa
                      'missile')
-    loader.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',  # noqa
+    LOADER.add_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg',  # noqa
                      'ship_thrust')
 
-    loader.load()
+    LOADER.load()
 
     # Initialize ship and rock
-    my_ship = Ship((0, SCREEN_HEIGHT / 2.0), (10, 0),
-                   0, loader.get_image('ship'), ship_info)
+    MY_SHIP = Ship((0, SCREEN_HEIGHT / 2.0), (10, 0),
+                   0, LOADER.get_image('ship'), SHIP_INFO)
 
     # Register event handlers
-    frame.set_keydown_handler(keydown)
-    frame.set_keyup_handler(keyup)
+    FRAME.set_keydown_handler(keydown)
+    FRAME.set_keyup_handler(keyup)
 
-    button_fps = frame.add_button('FPS on', fps_on_off)
-    frame.add_label('')
-    frame.add_button('Quit', quit_prog)
+    button_fps = FRAME.add_button('FPS on', fps_on_off)
+    FRAME.add_label('')
+    FRAME.add_button('Quit', quit_prog)
 
-    loader.wait_loaded()
+    LOADER.wait_loaded()
 
-    loader.get_sound('missile').set_volume(.5)
+    LOADER.get_sound('missile').set_volume(.5)
 
-    frame.start()
+    FRAME.start()

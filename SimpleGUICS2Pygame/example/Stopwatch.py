@@ -2,11 +2,11 @@
 # -*- coding: latin-1 -*-
 
 """
-Stopwatch: The Game (March 4, 2020)
+Stopwatch: The Game (March 6, 2020)
 (Stop the timer when 0 decisecond.)
 
-My solution (slightly retouched) of the mini-project #3 of the course
-https://www.coursera.org/course/interactivepython (Coursera 2013).
+My retouched solution of the mini-project #3 of the MOOC
+https://www.coursera.org/learn/interactive-python-1 (Coursera 2013).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,8 +20,8 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
 # Global constants
@@ -30,10 +30,10 @@ CANVAS_HEIGHT = 220
 
 
 # Global variables
-nb_attempts = 0
-nb_success = 0
+NB_ATTEMPTS = 0
+NB_SUCCESS = 0
 
-time = 0
+TIME = 0
 
 
 # Helper function
@@ -60,117 +60,117 @@ def quit_prog():
     """
     Stop timer and quit.
     """
-    timer.stop()
-    frame.stop()
+    TIMER.stop()
+    FRAME.stop()
 
 
 def reset():
     """
-    Reinit nb_attempts, nb_success and time
+    Reinit NB_ATTEMPTS, NB_SUCCESS and time
     and stop timer
     """
-    global nb_attempts
-    global nb_success
-    global time
+    global NB_ATTEMPTS  # pylint: disable=global-statement
+    global NB_SUCCESS  # pylint: disable=global-statement
+    global TIME  # pylint: disable=global-statement
 
-    timer.stop()
+    TIMER.stop()
 
-    nb_attempts = 0
-    nb_success = 0
+    NB_ATTEMPTS = 0
+    NB_SUCCESS = 0
 
-    time = 0
+    TIME = 0
 
 
 def start():
     """
     Start timer
     """
-    timer.start()
+    TIMER.start()
 
 
 def stop():
     """
     If timer is running
     then stop timer
-    and increment nb_attempts
-    and if time is multiple of 10 then increment nb_success
+    and increment NB_ATTEMPTS
+    and if time is multiple of 10 then increment NB_SUCCESS
     """
-    global nb_attempts
-    global nb_success
+    global NB_ATTEMPTS  # pylint: disable=global-statement
+    global NB_SUCCESS  # pylint: disable=global-statement
 
-    if timer.is_running():
-        timer.stop()
+    if TIMER.is_running():
+        TIMER.stop()
 
-        nb_attempts += 1
-        if time % 10 == 0:
-            nb_success += 1
+        NB_ATTEMPTS += 1
+        if TIME % 10 == 0:
+            NB_SUCCESS += 1
 
 
 # Event handler for timer
 def tick():
     """
-    Increment time
+    Increment TIME
     """
-    global time
+    global TIME  # pylint: disable=global-statement
 
-    time += 1
+    TIME += 1
 
 
 # Draw handler
 def draw(canvas):
     """
-    Display time in center
-    and display nb_success / nb_attempts on upper-right
+    Display TIME in center
+    and display NB_SUCCESS / NB_ATTEMPTS on upper-right
 
     :param canvas: simplegui.Canvas
     """
-    text = format_time(time)
+    text = format_time(TIME)
     size = 60
-    width = frame.get_canvas_textwidth(text, size, 'monospace')
+    width = FRAME.get_canvas_textwidth(text, size, 'monospace')
     canvas.draw_text(text,
                      ((CANVAS_WIDTH - width) // 2,
                       # (CANVAS_HEIGHT - size) // 2 + size * 3 // 4
                       (CANVAS_HEIGHT * 2 + size) // 4),
                      size, 'Lime', 'monospace')
 
-    if nb_attempts > 0:
-        text = '%d/%d' % (nb_success, nb_attempts)
-        percent_success = nb_success * 100 // nb_attempts
-        size = (30 if nb_success == nb_attempts
+    if NB_ATTEMPTS > 0:
+        text = '%d/%d' % (NB_SUCCESS, NB_ATTEMPTS)
+        percent_success = NB_SUCCESS * 100 // NB_ATTEMPTS
+        size = (30 if NB_SUCCESS == NB_ATTEMPTS
                 else 20)
-        width = frame.get_canvas_textwidth(text, size, 'monospace')
+        width = FRAME.get_canvas_textwidth(text, size, 'monospace')
         canvas.draw_text(text, (CANVAS_WIDTH - width * 5 // 4, size), size,
                          ('Red' if percent_success < 25
                           else ('Yellow' if percent_success >= 75
                                 else 'White')),
                          'monospace')
 
-    if timer.is_running():
+    if TIMER.is_running():
         text = 'Stop the timer when 0 decisecond.'
         size = 20
-        width = frame.get_canvas_textwidth(text, size)
+        width = FRAME.get_canvas_textwidth(text, size)
         canvas.draw_text(text,
                          ((CANVAS_WIDTH - width) // 2, (CANVAS_HEIGHT - size)),
                          size, 'White')
 
 
 # Create frame
-frame = simplegui.create_frame('Stopwatch (Stop the timer when 0 decisecond)',
+FRAME = simplegui.create_frame('Stopwatch (Stop the timer when 0 decisecond)',
                                CANVAS_WIDTH, CANVAS_HEIGHT, 100)
 
 
 # Register event handlers
-frame.add_button('Start', start, 100)
-frame.add_label('')
-frame.add_button('Stop', stop, 100)
-frame.add_label('')
-frame.add_button('Reset', reset, 100)
-frame.add_label('')
-frame.add_button('Quit', quit_prog)
+FRAME.add_button('Start', start, 100)
+FRAME.add_label('')
+FRAME.add_button('Stop', stop, 100)
+FRAME.add_label('')
+FRAME.add_button('Reset', reset, 100)
+FRAME.add_label('')
+FRAME.add_button('Quit', quit_prog)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
-timer = simplegui.create_timer(100, tick)
+TIMER = simplegui.create_timer(100, tick)
 
 
 # Main
@@ -181,4 +181,4 @@ assert format_time(321) == '0:32.1'
 assert format_time(613) == '1:01.3'
 assert format_time(1234) == '2:03.4'
 
-frame.start()
+FRAME.start()

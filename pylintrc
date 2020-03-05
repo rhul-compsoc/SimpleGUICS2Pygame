@@ -206,7 +206,7 @@ notes=FIXME,XXX,TODO
 [BASIC]
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,ex,Run,_,m,n,nb,x,y,x0,y0,_x,_y
+good-names=i,j,k,ex,Run,_,m,n,nb,x,y,x0,y0,x1,y1,_x,_y
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata

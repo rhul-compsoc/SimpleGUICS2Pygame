@@ -295,7 +295,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — Mars 5, 2020
+* 02.00.00 WORKING VERSION — Mars 6, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)

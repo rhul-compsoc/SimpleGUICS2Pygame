@@ -23,7 +23,7 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 #
@@ -436,7 +436,7 @@ def restart():
     """
     Restart the game.
     """
-    global blitz
+    global blitz  # pylint: disable=global-statement
 
     blitz = Blitz()
 

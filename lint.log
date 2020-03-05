@@ -105,170 +105,6 @@ SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:128: undefined name '_media'
 SimpleGUICS2Pygame/test/test_command_line_options.py:19: 'SimpleGUICS2Pygame.simpleguics2pygame as simplegui' imported but unused
 
 ===== pylint =====
-************* Module Blackjack
-C: 62, 0: Invalid constant name "deck" (invalid-name)
-C: 64, 0: Invalid constant name "hand_dealer" (invalid-name)
-C: 65, 0: Invalid constant name "hand_player" (invalid-name)
-C: 67, 0: Invalid constant name "in_play" (invalid-name)
-C: 69, 0: Invalid constant name "max_test_images_loaded" (invalid-name)
-C: 70, 0: Invalid constant name "nb_images_loaded" (invalid-name)
-C: 72, 0: Invalid constant name "outcome" (invalid-name)
-C: 74, 0: Invalid constant name "score_dealer" (invalid-name)
-C: 75, 0: Invalid constant name "score_player" (invalid-name)
-R: 95, 0: Too many arguments (6/5) (too-many-arguments)
-W:146,23: Access to a protected member _SUITS of a client class (protected-access)
-W:148,23: Access to a protected member _RANKS of a client class (protected-access)
-W:193,22: Access to a protected member _RANKS of a client class (protected-access)
-W:195,22: Access to a protected member _SUITS of a client class (protected-access)
-W:368, 4: Using the global statement (global-statement)
-C:368, 4: Invalid constant name "deck" (invalid-name)
-W:369, 4: Using the global statement (global-statement)
-C:369, 4: Invalid constant name "hand_dealer" (invalid-name)
-W:370, 4: Using the global statement (global-statement)
-C:370, 4: Invalid constant name "hand_player" (invalid-name)
-W:371, 4: Using the global statement (global-statement)
-C:371, 4: Invalid constant name "in_play" (invalid-name)
-W:372, 4: Using the global statement (global-statement)
-C:372, 4: Invalid constant name "outcome" (invalid-name)
-W:373, 4: Using the global statement (global-statement)
-C:373, 4: Invalid constant name "score_dealer" (invalid-name)
-W:475, 4: Using the global statement (global-statement)
-C:475, 4: Invalid constant name "in_play" (invalid-name)
-W:476, 4: Using the global statement (global-statement)
-C:476, 4: Invalid constant name "outcome" (invalid-name)
-W:477, 4: Using the global statement (global-statement)
-C:477, 4: Invalid constant name "score_dealer" (invalid-name)
-W:497, 4: Using the global statement (global-statement)
-C:497, 4: Invalid constant name "in_play" (invalid-name)
-W:498, 4: Using the global statement (global-statement)
-C:498, 4: Invalid constant name "outcome" (invalid-name)
-W:499, 4: Using the global statement (global-statement)
-C:499, 4: Invalid constant name "score_dealer" (invalid-name)
-W:500, 4: Using the global statement (global-statement)
-C:500, 4: Invalid constant name "score_player" (invalid-name)
-W:526, 4: Using the global statement (global-statement)
-C:526, 4: Invalid constant name "max_test_images_loaded" (invalid-name)
-W:527, 4: Using the global statement (global-statement)
-C:527, 4: Invalid constant name "nb_images_loaded" (invalid-name)
-C:544, 4: Invalid constant name "frame" (invalid-name)
-C:559, 4: Invalid constant name "timer" (invalid-name)
-************* Module Mandelbrot_Set
-W: 32, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 71, 4: Using the global statement (global-statement)
-W:137,40: Access to a protected member _get_fps_average of a client class (protected-access)
-R: 65, 0: Too many branches (14/12) (too-many-branches)
-W:216,40: Access to a protected member _get_fps_average of a client class (protected-access)
-W:225, 4: Using the global statement (global-statement)
-W:226, 4: Using the global statement (global-statement)
-W:227, 4: Using the global statement (global-statement)
-************* Module Memory
-W: 29, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 37, 4: Invalid constant name "card_images" (invalid-name)
-C: 51, 4: Invalid constant name "card_images" (invalid-name)
-C: 53, 0: Invalid constant name "memory" (invalid-name)
-C: 55, 0: Invalid constant name "nb_images_loaded" (invalid-name)
-C: 56, 0: Invalid constant name "nb_test_images_loaded" (invalid-name)
-R: 60, 0: Too many arguments (6/5) (too-many-arguments)
-C:279,28: Invalid variable name "c" (invalid-name)
-R:273, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
-C:305,36: Invalid variable name "c" (invalid-name)
-R:273, 8: Too many nested blocks (7/5) (too-many-nested-blocks)
-W:353, 4: Using the global statement (global-statement)
-C:353, 4: Invalid constant name "memory" (invalid-name)
-W:365, 4: Using the global statement (global-statement)
-C:365, 4: Invalid constant name "memory" (invalid-name)
-W:388, 4: Using the global statement (global-statement)
-C:388, 4: Invalid constant name "nb_images_loaded" (invalid-name)
-W:389, 4: Using the global statement (global-statement)
-C:389, 4: Invalid constant name "nb_test_images_loaded" (invalid-name)
-C:401, 0: Invalid constant name "frame" (invalid-name)
-C:404, 0: Invalid constant name "label_game" (invalid-name)
-C:405, 0: Invalid constant name "label_moves" (invalid-name)
-C:415, 0: Invalid constant name "timer" (invalid-name)
-************* Module Nostalgic_Basic_Blitz
-W: 26, 4: Access to a protected member _hide_status of a client class (protected-access)
-W:439, 4: Using the global statement (global-statement)
-************* Module Pong
-W: 25, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 26, 4: Access to a protected member _keep_timers of a client class (protected-access)
-C: 33, 0: Invalid constant name "pong" (invalid-name)
-R:293, 4: Too many branches (21/12) (too-many-branches)
-R:293, 4: Too many statements (52/50) (too-many-statements)
-C:477, 8: Invalid variable name "y1" (invalid-name)
-W:668, 4: Using the global statement (global-statement)
-C:668, 4: Invalid constant name "pong" (invalid-name)
-C:679, 0: Invalid constant name "frame" (invalid-name)
-C:682, 0: Invalid constant name "sound_balls_collision" (invalid-name)
-C:684, 0: Invalid constant name "sound_bounce_border" (invalid-name)
-C:686, 0: Invalid constant name "sound_bounce_paddle" (invalid-name)
-C:688, 0: Invalid constant name "sound_lost" (invalid-name)
-C:694, 0: Invalid constant name "button_pause" (invalid-name)
-C:696, 0: Invalid constant name "button_protect_left" (invalid-name)
-C:698, 0: Invalid constant name "button_protect_right" (invalid-name)
-C:714, 0: Invalid constant name "timer" (invalid-name)
-************* Module RiceRocks_Asteroids
-C:  1, 0: Too many lines in module (1153/1000) (too-many-lines)
-W: 45, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 46, 4: Access to a protected member _keep_timers of a client class (protected-access)
-R: 99, 0: Too many instance attributes (19/7) (too-many-instance-attributes)
-R:147, 4: Too many local variables (28/15) (too-many-locals)
-R:205, 8: Too many nested blocks (7/5) (too-many-nested-blocks)
-R:205, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
-R:147, 4: Too many branches (33/12) (too-many-branches)
-R:147, 4: Too many statements (116/50) (too-many-statements)
-W:442,16: Access to a protected member _set_canvas_background_image of a client class (protected-access)
-W:445,12: Access to a protected member _images of a client class (protected-access)
-W:446,16: Access to a protected member _images of a client class (protected-access)
-W:449,16: Access to a protected member _images of a client class (protected-access)
-W:450,20: Access to a protected member _images of a client class (protected-access)
-W:452,12: Access to a protected member _sounds of a client class (protected-access)
-W:453,16: Access to a protected member _sounds of a client class (protected-access)
-R:619, 4: Too many arguments (7/5) (too-many-arguments)
-R:720, 0: Too many instance attributes (11/7) (too-many-instance-attributes)
-R:724, 4: Too many arguments (6/5) (too-many-arguments)
-W:746,31: Access to a protected member _sounds of a client class (protected-access)
-R:835, 4: Too many arguments (6/5) (too-many-arguments)
-W:1063,34: Access to a protected member _print_stats_cache of a client class (protected-access)
-************* Module Spaceship_prototype
-W: 42, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 43, 4: Access to a protected member _keep_timers of a client class (protected-access)
-R:103, 4: Too many arguments (6/5) (too-many-arguments)
-R:180, 0: Too many instance attributes (8/7) (too-many-instance-attributes)
-R:184, 4: Too many arguments (8/5) (too-many-arguments)
-R:249, 4: Too many arguments (6/5) (too-many-arguments)
-W:277, 8: Using the global statement (global-statement)
-R:273, 4: Method could be a function (no-self-use)
-R:304, 4: Method could be a function (no-self-use)
-W:347, 4: Using the global statement (global-statement)
-R:372, 4: Redefinition of size type from list to int (redefined-variable-type)
-W:430, 4: Using the global statement (global-statement)
-W:431, 4: Using the global statement (global-statement)
-W:451, 4: Using the global statement (global-statement)
-W:452, 4: Using the global statement (global-statement)
-W:473,30: Access to a protected member _print_stats_cache of a client class (protected-access)
-W:481, 4: Using the global statement (global-statement)
-W:498, 4: Using the global statement (global-statement)
-W:501, 8: Access to a protected member _set_canvas_background_image of a client class (protected-access)
-************* Module Stopwatch
-W: 23, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 24, 4: Access to a protected member _keep_timers of a client class (protected-access)
-C: 33, 0: Invalid constant name "nb_attempts" (invalid-name)
-C: 34, 0: Invalid constant name "nb_success" (invalid-name)
-C: 36, 0: Invalid constant name "time" (invalid-name)
-W: 72, 4: Using the global statement (global-statement)
-C: 72, 4: Invalid constant name "nb_attempts" (invalid-name)
-W: 73, 4: Using the global statement (global-statement)
-C: 73, 4: Invalid constant name "nb_success" (invalid-name)
-W: 74, 4: Using the global statement (global-statement)
-C: 74, 4: Invalid constant name "time" (invalid-name)
-W: 98, 4: Using the global statement (global-statement)
-C: 98, 4: Invalid constant name "nb_attempts" (invalid-name)
-W: 99, 4: Using the global statement (global-statement)
-C: 99, 4: Invalid constant name "nb_success" (invalid-name)
-W:114, 4: Using the global statement (global-statement)
-C:114, 4: Invalid constant name "time" (invalid-name)
-C:158, 0: Invalid constant name "frame" (invalid-name)
-C:173, 0: Invalid constant name "timer" (invalid-name)
 ************* Module keys
 C: 90, 0: Invalid constant name "frame" (invalid-name)
 C: 95, 0: Invalid constant name "keys" (invalid-name)
@@ -486,8 +322,6 @@ W:495,26: Access to a protected member _pygamesurfaces_cached of a client class 
 W:496,22: Access to a protected member _pygamesurfaces_cache_max_size of a client class (protected-access)
 W:497,20: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
 R:288, 4: Too many branches (28/12) (too-many-branches)
-C:551,12: Invalid variable name "x1" (invalid-name)
-C:551,16: Invalid variable name "y1" (invalid-name)
 C:552,12: Invalid variable name "x2" (invalid-name)
 C:552,16: Invalid variable name "y2" (invalid-name)
 E:560,22: Too many positional arguments for lambda call (too-many-function-args)
@@ -575,7 +409,7 @@ R:566, 4: Too many statements (63/50) (too-many-statements)
 W:713,12: Access to a protected member _control_selected of a client class (protected-access)
 W:714,12: Access to a protected member _draw_controlpanel of a client class (protected-access)
 W:753, 8: Access to a protected member _draw_controlpanel of a client class (protected-access)
-C:  1, 0: Too many lines in module (1116/1000) (too-many-lines)
+C:  3, 0: Too many lines in module (1116/1000) (too-many-lines)
 E: 31, 0: No name '_colors' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
 R: 37, 0: Too many instance attributes (23/7) (too-many-instance-attributes)
 C: 56, 4: Invalid class attribute name "_controlpanel_background_pygame_color" (invalid-name)
@@ -762,10 +596,10 @@ C: 29, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imp
 ************* Module test_numeric
 W: 86, 0: Bad indentation. Found 8 spaces, expected 4 (bad-indentation)
 W: 58,12: Redefining name 'i' from outer scope (line 183) (redefined-outer-name)
-W: 32, 9: Redefining name 'a' from outer scope (line 319) (redefined-outer-name)
 W: 56, 8: Redefining name 'm' from outer scope (line 151) (redefined-outer-name)
-W: 59,16: Redefining name 'j' from outer scope (line 184) (redefined-outer-name)
 W: 32,12: Redefining name 'b' from outer scope (line 320) (redefined-outer-name)
+W: 32, 9: Redefining name 'a' from outer scope (line 319) (redefined-outer-name)
+W: 59,16: Redefining name 'j' from outer scope (line 184) (redefined-outer-name)
 C: 32, 0: Invalid argument name "a" (invalid-name)
 C: 32, 0: Invalid argument name "b" (invalid-name)
 W: 66,11: Redefining name 'm' from outer scope (line 151) (redefined-outer-name)
@@ -847,10 +681,10 @@ C:158, 4: Missing method docstring (missing-docstring)
 C:165, 4: Missing method docstring (missing-docstring)
 C:173, 4: Missing method docstring (missing-docstring)
 C:177, 4: Missing method docstring (missing-docstring)
-W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
+W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
+W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 C:194, 0: Missing function docstring (missing-docstring)
 C:202, 0: Missing function docstring (missing-docstring)
 W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
@@ -898,10 +732,10 @@ C:158, 4: Missing method docstring (missing-docstring)
 C:165, 4: Missing method docstring (missing-docstring)
 C:173, 4: Missing method docstring (missing-docstring)
 C:177, 4: Missing method docstring (missing-docstring)
-W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
+W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
+W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 C:194, 0: Missing function docstring (missing-docstring)
 C:202, 0: Missing function docstring (missing-docstring)
 W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
@@ -953,10 +787,10 @@ C:158, 4: Missing method docstring (missing-docstring)
 C:165, 4: Missing method docstring (missing-docstring)
 C:173, 4: Missing method docstring (missing-docstring)
 C:177, 4: Missing method docstring (missing-docstring)
-W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
+W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
+W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 C:194, 0: Missing function docstring (missing-docstring)
 C:202, 0: Missing function docstring (missing-docstring)
 W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
@@ -988,14 +822,13 @@ C:331, 0: Missing function docstring (missing-docstring)
 C:336, 0: Missing function docstring (missing-docstring)
 W:337, 4: Using the global statement (global-statement)
 W:349, 0: Access to a protected member _stop_timers of a client class (protected-access)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._fonts -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.sound) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
 R:  1, 0: Similar lines in 2 files
 ==Stress_Balls:42
 ==Stress_Balls_reverse:42
@@ -1685,8 +1518,8 @@ except ImportError:
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
     SIMPLEGUICS2PYGAME = True
 
@@ -1701,7 +1534,7 @@ SCREEN_HEIGHT = 600
 #
 # Global variables
 ###################
-frame = None
+FRAME = None
  (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==test_colors_html_hsla:80
@@ -1827,7 +1660,7 @@ if SIMPLEGUICS2PYGAME:
         filename = argv[1]
  (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==RiceRocks_Asteroids:694
+==RiceRocks_Asteroids:691
 ==Spaceship_prototype:154
     def get_lifespan(self):
         """
@@ -1954,7 +1787,7 @@ R:  1, 0: Similar lines in 2 files
     except Exception as exc:
         print(CMD, 'FAILED!', exc) (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==Blackjack:107
+==Blackjack:108
 ==SimpleGUICS2Pygame.simplegui_lib_draw:51
     assert isinstance(line_width, int) or isinstance(line_width, float), \
         type(line_width)
@@ -1997,45 +1830,6 @@ except ImportError:
 MAX_NB_SECONDS = 30  # number of seconds before next step
 
 ALPHA = False  # start with transparency if True (duplicate-code)
-R:  1, 0: Similar lines in 2 files
-==RiceRocks_Asteroids:998
-==Spaceship_prototype:411
-def fps_on_off():
-    """
-    Active or inactive the calculation and drawing of FPS.
-    """
-    if fps.is_started():
-        fps.stop()
-        button_fps.set_text('FPS on')
-    else:
-        fps.start()
-        button_fps.set_text('FPS off')
-
-
-def keydown(key):
-    """
-    Event handler to deal key down.
-
-    :param key: int >= 0
-    """ (duplicate-code)
-R:  1, 0: Similar lines in 2 files
-==Spaceship_prototype:408
-==test_image:125
-    fps.draw_fct(canvas)
-
-
-def fps_on_off():
-    """
-    Active or inactive the calculation and drawing of FPS.
-    """
-    if fps.is_started():
-        fps.stop()
-        button_fps.set_text('FPS on')
-    else:
-        fps.start()
-        button_fps.set_text('FPS off')
-
- (duplicate-code)
 R:  1, 0: Similar lines in 7 files
 ==test_button_label:14
 ==test_circle:13
@@ -2123,21 +1917,6 @@ if SIMPLEGUICS2PYGAME:
 
 frame.start() (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==RiceRocks_Asteroids:998
-==test_image:128
-def fps_on_off():
-    """
-    Active or inactive the calculation and drawing of FPS.
-    """
-    if fps.is_started():
-        fps.stop()
-        button_fps.set_text('FPS on')
-    else:
-        fps.start()
-        button_fps.set_text('FPS off')
-
- (duplicate-code)
-R:  1, 0: Similar lines in 2 files
 ==test_dir:28
 ==test_numeric:20
     SIMPLEGUICS2PYGAME = True
@@ -2177,8 +1956,8 @@ except ImportError:
 
 
 #
-# "Private" function
-#################### (duplicate-code)
+# Private global constant
+######################### (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Blackjack:16
 ==Pong:17
@@ -2194,7 +1973,7 @@ except ImportError:
 
  (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==RiceRocks_Asteroids:644
+==RiceRocks_Asteroids:641
 ==Spaceship_prototype:118
         assert_position(center)
         assert_position(size, True, True)
@@ -2286,8 +2065,8 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
  (duplicate-code)
 R:  1, 0: Similar lines in 8 files
@@ -2331,7 +2110,7 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
  (duplicate-code)
 R:  1, 0: Similar lines in 3 files
@@ -2345,18 +2124,18 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True (duplicate-code)
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==Blackjack:552
-==Memory:408
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+==Blackjack:553
+==Memory:412
+FRAME.add_label('')
+FRAME.add_button('Quit', FRAME.stop)
 
 # Register event handlers
-frame.set_draw_handler(draw_wait_images)
+FRAME.set_draw_handler(draw_wait_images)
 
-timer = simplegui.create_timer(100, test_images_loaded)
-timer.start() (duplicate-code)
+TIMER = simplegui.create_timer(100, test_images_loaded)
+TIMER.start() (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==test_input:70
 ==test_objects:72
@@ -2441,7 +2220,7 @@ R:  1, 0: Similar lines in 3 files
     SIMPLEGUICS2PYGAME = False
 except ImportError: (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==RiceRocks_Asteroids:659
+==RiceRocks_Asteroids:656
 ==Spaceship_prototype:128
         self._center = list(center)
         self._size = list(size)
@@ -2497,7 +2276,7 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True (duplicate-code)
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access (duplicate-code)
 R:  1, 0: Similar lines in 10 files
 ==test_button_label:53
 ==test_circle:69
@@ -2515,8 +2294,8 @@ frame.add_label(PYTHON_VERSION)
 frame.add_label(GUI_VERSION)
 frame.add_label(PYGAME_VERSION) (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==RiceRocks_Asteroids:737
-==Spaceship_prototype:199
+==RiceRocks_Asteroids:733
+==Spaceship_prototype:200
         assert_position(position)
         assert_position(velocity)
         assert isinstance(angle, int) or isinstance(angle, float), type(angle)
@@ -2553,36 +2332,36 @@ External dependencies
       \-Image (test_all)
       \-ImageChops (test_all)
       \-ImageStat (test_all)
-    SimpleGUICS2Pygame (test_image,SimpleGUICS2Pygame.simplegui_lib_draw,test_all,test_grid,test_colors_html_hsla,test_colors_constants,test_objects,setup,test_input,test_circle,test_colors_html_rgba,test_line,test_text,SimpleGUICS2Pygame_check,test_colors_html,presentation,test_button_label)
-      \-codeskulptor (SimpleGUICS2Pygame_check,test_dir)
-      \-codeskulptor_lib (Memory,test_colors_html_hsla,RiceRocks_Asteroids,test_colors_html_rgba,SimpleGUICS2Pygame_check,test_colors_html,Mandelbrot_Set,Spaceship_prototype)
-      \-numeric (test_numeric,SimpleGUICS2Pygame_check,test_dir)
+    SimpleGUICS2Pygame (setup,presentation,test_all,test_objects,test_colors_html,test_colors_html_rgba,test_text,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib_draw,test_circle,test_colors_html_hsla,test_grid,test_input,test_button_label,test_colors_constants,test_image,test_line)
+      \-codeskulptor (test_dir,SimpleGUICS2Pygame_check)
+      \-codeskulptor_lib (Memory,test_colors_html,test_colors_html_rgba,SimpleGUICS2Pygame_check,test_colors_html_hsla,Spaceship_prototype,RiceRocks_Asteroids,Mandelbrot_Set)
+      \-numeric (test_dir,SimpleGUICS2Pygame_check,test_numeric)
       \-simplegui_lib (SimpleGUICS2Pygame_check)
-      \-simplegui_lib_draw (test_text,Memory,SimpleGUICS2Pygame.simplegui_lib,SimpleGUICS2Pygame_check)
-      \-simplegui_lib_fps (RiceRocks_Asteroids,SimpleGUICS2Pygame_check,test_image,SimpleGUICS2Pygame.simplegui_lib,Spaceship_prototype)
-      \-simplegui_lib_keys (SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib,keys)
-      \-simplegui_lib_loader (test_image,loader,RiceRocks_Asteroids,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib,Spaceship_prototype)
-      \-simpleguics2pygame (Memory,test_grid,Stopwatch,test_colors_constants,test_text,test_input,test_circle,test_colors_html_rgba,keys,Blackjack,presentation,test_image,test_all,Stress_Balls_average,SimpleGUICS2Pygame.simplegui_lib_keys,SimpleGUICS2Pygame.simplegui_lib_fps,test_colors_html_hsla,test_sound,Stress_Balls,SimpleGUICS2Pygame_check,test_dir,Nostalgic_Basic_Blitz,Pong,test_command_line_options,loader,Frame_example,Spaceship_prototype,stop_example,SimpleGUICS2Pygame.simpleguics2pygame._fonts,test_objects,test_line,Stress_Balls_reverse,RiceRocks_Asteroids,test_colors_html,SimpleGUICS2Pygame.simplegui_lib_loader,Mandelbrot_Set,test_button_label)
-      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
-      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+      \-simplegui_lib_draw (Memory,SimpleGUICS2Pygame.simplegui_lib,test_text,SimpleGUICS2Pygame_check)
+      \-simplegui_lib_fps (test_image,Spaceship_prototype,SimpleGUICS2Pygame.simplegui_lib,SimpleGUICS2Pygame_check,RiceRocks_Asteroids)
+      \-simplegui_lib_keys (SimpleGUICS2Pygame.simplegui_lib,SimpleGUICS2Pygame_check,keys)
+      \-simplegui_lib_loader (loader,SimpleGUICS2Pygame_check,Spaceship_prototype,SimpleGUICS2Pygame.simplegui_lib,RiceRocks_Asteroids,test_image)
+      \-simpleguics2pygame (Memory,test_command_line_options,loader,Stress_Balls_average,test_text,test_colors_html_hsla,test_circle,test_grid,Stress_Balls_reverse,test_button_label,RiceRocks_Asteroids,test_colors_constants,test_objects,Mandelbrot_Set,Stress_Balls,test_all,test_colors_html,test_colors_html_rgba,SimpleGUICS2Pygame.simplegui_lib_fps,test_input,Blackjack,test_image,presentation,SimpleGUICS2Pygame.simpleguics2pygame._fonts,Frame_example,Spaceship_prototype,Pong,test_dir,Nostalgic_Basic_Blitz,stop_example,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib_loader,test_sound,keys,SimpleGUICS2Pygame.simplegui_lib_keys,Stopwatch,test_line)
+      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control)
+      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control)
       | \-_media (SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.sound)
       | \-_options (SimpleGUICS2Pygame.simpleguics2pygame)
       | \-_pygame_lib (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._colors)
       | \-canvas (SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-control (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-frame (SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._media)
-      | \-image (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+      | \-frame (SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.control)
+      | \-image (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-keys (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-sound (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._options)
+      | \-sound (SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media)
       | \-timer (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      \-simpleplot (Stress_Balls_average,Stress_Balls_reverse,Stress_Balls_results,test_simpleplot_lines,SimpleGUICS2Pygame_check,test_dir,test_simpleplot_scatter,test_simpleplot_bars,Stress_Balls)
+      \-simpleplot (test_simpleplot_bars,Stress_Balls_average,test_simpleplot_scatter,SimpleGUICS2Pygame_check,Stress_Balls_reverse,test_simpleplot_lines,Stress_Balls,Stress_Balls_results,test_dir)
     matplotlib (SimpleGUICS2Pygame.simpleplot,SimpleGUICS2Pygame_check)
       \-pyplot (SimpleGUICS2Pygame.simpleplot)
-    pygame (SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._options,pygame_check,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,SimpleGUICS2Pygame.simpleguics2pygame.sound)
+    pygame (SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame_check,pygame_check,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.control)
       \-font (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
       \-mixer (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
       \-transform (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
-      \-version (test_image,test_grid,test_colors_html_hsla,test_colors_constants,test_line,test_input,test_circle,test_colors_html_rgba,test_text,test_colors_html,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,test_button_label)
+      \-version (test_colors_html,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,test_colors_html_rgba,test_text,test_colors_html_hsla,test_circle,test_grid,test_input,test_colors_constants,test_button_label,test_image,test_line)
     setuptools (setup)
 
 
@@ -2593,11 +2372,11 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8018   |49.10 |8018     |=          |
+|code      |8017   |49.08 |8017     |=          |
 +----------+-------+------+---------+-----------+
-|docstring |4677   |28.64 |4677     |=          |
+|docstring |4680   |28.65 |4677     |+3.00      |
 +----------+-------+------+---------+-----------+
-|comment   |690    |4.23  |690      |=          |
+|comment   |690    |4.22  |690      |=          |
 +----------+-------+------+---------+-----------+
 |empty     |2946   |18.04 |2946     |=          |
 +----------+-------+------+---------+-----------+
@@ -2610,9 +2389,9 @@ Duplication
 +-------------------------+-------+---------+-----------+
 |                         |now    |previous |difference |
 +=========================+=======+=========+===========+
-|nb duplicated lines      |2684   |2684     |=          |
+|nb duplicated lines      |2639   |2639     |=          |
 +-------------------------+-------+---------+-----------+
-|percent duplicated lines |16.604 |16.604   |=          |
+|percent duplicated lines |16.323 |16.326   |-0.00      |
 +-------------------------+-------+---------+-----------+
 
 
@@ -2623,11 +2402,11 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |276    |277      |-1.00      |
+|convention |209    |209      |=          |
 +-----------+-------+---------+-----------+
-|refactor   |115    |114      |+1.00      |
+|refactor   |87     |87       |=          |
 +-----------+-------+---------+-----------+
-|warning    |397    |397      |=          |
+|warning    |330    |330      |=          |
 +-----------+-------+---------+-----------+
 |error      |104    |104      |=          |
 +-----------+-------+---------+-----------+
@@ -2640,103 +2419,87 @@ Messages by category
 +-----------------------------------------------+------+--------+---------+-----------+
 |module                                         |error |warning |refactor |convention |
 +===============================================+======+========+=========+===========+
-|SimpleGUICS2Pygame.simpleguics2pygame.frame    |23.08 |7.56    |6.96     |1.81       |
+|SimpleGUICS2Pygame.simpleguics2pygame.frame    |23.08 |9.09    |9.20     |2.39       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.control  |19.23 |11.34   |5.22     |1.09       |
+|SimpleGUICS2Pygame.simpleguics2pygame.control  |19.23 |13.64   |6.90     |1.44       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.canvas   |18.27 |8.31    |4.35     |2.17       |
+|SimpleGUICS2Pygame.simpleguics2pygame.canvas   |18.27 |10.00   |5.75     |1.91       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.__init__ |8.65  |2.02    |0.00     |2.90       |
+|SimpleGUICS2Pygame.simpleguics2pygame.__init__ |8.65  |2.42    |0.00     |3.83       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._media   |5.77  |7.81    |2.61     |0.36       |
+|SimpleGUICS2Pygame.simpleguics2pygame._media   |5.77  |9.39    |3.45     |0.48       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._options |4.81  |4.28    |1.74     |0.00       |
+|SimpleGUICS2Pygame.simpleguics2pygame._options |4.81  |5.15    |2.30     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|presentation                                   |4.81  |1.51    |0.00     |1.45       |
+|presentation                                   |4.81  |1.82    |0.00     |1.91       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame_check                       |2.88  |4.79    |0.00     |0.00       |
+|SimpleGUICS2Pygame_check                       |2.88  |5.76    |0.00     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._fonts   |1.92  |1.01    |0.00     |0.36       |
+|SimpleGUICS2Pygame.simpleguics2pygame._fonts   |1.92  |1.21    |0.00     |0.48       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._colors  |1.92  |0.50    |0.00     |0.00       |
+|SimpleGUICS2Pygame.simpleguics2pygame._colors  |1.92  |0.61    |0.00     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.image    |1.92  |0.25    |0.00     |0.36       |
+|SimpleGUICS2Pygame.simpleguics2pygame.image    |1.92  |0.30    |0.00     |0.48       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.sound    |1.92  |0.25    |0.00     |0.00       |
+|SimpleGUICS2Pygame.simpleguics2pygame.sound    |1.92  |0.30    |0.00     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_image                                     |0.96  |1.51    |0.00     |2.54       |
+|test_image                                     |0.96  |1.82    |0.00     |3.35       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_objects                                   |0.96  |0.50    |0.00     |1.45       |
+|test_objects                                   |0.96  |0.61    |0.00     |1.91       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_sound                                     |0.96  |0.50    |0.00     |0.72       |
+|test_sound                                     |0.96  |0.61    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_all                                       |0.96  |0.50    |0.00     |0.00       |
+|test_all                                       |0.96  |0.61    |0.00     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|pygame_check                                   |0.96  |0.50    |0.00     |0.00       |
+|pygame_check                                   |0.96  |0.61    |0.00     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls_reverse                           |0.00  |6.30    |52.17    |8.33       |
+|Stress_Balls_reverse                           |0.00  |7.58    |64.37    |11.00      |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls_average                           |0.00  |6.30    |1.74     |8.33       |
+|Stress_Balls_average                           |0.00  |7.58    |2.30     |11.00      |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls                                   |0.00  |6.30    |1.74     |8.33       |
+|Stress_Balls                                   |0.00  |7.58    |2.30     |11.00      |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Blackjack                                      |0.00  |4.79    |0.87     |9.42       |
+|test_numeric                                   |0.00  |2.12    |0.00     |12.92      |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Spaceship_prototype                            |0.00  |3.02    |6.09     |0.00       |
+|test_grid                                      |0.00  |1.21    |0.00     |4.31       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|RiceRocks_Asteroids                            |0.00  |2.77    |8.70     |0.36       |
+|test_line                                      |0.00  |1.21    |0.00     |2.87       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Stopwatch                                      |0.00  |2.02    |0.00     |3.99       |
+|test_colors_html_rgba                          |0.00  |0.91    |0.00     |3.83       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Mandelbrot_Set                                 |0.00  |1.76    |0.87     |0.00       |
+|test_colors_html_hsla                          |0.00  |0.91    |0.00     |3.83       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_numeric                                   |0.00  |1.76    |0.00     |9.78       |
+|test_input                                     |0.00  |0.91    |0.00     |2.87       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Memory                                         |0.00  |1.26    |2.61     |5.43       |
+|Stress_Balls_results                           |0.00  |0.61    |1.15     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_grid                                      |0.00  |1.01    |0.00     |3.26       |
+|stop_example                                   |0.00  |0.61    |0.00     |1.44       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_line                                      |0.00  |1.01    |0.00     |2.17       |
+|test_text                                      |0.00  |0.61    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Pong                                           |0.00  |0.76    |1.74     |4.35       |
+|test_colors_html                               |0.00  |0.61    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_html_rgba                          |0.00  |0.76    |0.00     |2.90       |
+|test_colors_constants                          |0.00  |0.61    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_html_hsla                          |0.00  |0.76    |0.00     |2.90       |
+|test_circle                                    |0.00  |0.61    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_input                                     |0.00  |0.76    |0.00     |2.17       |
+|loader                                         |0.00  |0.61    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls_results                           |0.00  |0.50    |0.87     |0.00       |
+|test_dir                                       |0.00  |0.30    |0.00     |2.87       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|stop_example                                   |0.00  |0.50    |0.00     |1.09       |
+|test_simpleplot_scatter                        |0.00  |0.30    |0.00     |1.91       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_text                                      |0.00  |0.50    |0.00     |0.72       |
+|test_simpleplot_lines                          |0.00  |0.30    |0.00     |1.91       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_html                               |0.00  |0.50    |0.00     |0.72       |
+|test_simpleplot_bars                           |0.00  |0.30    |0.00     |1.91       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_constants                          |0.00  |0.50    |0.00     |0.72       |
+|test_button_label                              |0.00  |0.30    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|test_circle                                    |0.00  |0.50    |0.00     |0.72       |
+|test_command_line_options                      |0.00  |0.30    |0.00     |0.48       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|loader                                         |0.00  |0.50    |0.00     |0.72       |
+|cs2both                                        |0.00  |0.00    |2.30     |0.00       |
 +-----------------------------------------------+------+--------+---------+-----------+
-|Nostalgic_Basic_Blitz                          |0.00  |0.50    |0.00     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_dir                                       |0.00  |0.25    |0.00     |2.17       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_simpleplot_scatter                        |0.00  |0.25    |0.00     |1.45       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_simpleplot_lines                          |0.00  |0.25    |0.00     |1.45       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_simpleplot_bars                           |0.00  |0.25    |0.00     |1.45       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_button_label                              |0.00  |0.25    |0.00     |0.72       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_command_line_options                      |0.00  |0.25    |0.00     |0.36       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|cs2both                                        |0.00  |0.00    |1.74     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|keys                                           |0.00  |0.00    |0.00     |0.72       |
+|keys                                           |0.00  |0.00    |0.00     |0.96       |
 +-----------------------------------------------+------+--------+---------+-----------+
 
 
@@ -2747,17 +2510,15 @@ Messages
 +-------------------------------+------------+
 |message id                     |occurrences |
 +===============================+============+
-|protected-access               |238         |
+|protected-access               |210         |
 +-------------------------------+------------+
-|invalid-name                   |180         |
+|invalid-name                   |114         |
 +-------------------------------+------------+
 |missing-docstring              |69          |
 +-------------------------------+------------+
-|global-statement               |55          |
-+-------------------------------+------------+
 |no-name-in-module              |50          |
 +-------------------------------+------------+
-|duplicate-code                 |50          |
+|duplicate-code                 |47          |
 +-------------------------------+------------+
 |no-member                      |39          |
 +-------------------------------+------------+
@@ -2765,7 +2526,7 @@ Messages
 +-------------------------------+------------+
 |broad-except                   |30          |
 +-------------------------------+------------+
-|too-many-arguments             |14          |
+|global-statement               |16          |
 +-------------------------------+------------+
 |attribute-defined-outside-init |12          |
 +-------------------------------+------------+
@@ -2775,41 +2536,43 @@ Messages
 +-------------------------------+------------+
 |wrong-import-position          |10          |
 +-------------------------------+------------+
-|too-many-instance-attributes   |9           |
-+-------------------------------+------------+
-|too-many-branches              |9           |
-+-------------------------------+------------+
 |wildcard-import                |8           |
 +-------------------------------+------------+
-|too-many-nested-blocks         |8           |
+|cyclic-import                  |7           |
 +-------------------------------+------------+
-|cyclic-import                  |8           |
+|too-many-instance-attributes   |6           |
 +-------------------------------+------------+
-|too-many-statements            |7           |
+|too-many-branches              |6           |
++-------------------------------+------------+
+|too-many-arguments             |6           |
 +-------------------------------+------------+
 |redefined-outer-name           |6           |
++-------------------------------+------------+
+|too-many-statements            |5           |
++-------------------------------+------------+
+|too-many-nested-blocks         |4           |
 +-------------------------------+------------+
 |import-error                   |4           |
 +-------------------------------+------------+
 |unused-import                  |3           |
 +-------------------------------+------------+
-|too-many-locals                |3           |
-+-------------------------------+------------+
-|redefined-variable-type        |3           |
-+-------------------------------+------------+
-|no-self-use                    |3           |
-+-------------------------------+------------+
 |consider-using-enumerate       |3           |
 +-------------------------------+------------+
 |bare-except                    |3           |
 +-------------------------------+------------+
-|too-many-lines                 |2           |
+|too-many-locals                |2           |
 +-------------------------------+------------+
 |super-init-not-called          |2           |
 +-------------------------------+------------+
+|redefined-variable-type        |2           |
++-------------------------------+------------+
 |too-many-return-statements     |1           |
 +-------------------------------+------------+
+|too-many-lines                 |1           |
++-------------------------------+------------+
 |redefined-builtin              |1           |
++-------------------------------+------------+
+|no-self-use                    |1           |
 +-------------------------------+------------+
 |deprecated-method              |1           |
 +-------------------------------+------------+
@@ -2824,7 +2587,7 @@ Messages
 
 Global evaluation
 -----------------
-Your code has been rated at 7.85/10 (previous run: 7.85/10, +0.00)
+Your code has been rated at 8.11/10 (previous run: 8.11/10, +0.00)
 
 
 ===== mypy =====
@@ -2908,7 +2671,7 @@ SimpleGUICS2Pygame/example/Stopwatch.py:24: error: Incompatible types in assignm
 SimpleGUICS2Pygame/example/Pong.py:23: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/example/Pong.py:26: error: Incompatible types in assignment (expression has type "bool", variable has type "None")
 SimpleGUICS2Pygame/example/Nostalgic_Basic_Blitz.py:24: error: Name 'simplegui' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Memory.py:24: error: Name 'simplegui' already defined (possibly by an import)
+SimpleGUICS2Pygame/example/Memory.py:27: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/example/Mandelbrot_Set.py:30: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/example/Frame_example.py:18: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/example/Blackjack.py:22: error: Name 'simplegui' already defined (possibly by an import)

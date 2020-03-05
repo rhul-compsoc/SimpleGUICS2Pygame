@@ -2,10 +2,10 @@
 # -*- coding: latin-1 -*-
 
 """
-Pong (March 5, 2020)
+Pong (March 6, 2020)
 
-My solution (slightly retouched) of the mini-project #4 of the course
-https://www.coursera.org/course/interactivepython (Coursera 2013).
+My retouched solution of the mini-project #4 of the MOOC
+https://www.coursera.org/learn/interactive-python-1 (Coursera 2013).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -22,15 +22,15 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
 DEBUG = False
 # DEBUG = True  # to help debug
 
 
-pong = None
+PONG = None
 
 
 # Classes
@@ -290,7 +290,7 @@ class Ball(MovingItem):
                                     random.choice((-1, 1)))))
         self.radius = radius
 
-    def check_collision(self):
+    def check_collision(self):  # noqa  # pylint: disable=too-many-branches,too-many-statements
         """
         If the ball touch the top or the bottom of the screen
         then bounce vertically.
@@ -305,57 +305,57 @@ class Ball(MovingItem):
         """
         if self.vel.y < 0:    # top
             if self.pos.y <= self.radius:
-                sound_bounce_border.play()
+                SOUND_BOUNCE_BORDER.play()
                 self.bounce(False)
         elif self.vel.y > 0:  # bottom
             if self.pos.y >= Pong.HEIGHT - 1 - self.radius:
-                sound_bounce_border.play()
+                SOUND_BOUNCE_BORDER.play()
                 self.bounce(False)
 
         if self.vel.x < 0:    # left
             if self.pos.x <= Player.WIDTH + self.radius:
-                if ((pong.players[0].pos.y - Player.HALF_HEIGHT <=
+                if ((PONG.players[0].pos.y - Player.HALF_HEIGHT <=
                      self.pos.y <=
-                     pong.players[0].pos.y + Player.HALF_HEIGHT) or
-                        pong.players[0].protected):
-                    sound_bounce_paddle.play()
+                     PONG.players[0].pos.y + Player.HALF_HEIGHT) or
+                        PONG.players[0].protected):
+                    SOUND_BOUNCE_PADDLE.play()
                     self.bounce(vertically=False)
                     self.faster()
                 else:  # left player lost
-                    sound_lost.play()
-                    pong.players[1].score += 1
-                    for i in range(len(pong.balls)):
-                        if pong.balls[i] == self:
-                            del pong.balls[i]
+                    SOUND_LOST.play()
+                    PONG.players[1].score += 1
+                    for i in range(len(PONG.balls)):
+                        if PONG.balls[i] == self:
+                            del PONG.balls[i]
 
                             break
-                    pong.add_ball(self.radius, True)
+                    PONG.add_ball(self.radius, True)
         elif self.vel.x > 0:  # right
             if self.pos.x >= Pong.WIDTH - 1 - self.radius - Player.WIDTH:
-                if ((pong.players[1].pos.y - Player.HALF_HEIGHT <=
+                if ((PONG.players[1].pos.y - Player.HALF_HEIGHT <=
                      self.pos.y <=
-                     pong.players[1].pos.y + Player.HALF_HEIGHT) or
-                        pong.players[1].protected):
-                    sound_bounce_paddle.play()
+                     PONG.players[1].pos.y + Player.HALF_HEIGHT) or
+                        PONG.players[1].protected):
+                    SOUND_BOUNCE_PADDLE.play()
                     self.bounce(vertically=False)
                     self.faster()
                 else:  # right player lost
-                    sound_lost.play()
-                    pong.players[0].score += 1
-                    for i in range(len(pong.balls)):
-                        if pong.balls[i] == self:
-                            del pong.balls[i]
+                    SOUND_LOST.play()
+                    PONG.players[0].score += 1
+                    for i in range(len(PONG.balls)):
+                        if PONG.balls[i] == self:
+                            del PONG.balls[i]
 
                             break
-                    pong.add_ball(self.radius, False)
+                    PONG.add_ball(self.radius, False)
 
-        if len(pong.balls) > 1:
+        if len(PONG.balls) > 1:
             founded = False
-            for ball in pong.balls:
+            for ball in PONG.balls:
                 if founded:
                     if self.touch(ball):
                         # Elastic collision (with radius as mass)
-                        sound_balls_collision.play()
+                        SOUND_BALLS_COLLISION.play()
                         radius_sum = self.radius + ball.radius
                         radius_diff = self.radius - ball.radius
 
@@ -524,7 +524,7 @@ def add_ball():
     """
     Add one ball to the game.
     """
-    pong.add_ball()
+    PONG.add_ball()
 
 
 def draw(canvas):
@@ -539,32 +539,32 @@ def draw(canvas):
 
     # Gutters
     canvas.draw_line((Player.WIDTH, 0), (Player.WIDTH, Pong.HEIGHT),
-                     1, ('Red' if pong.players[0].protected
+                     1, ('Red' if PONG.players[0].protected
                          else 'White'))
     x = Pong.WIDTH - 1 - Player.WIDTH
     canvas.draw_line((x, 0), (x, Pong.HEIGHT),
-                     1, ('Red' if pong.players[1].protected
+                     1, ('Red' if PONG.players[1].protected
                          else 'White'))
 
     # Scores
     size = 60
-    text = str(pong.players[0].score)
+    text = str(PONG.players[0].score)
     canvas.draw_text(text,
-                     (Pong.HALF_WIDTH - 100 - frame.get_canvas_textwidth(text,
+                     (Pong.HALF_WIDTH - 100 - FRAME.get_canvas_textwidth(text,
                                                                          size),
                       100),
                      size, 'Green')
-    canvas.draw_text(str(pong.players[1].score), (Pong.HALF_WIDTH + 100, 100),
+    canvas.draw_text(str(PONG.players[1].score), (Pong.HALF_WIDTH + 100, 100),
                      size, 'Green')
 
-    if not pong.paused:
+    if not PONG.paused:
         # Players
-        for player in pong.players:
+        for player in PONG.players:
             player.update_pos()
             player.draw(canvas)
 
         # Ball
-        for ball in pong.balls:
+        for ball in PONG.balls:
             ball.update_pos()
             ball.draw(canvas)
             ball.check_collision()
@@ -576,22 +576,22 @@ def keydown(key):
 
     :param key: int >= 0
     """
-    if key == pong.players[0].key_up:
-        pong.players[0].key_up_active = True
-        pong.players[0].vel.y = -Player.SPEED
-        pong.players[0].update_vel()
-    elif key == pong.players[0].key_down:
-        pong.players[0].key_down_active = True
-        pong.players[0].vel.y = Player.SPEED
-        pong.players[0].update_vel()
-    elif key == pong.players[1].key_up:
-        pong.players[1].key_up_active = True
-        pong.players[1].vel.y = -Player.SPEED
-        pong.players[1].update_vel()
-    elif key == pong.players[1].key_down:
-        pong.players[1].key_down_active = True
-        pong.players[1].vel.y = Player.SPEED
-        pong.players[1].update_vel()
+    if key == PONG.players[0].key_up:
+        PONG.players[0].key_up_active = True
+        PONG.players[0].vel.y = -Player.SPEED
+        PONG.players[0].update_vel()
+    elif key == PONG.players[0].key_down:
+        PONG.players[0].key_down_active = True
+        PONG.players[0].vel.y = Player.SPEED
+        PONG.players[0].update_vel()
+    elif key == PONG.players[1].key_up:
+        PONG.players[1].key_up_active = True
+        PONG.players[1].vel.y = -Player.SPEED
+        PONG.players[1].update_vel()
+    elif key == PONG.players[1].key_down:
+        PONG.players[1].key_down_active = True
+        PONG.players[1].vel.y = Player.SPEED
+        PONG.players[1].update_vel()
 
 
 def keyup(key):
@@ -600,38 +600,38 @@ def keyup(key):
 
     :param key: int >= 0
     """
-    if key == pong.players[0].key_up:
-        pong.players[0].key_up_active = False
-        pong.players[0].vel.y = 0
-        pong.players[0].update_vel()
-    elif key == pong.players[0].key_down:
-        pong.players[0].key_down_active = False
-        pong.players[0].vel.y = 0
-        pong.players[0].update_vel()
-    elif key == pong.players[1].key_up:
-        pong.players[1].key_up_active = False
-        pong.players[1].vel.y = 0
-        pong.players[1].update_vel()
-    elif key == pong.players[1].key_down:
-        pong.players[1].key_down_active = False
-        pong.players[1].vel.y = 0
-        pong.players[1].update_vel()
+    if key == PONG.players[0].key_up:
+        PONG.players[0].key_up_active = False
+        PONG.players[0].vel.y = 0
+        PONG.players[0].update_vel()
+    elif key == PONG.players[0].key_down:
+        PONG.players[0].key_down_active = False
+        PONG.players[0].vel.y = 0
+        PONG.players[0].update_vel()
+    elif key == PONG.players[1].key_up:
+        PONG.players[1].key_up_active = False
+        PONG.players[1].vel.y = 0
+        PONG.players[1].update_vel()
+    elif key == PONG.players[1].key_down:
+        PONG.players[1].key_down_active = False
+        PONG.players[1].vel.y = 0
+        PONG.players[1].update_vel()
 
 
 def launch_ball():
     """
     Adds a prepared ball (if not in pause).
     """
-    if pong.balls_to_launch and not pong.paused:
-        pong.balls.append(pong.balls_to_launch.pop(0))
+    if PONG.balls_to_launch and not PONG.paused:
+        PONG.balls.append(PONG.balls_to_launch.pop(0))
 
 
 def pause():
     """
     Event handler to deal click on pause button.
     """
-    pong.pause()
-    button_pause.set_text('Pause ' + ('off' if pong.paused
+    PONG.pause()
+    BUTTON_PAUSE.set_text('Pause ' + ('off' if PONG.paused
                                       else 'on'))
 
 
@@ -639,8 +639,8 @@ def protect_left():
     """
     Event handler to deal click on protect left button.
     """
-    pong.players[0].protect()
-    button_protect_left.set_text(('Unprotect' if pong.players[0].protected
+    PONG.players[0].protect()
+    BUTTON_PROTECT_LEFT.set_text(('Unprotect' if PONG.players[0].protected
                                   else 'Protect') + ' left player')
 
 
@@ -648,8 +648,8 @@ def protect_right():
     """
     Event handler to deal click on protect right button.
     """
-    pong.players[1].protect()
-    button_protect_right.set_text(('Unprotect' if pong.players[1].protected
+    PONG.players[1].protect()
+    BUTTON_PROTECT_RIGHT.set_text(('Unprotect' if PONG.players[1].protected
                                    else 'Protect') + ' right player')
 
 
@@ -657,66 +657,66 @@ def quit_prog():
     """
     Stop timer and quit.
     """
-    timer.stop()
-    frame.stop()
+    TIMER.stop()
+    FRAME.stop()
 
 
 def restart():
     """
     Event handler to deal click on restart button.
     """
-    global pong
+    global PONG  # pylint: disable=global-statement
 
-    pong = Pong()
-    button_pause.set_text('Pause on')
-    button_protect_left.set_text('Protect left player')
-    button_protect_right.set_text('Protect right player')
+    PONG = Pong()
+    BUTTON_PAUSE.set_text('Pause on')
+    BUTTON_PROTECT_LEFT.set_text('Protect left player')
+    BUTTON_PROTECT_RIGHT.set_text('Protect right player')
 
     protect_left()
 
 
 # Create frame
-frame = simplegui.create_frame('Pong', Pong.WIDTH, Pong.HEIGHT)
+FRAME = simplegui.create_frame('Pong', Pong.WIDTH, Pong.HEIGHT)
 
 # Sounds
-sound_balls_collision = simplegui.load_sound(
+SOUND_BALLS_COLLISION = simplegui.load_sound(
     'http://rpg.hamsterrepublic.com/wiki-images/7/72/Metal_Hit.ogg')
-sound_bounce_border = simplegui.load_sound(
+SOUND_BOUNCE_BORDER = simplegui.load_sound(
     'http://rpg.hamsterrepublic.com/wiki-images/2/21/Collision8-Bit.ogg')
-sound_bounce_paddle = simplegui.load_sound(
+SOUND_BOUNCE_PADDLE = simplegui.load_sound(
     'http://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg')
-sound_lost = simplegui.load_sound(
+SOUND_LOST = simplegui.load_sound(
     'http://rpg.hamsterrepublic.com/wiki-images/d/db/Crush8-Bit.ogg')
 
 # Register event handlers
-frame.add_button('Restart', restart, 200)
-frame.add_label('')
-button_pause = frame.add_button('Pause on', pause, 200)
-frame.add_label('')
-button_protect_left = frame.add_button('Protect left player',
+FRAME.add_button('Restart', restart, 200)
+FRAME.add_label('')
+BUTTON_PAUSE = FRAME.add_button('Pause on', pause, 200)
+FRAME.add_label('')
+BUTTON_PROTECT_LEFT = FRAME.add_button('Protect left player',
                                        protect_left, 200)
-button_protect_right = frame.add_button('Protect right player',
+BUTTON_PROTECT_RIGHT = FRAME.add_button('Protect right player',
                                         protect_right, 200)
-frame.add_label('')
-frame.add_button('Add ball', add_ball, 200)
-frame.add_label('')
-frame.add_button('Quit', quit_prog)
-frame.add_label('')
-frame.add_label('Left player keys: W (or Z), S')
-frame.add_label('Right player keys: Up, Down')
+FRAME.add_label('')
+FRAME.add_button('Add ball', add_ball, 200)
+FRAME.add_label('')
+FRAME.add_button('Quit', quit_prog)
+FRAME.add_label('')
+FRAME.add_label('Left player keys: W (or Z), S')
+FRAME.add_label('Right player keys: Up, Down')
 
 
-frame.set_keydown_handler(keydown)
-frame.set_keyup_handler(keyup)
+FRAME.set_keydown_handler(keydown)
+FRAME.set_keyup_handler(keyup)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
-timer = simplegui.create_timer(1000, launch_ball)
+TIMER = simplegui.create_timer(1000, launch_ball)
 
 
 # Main
 restart()
 
-timer.start()
+TIMER.start()
 
-frame.start()
+FRAME.start()

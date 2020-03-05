@@ -2,10 +2,10 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack (March 5, 2020)
+Blackjack (March 6, 2020)
 
-My solution (slightly retouched) of the mini-project #6 of the course
-https://www.coursera.org/course/interactivepython (Coursera 2013).
+My retouched solution of the mini-project #6 of the MOOC
+https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -59,20 +59,20 @@ NB_IMAGES_TO_LOAD = 2
 
 # Global variables
 ##################
-deck = None
+DECK = None
 
-hand_dealer = None
-hand_player = None
+HAND_DEALER = None
+HAND_PLAYER = None
 
-in_play = False
+IN_PLAY = False
 
-max_test_images_loaded = 20
-nb_images_loaded = 0
+MAX_TEST_IMAGES_LOADED = 20
+NB_IMAGES_LOADED = 0
 
-outcome = None
+OUTCOME = None
 
-score_dealer = 0
-score_player = 0
+SCORE_DEALER = 0
+SCORE_PLAYER = 0
 
 
 # Helper functions
@@ -92,7 +92,8 @@ def assert_pos(pos):
     assert pos[1] >= 0, pos
 
 
-def draw_rect(canvas, pos, size, line_width, line_color, fill_color=None):
+def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
+              line_width, line_color, fill_color=None):
     """
     Draw a rectangle.
 
@@ -143,9 +144,9 @@ class Card:
         :param rank: str in Deck._RANKS
         """
         assert isinstance(suit, str), type(suit)
-        assert suit in Deck._SUITS, suit
+        assert suit in Deck._SUITS, suit  # pylint: disable=protected-access
         assert isinstance(rank, str), type(rank)
-        assert rank in Deck._RANKS, rank
+        assert rank in Deck._RANKS, rank  # pylint: disable=protected-access
 
         self._suit = suit
         self._rank = rank
@@ -190,9 +191,9 @@ class Card:
                 canvas.draw_image(
                     CARDS_IMAGE,
                     ((CARD_CENTER[0] + CARD_SIZE[0] *
-                      Deck._RANKS.index(self._rank)),
+                      Deck._RANKS.index(self._rank)),  # noqa  # pylint: disable=protected-access
                      (CARD_CENTER[1] + CARD_SIZE[1] *
-                      Deck._SUITS.index(self._suit))),
+                      Deck._SUITS.index(self._suit))),  # noqa  # pylint: disable=protected-access
                     CARD_SIZE,
                     (pos[0] + CARD_CENTER[0],
                      pos[1] + CARD_CENTER[1]), CARD_SIZE)
@@ -206,7 +207,7 @@ class Card:
                 canvas.draw_text(
                     text,
                     (pos[0] + (CARD_SIZE[0] -
-                               frame.get_canvas_textwidth(text,
+                               FRAME.get_canvas_textwidth(text,
                                                           FONT_SIZE)) / 2.0,
                      pos[1] + CARD_SIZE[1] / 2.0 + FONT_SIZE / 4.0),
                     FONT_SIZE, ('Red' if self.get_suit() in ('H', 'D')
@@ -339,7 +340,7 @@ class Hand:
         for i, card in enumerate(self._cards):
             card.draw(canvas, [pos[0] + i * (CARD_SIZE[0] + CARD_SPACE),
                                pos[1]],
-                      (i == 0) and self._is_dealer and in_play)
+                      (i == 0) and self._is_dealer and IN_PLAY)
 
     def get_value(self):
         """
@@ -365,29 +366,29 @@ def deal():
     """
     Start a new round.
     """
-    global deck
-    global hand_dealer
-    global hand_player
-    global in_play
-    global outcome
-    global score_dealer
+    global DECK  # pylint: disable=global-statement
+    global HAND_DEALER  # pylint: disable=global-statement
+    global HAND_PLAYER  # pylint: disable=global-statement
+    global IN_PLAY  # pylint: disable=global-statement
+    global OUTCOME  # pylint: disable=global-statement
+    global SCORE_DEALER  # pylint: disable=global-statement
 
-    if in_play:
-        score_dealer += 1
-        outcome = 'YOU LOOSE!'
+    if IN_PLAY:
+        SCORE_DEALER += 1
+        OUTCOME = 'YOU LOOSE!'
     else:
-        in_play = True
-        outcome = None
+        IN_PLAY = True
+        OUTCOME = None
 
-    deck = Deck()
-    deck.shuffle()
+    DECK = Deck()
+    DECK.shuffle()
 
-    hand_dealer = Hand(True)
-    hand_player = Hand()
+    HAND_DEALER = Hand(True)
+    HAND_PLAYER = Hand()
 
     for _ in range(2):
-        hand_player.add_card(deck.deal_card())
-        hand_dealer.add_card(deck.deal_card())
+        HAND_PLAYER.add_card(DECK.deal_card())
+        HAND_DEALER.add_card(DECK.deal_card())
 
 
 def draw(canvas):
@@ -421,31 +422,31 @@ def draw(canvas):
                      (FRAME_WIDTH - 20, y - FONT_SIZE - 10), 3, GREEN_LIGHT)
     canvas.draw_line((20, y), (FRAME_WIDTH - 20, y), 3, GREEN_LIGHT)
 
-    text = ('HIT OR STAND?' if in_play
+    text = ('HIT OR STAND?' if IN_PLAY
             else 'NEW DEAL?')
     canvas.draw_text(text,
                      ((FRAME_WIDTH -
-                       frame.get_canvas_textwidth(text, FONT_SIZE)) / 2.0,
+                       FRAME.get_canvas_textwidth(text, FONT_SIZE)) / 2.0,
                       y - FONT_SIZE / 4.0 - 3),
                      FONT_SIZE, GREEN_LIGHT)
 
-    if outcome is not None:
+    if OUTCOME is not None:
         canvas.draw_text(
-            outcome,
+            OUTCOME,
             ((FRAME_WIDTH -
-              frame.get_canvas_textwidth(outcome, FONT_SIZE)) / 2.0,
+              FRAME.get_canvas_textwidth(OUTCOME, FONT_SIZE)) / 2.0,
              250), FONT_SIZE, 'WHITE')
 
-    if deck is not None:
-        text = 'SCORE: %d | %d' % (score_dealer, score_player)
+    if DECK is not None:
+        text = 'SCORE: %d | %d' % (SCORE_DEALER, SCORE_PLAYER)
         canvas.draw_text(text,
                          ((FRAME_WIDTH -
-                           frame.get_canvas_textwidth(text, FONT_SIZE) - 20),
+                           FRAME.get_canvas_textwidth(text, FONT_SIZE) - 20),
                           20 + FONT_SIZE * 3 / 4.0),
                          FONT_SIZE, 'Black')
 
-        hand_dealer.draw(canvas, DEALER_POS)
-        hand_player.draw(canvas, PLAYER_POS)
+        HAND_DEALER.draw(canvas, DEALER_POS)
+        HAND_PLAYER.draw(canvas, PLAYER_POS)
 
 
 def draw_wait_images(canvas):
@@ -454,7 +455,7 @@ def draw_wait_images(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    percent = nb_images_loaded * 100.0 / NB_IMAGES_TO_LOAD
+    percent = NB_IMAGES_LOADED * 100.0 / NB_IMAGES_TO_LOAD
 
     canvas.draw_line((0, 150), (FRAME_WIDTH, 150), 20, 'White')
     if percent > 0:
@@ -472,21 +473,21 @@ def hit():
     Give a new card to the player
     and deal his value.
     """
-    global in_play
-    global outcome
-    global score_dealer
+    global IN_PLAY  # pylint: disable=global-statement
+    global OUTCOME  # pylint: disable=global-statement
+    global SCORE_DEALER  # pylint: disable=global-statement
 
-    outcome = None
+    OUTCOME = None
 
-    if in_play:
-        hand_player.add_card(deck.deal_card())
+    if IN_PLAY:
+        HAND_PLAYER.add_card(DECK.deal_card())
 
-        if hand_player.get_value() > 21:
-            in_play = False
-            outcome = 'YOU HAVE BUSTED'
-            score_dealer += 1
-    elif (deck is not None) and (hand_player.get_value() > 21):
-        outcome = 'YOU HAVE BUSTED'
+        if HAND_PLAYER.get_value() > 21:
+            IN_PLAY = False
+            OUTCOME = 'YOU HAVE BUSTED'
+            SCORE_DEALER += 1
+    elif (DECK is not None) and (HAND_PLAYER.get_value() > 21):
+        OUTCOME = 'YOU HAVE BUSTED'
 
 
 def stand():
@@ -494,71 +495,71 @@ def stand():
     The player stand.
     Deal the dealer logic and test who win.
     """
-    global in_play
-    global outcome
-    global score_dealer
-    global score_player
+    global IN_PLAY  # pylint: disable=global-statement
+    global OUTCOME  # pylint: disable=global-statement
+    global SCORE_DEALER  # pylint: disable=global-statement
+    global SCORE_PLAYER  # pylint: disable=global-statement
 
-    outcome = None
+    OUTCOME = None
 
-    if in_play:
-        while hand_dealer.get_value() < 17:
-            hand_dealer.add_card(deck.deal_card())
+    if IN_PLAY:
+        while HAND_DEALER.get_value() < 17:
+            HAND_DEALER.add_card(DECK.deal_card())
 
-        in_play = False
+        IN_PLAY = False
 
-        if hand_player.get_value() <= hand_dealer.get_value() <= 21:
-            outcome = 'YOU LOOSE'
-            score_dealer += 1
+        if HAND_PLAYER.get_value() <= HAND_DEALER.get_value() <= 21:
+            OUTCOME = 'YOU LOOSE'
+            SCORE_DEALER += 1
         else:
-            outcome = 'YOU WIN'
-            score_player += 1
-    elif (deck is not None) and (hand_player.get_value() > 21):
-        outcome = 'YOU HAVE BUSTED'
+            OUTCOME = 'YOU WIN'
+            SCORE_PLAYER += 1
+    elif (DECK is not None) and (HAND_PLAYER.get_value() > 21):
+        OUTCOME = 'YOU HAVE BUSTED'
 
 
 def test_images_loaded():
     """
     Check the number of images already loaded.
 
-    Global change: nb_images_loaded
+    Global change: NB_IMAGES_LOADED
     """
-    global max_test_images_loaded
-    global nb_images_loaded
+    global MAX_TEST_IMAGES_LOADED  # pylint: disable=global-statement
+    global NB_IMAGES_LOADED  # pylint: disable=global-statement
 
-    nb_images_loaded = sum([1 for img in [CARD_BACK, CARDS_IMAGE]
+    NB_IMAGES_LOADED = sum([1 for img in [CARD_BACK, CARDS_IMAGE]
                             if img.get_width() > 0])
 
-    if ((nb_images_loaded == NB_IMAGES_TO_LOAD) or
-            (max_test_images_loaded <= 0)):
-        timer.stop()
-        frame.set_draw_handler(draw)
+    if ((NB_IMAGES_LOADED == NB_IMAGES_TO_LOAD) or
+            (MAX_TEST_IMAGES_LOADED <= 0)):
+        TIMER.stop()
+        FRAME.set_draw_handler(draw)
 
-    max_test_images_loaded -= 1
+    MAX_TEST_IMAGES_LOADED -= 1
 
 
 # Main
 ######
 if __name__ == '__main__':
     # Create frame
-    frame = simplegui.create_frame('Blackjack', FRAME_WIDTH, FRAME_HEIGHT, 100)
+    FRAME = simplegui.create_frame('Blackjack', FRAME_WIDTH, FRAME_HEIGHT, 100)
 
     # Control panel
-    frame.add_button('Deal', deal, 100)
-    frame.add_label('')
-    frame.add_button('Hit', hit, 100)
-    frame.add_label('')
-    frame.add_button('Stand', stand, 100)
-    frame.add_label('')
-    frame.add_label('')
-    frame.add_button('Quit', frame.stop)
+    FRAME.add_button('Deal', deal, 100)
+    FRAME.add_label('')
+    FRAME.add_button('Hit', hit, 100)
+    FRAME.add_label('')
+    FRAME.add_button('Stand', stand, 100)
+    FRAME.add_label('')
+    FRAME.add_label('')
+    FRAME.add_button('Quit', FRAME.stop)
 
     # Register event handlers
-    frame.set_draw_handler(draw_wait_images)
+    FRAME.set_draw_handler(draw_wait_images)
 
-    timer = simplegui.create_timer(100, test_images_loaded)
-    timer.start()
+    TIMER = simplegui.create_timer(100, test_images_loaded)
+    TIMER.start()
     test_images_loaded()
 
     deal()
-    frame.start()
+    FRAME.start()

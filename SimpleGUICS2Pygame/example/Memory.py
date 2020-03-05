@@ -2,9 +2,12 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (March 4, 2020)
+Memory (March 6, 2020)
   Game with 8 x (2 indentical cards)
          or 4 x (4 indentical cards)
+
+My retouched solution of the mini-project #5 of the MOOC
+https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -26,7 +29,7 @@ except ImportError:
     from SimpleGUICS2Pygame.codeskulptor_lib import assert_position
     from SimpleGUICS2Pygame.simplegui_lib_draw import draw_rect
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 USE_IMAGES = True  # change to False to avoid images
@@ -34,7 +37,7 @@ USE_IMAGES = True  # change to False to avoid images
 
 # Globals variables
 if USE_IMAGES:
-    card_images = [
+    CARD_IMAGES = [
         simplegui.load_image(
             'http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/' +
             filename)
@@ -48,16 +51,17 @@ if USE_IMAGES:
                          'OPi.jpg',
                          'Memory.jpg')]
 else:
-    card_images = [simplegui.load_image('')] * 9  # 9 (same) failed images
+    CARD_IMAGES = [simplegui.load_image('')] * 9  # 9 (same) failed images
 
-memory = None  # the principal variable, instance of Memory
+MEMORY = None  # the principal variable, instance of Memory
 
-nb_images_loaded = 0
-nb_test_images_loaded = 20
+NB_IMAGES_LOADED = 0
+NB_TEST_IMAGES_LOADED = 20
 
 
 # Helper function
-def draw_border(canvas, pos, size, line_width, color, shift=4):
+def draw_border(canvas, pos, size,  # pylint: disable=too-many-arguments
+                line_width, color, shift=4):
     """
     Draw a rounded rectangle.
 
@@ -133,7 +137,7 @@ class Card:
     def draw_recto(self, canvas):
         """
         Draw recto of the card
-        (card_images[self.num] images if loaded).
+        (CARD_IMAGES[self.num] images if loaded).
 
         :param canvas: simplegui.canvas
         """
@@ -150,7 +154,7 @@ class Card:
         else:                           # draw text number
             size = 50
             text = str(self.num)
-            width = frame.get_canvas_textwidth(text, 50)
+            width = FRAME.get_canvas_textwidth(text, 50)
             canvas.draw_text(text,
                              (self.pos_x + (Card.WIDTH - width) // 2,
                               (self.pos_y + (Card.HEIGHT - size) / 2.0 +
@@ -166,11 +170,11 @@ class Card:
     def draw_verso(self, canvas):
         """
         Draw verso of the card
-        (card_images[-1] images if loaded).
+        (CARD_IMAGES[-1] images if loaded).
 
         :param canvas: simplegui.canvas
         """
-        img = card_images[-1]
+        img = CARD_IMAGES[-1]
 
         if img.get_width() > 0:  # draw image
             canvas.draw_image(img,
@@ -215,14 +219,14 @@ class Memory:
         """
         Initialize the game.
 
-        :param nb_different_cards: 0 < int <= len(card_images) - 2
+        :param nb_different_cards: 0 < int <= len(CARD_IMAGES) - 2
         :param nb_repeat_cards: int > 0
         """
         assert isinstance(nb_different_cards, int), type(nb_different_cards)
         assert nb_different_cards > 0, nb_different_cards
 
         assert isinstance(nb_repeat_cards, int), type(nb_repeat_cards)
-        assert 0 < nb_repeat_cards <= len(card_images) - 2, nb_repeat_cards
+        assert 0 < nb_repeat_cards <= len(CARD_IMAGES) - 2, nb_repeat_cards
 
         assert nb_different_cards * nb_repeat_cards == 16, \
             (nb_different_cards, nb_repeat_cards)
@@ -235,7 +239,7 @@ class Memory:
         self.new_founded = False
 
         self.deck = [Card(i % nb_different_cards,
-                          card_images[i % nb_different_cards])
+                          CARD_IMAGES[i % nb_different_cards])
                      for i in range(nb_different_cards * nb_repeat_cards)]
         random.shuffle(self.deck)
 
@@ -249,7 +253,7 @@ class Memory:
 
         self.selected_cards = []
 
-        label_moves.set_text('Nb moves: 0')
+        LABEL_MOVES.set_text('Nb moves: 0')
 
     def draw(self, canvas):
         """
@@ -270,13 +274,13 @@ class Memory:
         """
         assert_position(pos)
 
-        for card in self.deck:
+        for card in self.deck:  # pylint: disable=too-many-nested-blocks
             if card.in_pos(pos):  # this is the pointed card
                 if not card.exposed:
                     if len(self.selected_cards) == self.nb_repeat_cards:
                         # Good number of exposed cards
                         # Reinit exposed cards
-                        for c in self.selected_cards:
+                        for c in self.selected_cards:  # noqa  # pylint: disable=invalid-name
                             c.selected = False
                             if not self.new_founded:  # but not good cards
                                 c.exposed = False
@@ -292,7 +296,7 @@ class Memory:
                         # Good number of exposed cards
                         # Update the moves counter
                         self.nb_moves += 1
-                        label_moves.set_text('Nb moves: ' + str(self.nb_moves))
+                        LABEL_MOVES.set_text('Nb moves: ' + str(self.nb_moves))
 
                         # If all exposed cards and pointed card are the same
                         self.new_founded = all(
@@ -302,7 +306,7 @@ class Memory:
                             self.nb_founded += 1
                             if self.nb_founded == self.nb_different_cards:
                                 # Completed game
-                                for c in self.selected_cards:
+                                for c in self.selected_cards:  # noqa  # pylint: disable=invalid-name
                                     c.selected = False
 
                 break
@@ -315,7 +319,7 @@ def draw(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    memory.draw(canvas)
+    MEMORY.draw(canvas)
 
 
 def draw_wait_images(canvas):
@@ -324,7 +328,7 @@ def draw_wait_images(canvas):
 
     :param canvas: simplegui.Canvas
     """
-    percent = nb_images_loaded * 100.0 / len(card_images)
+    percent = NB_IMAGES_LOADED * 100.0 / len(CARD_IMAGES)
 
     canvas.draw_line((0, 150), (490, 150), 20, 'white')
     canvas.draw_line((0, 150), (490 * percent / 100.0, 150), 20, 'green')
@@ -341,31 +345,31 @@ def mouseclick(pos):
 
     :param pos: (int >= 0, int >= 0)
     """
-    memory.expose(pos)
+    MEMORY.expose(pos)
 
 
 def restart_4x4():
     """
     Event handler to deal click on restart 4x4 button.
 
-    Global change: memory
+    Global change: MEMORY
     """
-    global memory
+    global MEMORY  # pylint: disable=global-statement
 
-    label_game.set_text('4 x (4 indentical cards)')
-    memory = Memory(4, 4)
+    LABEL_GAME.set_text('4 x (4 indentical cards)')
+    MEMORY = Memory(4, 4)
 
 
 def restart_8x2():
     """
     Event handler to deal click on restart 8x2 button.
 
-    Global change: memory
+    Global change: MEMORY
     """
-    global memory
+    global MEMORY  # pylint: disable=global-statement
 
-    label_game.set_text('8 x (2 indentical cards)')
-    memory = Memory(8, 2)
+    LABEL_GAME.set_text('8 x (2 indentical cards)')
+    MEMORY = Memory(8, 2)
 
 
 def start():
@@ -374,49 +378,49 @@ def start():
     """
     restart_8x2()
 
-    frame.set_mouseclick_handler(mouseclick)
-    frame.set_draw_handler(draw)
+    FRAME.set_mouseclick_handler(mouseclick)
+    FRAME.set_draw_handler(draw)
 
 
 def test_images_loaded():
     """
     Check the number of images already loaded.
 
-    Global change: nb_images_loaded
-                   nb_test_images_loaded
+    Global change: NB_IMAGES_LOADED
+                   NB_TEST_IMAGES_LOADED
     """
-    global nb_images_loaded
-    global nb_test_images_loaded
+    global NB_IMAGES_LOADED  # pylint: disable=global-statement
+    global NB_TEST_IMAGES_LOADED  # pylint: disable=global-statement
 
-    nb_images_loaded = sum([1 for img in card_images if img.get_width() > 0])
+    NB_IMAGES_LOADED = sum([1 for img in CARD_IMAGES if img.get_width() > 0])
 
-    if (nb_test_images_loaded <= 0) or (nb_images_loaded == len(card_images)):
-        timer.stop()
+    if (NB_TEST_IMAGES_LOADED <= 0) or (NB_IMAGES_LOADED == len(CARD_IMAGES)):
+        TIMER.stop()
         start()
 
-    nb_test_images_loaded -= 1
+    NB_TEST_IMAGES_LOADED -= 1
 
 
 # Create frame
-frame = simplegui.create_frame('Memory', 490, 230, 160)
+FRAME = simplegui.create_frame('Memory', 490, 230, 160)
 
 # Control panel
-label_game = frame.add_label('8x2 game')
-label_moves = frame.add_label('Nb moves: 0')
-frame.add_label('')
-frame.add_button('Restart 8x2', restart_8x2)
-frame.add_button('Restart 4x4', restart_4x4)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+LABEL_GAME = FRAME.add_label('8x2 game')
+LABEL_MOVES = FRAME.add_label('Nb moves: 0')
+FRAME.add_label('')
+FRAME.add_button('Restart 8x2', restart_8x2)
+FRAME.add_button('Restart 4x4', restart_4x4)
+FRAME.add_label('')
+FRAME.add_button('Quit', FRAME.stop)
 
 # Register event handlers
-frame.set_draw_handler(draw_wait_images)
+FRAME.set_draw_handler(draw_wait_images)
 
-timer = simplegui.create_timer(100, test_images_loaded)
-timer.start()
+TIMER = simplegui.create_timer(100, test_images_loaded)
+TIMER.start()
 
 test_images_loaded()
 
 
 # Main
-frame.start()
+FRAME.start()

@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: latin-1 -*-
-# pylint: disable=invalid-name
+# pylint: disable=invalid-name,too-many-lines
 
 """
-RiceRocks (Asteroids) (March 5, 2020)
+RiceRocks (Asteroids) (March 6, 2020)
 
-My retouched solution of the mini-project #8 of the course
-https://www.coursera.org/course/interactivepython (Coursera 2013).
+My retouched solution of the mini-project #8 of the MOOC
+https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
 
 Run on (maybe very slow on some browsers):
-  - Chrome 31
-  - Firefox 26
-  - Safari 5.1.7 (without sounds)
-  - Python 2 and 3 with SimpleGUICS2Pygame.
-
-Fix me:
-  - Collision problem when divide a big asteroid in two little asteroids.
+  - Python 2 and 3 with SimpleGUICS2Pygame: best environment
+  - Chrome 31 on CodeSkulptor
+  - Chromium 73.0 on CodeSkulptor and CodeSkulptor3: no OGG sounds
+  - Firefox 26 on CodeSkulptor: probably slow
+  - Firefox 68.5 on CodeSkulptor and CodeSkulptor3: probably slow
+  - Opera 67.0 on CodeSkulptor and CodeSkulptor3: maybe slow
+  - Safari 5.1.7 on CodeSkulptor: no OGG sounds
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -42,8 +42,8 @@ except ImportError:
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
     SIMPLEGUICS2PYGAME = True
 
@@ -58,9 +58,9 @@ SCREEN_HEIGHT = 600
 #
 # Global variables
 ###################
-frame = None
+FRAME = None
 
-ricerocks = None
+RICEROCKS = None
 
 
 #
@@ -96,7 +96,7 @@ def vector_to_angle(vector):
 #
 # Classes
 ##########
-class RiceRocks:
+class RiceRocks:  # pylint: disable=too-many-instance-attributes
     """
     General class dealing the game.
     """
@@ -144,7 +144,7 @@ class RiceRocks:
                                               'asteroid_explosion'))
             self.rocks = []
 
-    def draw_and_update(self, canvas):
+    def draw_and_update(self, canvas):  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
         """
         Draw and update all stuffs in each FPS cycle.
 
@@ -163,19 +163,19 @@ class RiceRocks:
         # Draw animated background
         if self.animate_background_active:
             center = self.img_infos['debris'].get_center()
-            size = self.img_infos['debris'].get_size()
+            size_xy = self.img_infos['debris'].get_size()
 
             wtime = (self.time / 4.0) % SCREEN_WIDTH
 
             canvas.draw_image(self.medias.get_image('debris'),
                               center,
-                              size,
+                              size_xy,
                               (wtime - SCREEN_WIDTH / 2.0,
                                SCREEN_HEIGHT / 2.0),
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
             canvas.draw_image(self.medias.get_image('debris'),
                               center,
-                              size,
+                              size_xy,
                               (wtime + SCREEN_WIDTH / 2.0,
                                SCREEN_HEIGHT / 2.0),
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -202,7 +202,7 @@ class RiceRocks:
         self.my_ship.update()
 
         # Update missiles
-        for i in range(len(self.missiles) - 1, -1, -1):
+        for i in range(len(self.missiles) - 1, -1, -1):  # noqa  # pylint: disable=too-many-nested-blocks
             missile = self.missiles[i]
 
             missile.update()
@@ -372,9 +372,9 @@ class RiceRocks:
         font = 'sans-serif'
 
         text1 = 'Score'
-        width1 = frame.get_canvas_textwidth(text1, size, font)
+        width1 = FRAME.get_canvas_textwidth(text1, size, font)
         text2 = str(self.score)
-        width2 = frame.get_canvas_textwidth(text2, size, font)
+        width2 = FRAME.get_canvas_textwidth(text2, size, font)
 
         canvas.draw_text(text1, (SCREEN_WIDTH - 22 - width1,
                                  22 + size * 3.0 / 4),
@@ -398,7 +398,7 @@ class RiceRocks:
                               (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0), size)
 
         # Update and draw FPS (if started)
-        fps.draw_fct(canvas)
+        FPS_Drawer.draw_fct(canvas)
 
     def load_medias(self):
         """
@@ -439,18 +439,15 @@ class RiceRocks:
             Init the game after medias loaded.
             """
             if SIMPLEGUICS2PYGAME:
-                frame._set_canvas_background_image(
+                FRAME._set_canvas_background_image(  # noqa  # pylint: disable=protected-access
                     self.medias.get_image('nebula'))
 
-            self.medias._images['live_explosion'] = \
-                self.medias._images['ship_explosion']
+            self.medias._images['live_explosion'] = self.medias._images['ship_explosion']  # noqa  # pylint: disable=protected-access
 
             for i in range(1, 4):
-                self.medias._images['little-asteroid-' + str(i)] = \
-                    self.medias._images['asteroid-' + str(i)]
+                self.medias._images['little-asteroid-' + str(i)] = self.medias._images['asteroid-' + str(i)]  # noqa  # pylint: disable=protected-access
 
-            self.medias._sounds['asteroid_collide_explosion'] = \
-                self.medias._sounds['asteroid_explosion']
+            self.medias._sounds['asteroid_collide_explosion'] = self.medias._sounds['asteroid_explosion']  # noqa  # pylint: disable=protected-access
 
             self.medias.get_sound('missile').set_volume(.5)
 
@@ -458,19 +455,19 @@ class RiceRocks:
                                 (0, 0),
                                 -math.pi / 2, 'ship')
 
-            frame.set_draw_handler(self.draw_and_update)
+            FRAME.set_draw_handler(self.draw_and_update)
 
-            frame.set_keydown_handler(keydown)
-            frame.set_keyup_handler(keyup)
+            FRAME.set_keydown_handler(keydown)
+            FRAME.set_keyup_handler(keyup)
 
-            frame.set_mouseclick_handler(click)
+            FRAME.set_mouseclick_handler(click)
 
             if self.music_active:
                 self.medias.get_sound('intro').play()
 
             self.loaded = True
 
-        self.medias = Loader(frame, SCREEN_WIDTH, init)
+        self.medias = Loader(FRAME, SCREEN_WIDTH, init)
 
         # Images by Kim Lathrop
         self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',  # noqa
@@ -616,7 +613,7 @@ class ImageInfo:
     """
     Informations to use with Sprite.
     """
-    def __init__(self, center, size,
+    def __init__(self, center, size,  # pylint: disable=too-many-arguments
                  radius=None, lifespan=None, animated=False,
                  draw_size=None):
         """
@@ -717,13 +714,12 @@ class ImageInfo:
         return list(self._size)
 
 
-class Sprite:
+class Sprite:  # pylint: disable=too-many-instance-attributes
     """
     Sprite class
     """
-    def __init__(self, position, velocity,
-                 angle, angle_velocity,
-                 media_name):
+    def __init__(self, position,  # pylint: disable=too-many-arguments
+                 velocity, angle, angle_velocity, media_name):
         """
         Set sprite.
 
@@ -742,9 +738,9 @@ class Sprite:
                 isinstance(angle_velocity, float)), type(angle_velocity)
         assert isinstance(media_name, str), type(media_name)
 
-        if (ricerocks.sounds_active and
-                (media_name in ricerocks.medias._sounds)):
-            sound = ricerocks.medias.get_sound(media_name)
+        if (RICEROCKS.sounds_active and
+                (media_name in RICEROCKS.medias._sounds)):  # noqa  # pylint: disable=protected-access
+            sound = RICEROCKS.medias.get_sound(media_name)
             sound.rewind()
             sound.play()
 
@@ -752,9 +748,9 @@ class Sprite:
         self.velocity = list(velocity)
         self.angle = angle
         self.angle_velocity = angle_velocity
-        self.image = ricerocks.medias.get_image(media_name)
+        self.image = RICEROCKS.medias.get_image(media_name)
 
-        img_info = ricerocks.img_infos[media_name]
+        img_info = RICEROCKS.img_infos[media_name]
         self.animated = img_info.get_animated()
         self.image_center = img_info.get_center()
         self.image_draw_size = img_info.get_draw_size()
@@ -832,9 +828,8 @@ class Asteroid(Sprite):
     """
     Asteroid class
     """
-    def __init__(self, position, velocity,
-                 angle_velocity,
-                 num, little=False):
+    def __init__(self, position,  # pylint: disable=too-many-arguments
+                 velocity, angle_velocity, num, little=False):
         """
         Set an asteroid sprite.
 
@@ -902,7 +897,7 @@ class Ship(Sprite):
         """
         vector = angle_to_vector(self.angle)
 
-        ricerocks.missiles.append(
+        RICEROCKS.missiles.append(
             Sprite((self.position[0] + self.radius * vector[0],
                     self.position[1] + self.radius * vector[1]),
                    (self.velocity[0] + vector[0] * 6,
@@ -925,13 +920,13 @@ class Ship(Sprite):
         self.thrust = not self.thrust
 
         if self.thrust:
-            if ricerocks.sounds_active:
-                ricerocks.medias.get_sound('ship_thrust').play()
+            if RICEROCKS.sounds_active:
+                RICEROCKS.medias.get_sound('ship_thrust').play()
             # Sprite image with actif thrust
             self.image_center[0] += self.image_size[0]
         else:
-            if ricerocks.sounds_active:
-                ricerocks.medias.get_sound('ship_thrust').rewind()
+            if RICEROCKS.sounds_active:
+                RICEROCKS.medias.get_sound('ship_thrust').rewind()
             # Sprite image with inactif thrust
             self.image_center[0] -= self.image_size[0]
 
@@ -986,26 +981,26 @@ def click(pos):
     :param pos: (int >= 0, int >= 0)
     """
     center = (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0)
-    size = ricerocks.img_infos['splash'].get_size()
+    size = RICEROCKS.img_infos['splash'].get_size()
 
-    if ((not ricerocks.started) and
+    if ((not RICEROCKS.started) and
             ((center[0] - size[0] / 2.0) < pos[0] <
              (center[0] + size[0] / 2.0)) and
             ((center[1] - size[1] / 2.0) < pos[1] <
              (center[1] + size[1] / 2.0))):
-        ricerocks.start()
+        RICEROCKS.start()
 
 
 def fps_on_off():
     """
     Active or inactive the calculation and drawing of FPS.
     """
-    if fps.is_started():
-        fps.stop()
-        button_fps.set_text('FPS on')
+    if FPS_Drawer.is_started():
+        FPS_Drawer.stop()
+        BUTTON_FPS.set_text('FPS on')
     else:
-        fps.start()
-        button_fps.set_text('FPS off')
+        FPS_Drawer.start()
+        BUTTON_FPS.set_text('FPS off')
 
 
 def keydown(key):
@@ -1014,21 +1009,21 @@ def keydown(key):
 
     :param key: int >= 0
     """
-    if ricerocks.started:
+    if RICEROCKS.started:
         if key == simplegui.KEY_MAP['left']:
-            ricerocks.keydown_left = True
-            ricerocks.my_ship.turn(False)
+            RICEROCKS.keydown_left = True
+            RICEROCKS.my_ship.turn(False)
         elif key == simplegui.KEY_MAP['right']:
-            ricerocks.keydown_right = True
-            ricerocks.my_ship.turn(True)
+            RICEROCKS.keydown_right = True
+            RICEROCKS.my_ship.turn(True)
         elif key == simplegui.KEY_MAP['up']:
-            ricerocks.my_ship.thrust_on_off()
+            RICEROCKS.my_ship.thrust_on_off()
         elif key == simplegui.KEY_MAP['down']:
-            ricerocks.my_ship.flip()
+            RICEROCKS.my_ship.flip()
         elif key == simplegui.KEY_MAP['space']:
-            ricerocks.my_ship.shot()
+            RICEROCKS.my_ship.shot()
         elif key == simplegui.KEY_MAP['B']:
-            ricerocks.bomb_explode()
+            RICEROCKS.bomb_explode()
 
 
 def keyup(key):
@@ -1037,17 +1032,17 @@ def keyup(key):
 
     :param key: int >= 0
     """
-    if ricerocks.started:
+    if RICEROCKS.started:
         if key == simplegui.KEY_MAP['left']:
-            ricerocks.keydown_left = False
-            ricerocks.my_ship.turn(True if ricerocks.keydown_right
+            RICEROCKS.keydown_left = False
+            RICEROCKS.my_ship.turn(True if RICEROCKS.keydown_right
                                    else None)
         elif key == simplegui.KEY_MAP['right']:
-            ricerocks.keydown_right = False
-            ricerocks.my_ship.turn(False if ricerocks.keydown_left
+            RICEROCKS.keydown_right = False
+            RICEROCKS.my_ship.turn(False if RICEROCKS.keydown_left
                                    else None)
         elif key == simplegui.KEY_MAP['up']:
-            ricerocks.my_ship.thrust_on_off()
+            RICEROCKS.my_ship.thrust_on_off()
         elif key == 27:  # Escape
             quit_prog()
 
@@ -1056,30 +1051,30 @@ def quit_prog():
     """
     Stop timer and sounds, and quit.
     """
-    if ricerocks.loaded:
-        ricerocks.stop()
-        ricerocks.medias.pause_sounds()
-        frame.stop()
-        if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
-            ricerocks.medias.print_stats_cache()
+    if RICEROCKS.loaded:
+        RICEROCKS.stop()
+        RICEROCKS.medias.pause_sounds()
+        FRAME.stop()
+        if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access
+            RICEROCKS.medias.print_stats_cache()
 
 
 def stop():
     """
     Stop the game.
     """
-    if ricerocks.loaded:
-        ricerocks.stop()
+    if RICEROCKS.loaded:
+        RICEROCKS.stop()
 
 
 def switch_animate_background():
     """
     Switch animate background on/off.
     """
-    ricerocks.animate_background_active = (not
-                                           ricerocks.animate_background_active)
-    button_animate_background.set_text('Static background'
-                                       if ricerocks.animate_background_active
+    RICEROCKS.animate_background_active = (not
+                                           RICEROCKS.animate_background_active)
+    BUTTON_ANIMATE_BACKGROUND.set_text('Static background'
+                                       if RICEROCKS.animate_background_active
                                        else 'Animate background')
 
 
@@ -1087,26 +1082,26 @@ def switch_music():
     """
     Switch music on/off.
     """
-    ricerocks.music_active = not ricerocks.music_active
+    RICEROCKS.music_active = not RICEROCKS.music_active
 
-    if ricerocks.music_active:
-        button_music.set_text('Music off')
-        if ricerocks.started:
-            ricerocks.medias.get_sound('soundtrack').play()
+    if RICEROCKS.music_active:
+        BUTTON_MUSIC.set_text('Music off')
+        if RICEROCKS.started:
+            RICEROCKS.medias.get_sound('soundtrack').play()
         else:
-            ricerocks.medias.get_sound('intro').play()
+            RICEROCKS.medias.get_sound('intro').play()
     else:
-        button_music.set_text('Music on')
-        ricerocks.medias.get_sound('intro').rewind()
-        ricerocks.medias.get_sound('soundtrack').rewind()
+        BUTTON_MUSIC.set_text('Music on')
+        RICEROCKS.medias.get_sound('intro').rewind()
+        RICEROCKS.medias.get_sound('soundtrack').rewind()
 
 
 def switch_sounds():
     """
     Switch sounds on/off.
     """
-    ricerocks.sounds_active = not ricerocks.sounds_active
-    button_sounds.set_text('Sounds off' if ricerocks.sounds_active
+    RICEROCKS.sounds_active = not RICEROCKS.sounds_active
+    BUTTON_SOUNDS.set_text('Sounds off' if RICEROCKS.sounds_active
                            else 'Sounds on')
 
 
@@ -1114,40 +1109,40 @@ def switch_sounds():
 # Main
 #######
 if __name__ == '__main__':
-    frame = simplegui.create_frame('RiceRocks (Asteroids)',
+    FRAME = simplegui.create_frame('RiceRocks (Asteroids)',
                                    SCREEN_WIDTH, SCREEN_HEIGHT, 200)
 
-    fps = FPS(x=0, y=0, font_size=32)
+    FPS_Drawer = FPS(x=0, y=0, font_size=32)
 
-    ricerocks = RiceRocks()
-    ricerocks.load_medias()
+    RICEROCKS = RiceRocks()
+    RICEROCKS.load_medias()
 
-    frame.add_button('Stop this game', stop)
-    frame.add_label('')
-    button_music = frame.add_button('Music off', switch_music)
-    button_sounds = frame.add_button('Sounds off', switch_sounds)
-    frame.add_label('')
-    button_animate_background = frame.add_button('Static background',
+    FRAME.add_button('Stop this game', stop)
+    FRAME.add_label('')
+    BUTTON_MUSIC = FRAME.add_button('Music off', switch_music)
+    BUTTON_SOUNDS = FRAME.add_button('Sounds off', switch_sounds)
+    FRAME.add_label('')
+    BUTTON_ANIMATE_BACKGROUND = FRAME.add_button('Static background',
                                                  switch_animate_background)
-    frame.add_label('')
-    frame.add_button('Quit', quit_prog)
-    frame.add_label('')
-    frame.add_label('Turn: Left and Right')
-    frame.add_label('Accelerate: Up')
-    frame.add_label('Flip: Down')
-    frame.add_label('Fire: Space')
-    frame.add_label('Bomb: B')
-    frame.add_label('Esc: Quit')
+    FRAME.add_label('')
+    FRAME.add_button('Quit', quit_prog)
+    FRAME.add_label('')
+    FRAME.add_label('Turn: Left and Right')
+    FRAME.add_label('Accelerate: Up')
+    FRAME.add_label('Flip: Down')
+    FRAME.add_label('Fire: Space')
+    FRAME.add_label('Bomb: B')
+    FRAME.add_label('Esc: Quit')
 
-    frame.add_label('')
-    frame.add_label('One bomb for every 10')
-    frame.add_label('asteroids destroyed.')
-    frame.add_label('')
-    frame.add_label('One live for every 50')
-    frame.add_label('asteroids destroyed.')
+    FRAME.add_label('')
+    FRAME.add_label('One bomb for every 10')
+    FRAME.add_label('asteroids destroyed.')
+    FRAME.add_label('')
+    FRAME.add_label('One live for every 50')
+    FRAME.add_label('asteroids destroyed.')
 
-    frame.add_label('')
-    frame.add_label('Useful to test:')
-    button_fps = frame.add_button('FPS on', fps_on_off)
+    FRAME.add_label('')
+    FRAME.add_label('Useful to test:')
+    BUTTON_FPS = FRAME.add_button('FPS on', fps_on_off)
 
-    frame.start()
+    FRAME.start()
