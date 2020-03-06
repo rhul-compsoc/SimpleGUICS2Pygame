@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (March 4, 2020)
+simpleguics2pygame/sound (March 6, 2020)
 
 Class Sound.
 
@@ -112,7 +112,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(url, str), type(url)
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_media
+        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_media  # noqa  # pylint: disable=no-name-in-module
 
         self._pygame_channel = None
         self._pygame_sound = (None if Sound._load_disabled or (url == '')
@@ -201,7 +201,7 @@ class _LocalSound(Sound):
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
 
-    def __init__(self, filename):
+    def __init__(self, filename):  # pylint: disable=super-init-not-called
         """
         Set a sound (if not Sound._load_disabled).
 
@@ -214,8 +214,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(filename, str), type(filename)
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._media \
-            import _load_local_media
+        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media  # noqa  # pylint: disable=no-name-in-module
 
         self._pygame_channel = None
         self._pygame_sound = (None if Sound._load_disabled or (filename == '')

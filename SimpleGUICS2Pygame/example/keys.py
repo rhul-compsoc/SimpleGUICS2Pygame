@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_keys.Keys use. (March 4, 2020)
+Example of simplegui_lib_keys.Keys use. (March 6, 2020)
 
 Documentation:
 https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_keys.html
@@ -33,22 +33,22 @@ def draw(canvas):
     for i, key_str in enumerate(('space', 'left', 'up', 'right', 'down')):
         canvas.draw_text(key_str,
                          (5 + 120 * i, 30),
-                         30, ('White' if keys.is_pressed_key_map(key_str)
+                         30, ('White' if KEYS.is_pressed_key_map(key_str)
                               else 'Gray'))
     for i in range(10):  # 0..9
         key_str = chr(48 + i)
         canvas.draw_text(key_str,
                          (5 + 25 * i, 60),
-                         30, ('White' if keys.is_pressed_key_map(key_str)
+                         30, ('White' if KEYS.is_pressed_key_map(key_str)
                               else 'Gray'))
     for i in range(26):  # a..z
         key_str = chr(97 + i)
         canvas.draw_text(key_str,
                          (5 + 25 * i, 90),
-                         30, ('White' if keys.is_pressed_key_map(key_str)
+                         30, ('White' if KEYS.is_pressed_key_map(key_str)
                               else 'Gray'))
 
-    pressed_keys = keys.pressed_keys()
+    pressed_keys = KEYS.pressed_keys()
     if pressed_keys:
         pressed_keys.sort()
         canvas.draw_text('Pressed keys code: ' +
@@ -87,24 +87,24 @@ def deal_up_y(key_code):
     print('deal_up_y() function: %i' % key_code)
 
 
-frame = simplegui.create_frame('keys', 650, 160, 150)
+FRAME = simplegui.create_frame('keys', 650, 160, 150)
 
-frame.add_button('Quit', frame.stop)
+FRAME.add_button('Quit', FRAME.stop)
 
 # Init an empty keys handler
-keys = Keys(frame)
+KEYS = Keys(FRAME)
 
 # Associate funtions to key down event of specified keys
-keys.set_keydown_fct(simplegui.KEY_MAP['x'], deal_down_x)
-keys.set_keydown_fct_key_map('space', deal_down_space)
+KEYS.set_keydown_fct(simplegui.KEY_MAP['x'], deal_down_x)
+KEYS.set_keydown_fct_key_map('space', deal_down_space)
 
 # Associate functions to key up event of specified keys
-keys.set_keyup_fct(simplegui.KEY_MAP['y'], deal_up_y)
-keys.set_keyup_fct_key_map('space', deal_up_space)
+KEYS.set_keyup_fct(simplegui.KEY_MAP['y'], deal_up_y)
+KEYS.set_keyup_fct_key_map('space', deal_up_space)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
 # Active key down and key up handlers
-keys.active_handlers()
+KEYS.active_handlers()
 
-frame.start()
+FRAME.start()

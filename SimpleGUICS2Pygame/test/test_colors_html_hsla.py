@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test colors HTML in hsla() format. (March 4, 2020)
+Test colors HTML in hsla() format. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -27,13 +27,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -49,7 +49,7 @@ TEST = 'test colors HTML hsla()'
 WIDTH = 362
 HEIGHT = 310
 
-state_transparency = True
+STATE_TRANSPARENCY = True
 
 
 def draw(canvas):
@@ -60,24 +60,24 @@ def draw(canvas):
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
     for i in range(180):  # Format hsla(hue, lightness, saturation, alpha)
-        p = int(round(i * 100.0 / 180))
+        p = int(round(i * 100.0 / 180))  # pylint: disable=invalid-name
 
         for a in range(10):
             canvas.draw_line((i * 2, 10 + a * 10),
                              ((i + 1) * 2, 10 + a * 10), 10,
-                             hsla(i, p, p, (a / 10.0 if state_transparency
+                             hsla(i, p, p, (a / 10.0 if STATE_TRANSPARENCY
                                             else 1)))
 
         for a in range(10):
             canvas.draw_line((i * 2, 110 + a * 10),
                              ((i + 1) * 2, 110 + a * 10), 10,
-                             hsla(i, 50, 50, (a / 10.0 if state_transparency
+                             hsla(i, 50, 50, (a / 10.0 if STATE_TRANSPARENCY
                                               else 1)))
 
         for a in range(10):
             canvas.draw_line((i * 2, 210 + a * 10),
                              ((i + 1) * 2, 210 + a * 10), 10,
-                             hsla(0, p, 50, (a / 10.0 if state_transparency
+                             hsla(0, p, 50, (a / 10.0 if STATE_TRANSPARENCY
                                              else 1)))
 
 
@@ -85,31 +85,37 @@ def switch_transparency():
     """
     Switch between transparency mode and opaque mode.
     """
-    global state_transparency
+    global STATE_TRANSPARENCY  # pylint: disable=global-statement
 
-    state_transparency = not state_transparency
+    STATE_TRANSPARENCY = not STATE_TRANSPARENCY
 
 
+#
 # Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+######
+def main():
+    """Create and start frame."""
+    frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Switch transparency', switch_transparency)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Switch transparency', switch_transparency)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
 
-frame.set_draw_handler(draw)
+    frame.set_draw_handler(draw)
 
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
 
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
+    frame.start()
 
-frame.start()
+if __name__ == '__main__':
+    main()

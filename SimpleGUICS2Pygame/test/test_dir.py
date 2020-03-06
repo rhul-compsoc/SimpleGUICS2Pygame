@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test dir() content. (March 5, 2020)
+Test dir() content. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -111,7 +111,7 @@ Results of dir() in this environment
 assert set(CODESKULPTOR_DIRS.keys()) == set(DIRS.keys())
 
 
-different = False
+DIFFERENT = False
 """
 `True` if founded a difference,
 else `False`.
@@ -128,14 +128,14 @@ def print_cmp_seq(a, title_a,
     :param b: list or tuple
     :param title_b: str
     """
-    global different
+    global DIFFERENT  # pylint: disable=global-statement
 
     assert isinstance(a, list) or isinstance(a, tuple), type(a)
     assert isinstance(title_a, str), title_a
     assert isinstance(b, list) or isinstance(b, tuple), type(b)
     assert isinstance(title_b, str), title_b
 
-    ab = list(set(a).union(b))
+    ab = list(set(a).union(b))  # pylint: disable=invalid-name
     ab.sort()
 
     a_b = set(a).difference(b)
@@ -151,7 +151,7 @@ def print_cmp_seq(a, title_a,
                 print(head)
                 head = None
             print(name)
-            different = True
+            DIFFERENT = True
         elif name in b_a:
             if ((name != '__init__') and
                     (name[:2] == '__') and (name[-2:] == '__')):
@@ -169,7 +169,7 @@ def print_cmp_seq(a, title_a,
                 print(head)
                 head = None
             print(' ' * indent + '\t   ' + name)
-            different = True
+            DIFFERENT = True
 
     if not head:
         print('')
@@ -178,9 +178,9 @@ def print_cmp_seq(a, title_a,
 # Main
 print('List dir() differences between CodeSkulptor (January 2015) and this "Python":\n')  # noqa
 
-for k in sorted(CODESKULPTOR_DIRS.keys()):
+for k in sorted(CODESKULPTOR_DIRS):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,
                   DIRS[k], PYTHON_VERSION + ' ' + k)
 
-if not different:
+if not DIFFERENT:
     print('No difference.')

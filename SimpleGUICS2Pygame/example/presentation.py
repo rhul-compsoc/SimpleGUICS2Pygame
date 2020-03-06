@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (March 5, 2020)
+presentation (March 6, 2020)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -21,7 +21,7 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
     SIMPLEGUICS2PYGAME = True
 
@@ -45,11 +45,11 @@ def main():
             """
             print(url)
 
-        _VERSION = ''
-        _WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'
+        _VERSION = ''  # pylint: disable=invalid-name
+        _WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
 
-    WIDTH = 560
-    HEIGHT = 400
+    width = 560
+    height = 400
 
     def draw_about_handler(canvas):
         """
@@ -59,16 +59,16 @@ def main():
         """
         size = 40
         canvas.draw_line((0, size / 2),
-                         (WIDTH - 1, size / 2),
+                         (width - 1, size / 2),
                          size * 1.75, '#f2f2f2')
         canvas.draw_text('SimpleGUICS2Pygame ' + _VERSION,
                          (10, size), size, 'Black')
         canvas.draw_image(logo_opi, (20.5, 17), (41, 34),
-                          (30.5, HEIGHT - 27), (41, 34))
+                          (30.5, height - 27), (41, 34))
         canvas.draw_image(logo_gpl, (44, 15.5), (88, 31),
-                          (WIDTH / 2, HEIGHT - 25.5), (88, 31))
+                          (width / 2, height - 25.5), (88, 31))
         canvas.draw_image(logo, (32, 32), (64, 64),
-                          (WIDTH - 42, HEIGHT - 42), (64, 64))
+                          (width - 42, height - 42), (64, 64))
 
         size = 20
 
@@ -94,12 +94,12 @@ def main():
         from os.path import dirname, join
         from sys import argv
 
-        logo = simplegui._load_local_image(
+        logo = simplegui._load_local_image(  # noqa  # pylint: disable=protected-access,no-member
             join(dirname(argv[0]),
                  '../_img/SimpleGUICS2Pygame_64x64_t.png'))
-        logo_opi = simplegui._load_local_image(join(dirname(argv[0]),
+        logo_opi = simplegui._load_local_image(join(dirname(argv[0]),  # noqa  # pylint: disable=protected-access,no-member
                                                     '../_img/OPi_t.png'))
-        logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),
+        logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),  # noqa  # pylint: disable=protected-access,no-member
                                                     '../_img/gplv3-88x31.png'))
     else:
         logo = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')  # noqa
@@ -108,7 +108,7 @@ def main():
 
     frame = simplegui.create_frame(
         'SimpleGUICS2Pygame: short presentation of this package',
-        WIDTH, HEIGHT)
+        width, height)
     frame.set_canvas_background('White')
 
     frame.add_label('Go to websites:')
@@ -123,6 +123,9 @@ def main():
     frame.add_label('')
     frame.add_button('CodeSkulptor',
                      lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
+    frame.add_button('CodeSkulptor3',
+                     lambda: open_new_tab('https://py3.codeskulptor.org/'),
+                     180)
     frame.add_button('matplolib',
                      lambda: open_new_tab('https://matplotlib.org/'), 180)
     frame.add_button('Pygame',
@@ -131,7 +134,7 @@ def main():
     frame.add_label('')
     frame.add_button('GPL',
                      lambda: open_new_tab(
-                         'https://www.gnu.org/licenses/gpl.html'),
+                         'https://www.gnu.org/licenses/gpl-3.0.html'),
                      180)
 
     frame.add_label('')
@@ -139,7 +142,7 @@ def main():
 
     if SIMPLEGUICS2PYGAME:
         frame.add_label('')
-        frame.add_label('Pygame ' + simplegui._PYGAME_VERSION)
+        frame.add_label('Pygame ' + simplegui._PYGAME_VERSION)  # noqa  # pylint: disable=protected-access,no-member
         frame.add_label('')
         frame.add_label('Python ' + version)
 
@@ -152,7 +155,7 @@ def main():
 # Main
 ######
 if __name__ == '__main__':
-    if SIMPLEGUICS2PYGAME and not simplegui._PYGAME_AVAILABLE:
+    if SIMPLEGUICS2PYGAME and not simplegui._PYGAME_AVAILABLE:  # noqa  # pylint: disable=protected-access,no-member
         print("""Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
 

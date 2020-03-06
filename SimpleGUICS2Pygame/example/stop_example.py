@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Stop example (March 5, 2020)
+Stop example (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -16,8 +16,8 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
 CANVAS_WIDTH = 400
@@ -40,7 +40,7 @@ def draw(canvas):
     text = 'Canvas'
 
     font_size = 40
-    text_width = frame.get_canvas_textwidth(text, font_size)
+    text_width = FRAME.get_canvas_textwidth(text, font_size)
 
     canvas.draw_text(text,
                      ((CANVAS_WIDTH - text_width) // 2,
@@ -52,22 +52,22 @@ def stop_all():
     """
     Handler function to the Quit button.
     """
-    timer.stop()
-    sound.pause()
-    frame.stop()
+    TIMER.stop()
+    SOUND.pause()
+    FRAME.stop()
 
 
 # Main
-sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')  # noqa
-sound.play()
+SOUND = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')  # noqa
+SOUND.play()
 
-frame = simplegui.create_frame('Stop example', CANVAS_WIDTH, CANVAS_HEIGHT)
+FRAME = simplegui.create_frame('Stop example', CANVAS_WIDTH, CANVAS_HEIGHT)
 
-frame.add_button('Quit', stop_all)
+FRAME.add_button('Quit', stop_all)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
-timer = simplegui.create_timer(1000, click)
-timer.start()
+TIMER = simplegui.create_timer(1000, click)
+TIMER.start()
 
-frame.start()
+FRAME.start()

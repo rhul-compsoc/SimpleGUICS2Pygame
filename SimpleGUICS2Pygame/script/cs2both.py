@@ -6,7 +6,7 @@ script/cs2both.py
 
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
-(March 5, 2020)
+(March 6, 2020)
 
 A file codeskulptor_program.py is copied
 to codeskulptor_program.py.bak before changing.
@@ -38,7 +38,7 @@ import re
 import sys
 
 
-def main():
+def main():  # pylint: disable=too-many-branches,too-many-statements
     """
     Main function.
     """

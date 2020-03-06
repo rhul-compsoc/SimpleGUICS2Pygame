@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (March 5, 2020)
+Test all other test_*.py. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -53,7 +53,7 @@ if not TO_COMPARE_IMGS:
 try:
     from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
     from SimpleGUICS2Pygame import _WEBSITE as SIMPLEGUICS2PYGAME_WEBSITE
-    PYGAME_VERSION = simplegui._PYGAME_VERSION
+    PYGAME_VERSION = simplegui._PYGAME_VERSION  # noqa  # pylint: disable=no-member,protected-access
 except ImportError:
     SIMPLEGUICS2PYGAME_VERSION = '?'
     SIMPLEGUICS2PYGAME_WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'
@@ -181,7 +181,7 @@ def main():
                   file=outfile)
 
         if len(log) > 0:
-            print("""<pre class="log">{}</pre>""".format(escape(log)),
+            print("""<pre class="log">{}</pre>""".format(escape(log)),  # noqa  # pylint: disable=deprecated-method
                   file=outfile)
 
         f_log.close()

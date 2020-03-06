@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (March 4, 2020)
+simpleguics2pygame/image (March 6, 2020)
 
 Class Image.
 
@@ -78,7 +78,7 @@ class Image:
     This local directory is relative to the directory of your program.
     """
 
-    _pygamesurfaces_cache_default_max_size = 1000
+    _pygamesurfaces_cache_default_max_size = 1000  # noqa  # pylint: disable=invalid-name
     """
     Default maximum number of Pygame surfaces
     in the `self._pygamesurfaces_cached`.
@@ -99,7 +99,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._url = url
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_media
+        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_media  # noqa  # pylint: disable=no-name-in-module
 
         self._pygame_surface = (None if url == ''
                                 else _load_media('Image', url,
@@ -209,7 +209,7 @@ class _LocalImage(Image):
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
 
-    def __init__(self, filename):
+    def __init__(self, filename):  # pylint: disable=super-init-not-called
         """
         Set an image.
 
@@ -224,8 +224,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._url = filename
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._media \
-            import _load_local_media
+        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media  # noqa  # pylint: disable=no-name-in-module
 
         self._pygame_surface = (None if filename == ''
                                 else _load_local_media('Image', filename))

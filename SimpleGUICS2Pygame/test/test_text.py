@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw text. (March 4, 2020)
+Test draw text. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -25,13 +25,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -94,50 +94,50 @@ line 3""", (200, size), size, 'white', 'serif')
     # Test simplegui_lib_draw.draw_text_side()
     size = 40
 
-    draw_text_side(frame, canvas,
+    draw_text_side(FRAME, canvas,
                    'Left top', (0, 0), size, 'red',
                    rectangle_color='orange',
                    side_x=-1, side_y=-1)
 
-    draw_text_side(frame, canvas,
+    draw_text_side(FRAME, canvas,
                    'Left bottom', (0, HEIGHT - 1), size, 'red',
                    rectangle_color='orange',
                    side_x=-1, side_y=1)
 
-    draw_text_side(frame, canvas,
+    draw_text_side(FRAME, canvas,
                    'Right top', (WIDTH - 1, 0), size, 'red',
                    rectangle_color='orange',
                    side_x=1, side_y=-1)
 
-    draw_text_side(frame, canvas,
+    draw_text_side(FRAME, canvas,
                    'Right bottom', (WIDTH - 1, HEIGHT - 1), size, 'red',
                    rectangle_color='orange',
                    side_x=1, side_y=1)
 
-    draw_text_side(frame, canvas,
+    draw_text_side(FRAME, canvas,
                    'Center', (WIDTH / 2, HEIGHT / 2), size, 'red',
                    rectangle_color='orange', rectangle_fill_color='yellow',
                    side_x=0, side_y=0)
 
 
 # Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+FRAME = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+FRAME.add_label(TEST)
+FRAME.add_label('')
+FRAME.add_label(PYTHON_VERSION)
+FRAME.add_label(GUI_VERSION)
+FRAME.add_label(PYGAME_VERSION)
+FRAME.add_label('')
+FRAME.add_button('Quit', FRAME.stop)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
 if SIMPLEGUICS2PYGAME:
     from sys import argv
 
     if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
+        FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
 
-frame.start()
+FRAME.start()

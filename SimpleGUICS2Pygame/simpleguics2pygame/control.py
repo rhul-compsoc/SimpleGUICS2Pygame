@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (March 5, 2020)
+simpleguics2pygame/control (March 6, 2020)
 
 Classes Control and TextAreaControl.
 
@@ -27,9 +27,9 @@ try:
 except ImportError:
     _PYGAME_AVAILABLE = False
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
 
 
 #
@@ -77,7 +77,7 @@ def _text_to_text_cut(text, width, pygame_font):
 #
 # Classes
 #########
-class Control:
+class Control:  # pylint: disable=too-many-instance-attributes
     """
     Control similar to SimpleGUI `Control` (button and label) of CodeSkulptor.
     """
@@ -89,7 +89,7 @@ class Control:
     `pygame.Color` of the background in the button.
     """
 
-    _button_selected_background_pygame_color = (pygame.Color('#f0f0f0')
+    _button_selected_background_pygame_color = (pygame.Color('#f0f0f0')  # noqa   # pylint: disable=invalid-name
                                                 if _PYGAME_AVAILABLE
                                                 else None)
     """
@@ -134,7 +134,7 @@ class Control:
                  frame,
                  text,
                  button_handler=None, width=None):
-        """
+        r"""
         Set a button (if button_handler is not None)
         or a label (if button_handler is None)
         in the control panel.
@@ -150,7 +150,7 @@ class Control:
         assert _PYGAME_AVAILABLE, """Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
 
         assert isinstance(frame, Frame), type(frame)
         assert isinstance(text, str), type(text)
@@ -170,12 +170,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._text_cut = _text_to_text_cut(
             text,
             (self._width if self._width is not None
-             else self._frame_parent._control_width),
+             else self._frame_parent._control_width),  # noqa  # pylint: disable=protected-access
             (Control._label_pygame_font if button_handler is not None
              else Control._button_pygame_font))
 
         self._x1 = 0
-        self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
+        self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls  # noqa  # pylint: disable=protected-access
                     else 0)
         self._x2 = None
         self._y2 = None
@@ -202,9 +202,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert isinstance(pressed, bool), type(pressed)
 
-        self._frame_parent._control_selected = (self if pressed
+        self._frame_parent._control_selected = (self if pressed  # noqa  # pylint: disable=protected-access
                                                 else None)
-        self._frame_parent._draw_controlpanel()
+        self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
         if (not pressed) and (self._button_handler is not None):
             self._button_handler()
 
@@ -250,14 +250,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         height = height_total + Control._button_padding_y * 2
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
 
-        pygame_surface_button = pygame.Surface((width, height))
-        pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)
+        pygame_surface_button = pygame.Surface((width, height))  # noqa  # pylint: disable=too-many-function-args
+        pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)  # noqa  # pylint: disable=protected-access
 
         for i, color in enumerate(
                 ((Control._button_selected_background_pygame_color
-                  if self._frame_parent._control_selected == self
+                  if self._frame_parent._control_selected == self  # noqa  # pylint: disable=protected-access
                   else Control._button_background_pygame_color),
                  Control._button_text_pygame_color)):
             pygame.draw.polygon(pygame_surface_button, color,
@@ -280,7 +280,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             y += text_height
 
         # Draw complete button
-        self._frame_parent._controlpanel_pygame_surface.blit(
+        self._frame_parent._controlpanel_pygame_surface.blit(  # noqa  # pylint: disable=protected-access
             pygame_surface_button, (self._x1, self._y1))
 
         self._x2 = self._x1 + width
@@ -304,7 +304,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 width, height = pygame_surface_text.get_size()
                 width_max = max(width_max, width)
 
-                self._frame_parent._controlpanel_pygame_surface.blit(
+                self._frame_parent._controlpanel_pygame_surface.blit(  # noqa  # pylint: disable=protected-access
                     pygame_surface_text, (self._x1, self._y2))
                 self._y2 += height
 
@@ -352,14 +352,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._text_cut = _text_to_text_cut(
             text,
             (self._width if self._width
-             else self._frame_parent._control_width),
+             else self._frame_parent._control_width),  # noqa  # pylint: disable=protected-access
             (Control._label_pygame_font if self._button_handler is not None
              else Control._button_pygame_font))
 
-        self._frame_parent._draw_controlpanel()
+        self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
 
-class TextAreaControl:
+class TextAreaControl:  # pylint: disable=too-many-instance-attributes
     """
     TextAreaControl similar
     to SimpleGUI `TextAreaControl` (input) of CodeSkulptor.
@@ -396,19 +396,19 @@ class TextAreaControl:
     `pygame.Color` of the text in the input box.
     """
 
-    _input_pygame_font = Control._label_pygame_font
+    _input_pygame_font = Control._label_pygame_font  # noqa  # pylint: disable=protected-access
     """
     `pygame.font.Font` of the text in the input box.
     """
 
-    _input_selected_background_pygame_color = (
+    _input_selected_background_pygame_color = (  # pylint: disable=invalid-name
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
     """
     `pygame.Color` of the background in the input box when it has focus.
     """
 
-    _label_text_pygame_color = Control._label_text_pygame_color
+    _label_text_pygame_color = Control._label_text_pygame_color  # noqa  # pylint: disable=protected-access
     """
     `pygame.Color` of the label of the input box.
     """
@@ -435,7 +435,7 @@ class TextAreaControl:
         assert _PYGAME_AVAILABLE, """Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
 
         assert isinstance(frame, Frame), type(frame)
         assert isinstance(label_text, str), type(label_text)
@@ -447,15 +447,15 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._input_handler = input_handler
         self._width = (int(round(input_width)) if input_width >= 0
-                       else frame._control_width)
+                       else frame._control_width)  # noqa  # pylint: disable=protected-access
 
         self._label_text = label_text
         self._label_text_cut = _text_to_text_cut(
-            label_text, frame._control_width,
+            label_text, frame._control_width,  # noqa  # pylint: disable=protected-access
             TextAreaControl._input_pygame_font)
 
         self._x1 = 0
-        self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls
+        self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls  # noqa  # pylint: disable=protected-access
                     else 0)
         self._x2 = None
         self._y2 = None
@@ -471,7 +471,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         return '<TextAreaControl object>'
 
-    def _draw(self):
+    def _draw(self):  # pylint: disable=too-many-locals
         """
         Draw the input box and his label.
 
@@ -489,12 +489,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             width, height = pygame_surface_text.get_size()
             label_width = max(label_width, width)
 
-            self._frame_parent._controlpanel_pygame_surface.blit(
+            self._frame_parent._controlpanel_pygame_surface.blit(  # noqa  # pylint: disable=protected-access
                 pygame_surface_text, (self._x1, self._y2))
             self._y2 += height
 
         # Display the input text in the input box
-        selected = (self._frame_parent._control_selected == self)
+        selected = (self._frame_parent._control_selected == self)  # noqa  # pylint: disable=protected-access
 
         pygame_surface_text = TextAreaControl._input_pygame_font.render(
             self._input_text, True, TextAreaControl._input_pygame_color)
@@ -502,10 +502,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         text_width, text_height = pygame_surface_text.get_size()
 
         if self._input_pos < len(self._input_text):
-            pygame_surface_text_before_cursor = \
-                TextAreaControl._input_pygame_font.render(
-                    self._input_text[:self._input_pos], True,
-                    TextAreaControl._input_pygame_color)
+            pygame_surface_text_before_cursor = TextAreaControl._input_pygame_font.render(  # noqa  # pylint: disable=invalid-name
+                self._input_text[:self._input_pos], True,
+                TextAreaControl._input_pygame_color)
 
             text_before_cursor_width, _ = \
                 pygame_surface_text_before_cursor.get_size()
@@ -516,7 +515,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         rect_height = text_height + 2 + TextAreaControl._input_padding_y * 2
 
         pygame.draw.rect(
-            self._frame_parent._controlpanel_pygame_surface,
+            self._frame_parent._controlpanel_pygame_surface,  # noqa  # pylint: disable=protected-access
             (TextAreaControl._input_selected_background_pygame_color
              if selected
              else TextAreaControl._input_background_pygame_color),
@@ -524,7 +523,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
              self._width, rect_height),
             0)
 
-        pygame.draw.rect(self._frame_parent._controlpanel_pygame_surface,
+        pygame.draw.rect(self._frame_parent._controlpanel_pygame_surface,  # noqa  # pylint: disable=protected-access
                          TextAreaControl._input_pygame_color,
                          (self._x1, rect_y,
                           self._width, rect_height),
@@ -548,13 +547,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         if selected:
             # Draw cursor
-            pygame.draw.line(self._frame_parent._controlpanel_pygame_surface,
+            pygame.draw.line(self._frame_parent._controlpanel_pygame_surface,  # noqa  # pylint: disable=protected-access
                              self._input_mark_pygame_color,
                              (cursor_x, text_y - 1),
                              (cursor_x, text_y + text_height + 1), 1)
 
         # Draw text
-        self._frame_parent._controlpanel_pygame_surface.blit(
+        self._frame_parent._controlpanel_pygame_surface.blit(  # noqa  # pylint: disable=protected-access
             pygame_surface_text,
             (text_x, text_y),
             (offset_text_x, 0, text_width, text_height))
@@ -563,7 +562,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._x2 = self._x1 + max(label_width, self._width)
         self._y2 += rect_height
 
-    def _key(self, pygame_event):
+    def _key(self, pygame_event):  # noqa  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements
         """
         Deal key pressed
         when this `TextAreaControl` have focus.
@@ -575,50 +574,50 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert 0 <= self._input_pos <= len(self._input_text), \
             (self._input_pos, len(self._input_text), self._input_text)
 
-        if pygame_event.key == pygame.K_END:             # End
+        if pygame_event.key == pygame.K_END:             # End  # noqa  # pylint: disable=no-member
             # Set position to end
             if self._input_pos < len(self._input_text):
                 self._input_pos = len(self._input_text)
-                self._frame_parent._draw_controlpanel()
+                self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
             return
-        elif pygame_event.key == pygame.K_ESCAPE:        # Escape
+        elif pygame_event.key == pygame.K_ESCAPE:        # Escape  # noqa  # pylint: disable=no-member
             # Erase all
             if self._input_pos != '':
                 self._input_pos = 0
                 self._input_text = ''
-                self._frame_parent._draw_controlpanel()
+                self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
             return
-        elif pygame_event.key == pygame.K_HOME:          # Home
+        elif pygame_event.key == pygame.K_HOME:          # Home  # noqa  # pylint: disable=no-member
             # Set position to begining
             if self._input_pos > 0:
                 self._input_pos = 0
-                self._frame_parent._draw_controlpanel()
+                self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
             return
-        elif pygame_event.key == pygame.K_LEFT:          # Left
+        elif pygame_event.key == pygame.K_LEFT:          # Left  # noqa  # pylint: disable=no-member
             # Move backward position
             if self._input_pos > 0:
                 self._input_pos = (
                     self._input_text[:self._input_pos].rstrip().rfind(' ') + 1
-                    if pygame_event.mod & pygame.KMOD_CTRL
+                    if pygame_event.mod & pygame.KMOD_CTRL  # noqa  # pylint: disable=no-member
                     else self._input_pos - 1)
-                self._frame_parent._draw_controlpanel()
+                self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
             return
-        elif ((pygame_event.key == pygame.K_RETURN) or
-              (pygame_event.key == pygame.K_KP_ENTER)):  # Return
+        elif ((pygame_event.key == pygame.K_RETURN) or  # noqa  # pylint: disable=no-member
+              (pygame_event.key == pygame.K_KP_ENTER)):  # Return  # noqa  # pylint: disable=no-member
             # Valid text and run handler
-            self._frame_parent._control_selected = None
-            self._frame_parent._draw_controlpanel()
+            self._frame_parent._control_selected = None  # noqa  # pylint: disable=protected-access
+            self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
             self._input_handler(self._input_text)
 
             return
-        elif pygame_event.key == pygame.K_RIGHT:         # Right
+        elif pygame_event.key == pygame.K_RIGHT:         # Right  # noqa  # pylint: disable=no-member
             # Move forward position
             if self._input_pos < len(self._input_text):
-                if pygame_event.mod & pygame.KMOD_CTRL:
+                if pygame_event.mod & pygame.KMOD_CTRL:  # noqa  # pylint: disable=no-member
                     i = self._input_pos
                     while ((i < len(self._input_text)) and
                            (self._input_text[i] == ' ')):
@@ -629,42 +628,42 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                        else len(self._input_text))
                 else:
                     self._input_pos += 1
-                self._frame_parent._draw_controlpanel()
+                self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
             return
-        elif pygame_event.key == pygame.K_TAB:           # Tab
+        elif pygame_event.key == pygame.K_TAB:           # Tab  # noqa  # pylint: disable=no-member
             # Give focus to the next input box (if exist)
             i = 0
-            while self._frame_parent._controls[i] != self:
+            while self._frame_parent._controls[i] != self:  # noqa  # pylint: disable=protected-access
                 i += 1
             i += 1
-            while ((i < len(self._frame_parent._controls)) and
-                   not isinstance(self._frame_parent._controls[i],
+            while ((i < len(self._frame_parent._controls)) and  # noqa  # pylint: disable=protected-access
+                   not isinstance(self._frame_parent._controls[i],  # noqa  # pylint: disable=protected-access
                                   TextAreaControl)):
                 i += 1
 
-            self._frame_parent._control_selected = (
-                self._frame_parent._controls[i]
-                if i < len(self._frame_parent._controls)
+            self._frame_parent._control_selected = (  # noqa  # pylint: disable=protected-access
+                self._frame_parent._controls[i]  # noqa  # pylint: disable=protected-access
+                if i < len(self._frame_parent._controls)  # noqa  # pylint: disable=protected-access
                 else None)
-            self._frame_parent._draw_controlpanel()
+            self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
             return
 
         old = self._input_text
 
-        if pygame_event.key == pygame.K_BACKSPACE:  # Backspace
+        if pygame_event.key == pygame.K_BACKSPACE:  # Backspace  # noqa  # pylint: disable=no-member
             # Delete previous character(s)
             new_pos = (
                 self._input_text[:self._input_pos].rstrip().rfind(' ') + 1
-                if pygame_event.mod & pygame.KMOD_CTRL
+                if pygame_event.mod & pygame.KMOD_CTRL  # noqa  # pylint: disable=no-member
                 else self._input_pos - 1)
             self._input_text = (self._input_text[:new_pos] +
                                 self._input_text[self._input_pos:])
             self._input_pos = new_pos
-        elif pygame_event.key == pygame.K_DELETE:   # Delete
+        elif pygame_event.key == pygame.K_DELETE:   # Delete  # noqa  # pylint: disable=no-member
             # Delete next character(s)
-            if pygame_event.mod & pygame.KMOD_CTRL:
+            if pygame_event.mod & pygame.KMOD_CTRL:  # noqa  # pylint: disable=no-member
                 i = self._input_pos
                 while ((i < len(self._input_text)) and
                        (self._input_text[i] == ' ')):
@@ -690,10 +689,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 # try to convert to str
                 self._input_text = str(self._input_text)
                 self._input_pos = min(self._input_pos, len(self._input_text))
-            except:
+            except:  # pylint: disable=bare-except
                 pass
 
-            self._frame_parent._draw_controlpanel()
+            self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
     def _mouse_left_button(self, pressed):
         """
@@ -710,8 +709,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(pressed, bool), type(pressed)
 
         if pressed:
-            self._frame_parent._control_selected = self
-            self._frame_parent._draw_controlpanel()
+            self._frame_parent._control_selected = self  # noqa  # pylint: disable=protected-access
+            self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
 
     def _pos_in(self, x, y):
         """
@@ -750,4 +749,4 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._input_text = input_text
 
-        self._frame_parent._draw_controlpanel()
+        self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access

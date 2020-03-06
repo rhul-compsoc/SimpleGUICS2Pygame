@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw circles. (March 4, 2020)
+Test draw circles. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,13 +20,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -64,24 +64,30 @@ def draw(canvas):
         canvas.draw_circle((x, y), radius, 1, 'Red')
 
 
+#
 # Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+######
+def main():
+    """Create and start frame."""
+    frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
 
-frame.set_draw_handler(draw)
+    frame.set_draw_handler(draw)
 
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
 
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
+    frame.start()
 
-frame.start()
+if __name__ == '__main__':
+    main()

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_fonts (March 5, 2020)
+simpleguics2pygame/_fonts (March 6, 2020)
 
 Fonts helpers.
 
@@ -38,7 +38,7 @@ to corresponding font names list used by Pygame.
 #
 # "Private" function
 ####################
-def _simpleguifontface_to_pygamefont(font_face, font_size):
+def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: disable=invalid-name
     """
     Return a `pygame.font.Font` object
     corresponding to the SimpleGUI `font_face` name
@@ -68,25 +68,25 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):
     assert isinstance(font_size, int), type(font_size)
     assert font_size > 0, font_size
 
-    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
 
-    font = Frame._pygamefonts_cached.get((font_face, font_size))
+    font = Frame._pygamefonts_cached.get((font_face, font_size))  # noqa  # pylint: disable=protected-access
 
     if font is None:
-        from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE
+        from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
         if _PYGAME_AVAILABLE:
             import pygame
 
-        if (font_face is None) or Frame._default_font:
+        if (font_face is None) or Frame._default_font:  # noqa  # pylint: disable=protected-access
             font = pygame.font.SysFont(None, font_size)
         else:
             try:
                 font = pygame.font.SysFont(
                     _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME[font_face],
                     font_size)
-            except:
+            except:  # pylint: disable=bare-except
                 font = pygame.font.SysFont(None, font_size)
 
-        Frame._pygamefonts_cached[(font_face, font_size)] = font
+        Frame._pygamefonts_cached[(font_face, font_size)] = font  # noqa  # pylint: disable=protected-access
 
     return font

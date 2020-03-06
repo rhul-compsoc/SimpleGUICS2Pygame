@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw images. (March 5, 2020)
+Test draw images. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -28,14 +28,14 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
-    simplegui.Frame._keep_timers = False
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -61,7 +61,7 @@ def draw(canvas):
     canvas.draw_line((0, 0), (WIDTH - 1, HEIGHT - 1), 1, 'Blue')
     canvas.draw_line((0, HEIGHT - 1), (WIDTH, 0), 1, 'Blue')
 
-    img = loader.get_image('double_ship')
+    img = LOADER.get_image('double_ship')
 
     # The complete image with ship twice
     canvas.draw_image(img,
@@ -118,40 +118,24 @@ def draw(canvas):
                       (img.get_width() * 7 / 4, img.get_height() * 11 / 4),
                       (img.get_width() / 2, img.get_height() / 2))
 
-    canvas.draw_image(logo,
+    canvas.draw_image(LOGO,
                       (32, 32), (64, 64),
                       (WIDTH / 2, HEIGHT / 2), (64, 64))
 
     # Update and draw FPS (if started)
-    fps.draw_fct(canvas)
+    FPS_DRAWER.draw_fct(canvas)
 
 
 def fps_on_off():
     """
     Active or inactive the calculation and drawing of FPS.
     """
-    if fps.is_started():
-        fps.stop()
-        button_fps.set_text('FPS on')
+    if FPS_DRAWER.is_started():
+        FPS_DRAWER.stop()
+        BUTTON_FPS.set_text('FPS on')
     else:
-        fps.start()
-        button_fps.set_text('FPS off')
-
-
-# Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
-
-fps = FPS()
-
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-button_fps = frame.add_button('FPS on', fps_on_off)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+        FPS_DRAWER.start()
+        BUTTON_FPS.set_text('FPS off')
 
 
 def init():
@@ -159,32 +143,49 @@ def init():
     Init after image loaded.
     """
     if not SIMPLEGUICS2PYGAME:
-        global logo
+        global LOGO  # pylint: disable=global-statement
 
-        logo = loader.get_image('logo')
+        LOGO = LOADER.get_image('logo')
 
-    frame.set_draw_handler(draw)
+    FRAME.set_draw_handler(draw)
 
     if SIMPLEGUICS2PYGAME:
         from sys import argv
 
         if len(argv) == 2:
-            frame._save_canvas_and_stop(argv[1])
+            FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
-loader = Loader(frame, WIDTH, init)
-loader.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
+
+# Main
+FRAME = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+
+FPS_DRAWER = FPS()
+
+FRAME.add_label(TEST)
+FRAME.add_label('')
+FRAME.add_label(PYTHON_VERSION)
+FRAME.add_label(GUI_VERSION)
+FRAME.add_label(PYGAME_VERSION)
+FRAME.add_label('')
+BUTTON_FPS = FRAME.add_button('FPS on', fps_on_off)
+FRAME.add_label('')
+FRAME.add_button('Quit', FRAME.stop)
+
+
+LOADER = Loader(FRAME, WIDTH, init)
+LOADER.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png',  # noqa
                  'double_ship')
 if not SIMPLEGUICS2PYGAME:
-    loader.add_image('https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',  # noqa
+    LOADER.add_image('https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png',  # noqa
                      'logo')
-loader.load()
+LOADER.load()
 
-loader.wait_loaded()
+LOADER.wait_loaded()
 
 if SIMPLEGUICS2PYGAME:
-    logo = simplegui._load_local_image(
+    LOGO = simplegui._load_local_image(  # noqa  # pylint: disable=protected-access,no-member
         '../_img/SimpleGUICS2Pygame_64x64_t.png')
 
-frame.start()
-if SIMPLEGUICS2PYGAME and frame._print_stats_cache:
-    loader.print_stats_cache()
+FRAME.start()
+if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access
+    LOADER.print_stats_cache()

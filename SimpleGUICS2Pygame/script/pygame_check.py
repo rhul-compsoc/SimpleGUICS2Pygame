@@ -4,12 +4,12 @@
 """
 script/pygame_check.py
 
-(November 23, 2015)
+(March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -22,8 +22,8 @@ import sys
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/pygame_check.py (November 23, 2015)
-==========================================""")
+    print("""script/pygame_check.py (March 6, 2020)
+======================================""")
 
     # Python
     print('python - version', sys.version, end='\n\n')
@@ -37,14 +37,14 @@ if __name__ == '__main__':
 
         CMD = 'pygame.init()'
         try:
-            SUCCESS, FAILED = pygame.init()
+            SUCCESS, FAILED = pygame.init()  # pylint: disable=no-member
 
             if FAILED == 0:
                 print(' ', CMD, SUCCESS, 'modules loaded ok')
             else:
                 print(' ', CMD, SUCCESS, 'modules loaded',
                       FAILED, 'failed WARNING!')
-        except Exception as exc:
+        except Exception as exc:  # pylint: disable=broad-except
             print(' ', CMD, 'FAILED!', exc)
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)

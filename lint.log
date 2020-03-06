@@ -66,607 +66,82 @@ checking SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py
 checking SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py
 
 ===== pyflakes =====
-SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_multi' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_side' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_rect' imported but unused
+SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_multi' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:28: 'SimpleGUICS2Pygame.simplegui_lib_fps.FPS' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:29: 'SimpleGUICS2Pygame.simplegui_lib_keys.Keys' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:30: 'SimpleGUICS2Pygame.simplegui_lib_loader.Loader' imported but unused
 SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py:93: 'simplegui' imported but unused
 SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py:108: 'simpleguitk' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:41: undefined name '_options'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:56: 'from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:56: 'SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:59: undefined name '_pygame_lib'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:67: 'from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:67: 'SimpleGUICS2Pygame.simpleguics2pygame.canvas.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:69: 'from SimpleGUICS2Pygame.simpleguics2pygame.control import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:69: 'SimpleGUICS2Pygame.simpleguics2pygame.control.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:71: 'from SimpleGUICS2Pygame.simpleguics2pygame.frame import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:71: 'SimpleGUICS2Pygame.simpleguics2pygame.frame.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:73: 'from SimpleGUICS2Pygame.simpleguics2pygame.image import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:73: 'SimpleGUICS2Pygame.simpleguics2pygame.image.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:75: 'from SimpleGUICS2Pygame.simpleguics2pygame.keys import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:75: 'SimpleGUICS2Pygame.simpleguics2pygame.keys.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:77: 'from SimpleGUICS2Pygame.simpleguics2pygame.sound import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:77: 'SimpleGUICS2Pygame.simpleguics2pygame.sound.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:79: 'from SimpleGUICS2Pygame.simpleguics2pygame.timer import *' used; unable to detect undefined names
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:79: 'SimpleGUICS2Pygame.simpleguics2pygame.timer.*' imported but unused
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:82: undefined name 'canvas'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:87: undefined name 'control'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:92: undefined name 'frame'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:97: undefined name 'image'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:102: undefined name 'keys'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:107: undefined name 'sound'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:112: undefined name 'timer'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:118: undefined name '_colors'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:123: undefined name '_fonts'
-SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:128: undefined name '_media'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:40: undefined name '_options'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:55: 'from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:55: 'SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:58: undefined name '_pygame_lib'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:66: 'from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:66: 'SimpleGUICS2Pygame.simpleguics2pygame.canvas.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:68: 'from SimpleGUICS2Pygame.simpleguics2pygame.control import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:68: 'SimpleGUICS2Pygame.simpleguics2pygame.control.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:70: 'from SimpleGUICS2Pygame.simpleguics2pygame.frame import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:70: 'SimpleGUICS2Pygame.simpleguics2pygame.frame.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:72: 'from SimpleGUICS2Pygame.simpleguics2pygame.image import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:72: 'SimpleGUICS2Pygame.simpleguics2pygame.image.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:74: 'from SimpleGUICS2Pygame.simpleguics2pygame.keys import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:74: 'SimpleGUICS2Pygame.simpleguics2pygame.keys.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:76: 'from SimpleGUICS2Pygame.simpleguics2pygame.sound import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:76: 'SimpleGUICS2Pygame.simpleguics2pygame.sound.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:78: 'from SimpleGUICS2Pygame.simpleguics2pygame.timer import *' used; unable to detect undefined names
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:78: 'SimpleGUICS2Pygame.simpleguics2pygame.timer.*' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:81: undefined name 'canvas'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:86: undefined name 'control'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:91: undefined name 'frame'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:96: undefined name 'image'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:101: undefined name 'keys'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:106: undefined name 'sound'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:111: undefined name 'timer'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:117: undefined name '_colors'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:122: undefined name '_fonts'
+SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:127: undefined name '_media'
 SimpleGUICS2Pygame/test/test_command_line_options.py:19: 'SimpleGUICS2Pygame.simpleguics2pygame as simplegui' imported but unused
 
 ===== pylint =====
-************* Module keys
-C: 90, 0: Invalid constant name "frame" (invalid-name)
-C: 95, 0: Invalid constant name "keys" (invalid-name)
-************* Module loader
-W: 30, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 59, 0: Invalid constant name "frame" (invalid-name)
-W: 93,30: Access to a protected member _print_stats_cache of a client class (protected-access)
-C: 97, 0: Invalid constant name "loader" (invalid-name)
-************* Module presentation
-W: 24, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 48, 8: Invalid variable name "_VERSION" (invalid-name)
-C: 49, 8: Invalid variable name "_WEBSITE" (invalid-name)
-C: 51, 4: Invalid variable name "WIDTH" (invalid-name)
-C: 52, 4: Invalid variable name "HEIGHT" (invalid-name)
-E: 97,15: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_load_local_image' member (no-member)
-W: 97,15: Access to a protected member _load_local_image of a client class (protected-access)
-E:100,19: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_load_local_image' member (no-member)
-W:100,19: Access to a protected member _load_local_image of a client class (protected-access)
-E:102,19: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_load_local_image' member (no-member)
-W:102,19: Access to a protected member _load_local_image of a client class (protected-access)
-E:142,36: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_PYGAME_VERSION' member (no-member)
-W:142,36: Access to a protected member _PYGAME_VERSION of a client class (protected-access)
-E:155,34: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_PYGAME_AVAILABLE' member (no-member)
-W:155,34: Access to a protected member _PYGAME_AVAILABLE of a client class (protected-access)
-************* Module stop_example
-W: 19, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 20, 4: Access to a protected member _keep_timers of a client class (protected-access)
-C: 61, 0: Invalid constant name "sound" (invalid-name)
-C: 64, 0: Invalid constant name "frame" (invalid-name)
-C: 70, 0: Invalid constant name "timer" (invalid-name)
-************* Module SimpleGUICS2Pygame_check
-W: 62,11: Catching too general exception Exception (broad-except)
-W: 85,11: Catching too general exception Exception (broad-except)
-W: 83,15: Catching too general exception Exception (broad-except)
-E: 76,30: Module 'pygame' has no 'init' member (no-member)
-W:102,11: Catching too general exception Exception (broad-except)
-E: 93, 8: Unable to import 'simplegui' (import-error)
-W:117,11: Catching too general exception Exception (broad-except)
-E:108, 8: Unable to import 'simpleguitk' (import-error)
-W:126,11: Catching too general exception Exception (broad-except)
-W:125,35: Access to a protected member _VERSION of a client class (protected-access)
-W:136,11: Catching too general exception Exception (broad-except)
-W:144,11: Catching too general exception Exception (broad-except)
-W:152,11: Catching too general exception Exception (broad-except)
-W:160,11: Catching too general exception Exception (broad-except)
-W:168,11: Catching too general exception Exception (broad-except)
-W:176,11: Catching too general exception Exception (broad-except)
-W:184,11: Catching too general exception Exception (broad-except)
-W:192,11: Catching too general exception Exception (broad-except)
-W:200,11: Catching too general exception Exception (broad-except)
-W:208,11: Catching too general exception Exception (broad-except)
-W: 93, 8: Unused import simplegui (unused-import)
-W:108, 8: Unused import simpleguitk (unused-import)
-************* Module cs2both
-R: 41, 0: Too many branches (21/12) (too-many-branches)
-R: 41, 0: Too many statements (61/50) (too-many-statements)
-************* Module pygame_check
-W: 49,11: Catching too general exception Exception (broad-except)
-W: 47,15: Catching too general exception Exception (broad-except)
-E: 40,30: Module 'pygame' has no 'init' member (no-member)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame
-E: 37, 0: No name '_options' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E: 56, 0: No name '_pygame_lib' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 56, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib (wildcard-import)
-C: 56, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import *" should be placed at the top of the module (wrong-import-position)
-E: 67, 0: No name 'canvas' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 67, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.canvas (wildcard-import)
-C: 67, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *" should be placed at the top of the module (wrong-import-position)
-E: 69, 0: No name 'control' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 69, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.control (wildcard-import)
-C: 69, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.control import *" should be placed at the top of the module (wrong-import-position)
-E: 71, 0: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 71, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.frame (wildcard-import)
-C: 71, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.frame import *" should be placed at the top of the module (wrong-import-position)
-E: 73, 0: No name 'image' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 73, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.image (wildcard-import)
-C: 73, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.image import *" should be placed at the top of the module (wrong-import-position)
-E: 75, 0: No name 'keys' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 75, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.keys (wildcard-import)
-C: 75, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.keys import *" should be placed at the top of the module (wrong-import-position)
-E: 77, 0: No name 'sound' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 77, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.sound (wildcard-import)
-C: 77, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.sound import *" should be placed at the top of the module (wrong-import-position)
-E: 79, 0: No name 'timer' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 79, 0: Wildcard import SimpleGUICS2Pygame.simpleguics2pygame.timer (wildcard-import)
-C: 79, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame.timer import *" should be placed at the top of the module (wrong-import-position)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame._colors
-E: 23, 0: No name '_pygame_lib' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:231, 4: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:233,19: Access to a protected member _pygamecolors_cached of a client class (protected-access)
-W:328, 4: Access to a protected member _pygamecolors_cached of a client class (protected-access)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame._fonts
-C: 41, 0: Invalid function name "_simpleguifontface_to_pygamefont" (invalid-name)
-E: 71, 4: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 73,11: Access to a protected member _pygamefonts_cached of a client class (protected-access)
-E: 76, 8: No name '_PYGAME_AVAILABLE' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 80,34: Access to a protected member _default_font of a client class (protected-access)
-W: 87,12: No exception type(s) specified (bare-except)
-W: 90, 8: Access to a protected member _pygamefonts_cached of a client class (protected-access)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame._media
-E: 30, 4: Unable to import 'urlparse' (import-error)
-E: 31, 4: Unable to import 'urllib2' (import-error)
-E: 37, 0: No name '_pygame_lib' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-C: 37, 0: Import "from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE" should be placed at the top of the module (wrong-import-position)
-E: 72, 4: No name 'sound' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 75,37: Access to a protected member _mixer_initialized of a client class (protected-access)
-W: 76, 8: Access to a protected member _mixer_initialized of a client class (protected-access)
-E:117, 4: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:118, 4: No name 'sound' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:121,13: Access to a protected member _pygamemedias_cached of a client class (protected-access)
-W:123,41: Access to a protected member _mixer_initialized of a client class (protected-access)
-W:124,12: Access to a protected member _mixer_initialized of a client class (protected-access)
-W:129,11: Access to a protected member _print_load_medias of a client class (protected-access)
-W:141,11: Access to a protected member _print_load_medias of a client class (protected-access)
-W:151,11: Access to a protected member _save_downloaded_medias_overwrite of a client class (protected-access)
-W:152,41: Access to a protected member _mixer_initialized of a client class (protected-access)
-W:153,12: Access to a protected member _mixer_initialized of a client class (protected-access)
-W:169,15: Catching too general exception Exception (broad-except)
-W:160,15: Access to a protected member _print_load_medias of a client class (protected-access)
-W:166,12: Access to a protected member _pygamemedias_cached of a client class (protected-access)
-W:179,11: Catching too general exception Exception (broad-except)
-W:175,11: Access to a protected member _print_load_medias of a client class (protected-access)
-W:180,11: Access to a protected member _print_load_medias of a client class (protected-access)
-W:188,37: Access to a protected member _mixer_initialized of a client class (protected-access)
-W:189, 8: Access to a protected member _mixer_initialized of a client class (protected-access)
-W:195,11: Catching too general exception Exception (broad-except)
-W:196,11: Access to a protected member _print_load_medias of a client class (protected-access)
-W:204, 7: Access to a protected member _save_downloaded_medias of a client class (protected-access)
-W:205,11: Access to a protected member _save_downloaded_medias_overwrite of a client class (protected-access)
-W:214,23: Catching too general exception Exception (broad-except)
-W:210,23: Access to a protected member _print_load_medias of a client class (protected-access)
-W:215,23: Access to a protected member _print_load_medias of a client class (protected-access)
-W:230,19: Catching too general exception Exception (broad-except)
-W:225,19: Access to a protected member _print_load_medias of a client class (protected-access)
-W:231,19: Access to a protected member _print_load_medias of a client class (protected-access)
-W:236,13: Access to a protected member _print_load_medias of a client class (protected-access)
-W:241, 7: Access to a protected member _print_load_medias of a client class (protected-access)
-W:244, 4: Access to a protected member _pygamemedias_cached of a client class (protected-access)
-R: 85, 0: Too many branches (26/12) (too-many-branches)
-R: 85, 0: Too many statements (76/50) (too-many-statements)
-R:275, 8: Redefinition of filename type from list to str (redefined-variable-type)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame._options
-E: 76, 4: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E: 77, 4: No name 'sound' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W: 85,12: Access to a protected member _default_font of a client class (protected-access)
-W: 87,12: Access to a protected member _display_fps_average of a client class (protected-access)
-W: 92,16: Access to a protected member _fps of a client class (protected-access)
-W: 94,16: Access to a protected member _fps of a client class (protected-access)
-W: 99,16: Access to a protected member _frame_padding of a client class (protected-access)
-W:101,16: Access to a protected member _frame_padding of a client class (protected-access)
-E:104,45: Module 'pygame' has no 'FULLSCREEN' member (no-member)
-E:105,45: Module 'pygame' has no 'HWSURFACE' member (no-member)
-W:107,12: Access to a protected member _keep_timers of a client class (protected-access)
-E:112,44: Module 'pygame' has no 'NOFRAME' member (no-member)
-W:114,12: Access to a protected member _hide_controlpanel of a client class (protected-access)
-W:116,12: Access to a protected member _load_disabled of a client class (protected-access)
-W:118,12: Access to a protected member _hide_status of a client class (protected-access)
-W:120,12: Access to a protected member _save_downloaded_medias of a client class (protected-access)
-W:121,12: Access to a protected member _save_downloaded_medias_overwrite of a client class (protected-access)
-W:123,12: Access to a protected member _print_load_medias of a client class (protected-access)
-W:125,12: Access to a protected member _print_stats_cache of a client class (protected-access)
-W:127,12: Access to a protected member _save_downloaded_medias of a client class (protected-access)
-W:128,12: Access to a protected member _save_downloaded_medias_overwrite of a client class (protected-access)
-W:130,12: Access to a protected member _keep_timers of a client class (protected-access)
-R: 34, 0: Too many branches (22/12) (too-many-branches)
-R: 34, 0: Too many statements (59/50) (too-many-statements)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame.canvas
-E: 34, 0: No name '_colors' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
 ************* Module SimpleGUICS2Pygame.simpleguics2pygame.frame
-C:615, 8: Invalid attribute name "_background_pygame_surface_image" (invalid-name)
-C: 94, 4: Invalid class attribute name "_background_pygame_surface_image" (invalid-name)
-E:116, 8: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:135,31: Too many positional arguments for lambda call (too-many-function-args)
-E:160,30: Too many positional arguments for lambda call (too-many-function-args)
-E:161,45: Module 'pygame' has no 'SRCALPHA' member (no-member)
-W:170,15: Access to a protected member _display_fps_average of a client class (protected-access)
-E:171,16: No name '_fonts' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:176,42: Access to a protected member _fps_average of a client class (protected-access)
-W:181,12: Access to a protected member _pygame_surface of a client class (protected-access)
-W:183,17: Access to a protected member _canvas_x_offset of a client class (protected-access)
-W:184,17: Access to a protected member _canvas_y_offset of a client class (protected-access)
-W:186,35: Access to a protected member _canvas_x_offset of a client class (protected-access)
-W:187,35: Access to a protected member _canvas_y_offset of a client class (protected-access)
-R:210, 4: Too many arguments (6/5) (too-many-arguments)
-E:270,26: Too many positional arguments for lambda call (too-many-function-args)
-E:271,41: Module 'pygame' has no 'SRCALPHA' member (no-member)
-R:288, 4: Too many arguments (7/5) (too-many-arguments)
-R:288, 4: Too many local variables (18/15) (too-many-locals)
-E:327, 8: No name 'image' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:376,11: Access to a protected member _pygame_surface of a client class (protected-access)
-W:425,26: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:433,20: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:435,16: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:440,31: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:445,16: Access to a protected member _pygamesurfaces_cached_counts of a client class (protected-access)
-E:447,12: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:451,39: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:456,20: Access to a protected member _pygamesurfaces_cached_counts of a client class (protected-access)
-W:461,43: Access to a protected member _pygame_surface of a client class (protected-access)
-W:463,43: Access to a protected member _pygame_surface of a client class (protected-access)
-W:473,16: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:475,20: Access to a protected member _print_stats_cache of a client class (protected-access)
-W:476,29: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:477,25: Access to a protected member _pygamesurfaces_cache_max_size of a client class (protected-access)
-W:478,20: Access to a protected member _print_stats_cache of a client class (protected-access)
-W:480,26: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:481,22: Access to a protected member _pygamesurfaces_cache_max_size of a client class (protected-access)
-W:482,20: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:488,16: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:490,20: Access to a protected member _print_stats_cache of a client class (protected-access)
-W:491,29: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:492,25: Access to a protected member _pygamesurfaces_cache_max_size of a client class (protected-access)
-W:493,20: Access to a protected member _print_stats_cache of a client class (protected-access)
-W:495,26: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-W:496,22: Access to a protected member _pygamesurfaces_cache_max_size of a client class (protected-access)
-W:497,20: Access to a protected member _pygamesurfaces_cached of a client class (protected-access)
-R:288, 4: Too many branches (28/12) (too-many-branches)
-C:552,12: Invalid variable name "x2" (invalid-name)
-C:552,16: Invalid variable name "y2" (invalid-name)
-E:560,22: Too many positional arguments for lambda call (too-many-function-args)
-E:560,54: Module 'pygame' has no 'SRCALPHA' member (no-member)
-E:593,22: Too many positional arguments for lambda call (too-many-function-args)
-E:593,45: Module 'pygame' has no 'SRCALPHA' member (no-member)
-E:661,22: Too many positional arguments for lambda call (too-many-function-args)
-E:662,37: Module 'pygame' has no 'SRCALPHA' member (no-member)
-E:718,22: Too many positional arguments for lambda call (too-many-function-args)
-E:719,37: Module 'pygame' has no 'SRCALPHA' member (no-member)
-R:726, 4: Too many arguments (7/5) (too-many-arguments)
-E:776, 8: No name '_fonts' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame.control
-W:137, 0: Anomalous backslash in string: '\*'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
-E: 30, 0: No name '_colors' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E: 32, 0: No name '_fonts' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-R: 80, 0: Too many instance attributes (9/7) (too-many-instance-attributes)
-C: 92, 4: Invalid class attribute name "_button_selected_background_pygame_color" (invalid-name)
-E:153, 8: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:173,18: Access to a protected member _control_width of a client class (protected-access)
-W:178,51: Access to a protected member _controls of a client class (protected-access)
-W:178,20: Access to a protected member _y2 of a client class (protected-access)
-W:178,20: Access to a protected member _controls of a client class (protected-access)
-W:205, 8: Access to a protected member _control_selected of a client class (protected-access)
-W:207, 8: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:253, 8: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:255,32: Too many positional arguments for lambda call (too-many-function-args)
-W:256,35: Access to a protected member _controlpanel_background_pygame_color of a client class (protected-access)
-W:260,21: Access to a protected member _control_selected of a client class (protected-access)
-W:283, 8: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-W:307,16: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-W:355,18: Access to a protected member _control_width of a client class (protected-access)
-W:359, 8: Access to a protected member _draw_controlpanel of a client class (protected-access)
-R:362, 0: Too many instance attributes (11/7) (too-many-instance-attributes)
-W:399,25: Access to a protected member _label_pygame_font of a client class (protected-access)
-C:404, 4: Invalid class attribute name "_input_selected_background_pygame_color" (invalid-name)
-W:411,31: Access to a protected member _label_text_pygame_color of a client class (protected-access)
-E:438, 8: No name 'frame' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:450,28: Access to a protected member _control_width of a client class (protected-access)
-W:454,24: Access to a protected member _control_width of a client class (protected-access)
-W:458,51: Access to a protected member _controls of a client class (protected-access)
-W:458,20: Access to a protected member _y2 of a client class (protected-access)
-W:458,20: Access to a protected member _controls of a client class (protected-access)
-R:474, 4: Too many local variables (20/15) (too-many-locals)
-W:492,12: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-W:497,20: Access to a protected member _control_selected of a client class (protected-access)
-C:505,12: Invalid variable name "pygame_surface_text_before_cursor" (invalid-name)
-W:519,12: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-W:527,25: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-W:551,29: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-W:557, 8: Access to a protected member _controlpanel_pygame_surface of a client class (protected-access)
-E:578,31: Module 'pygame' has no 'K_END' member (no-member)
-W:582,16: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:585,33: Module 'pygame' has no 'K_ESCAPE' member (no-member)
-W:590,16: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:593,33: Module 'pygame' has no 'K_HOME' member (no-member)
-W:597,16: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:600,33: Module 'pygame' has no 'K_LEFT' member (no-member)
-E:605,42: Module 'pygame' has no 'KMOD_CTRL' member (no-member)
-W:607,16: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:610,35: Module 'pygame' has no 'K_RETURN' member (no-member)
-E:611,35: Module 'pygame' has no 'K_KP_ENTER' member (no-member)
-W:613,12: Access to a protected member _control_selected of a client class (protected-access)
-W:614,12: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:618,33: Module 'pygame' has no 'K_RIGHT' member (no-member)
-E:621,38: Module 'pygame' has no 'KMOD_CTRL' member (no-member)
-W:632,16: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:635,33: Module 'pygame' has no 'K_TAB' member (no-member)
-W:638,18: Access to a protected member _controls of a client class (protected-access)
-W:641,28: Access to a protected member _controls of a client class (protected-access)
-W:642,34: Access to a protected member _controls of a client class (protected-access)
-W:646,12: Access to a protected member _control_selected of a client class (protected-access)
-W:648,27: Access to a protected member _controls of a client class (protected-access)
-W:647,16: Access to a protected member _controls of a client class (protected-access)
-W:650,12: Access to a protected member _draw_controlpanel of a client class (protected-access)
-E:656,31: Module 'pygame' has no 'K_BACKSPACE' member (no-member)
-E:660,38: Module 'pygame' has no 'KMOD_CTRL' member (no-member)
-E:665,33: Module 'pygame' has no 'K_DELETE' member (no-member)
-E:667,34: Module 'pygame' has no 'KMOD_CTRL' member (no-member)
-W:693,12: No exception type(s) specified (bare-except)
-W:696,12: Access to a protected member _draw_controlpanel of a client class (protected-access)
-R:566, 4: Too many return statements (7/6) (too-many-return-statements)
-R:566, 4: Too many branches (25/12) (too-many-branches)
-R:566, 4: Too many statements (63/50) (too-many-statements)
-W:713,12: Access to a protected member _control_selected of a client class (protected-access)
-W:714,12: Access to a protected member _draw_controlpanel of a client class (protected-access)
-W:753, 8: Access to a protected member _draw_controlpanel of a client class (protected-access)
-C:  3, 0: Too many lines in module (1116/1000) (too-many-lines)
-E: 31, 0: No name '_colors' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-R: 37, 0: Too many instance attributes (23/7) (too-many-instance-attributes)
-C: 56, 4: Invalid class attribute name "_controlpanel_background_pygame_color" (invalid-name)
-C:170, 4: Invalid class attribute name "_save_downloaded_medias_overwrite" (invalid-name)
-C:177, 4: Invalid class attribute name "_statuskey_background_pygame_color" (invalid-name)
-C:203, 4: Invalid class attribute name "_statusmouse_background_pygame_color" (invalid-name)
-W:336, 8: No exception type(s) specified (bare-except)
-E:359, 8: No name 'canvas' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:364,41: Too many positional arguments for lambda call (too-many-function-args)
-E:366,43: Too many positional arguments for lambda call (too-many-function-args)
-E:371,44: Too many positional arguments for lambda call (too-many-function-args)
-W:397,12: Access to a protected member _draw of a client class (protected-access)
-W:412,31: Access to a protected member _height of a client class (protected-access)
-E:437,12: No name 'keys' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:547,17: Access to a protected member _y1 of a client class (protected-access)
-W:547,47: Access to a protected member _y2 of a client class (protected-access)
-W:549,19: Access to a protected member _pos_in of a client class (protected-access)
-E:590,16: No name 'timer' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:592,16: Access to a protected member _stop_all of a client class (protected-access)
-E:598,12: No name 'timer' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:611,12: No name 'image' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:615, 8: Access to a protected member _background_pygame_surface_image of a client class (protected-access)
-W:615,56: Access to a protected member _pygame_surface of a client class (protected-access)
-E:643, 8: No name 'control' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:679, 8: No name 'control' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:707, 8: No name 'control' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:744, 8: No name '_fonts' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-R:725, 4: Method could be a function (no-self-use)
-E:767, 8: No name '_colors' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:770, 8: Access to a protected member _background_pygame_color of a client class (protected-access)
-W:783, 8: Access to a protected member _draw_handler of a client class (protected-access)
-E:858, 8: No name 'control' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-E:860, 8: No name 'keys' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:872,12: Access to a protected member _draw of a client class (protected-access)
-W:876,16: Access to a protected member _save of a client class (protected-access)
-E:880,33: Module 'pygame' has no 'MOUSEMOTION' member (no-member)
-W:885,46: Access to a protected member _width of a client class (protected-access)
-W:886,50: Access to a protected member _height of a client class (protected-access)
-R:870, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
-E:896,35: Module 'pygame' has no 'MOUSEBUTTONDOWN' member (no-member)
-W:900,29: Access to a protected member _width of a client class (protected-access)
-W:903,33: Access to a protected member _height of a client class (protected-access)
-W:912,32: Access to a protected member _mouse_left_button of a client class (protected-access)
-R:870, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
-E:919,35: Module 'pygame' has no 'MOUSEBUTTONUP' member (no-member)
-W:923,38: Access to a protected member _width of a client class (protected-access)
-W:924,42: Access to a protected member _height of a client class (protected-access)
-R:870, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
-W:934,32: Access to a protected member _mouse_left_button of a client class (protected-access)
-R:870, 8: Too many nested blocks (6/5) (too-many-nested-blocks)
-E:935,35: Module 'pygame' has no 'KEYDOWN' member (no-member)
-W:939,24: Access to a protected member _key of a client class (protected-access)
-E:944,35: Module 'pygame' has no 'KEYUP' member (no-member)
-E:953,35: Module 'pygame' has no 'QUIT' member (no-member)
-W:964,12: Access to a protected member _save of a client class (protected-access)
-R:844, 4: Too many branches (30/12) (too-many-branches)
-R:844, 4: Too many statements (70/50) (too-many-statements)
-E:986, 8: No name 'timer' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:988,49: Access to a protected member _timers_running of a client class (protected-access)
-W:990,16: Access to a protected member _stop_all of a client class (protected-access)
-E:1004,16: No name 'keys' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:1007,20: Access to a protected member _stop_all of a client class (protected-access)
-W:1018,40: Access to a protected member _timers_running of a client class (protected-access)
-W:1060,34: Access to a protected member _pygamecolors_cached of a client class (protected-access)
-W:1061,34: Access to a protected member _pygamefonts_cached of a client class (protected-access)
-W:1062,34: Access to a protected member _pygamemedias_cached of a client class (protected-access)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame.image
-C: 81, 4: Invalid class attribute name "_pygamesurfaces_cache_default_max_size" (invalid-name)
-E:102, 8: No name '_media' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:212, 4: __init__ method from base class 'Image' is not called (super-init-not-called)
-E:227, 8: No name '_media' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-************* Module SimpleGUICS2Pygame.simpleguics2pygame.sound
-E:115, 8: No name '_media' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-W:204, 4: __init__ method from base class 'Sound' is not called (super-init-not-called)
-E:217, 8: No name '_media' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-************* Module test_all
-E: 56,21: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_PYGAME_VERSION' member (no-member)
-W: 56,21: Access to a protected member _PYGAME_VERSION of a client class (protected-access)
-W:184,57: Using deprecated method escape() (deprecated-method)
-************* Module test_button_label
-W: 24, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 52, 0: Invalid constant name "frame" (invalid-name)
-C: 30, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_circle
-W: 23, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 68, 0: Invalid constant name "frame" (invalid-name)
-W: 84, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 29, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_colors_constants
-W: 23, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 76, 0: Invalid constant name "frame" (invalid-name)
-W: 92, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 29, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_colors_html
-W: 27, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 78, 0: Invalid constant name "frame" (invalid-name)
-W: 94, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 33, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_colors_html_hsla
-W: 30, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 52, 0: Invalid constant name "state_transparency" (invalid-name)
-C: 63, 8: Invalid variable name "p" (invalid-name)
-C: 65,12: Invalid variable name "a" (invalid-name)
-C: 71,12: Invalid variable name "a" (invalid-name)
-C: 77,12: Invalid variable name "a" (invalid-name)
-W: 88, 4: Using the global statement (global-statement)
-C: 88, 4: Invalid constant name "state_transparency" (invalid-name)
-C: 94, 0: Invalid constant name "frame" (invalid-name)
-W:112, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 36, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_colors_html_rgba
-W: 27, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 49, 0: Invalid constant name "state_transparency" (invalid-name)
-C: 60,12: Invalid variable name "a" (invalid-name)
-C: 66,12: Invalid variable name "a" (invalid-name)
-C: 72,12: Invalid variable name "a" (invalid-name)
-C: 78,12: Invalid variable name "a" (invalid-name)
-W: 89, 4: Using the global statement (global-statement)
-C: 89, 4: Invalid constant name "state_transparency" (invalid-name)
-C: 95, 0: Invalid constant name "frame" (invalid-name)
-W:113, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 33, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_command_line_options
-C: 19, 0: Import "import SimpleGUICS2Pygame.simpleguics2pygame as simplegui" should be placed at the top of the module (wrong-import-position)
-W: 19, 0: Unused SimpleGUICS2Pygame.simpleguics2pygame imported as simplegui (unused-import)
-************* Module test_dir
-C:114, 0: Invalid constant name "different" (invalid-name)
-C:121, 0: Invalid argument name "a" (invalid-name)
-C:121, 0: Invalid argument name "b" (invalid-name)
-W:131, 4: Using the global statement (global-statement)
-C:131, 4: Invalid constant name "different" (invalid-name)
-C:138, 4: Invalid variable name "ab" (invalid-name)
-C:181,16: Consider iterating the dictionary directly instead of calling .keys() (consider-iterating-dictionary)
-************* Module test_grid
-W: 23, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 48, 0: Invalid constant name "state_colors" (invalid-name)
-C: 49, 0: Invalid constant name "state_method" (invalid-name)
-C: 87, 4: Invalid variable name "s" (invalid-name)
-C:112, 4: Invalid variable name "s" (invalid-name)
-C:136, 4: Invalid variable name "s" (invalid-name)
-W:155, 4: Using the global statement (global-statement)
-C:155, 4: Invalid constant name "state_colors" (invalid-name)
-W:164, 4: Using the global statement (global-statement)
-C:164, 4: Invalid constant name "state_method" (invalid-name)
-C:170, 0: Invalid constant name "frame" (invalid-name)
-W:189, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 29, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_image
-W: 31, 4: Access to a protected member _hide_status of a client class (protected-access)
-W: 32, 4: Access to a protected member _keep_timers of a client class (protected-access)
-C:142, 0: Invalid constant name "frame" (invalid-name)
-C:144, 0: Invalid constant name "fps" (invalid-name)
-C:152, 0: Invalid constant name "button_fps" (invalid-name)
-W:162, 8: Using the global statement (global-statement)
-C:162, 8: Invalid constant name "logo" (invalid-name)
-W:172,12: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C:174, 0: Invalid constant name "loader" (invalid-name)
-C:185, 4: Invalid constant name "logo" (invalid-name)
-E:185,11: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_load_local_image' member (no-member)
-W:185,11: Access to a protected member _load_local_image of a client class (protected-access)
-W:189,26: Access to a protected member _print_stats_cache of a client class (protected-access)
-C: 38, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_input
-W: 24, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 44, 0: Invalid constant name "input_1" (invalid-name)
-C: 45, 0: Invalid constant name "input_2" (invalid-name)
-W: 52, 4: Using the global statement (global-statement)
-C: 52, 4: Invalid constant name "input_1" (invalid-name)
-W: 63, 4: Using the global statement (global-statement)
-C: 63, 4: Invalid constant name "input_2" (invalid-name)
-C: 71, 0: Invalid constant name "frame" (invalid-name)
-C: 30, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
-************* Module test_line
-W: 23, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 46, 0: Invalid constant name "state_colors" (invalid-name)
-C: 47, 0: Invalid constant name "state_direction" (invalid-name)
-W: 81, 4: Using the global statement (global-statement)
-C: 81, 4: Invalid constant name "state_colors" (invalid-name)
-W: 90, 4: Using the global statement (global-statement)
-C: 90, 4: Invalid constant name "state_direction" (invalid-name)
-C: 96, 0: Invalid constant name "frame" (invalid-name)
-W:115, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 29, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
+C:614, 8: Invalid attribute name "_background_pygame_surface_image" (invalid-name)
 ************* Module test_numeric
-W: 86, 0: Bad indentation. Found 8 spaces, expected 4 (bad-indentation)
-W: 58,12: Redefining name 'i' from outer scope (line 183) (redefined-outer-name)
-W: 56, 8: Redefining name 'm' from outer scope (line 151) (redefined-outer-name)
-W: 32,12: Redefining name 'b' from outer scope (line 320) (redefined-outer-name)
-W: 32, 9: Redefining name 'a' from outer scope (line 319) (redefined-outer-name)
-W: 59,16: Redefining name 'j' from outer scope (line 184) (redefined-outer-name)
-C: 32, 0: Invalid argument name "a" (invalid-name)
-C: 32, 0: Invalid argument name "b" (invalid-name)
-W: 66,11: Redefining name 'm' from outer scope (line 151) (redefined-outer-name)
-C: 89, 0: Invalid constant name "nb_errors" (invalid-name)
-C: 91, 0: Invalid constant name "dz5_3" (invalid-name)
-C: 97, 0: Invalid constant name "dz3_5" (invalid-name)
-C:101, 0: Invalid constant name "di1" (invalid-name)
-C:103, 0: Invalid constant name "di5" (invalid-name)
-C:109, 0: Invalid constant name "d5_3" (invalid-name)
-C:115, 0: Invalid constant name "d5_3t" (invalid-name)
-C:119, 0: Invalid constant name "d3_5" (invalid-name)
-C:123, 0: Invalid constant name "d3_5t" (invalid-name)
-C:129, 0: Invalid constant name "d2_2" (invalid-name)
-C:132, 0: Invalid constant name "d2_2i" (invalid-name)
-C:135, 0: Invalid constant name "d3_3" (invalid-name)
-C:139, 0: Invalid constant name "d3_3i" (invalid-name)
-C:143, 0: Invalid constant name "datas" (invalid-name)
-C:161, 0: Invalid constant name "mi1" (invalid-name)
-C:170, 0: Invalid constant name "mi5" (invalid-name)
-C:183, 4: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
-C:232, 4: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
-C:258, 8: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
-C:319, 0: Invalid constant name "a" (invalid-name)
-C:320, 0: Invalid constant name "b" (invalid-name)
-C:330, 0: Invalid constant name "a" (invalid-name)
-C:331, 0: Invalid constant name "b" (invalid-name)
-C:449, 0: Invalid constant name "mi" (invalid-name)
-C:455, 0: Invalid constant name "mi" (invalid-name)
-************* Module test_objects
-W: 83, 0: Redefining built-in 'input' (redefined-builtin)
-W: 23, 4: Access to a protected member _hide_status of a client class (protected-access)
-E: 29, 4: No name '_PYGAME_VERSION' in module 'SimpleGUICS2Pygame.simpleguics2pygame' (no-name-in-module)
-C: 73, 0: Invalid constant name "frame" (invalid-name)
-C: 81, 0: Invalid constant name "label" (invalid-name)
-C: 82, 0: Invalid constant name "button" (invalid-name)
-C: 83, 0: Invalid constant name "input" (invalid-name)
+R: 83, 0: Too many local variables (31/15) (too-many-locals)
+C:184, 8: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+C:193, 8: Invalid variable name "m2" (invalid-name)
+C:211, 8: Invalid variable name "m2" (invalid-name)
+C:230, 8: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+C:256,12: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+C:267,12: Invalid variable name "ms" (invalid-name)
+C:275,12: Invalid variable name "ms" (invalid-name)
+C:304, 8: Invalid variable name "m2" (invalid-name)
+C:310, 8: Invalid variable name "m2" (invalid-name)
+C:442, 4: Invalid variable name "mi" (invalid-name)
+C:448, 4: Invalid variable name "mi" (invalid-name)
+R: 83, 0: Too many branches (71/12) (too-many-branches)
+R: 83, 0: Too many statements (244/50) (too-many-statements)
 ************* Module test_simpleplot_bars
 C: 25, 0: Invalid constant name "datalist" (invalid-name)
 C: 26, 0: Invalid constant name "dataset" (invalid-name)
 C: 28, 0: Invalid constant name "filename" (invalid-name)
 C: 34, 8: Invalid constant name "filename" (invalid-name)
-W: 47, 4: Access to a protected member _block of a client class (protected-access)
 ************* Module test_simpleplot_lines
 C: 25, 0: Invalid constant name "datalist" (invalid-name)
 C: 26, 0: Invalid constant name "dataset" (invalid-name)
 C: 28, 0: Invalid constant name "filename" (invalid-name)
 C: 34, 8: Invalid constant name "filename" (invalid-name)
-W: 50, 4: Access to a protected member _block of a client class (protected-access)
 ************* Module test_simpleplot_scatter
 C: 25, 0: Invalid constant name "datalist" (invalid-name)
 C: 26, 0: Invalid constant name "dataset" (invalid-name)
 C: 28, 0: Invalid constant name "filename" (invalid-name)
 C: 34, 8: Invalid constant name "filename" (invalid-name)
-W: 47, 4: Access to a protected member _block of a client class (protected-access)
 ************* Module test_sound
 C: 28, 0: Invalid constant name "sound_jump_ogg" (invalid-name)
 C: 31, 4: Invalid constant name "local_sound_chirp_wav" (invalid-name)
 E: 31,28: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_load_local_sound' member (no-member)
-W: 31,28: Access to a protected member _load_local_sound of a client class (protected-access)
-W: 58, 9: Access to a protected member _get_length of a client class (protected-access)
-************* Module test_text
-W: 28, 4: Access to a protected member _hide_status of a client class (protected-access)
-C:124, 0: Invalid constant name "frame" (invalid-name)
-W:140, 8: Access to a protected member _save_canvas_and_stop of a client class (protected-access)
-C: 34, 4: Imports from package SimpleGUICS2Pygame are not grouped (ungrouped-imports)
 ************* Module Stress_Balls
-W: 33, 4: Access to a protected member _hide_status of a client class (protected-access)
 C: 83, 0: Missing class docstring (missing-docstring)
 R: 83, 0: Too many instance attributes (12/7) (too-many-instance-attributes)
 R: 84, 4: Too many arguments (7/5) (too-many-arguments)
@@ -681,10 +156,10 @@ C:158, 4: Missing method docstring (missing-docstring)
 C:165, 4: Missing method docstring (missing-docstring)
 C:173, 4: Missing method docstring (missing-docstring)
 C:177, 4: Missing method docstring (missing-docstring)
-W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
+W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
+W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 C:194, 0: Missing function docstring (missing-docstring)
 C:202, 0: Missing function docstring (missing-docstring)
 W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
@@ -732,10 +207,10 @@ C:158, 4: Missing method docstring (missing-docstring)
 C:165, 4: Missing method docstring (missing-docstring)
 C:173, 4: Missing method docstring (missing-docstring)
 C:177, 4: Missing method docstring (missing-docstring)
-W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
+W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
+W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 C:194, 0: Missing function docstring (missing-docstring)
 C:202, 0: Missing function docstring (missing-docstring)
 W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
@@ -769,10 +244,8 @@ W:337, 4: Using the global statement (global-statement)
 W:349, 0: Access to a protected member _stop_timers of a client class (protected-access)
 ************* Module Stress_Balls_results
 W:153, 7: Catching too general exception Exception (broad-except)
-W:152, 8: Access to a protected member _block of a client class (protected-access)
 R:112, 0: Redefinition of alls_nb type from set to list (redefined-variable-type)
 ************* Module Stress_Balls_reverse
-W: 33, 4: Access to a protected member _hide_status of a client class (protected-access)
 C: 83, 0: Missing class docstring (missing-docstring)
 R: 83, 0: Too many instance attributes (12/7) (too-many-instance-attributes)
 R: 84, 4: Too many arguments (7/5) (too-many-arguments)
@@ -787,10 +260,10 @@ C:158, 4: Missing method docstring (missing-docstring)
 C:165, 4: Missing method docstring (missing-docstring)
 C:173, 4: Missing method docstring (missing-docstring)
 C:177, 4: Missing method docstring (missing-docstring)
-W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
 W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
+W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
+W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
 C:194, 0: Missing function docstring (missing-docstring)
 C:202, 0: Missing function docstring (missing-docstring)
 W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
@@ -803,32 +276,29 @@ W:209, 4: Using the global statement (global-statement)
 W:210, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
 W:222,15: Catching too general exception Exception (broad-except)
 W:231,15: Catching too general exception Exception (broad-except)
-W:230,16: Access to a protected member _block of a client class (protected-access)
 C:257, 0: Missing function docstring (missing-docstring)
 C:263, 0: Missing function docstring (missing-docstring)
 C:270, 0: Missing function docstring (missing-docstring)
 W:271, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
 C:283, 0: Missing function docstring (missing-docstring)
 W:284, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-W:293,37: Access to a protected member _get_fps_average of a client class (protected-access)
 C:304, 0: Missing function docstring (missing-docstring)
 W:305, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
 C:310, 0: Missing function docstring (missing-docstring)
 W:311, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
 W:312, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-W:316,11: Access to a protected member _get_fps_average of a client class (protected-access)
 C:326, 0: Missing function docstring (missing-docstring)
 C:331, 0: Missing function docstring (missing-docstring)
 C:336, 0: Missing function docstring (missing-docstring)
 W:337, 4: Using the global statement (global-statement)
-W:349, 0: Access to a protected member _stop_timers of a client class (protected-access)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.sound) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.sound) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._fonts -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control) (cyclic-import)
 R:  1, 0: Similar lines in 2 files
 ==Stress_Balls:42
 ==Stress_Balls_reverse:42
@@ -1498,6 +968,50 @@ timer.start()
 
 frame.start() (duplicate-code)
 R:  1, 0: Similar lines in 2 files
+==test_colors_html_hsla:80
+==test_colors_html_rgba:81
+                                             else 1)))
+
+
+def switch_transparency():
+    """
+    Switch between transparency mode and opaque mode.
+    """
+    global STATE_TRANSPARENCY  # pylint: disable=global-statement
+
+    STATE_TRANSPARENCY = not STATE_TRANSPARENCY
+
+
+#
+# Main
+######
+def main():
+    """Create and start frame."""
+    frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Switch transparency', switch_transparency)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
+
+    frame.set_draw_handler(draw)
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
+
+    frame.start()
+
+if __name__ == '__main__':
+    main() (duplicate-code)
+R:  1, 0: Similar lines in 2 files
 ==RiceRocks_Asteroids:26
 ==Spaceship_prototype:23
 import math
@@ -1536,44 +1050,6 @@ SCREEN_HEIGHT = 600
 ###################
 FRAME = None
  (duplicate-code)
-R:  1, 0: Similar lines in 2 files
-==test_colors_html_hsla:80
-==test_colors_html_rgba:81
-                                             else 1)))
-
-
-def switch_transparency():
-    """
-    Switch between transparency mode and opaque mode.
-    """
-    global state_transparency
-
-    state_transparency = not state_transparency
-
-
-# Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
-
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Switch transparency', switch_transparency)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
-
-frame.set_draw_handler(draw)
-
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
-
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
-
-
-frame.start() (duplicate-code)
 R:  1, 0: Similar lines in 6 files
 ==test_button_label:14
 ==test_circle:13
@@ -1590,13 +1066,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -1607,6 +1083,33 @@ else:
     GUI_VERSION = 'simplegui'
 
  (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==test_circle:69
+==test_colors_html:79
+def main():
+    """Create and start frame."""
+    frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
+
+    frame.set_draw_handler(draw)
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
+
+    frame.start()
+
+if __name__ == '__main__':
+    main() (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==test_simpleplot_bars:13
 ==test_simpleplot_scatter:13
@@ -1698,7 +1201,7 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 # ### Config >>>
@@ -1723,13 +1226,13 @@ R:  1, 0: Similar lines in 10 files
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -1740,30 +1243,6 @@ else:
     GUI_VERSION = 'simplegui'
 
  (duplicate-code)
-R:  1, 0: Similar lines in 3 files
-==test_circle:67
-==test_colors_constants:75
-==test_colors_html:77
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
-
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
-
-frame.set_draw_handler(draw)
-
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
-
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
-
-
-frame.start() (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==SimpleGUICS2Pygame_check:67
 ==pygame_check:31
@@ -1775,16 +1254,16 @@ R:  1, 0: Similar lines in 2 files
 
         CMD = 'pygame.init()'
         try:
-            SUCCESS, FAILED = pygame.init()
+            SUCCESS, FAILED = pygame.init()  # pylint: disable=no-member
 
             if FAILED == 0:
                 print(' ', CMD, SUCCESS, 'modules loaded ok')
             else:
                 print(' ', CMD, SUCCESS, 'modules loaded',
                       FAILED, 'failed WARNING!')
-        except Exception as exc:
+        except Exception as exc:  # pylint: disable=broad-except
             print(' ', CMD, 'FAILED!', exc)
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc) (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Blackjack:108
@@ -1823,13 +1302,72 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 # ### Config >>>
 MAX_NB_SECONDS = 30  # number of seconds before next step
 
 ALPHA = False  # start with transparency if True (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==Frame_example:26
+==stop_example:33
+def draw(canvas):
+    """
+    Draw a simple text.
+
+    :param canvas: simplegui.Canvas
+    """
+    text = 'Canvas'
+
+    font_size = 40
+    text_width = FRAME.get_canvas_textwidth(text, font_size)
+
+    canvas.draw_text(text,
+                     ((CANVAS_WIDTH - text_width) // 2,
+                      CANVAS_HEIGHT // 2 + font_size // 4),
+                     font_size, 'Green')
+
+ (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==test_colors_html_hsla:106
+==test_colors_html_rgba:107
+==test_line:109
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
+
+    frame.set_draw_handler(draw)
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
+
+    frame.start()
+
+if __name__ == '__main__':
+    main() (duplicate-code)
+R:  1, 0: Similar lines in 5 files
+==test_circle:79
+==test_colors_html:89
+==test_colors_html_hsla:107
+==test_colors_html_rgba:108
+==test_line:110
+    frame.add_button('Quit', frame.stop)
+
+    frame.set_draw_handler(draw)
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
+
+    frame.start()
+
+if __name__ == '__main__':
+    main() (duplicate-code)
 R:  1, 0: Similar lines in 7 files
 ==test_button_label:14
 ==test_circle:13
@@ -1847,7 +1385,7 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
@@ -1867,7 +1405,7 @@ R:  1, 0: Similar lines in 11 files
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -1878,44 +1416,36 @@ else:
     GUI_VERSION = 'simplegui'
 
  (duplicate-code)
-R:  1, 0: Similar lines in 4 files
-==test_colors_html_hsla:102
-==test_colors_html_rgba:103
-==test_grid:179
-==test_line:105
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
-
-frame.set_draw_handler(draw)
-
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
-
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
-
-
-frame.start() (duplicate-code)
-R:  1, 0: Similar lines in 7 files
-==test_circle:75
+R:  1, 0: Similar lines in 2 files
 ==test_colors_constants:83
-==test_colors_html:85
-==test_colors_html_hsla:103
-==test_colors_html_rgba:104
 ==test_grid:180
-==test_line:106
-frame.add_button('Quit', frame.stop)
+FRAME.add_button('Quit', FRAME.stop)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
 if SIMPLEGUICS2PYGAME:
     from sys import argv
 
     if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
+        FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
 
-frame.start() (duplicate-code)
+FRAME.start() (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==RiceRocks_Asteroids:993
+==test_image:128
+def fps_on_off():
+    """
+    Active or inactive the calculation and drawing of FPS.
+    """
+    if FPS_DRAWER.is_started():
+        FPS_DRAWER.stop()
+        BUTTON_FPS.set_text('FPS on')
+    else:
+        FPS_DRAWER.start()
+        BUTTON_FPS.set_text('FPS off')
+
+ (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==test_dir:28
 ==test_numeric:20
@@ -1931,20 +1461,6 @@ else:
 
  (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==test_button_label:53
-==test_input:72
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
-frame.add_label('')
-
-
-# Buttons (duplicate-code)
-R:  1, 0: Similar lines in 2 files
 ==SimpleGUICS2Pygame.simpleguics2pygame.image:24
 ==SimpleGUICS2Pygame.simpleguics2pygame.sound:24
 try:
@@ -1956,8 +1472,8 @@ except ImportError:
 
 
 #
-# Private global constant
-######################### (duplicate-code)
+# "Private" function
+#################### (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Blackjack:16
 ==Pong:17
@@ -1972,6 +1488,35 @@ except ImportError:
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
  (duplicate-code)
+R:  1, 0: Similar lines in 5 files
+==test_circle:69
+==test_colors_html:79
+==test_colors_html_hsla:95
+==test_colors_html_rgba:96
+==test_line:97
+def main():
+    """Create and start frame."""
+    frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('') (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==test_button_label:57
+==test_input:76
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
+    frame.add_label('')
+
+    # Buttons (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==RiceRocks_Asteroids:641
 ==Spaceship_prototype:118
@@ -2008,11 +1553,24 @@ R:  1, 0: Similar lines in 5 files
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==test_colors_constants:85
+==test_grid:182
+==test_image:149
+    FRAME.set_draw_handler(draw)
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
+
+ (duplicate-code)
 R:  1, 0: Similar lines in 8 files
 ==test_button_label:14
 ==test_circle:13
@@ -2033,7 +1591,7 @@ except ImportError:
  (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==SimpleGUICS2Pygame.simpleguics2pygame.control:22
-==SimpleGUICS2Pygame.simpleguics2pygame.frame:23
+==SimpleGUICS2Pygame.simpleguics2pygame.frame:24
 try:
     import pygame
 
@@ -2041,7 +1599,7 @@ try:
 except ImportError:
     _PYGAME_AVAILABLE = False
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
  (duplicate-code)
 R:  1, 0: Similar lines in 4 files
 ==Blackjack:18
@@ -2069,39 +1627,17 @@ except ImportError:
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
  (duplicate-code)
-R:  1, 0: Similar lines in 8 files
-==test_circle:77
-==test_colors_constants:85
-==test_colors_html:87
-==test_colors_html_hsla:105
-==test_colors_html_rgba:106
-==test_grid:182
-==test_image:165
-==test_line:108
-frame.set_draw_handler(draw)
-
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
-
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
- (duplicate-code)
-R:  1, 0: Similar lines in 7 files
-==test_circle:67
+R:  1, 0: Similar lines in 2 files
 ==test_colors_constants:75
-==test_colors_html:77
-==test_colors_html_hsla:93
-==test_colors_html_rgba:94
 ==test_grid:169
-==test_line:95
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+FRAME = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('') (duplicate-code)
+FRAME.add_label(TEST)
+FRAME.add_label('')
+FRAME.add_label(PYTHON_VERSION)
+FRAME.add_label(GUI_VERSION)
+FRAME.add_label(PYGAME_VERSION)
+FRAME.add_label('') (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Frame_example:14
 ==Nostalgic_Basic_Blitz:20
@@ -2136,16 +1672,6 @@ FRAME.set_draw_handler(draw_wait_images)
 
 TIMER = simplegui.create_timer(100, test_images_loaded)
 TIMER.start() (duplicate-code)
-R:  1, 0: Similar lines in 2 files
-==test_input:70
-==test_objects:72
-frame = simplegui.create_frame(TEST, 0, 400, 400)
-
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION) (duplicate-code)
 R:  1, 0: Similar lines in 12 files
 ==test_button_label:33
 ==test_circle:32
@@ -2166,24 +1692,23 @@ else:
     GUI_VERSION = 'simplegui'
 
  (duplicate-code)
-R:  1, 0: Similar lines in 5 files
-==test_button_label:53
-==test_circle:69
-==test_colors_constants:77
-==test_colors_html:79
-==test_input:72
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Quit', frame.stop) (duplicate-code)
+R:  1, 0: Similar lines in 4 files
+==test_button_label:57
+==test_circle:73
+==test_colors_html:83
+==test_input:76
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop) (duplicate-code)
 R:  1, 0: Similar lines in 4 files
 ==SimpleGUICS2Pygame.simpleguics2pygame._options:22
 ==SimpleGUICS2Pygame.simpleguics2pygame.canvas:26
 ==SimpleGUICS2Pygame.simpleguics2pygame.control:22
-==SimpleGUICS2Pygame.simpleguics2pygame.frame:23
+==SimpleGUICS2Pygame.simpleguics2pygame.frame:24
 try:
     import pygame
 
@@ -2237,24 +1762,29 @@ R:  1, 0: Similar lines in 2 files
                             _filename=filename)
 
 if SIMPLEGUICS2PYGAME and (len(argv) != 2):
-    simpleplot._block() (duplicate-code)
-R:  1, 0: Similar lines in 10 files
-==test_button_label:53
-==test_circle:69
+    simpleplot._block()  # pylint: disable=protected-access (duplicate-code)
+R:  1, 0: Similar lines in 3 files
 ==test_colors_constants:77
-==test_colors_html:79
-==test_colors_html_hsla:95
-==test_colors_html_rgba:96
 ==test_grid:171
-==test_image:145
-==test_input:72
-==test_line:97
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('') (duplicate-code)
+==test_image:163
+FRAME.add_label(TEST)
+FRAME.add_label('')
+FRAME.add_label(PYTHON_VERSION)
+FRAME.add_label(GUI_VERSION)
+FRAME.add_label(PYGAME_VERSION)
+FRAME.add_label('') (duplicate-code)
+R:  1, 0: Similar lines in 5 files
+==test_button_label:57
+==test_colors_html_hsla:99
+==test_colors_html_rgba:100
+==test_input:76
+==test_line:101
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('') (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==loader:43
 ==test_image:66
@@ -2277,22 +1807,16 @@ except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access (duplicate-code)
-R:  1, 0: Similar lines in 10 files
-==test_button_label:53
-==test_circle:69
+R:  1, 0: Similar lines in 4 files
 ==test_colors_constants:77
-==test_colors_html:79
-==test_colors_html_hsla:95
-==test_colors_html_rgba:96
 ==test_grid:171
-==test_image:145
-==test_line:97
+==test_image:163
 ==test_objects:74
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION) (duplicate-code)
+FRAME.add_label(TEST)
+FRAME.add_label('')
+FRAME.add_label(PYTHON_VERSION)
+FRAME.add_label(GUI_VERSION)
+FRAME.add_label(PYGAME_VERSION) (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==RiceRocks_Asteroids:733
 ==Spaceship_prototype:200
@@ -2305,7 +1829,7 @@ R:  1, 0: Similar lines in 2 files
 
 Report
 ======
-6078 statements analysed.
+6103 statements analysed.
 
 Statistics by type
 ------------------
@@ -2319,7 +1843,7 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |method   |277    |277        |=          |88.09       |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|function |188    |188        |=          |82.45       |0.53     |
+|function |196    |197        |-1.00      |83.16       |0.51     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -2332,36 +1856,36 @@ External dependencies
       \-Image (test_all)
       \-ImageChops (test_all)
       \-ImageStat (test_all)
-    SimpleGUICS2Pygame (setup,presentation,test_all,test_objects,test_colors_html,test_colors_html_rgba,test_text,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib_draw,test_circle,test_colors_html_hsla,test_grid,test_input,test_button_label,test_colors_constants,test_image,test_line)
-      \-codeskulptor (test_dir,SimpleGUICS2Pygame_check)
-      \-codeskulptor_lib (Memory,test_colors_html,test_colors_html_rgba,SimpleGUICS2Pygame_check,test_colors_html_hsla,Spaceship_prototype,RiceRocks_Asteroids,Mandelbrot_Set)
-      \-numeric (test_dir,SimpleGUICS2Pygame_check,test_numeric)
+    SimpleGUICS2Pygame (test_input,test_all,test_colors_html,test_colors_html_hsla,test_colors_constants,test_circle,test_button_label,test_image,test_objects,SimpleGUICS2Pygame_check,test_line,SimpleGUICS2Pygame.simplegui_lib_draw,test_grid,setup,test_colors_html_rgba,presentation,test_text)
+      \-codeskulptor (SimpleGUICS2Pygame_check,test_dir)
+      \-codeskulptor_lib (Mandelbrot_Set,test_colors_html,test_colors_html_hsla,Memory,SimpleGUICS2Pygame_check,Spaceship_prototype,test_colors_html_rgba,RiceRocks_Asteroids)
+      \-numeric (SimpleGUICS2Pygame_check,test_dir,test_numeric)
       \-simplegui_lib (SimpleGUICS2Pygame_check)
-      \-simplegui_lib_draw (Memory,SimpleGUICS2Pygame.simplegui_lib,test_text,SimpleGUICS2Pygame_check)
-      \-simplegui_lib_fps (test_image,Spaceship_prototype,SimpleGUICS2Pygame.simplegui_lib,SimpleGUICS2Pygame_check,RiceRocks_Asteroids)
-      \-simplegui_lib_keys (SimpleGUICS2Pygame.simplegui_lib,SimpleGUICS2Pygame_check,keys)
-      \-simplegui_lib_loader (loader,SimpleGUICS2Pygame_check,Spaceship_prototype,SimpleGUICS2Pygame.simplegui_lib,RiceRocks_Asteroids,test_image)
-      \-simpleguics2pygame (Memory,test_command_line_options,loader,Stress_Balls_average,test_text,test_colors_html_hsla,test_circle,test_grid,Stress_Balls_reverse,test_button_label,RiceRocks_Asteroids,test_colors_constants,test_objects,Mandelbrot_Set,Stress_Balls,test_all,test_colors_html,test_colors_html_rgba,SimpleGUICS2Pygame.simplegui_lib_fps,test_input,Blackjack,test_image,presentation,SimpleGUICS2Pygame.simpleguics2pygame._fonts,Frame_example,Spaceship_prototype,Pong,test_dir,Nostalgic_Basic_Blitz,stop_example,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib_loader,test_sound,keys,SimpleGUICS2Pygame.simplegui_lib_keys,Stopwatch,test_line)
-      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control)
-      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control)
+      \-simplegui_lib_draw (SimpleGUICS2Pygame_check,test_text,Memory,SimpleGUICS2Pygame.simplegui_lib)
+      \-simplegui_lib_fps (RiceRocks_Asteroids,Spaceship_prototype,test_image,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib)
+      \-simplegui_lib_keys (SimpleGUICS2Pygame_check,keys,SimpleGUICS2Pygame.simplegui_lib)
+      \-simplegui_lib_loader (loader,SimpleGUICS2Pygame.simplegui_lib,test_image,SimpleGUICS2Pygame_check,Spaceship_prototype,RiceRocks_Asteroids)
+      \-simpleguics2pygame (loader,Frame_example,test_colors_html_hsla,test_image,SimpleGUICS2Pygame.simplegui_lib_keys,test_objects,Nostalgic_Basic_Blitz,test_grid,presentation,test_text,test_command_line_options,SimpleGUICS2Pygame.simplegui_lib_loader,test_colors_constants,Stress_Balls_reverse,test_colors_html_rgba,stop_example,test_colors_html,SimpleGUICS2Pygame.simplegui_lib_fps,test_circle,Memory,test_sound,SimpleGUICS2Pygame_check,Spaceship_prototype,SimpleGUICS2Pygame.simpleguics2pygame._fonts,test_dir,test_line,Stress_Balls_average,keys,Blackjack,Mandelbrot_Set,Pong,test_all,Stress_Balls,test_button_label,Stopwatch,test_input,RiceRocks_Asteroids)
+      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
       | \-_media (SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.sound)
       | \-_options (SimpleGUICS2Pygame.simpleguics2pygame)
       | \-_pygame_lib (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._colors)
       | \-canvas (SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-control (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-frame (SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.control)
-      | \-image (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame)
+      | \-frame (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+      | \-image (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
       | \-keys (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-sound (SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media)
+      | \-sound (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._options)
       | \-timer (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      \-simpleplot (test_simpleplot_bars,Stress_Balls_average,test_simpleplot_scatter,SimpleGUICS2Pygame_check,Stress_Balls_reverse,test_simpleplot_lines,Stress_Balls,Stress_Balls_results,test_dir)
-    matplotlib (SimpleGUICS2Pygame.simpleplot,SimpleGUICS2Pygame_check)
+      \-simpleplot (test_simpleplot_lines,Stress_Balls_results,Stress_Balls,Stress_Balls_reverse,test_simpleplot_scatter,SimpleGUICS2Pygame_check,test_dir,Stress_Balls_average,test_simpleplot_bars)
+    matplotlib (SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleplot)
       \-pyplot (SimpleGUICS2Pygame.simpleplot)
-    pygame (SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame_check,pygame_check,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.control)
+    pygame (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame.simpleguics2pygame.control,pygame_check,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
       \-font (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
       \-mixer (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
       \-transform (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
-      \-version (test_colors_html,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,test_colors_html_rgba,test_text,test_colors_html_hsla,test_circle,test_grid,test_input,test_colors_constants,test_button_label,test_image,test_line)
+      \-version (test_input,test_colors_html,test_colors_html_hsla,test_colors_constants,test_circle,test_button_label,test_image,test_line,test_grid,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,test_colors_html_rgba,test_text)
     setuptools (setup)
 
 
@@ -2372,13 +1896,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8017   |49.08 |8017     |=          |
+|code      |8025   |49.09 |8029     |-4.00      |
 +----------+-------+------+---------+-----------+
-|docstring |4680   |28.65 |4677     |+3.00      |
+|docstring |4688   |28.68 |4689     |-1.00      |
 +----------+-------+------+---------+-----------+
-|comment   |690    |4.22  |690      |=          |
+|comment   |709    |4.34  |711      |-2.00      |
 +----------+-------+------+---------+-----------+
-|empty     |2946   |18.04 |2946     |=          |
+|empty     |2925   |17.89 |2924     |+1.00      |
 +----------+-------+------+---------+-----------+
 
 
@@ -2389,9 +1913,9 @@ Duplication
 +-------------------------+-------+---------+-----------+
 |                         |now    |previous |difference |
 +=========================+=======+=========+===========+
-|nb duplicated lines      |2639   |2639     |=          |
+|nb duplicated lines      |2544   |2634     |-90.00     |
 +-------------------------+-------+---------+-----------+
-|percent duplicated lines |16.323 |16.326   |-0.00      |
+|percent duplicated lines |15.722 |16.272   |-0.55      |
 +-------------------------+-------+---------+-----------+
 
 
@@ -2402,13 +1926,13 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |209    |209      |=          |
+|convention |95     |95       |=          |
 +-----------+-------+---------+-----------+
-|refactor   |87     |87       |=          |
+|refactor   |69     |74       |-5.00      |
 +-----------+-------+---------+-----------+
-|warning    |330    |330      |=          |
+|warning    |70     |70       |=          |
 +-----------+-------+---------+-----------+
-|error      |104    |104      |=          |
+|error      |1      |6        |-5.00      |
 +-----------+-------+---------+-----------+
 
 
@@ -2416,91 +1940,29 @@ Messages by category
 % errors / warnings by module
 -----------------------------
 
-+-----------------------------------------------+------+--------+---------+-----------+
-|module                                         |error |warning |refactor |convention |
-+===============================================+======+========+=========+===========+
-|SimpleGUICS2Pygame.simpleguics2pygame.frame    |23.08 |9.09    |9.20     |2.39       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.control  |19.23 |13.64   |6.90     |1.44       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.canvas   |18.27 |10.00   |5.75     |1.91       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.__init__ |8.65  |2.42    |0.00     |3.83       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._media   |5.77  |9.39    |3.45     |0.48       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._options |4.81  |5.15    |2.30     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|presentation                                   |4.81  |1.82    |0.00     |1.91       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame_check                       |2.88  |5.76    |0.00     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._fonts   |1.92  |1.21    |0.00     |0.48       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame._colors  |1.92  |0.61    |0.00     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.image    |1.92  |0.30    |0.00     |0.48       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.sound    |1.92  |0.30    |0.00     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_image                                     |0.96  |1.82    |0.00     |3.35       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_objects                                   |0.96  |0.61    |0.00     |1.91       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_sound                                     |0.96  |0.61    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_all                                       |0.96  |0.61    |0.00     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|pygame_check                                   |0.96  |0.61    |0.00     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls_reverse                           |0.00  |7.58    |64.37    |11.00      |
-+-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls_average                           |0.00  |7.58    |2.30     |11.00      |
-+-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls                                   |0.00  |7.58    |2.30     |11.00      |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_numeric                                   |0.00  |2.12    |0.00     |12.92      |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_grid                                      |0.00  |1.21    |0.00     |4.31       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_line                                      |0.00  |1.21    |0.00     |2.87       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_html_rgba                          |0.00  |0.91    |0.00     |3.83       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_html_hsla                          |0.00  |0.91    |0.00     |3.83       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_input                                     |0.00  |0.91    |0.00     |2.87       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|Stress_Balls_results                           |0.00  |0.61    |1.15     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|stop_example                                   |0.00  |0.61    |0.00     |1.44       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_text                                      |0.00  |0.61    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_html                               |0.00  |0.61    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_colors_constants                          |0.00  |0.61    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_circle                                    |0.00  |0.61    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|loader                                         |0.00  |0.61    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_dir                                       |0.00  |0.30    |0.00     |2.87       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_simpleplot_scatter                        |0.00  |0.30    |0.00     |1.91       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_simpleplot_lines                          |0.00  |0.30    |0.00     |1.91       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_simpleplot_bars                           |0.00  |0.30    |0.00     |1.91       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_button_label                              |0.00  |0.30    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|test_command_line_options                      |0.00  |0.30    |0.00     |0.48       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|cs2both                                        |0.00  |0.00    |2.30     |0.00       |
-+-----------------------------------------------+------+--------+---------+-----------+
-|keys                                           |0.00  |0.00    |0.00     |0.96       |
-+-----------------------------------------------+------+--------+---------+-----------+
++---------------------------------------------+-------+--------+---------+-----------+
+|module                                       |error  |warning |refactor |convention |
++=============================================+=======+========+=========+===========+
+|test_sound                                   |100.00 |0.00    |0.00     |2.11       |
++---------------------------------------------+-------+--------+---------+-----------+
+|Stress_Balls_average                         |0.00   |35.71   |2.90     |24.21      |
++---------------------------------------------+-------+--------+---------+-----------+
+|Stress_Balls                                 |0.00   |34.29   |2.90     |24.21      |
++---------------------------------------------+-------+--------+---------+-----------+
+|Stress_Balls_reverse                         |0.00   |28.57   |88.41    |24.21      |
++---------------------------------------------+-------+--------+---------+-----------+
+|Stress_Balls_results                         |0.00   |1.43    |1.45     |0.00       |
++---------------------------------------------+-------+--------+---------+-----------+
+|test_numeric                                 |0.00   |0.00    |4.35     |11.58      |
++---------------------------------------------+-------+--------+---------+-----------+
+|test_simpleplot_scatter                      |0.00   |0.00    |0.00     |4.21       |
++---------------------------------------------+-------+--------+---------+-----------+
+|test_simpleplot_lines                        |0.00   |0.00    |0.00     |4.21       |
++---------------------------------------------+-------+--------+---------+-----------+
+|test_simpleplot_bars                         |0.00   |0.00    |0.00     |4.21       |
++---------------------------------------------+-------+--------+---------+-----------+
+|SimpleGUICS2Pygame.simpleguics2pygame.canvas |0.00   |0.00    |0.00     |1.05       |
++---------------------------------------------+-------+--------+---------+-----------+
 
 
 
@@ -2510,84 +1972,46 @@ Messages
 +-------------------------------+------------+
 |message id                     |occurrences |
 +===============================+============+
-|protected-access               |210         |
-+-------------------------------+------------+
-|invalid-name                   |114         |
-+-------------------------------+------------+
 |missing-docstring              |69          |
 +-------------------------------+------------+
-|no-name-in-module              |50          |
-+-------------------------------+------------+
-|duplicate-code                 |47          |
-+-------------------------------+------------+
-|no-member                      |39          |
+|duplicate-code                 |51          |
 +-------------------------------+------------+
 |global-variable-undefined      |36          |
 +-------------------------------+------------+
-|broad-except                   |30          |
-+-------------------------------+------------+
-|global-statement               |16          |
+|invalid-name                   |23          |
 +-------------------------------+------------+
 |attribute-defined-outside-init |12          |
 +-------------------------------+------------+
-|ungrouped-imports              |11          |
+|protected-access               |9           |
 +-------------------------------+------------+
-|too-many-function-args         |11          |
+|cyclic-import                  |8           |
 +-------------------------------+------------+
-|wrong-import-position          |10          |
+|broad-except                   |7           |
 +-------------------------------+------------+
-|wildcard-import                |8           |
+|global-statement               |6           |
 +-------------------------------+------------+
-|cyclic-import                  |7           |
+|too-many-instance-attributes   |3           |
 +-------------------------------+------------+
-|too-many-instance-attributes   |6           |
-+-------------------------------+------------+
-|too-many-branches              |6           |
-+-------------------------------+------------+
-|too-many-arguments             |6           |
-+-------------------------------+------------+
-|redefined-outer-name           |6           |
-+-------------------------------+------------+
-|too-many-statements            |5           |
-+-------------------------------+------------+
-|too-many-nested-blocks         |4           |
-+-------------------------------+------------+
-|import-error                   |4           |
-+-------------------------------+------------+
-|unused-import                  |3           |
+|too-many-arguments             |3           |
 +-------------------------------+------------+
 |consider-using-enumerate       |3           |
 +-------------------------------+------------+
-|bare-except                    |3           |
+|too-many-statements            |1           |
 +-------------------------------+------------+
-|too-many-locals                |2           |
+|too-many-locals                |1           |
 +-------------------------------+------------+
-|super-init-not-called          |2           |
+|too-many-branches              |1           |
 +-------------------------------+------------+
-|redefined-variable-type        |2           |
+|redefined-variable-type        |1           |
 +-------------------------------+------------+
-|too-many-return-statements     |1           |
-+-------------------------------+------------+
-|too-many-lines                 |1           |
-+-------------------------------+------------+
-|redefined-builtin              |1           |
-+-------------------------------+------------+
-|no-self-use                    |1           |
-+-------------------------------+------------+
-|deprecated-method              |1           |
-+-------------------------------+------------+
-|consider-iterating-dictionary  |1           |
-+-------------------------------+------------+
-|bad-indentation                |1           |
-+-------------------------------+------------+
-|anomalous-backslash-in-string  |1           |
+|no-member                      |1           |
 +-------------------------------+------------+
 
 
 
 Global evaluation
 -----------------
-Your code has been rated at 8.11/10 (previous run: 8.11/10, +0.00)
+Your code has been rated at 9.61/10 (previous run: 9.56/10, +0.05)
 
 
 ===== mypy =====
@@ -2602,36 +2026,16 @@ SimpleGUICS2Pygame/test/test_simpleplot_scatter.py:20: error: Name 'simpleplot' 
 SimpleGUICS2Pygame/test/test_simpleplot_lines.py:20: error: Name 'simpleplot' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_simpleplot_bars.py:20: error: Name 'simpleplot' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_numeric.py:19: error: Name 'numeric' already defined (possibly by an import)
-SimpleGUICS2Pygame/test/test_numeric.py:152: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
-SimpleGUICS2Pygame/test/test_numeric.py:152: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:183: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
-SimpleGUICS2Pygame/test/test_numeric.py:184: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:185: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:194: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
-SimpleGUICS2Pygame/test/test_numeric.py:195: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:232: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
-SimpleGUICS2Pygame/test/test_numeric.py:235: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:237: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:239: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:241: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:243: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:244: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:252: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:254: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
-SimpleGUICS2Pygame/test/test_numeric.py:258: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
-SimpleGUICS2Pygame/test/test_numeric.py:259: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:307: error: Value of type "object" is not indexable
-SimpleGUICS2Pygame/test/test_numeric.py:313: error: Argument 1 to "len" has incompatible type "object"; expected "Sized"
 SimpleGUICS2Pygame/simpleguics2pygame/_options.py:20: error: Need type annotation for '__all__'
 SimpleGUICS2Pygame/simpleguics2pygame/_media.py:30: error: Name 'urlsplit' already defined on line 134
 SimpleGUICS2Pygame/simpleguics2pygame/_media.py:31: error: Name 'urlopen' already defined on line 19
 SimpleGUICS2Pygame/simpleguics2pygame/_media.py:34: error: Need type annotation for '__all__'
 SimpleGUICS2Pygame/simpleguics2pygame/_fonts.py:20: error: Need type annotation for '__all__'
 SimpleGUICS2Pygame/simpleguics2pygame/_colors.py:20: error: Need type annotation for '__all__'
-SimpleGUICS2Pygame/simpleguics2pygame/frame.py:127: error: Need type annotation for '_pygamecolors_cached'
-SimpleGUICS2Pygame/simpleguics2pygame/frame.py:132: error: Need type annotation for '_pygamefonts_cached'
-SimpleGUICS2Pygame/simpleguics2pygame/frame.py:138: error: Need type annotation for '_pygamemedias_cached'
-SimpleGUICS2Pygame/simpleguics2pygame/frame.py:157: error: Need type annotation for '_save_canvas_requests'
+SimpleGUICS2Pygame/simpleguics2pygame/frame.py:128: error: Need type annotation for '_pygamecolors_cached'
+SimpleGUICS2Pygame/simpleguics2pygame/frame.py:133: error: Need type annotation for '_pygamefonts_cached'
+SimpleGUICS2Pygame/simpleguics2pygame/frame.py:139: error: Need type annotation for '_pygamemedias_cached'
+SimpleGUICS2Pygame/simpleguics2pygame/frame.py:158: error: Need type annotation for '_save_canvas_requests'
 SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:28: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:29: error: Name 'simpleplot' already defined (possibly by an import)
 SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:78: error: Need type annotation for 'results'

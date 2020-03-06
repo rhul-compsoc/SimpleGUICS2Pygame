@@ -398,7 +398,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
                               (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0), size)
 
         # Update and draw FPS (if started)
-        FPS_Drawer.draw_fct(canvas)
+        FPS_DRAWER.draw_fct(canvas)
 
     def load_medias(self):
         """
@@ -995,11 +995,11 @@ def fps_on_off():
     """
     Active or inactive the calculation and drawing of FPS.
     """
-    if FPS_Drawer.is_started():
-        FPS_Drawer.stop()
+    if FPS_DRAWER.is_started():
+        FPS_DRAWER.stop()
         BUTTON_FPS.set_text('FPS on')
     else:
-        FPS_Drawer.start()
+        FPS_DRAWER.start()
         BUTTON_FPS.set_text('FPS off')
 
 
@@ -1112,7 +1112,7 @@ if __name__ == '__main__':
     FRAME = simplegui.create_frame('RiceRocks (Asteroids)',
                                    SCREEN_WIDTH, SCREEN_HEIGHT, 200)
 
-    FPS_Drawer = FPS(x=0, y=0, font_size=32)
+    FPS_DRAWER = FPS(x=0, y=0, font_size=32)
 
     RICEROCKS = RiceRocks()
     RICEROCKS.load_medias()

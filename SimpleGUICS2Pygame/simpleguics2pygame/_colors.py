@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (March 5, 2020)
+simpleguics2pygame/_colors (March 6, 2020)
 
 Colors helpers.
 
@@ -20,7 +20,7 @@ from __future__ import print_function
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -228,9 +228,9 @@ def _simpleguicolor_to_pygamecolor(
 
     :return: pygame.Color
     """  # noqa
-    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
 
-    pygame_color = Frame._pygamecolors_cached.get(color)
+    pygame_color = Frame._pygamecolors_cached.get(color)  # noqa  # pylint: disable=protected-access
     if pygame_color is not None:  # already in cache
         return pygame_color
 
@@ -325,6 +325,6 @@ def _simpleguicolor_to_pygamecolor(
         pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color,
                                                           default_pygame_color)
 
-    Frame._pygamecolors_cached[color] = pygame_color
+    Frame._pygamecolors_cached[color] = pygame_color  # noqa  # pylint: disable=protected-access
 
     return pygame_color

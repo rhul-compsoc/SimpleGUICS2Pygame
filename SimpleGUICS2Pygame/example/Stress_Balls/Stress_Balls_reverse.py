@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Stress Ball - REVERSE (March 5, 2020)
+Stress Ball - REVERSE (March 6, 2020)
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Safari: exception failed!
@@ -30,7 +30,7 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 # ### Config >>>
@@ -227,7 +227,7 @@ def init():
                                   '# balls', 'FPS',
                                   (results, ), True)
             if SIMPLEGUICS2PYGAME:
-                simpleplot._block()
+                simpleplot._block()  # pylint: disable=protected-access
         except Exception as e:  # to avoid fail if no simpleplot
             print('simpleplot.plot_lines():' + str(e))
 
@@ -290,7 +290,7 @@ def draw(canvas):
     nb_frames_drawed += 1
 
     s = '#%d | %d FPS' % (nb_balls,
-                          (int(round(frame._get_fps_average())) if _FPS_AVERAGE
+                          (int(round(frame._get_fps_average())) if _FPS_AVERAGE  # noqa  # pylint: disable=protected-access
                            else fps))
     canvas.draw_text(s, (12, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
     canvas.draw_text(s, (10, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
@@ -313,7 +313,7 @@ def print_fps():
 
     nb_seconds += 1
 
-    fps = (frame._get_fps_average() if _FPS_AVERAGE
+    fps = (frame._get_fps_average() if _FPS_AVERAGE  # noqa  # pylint: disable=protected-access
            else int(round(float(nb_frames_drawed) / nb_seconds)))
 
     if (nb_seconds > MAX_NB_SECONDS) or to_next_step:
@@ -346,7 +346,7 @@ def transparency_on_off():
 print("""Stress Balls:
 # balls | FPS...""")
 
-simplegui.Frame._stop_timers = True
+simplegui.Frame._stop_timers = True  # pylint: disable=protected-access
 
 frame = simplegui.create_frame('Stress Balls' +
                                (' ALPHA' if ALPHA

@@ -408,18 +408,18 @@ def draw(canvas):
         A_MISSILE.update()
 
     # Update and draw FPS (if started)
-    FPS_Drawer.draw_fct(canvas)
+    FPS_DRAWER.draw_fct(canvas)
 
 
 def fps_on_off():
     """
     Active or inactive the calculation and drawing of FPS.
     """
-    if FPS_Drawer.is_started():
-        FPS_Drawer.stop()
+    if FPS_DRAWER.is_started():
+        FPS_DRAWER.stop()
         button_fps.set_text('FPS on')
     else:
-        FPS_Drawer.start()
+        FPS_DRAWER.start()
         button_fps.set_text('FPS off')
 
 
@@ -518,7 +518,7 @@ if __name__ == '__main__':
                                    SCREEN_WIDTH, SCREEN_HEIGHT, 100)
 
     # Create FPS
-    FPS_Drawer = FPS()
+    FPS_DRAWER = FPS()
 
     # Load medias
     LOADER = Loader(FRAME, SCREEN_WIDTH, start)

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/__init__ (March 5, 2020)
+simpleguics2pygame/__init__ (March 6, 2020)
 
 Standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -34,8 +34,7 @@ http://www.opimedia.be/
 #
 # Set options
 #############
-from SimpleGUICS2Pygame.simpleguics2pygame._options \
-    import _set_option_from_argv
+from SimpleGUICS2Pygame.simpleguics2pygame._options import _set_option_from_argv  # noqa  # pylint: disable=no-name-in-module
 
 try:
     del _options
@@ -53,7 +52,7 @@ except NameError:
 #
 # Init Pygame
 #############
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import *
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import *  # noqa  # pylint: disable=no-name-in-module,wildcard-import,wrong-import-position
 
 try:
     del _pygame_lib
@@ -64,19 +63,19 @@ except NameError:
 #
 # Import all
 ############
-from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *
+from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame.control import *
+from SimpleGUICS2Pygame.simpleguics2pygame.control import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame.frame import *
+from SimpleGUICS2Pygame.simpleguics2pygame.frame import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame.image import *
+from SimpleGUICS2Pygame.simpleguics2pygame.image import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame.keys import *
+from SimpleGUICS2Pygame.simpleguics2pygame.keys import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame.sound import *
+from SimpleGUICS2Pygame.simpleguics2pygame.sound import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
-from SimpleGUICS2Pygame.simpleguics2pygame.timer import *
+from SimpleGUICS2Pygame.simpleguics2pygame.timer import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 try:
     del canvas

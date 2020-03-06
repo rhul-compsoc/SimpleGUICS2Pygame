@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test command line options. (March 4, 2020)
+Test command line options. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -16,7 +16,7 @@ from sys import argv
 
 BEFORE = tuple(argv)
 
-import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # noqa
+import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # noqa  # pylint: disable=wrong-import-position,unused-import
 
 AFTER = tuple(argv)
 

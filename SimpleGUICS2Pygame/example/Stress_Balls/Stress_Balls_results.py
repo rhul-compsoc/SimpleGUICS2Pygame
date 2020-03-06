@@ -4,7 +4,7 @@
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(March 5, 2020)
+(March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -149,6 +149,6 @@ try:
     simpleplot.plot_lines('Stress Balls', 800, 650, '# balls', 'FPS',
                           datas, True, legends)
     if SIMPLEGUICS2PYGAME:
-        simpleplot._block()
+        simpleplot._block()  # pylint: disable=protected-access
 except Exception as e:  # to avoid fail if no simpleplot
     print('!simpleplot.plot_lines():' + str(e))

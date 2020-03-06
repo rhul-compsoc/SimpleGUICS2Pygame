@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw lines. (March 4, 2020)
+Test draw lines. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,13 +20,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -43,8 +43,8 @@ WIDTH = 400
 HEIGHT = 200
 
 
-state_colors = True
-state_direction = True
+STATE_COLORS = True
+STATE_DIRECTION = True
 
 
 def draw(canvas):
@@ -56,21 +56,21 @@ def draw(canvas):
     canvas.draw_line((0, 0), (WIDTH - 1, HEIGHT - 1), 1, 'Blue')
     canvas.draw_line((0, HEIGHT - 1), (WIDTH, 0), 1, 'Blue')
 
-    if state_direction:
+    if STATE_DIRECTION:
         for i in range(0, HEIGHT + 1, 20):
             canvas.draw_line((i, i), (WIDTH - i / 2, i), 9,
-                             ('White' if state_colors
+                             ('White' if STATE_COLORS
                               else 'Red'))
             canvas.draw_line((i, i), (WIDTH - i / 2, i), 3,
-                             ('Red' if state_colors
+                             ('Red' if STATE_COLORS
                               else 'White'))
     else:
         for i in range(0, WIDTH + 1, 20):
             canvas.draw_line((i, i), (i, HEIGHT - i / 2), 9,
-                             ('White' if state_colors
+                             ('White' if STATE_COLORS
                               else 'Red'))
             canvas.draw_line((i, i), (i, HEIGHT - i / 2), 3,
-                             ('Red' if state_colors
+                             ('Red' if STATE_COLORS
                               else 'White'))
 
 
@@ -78,41 +78,47 @@ def switch_colors():
     """
     Switch red and white.
     """
-    global state_colors
+    global STATE_COLORS  # pylint: disable=global-statement
 
-    state_colors = not state_colors
+    STATE_COLORS = not STATE_COLORS
 
 
 def switch_direction():
     """
     Switch horizontal and vertical.
     """
-    global state_direction
+    global STATE_DIRECTION  # pylint: disable=global-statement
 
-    state_direction = not state_direction
+    STATE_DIRECTION = not STATE_DIRECTION
 
 
+#
 # Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+######
+def main():
+    """Create and start frame."""
+    frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Switch colors', switch_colors)
-frame.add_button('Switch direction', switch_direction)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+    frame.add_label(TEST)
+    frame.add_label('')
+    frame.add_label(PYTHON_VERSION)
+    frame.add_label(GUI_VERSION)
+    frame.add_label(PYGAME_VERSION)
+    frame.add_label('')
+    frame.add_button('Switch colors', switch_colors)
+    frame.add_button('Switch direction', switch_direction)
+    frame.add_label('')
+    frame.add_button('Quit', frame.stop)
 
-frame.set_draw_handler(draw)
+    frame.set_draw_handler(draw)
 
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
 
-    if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
+        if len(argv) == 2:
+            frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
+    frame.start()
 
-frame.start()
+if __name__ == '__main__':
+    main()

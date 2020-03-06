@@ -5,7 +5,7 @@
 """
 script/SimpleGUICS2Pygame_check.py
 
-(March 5, 2020)
+(March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -59,7 +59,7 @@ if __name__ == '__main__':
         import matplotlib
 
         print(CMD, 'ok - Version', matplotlib.__version__)
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     print('\n')
@@ -71,18 +71,18 @@ if __name__ == '__main__':
 
         print(CMD, 'ok - Version', pygame.version.ver)
 
-        CMD = 'pygame.init()'
+        CMD = 'pygame.init()'  # pylint: disable=no-member
         try:
-            SUCCESS, FAILED = pygame.init()
+            SUCCESS, FAILED = pygame.init()  # pylint: disable=no-member
 
             if FAILED == 0:
                 print(' ', CMD, SUCCESS, 'modules loaded ok')
             else:
                 print(' ', CMD, SUCCESS, 'modules loaded',
                       FAILED, 'failed WARNING!')
-        except Exception as exc:
+        except Exception as exc:  # pylint: disable=broad-except
             print(' ', CMD, 'FAILED!', exc)
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     print('\n')
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     # simplegui
     CMD = 'import simplegui'
     try:
-        import simplegui
+        import simplegui  # pylint: disable=unused-import,import-error
 
         print(CMD, """PROBLEM - The package simplegui is installed!
   It is a Python package which has the same name as SimpleGUI of CodeSkulptor,
@@ -98,14 +98,14 @@ if __name__ == '__main__':
   If you don't uninstall it,
   you must replace the recommended import of SimpleGUICS2Pygame.
 
-""")
-    except Exception as exc:
+""")  # noqa
+    except Exception as exc:  # pylint: disable=broad-except
         pass
 
     # SimpleGUITk
     CMD = 'import simpleguitk'
     try:
-        import simpleguitk
+        import simpleguitk  # pylint: disable=unused-import,import-error
 
         print(CMD, """WARNING - The package simpleguitk is installed!
   It is another implementation of SimpleGUI of CodeSkulptor,
@@ -114,7 +114,7 @@ if __name__ == '__main__':
   you must be careful with the import of SimpleGUICS2Pygame.
 
 """)
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         pass
 
     # SimpleGUICS2Pygame
@@ -122,8 +122,8 @@ if __name__ == '__main__':
     try:
         import SimpleGUICS2Pygame
 
-        print(CMD, 'ok - Version', SimpleGUICS2Pygame._VERSION)
-    except Exception as exc:
+        print(CMD, 'ok - Version', SimpleGUICS2Pygame._VERSION)  # noqa  # pylint: disable=protected-access
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     print()
@@ -133,7 +133,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.codeskulptor
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.codeskulptor_lib'
@@ -141,7 +141,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.codeskulptor_lib
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.numeric'
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.numeric
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simplegui_lib'
@@ -157,7 +157,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simplegui_lib
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simplegui_lib_draw'
@@ -165,7 +165,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simplegui_lib_draw
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simplegui_lib_fps'
@@ -173,7 +173,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simplegui_lib_fps
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simplegui_lib_keys'
@@ -181,7 +181,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simplegui_lib_keys
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simplegui_lib_loader'
@@ -189,7 +189,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simplegui_lib_loader
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simpleguics2pygame'
@@ -197,7 +197,7 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simpleguics2pygame
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 
     CMD = 'import SimpleGUICS2Pygame.simpleplot'
@@ -205,5 +205,5 @@ if __name__ == '__main__':
         import SimpleGUICS2Pygame.simpleplot
 
         print(CMD, 'ok')
-    except Exception as exc:
+    except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)

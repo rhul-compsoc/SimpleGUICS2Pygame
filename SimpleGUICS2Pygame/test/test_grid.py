@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test draw points, lines and polygons. (March 4, 2020)
+Test draw points, lines and polygons. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -20,13 +20,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -45,8 +45,8 @@ HEIGHT = 300
 SIZE = 80
 
 
-state_colors = True
-state_method = 0
+STATE_COLORS = True
+STATE_METHOD = 0
 
 
 def draw(canvas):
@@ -55,18 +55,18 @@ def draw(canvas):
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
     """
-    if state_colors:
+    if STATE_COLORS:
         color1 = 'White'
         color2 = 'Gray'
         color3 = 'Yellow'
     else:
         color1 = color2 = color3 = 'White'
 
-    if state_method == 0:
+    if STATE_METHOD == 0:
         draw_grid1(canvas, 0, color1)
         draw_grid2(canvas, HEIGHT // 3, color2)
         draw_grid3(canvas, HEIGHT * 2 // 3, color3)
-    elif state_method == 1:
+    elif STATE_METHOD == 1:
         draw_grid3(canvas, 0, color3)
         draw_grid1(canvas, HEIGHT // 3, color1)
         draw_grid2(canvas, HEIGHT * 2 // 3, color2)
@@ -84,11 +84,11 @@ def draw_grid1(canvas, y_offset, color):
     :param y_offset: int or float >= 0
     :param color: str
     """
-    s = 'points'
-    width = frame.get_canvas_textwidth(s, SIZE)
+    text = 'points'
+    width = FRAME.get_canvas_textwidth(text, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width) // 2,
-                         y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
+    canvas.draw_text(text, ((WIDTH - width) // 2,
+                            y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
                      SIZE, color)
 
     for y in range(0, HEIGHT // 3, 20):
@@ -109,11 +109,11 @@ def draw_grid2(canvas, y_offset, color):
     :param y_offset: int or float >= 0
     :param color: str
     """
-    s = 'lines'
-    width = frame.get_canvas_textwidth(s, SIZE)
+    text = 'lines'
+    width = FRAME.get_canvas_textwidth(text, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width) // 2,
-                         y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
+    canvas.draw_text(text, ((WIDTH - width) // 2,
+                            y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
                      SIZE, color)
 
     for y in range(0, HEIGHT // 3, 20):
@@ -133,11 +133,11 @@ def draw_grid3(canvas, y_offset, color):
     :param y_offset: int or float >= 0
     :param color: str
     """
-    s = 'rectangles'
-    width = frame.get_canvas_textwidth(s, SIZE)
+    text = 'rectangles'
+    width = FRAME.get_canvas_textwidth(text, SIZE)
 
-    canvas.draw_text(s, ((WIDTH - width) // 2,
-                         y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
+    canvas.draw_text(text, ((WIDTH - width) // 2,
+                            y_offset + (HEIGHT / 3 + SIZE / 4) / 2),
                      SIZE, color)
 
     for y in range(0, HEIGHT // 3, 20):
@@ -152,41 +152,41 @@ def switch_color():
     """
     Switch between 3 different colors and all in white.
     """
-    global state_colors
+    global STATE_COLORS  # pylint: disable=global-statement
 
-    state_colors = not state_colors
+    STATE_COLORS = not STATE_COLORS
 
 
 def switch_method():
     """
     Switch position of the 3 methods.
     """
-    global state_method
+    global STATE_METHOD  # pylint: disable=global-statement
 
-    state_method = (state_method + 1) % 3
+    STATE_METHOD = (STATE_METHOD + 1) % 3
 
 
 # Main
-frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
+FRAME = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
-frame.add_label(TEST)
-frame.add_label('')
-frame.add_label(PYTHON_VERSION)
-frame.add_label(GUI_VERSION)
-frame.add_label(PYGAME_VERSION)
-frame.add_label('')
-frame.add_button('Switch color', switch_color)
-frame.add_button('Switch method', switch_method)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
+FRAME.add_label(TEST)
+FRAME.add_label('')
+FRAME.add_label(PYTHON_VERSION)
+FRAME.add_label(GUI_VERSION)
+FRAME.add_label(PYGAME_VERSION)
+FRAME.add_label('')
+FRAME.add_button('Switch color', switch_color)
+FRAME.add_button('Switch method', switch_method)
+FRAME.add_label('')
+FRAME.add_button('Quit', FRAME.stop)
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
 if SIMPLEGUICS2PYGAME:
     from sys import argv
 
     if len(argv) == 2:
-        frame._save_canvas_and_stop(argv[1])
+        FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
 
-frame.start()
+FRAME.start()

@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Stress Ball (March 5, 2020)
+Stress Ball (March 6, 2020)
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Safari: exception failed!
@@ -30,7 +30,7 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-    simplegui.Frame._hide_status = True
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
 # ### Config >>>

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (March 5, 2020)
+simpleguics2pygame/canvas (March 6, 2020)
 
 Class Canvas.
 
@@ -31,7 +31,7 @@ try:
 except ImportError:
     _PYGAME_AVAILABLE = False
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=no-name-in-module
 
 
 #
@@ -91,7 +91,7 @@ class Canvas:
     Default `pygame.Color` of the background of the canvas.
     """
 
-    _background_pygame_surface_image = None
+    _background_pygame_surface_image = None  # pylint: disable=invalid-name
     """
     `pygame.Surface` default background image
     replaces `_background_pygame_color`.
@@ -113,7 +113,7 @@ class Canvas:
         assert _PYGAME_AVAILABLE, """Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=invalid-name,no-name-in-module
 
         assert (frame is None) or isinstance(frame, Frame), type(frame)
 
@@ -132,7 +132,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._draw_handler = None
 
-        self._pygame_surface = pygame.Surface((canvas_width, canvas_height))
+        self._pygame_surface = pygame.Surface((canvas_width, canvas_height))  # noqa  # pylint: disable=too-many-function-args
 
     def __repr__(self):
         """
@@ -157,8 +157,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     self._pygame_surface.fill(self._background_pygame_color)
                 elif self._background_pygame_color.a > 0:
                     # With alpha (not null)
-                    s_alpha = pygame.Surface((self._width, self._height),
-                                             pygame.SRCALPHA)
+                    s_alpha = pygame.Surface((self._width, self._height),  # noqa  # pylint: disable=too-many-function-args
+                                             pygame.SRCALPHA)  # noqa  # pylint: disable=no-member
                     s_alpha.fill(self._background_pygame_color)
                     self._pygame_surface.blit(s_alpha, (0, 0))
             else:
@@ -167,26 +167,25 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
             self._draw_handler(self)
 
-            if self._frame_parent._display_fps_average:
-                from SimpleGUICS2Pygame.simpleguics2pygame._fonts \
-                    import _simpleguifontface_to_pygamefont
+            if self._frame_parent._display_fps_average:  # noqa  # pylint: disable=protected-access
+                from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
 
                 self._pygame_surface.blit(
                     _simpleguifontface_to_pygamefont(None, 40)
-                    .render(str(int(round(self._frame_parent._fps_average))),
+                    .render(str(int(round(self._frame_parent._fps_average))),  # noqa  # pylint: disable=protected-access
                             True,
                             _SIMPLEGUICOLOR_TO_PYGAMECOLOR['red']),
                     (10, self._height - 40))
 
-            self._frame_parent._pygame_surface.blit(
+            self._frame_parent._pygame_surface.blit(  # noqa  # pylint: disable=protected-access
                 self._pygame_surface,
-                (self._frame_parent._canvas_x_offset,
-                 self._frame_parent._canvas_y_offset))
+                (self._frame_parent._canvas_x_offset,  # noqa  # pylint: disable=protected-access
+                 self._frame_parent._canvas_y_offset))  # noqa  # pylint: disable=protected-access
 
-            pygame.display.update((self._frame_parent._canvas_x_offset,
-                                   self._frame_parent._canvas_y_offset,
-                                   self._width,
-                                   self._height))
+            pygame.display.update((self._frame_parent._canvas_x_offset,  # noqa  # pylint: disable=protected-access
+                                   self._frame_parent._canvas_y_offset,  # noqa  # pylint: disable=protected-access
+                                   self._width,  # noqa  # pylint: disable=protected-access
+                                   self._height))  # noqa  # pylint: disable=protected-access
 
     def _save(self, filename):
         """
@@ -207,7 +206,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         pygame.image.save(self._pygame_surface, filename)
 
-    def draw_circle(self,
+    def draw_circle(self,  # pylint: disable=too-many-arguments
                     center_point, radius,
                     line_width, line_color,
                     fill_color=None):
@@ -267,8 +266,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             elif ((line_color.a > 0) or
                   ((fill_color is not None) and (fill_color.a > 0))):
                 # With one or two alpha (not null)
-                s_alpha = pygame.Surface((radius * 2, radius * 2),
-                                         pygame.SRCALPHA)
+                s_alpha = pygame.Surface((radius * 2, radius * 2),  # noqa  # pylint: disable=too-many-arguments,too-many-function-args
+                                         pygame.SRCALPHA)  # noqa  # pylint: disable=no-member
 
                 if (fill_color is not None) and (fill_color.a > 0):
                     pygame.draw.circle(s_alpha, fill_color,
@@ -285,7 +284,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         elif radius > 0:  # == 1
             self.draw_point(center_point, line_color)
 
-    def draw_image(self, image,
+    def draw_image(self,  # noqa  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches
+                   image,
                    center_source, width_height_source,
                    center_dest, width_height_dest,
                    rotation=0):
@@ -324,7 +324,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                   or [(int or float) >= 0, (int or float) >= 0]
         :param rotation: int or float
         """  # noqa
-        from SimpleGUICS2Pygame.simpleguics2pygame.image import Image
+        from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=no-name-in-module
 
         assert isinstance(image, Image), type(image)
 
@@ -373,7 +373,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(rotation, int) or isinstance(rotation, float), \
             type(rotation)
 
-        if image._pygame_surface is None:
+        if image._pygame_surface is None:  # pylint: disable=protected-access
             return
 
         # Calculate parameters
@@ -422,7 +422,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         from sys import version_info
 
         if version_info[:2] >= (3, 2):
-            move_to_end = image._pygamesurfaces_cached.move_to_end
+            move_to_end = image._pygamesurfaces_cached.move_to_end  # noqa  # pylint: disable=protected-access
         else:
             def move_to_end(key):
                 """
@@ -430,37 +430,37 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 :param key: tuple of 7 (int >= 0)
                 """
-                del image._pygamesurfaces_cached[key]
+                del image._pygamesurfaces_cached[key]  # noqa  # pylint: disable=protected-access
 
-                image._pygamesurfaces_cached[key] = pygame_surface_image
+                image._pygamesurfaces_cached[key] = pygame_surface_image  # noqa  # pylint: disable=protected-access
 
         key = (x0_source, y0_source, width_source, height_source,
                width_height_dest[0], width_height_dest[1],
                rotation)
-        pygame_surface_image = image._pygamesurfaces_cached.get(key)
+        pygame_surface_image = image._pygamesurfaces_cached.get(key)  # noqa  # pylint: disable=protected-access
 
         if pygame_surface_image is not None:  # Result available
             move_to_end(key)
             if __debug__:
-                image._pygamesurfaces_cached_counts[0] += 1
+                image._pygamesurfaces_cached_counts[0] += 1  # noqa  # pylint: disable=protected-access
         else:                                 # Build result
-            from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
+            from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
 
             key_0 = key[:-1] + (0, )
             if rotation != 0:  # Get not rotated surface in cache
-                pygame_surface_image = image._pygamesurfaces_cached.get(key_0)
+                pygame_surface_image = image._pygamesurfaces_cached.get(key_0)  # noqa  # pylint: disable=protected-access
 
             if pygame_surface_image is not None:  # Not rotated available
                 move_to_end(key_0)
                 if __debug__:
-                    image._pygamesurfaces_cached_counts[1] += 1
+                    image._pygamesurfaces_cached_counts[1] += 1  # noqa  # pylint: disable=protected-access
             else:                                 # Build piece and/or resize
                 if ((x0_source == 0) and (y0_source == 0) and
                         (width_source == image.get_width()) and
                         (height_source == image.get_height())):
-                    pygame_surface_image = image._pygame_surface
+                    pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access
                 else:  # Get a piece in source
-                    pygame_surface_image = image._pygame_surface.subsurface(
+                    pygame_surface_image = image._pygame_surface.subsurface(  # noqa  # pylint: disable=protected-access
                         (x0_source, y0_source,
                          width_source, height_source))
 
@@ -470,31 +470,27 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     pygame_surface_image = pygame.transform.scale(
                         pygame_surface_image, width_height_dest)
 
-                image._pygamesurfaces_cached[key_0] = pygame_surface_image
+                image._pygamesurfaces_cached[key_0] = pygame_surface_image  # noqa  # pylint: disable=protected-access
 
-                if (Frame._print_stats_cache and
-                        (len(image._pygamesurfaces_cached) ==
-                         image._pygamesurfaces_cache_max_size)):
-                    image._print_stats_cache(
+                if (Frame._print_stats_cache and  # noqa  # pylint: disable=protected-access
+                        (len(image._pygamesurfaces_cached) == image._pygamesurfaces_cache_max_size)):  # noqa  # pylint: disable=protected-access
+                    image._print_stats_cache(  # noqa  # pylint: disable=protected-access
                         'Surfaces full cache              ')
-                elif (len(image._pygamesurfaces_cached) >
-                      image._pygamesurfaces_cache_max_size):
-                    image._pygamesurfaces_cached.popitem(False)
+                elif len(image._pygamesurfaces_cached) > image._pygamesurfaces_cache_max_size:  # noqa  # pylint: disable=protected-access
+                    image._pygamesurfaces_cached.popitem(False)  # noqa  # pylint: disable=protected-access
 
             if rotation != 0:  # Rotate
                 pygame_surface_image = pygame.transform.rotate(
                     pygame_surface_image, rotation)
 
-                image._pygamesurfaces_cached[key] = pygame_surface_image
+                image._pygamesurfaces_cached[key] = pygame_surface_image  # noqa  # pylint: disable=protected-access
 
-                if (Frame._print_stats_cache and
-                        (len(image._pygamesurfaces_cached) ==
-                         image._pygamesurfaces_cache_max_size)):
-                    image._print_stats_cache(
+                if (Frame._print_stats_cache and  # noqa  # pylint: disable=protected-access
+                        (len(image._pygamesurfaces_cached) == image._pygamesurfaces_cache_max_size)):  # noqa  # pylint: disable=protected-access
+                    image._print_stats_cache(  # noqa  # pylint: disable=protected-access
                         'Surfaces full cache with rotated ')
-                elif (len(image._pygamesurfaces_cached) >
-                      image._pygamesurfaces_cache_max_size):
-                    image._pygamesurfaces_cached.popitem(False)
+                elif len(image._pygamesurfaces_cached) > image._pygamesurfaces_cache_max_size:  # noqa  # pylint: disable=protected-access
+                    image._pygamesurfaces_cached.popitem(False)  # noqa  # pylint: disable=protected-access
 
         # Draw the result
         self._pygame_surface.blit(
@@ -549,7 +545,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                              int(round(line_width)))
         elif line_color.a > 0:   # with alpha (not null)
             x1, y1 = _pos_round(point1)
-            x2, y2 = _pos_round(point2)
+            x2, y2 = _pos_round(point2)  # noqa  # pylint: disable=invalid-name
 
             width = abs(x2 - x1) + line_width * 2
             height = abs(y2 - y1) + line_width * 2
@@ -557,7 +553,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             x_min = min(x1, x2)
             y_min = min(y1, y2)
 
-            s_alpha = pygame.Surface((width, height), pygame.SRCALPHA)
+            s_alpha = pygame.Surface((width, height), pygame.SRCALPHA)  # noqa  # pylint: disable=too-many-function-args,no-member
             pygame.draw.line(s_alpha, line_color,
                              (x1 - x_min + line_width,
                               y1 - y_min + line_width),
@@ -590,7 +586,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         if color.a == 255:  # without alpha
             self._pygame_surface.set_at(_pos_round(position), color)
         elif color.a > 0:   # with alpha (not null)
-            s_alpha = pygame.Surface((1, 1), pygame.SRCALPHA)
+            s_alpha = pygame.Surface((1, 1), pygame.SRCALPHA)  # noqa  # pylint: disable=too-many-function-args,no-member
             s_alpha.set_at((0, 0), color)
             self._pygame_surface.blit(s_alpha, _pos_round(position))
 
@@ -658,8 +654,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         elif ((line_color.a > 0) or
               ((fill_color is not None) and (fill_color.a > 0))):
             # With one or two alpha (not null)
-            s_alpha = pygame.Surface((self._width, self._height),
-                                     pygame.SRCALPHA)
+            s_alpha = pygame.Surface((self._width, self._height),  # noqa  # pylint: disable=too-many-function-args
+                                     pygame.SRCALPHA)  # noqa  # pylint: disable=no-member
 
             if (fill_color is not None) and (fill_color.a > 0):
                 pygame.draw.polygon(s_alpha, fill_color,
@@ -715,15 +711,15 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             pygame.draw.lines(self._pygame_surface, line_color, False,
                               point_list, line_width)
         elif line_color.a > 0:   # with alpha (not null)
-            s_alpha = pygame.Surface((self._width, self._height),
-                                     pygame.SRCALPHA)
+            s_alpha = pygame.Surface((self._width, self._height),  # noqa  # pylint: disable=too-many-function-args
+                                     pygame.SRCALPHA)  # noqa  # pylint: disable=no-member
 
             pygame.draw.lines(s_alpha, line_color, False,
                               point_list, line_width)
 
             self._pygame_surface.blit(s_alpha, (0, 0))
 
-    def draw_text(self,
+    def draw_text(self,  # pylint: disable=too-many-arguments
                   text, point,
                   font_size, font_color,
                   font_face='serif',
@@ -773,9 +769,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(font_color, str), type(font_color)
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._fonts \
-            import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, \
-            _simpleguifontface_to_pygamefont
+        from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
 
         assert isinstance(font_face, str), type(font_face)
         assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test simpleplot bars. (March 5, 2020)
+Test simpleplot bars. (March 6, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -44,4 +44,4 @@ else:
                          _filename=filename)
 
 if SIMPLEGUICS2PYGAME and (len(argv) != 2):
-    simpleplot._block()
+    simpleplot._block()  # pylint: disable=protected-access

@@ -2,14 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_media (June 4, 2015)
+simpleguics2pygame/_media (March 6, 2020)
 
 Media helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
@@ -27,14 +27,14 @@ if version_info[0] >= 3:
     from urllib.parse import urlsplit
     from urllib.request import urlopen
 else:
-    from urlparse import urlsplit
-    from urllib2 import urlopen
+    from urlparse import urlsplit  # pylint: disable=import-error
+    from urllib2 import urlopen  # pylint: disable=import-error
 
 
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module,wrong-import-position
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -69,12 +69,11 @@ def _load_local_media(type_of_media, filename):
 
     media_is_image = (type_of_media == 'Image')
 
-    from SimpleGUICS2Pygame.simpleguics2pygame.sound \
-        import _MIXER_FREQUENCY, Sound
+    from SimpleGUICS2Pygame.simpleguics2pygame.sound import _MIXER_FREQUENCY, Sound  # noqa  # pylint: disable=no-name-in-module
 
-    if (not media_is_image) and (not Sound._mixer_initialized):
-        Sound._mixer_initialized = True
-        pygame.mixer.init(_MIXER_FREQUENCY)
+    if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
+        Sound._mixer_initialized = True  # pylint: disable=protected-access
+        pygame.mixer.init(_MIXER_FREQUENCY)  # pylint: disable=protected-access
 
     media = (pygame.image.load(filename) if media_is_image
              else pygame.mixer.Sound(filename))
@@ -82,7 +81,7 @@ def _load_local_media(type_of_media, filename):
     return media
 
 
-def _load_media(type_of_media, url, local_dir):
+def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements
     """
     Load an image or a sound from Web or local directory,
     and save if asked with Frame._save_downloaded_medias
@@ -114,19 +113,19 @@ def _load_media(type_of_media, url, local_dir):
 
     media_is_image = (type_of_media == 'Image')
 
-    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
-    from SimpleGUICS2Pygame.simpleguics2pygame.sound \
-        import _MIXER_FREQUENCY, Sound
+    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
+    from SimpleGUICS2Pygame.simpleguics2pygame.sound import _MIXER_FREQUENCY, Sound  # noqa  # pylint: disable=no-name-in-module
 
-    cached = Frame._pygamemedias_cached.get(url)
-    if cached is not None:  # Already in cache
-        if (not media_is_image) and (not Sound._mixer_initialized):
-            Sound._mixer_initialized = True
+    cached = Frame._pygamemedias_cached.get(url)  # noqa  # pylint: disable=protected-access
+    if cached is not None:
+        # Already in cache
+        if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
+            Sound._mixer_initialized = True  # pylint: disable=protected-access
             pygame.mixer.init(_MIXER_FREQUENCY)
 
         media = (cached.copy() if media_is_image
                  else pygame.mixer.Sound(cached))
-        if Frame._print_load_medias:
+        if Frame._print_load_medias:  # pylint: disable=protected-access
             print("{} '{}' got in cache".format(type_of_media, url),
                   file=stderr)
             stderr.flush()
@@ -138,7 +137,7 @@ def _load_media(type_of_media, url, local_dir):
 
     # Check if is correct extension
     if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
-        if Frame._print_load_medias:
+        if Frame._print_load_medias:  # pylint: disable=protected-access
             print("Sound format not supported '{}'".format(url),
                   file=stderr)
             stderr.flush()
@@ -148,36 +147,36 @@ def _load_media(type_of_media, url, local_dir):
     filename_exist = isfile(filename)
 
     # Load...
-    if not Frame._save_downloaded_medias_overwrite and filename_exist:
-        if (not media_is_image) and (not Sound._mixer_initialized):
-            Sound._mixer_initialized = True
+    if not Frame._save_downloaded_medias_overwrite and filename_exist:  # noqa  # pylint: disable=protected-access
+        if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
+            Sound._mixer_initialized = True  # noqa  # pylint: disable=protected-access
             pygame.mixer.init(_MIXER_FREQUENCY)
 
         try:
             # Load from local file
             media = (pygame.image.load(filename) if media_is_image
                      else pygame.mixer.Sound(filename))
-            if Frame._print_load_medias:
+            if Frame._print_load_medias:  # pylint: disable=protected-access
                 print("{} loaded '{}' instead '{}'".format(type_of_media,
                                                            filename, url),
                       file=stderr)
                 stderr.flush()
 
-            Frame._pygamemedias_cached[url] = media
+            Frame._pygamemedias_cached[url] = media  # noqa  # pylint: disable=protected-access
 
             return media
-        except Exception as exc:
+        except Exception as exc:  # pylint: disable=broad-except
             pass
 
     try:
         # Download from url
         media_data = urlopen(url).read()
-        if Frame._print_load_medias:
+        if Frame._print_load_medias:  # pylint: disable=protected-access
             print("{} downloaded '{}'".format(type_of_media, url),
                   file=stderr)
             stderr.flush()
-    except Exception as exc:
-        if Frame._print_load_medias:
+    except Exception as exc:  # pylint: disable=broad-except
+        if Frame._print_load_medias:  # pylint: disable=protected-access
             print("{} downloading '{}' FAILED! {}".format(type_of_media,
                                                           url, exc),
                   file=stderr)
@@ -185,15 +184,15 @@ def _load_media(type_of_media, url, local_dir):
 
         return None
 
-    if (not media_is_image) and (not Sound._mixer_initialized):
-        Sound._mixer_initialized = True
+    if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
+        Sound._mixer_initialized = True  # pylint: disable=protected-access
         pygame.mixer.init(_MIXER_FREQUENCY)
 
     try:
         media = (pygame.image.load(BytesIO(media_data)) if media_is_image
                  else pygame.mixer.Sound(BytesIO(media_data)))
-    except Exception as exc:
-        if Frame._print_load_medias:
+    except Exception as exc:  # pylint: disable=broad-except
+        if Frame._print_load_medias:  # pylint: disable=protected-access
             print("{} Pygame loading '{}' FAILED! {}".format(type_of_media,
                                                              url, exc),
                   file=stderr)
@@ -201,18 +200,18 @@ def _load_media(type_of_media, url, local_dir):
 
         return None
 
-    if Frame._save_downloaded_medias:
-        if Frame._save_downloaded_medias_overwrite or not filename_exist:
+    if Frame._save_downloaded_medias:  # pylint: disable=protected-access
+        if Frame._save_downloaded_medias_overwrite or not filename_exist:  # noqa  # pylint: disable=protected-access
             if not isdir(dirname(filename)):
                 try:
                     # Create local directory
                     makedirs(dirname(filename))
-                    if Frame._print_load_medias:
+                    if Frame._print_load_medias:  # noqa  # pylint: disable=protected-access
                         print("      Created '{}' directory"
                               .format(dirname(filename)),
                               file=stderr)
-                except Exception as exc:
-                    if Frame._print_load_medias:
+                except Exception as exc:  # pylint: disable=broad-except
+                    if Frame._print_load_medias:  # noqa  # pylint: disable=protected-access
                         print("      Creating '{}' directory FAILED!! {}"
                               .format(dirname(filename), exc),
                               file=stderr)
@@ -222,26 +221,26 @@ def _load_media(type_of_media, url, local_dir):
                 outfile = open(filename, 'wb')
                 outfile.write(media_data)
                 outfile.close()
-                if Frame._print_load_medias:
+                if Frame._print_load_medias:  # noqa  # pylint: disable=protected-access
                     print("      {} in '{}'"
                           .format(('Overwritten' if filename_exist
                                    else 'Saved'), filename),
                           file=stderr)
-            except Exception as exc:
-                if Frame._print_load_medias:
+            except Exception as exc:  # pylint: disable=broad-except
+                if Frame._print_load_medias:  # noqa  # pylint: disable=protected-access
                     print("      {} in '{}' FAILED! {}"
                           .format(('Overwriting' if filename_exist
                                    else 'Saving'), filename, exc),
                           file=stderr)
-        elif Frame._print_load_medias:
+        elif Frame._print_load_medias:  # pylint: disable=protected-access
             print("      Local file '{}' already exist"
                   .format(filename),
                   file=stderr)
 
-    if Frame._print_load_medias:
+    if Frame._print_load_medias:  # pylint: disable=protected-access
         stderr.flush()
 
-    Frame._pygamemedias_cached[url] = media
+    Frame._pygamemedias_cached[url] = media  # pylint: disable=protected-access
 
     return media
 
@@ -270,8 +269,8 @@ def __normalized_filename(url, local_dir):
                              urlsplitted.path[1:]).replace('\\', '/')))
 
     if urlsplitted.query != '':  # add "normalized" query part
-        filename = list(splitext(filename))
-        filename.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted.query))
-        filename = ''.join(filename)
+        pieces = list(splitext(filename))
+        pieces.insert(1, sub('[^._0-9A-Za-z]', '_', urlsplitted.query))
+        filename = ''.join(pieces)
 
     return filename

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (March 4, 2020)
+simpleguics2pygame/_options (March 6, 2020)
 
 Options helpers.
 
@@ -31,7 +31,7 @@ except ImportError:
 #
 # "Private" function
 ####################
-def _set_option_from_argv():
+def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-many-statements
     """
     Read arguments in sys.argv
     and set options.
@@ -73,8 +73,8 @@ def _set_option_from_argv():
     """
     from sys import argv
 
-    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame
-    from SimpleGUICS2Pygame.simpleguics2pygame.sound import Sound
+    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
+    from SimpleGUICS2Pygame.simpleguics2pygame.sound import Sound  # noqa  # pylint: disable=no-name-in-module
 
     nb_module_arg = 0
     i = 1
@@ -82,52 +82,51 @@ def _set_option_from_argv():
         arg = argv[i]
         nb_module_arg += 1
         if arg == '--default-font':
-            Frame._default_font = True
+            Frame._default_font = True  # pylint: disable=protected-access
         elif arg == '--display-fps':
-            Frame._display_fps_average = True
+            Frame._display_fps_average = True  # noqa  # pylint: disable=protected-access
         elif arg == '--fps':
             nb_module_arg += 1
             i += 1
             try:
-                Frame._fps = max(0, int(argv[i]))
+                Frame._fps = max(0, int(argv[i]))  # noqa  # pylint: disable=protected-access
             except (IndexError, ValueError):
-                Frame._fps = 0
+                Frame._fps = 0  # pylint: disable=protected-access
         elif arg == '--frame-padding':
             nb_module_arg += 1
             i += 1
             try:
-                Frame._frame_padding = max(0, int(argv[i]))
+                Frame._frame_padding = max(0, int(argv[i]))  # noqa  # pylint: disable=protected-access
             except (IndexError, ValueError):
-                Frame._frame_padding = 0
+                Frame._frame_padding = 0  # pylint: disable=protected-access
         elif arg == '--fullscreen':
             if _PYGAME_AVAILABLE:
-                Frame._pygame_mode_flags |= (pygame.FULLSCREEN |
-                                             pygame.HWSURFACE)
+                Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.HWSURFACE  # noqa  # pylint: disable=no-member
         elif arg == '--keep-timers':
-            Frame._keep_timers = True
+            Frame._keep_timers = True  # pylint: disable=protected-access
         elif arg == '--last':
             break
         elif arg == '--no-border':
             if _PYGAME_AVAILABLE:
-                Frame._pygame_mode_flags |= pygame.NOFRAME
+                Frame._pygame_mode_flags |= pygame.NOFRAME  # noqa  # pylint: disable=protected-access,no-member
         elif arg == '--no-controlpanel':
-            Frame._hide_controlpanel = True
+            Frame._hide_controlpanel = True  # pylint: disable=protected-access
         elif arg == '--no-load-sound':
-            Sound._load_disabled = True
+            Sound._load_disabled = True  # pylint: disable=protected-access
         elif arg == '--no-status':
-            Frame._hide_status = True
+            Frame._hide_status = True  # pylint: disable=protected-access
         elif arg == '--overwrite-downloaded-medias':
-            Frame._save_downloaded_medias = True
-            Frame._save_downloaded_medias_overwrite = True
+            Frame._save_downloaded_medias = True  # noqa  # pylint: disable=protected-access
+            Frame._save_downloaded_medias_overwrite = True  # noqa  # pylint: disable=protected-access
         elif arg == '--print-load-medias':
-            Frame._print_load_medias = True
+            Frame._print_load_medias = True  # pylint: disable=protected-access
         elif arg == '--print-stats-cache':
-            Frame._print_stats_cache = True
+            Frame._print_stats_cache = True  # pylint: disable=protected-access
         elif arg == '--save-downloaded-medias':
-            Frame._save_downloaded_medias = True
-            Frame._save_downloaded_medias_overwrite = False
+            Frame._save_downloaded_medias = True  # noqa  # pylint: disable=protected-access
+            Frame._save_downloaded_medias_overwrite = False  # noqa  # pylint: disable=protected-access
         elif arg == '--stop-timers':
-            Frame._keep_timers = False
+            Frame._keep_timers = False  # pylint: disable=protected-access
         else:
             nb_module_arg -= 1
 
