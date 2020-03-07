@@ -61,17 +61,16 @@ checking SimpleGUICS2Pygame/test/test_simpleplot_scatter.py
 checking SimpleGUICS2Pygame/test/test_sound.py
 checking SimpleGUICS2Pygame/test/test_text.py
 checking SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py
-checking SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_average.py
 checking SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py
-checking SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py
 
 ===== pyflakes =====
+SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_multi' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_side' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_rect' imported but unused
-SimpleGUICS2Pygame/simplegui_lib.py:26: 'SimpleGUICS2Pygame.simplegui_lib_draw.draw_text_multi' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:28: 'SimpleGUICS2Pygame.simplegui_lib_fps.FPS' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:29: 'SimpleGUICS2Pygame.simplegui_lib_keys.Keys' imported but unused
 SimpleGUICS2Pygame/simplegui_lib.py:30: 'SimpleGUICS2Pygame.simplegui_lib_loader.Loader' imported but unused
+SimpleGUICS2Pygame/simplegui_lib_draw.py:18: 'SimpleGUICS2Pygame._VERSION' imported but unused
 SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py:93: 'simplegui' imported but unused
 SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py:108: 'simpleguitk' imported but unused
 SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:40: undefined name '_options'
@@ -102,871 +101,25 @@ SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:111: undefined name 'timer'
 SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:117: undefined name '_colors'
 SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:122: undefined name '_fonts'
 SimpleGUICS2Pygame/simpleguics2pygame/__init__.py:127: undefined name '_media'
+SimpleGUICS2Pygame/simpleguics2pygame/image.py:26: 'pygame' imported but unused
+SimpleGUICS2Pygame/simpleguics2pygame/sound.py:26: 'pygame' imported but unused
 SimpleGUICS2Pygame/test/test_command_line_options.py:19: 'SimpleGUICS2Pygame.simpleguics2pygame as simplegui' imported but unused
+SimpleGUICS2Pygame/test/test_simpleplot_bars.py:15: 'codeskulptor.file2url' imported but unused
+SimpleGUICS2Pygame/test/test_simpleplot_lines.py:15: 'codeskulptor.file2url' imported but unused
+SimpleGUICS2Pygame/test/test_simpleplot_scatter.py:15: 'codeskulptor.file2url' imported but unused
+SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:17: 'codeskulptor.file2url' imported but unused
 
 ===== pylint =====
 ************* Module SimpleGUICS2Pygame.simpleguics2pygame.frame
 C:614, 8: Invalid attribute name "_background_pygame_surface_image" (invalid-name)
-************* Module test_numeric
-R: 83, 0: Too many local variables (31/15) (too-many-locals)
-C:184, 8: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
-C:193, 8: Invalid variable name "m2" (invalid-name)
-C:211, 8: Invalid variable name "m2" (invalid-name)
-C:230, 8: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
-C:256,12: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
-C:267,12: Invalid variable name "ms" (invalid-name)
-C:275,12: Invalid variable name "ms" (invalid-name)
-C:304, 8: Invalid variable name "m2" (invalid-name)
-C:310, 8: Invalid variable name "m2" (invalid-name)
-C:442, 4: Invalid variable name "mi" (invalid-name)
-C:448, 4: Invalid variable name "mi" (invalid-name)
-R: 83, 0: Too many branches (71/12) (too-many-branches)
-R: 83, 0: Too many statements (244/50) (too-many-statements)
-************* Module test_simpleplot_bars
-C: 25, 0: Invalid constant name "datalist" (invalid-name)
-C: 26, 0: Invalid constant name "dataset" (invalid-name)
-C: 28, 0: Invalid constant name "filename" (invalid-name)
-C: 34, 8: Invalid constant name "filename" (invalid-name)
-************* Module test_simpleplot_lines
-C: 25, 0: Invalid constant name "datalist" (invalid-name)
-C: 26, 0: Invalid constant name "dataset" (invalid-name)
-C: 28, 0: Invalid constant name "filename" (invalid-name)
-C: 34, 8: Invalid constant name "filename" (invalid-name)
-************* Module test_simpleplot_scatter
-C: 25, 0: Invalid constant name "datalist" (invalid-name)
-C: 26, 0: Invalid constant name "dataset" (invalid-name)
-C: 28, 0: Invalid constant name "filename" (invalid-name)
-C: 34, 8: Invalid constant name "filename" (invalid-name)
-************* Module test_sound
-C: 28, 0: Invalid constant name "sound_jump_ogg" (invalid-name)
-C: 31, 4: Invalid constant name "local_sound_chirp_wav" (invalid-name)
-E: 31,28: Module 'SimpleGUICS2Pygame.simpleguics2pygame' has no '_load_local_sound' member (no-member)
-************* Module Stress_Balls
-C: 83, 0: Missing class docstring (missing-docstring)
-R: 83, 0: Too many instance attributes (12/7) (too-many-instance-attributes)
-R: 84, 4: Too many arguments (7/5) (too-many-arguments)
-C:106, 4: Missing method docstring (missing-docstring)
-C:110, 4: Missing method docstring (missing-docstring)
-C:114, 4: Missing method docstring (missing-docstring)
-C:118, 4: Missing method docstring (missing-docstring)
-C:129, 4: Missing method docstring (missing-docstring)
-C:140, 4: Missing method docstring (missing-docstring)
-C:151, 4: Missing method docstring (missing-docstring)
-C:158, 4: Missing method docstring (missing-docstring)
-C:165, 4: Missing method docstring (missing-docstring)
-C:173, 4: Missing method docstring (missing-docstring)
-C:177, 4: Missing method docstring (missing-docstring)
-W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-C:194, 0: Missing function docstring (missing-docstring)
-C:202, 0: Missing function docstring (missing-docstring)
-W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
-W:204, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
-W:205, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
-W:206, 4: Global variable 'nb_balls' undefined at the module level (global-variable-undefined)
-W:207, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-W:208, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-W:209, 4: Using the global statement (global-statement)
-W:210, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
-W:222,15: Catching too general exception Exception (broad-except)
-W:231,15: Catching too general exception Exception (broad-except)
-W:230,16: Access to a protected member _block of a client class (protected-access)
-C:257, 0: Missing function docstring (missing-docstring)
-C:263, 0: Missing function docstring (missing-docstring)
-C:270, 0: Missing function docstring (missing-docstring)
-W:271, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
-C:283, 0: Missing function docstring (missing-docstring)
-W:284, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-W:293,37: Access to a protected member _get_fps_average of a client class (protected-access)
-C:304, 0: Missing function docstring (missing-docstring)
-W:305, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
-C:310, 0: Missing function docstring (missing-docstring)
-W:311, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
-W:312, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-W:316,11: Access to a protected member _get_fps_average of a client class (protected-access)
-C:326, 0: Missing function docstring (missing-docstring)
-C:331, 0: Missing function docstring (missing-docstring)
-C:336, 0: Missing function docstring (missing-docstring)
-W:337, 4: Using the global statement (global-statement)
-W:349, 0: Access to a protected member _stop_timers of a client class (protected-access)
-************* Module Stress_Balls_average
-W: 33, 4: Access to a protected member _hide_status of a client class (protected-access)
-C: 83, 0: Missing class docstring (missing-docstring)
-R: 83, 0: Too many instance attributes (12/7) (too-many-instance-attributes)
-R: 84, 4: Too many arguments (7/5) (too-many-arguments)
-C:106, 4: Missing method docstring (missing-docstring)
-C:110, 4: Missing method docstring (missing-docstring)
-C:114, 4: Missing method docstring (missing-docstring)
-C:118, 4: Missing method docstring (missing-docstring)
-C:129, 4: Missing method docstring (missing-docstring)
-C:140, 4: Missing method docstring (missing-docstring)
-C:151, 4: Missing method docstring (missing-docstring)
-C:158, 4: Missing method docstring (missing-docstring)
-C:165, 4: Missing method docstring (missing-docstring)
-C:173, 4: Missing method docstring (missing-docstring)
-C:177, 4: Missing method docstring (missing-docstring)
-W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-C:194, 0: Missing function docstring (missing-docstring)
-C:202, 0: Missing function docstring (missing-docstring)
-W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
-W:204, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
-W:205, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
-W:206, 4: Global variable 'nb_balls' undefined at the module level (global-variable-undefined)
-W:207, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-W:208, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-W:209, 4: Using the global statement (global-statement)
-W:210, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
-W:222,15: Catching too general exception Exception (broad-except)
-W:231,15: Catching too general exception Exception (broad-except)
-W:230,16: Access to a protected member _block of a client class (protected-access)
-C:257, 0: Missing function docstring (missing-docstring)
-C:263, 0: Missing function docstring (missing-docstring)
-C:270, 0: Missing function docstring (missing-docstring)
-W:271, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
-C:283, 0: Missing function docstring (missing-docstring)
-W:284, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-W:293,37: Access to a protected member _get_fps_average of a client class (protected-access)
-C:304, 0: Missing function docstring (missing-docstring)
-W:305, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
-C:310, 0: Missing function docstring (missing-docstring)
-W:311, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
-W:312, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-W:316,11: Access to a protected member _get_fps_average of a client class (protected-access)
-C:326, 0: Missing function docstring (missing-docstring)
-C:331, 0: Missing function docstring (missing-docstring)
-C:336, 0: Missing function docstring (missing-docstring)
-W:337, 4: Using the global statement (global-statement)
-W:349, 0: Access to a protected member _stop_timers of a client class (protected-access)
 ************* Module Stress_Balls_results
-W:153, 7: Catching too general exception Exception (broad-except)
-R:112, 0: Redefinition of alls_nb type from set to list (redefined-variable-type)
-************* Module Stress_Balls_reverse
-C: 83, 0: Missing class docstring (missing-docstring)
-R: 83, 0: Too many instance attributes (12/7) (too-many-instance-attributes)
-R: 84, 4: Too many arguments (7/5) (too-many-arguments)
-C:106, 4: Missing method docstring (missing-docstring)
-C:110, 4: Missing method docstring (missing-docstring)
-C:114, 4: Missing method docstring (missing-docstring)
-C:118, 4: Missing method docstring (missing-docstring)
-C:129, 4: Missing method docstring (missing-docstring)
-C:140, 4: Missing method docstring (missing-docstring)
-C:151, 4: Missing method docstring (missing-docstring)
-C:158, 4: Missing method docstring (missing-docstring)
-C:165, 4: Missing method docstring (missing-docstring)
-C:173, 4: Missing method docstring (missing-docstring)
-C:177, 4: Missing method docstring (missing-docstring)
-W:160, 8: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:168,12: Attribute 'velocity_y_save' defined outside __init__ (attribute-defined-outside-init)
-W:159, 8: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-W:167,12: Attribute 'velocity_x_save' defined outside __init__ (attribute-defined-outside-init)
-C:194, 0: Missing function docstring (missing-docstring)
-C:202, 0: Missing function docstring (missing-docstring)
-W:203, 4: Global variable 'balls' undefined at the module level (global-variable-undefined)
-W:204, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
-W:205, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
-W:206, 4: Global variable 'nb_balls' undefined at the module level (global-variable-undefined)
-W:207, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-W:208, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-W:209, 4: Using the global statement (global-statement)
-W:210, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
-W:222,15: Catching too general exception Exception (broad-except)
-W:231,15: Catching too general exception Exception (broad-except)
-C:257, 0: Missing function docstring (missing-docstring)
-C:263, 0: Missing function docstring (missing-docstring)
-C:270, 0: Missing function docstring (missing-docstring)
-W:271, 4: Global variable 'freezed' undefined at the module level (global-variable-undefined)
-C:283, 0: Missing function docstring (missing-docstring)
-W:284, 4: Global variable 'nb_frames_drawed' undefined at the module level (global-variable-undefined)
-C:304, 0: Missing function docstring (missing-docstring)
-W:305, 4: Global variable 'to_next_step' undefined at the module level (global-variable-undefined)
-C:310, 0: Missing function docstring (missing-docstring)
-W:311, 4: Global variable 'fps' undefined at the module level (global-variable-undefined)
-W:312, 4: Global variable 'nb_seconds' undefined at the module level (global-variable-undefined)
-C:326, 0: Missing function docstring (missing-docstring)
-C:331, 0: Missing function docstring (missing-docstring)
-C:336, 0: Missing function docstring (missing-docstring)
-W:337, 4: Using the global statement (global-statement)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.sound) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control) (cyclic-import)
-R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame -> SimpleGUICS2Pygame.simpleguics2pygame._options -> SimpleGUICS2Pygame.simpleguics2pygame.sound -> SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control -> SimpleGUICS2Pygame.simpleguics2pygame._fonts) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._media -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas -> SimpleGUICS2Pygame.simpleguics2pygame.image) (cyclic-import)
 R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._fonts -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.control) (cyclic-import)
-R:  1, 0: Similar lines in 2 files
-==Stress_Balls:42
-==Stress_Balls_reverse:42
-_FPS_AVERAGE = False
-
-# Number of balls of each step
-list_nb_balls = [1, 10, 20, 30, 40, 50, 75,
-                 100, 200, 300, 400, 500, 750,
-                 1000, 1500, 2000]
-# ### <<< config
-
-if REVERSE:
-    list_nb_balls.reverse()
-
-
-FONT_SIZE = 40
-
-WIDTH = 599
-HEIGHT = 407
-
-RGB_COLORS = ((0, 0, 128),
-              (0, 0, 255),
-              (0, 128, 0),
-              (0, 128, 128),
-              (0, 255, 0),
-              (0, 255, 255),
-              (128, 0, 0),
-              (128, 0, 128),
-              (128, 128, 0),
-              (128, 128, 128),
-              (192, 192, 192),
-              (255, 0, 0),
-              (255, 0, 255),
-              (255, 165, 0),
-              (255, 255, 0),
-              (255, 255, 255))
-
-
-results = {}
-
-transparency = ALPHA
-
-
-class Ball:
-    def __init__(self, center, radius, color, fill_color, velocity, shape):
-        self.center_x = center[0]
-        self.center_y = center[1]
-
-        self.radius = radius
-
-        self.color_rgba = color
-        self.color = rgba_to_str(color)
-
-        self.fill_color_rgba = fill_color
-        self.fill_color = rgba_to_str(fill_color)
-
-        self.velocity_x = velocity[0]
-        self.velocity_y = velocity[1]
-
-        self.draw = (self.draw_circle,
-                     self.draw_disc,
-                     self.draw_disc_border,
-                     self.draw_square,
-                     self.draw_squarefill,
-                     self.draw_squarefill_border)[shape]
-
-    def draw_circle(self, canvas):
-        canvas.draw_circle((self.center_x, self.center_y),
-                           self.radius, 2, self.color)
-
-    def draw_disc(self, canvas):
-        canvas.draw_circle((self.center_x, self.center_y),
-                           self.radius, 1, self.color, self.color)
-
-    def draw_disc_border(self, canvas):
-        canvas.draw_circle((self.center_x, self.center_y),
-                           self.radius, 2, self.color, self.fill_color)
-
-    def draw_square(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y + self.radius),
-                             (self.center_x - self.radius,
-                              self.center_y + self.radius)),
-                            2, self.color)
-
-    def draw_squarefill(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y + self.radius),
-                             (self.center_x - self.radius,
-                              self.center_y + self.radius)),
-                            1, self.color, self.color)
-
-    def draw_squarefill_border(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y + self.radius),
-                             (self.center_x - self.radius,
-                              self.center_y + self.radius)),
-                            2, self.color, self.fill_color)
-
-    def freeze_off(self):
-        self.velocity_x = self.velocity_x_save
-        self.velocity_y = self.velocity_y_save
-
-        del self.velocity_x_save
-        del self.velocity_y_save
-
-    def freeze_on(self):
-        self.velocity_x_save = self.velocity_x
-        self.velocity_y_save = self.velocity_y
-
-        self.velocity_x = 0
-        self.velocity_y = 0
-
-    def revert(self):
-        if freezed:
-            self.velocity_x_save = -self.velocity_x_save
-            self.velocity_y_save = -self.velocity_y_save
-        else:
-            self.velocity_x = -self.velocity_x
-            self.velocity_y = -self.velocity_y
-
-    def transparency_reset(self):
-        self.color = rgba_to_str(self.color_rgba)
-        self.fill_color = rgba_to_str(self.fill_color_rgba)
-
-    def move(self):
-        self.center_x += self.velocity_x
-
-        if self.center_x <= self.radius:
-            self.velocity_x = abs(self.velocity_x)
-        elif self.center_x >= WIDTH - 1 - self.radius:
-            self.velocity_x = -abs(self.velocity_x)
-
-        self.center_y += self.velocity_y
-
-        if self.center_y <= self.radius:
-            self.velocity_y = abs(self.velocity_y)
-        elif self.center_y > HEIGHT - 1 - self.radius:
-            self.velocity_y = -abs(self.velocity_y)
-
-
-# Functions
-def dict_to_ordered_list(d):
-    l = list(d.keys())
-    l.sort()
-
-    return [(nb_balls, d[nb_balls])
-            for nb_balls in l]
-
-
-def init():
-    global balls
-    global fps
-    global freezed
-    global nb_balls
-    global nb_frames_drawed
-    global nb_seconds
-    global results
-    global to_next_step
-
-    if len(list_nb_balls) == 0:
-        timer.stop()
-
-        results = dict_to_ordered_list(results)
-
-        print('Results: {' + ', '
-              .join(['%d: %d' % result for result in results]) + '}')
-
-        try:
-            frame.stop()
-        except Exception as e:  # to avoid simpleguitk failed
-            print('frame.stop():' + str(e))
-
-        try:
-            simpleplot.plot_lines('Stress Balls', 800, 650,
-                                  '# balls', 'FPS',
-                                  (results, ), True)
-            if SIMPLEGUICS2PYGAME:
-                simpleplot._block()
-        except Exception as e:  # to avoid fail if no simpleplot
-            print('simpleplot.plot_lines():' + str(e))
-
-        return
-
-    if list_nb_balls:
-        nb_balls = list_nb_balls.pop(0)
-
-    fps = 0
-    freezed = False
-    nb_frames_drawed = 0
-    nb_seconds = 0
-    to_next_step = False
-
-    balls = tuple([Ball([47 + n % (WIDTH - 100),
-                         47 + n % (HEIGHT - 100)],  # position
-                        19 + n % 11,  # radius
-                        n_to_rgba((n + 1) % len(RGB_COLORS),
-                                  .2 + float(n % 13) / 15),  # color of border
-                        n_to_rgba((n + 2) % len(RGB_COLORS),
-                                  .2 + float((n + 3) % 14) / 17),  # fill color
-                        [3 + n % 7, 2 + n % 5],  # velocity
-                        (n + 2) % 6)  # shape
-                   for n in range(nb_balls)])
-
-
-def n_to_rgba(n, alpha):
-    n = RGB_COLORS[n]
-
-    return (n[0], n[1], n[2], alpha)
-
-
-def rgba_to_str(rgba):
-    # %f failed on CodeSkulptor
-    return ('rgba(%d, %d, %d, %s)' % rgba if transparency
-            else 'rgba(%d, %d, %d, 1)' % rgba[:3])
-
-
-# Handler
-def freeze_on_off():
-    global freezed
-
-    if freezed:
-        for ball in balls:
-            ball.freeze_off()
-    else:
-        for ball in balls:
-            ball.freeze_on()
-
-    freezed = not freezed
-
-
-def draw(canvas):
-    global nb_frames_drawed
-
-    for ball in balls:
-        ball.draw(canvas)
-        ball.move()
-
-    nb_frames_drawed += 1
-
-    s = '#%d | %d FPS' % (nb_balls,
-                          (int(round(frame._get_fps_average())) if _FPS_AVERAGE
-                           else fps))
-    canvas.draw_text(s, (12, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
-    canvas.draw_text(s, (10, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
-
-    s = '%ds' % (MAX_NB_SECONDS - nb_seconds)
-    x = WIDTH - 11 - frame.get_canvas_textwidth(s, FONT_SIZE)
-    canvas.draw_text(s, (x - 2, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
-    canvas.draw_text(s, (x, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
-
-
-def next_step():
-    global to_next_step
-
-    to_next_step = True
-
-
-def print_fps():
-    global fps
-    global nb_seconds
-
-    nb_seconds += 1
-
-    fps = (frame._get_fps_average() if _FPS_AVERAGE
-           else int(round(float(nb_frames_drawed) / nb_seconds)))
-
-    if (nb_seconds > MAX_NB_SECONDS) or to_next_step:
-        print('%d | %d' % (nb_balls, fps))
-        results[nb_balls] = fps
-
-        init()
-
-
-def revert():
-    for ball in balls:
-        ball.revert()
-
-
-def stop():
-    timer.stop()
-    frame.stop()
-
-
-def transparency_on_off():
-    global transparency
-
-    transparency = not transparency
-
-    for ball in balls:
-        ball.transparency_reset()
-
-
-# Main
-print("""Stress Balls:
-# balls | FPS...""")
-
-simplegui.Frame._stop_timers = True
-
-frame = simplegui.create_frame('Stress Balls' +
-                               (' ALPHA' if ALPHA
-                                else '') +
-                               (' REVERSE' if REVERSE
-                                else '') +
-                               (' _FPS_AVERAGE' if _FPS_AVERAGE
-                                else ''),
-                               WIDTH, HEIGHT)
-
-frame.add_button('Un/Freeze', freeze_on_off)
-frame.add_button('Revert', revert)
-frame.add_button('Without/With transparency', transparency_on_off)
-frame.add_button('Next step', next_step)
-frame.add_label('')
-frame.add_button('Quit', stop)
-
-init()
-
-frame.set_draw_handler(draw)
-
-timer = simplegui.create_timer(1000, print_fps)
-timer.start()
-
-frame.start() (duplicate-code)
-R:  1, 0: Similar lines in 3 files
-==Stress_Balls:45
-==Stress_Balls_average:45
-==Stress_Balls_reverse:45
-list_nb_balls = [1, 10, 20, 30, 40, 50, 75,
-                 100, 200, 300, 400, 500, 750,
-                 1000, 1500, 2000]
-# ### <<< config
-
-if REVERSE:
-    list_nb_balls.reverse()
-
-
-FONT_SIZE = 40
-
-WIDTH = 599
-HEIGHT = 407
-
-RGB_COLORS = ((0, 0, 128),
-              (0, 0, 255),
-              (0, 128, 0),
-              (0, 128, 128),
-              (0, 255, 0),
-              (0, 255, 255),
-              (128, 0, 0),
-              (128, 0, 128),
-              (128, 128, 0),
-              (128, 128, 128),
-              (192, 192, 192),
-              (255, 0, 0),
-              (255, 0, 255),
-              (255, 165, 0),
-              (255, 255, 0),
-              (255, 255, 255))
-
-
-results = {}
-
-transparency = ALPHA
-
-
-class Ball:
-    def __init__(self, center, radius, color, fill_color, velocity, shape):
-        self.center_x = center[0]
-        self.center_y = center[1]
-
-        self.radius = radius
-
-        self.color_rgba = color
-        self.color = rgba_to_str(color)
-
-        self.fill_color_rgba = fill_color
-        self.fill_color = rgba_to_str(fill_color)
-
-        self.velocity_x = velocity[0]
-        self.velocity_y = velocity[1]
-
-        self.draw = (self.draw_circle,
-                     self.draw_disc,
-                     self.draw_disc_border,
-                     self.draw_square,
-                     self.draw_squarefill,
-                     self.draw_squarefill_border)[shape]
-
-    def draw_circle(self, canvas):
-        canvas.draw_circle((self.center_x, self.center_y),
-                           self.radius, 2, self.color)
-
-    def draw_disc(self, canvas):
-        canvas.draw_circle((self.center_x, self.center_y),
-                           self.radius, 1, self.color, self.color)
-
-    def draw_disc_border(self, canvas):
-        canvas.draw_circle((self.center_x, self.center_y),
-                           self.radius, 2, self.color, self.fill_color)
-
-    def draw_square(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y + self.radius),
-                             (self.center_x - self.radius,
-                              self.center_y + self.radius)),
-                            2, self.color)
-
-    def draw_squarefill(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y + self.radius),
-                             (self.center_x - self.radius,
-                              self.center_y + self.radius)),
-                            1, self.color, self.color)
-
-    def draw_squarefill_border(self, canvas):
-        canvas.draw_polygon(((self.center_x - self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y - self.radius),
-                             (self.center_x + self.radius,
-                              self.center_y + self.radius),
-                             (self.center_x - self.radius,
-                              self.center_y + self.radius)),
-                            2, self.color, self.fill_color)
-
-    def freeze_off(self):
-        self.velocity_x = self.velocity_x_save
-        self.velocity_y = self.velocity_y_save
-
-        del self.velocity_x_save
-        del self.velocity_y_save
-
-    def freeze_on(self):
-        self.velocity_x_save = self.velocity_x
-        self.velocity_y_save = self.velocity_y
-
-        self.velocity_x = 0
-        self.velocity_y = 0
-
-    def revert(self):
-        if freezed:
-            self.velocity_x_save = -self.velocity_x_save
-            self.velocity_y_save = -self.velocity_y_save
-        else:
-            self.velocity_x = -self.velocity_x
-            self.velocity_y = -self.velocity_y
-
-    def transparency_reset(self):
-        self.color = rgba_to_str(self.color_rgba)
-        self.fill_color = rgba_to_str(self.fill_color_rgba)
-
-    def move(self):
-        self.center_x += self.velocity_x
-
-        if self.center_x <= self.radius:
-            self.velocity_x = abs(self.velocity_x)
-        elif self.center_x >= WIDTH - 1 - self.radius:
-            self.velocity_x = -abs(self.velocity_x)
-
-        self.center_y += self.velocity_y
-
-        if self.center_y <= self.radius:
-            self.velocity_y = abs(self.velocity_y)
-        elif self.center_y > HEIGHT - 1 - self.radius:
-            self.velocity_y = -abs(self.velocity_y)
-
-
-# Functions
-def dict_to_ordered_list(d):
-    l = list(d.keys())
-    l.sort()
-
-    return [(nb_balls, d[nb_balls])
-            for nb_balls in l]
-
-
-def init():
-    global balls
-    global fps
-    global freezed
-    global nb_balls
-    global nb_frames_drawed
-    global nb_seconds
-    global results
-    global to_next_step
-
-    if len(list_nb_balls) == 0:
-        timer.stop()
-
-        results = dict_to_ordered_list(results)
-
-        print('Results: {' + ', '
-              .join(['%d: %d' % result for result in results]) + '}')
-
-        try:
-            frame.stop()
-        except Exception as e:  # to avoid simpleguitk failed
-            print('frame.stop():' + str(e))
-
-        try:
-            simpleplot.plot_lines('Stress Balls', 800, 650,
-                                  '# balls', 'FPS',
-                                  (results, ), True)
-            if SIMPLEGUICS2PYGAME:
-                simpleplot._block()
-        except Exception as e:  # to avoid fail if no simpleplot
-            print('simpleplot.plot_lines():' + str(e))
-
-        return
-
-    if list_nb_balls:
-        nb_balls = list_nb_balls.pop(0)
-
-    fps = 0
-    freezed = False
-    nb_frames_drawed = 0
-    nb_seconds = 0
-    to_next_step = False
-
-    balls = tuple([Ball([47 + n % (WIDTH - 100),
-                         47 + n % (HEIGHT - 100)],  # position
-                        19 + n % 11,  # radius
-                        n_to_rgba((n + 1) % len(RGB_COLORS),
-                                  .2 + float(n % 13) / 15),  # color of border
-                        n_to_rgba((n + 2) % len(RGB_COLORS),
-                                  .2 + float((n + 3) % 14) / 17),  # fill color
-                        [3 + n % 7, 2 + n % 5],  # velocity
-                        (n + 2) % 6)  # shape
-                   for n in range(nb_balls)])
-
-
-def n_to_rgba(n, alpha):
-    n = RGB_COLORS[n]
-
-    return (n[0], n[1], n[2], alpha)
-
-
-def rgba_to_str(rgba):
-    # %f failed on CodeSkulptor
-    return ('rgba(%d, %d, %d, %s)' % rgba if transparency
-            else 'rgba(%d, %d, %d, 1)' % rgba[:3])
-
-
-# Handler
-def freeze_on_off():
-    global freezed
-
-    if freezed:
-        for ball in balls:
-            ball.freeze_off()
-    else:
-        for ball in balls:
-            ball.freeze_on()
-
-    freezed = not freezed
-
-
-def draw(canvas):
-    global nb_frames_drawed
-
-    for ball in balls:
-        ball.draw(canvas)
-        ball.move()
-
-    nb_frames_drawed += 1
-
-    s = '#%d | %d FPS' % (nb_balls,
-                          (int(round(frame._get_fps_average())) if _FPS_AVERAGE
-                           else fps))
-    canvas.draw_text(s, (12, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
-    canvas.draw_text(s, (10, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
-
-    s = '%ds' % (MAX_NB_SECONDS - nb_seconds)
-    x = WIDTH - 11 - frame.get_canvas_textwidth(s, FONT_SIZE)
-    canvas.draw_text(s, (x - 2, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
-    canvas.draw_text(s, (x, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
-
-
-def next_step():
-    global to_next_step
-
-    to_next_step = True
-
-
-def print_fps():
-    global fps
-    global nb_seconds
-
-    nb_seconds += 1
-
-    fps = (frame._get_fps_average() if _FPS_AVERAGE
-           else int(round(float(nb_frames_drawed) / nb_seconds)))
-
-    if (nb_seconds > MAX_NB_SECONDS) or to_next_step:
-        print('%d | %d' % (nb_balls, fps))
-        results[nb_balls] = fps
-
-        init()
-
-
-def revert():
-    for ball in balls:
-        ball.revert()
-
-
-def stop():
-    timer.stop()
-    frame.stop()
-
-
-def transparency_on_off():
-    global transparency
-
-    transparency = not transparency
-
-    for ball in balls:
-        ball.transparency_reset()
-
-
-# Main
-print("""Stress Balls:
-# balls | FPS...""")
-
-simplegui.Frame._stop_timers = True
-
-frame = simplegui.create_frame('Stress Balls' +
-                               (' ALPHA' if ALPHA
-                                else '') +
-                               (' REVERSE' if REVERSE
-                                else '') +
-                               (' _FPS_AVERAGE' if _FPS_AVERAGE
-                                else ''),
-                               WIDTH, HEIGHT)
-
-frame.add_button('Un/Freeze', freeze_on_off)
-frame.add_button('Revert', revert)
-frame.add_button('Without/With transparency', transparency_on_off)
-frame.add_button('Next step', next_step)
-frame.add_label('')
-frame.add_button('Quit', stop)
-
-init()
-
-frame.set_draw_handler(draw)
-
-timer = simplegui.create_timer(1000, print_fps)
-timer.start()
-
-frame.start() (duplicate-code)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._fonts -> SimpleGUICS2Pygame.simpleguics2pygame.frame) (cyclic-import)
+R:  1, 0: Cyclic import (SimpleGUICS2Pygame.simpleguics2pygame._colors -> SimpleGUICS2Pygame.simpleguics2pygame.frame -> SimpleGUICS2Pygame.simpleguics2pygame.canvas) (cyclic-import)
 R:  1, 0: Similar lines in 2 files
 ==test_colors_html_hsla:80
 ==test_colors_html_rgba:81
@@ -1050,6 +203,68 @@ SCREEN_HEIGHT = 600
 ###################
 FRAME = None
  (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==test_simpleplot_bars:13
+==test_simpleplot_scatter:13
+try:
+    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # pylint: disable=unused-import
+    import simpleplot
+
+    SIMPLEGUICS2PYGAME = False
+except ImportError:
+    import SimpleGUICS2Pygame.simpleplot as simpleplot
+
+    SIMPLEGUICS2PYGAME = True
+
+
+#
+# Main
+######
+def main():
+    """Open a plot."""
+    datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]
+    dataset = {1: 3, 2: 4, 5: 5, 8: 4, 9: 3}
+
+    filename = None
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            filename = argv[1]
+
+    if filename is None: (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==test_simpleplot_bars:13
+==test_simpleplot_lines:13
+==test_simpleplot_scatter:13
+try:
+    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # pylint: disable=unused-import
+    import simpleplot
+
+    SIMPLEGUICS2PYGAME = False
+except ImportError:
+    import SimpleGUICS2Pygame.simpleplot as simpleplot
+
+    SIMPLEGUICS2PYGAME = True
+
+
+#
+# Main
+######
+def main():
+    """Open a plot."""
+    datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]
+    dataset = {1: 3, 2: 4, 5: 5, 8: 4, 9: 3}
+
+    filename = None
+
+    if SIMPLEGUICS2PYGAME:
+        from sys import argv
+
+        if len(argv) == 2:
+            filename = argv[1]
+ (duplicate-code)
 R:  1, 0: Similar lines in 6 files
 ==test_button_label:14
 ==test_circle:13
@@ -1111,58 +326,6 @@ def main():
 if __name__ == '__main__':
     main() (duplicate-code)
 R:  1, 0: Similar lines in 2 files
-==test_simpleplot_bars:13
-==test_simpleplot_scatter:13
-try:
-    import simplegui  # to avoid other simpleplot available in Python
-    import simpleplot
-
-    SIMPLEGUICS2PYGAME = not bool(simplegui)  # False
-except ImportError:
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
-
-    SIMPLEGUICS2PYGAME = bool(simpleplot)  # True
-
-
-datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]
-dataset = {1: 3, 2: 4, 5: 5, 8: 4, 9: 3}
-
-filename = None
-
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
-
-    if len(argv) == 2:
-        filename = argv[1]
-
-if filename is None: (duplicate-code)
-R:  1, 0: Similar lines in 3 files
-==test_simpleplot_bars:13
-==test_simpleplot_lines:13
-==test_simpleplot_scatter:13
-try:
-    import simplegui  # to avoid other simpleplot available in Python
-    import simpleplot
-
-    SIMPLEGUICS2PYGAME = not bool(simplegui)  # False
-except ImportError:
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
-
-    SIMPLEGUICS2PYGAME = bool(simpleplot)  # True
-
-
-datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]
-dataset = {1: 3, 2: 4, 5: 5, 8: 4, 9: 3}
-
-filename = None
-
-if SIMPLEGUICS2PYGAME:
-    from sys import argv
-
-    if len(argv) == 2:
-        filename = argv[1]
- (duplicate-code)
-R:  1, 0: Similar lines in 2 files
 ==RiceRocks_Asteroids:691
 ==Spaceship_prototype:154
     def get_lifespan(self):
@@ -1187,30 +350,6 @@ R:  1, 0: Similar lines in 2 files
 
         :return: [(int or float) > 0, (int or float) > 0]
         """ (duplicate-code)
-R:  1, 0: Similar lines in 2 files
-==Stress_Balls:21
-==Stress_Balls_average:21
-try:
-    import simplegui
-    import simpleplot
-
-    SIMPLEGUICS2PYGAME = False
-except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
-
-    SIMPLEGUICS2PYGAME = True
-
-    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
-
-
-# ### Config >>>
-MAX_NB_SECONDS = 30  # number of seconds before next step
-
-ALPHA = False  # start with transparency if True
-REVERSE = False  # reverse list_nb_balls if true
-
-# Use Frame._get_fps_average() (only with SimpleGUICS2Pygame) (duplicate-code)
 R:  1, 0: Similar lines in 10 files
 ==test_button_label:19
 ==test_circle:18
@@ -1287,28 +426,6 @@ R:  1, 0: Similar lines in 2 files
                         line_width, line_color, fill_color)
 
  (duplicate-code)
-R:  1, 0: Similar lines in 3 files
-==Stress_Balls:21
-==Stress_Balls_average:21
-==Stress_Balls_reverse:21
-try:
-    import simplegui
-    import simpleplot
-
-    SIMPLEGUICS2PYGAME = False
-except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
-
-    SIMPLEGUICS2PYGAME = True
-
-    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
-
-
-# ### Config >>>
-MAX_NB_SECONDS = 30  # number of seconds before next step
-
-ALPHA = False  # start with transparency if True (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Frame_example:26
 ==stop_example:33
@@ -1348,6 +465,25 @@ R:  1, 0: Similar lines in 3 files
 
 if __name__ == '__main__':
     main() (duplicate-code)
+R:  1, 0: Similar lines in 4 files
+==Stress_Balls_results:15
+==test_simpleplot_bars:13
+==test_simpleplot_lines:13
+==test_simpleplot_scatter:13
+try:
+    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # pylint: disable=unused-import
+    import simpleplot
+
+    SIMPLEGUICS2PYGAME = False
+except ImportError:
+    import SimpleGUICS2Pygame.simpleplot as simpleplot
+
+    SIMPLEGUICS2PYGAME = True
+
+
+#
+# Main
+###### (duplicate-code)
 R:  1, 0: Similar lines in 5 files
 ==test_circle:79
 ==test_colors_html:89
@@ -1460,20 +596,21 @@ else:
     PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/
 
  (duplicate-code)
-R:  1, 0: Similar lines in 2 files
+R:  1, 0: Similar lines in 3 files
+==SimpleGUICS2Pygame.simpleguics2pygame._options:22
 ==SimpleGUICS2Pygame.simpleguics2pygame.image:24
 ==SimpleGUICS2Pygame.simpleguics2pygame.sound:24
 try:
-    import pygame
+    import pygame  # pylint: disable=unused-import
 
-    _PYGAME_AVAILABLE = bool(pygame)  # True
+    _PYGAME_AVAILABLE = True
 except ImportError:
     _PYGAME_AVAILABLE = False
 
 
 #
-# "Private" function
-#################### (duplicate-code)
+# Private global constant
+######################### (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Blackjack:16
 ==Pong:17
@@ -1543,6 +680,18 @@ except ImportError:
 
 
 # Global constants (duplicate-code)
+R:  1, 0: Similar lines in 2 files
+==test_simpleplot_bars:46
+==test_simpleplot_scatter:46
+                                (datalist, dataset),
+                                ('datalist', 'dataset'),
+                                _filename=filename)
+
+    if SIMPLEGUICS2PYGAME and (len(argv) != 2):
+        simpleplot._block()  # pylint: disable=protected-access
+
+if __name__ == '__main__':
+    main() (duplicate-code)
 R:  1, 0: Similar lines in 5 files
 ==test_colors_html:22
 ==test_colors_html_hsla:25
@@ -1570,24 +719,6 @@ R:  1, 0: Similar lines in 3 files
         if len(argv) == 2:
             FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
- (duplicate-code)
-R:  1, 0: Similar lines in 8 files
-==test_button_label:14
-==test_circle:13
-==test_colors_constants:13
-==test_grid:13
-==test_input:14
-==test_line:13
-==test_objects:13
-==test_sound:15
-try:
-    import simplegui
-
-    SIMPLEGUICS2PYGAME = False
-except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-
-    SIMPLEGUICS2PYGAME = True
  (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==SimpleGUICS2Pygame.simpleguics2pygame.control:22
@@ -1638,6 +769,23 @@ FRAME.add_label(PYTHON_VERSION)
 FRAME.add_label(GUI_VERSION)
 FRAME.add_label(PYGAME_VERSION)
 FRAME.add_label('') (duplicate-code)
+R:  1, 0: Similar lines in 8 files
+==test_button_label:14
+==test_circle:13
+==test_colors_constants:13
+==test_grid:13
+==test_input:14
+==test_line:13
+==test_objects:13
+==test_sound:13
+try:
+    import simplegui
+
+    SIMPLEGUICS2PYGAME = False
+except ImportError:
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
+    SIMPLEGUICS2PYGAME = True (duplicate-code)
 R:  1, 0: Similar lines in 2 files
 ==Frame_example:14
 ==Nostalgic_Basic_Blitz:20
@@ -1672,6 +820,17 @@ FRAME.set_draw_handler(draw_wait_images)
 
 TIMER = simplegui.create_timer(100, test_images_loaded)
 TIMER.start() (duplicate-code)
+R:  1, 0: Similar lines in 3 files
+==test_simpleplot_bars:48
+==test_simpleplot_lines:51
+==test_simpleplot_scatter:48
+                                _filename=filename)
+
+    if SIMPLEGUICS2PYGAME and (len(argv) != 2):
+        simpleplot._block()  # pylint: disable=protected-access
+
+if __name__ == '__main__':
+    main() (duplicate-code)
 R:  1, 0: Similar lines in 12 files
 ==test_button_label:33
 ==test_circle:32
@@ -1704,13 +863,15 @@ R:  1, 0: Similar lines in 4 files
     frame.add_label(PYGAME_VERSION)
     frame.add_label('')
     frame.add_button('Quit', frame.stop) (duplicate-code)
-R:  1, 0: Similar lines in 4 files
+R:  1, 0: Similar lines in 6 files
 ==SimpleGUICS2Pygame.simpleguics2pygame._options:22
 ==SimpleGUICS2Pygame.simpleguics2pygame.canvas:26
 ==SimpleGUICS2Pygame.simpleguics2pygame.control:22
 ==SimpleGUICS2Pygame.simpleguics2pygame.frame:24
+==SimpleGUICS2Pygame.simpleguics2pygame.image:24
+==SimpleGUICS2Pygame.simpleguics2pygame.sound:24
 try:
-    import pygame
+    import pygame  # pylint: disable=unused-import
 
     _PYGAME_AVAILABLE = True
 except ImportError:
@@ -1725,7 +886,7 @@ R:  1, 0: Similar lines in 9 files
 ==test_input:14
 ==test_line:13
 ==test_objects:13
-==test_sound:15
+==test_sound:13
 try:
     import simplegui
 
@@ -1754,15 +915,6 @@ R:  1, 0: Similar lines in 2 files
         self._lifespan = (lifespan if lifespan
                           else float('inf'))
         self._animated = animated (duplicate-code)
-R:  1, 0: Similar lines in 2 files
-==test_simpleplot_bars:41
-==test_simpleplot_scatter:41
-                            (datalist, dataset),
-                            ('datalist', 'dataset'),
-                            _filename=filename)
-
-if SIMPLEGUICS2PYGAME and (len(argv) != 2):
-    simpleplot._block()  # pylint: disable=protected-access (duplicate-code)
 R:  1, 0: Similar lines in 3 files
 ==test_colors_constants:77
 ==test_grid:171
@@ -1829,7 +981,7 @@ R:  1, 0: Similar lines in 2 files
 
 Report
 ======
-6103 statements analysed.
+5792 statements analysed.
 
 Statistics by type
 ------------------
@@ -1837,13 +989,13 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |type     |number |old number |difference |%documented |%badname |
 +=========+=======+===========+===========+============+=========+
-|module   |64     |64         |=          |100.00      |15.62    |
+|module   |62     |62         |=          |100.00      |12.90    |
 +---------+-------+-----------+-----------+------------+---------+
-|class    |38     |38         |=          |92.11       |0.00     |
+|class    |36     |36         |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|method   |277    |277        |=          |88.09       |0.00     |
+|method   |253    |253        |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|function |196    |197        |-1.00      |83.16       |0.51     |
+|function |179    |179        |=          |100.00      |0.56     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -1856,36 +1008,36 @@ External dependencies
       \-Image (test_all)
       \-ImageChops (test_all)
       \-ImageStat (test_all)
-    SimpleGUICS2Pygame (test_input,test_all,test_colors_html,test_colors_html_hsla,test_colors_constants,test_circle,test_button_label,test_image,test_objects,SimpleGUICS2Pygame_check,test_line,SimpleGUICS2Pygame.simplegui_lib_draw,test_grid,setup,test_colors_html_rgba,presentation,test_text)
+    SimpleGUICS2Pygame (SimpleGUICS2Pygame.simplegui_lib_draw,test_image,test_text,test_colors_html_rgba,test_all,setup,test_circle,test_line,presentation,test_colors_html_hsla,test_colors_constants,test_grid,SimpleGUICS2Pygame_check,test_objects,test_colors_html,test_input,test_button_label)
       \-codeskulptor (SimpleGUICS2Pygame_check,test_dir)
-      \-codeskulptor_lib (Mandelbrot_Set,test_colors_html,test_colors_html_hsla,Memory,SimpleGUICS2Pygame_check,Spaceship_prototype,test_colors_html_rgba,RiceRocks_Asteroids)
-      \-numeric (SimpleGUICS2Pygame_check,test_dir,test_numeric)
+      \-codeskulptor_lib (Spaceship_prototype,test_colors_html_rgba,RiceRocks_Asteroids,test_colors_html_hsla,test_colors_html,SimpleGUICS2Pygame_check,Memory,Mandelbrot_Set)
+      \-numeric (SimpleGUICS2Pygame_check,test_numeric,test_dir)
       \-simplegui_lib (SimpleGUICS2Pygame_check)
-      \-simplegui_lib_draw (SimpleGUICS2Pygame_check,test_text,Memory,SimpleGUICS2Pygame.simplegui_lib)
-      \-simplegui_lib_fps (RiceRocks_Asteroids,Spaceship_prototype,test_image,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib)
-      \-simplegui_lib_keys (SimpleGUICS2Pygame_check,keys,SimpleGUICS2Pygame.simplegui_lib)
-      \-simplegui_lib_loader (loader,SimpleGUICS2Pygame.simplegui_lib,test_image,SimpleGUICS2Pygame_check,Spaceship_prototype,RiceRocks_Asteroids)
-      \-simpleguics2pygame (loader,Frame_example,test_colors_html_hsla,test_image,SimpleGUICS2Pygame.simplegui_lib_keys,test_objects,Nostalgic_Basic_Blitz,test_grid,presentation,test_text,test_command_line_options,SimpleGUICS2Pygame.simplegui_lib_loader,test_colors_constants,Stress_Balls_reverse,test_colors_html_rgba,stop_example,test_colors_html,SimpleGUICS2Pygame.simplegui_lib_fps,test_circle,Memory,test_sound,SimpleGUICS2Pygame_check,Spaceship_prototype,SimpleGUICS2Pygame.simpleguics2pygame._fonts,test_dir,test_line,Stress_Balls_average,keys,Blackjack,Mandelbrot_Set,Pong,test_all,Stress_Balls,test_button_label,Stopwatch,test_input,RiceRocks_Asteroids)
-      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
-      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+      \-simplegui_lib_draw (SimpleGUICS2Pygame.simplegui_lib,Memory,test_text,SimpleGUICS2Pygame_check)
+      \-simplegui_lib_fps (SimpleGUICS2Pygame.simplegui_lib,test_image,Spaceship_prototype,SimpleGUICS2Pygame_check,RiceRocks_Asteroids)
+      \-simplegui_lib_keys (SimpleGUICS2Pygame.simplegui_lib,keys,SimpleGUICS2Pygame_check)
+      \-simplegui_lib_loader (Spaceship_prototype,test_image,loader,RiceRocks_Asteroids,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib)
+      \-simpleguics2pygame (Blackjack,SimpleGUICS2Pygame.simpleguics2pygame._fonts,test_command_line_options,test_grid,Stopwatch,SimpleGUICS2Pygame_check,Memory,test_button_label,Spaceship_prototype,SimpleGUICS2Pygame.simplegui_lib_loader,test_text,test_colors_html_rgba,test_all,loader,RiceRocks_Asteroids,test_dir,test_image,Stress_Balls,Frame_example,SimpleGUICS2Pygame.simplegui_lib_fps,Nostalgic_Basic_Blitz,Pong,test_input,SimpleGUICS2Pygame.simplegui_lib_keys,stop_example,test_line,presentation,test_colors_html_hsla,test_sound,test_colors_constants,test_circle,test_objects,test_colors_html,keys,Mandelbrot_Set)
+      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control)
+      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control)
       | \-_media (SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.sound)
       | \-_options (SimpleGUICS2Pygame.simpleguics2pygame)
-      | \-_pygame_lib (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._colors)
+      | \-_pygame_lib (SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._media)
       | \-canvas (SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-control (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-frame (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
-      | \-image (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+      | \-frame (SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._colors)
+      | \-image (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-keys (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-sound (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame._options)
+      | \-sound (SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame._media)
       | \-timer (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      \-simpleplot (test_simpleplot_lines,Stress_Balls_results,Stress_Balls,Stress_Balls_reverse,test_simpleplot_scatter,SimpleGUICS2Pygame_check,test_dir,Stress_Balls_average,test_simpleplot_bars)
-    matplotlib (SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleplot)
+      \-simpleplot (test_dir,test_simpleplot_lines,Stress_Balls,test_simpleplot_scatter,Stress_Balls_results,SimpleGUICS2Pygame_check,test_simpleplot_bars)
+    matplotlib (SimpleGUICS2Pygame.simpleplot,SimpleGUICS2Pygame_check)
       \-pyplot (SimpleGUICS2Pygame.simpleplot)
-    pygame (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame.simpleguics2pygame.control,pygame_check,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
+    pygame (SimpleGUICS2Pygame.simpleguics2pygame._options,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,SimpleGUICS2Pygame_check,pygame_check)
       \-font (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
       \-mixer (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
       \-transform (SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib)
-      \-version (test_input,test_colors_html,test_colors_html_hsla,test_colors_constants,test_circle,test_button_label,test_image,test_line,test_grid,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,test_colors_html_rgba,test_text)
+      \-version (test_grid,test_image,test_text,test_colors_html_rgba,test_line,test_colors_html_hsla,test_colors_constants,SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib,test_circle,test_colors_html,test_input,test_button_label)
     setuptools (setup)
 
 
@@ -1896,13 +1048,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8025   |49.09 |8029     |-4.00      |
+|code      |7562   |48.08 |7562     |=          |
 +----------+-------+------+---------+-----------+
-|docstring |4688   |28.68 |4689     |-1.00      |
+|docstring |4725   |30.04 |4725     |=          |
 +----------+-------+------+---------+-----------+
-|comment   |709    |4.34  |711      |-2.00      |
+|comment   |704    |4.48  |704      |=          |
 +----------+-------+------+---------+-----------+
-|empty     |2925   |17.89 |2924     |+1.00      |
+|empty     |2737   |17.40 |2737     |=          |
 +----------+-------+------+---------+-----------+
 
 
@@ -1913,9 +1065,9 @@ Duplication
 +-------------------------+-------+---------+-----------+
 |                         |now    |previous |difference |
 +=========================+=======+=========+===========+
-|nb duplicated lines      |2544   |2634     |-90.00     |
+|nb duplicated lines      |1589   |1589     |=          |
 +-------------------------+-------+---------+-----------+
-|percent duplicated lines |15.722 |16.272   |-0.55      |
+|percent duplicated lines |10.207 |10.207   |=          |
 +-------------------------+-------+---------+-----------+
 
 
@@ -1926,13 +1078,13 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |95     |95       |=          |
+|convention |1      |1        |=          |
 +-----------+-------+---------+-----------+
-|refactor   |69     |74       |-5.00      |
+|refactor   |56     |57       |-1.00      |
 +-----------+-------+---------+-----------+
-|warning    |70     |70       |=          |
+|warning    |0      |0        |=          |
 +-----------+-------+---------+-----------+
-|error      |1      |6        |-5.00      |
+|error      |0      |0        |=          |
 +-----------+-------+---------+-----------+
 
 
@@ -1940,95 +1092,46 @@ Messages by category
 % errors / warnings by module
 -----------------------------
 
-+---------------------------------------------+-------+--------+---------+-----------+
-|module                                       |error  |warning |refactor |convention |
-+=============================================+=======+========+=========+===========+
-|test_sound                                   |100.00 |0.00    |0.00     |2.11       |
-+---------------------------------------------+-------+--------+---------+-----------+
-|Stress_Balls_average                         |0.00   |35.71   |2.90     |24.21      |
-+---------------------------------------------+-------+--------+---------+-----------+
-|Stress_Balls                                 |0.00   |34.29   |2.90     |24.21      |
-+---------------------------------------------+-------+--------+---------+-----------+
-|Stress_Balls_reverse                         |0.00   |28.57   |88.41    |24.21      |
-+---------------------------------------------+-------+--------+---------+-----------+
-|Stress_Balls_results                         |0.00   |1.43    |1.45     |0.00       |
-+---------------------------------------------+-------+--------+---------+-----------+
-|test_numeric                                 |0.00   |0.00    |4.35     |11.58      |
-+---------------------------------------------+-------+--------+---------+-----------+
-|test_simpleplot_scatter                      |0.00   |0.00    |0.00     |4.21       |
-+---------------------------------------------+-------+--------+---------+-----------+
-|test_simpleplot_lines                        |0.00   |0.00    |0.00     |4.21       |
-+---------------------------------------------+-------+--------+---------+-----------+
-|test_simpleplot_bars                         |0.00   |0.00    |0.00     |4.21       |
-+---------------------------------------------+-------+--------+---------+-----------+
-|SimpleGUICS2Pygame.simpleguics2pygame.canvas |0.00   |0.00    |0.00     |1.05       |
-+---------------------------------------------+-------+--------+---------+-----------+
++---------------------------------------------+------+--------+---------+-----------+
+|module                                       |error |warning |refactor |convention |
++=============================================+======+========+=========+===========+
+|Stress_Balls_results                         |0.00  |0.00    |100.00   |0.00       |
++---------------------------------------------+------+--------+---------+-----------+
+|SimpleGUICS2Pygame.simpleguics2pygame.canvas |0.00  |0.00    |0.00     |100.00     |
++---------------------------------------------+------+--------+---------+-----------+
 
 
 
 Messages
 --------
 
-+-------------------------------+------------+
-|message id                     |occurrences |
-+===============================+============+
-|missing-docstring              |69          |
-+-------------------------------+------------+
-|duplicate-code                 |51          |
-+-------------------------------+------------+
-|global-variable-undefined      |36          |
-+-------------------------------+------------+
-|invalid-name                   |23          |
-+-------------------------------+------------+
-|attribute-defined-outside-init |12          |
-+-------------------------------+------------+
-|protected-access               |9           |
-+-------------------------------+------------+
-|cyclic-import                  |8           |
-+-------------------------------+------------+
-|broad-except                   |7           |
-+-------------------------------+------------+
-|global-statement               |6           |
-+-------------------------------+------------+
-|too-many-instance-attributes   |3           |
-+-------------------------------+------------+
-|too-many-arguments             |3           |
-+-------------------------------+------------+
-|consider-using-enumerate       |3           |
-+-------------------------------+------------+
-|too-many-statements            |1           |
-+-------------------------------+------------+
-|too-many-locals                |1           |
-+-------------------------------+------------+
-|too-many-branches              |1           |
-+-------------------------------+------------+
-|redefined-variable-type        |1           |
-+-------------------------------+------------+
-|no-member                      |1           |
-+-------------------------------+------------+
++---------------+------------+
+|message id     |occurrences |
++===============+============+
+|duplicate-code |49          |
++---------------+------------+
+|cyclic-import  |7           |
++---------------+------------+
+|invalid-name   |1           |
++---------------+------------+
 
 
 
 Global evaluation
 -----------------
-Your code has been rated at 9.61/10 (previous run: 9.56/10, +0.05)
+Your code has been rated at 9.90/10 (previous run: 9.90/10, +0.00)
 
 
 ===== mypy =====
 SimpleGUICS2Pygame/simpleguics2pygame/timer.py:36: error: Need type annotation for '_timers_running'
 SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:22: error: Name 'simpleplot' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:108: error: Incompatible types in assignment (expression has type "Dict[int, int]", target has type "Tuple[Dict[int, int], Dict[int, int]]")
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:112: error: Incompatible types in assignment (expression has type "List[int]", variable has type "Set[int]")
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:113: error: "Set[int]" has no attribute "sort"
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:123: error: "Tuple[Dict[int, int], Dict[int, int]]" has no attribute "keys"
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py:141: error: "Tuple[Dict[int, int], Dict[int, int]]" has no attribute "get"
 SimpleGUICS2Pygame/test/test_simpleplot_scatter.py:20: error: Name 'simpleplot' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_simpleplot_lines.py:20: error: Name 'simpleplot' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_simpleplot_bars.py:20: error: Name 'simpleplot' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_numeric.py:19: error: Name 'numeric' already defined (possibly by an import)
 SimpleGUICS2Pygame/simpleguics2pygame/_options.py:20: error: Need type annotation for '__all__'
-SimpleGUICS2Pygame/simpleguics2pygame/_media.py:30: error: Name 'urlsplit' already defined on line 134
-SimpleGUICS2Pygame/simpleguics2pygame/_media.py:31: error: Name 'urlopen' already defined on line 19
+SimpleGUICS2Pygame/simpleguics2pygame/_media.py:30: error: Name 'urlsplit' already defined (possibly by an import)
+SimpleGUICS2Pygame/simpleguics2pygame/_media.py:31: error: Name 'urlopen' already defined (possibly by an import)
 SimpleGUICS2Pygame/simpleguics2pygame/_media.py:34: error: Need type annotation for '__all__'
 SimpleGUICS2Pygame/simpleguics2pygame/_fonts.py:20: error: Need type annotation for '__all__'
 SimpleGUICS2Pygame/simpleguics2pygame/_colors.py:20: error: Need type annotation for '__all__'
@@ -2036,20 +1139,14 @@ SimpleGUICS2Pygame/simpleguics2pygame/frame.py:128: error: Need type annotation 
 SimpleGUICS2Pygame/simpleguics2pygame/frame.py:133: error: Need type annotation for '_pygamefonts_cached'
 SimpleGUICS2Pygame/simpleguics2pygame/frame.py:139: error: Need type annotation for '_pygamemedias_cached'
 SimpleGUICS2Pygame/simpleguics2pygame/frame.py:158: error: Need type annotation for '_save_canvas_requests'
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:28: error: Name 'simplegui' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:29: error: Name 'simpleplot' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:78: error: Need type annotation for 'results'
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_reverse.py:349: error: "Type[Frame]" has no attribute "_stop_timers"
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_average.py:28: error: Name 'simplegui' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_average.py:29: error: Name 'simpleplot' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_average.py:78: error: Need type annotation for 'results'
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_average.py:349: error: "Type[Frame]" has no attribute "_stop_timers"
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:28: error: Name 'simplegui' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:29: error: Name 'simpleplot' already defined (possibly by an import)
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:78: error: Need type annotation for 'results'
-SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:349: error: "Type[Frame]" has no attribute "_stop_timers"
+SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:27: error: Name 'simplegui' already defined (possibly by an import)
+SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:28: error: Name 'simpleplot' already defined (possibly by an import)
+SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:77: error: Need type annotation for 'RESULTS'
+SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py:433: error: "Type[Frame]" has no attribute "_stop_timers"
 SimpleGUICS2Pygame/test/test_text.py:24: error: Name 'simplegui' already defined (possibly by an import)
-SimpleGUICS2Pygame/test/test_sound.py:21: error: Name 'simplegui' already defined (possibly by an import)
+SimpleGUICS2Pygame/test/test_sound.py:19: error: Name 'simplegui' already defined (possibly by an import)
+SimpleGUICS2Pygame/test/test_sound.py:22: error: Incompatible types in assignment (expression has type "bool", variable has type "None")
+SimpleGUICS2Pygame/test/test_sound.py:25: error: Need type annotation for 'SOUNDS'
 SimpleGUICS2Pygame/test/test_objects.py:19: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_line.py:19: error: Name 'simplegui' already defined (possibly by an import)
 SimpleGUICS2Pygame/test/test_input.py:20: error: Name 'simplegui' already defined (possibly by an import)

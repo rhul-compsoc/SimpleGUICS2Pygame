@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (March 6, 2020)
+simpleguics2pygame/image (March 7, 2020)
 
 Class Image.
 
@@ -23,9 +23,9 @@ __all__ = ['Image',
 
 
 try:
-    import pygame
+    import pygame  # pylint: disable=unused-import
 
-    _PYGAME_AVAILABLE = bool(pygame)  # True
+    _PYGAME_AVAILABLE = True
 except ImportError:
     _PYGAME_AVAILABLE = False
 

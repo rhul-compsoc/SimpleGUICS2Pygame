@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_draw (March 5, 2020)
+simplegui_lib_draw (March 7, 2020)
 
 Draw functions to help
 in SimpleGUI of CodeSkulptor.
@@ -15,9 +15,9 @@ http://www.opimedia.be/
 
 try:
     # Try import to check if running in SimpleGUICS2Pygame environment
-    from SimpleGUICS2Pygame import _VERSION
+    from SimpleGUICS2Pygame import _VERSION  # pylint: disable=unused-import
 
-    __SIMPLEGUICS2PYGAME = (_VERSION != '')
+    __SIMPLEGUICS2PYGAME = True
 except ImportError:
     __SIMPLEGUICS2PYGAME = False
 

@@ -3,7 +3,7 @@
 # pylint: disable=too-many-lines
 
 """
-simpleguics2pygame/frame (March 6, 2020)
+simpleguics2pygame/frame (March 7, 2020)
 
 Class Frame.
 
@@ -611,7 +611,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
             assert (image is None) or isinstance(image, Image), type(image)
 
-        self._canvas._background_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access
+        self._canvas._background_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access,invalid-name
 
     def add_button(self,
                    text,

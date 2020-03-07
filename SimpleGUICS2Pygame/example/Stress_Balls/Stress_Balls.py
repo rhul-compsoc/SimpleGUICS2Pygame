@@ -3,14 +3,13 @@
 # pylint: disable=invalid-name
 
 """
-Stress Ball (March 6, 2020)
+Stress Ball (March 7, 2020)
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Safari: exception failed!
 
 Inspired by "Classy Balls" of Bill:
-  http://www.codeskulptor.org/#user14_iNYvGMFtb8poj1S.py
-  https://class.coursera.org/interactivepython-002/forum/thread?thread_id=6142
+http://www.codeskulptor.org/#user14_iNYvGMFtb8poj1S.py
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -37,19 +36,19 @@ except ImportError:
 MAX_NB_SECONDS = 30  # number of seconds before next step
 
 ALPHA = False  # start with transparency if True
-REVERSE = False  # reverse list_nb_balls if true
+REVERSE = False  # reverse LIST_NB_SHAPES if true
 
 # Use Frame._get_fps_average() (only with SimpleGUICS2Pygame)
 _FPS_AVERAGE = False
 
-# Number of balls of each step
-list_nb_balls = [1, 10, 20, 30, 40, 50, 75,
-                 100, 200, 300, 400, 500, 750,
-                 1000, 1500, 2000]
+# Number of shapes of each step
+LIST_NB_SHAPES = [1, 10, 20, 30, 40, 50, 75,
+                  100, 200, 300, 400, 500, 750,
+                  1000, 1500, 2000]
 # ### <<< config
 
 if REVERSE:
-    list_nb_balls.reverse()
+    LIST_NB_SHAPES.reverse()
 
 
 FONT_SIZE = 40
@@ -75,13 +74,33 @@ RGB_COLORS = ((0, 0, 128),
               (255, 255, 255))
 
 
-results = {}
+RESULTS = {}
 
-transparency = ALPHA
+TRANSPARENCY = ALPHA
+
+FPS = None
+FREEZED = None
+NB_SHAPES = None
+NB_FRAMES_DRAWED = None
+NB_SECONDS = None
+SHAPES = None
+TO_NEXT_STEP = None
 
 
-class Ball:
-    def __init__(self, center, radius, color, fill_color, velocity, shape):
+class Shape:  # pylint: disable=too-many-instance-attributes
+    """Shape (ball, disc, square) with its properties."""
+    def __init__(self, center, radius,  # pylint: disable=too-many-arguments
+                 color, fill_color, velocity, shape):
+        """
+        Initialize this object.
+
+        :param center:
+        :param radius:
+        :param color:
+        :param fill_color:
+        :param veloctiy:
+        :param shape:
+        """
         self.center_x = center[0]
         self.center_y = center[1]
 
@@ -96,6 +115,9 @@ class Ball:
         self.velocity_x = velocity[0]
         self.velocity_y = velocity[1]
 
+        self.velocity_x_save = None
+        self.velocity_y_save = None
+
         self.draw = (self.draw_circle,
                      self.draw_disc,
                      self.draw_disc_border,
@@ -104,18 +126,38 @@ class Ball:
                      self.draw_squarefill_border)[shape]
 
     def draw_circle(self, canvas):
+        """
+        Draw a circle.
+
+        :param canvas:
+        """
         canvas.draw_circle((self.center_x, self.center_y),
                            self.radius, 2, self.color)
 
     def draw_disc(self, canvas):
+        """
+        Draw a disc.
+
+        :param canvas:
+        """
         canvas.draw_circle((self.center_x, self.center_y),
                            self.radius, 1, self.color, self.color)
 
     def draw_disc_border(self, canvas):
+        """
+        Draw a disc with a border.
+
+        :param canvas:
+        """
         canvas.draw_circle((self.center_x, self.center_y),
                            self.radius, 2, self.color, self.fill_color)
 
     def draw_square(self, canvas):
+        """
+        Draw an empty square.
+
+        :param canvas:
+        """
         canvas.draw_polygon(((self.center_x - self.radius,
                               self.center_y - self.radius),
                              (self.center_x + self.radius,
@@ -127,6 +169,11 @@ class Ball:
                             2, self.color)
 
     def draw_squarefill(self, canvas):
+        """
+        Draw a filled square.
+
+        :param canvas:
+        """
         canvas.draw_polygon(((self.center_x - self.radius,
                               self.center_y - self.radius),
                              (self.center_x + self.radius,
@@ -138,6 +185,11 @@ class Ball:
                             1, self.color, self.color)
 
     def draw_squarefill_border(self, canvas):
+        """
+        Draw a filled square with a border.
+
+        :param canvas:
+        """
         canvas.draw_polygon(((self.center_x - self.radius,
                               self.center_y - self.radius),
                              (self.center_x + self.radius,
@@ -149,6 +201,7 @@ class Ball:
                             2, self.color, self.fill_color)
 
     def freeze_off(self):
+        """Unfreeze by restore velocity."""
         self.velocity_x = self.velocity_x_save
         self.velocity_y = self.velocity_y_save
 
@@ -156,6 +209,7 @@ class Ball:
         del self.velocity_y_save
 
     def freeze_on(self):
+        """Freeze by setting velocity to 0."""
         self.velocity_x_save = self.velocity_x
         self.velocity_y_save = self.velocity_y
 
@@ -163,7 +217,8 @@ class Ball:
         self.velocity_y = 0
 
     def revert(self):
-        if freezed:
+        """Revert velocity."""
+        if FREEZED:
             self.velocity_x_save = -self.velocity_x_save
             self.velocity_y_save = -self.velocity_y_save
         else:
@@ -171,10 +226,12 @@ class Ball:
             self.velocity_y = -self.velocity_y
 
     def transparency_reset(self):
+        """Reset all colors after switching transparency mode."""
         self.color = rgba_to_str(self.color_rgba)
         self.fill_color = rgba_to_str(self.fill_color_rgba)
 
     def move(self):
+        """Update position."""
         self.center_x += self.velocity_x
 
         if self.center_x <= self.radius:
@@ -192,163 +249,190 @@ class Ball:
 
 # Functions
 def dict_to_ordered_list(d):
+    """
+    :param d:
+
+    :return: ordered list of keys from dictionary d
+    """
     l = list(d.keys())
     l.sort()
 
-    return [(nb_balls, d[nb_balls])
-            for nb_balls in l]
+    return [(NB_SHAPES, d[NB_SHAPES])
+            for NB_SHAPES in l]
 
 
 def init():
-    global balls
-    global fps
-    global freezed
-    global nb_balls
-    global nb_frames_drawed
-    global nb_seconds
-    global results
-    global to_next_step
+    """Init list of shapes, corresponding to the current step."""
+    global FPS  # pylint: disable=global-statement
+    global FREEZED  # pylint: disable=global-statement
+    global NB_SHAPES  # pylint: disable=global-statement
+    global NB_FRAMES_DRAWED  # pylint: disable=global-statement
+    global NB_SECONDS  # pylint: disable=global-statement
+    global RESULTS  # pylint: disable=global-statement
+    global SHAPES  # pylint: disable=global-statement
+    global TO_NEXT_STEP  # pylint: disable=global-statement
 
-    if len(list_nb_balls) == 0:
-        timer.stop()
+    if len(LIST_NB_SHAPES) == 0:
+        TIMER.stop()
 
-        results = dict_to_ordered_list(results)
+        RESULTS = dict_to_ordered_list(RESULTS)
 
         print('Results: {' + ', '
-              .join(['%d: %d' % result for result in results]) + '}')
+              .join(['%d: %d' % result for result in RESULTS]) + '}')
 
         try:
-            frame.stop()
-        except Exception as e:  # to avoid simpleguitk failed
-            print('frame.stop():' + str(e))
+            FRAME.stop()
+        except Exception as e:  # pylint: disable=broad-except
+            # To avoid simpleguitk failed
+            print('FRAME.stop():' + str(e))
 
         try:
             simpleplot.plot_lines('Stress Balls', 800, 650,
                                   '# balls', 'FPS',
-                                  (results, ), True)
+                                  (RESULTS, ), True)
             if SIMPLEGUICS2PYGAME:
-                simpleplot._block()
-        except Exception as e:  # to avoid fail if no simpleplot
+                simpleplot._block()  # pylint: disable=protected-access
+        except Exception as e:  # pylint: disable=broad-except
+            # To avoid fail if no simpleplot
             print('simpleplot.plot_lines():' + str(e))
 
         return
 
-    if list_nb_balls:
-        nb_balls = list_nb_balls.pop(0)
+    if LIST_NB_SHAPES:
+        NB_SHAPES = LIST_NB_SHAPES.pop(0)
 
-    fps = 0
-    freezed = False
-    nb_frames_drawed = 0
-    nb_seconds = 0
-    to_next_step = False
+    FPS = 0
+    FREEZED = False
+    NB_FRAMES_DRAWED = 0
+    NB_SECONDS = 0
+    TO_NEXT_STEP = False
 
-    balls = tuple([Ball([47 + n % (WIDTH - 100),
-                         47 + n % (HEIGHT - 100)],  # position
-                        19 + n % 11,  # radius
-                        n_to_rgba((n + 1) % len(RGB_COLORS),
-                                  .2 + float(n % 13) / 15),  # color of border
-                        n_to_rgba((n + 2) % len(RGB_COLORS),
-                                  .2 + float((n + 3) % 14) / 17),  # fill color
-                        [3 + n % 7, 2 + n % 5],  # velocity
-                        (n + 2) % 6)  # shape
-                   for n in range(nb_balls)])
+    SHAPES = tuple([Shape([47 + n % (WIDTH - 100),
+                           47 + n % (HEIGHT - 100)],  # position
+                          19 + n % 11,  # radius
+                          n_to_rgba((n + 1) % len(RGB_COLORS),
+                                    .2 + float(n % 13) / 15),  # color of border  # noqa
+                          n_to_rgba((n + 2) % len(RGB_COLORS),
+                                    .2 + float((n + 3) % 14) / 17),  # fill color  # noqa
+                          [3 + n % 7, 2 + n % 5],  # velocity
+                          (n + 2) % 6)  # shape
+                    for n in range(NB_SHAPES)])
 
 
 def n_to_rgba(n, alpha):
+    """
+    :return: RGB tuple with alpha
+    """
     n = RGB_COLORS[n]
 
     return (n[0], n[1], n[2], alpha)
 
 
 def rgba_to_str(rgba):
+    """
+    :param rgba:
+
+    :return: color in correct Pygame string, with transparency or not
+    """
     # %f failed on CodeSkulptor
-    return ('rgba(%d, %d, %d, %s)' % rgba if transparency
+    return ('rgba(%d, %d, %d, %s)' % rgba if TRANSPARENCY
             else 'rgba(%d, %d, %d, 1)' % rgba[:3])
 
 
 # Handler
 def freeze_on_off():
-    global freezed
+    """Switch freeze mode."""
+    global FREEZED  # pylint: disable=global-statement
 
-    if freezed:
-        for ball in balls:
-            ball.freeze_off()
+    if FREEZED:
+        for shape in SHAPES:
+            shape.freeze_off()
     else:
-        for ball in balls:
-            ball.freeze_on()
+        for shape in SHAPES:
+            shape.freeze_on()
 
-    freezed = not freezed
+    FREEZED = not FREEZED
 
 
 def draw(canvas):
-    global nb_frames_drawed
+    """
+    Display all shapes in frame.
 
-    for ball in balls:
-        ball.draw(canvas)
-        ball.move()
+    :param canvas:
+    """
+    global NB_FRAMES_DRAWED  # pylint: disable=global-statement
 
-    nb_frames_drawed += 1
+    for shape in SHAPES:
+        shape.draw(canvas)
+        shape.move()
 
-    s = '#%d | %d FPS' % (nb_balls,
-                          (int(round(frame._get_fps_average())) if _FPS_AVERAGE
-                           else fps))
+    NB_FRAMES_DRAWED += 1
+
+    s = '#%d | %d FPS' % (NB_SHAPES,
+                          (int(round(FRAME._get_fps_average())) if _FPS_AVERAGE  # noqa  # pylint: disable=protected-access
+                           else FPS))
     canvas.draw_text(s, (12, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
     canvas.draw_text(s, (10, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
 
-    s = '%ds' % (MAX_NB_SECONDS - nb_seconds)
-    x = WIDTH - 11 - frame.get_canvas_textwidth(s, FONT_SIZE)
+    s = '%ds' % (MAX_NB_SECONDS - NB_SECONDS)
+    x = WIDTH - 11 - FRAME.get_canvas_textwidth(s, FONT_SIZE)
     canvas.draw_text(s, (x - 2, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
     canvas.draw_text(s, (x, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
 
 
 def next_step():
-    global to_next_step
+    """Set variable to increment step during next draw."""
+    global TO_NEXT_STEP  # pylint: disable=global-statement
 
-    to_next_step = True
+    TO_NEXT_STEP = True
 
 
 def print_fps():
-    global fps
-    global nb_seconds
+    """Dislay FPS in frame."""
+    global FPS  # pylint: disable=global-statement
+    global NB_SECONDS  # pylint: disable=global-statement
 
-    nb_seconds += 1
+    NB_SECONDS += 1
 
-    fps = (frame._get_fps_average() if _FPS_AVERAGE
-           else int(round(float(nb_frames_drawed) / nb_seconds)))
+    FPS = (FRAME._get_fps_average() if _FPS_AVERAGE  # noqa  # pylint: disable=protected-access
+           else int(round(float(NB_FRAMES_DRAWED) / NB_SECONDS)))
 
-    if (nb_seconds > MAX_NB_SECONDS) or to_next_step:
-        print('%d | %d' % (nb_balls, fps))
-        results[nb_balls] = fps
+    if (NB_SECONDS > MAX_NB_SECONDS) or TO_NEXT_STEP:
+        print('%d | %d' % (NB_SHAPES, FPS))
+        RESULTS[NB_SHAPES] = FPS
 
         init()
 
 
 def revert():
-    for ball in balls:
-        ball.revert()
+    """Revert list of shapes."""
+    for shape in SHAPES:
+        shape.revert()
 
 
 def stop():
-    timer.stop()
-    frame.stop()
+    """Stop timer and frame."""
+    TIMER.stop()
+    FRAME.stop()
 
 
 def transparency_on_off():
-    global transparency
+    """Switch transparency mode."""
+    global TRANSPARENCY  # pylint: disable=global-statement
 
-    transparency = not transparency
+    TRANSPARENCY = not TRANSPARENCY
 
-    for ball in balls:
-        ball.transparency_reset()
+    for shape in SHAPES:
+        shape.transparency_reset()
 
 
 # Main
 print("""Stress Balls:
 # balls | FPS...""")
 
-simplegui.Frame._stop_timers = True
+simplegui.Frame._stop_timers = True  # pylint: disable=protected-access
 
-frame = simplegui.create_frame('Stress Balls' +
+FRAME = simplegui.create_frame('Stress Balls' +
                                (' ALPHA' if ALPHA
                                 else '') +
                                (' REVERSE' if REVERSE
@@ -357,18 +441,18 @@ frame = simplegui.create_frame('Stress Balls' +
                                 else ''),
                                WIDTH, HEIGHT)
 
-frame.add_button('Un/Freeze', freeze_on_off)
-frame.add_button('Revert', revert)
-frame.add_button('Without/With transparency', transparency_on_off)
-frame.add_button('Next step', next_step)
-frame.add_label('')
-frame.add_button('Quit', stop)
+FRAME.add_button('Un/Freeze', freeze_on_off)
+FRAME.add_button('Revert', revert)
+FRAME.add_button('Without/With transparency', transparency_on_off)
+FRAME.add_button('Next step', next_step)
+FRAME.add_label('')
+FRAME.add_button('Quit', stop)
 
 init()
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
-timer = simplegui.create_timer(1000, print_fps)
-timer.start()
+TIMER = simplegui.create_timer(1000, print_fps)
+TIMER.start()
 
-frame.start()
+FRAME.start()

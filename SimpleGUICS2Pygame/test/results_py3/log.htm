@@ -2,14 +2,14 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 6, 2020 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6</title>
+  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 7, 2020 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
 
 <body>
   <h1>
     <a href="https://simpleguics2pygame.readthedocs.io/" target="_blank">SimpleGUICS2Pygame</a>
-    <span class="infos">02.00.00 WORKING VERSION March 6, 2020 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6 &ndash; 2020-03-06 23:53:46.490692</span>
+    <span class="infos">02.00.00 WORKING VERSION March 7, 2020 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6 &ndash; 2020-03-07 23:33:37.053817</span>
   </h1>
   <ol>
 <li>
@@ -57,7 +57,7 @@ import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 6, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 7, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
@@ -148,8 +148,16 @@ timer&lt;class &#x27;SimpleGUICS2Pygame.simpleguics2pygame.timer.Timer&#x27;&gt;
 </li>
 <li>
   <h2 >test_sound</h2>
-<pre class="log">Play &quot;jump.ogg&quot;
-Play local &quot;chirp_1s.wav&quot;</pre>
+<pre class="log">Load from web &quot;arrow.mp3&quot;
+Load from web &quot;jump.ogg&quot;
+Load from web &quot;bonus.wav&quot;
+Load local &quot;chirp_1s.wav&quot;
+Play local &quot;chirp_1s.wav&quot; 1.000000s
+(MP3 is NOT supported by Pygame)
+Play &quot;arrow.mp3&quot; 0.000000s
+Play &quot;jump.ogg&quot; 0.350884s
+Play &quot;bonus.wav&quot; 0.448481s
+stop</pre>
 </li>
 <li>
   <h2 >test_text</h2>

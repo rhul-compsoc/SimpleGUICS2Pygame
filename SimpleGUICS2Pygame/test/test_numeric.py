@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test numeric. (March 6, 2020)
+Test numeric. (March 7, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -80,7 +80,7 @@ def m_to_l(m):
 #
 # Main
 ######
-def main():
+def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """Perform succession of tests."""
     if SIMPLEGUICS2PYGAME:
         from sys import argv
@@ -181,16 +181,16 @@ def main():
     # []
     for data in datas:
         m = numeric.Matrix(data)
-        for i in range(len(data)):
+        for i, row in enumerate(data):
             for j in range(len(data[0])):
-                if m[i, j] != data[i][j]:
+                if m[i, j] != row[j]:
                     nb_errors += 1
                     print('error: [%i, %i]: %s' % (i, j, data))
 
     # set []
     for data in datas:
         m = numeric.Matrix(data)
-        m2 = numeric.Matrix(data)
+        m2 = numeric.Matrix(data)  # pylint: disable=invalid-name
         for i in range(len(data)):
             for j in range(len(data[0])):
                 m2[i, j] = 666
@@ -208,7 +208,7 @@ def main():
     # copy()
     for data in datas:
         m = numeric.Matrix(data)
-        m2 = m.copy()
+        m2 = m.copy()  # pylint: disable=invalid-name
 
         if not m_eq(m, m2):
             nb_errors += 1
@@ -227,19 +227,19 @@ def main():
     for data in datas:
         m = numeric.Matrix(data)
 
-        for i in range(len(data)):
+        for i, good_row in enumerate(data):
             row = m_to_l(m.getrow(i))[0]
 
             if len(row) != len(data[0]):
                 nb_errors += 1
-                print('error: getrow size %i %s %s' % (i, row, data[i]))
+                print('error: getrow size %i %s %s' % (i, row, good_row))
 
-            if row != data[i]:
+            if row != good_row:
                 nb_errors += 1
-                print('error: getrow %i %s %s' % (i, row, data[i]))
+                print('error: getrow %i %s %s' % (i, row, good_row))
 
             for j in range(len(data[0])):
-                if row[j] != data[i][j]:
+                if row[j] != good_row[j]:
                     nb_errors += 1
                     print('error: getrow != [%i, %i]' % (i, j))
 
@@ -253,8 +253,8 @@ def main():
                 nb_errors += 1
                 print('error: getcol size %i %s %s' % (i, col, data))
 
-            for i in range(len(data)):
-                if col[i] != data[i][j]:
+            for i, row in enumerate(data):
+                if col[i] != row[j]:
                     nb_errors += 1
                     print('error: getcol != [%i, %i]' % (i, j))
 
@@ -264,7 +264,7 @@ def main():
         adds = numeric.Matrix(data)
         subs = numeric.Matrix(data).scale(-1)
         for k in range(1, 10):
-            ms = m.scale(k)
+            ms = m.scale(k)  # pylint: disable=invalid-name
             if not m_eq(ms, adds):
                 nb_errors += 1
                 print('error: scale != +: %i %s' % (k, data))
@@ -272,7 +272,7 @@ def main():
                 print(adds)
             adds = adds + m
 
-            ms = m.scale(-k)
+            ms = m.scale(-k)  # pylint: disable=invalid-name
             if not m_eq(ms, subs):
                 nb_errors += 1
                 print('error: scale != -: %i %s' % (k, data))
@@ -301,13 +301,13 @@ def main():
 
     for data in datas:
         m = numeric.Matrix(data)
-        m2 = m * numeric.identity(len(data[0]))
+        m2 = m * numeric.identity(len(data[0]))  # pylint: disable=invalid-name
         if not m_eq(m, m2):
             nb_errors += 1
             print('error: *: %s' % data)
             print(m2)
 
-        m2 = numeric.identity(len(data)) * m
+        m2 = numeric.identity(len(data)) * m  # pylint: disable=invalid-name
         if not m_eq(m, m2):
             nb_errors += 1
             print('error: *: %s' % data)
@@ -439,13 +439,13 @@ def main():
         except ValueError:
             pass
 
-    mi = numeric.Matrix(d2_2).inverse()
+    mi = numeric.Matrix(d2_2).inverse()  # pylint: disable=invalid-name
     if not m_eq(mi, numeric.Matrix(d2_2i), False):
         print('error: inverse 1')
         print(mi)
         print(numeric.Matrix(d2_2i))
 
-    mi = numeric.Matrix(d2_2i).inverse()
+    mi = numeric.Matrix(d2_2i).inverse()  # pylint: disable=invalid-name
     if not m_eq(mi, numeric.Matrix(d2_2), False):
         print('error: inverse 2')
         print(mi)

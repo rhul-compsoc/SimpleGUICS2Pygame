@@ -4,7 +4,7 @@
 
 """
 Display my results of Stress_Balls.py on differents environments.
-(March 6, 2020)
+(March 7, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -14,14 +14,14 @@ http://www.opimedia.be/
 """
 
 try:
-    import codeskulptor  # to avoid other simpleplot available in Python
+    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # pylint: disable=unused-import
     import simpleplot
 
-    SIMPLEGUICS2PYGAME = bool(codeskulptor)  # False
+    SIMPLEGUICS2PYGAME = False
 except ImportError:
     import SimpleGUICS2Pygame.simpleplot as simpleplot
 
-    SIMPLEGUICS2PYGAME = bool(simpleplot)  # True
+    SIMPLEGUICS2PYGAME = True
 
 
 # All my (old) results on Pentium Dual-Core 2.7GHz 2Gio, Windows 7 64 bits:
@@ -34,7 +34,7 @@ except ImportError:
 #   - SimpleGUITk 1.1.1
 #       by David Holm, https://pypi.org/project/SimpleGUITk
 #  https://class.coursera.org/interactivepython-002/forum/thread?thread_id=5767
-all_results = {'Chrome':
+ALL_RESULTS = {'Chrome':
                ({1: 40, 10: 40, 20: 38, 30: 35, 40: 33, 50: 35, 75: 35,
                  100: 30, 200: 20, 300: 16, 400: 13, 500: 12, 750: 8,
                  1000: 6, 1500: 5, 2000: 4},   # normal
@@ -85,70 +85,76 @@ all_results = {'Chrome':
                  1000: 9, 1500: 6, 2000: 5})}  # REVERSE
 
 
-# Calculate average
-alls_nb = set()
+#
+# Main
+######
+def main():  # pylint: disable=too-many-locals
+    """Calculate and print average, and open plot."""
+    # Calculate average
+    alls_nb_set = set()
 
-for legend in all_results:
-    data_a, data_b = all_results[legend]
+    for legend in ALL_RESULTS:
+        data_a, data_b = ALL_RESULTS[legend]
 
-    nb_balls_a = list(data_a.keys())
-    nb_balls_a.sort()
+        nb_balls_a = list(data_a.keys())
+        nb_balls_a.sort()
 
-    nb_balls_b = list(data_b.keys())
-    nb_balls_b.sort()
+        nb_balls_b = list(data_b.keys())
+        nb_balls_b.sort()
 
-    assert nb_balls_a == nb_balls_b, (nb_balls_a, nb_balls_b)
+        assert nb_balls_a == nb_balls_b, (nb_balls_a, nb_balls_b)
 
-    results = {}
+        results = {}
 
-    for nb in nb_balls_b:
-        alls_nb.add(nb)
-        results[nb] = int(round((data_a[nb] + data_b[nb]) / 2))
+        for nb in nb_balls_b:
+            alls_nb_set.add(nb)
+            results[nb] = int(round((data_a[nb] + data_b[nb]) / 2))
 
-    all_results[legend] = results
+        ALL_RESULTS[legend] = results
 
+    # Sort results to display
+    alls_nb = list(alls_nb_set)
+    alls_nb.sort()
 
-# Sort results to display
-alls_nb = list(alls_nb)
-alls_nb.sort()
+    legends = list(ALL_RESULTS.keys())
+    legends.sort()
 
-legends = list(all_results.keys())
-legends.sort()
+    datas = []
 
-datas = []
+    for legend in legends:
+        data = ALL_RESULTS[legend]
 
-for legend in legends:
-    data = all_results[legend]
+        nb_balls = list(data.keys())
+        nb_balls.sort()
 
-    nb_balls = list(data.keys())
-    nb_balls.sort()
+        r = []
 
-    r = []
+        for nb in nb_balls:
+            r.append((nb, data[nb]))
 
-    for nb in nb_balls:
-        r.append((nb, data[nb]))
+        datas.append(r)
 
-    datas.append(r)
+    # Display
+    print('|'.join(['%4d' % nb for nb in alls_nb]) + '|Environment')
 
+    print('----+' * len(alls_nb) + '-----------')
+    for legend in legends:
+        l = []
+        for nb in alls_nb:
+            fps = ALL_RESULTS[legend].get(nb, None)
+            l.append(('%4d' % fps if fps is not None
+                      else ' ' * 4))
+        print('|'.join(l) + '|' + legend)
 
-# Display
-print('|'.join(['%4d' % nb for nb in alls_nb]) + '|Environment')
+    # Graph
+    try:
+        simpleplot.plot_lines('Stress Balls', 800, 650, '# balls', 'FPS',
+                              datas, True, legends)
+        if SIMPLEGUICS2PYGAME:
+            simpleplot._block()  # pylint: disable=protected-access
+    except Exception as e:  # pylint: disable=broad-except
+        # To avoid fail if no simpleplot
+        print('!simpleplot.plot_lines():' + str(e))
 
-print('----+' * len(alls_nb) + '-----------')
-for legend in legends:
-    l = []
-    for nb in alls_nb:
-        fps = all_results[legend].get(nb, None)
-        l.append(('%4d' % fps if fps is not None
-                  else ' ' * 4))
-    print('|'.join(l) + '|' + legend)
-
-
-# Graph
-try:
-    simpleplot.plot_lines('Stress Balls', 800, 650, '# balls', 'FPS',
-                          datas, True, legends)
-    if SIMPLEGUICS2PYGAME:
-        simpleplot._block()  # pylint: disable=protected-access
-except Exception as e:  # to avoid fail if no simpleplot
-    print('!simpleplot.plot_lines():' + str(e))
+if __name__ == '__main__':
+    main()

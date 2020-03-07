@@ -41,7 +41,7 @@ import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 6, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 7, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

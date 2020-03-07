@@ -218,7 +218,9 @@ Online images_ & sounds_ links
 Sounds
 ------
 Supported formats are supported formats by Pygame: OGG and uncompressed WAV.
-To convert your sounds, you can use Audacity_ and FFmpeg_.
+MP3 is **not** supported.
+To convert your sounds, you can use for example Audacity_, FFmpeg_ or CloudConvert_.
 
-.. _Audacity: http://audacity.sourceforge.net/
-.. _FFmpeg: http://www.ffmpeg.org/
+.. _Audacity: https://www.audacityteam.org/
+.. _FFmpeg: https://www.ffmpeg.org/
+.. _CloudConvert: https://cloudconvert.com/

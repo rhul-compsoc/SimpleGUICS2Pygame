@@ -1,2 +1,10 @@
-Play "jump.ogg"
-Play local "chirp_1s.wav"
+Load from web "arrow.mp3"
+Load from web "jump.ogg"
+Load from web "bonus.wav"
+Load local "chirp_1s.wav"
+Play local "chirp_1s.wav" 1.000000s
+(MP3 is NOT supported by Pygame)
+Play "arrow.mp3" 0.000000s
+Play "jump.ogg" 0.350884s
+Play "bonus.wav" 0.448481s
+stop
