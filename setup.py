@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (March 5, 2020)
+Setup of SimpleGUICS2Pygame package (March 8, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -19,7 +19,7 @@ except ImportError:
     from distutils.core import setup
 
 
-from SimpleGUICS2Pygame import _VERSION, _WEBSITE
+from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
 
 
 setup(name='SimpleGUICS2Pygame',
@@ -29,7 +29,9 @@ setup(name='SimpleGUICS2Pygame',
 
       author='Olivier Pirson',
       author_email='olivier.pirson.opi@gmail.com',
-      url=_WEBSITE,
+      url=_WEBSITE_DOC,
+      project_urls={'Documentation': _WEBSITE_DOC,
+                    'Source Code': _WEBSITE},
 
       packages=['SimpleGUICS2Pygame'],
       license='GPLv3',

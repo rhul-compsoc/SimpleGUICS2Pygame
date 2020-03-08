@@ -38,8 +38,8 @@ and it renamed to ``simplegui``.
 
 
 | In this package a little script_ ``cs2both.py`` can help to quickly make this changement on program downloaded from CodeSkulptor.
-| Run ``python cs2both.py yourprogram.py``.
-| The file ``yourprogram.py`` is copied to ``yourprogram.py.bak`` before changing.
+| Run ``python cs2both.py YOURPROGRAM.py``.
+| The file ``YOURPROGRAM.py`` is copied to ``YOURPROGRAM.py.bak`` before changing.
 
 .. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
 
@@ -105,15 +105,16 @@ http://www.opimedia.be/DS/mementos/colors.htm .
 Command line options
 --------------------
 When you run a program you can use following options:
-``python yourprogram.py [SimpleGUICS2Pygame options] [application options]``
+``python YOURPROGRAM.py [SimpleGUICS2Pygame options] [application options]``
 
 * ``--default-font``: Use Pygame default font instead serif, monospace… (this is faster if you display a lot of text).
 * ``--display-fps``: Display FPS average on the canvas.
-* ``--fps n``: Set Frame Per Second (default is 60 FPS).
-* ``--frame-padding n``: Set the padding in pixels found around the canvas.
+* ``--fps N``: Set Frame Per Second (default is 60 FPS).
+* ``--frame-padding N``: Set the padding in pixels found around the canvas.
 * ``--fullscreen``: Fullscreen mode.
+* ``--help``: Print help message and quit.
 * ``--keep-timers``: Keep running timers when close frame without ask.
-* ``--last``: Mark this argument as the last  SimpleGUICS2Pygame's argument. (Do nothing else.)
+* ``--last``: Mark this argument as the last SimpleGUICS2Pygame's argument. (Do nothing else.)
 * ``--no-border``: Window without border.
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
 * ``--no-load-sound``: Don't load any sound.
@@ -123,28 +124,30 @@ When you run a program you can use following options:
 * ``--print-stats-cache``: After frame stopped, print some statistics of caches.
 * ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
 * ``--stop-timers``: Stop all timers when close frame without ask.
+* ``--version``: Print help message and quit.
 
-If an argument is not in this list then it is ignored and all next arguments are ignored.
+If an argument is not in this list then it is ignored and all next arguments are ignored by SimpleGUICS2Pygame.
 
 Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
+Remaining options can used by your application.
 
 SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
 
 Examples:
-  * | ``python yourprogram.py --no-controlpanel --stop-timers --foo --fullscreen``
-    | run ``yourprogram.py`` with the control panel hidden and timers will stoped. But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
-    | ``yourprogram.py`` application receive ``--foo --fullscreen`` options.
+  * | ``python YOURPROGRAM.py --no-controlpanel --stop-timers --foo --fullscreen``
+    | Run ``YOURPROGRAM.py`` with the control panel hidden and timers will stoped. But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
+    | ``YOURPROGRAM.py`` application receive ``--foo --fullscreen`` options.
 
-  * | ``python yourprogram.py --no-controlpanel --last --stop-timers --foo --fullscreen``
-    | run ``yourprogram.py`` with the control panel hidden. But SimpleGUICS2Pygame ignore ``--stop-timers``, ``--foo`` and ``--fullscreen``.
-    | ``yourprogram.py`` application receive ``--stop-timers --foo --fullscreen`` options.
+  * | ``python YOURPROGRAM.py --no-controlpanel --last --stop-timers --foo --fps 30``
+    | Run ``YOURPROGRAM.py`` with the control panel hidden. But SimpleGUICS2Pygame ignore ``--stop-timers``, ``--foo``, ``--fps`` and ``30``.
+    | ``YOURPROGRAM.py`` application receive ``--stop-timers --foo --fps 30`` options.
 
 
 Download medias
 ---------------
-Run ``python yourprogram.py --save-downloaded-medias --print-load-medias`` once.
+Run ``python YOURPROGRAM.py --save-downloaded-medias --print-load-medias`` once.
 Images and sounds used (from URLs) will be saved in local directory (``_img/`` et ``_snd/`` by default).
-Next simply run ``python yourprogram.py`` and the medias will be loaded from these local directories.
+Next simply run ``python YOURPROGRAM.py`` and the medias will be loaded from these local directories.
 
 For example,
 ``load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png')``
@@ -154,7 +157,7 @@ save image to
 
 Helper functions
 ----------------
-This package contains 5 modules with several helper functions that you can also import online in CodeSkulptor:
+This package contains 5 additional modules with several helper functions that you can also import online in CodeSkulptor:
 
   * `codeskulptor_lib`_ — some miscellaneous functions
   * `simplegui_lib_draw`_ — draw functions
@@ -195,11 +198,11 @@ For example, to draw multiline text you can use `draw_text_multi()`_ from the `s
 Python assertions option
 ------------------------
 Run
-``python yourprogram.py``
+``python YOURPROGRAM.py``
 then asserts is active and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
 It is a good point to develop and write *correct programs*.
 But if you want just run a program (or run faster),
-``python -O yourprogram.py``
+``python -O YOURPROGRAM.py``
 then all asserts is *inactive*.
 
 

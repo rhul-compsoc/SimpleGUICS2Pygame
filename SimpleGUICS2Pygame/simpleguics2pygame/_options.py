@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (March 6, 2020)
+simpleguics2pygame/_options (March 8, 2020)
 
 Options helpers.
 
@@ -15,6 +15,8 @@ http://www.opimedia.be/
 
 from __future__ import division
 from __future__ import print_function
+
+import sys
 
 
 __all__ = []
@@ -29,8 +31,18 @@ except ImportError:
 
 
 #
-# "Private" function
-####################
+# "Private" functions
+#####################
+def _help_quit(code=0):
+    """
+    Print help message in error output and quit.
+    """
+    print("""Usage: python YOURPROGRAM.py ???
+""", file=sys.stderr)
+
+    exit(code)
+
+
 def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-many-statements
     """
     Read arguments in sys.argv
@@ -102,6 +114,8 @@ def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-ma
         elif arg == '--fullscreen':
             if _PYGAME_AVAILABLE:
                 Frame._pygame_mode_flags |= pygame.FULLSCREEN | pygame.HWSURFACE  # noqa  # pylint: disable=no-member
+        elif arg == '--help':
+            _help_quit()
         elif arg == '--keep-timers':
             Frame._keep_timers = True  # pylint: disable=protected-access
         elif arg == '--last':
@@ -128,7 +142,7 @@ def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-ma
         elif arg == '--stop-timers':
             Frame._keep_timers = False  # pylint: disable=protected-access
         else:
-            nb_module_arg -= 1
+            nb_module_arg -= 1  # cancel incrementation below
 
             break
 

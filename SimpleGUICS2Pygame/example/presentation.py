@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation (March 6, 2020)
+presentation (March 8, 2020)
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -37,7 +37,7 @@ def main():
         from sys import version
         from webbrowser import open_new_tab
 
-        from SimpleGUICS2Pygame import _VERSION, _WEBSITE
+        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
     else:
         def open_new_tab(url):
             """
@@ -46,7 +46,8 @@ def main():
             print(url)
 
         _VERSION = ''  # pylint: disable=invalid-name
-        _WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
+        _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa  # pylint: disable=invalid-name
+        _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
 
     width = 560
     height = 400
@@ -102,9 +103,9 @@ def main():
         logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),  # noqa  # pylint: disable=protected-access,no-member
                                                     '../_img/gplv3-88x31.png'))
     else:
-        logo = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')  # noqa
-        logo_opi = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
-        logo_gpl = simplegui.load_image('https://bytebucket.org/OPiMedia/simpleguics2pygame/raw/f14013a6fe7d1923159f4b1aad1331a483a04556/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
+        logo = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')  # noqa
+        logo_opi = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
+        logo_gpl = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
 
     frame = simplegui.create_frame(
         'SimpleGUICS2Pygame: short presentation of this package',
@@ -114,6 +115,8 @@ def main():
     frame.add_label('Go to websites:')
     frame.add_button('SimpleGUICS2Pygame',
                      lambda: open_new_tab(_WEBSITE), 180)
+    frame.add_button('online documentation',
+                     lambda: open_new_tab(_WEBSITE_DOC), 180)
     frame.add_button('Olivier Pirson OPi',
                      lambda: open_new_tab('http://www.opimedia.be/'), 180)
     frame.add_button('Donate',

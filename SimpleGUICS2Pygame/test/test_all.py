@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (March 6, 2020)
+Test all other test_*.py. (March 8, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -53,10 +53,12 @@ if not TO_COMPARE_IMGS:
 try:
     from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
     from SimpleGUICS2Pygame import _WEBSITE as SIMPLEGUICS2PYGAME_WEBSITE
+    from SimpleGUICS2Pygame import _WEBSITE_DOC as SIMPLEGUICS2PYGAME_WEBSITE_DOC  # noqa
     PYGAME_VERSION = simplegui._PYGAME_VERSION  # noqa  # pylint: disable=no-member,protected-access
 except ImportError:
     SIMPLEGUICS2PYGAME_VERSION = '?'
-    SIMPLEGUICS2PYGAME_WEBSITE = 'https://simpleguics2pygame.readthedocs.io/'
+    SIMPLEGUICS2PYGAME_WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa
+    SIMPLEGUICS2PYGAME_WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa
     PYGAME_VERSION = '?'
 
 
@@ -128,26 +130,30 @@ def main():
         sys.stderr.flush()
 
     # Make HTLM report
-    outfile = open(DIR_RESULTS + '/log.htm', 'w')
+    outfile = open(DIR_RESULTS + '/log.html', 'w')
 
-    print("""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+    print("""<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-  <title>SimpleGUICS2Pygame {1} &ndash; test report &ndash; Python {2} &ndash; Pygame {3}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, itial-scale=1">
+  <meta name="author" content="SimpleGUICS2Pygame &ndash; test_all">
+  <title>SimpleGUICS2Pygame {2} &ndash; test report &ndash; Python {3} &ndash; Pygame {4}</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
-
 <body>
-  <h1>
-    <a href="{0}" target="_blank">SimpleGUICS2Pygame</a>
-    <span class="infos">{1} &ndash; test report &ndash; Python {2} &ndash; Pygame {3} &ndash; {4}</span>
-  </h1>
+<main>
+  <header>
+    <a href="{0}" target="_blank">SimpleGUICS2Pygame</a> {2}
+    (<a href="{1}" target="_blank">online documentation</a>)
+    <h1>test report &ndash; Python {3} &ndash; Pygame {4} &ndash; {5}</h1>
+  </header>
   <ol>""".format(SIMPLEGUICS2PYGAME_WEBSITE,  # noqa
+                 SIMPLEGUICS2PYGAME_WEBSITE_DOC,
                  SIMPLEGUICS2PYGAME_VERSION,
                  PYTHON_VERSION,
                  PYGAME_VERSION,
-                 datetime.datetime.now()),
+                 datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
           file=outfile)
 
     for i, filename in enumerate(filenames):
@@ -190,6 +196,7 @@ def main():
               file=outfile)
 
     print("""  </ol>
+</main>
 </body>
 </html>""",
           file=outfile)

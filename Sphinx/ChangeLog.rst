@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — Mars 7, 2020
+* 02.00.00 WORKING VERSION — March 8, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -10,7 +10,7 @@ ChangeLog
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
-    - Added ``--frame-padding`` (thanks to `7coil`) and ``--last`` command line options.
+    - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help`` and ``--version`` command line options.
     - Added ``transparent`` "color" name.
     - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
     - Improved dealing of input box.
