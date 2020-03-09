@@ -74,75 +74,27 @@ I will try to help you with pleasure.
 
 Installation
 ============
-If pip_ is installed on your platform you can do:
+.. code-block:: sh
 
->>> pip install SimpleGUICS2Pygame
+   $ python -m pip install -U pip --upgrade
+   $ python -m pip install -U pygame --user --upgrade
+   $ python -m pip install -U matplotlib --upgrade
+   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
 
-(If several Python implementations are installed,
-maybe you must use something like `pip2` or `pip3` instead `pip` command.)
+See explanations of each part below.
 
+If several Python implementations are installed,
+maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
 
-Without pip, download the archive ``SimpleGUICS2Pygame-?.tar.gz``, unzip it ``somewhere``.
-Next in the ``somewhere/SimpleGUICS2Pygame-?/`` subdirectory run:
+Note that ``$`` represents the prompt and do *not* be entered by you.
 
->>> python setup.py install
+In some cases, maybe you must use **administrator rights**. With GNU/Linux do:
 
-In both cases, you must use **admin access**. So with GNU/Linux you will probably do:
+.. code-block:: sh
 
->>> sudo [your command]
+   $ sudo [your command]
 
-
-Module ``simpleplot`` require matplotlib_
-(and must be installed separately).
-
-
-Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (except for the Timer class)
-require Pygame_
-(and must be installed separately).
-
-.. _matplotlib: https://matplotlib.org/
-.. _pip: https://pypi.org/project/pip
-.. _Pygame: https://www.pygame.org/
-
-|
-
-
-Test installation
------------------
-You can run the little script_ ``SimpleGUICS2Pygame_check.py``
-to check if all required modules are installed.
-
-Examples of good installation:
-`result in Python 2`_
-and
-`result in Python 3`_.
-
-You can also test your Pygame installation alone with the other little script_ ``pygame_check.py``.
-
-.. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
-.. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
-.. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
-
-|
-
-
-On Window$
-----------
-
-* You can easily install matplotlib, pip and Pygame;
-  see `Unofficial Windows Binaries matplotlib`_,
-  `Unofficial Windows Binaries pip`_
-  and `Unofficial Windows Binaries Pygame`_.
-
-* You can use 7-Zip_ to unzip archive.
-
-See `Complete installation on Window$ in few steps`_.
-
-.. _7-Zip: http://www.7-zip.org/
-.. _`Complete installation on Window$ in few steps`: https://simpleguics2pygame.readthedocs.io/en/latest/index.html#complete-installation-on-window-in-few-steps
-.. _`Unofficial Windows Binaries matplotlib`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
-.. _`Unofficial Windows Binaries pip`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
-.. _`Unofficial Windows Binaries Pygame`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
+See more details in `Online HTML documentation`_.
 
 |
 
@@ -184,8 +136,8 @@ See developers_'page.
 
 
 
-Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
-==================================================================
+Author: 🌳 Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
+=================================================================
 🌐 Website: http://www.opimedia.be/
 
 💾 Bitbucket: https://bitbucket.org/OPiMedia/
@@ -204,15 +156,15 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍
 
 Support me
 ==========
-This package is a completely **free software** (GPL license).
-So it is **completely free** (like "free speech" and like "free beer").
+This program is a **free software** (GPL license).
+It is **completely free** (like "free speech" *and* like "free beer").
 However you can **support me** financially by donating.
 
-Go to the link |Donate|_. **Thank you!**
-
-.. _Donate: http://www.opimedia.be/donate/
+Click to this link |Donate|
+**Thank you!**
 
 .. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
+   :target: http://www.opimedia.be/donate/
 
 |
 
@@ -295,7 +247,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 8, 2020
+* 02.00.00 WORKING VERSION — March 9, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -318,6 +270,7 @@ Changes
     - Replaced ``_WEBSITE`` value by documentation link.
     - Updated. (Thanks to `John Gray` and `Tom Keller`.)
     - Splitted media links to image links and sound links.
+    - Updated installation documentation.
     - Updated media and CodeSkulptor programs links.
 
   - Program examples:

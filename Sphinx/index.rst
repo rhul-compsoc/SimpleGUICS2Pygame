@@ -71,34 +71,85 @@ I will try to help you with pleasure.
 
 Installation
 ------------
-If pip_ is installed on your platform you can do:
+.. code-block:: sh
 
->>> pip install SimpleGUICS2Pygame
+   $ python -m pip install -U pip --upgrade
+   $ python -m pip install -U pygame --user --upgrade
+   $ python -m pip install -U matplotlib --upgrade
+   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
 
-(If several Python implementations are installed,
-maybe you must use something like `pip2` or `pip3` instead `pip` command.)
+See explanations of each part below.
+
+If several Python implementations are installed,
+maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
+
+Note that ``$`` represents the prompt and do *not* be entered by you.
+
+In some cases, maybe you must use **administrator rights**. With GNU/Linux do:
+
+.. code-block:: sh
+
+   $ sudo [your command]
 
 
-Without pip, download the archive ``SimpleGUICS2Pygame-?.tar.gz``, unzip it ``somewhere``.
-Next in the ``somewhere/SimpleGUICS2Pygame-?/`` subdirectory run:
+First of all, install pip_, the installer of Python package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If ``pip`` is not yet installed on your system, install it with:
 
->>> python setup.py install
+.. code-block:: sh
 
-In both cases, you must use **admin access**. So with GNU/Linux you will probably do:
+   $ python -m pip install -U pip --upgrade
 
->>> sudo [your command]
+If you have some problem,
+see `installation documentation of pip`_.
 
-
-Module ``simpleplot`` require matplotlib_
-(and must be installed separately).
-
-Modules ``simplegui_lib`` (and its submodules) and ``simpleguics2pygame`` (except for the Timer class)
-require Pygame_
-(and must be installed separately).
-
-.. _matplotlib: https://matplotlib.org/
+.. _`installation documentation of pip`: https://pip.pypa.io/en/stable/installing/
 .. _pip: https://pypi.org/project/pip
+
+
+Install required package pygame_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pygame is required to use module ``simplegui_lib`` (and its submodules)
+and module ``simpleguics2pygame`` of SimpleGUICS2Pygame
+(except for the Timer class).
+
+.. code-block:: sh
+
+   $ python -m pip install -U pygame --user --upgrade
+
+If you have some problem,
+see `installation documentation of pygame`_.
+
+.. _`installation documentation of pygame`: https://www.pygame.org/wiki/GettingStarted
 .. _Pygame: https://www.pygame.org/
+
+
+Install required package matplotlib_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+matplotlib is required to use module ``simpleplot`` of SimpleGUICS2Pygame.
+
+.. code-block:: sh
+
+   $ python -m pip install -U matplotlib --upgrade
+
+If you have some problem,
+see `installation documentation of matplotlib`_.
+
+.. _`installation documentation of matplotlib`: https://matplotlib.org/users/installing.html
+.. _matplotlib: https://matplotlib.org/
+
+
+Finally, install the package SimpleGUICS2Pygame
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: sh
+
+   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
+
+Alternatively you can install SimpleGUICS2Pygame manually.
+The download_ directory contains
+some archives of all sources.
+
+.. _download: https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads/
 
 
 Test installation
@@ -106,7 +157,7 @@ Test installation
 You can run the little script_ ``SimpleGUICS2Pygame_check.py``
 to check if all required modules are installed.
 
-Examples of good installation:
+Examples of result with good installation:
 `result in Python 2`_
 and
 `result in Python 3`_.
@@ -120,28 +171,11 @@ You can also test your Pygame installation alone with the other little script_ `
 
 Update
 ~~~~~~
-With pip_ installed on your plaftorm you can update SimpleGUICS2Pygame:
+If SimpleGUICS2Pygame was installed with pip_ you can update it with:
 
->>> pip install SimpleGUICS2Pygame --upgrade
+.. code-block:: sh
 
-
-Complete installation on Window$ in few steps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Download and run the good `Pygame` installation file: `Unofficial Windows Binaries Pygame`_.  (Only require for ``simplegui_lib``, its submodules and ``simpleguics2pygame``.)
-
-2. Download and run the good `matplotlib` installation file (**and** all its requirements): `Unofficial Windows Binaries matplotlib`_. (Only require for ``simpleplot``.)
-
-3. Download and run the good `setuptools` installation file: `Unofficial Windows Binaries setuptools`_.
-
-4. Download and run the good `pip` installation file: `Unofficial Windows Binaries pip`_.
-
-5. Run in the *Command Prompt* (maybe with *Administrator* rights): ``pip install SimpleGUICS2Pygame`` . (Probably the ``pip`` command aren't in your ``PATH``, so add it or move in the subdirectory of ``pip`` with the ``CD`` command. This subdirectory is something like ``C:\Python?\Scripts\`` .)
-
-.. _`Unofficial Windows Binaries matplotlib`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
-.. _`Unofficial Windows Binaries pip`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
-.. _`Unofficial Windows Binaries Pygame`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
-.. _`Unofficial Windows Binaries setuptools`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
+   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
 
 
 Examples of CodeSkulptor and SimpleGUICS2Pygame use
@@ -175,8 +209,8 @@ See developers_'page.
 .. _`GPL license`: License.html
 
 
-Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
-------------------------------------------------------------------
+Author: 🌳 Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
+-----------------------------------------------------------------
 🌐 Website: http://www.opimedia.be/
 
 💾 Bitbucket: https://bitbucket.org/OPiMedia/
@@ -192,15 +226,15 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍
 
 Support me
 ----------
-This package is a completely **free software**, see `GPL license`_.
-So it is **completely free** (like "free speech" and like "free beer").
+This program is a **free software** (GPL license).
+It is **completely free** (like "free speech" *and* like "free beer").
 However you can **support me** financially by donating.
 
-Go to the link |Donate|_. **Thank you!**
+Click to this link |Donate|
+**Thank you!**
 
-.. _Donate: http://www.opimedia.be/donate/
-
-.. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
+.. |Donate| image:: http://www.opimedia.be/donate/_png/Paypal_Donate_92x26_t.png
+   :target: http://www.opimedia.be/donate/
 
 
 Note that

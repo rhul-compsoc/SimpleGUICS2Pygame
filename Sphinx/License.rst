@@ -20,8 +20,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .. |GPLv3| image:: _static/img/gplv3-88x31.png
 
 
-Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
--------------------------------------------------------
+Author: 🌳 Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍💻 👨‍🔬
+-----------------------------------------------------------------
 🌐 Website: http://www.opimedia.be/
 
 💾 Bitbucket: https://bitbucket.org/OPiMedia/
@@ -29,6 +29,7 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
 * 📧 olivier.pirson.opi@gmail.com
 * Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
 * diaspora* (Framasphere*): https://framasphere.org/u/opimedia
+* 👨‍💻 LinkedIn: https://www.linkedin.com/in/olivierpirson/ — CV: http://www.opimedia.be/CV/English.html
 * other profiles: http://www.opimedia.be/about/
 
 .. |OPi| image:: http://www.opimedia.be/_png/OPi.png
@@ -36,12 +37,12 @@ Author: 🌳  Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧
 
 Support me
 ----------
-This package is a completely **free software**.
-So it is **completely free** (like "free speech" and like "free beer").
+This program is a **free software** (GPL license).
+It is **completely free** (like "free speech" *and* like "free beer").
 However you can **support me** financially by donating.
 
-Go to the link |Donate|_. **Thank you!**
-
-.. _Donate: http://www.opimedia.be/donate/
+Click to this link |Donate|
+**Thank you!**
 
 .. |Donate| image:: _static/img/Paypal_Donate_92x26_t.png
+   :target: http://www.opimedia.be/donate/

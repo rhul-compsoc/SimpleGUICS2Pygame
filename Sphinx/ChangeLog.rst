@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 8, 2020
+* 02.00.00 WORKING VERSION — March 9, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -23,6 +23,7 @@ ChangeLog
     - Replaced ``_WEBSITE`` value by documentation link.
     - Updated. (Thanks to `John Gray` and `Tom Keller`.)
     - Splitted media links to image links and sound links.
+    - Updated installation documentation.
     - Updated media and CodeSkulptor programs links.
 
   - Program examples:

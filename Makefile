@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 5, 2020
+# Makefile of SimpleGUICS2Pygame --- March 9, 2020
 
 .SUFFIXES:
 
@@ -176,7 +176,7 @@ test2:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 2"
 	@$(ECHO) "=================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) $(PYTHON2FLAGS) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); export PYGAME_HIDE_SUPPORT_PROMPT=hide; $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) $(PYTHON2FLAGS) test_all.py
 
 test3:
 	@$(ECHO) "=================="

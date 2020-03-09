@@ -31,6 +31,7 @@ sys.path:
   /usr/lib/python2.7/lib-tk
   /usr/lib/python2.7/lib-old
   /usr/lib/python2.7/lib-dynload
+  /home/opi/.local/lib/python2.7/site-packages
   /usr/local/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages/PILcompat
@@ -38,10 +39,10 @@ sys.path:
   /usr/lib/python2.7/dist-packages/wx-3.0-gtk2
 
 
-import matplotlib ok - Version 2.0.0
+import matplotlib ok - Version 2.2.5
 
 
-import pygame ok - Version 1.9.1release
+import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 

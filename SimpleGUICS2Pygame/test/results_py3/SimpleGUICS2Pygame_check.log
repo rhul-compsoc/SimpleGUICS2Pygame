@@ -30,11 +30,12 @@ sys.path:
   /usr/lib/python3.5
   /usr/lib/python3.5/plat-x86_64-linux-gnu
   /usr/lib/python3.5/lib-dynload
+  /home/opi/.local/lib/python3.5/site-packages
   /usr/local/lib/python3.5/dist-packages
   /usr/lib/python3/dist-packages
 
 
-import matplotlib ok - Version 2.2.2
+import matplotlib ok - Version 3.0.3
 
 
 import pygame ok - Version 1.9.6
