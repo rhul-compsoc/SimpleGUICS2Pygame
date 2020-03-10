@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_options (March 8, 2020)
+simpleguics2pygame/_options (March 10, 2020)
 
 Options helpers.
 
@@ -13,7 +13,6 @@ GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
-from __future__ import division
 from __future__ import print_function
 
 import sys
@@ -22,25 +21,67 @@ import sys
 __all__ = []
 
 
-try:
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+if _PYGAME_AVAILABLE:
     import pygame
-
-    _PYGAME_AVAILABLE = True
-except ImportError:
-    _PYGAME_AVAILABLE = False
 
 
 #
 # "Private" functions
 #####################
-def _help_quit(code=0):
+def _help_quit():
     """
     Print help message in error output and quit.
     """
-    print("""Usage: python YOURPROGRAM.py ???
-""", file=sys.stderr)
+    print("""Usage: python YOURPROGRAM.py [SimpleGUICS2Pygame options] [application options]
 
-    exit(code)
+  --default-font        Use Pygame default font instead serif, monospace...
+                          (this is faster if you display a lot of text).
+  --display-fps         Display FPS average on the canvas.
+  --fps N               Set Frame Per Second (default is 60 FPS).
+  --frame-padding N     Set the padding in pixels found around the canvas.
+  --fullscreen          Fullscreen mode.
+  --help                Print help message and quit.
+  --keep-timers         Keep running timers when close frame without ask.
+  --last                Mark this argument as the last SimpleGUICS2Pygame's
+                          argument. (Do nothing else.)
+  --no-border           Window without border.
+  --no-controlpanel     Hide the control panel (and status boxes).
+  --no-load-sound       Don't load any sound.
+  --no-status           Hide two status boxes.
+  --overwrite-downloaded-medias
+                        Download all images and sounds from Web
+                        and save in local directory even if they already exist.
+  --print-load-medias   Print URLs or local filenames loaded.
+  --print-stats-cache   After frame stopped, print some statistics of caches.
+  --save-downloaded-medias
+                        Save images and sounds downloaded
+                        from Web that don't already exist in local directory.
+  --stop-timers         Stop all timers when close frame without ask.
+  --version             Print help message and quit.
+
+If an argument is not in this list then it is ignored
+ and all next arguments are ignored by SimpleGUICS2Pygame.
+
+Arguments used by SimpleGUICS2Pygame is deleted to sys.argv.
+Remaining options can used by your application.
+
+SimpleGUICS2Pygame options are read
+when the module simpleguics2pygame is imported.
+
+Examples:
+  $ python YOURPROGRAM.py --no-controlpanel --stop-timers --foo --fullscreen
+  Run YOURPROGRAM.py with the control panel hidden and timers will stoped.
+  But SimpleGUICS2Pygame ignore --foo and --fullscreen.
+  YOURPROGRAM.py application receive --foo --fullscreen options.
+
+  $ python YOURPROGRAM.py --no-controlpanel --last --stop-timers --foo --fps 30
+  Run YOURPROGRAM.py with the control panel hidden.
+  But SimpleGUICS2Pygame ignore --stop-timers, --foo, --fps and 30.
+  YOURPROGRAM.py application receive --stop-timers --foo --fps 30 options.""",  # noqa
+          file=sys.stderr)
+
+    exit()
 
 
 def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-many-statements
@@ -54,9 +95,10 @@ def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-ma
     * ``--fps n``: Set Frame Per Second (default is 60 FPS).
     * ``--frame-padding n``: Set the padding in pixels found around the canvas.
     * ``--fullscreen``: Fullscreen mode.
+    * ``--help``: Print help message and quit.
     * ``--keep-timers``: Keep running timers when close frame without ask.
     * ``--last``: Mark this argument
-      as the last  SimpleGUICS2Pygame's argument. (Do nothing else.)
+        as the last  SimpleGUICS2Pygame's argument. (Do nothing else.)
     * ``--no-border``: Window without border.
     * ``--no-controlpanel``: Hide the control panel (and status boxes).
     * ``--no-load-sound``: Don't load any sound.
@@ -69,6 +111,7 @@ def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-ma
     * ``--save-downloaded-medias``: Save images and sounds downloaded
       from Web that don't already exist in local directory.
     * ``--stop-timers``: Stop all timers when close frame without ask.
+    * ``--version``: Print help message and quit.
 
     If an argument is not in this list
     then it is ignored and all next arguments are ignored.
@@ -141,6 +184,12 @@ def _set_option_from_argv():  # noqa  # pylint: disable=too-many-branches,too-ma
             Frame._save_downloaded_medias_overwrite = False  # noqa  # pylint: disable=protected-access
         elif arg == '--stop-timers':
             Frame._keep_timers = False  # pylint: disable=protected-access
+        elif arg == '--version':
+            from SimpleGUICS2Pygame import _VERSION
+
+            print('SimpleGUICS2Pygame {}'.format(_VERSION))
+
+            exit()
         else:
             nb_module_arg -= 1  # cancel incrementation below
 

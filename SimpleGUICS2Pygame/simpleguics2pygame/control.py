@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (March 6, 2020)
+simpleguics2pygame/control (March 10, 2020)
 
 Classes Control and TextAreaControl.
 
@@ -14,22 +14,16 @@ http://www.opimedia.be/
 """
 
 from __future__ import division
-from __future__ import print_function
 
 
 __all__ = ['Control', 'TextAreaControl']
 
 
-try:
-    import pygame
-
-    _PYGAME_AVAILABLE = True
-except ImportError:
-    _PYGAME_AVAILABLE = False
-
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
-
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+if _PYGAME_AVAILABLE:
+    import pygame
 
 
 #

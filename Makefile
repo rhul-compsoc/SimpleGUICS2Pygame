@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 9, 2020
+# Makefile of SimpleGUICS2Pygame --- March 10, 2020
 
 .SUFFIXES:
 
@@ -8,17 +8,26 @@ SRC = $(sort $(wildcard *.py)) $(sort $(wildcard SimpleGUICS2Pygame/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*/*.py))
 
 
+JOB = 1
+
 MYPY      = mypy  # http://www.mypy-lang.org/
 MYPYFLAGS = --ignore-missing-imports
 
 PEP8      = pep8  # https://pypi.org/project/pep8/
 PEP8FLAGS = -v --statistics  # --ignore=E501
 
+PYDEPS      = pydeps  # https://github.com/thebjorn/pydeps
+PYDEPSFLAGS = --noshow
+
 PYFLAKES      = pyflakes3  # https://pypi.org/project/pyflakes/
 PYFLAKESFLAGS =
 
 PYLINT      = pylint3  # https://www.pylint.org/
-PYLINTFLAGS = --disable=line-too-long,locally-disabled
+PYLINTFLAGS = -j $(JOB) --disable=line-too-long,locally-disabled
+
+PYTYPE      = pytype  # https://google.github.io/pytype/
+PYTYPEFLAGS = -j $(JOB)
+
 
 PYTHON2      = python2  # https://www.python.org/
 PYTHON2FLAGS =
@@ -93,6 +102,7 @@ sdist:
 .PHONY: docs docstgz links
 
 docs:	links
+	$(CP) -t Sphinx/_static/img pydeps_all.svg pydeps_only.svg
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
 docstgz:	docs
@@ -112,7 +122,7 @@ links:
 #################
 # Static checks #
 #################
-.PHONY: lint lintlog mypy pep8 pyflakes pylint
+.PHONY: lint lintlog mypy pep8 pydeps pyflakes pylint pytype
 
 lint:	pep8 pyflakes pylint mypy
 
@@ -127,6 +137,12 @@ lintlog:
 	@$(ECHO) ===== pylint ===== | $(TEE) -a lint.log
 	-$(PYLINT) $(PYLINTFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== pytype --tree ===== | $(TEE) -a lint.log
+	-$(PYTYPE) $(PYTYPEFLAGS) --tree $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) ===== pytype --unresolved ===== | $(TEE) -a lint.log
+	-$(PYTYPE) $(PYTYPEFLAGS) --unresolved $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) ===== pytype ===== | $(TEE) -a lint.log
+	-$(PYTYPE) $(PYTYPEFLAGS) -k $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) ===== mypy ===== | $(TEE) -a lint.log
 	-$(MYPY) $(MYPYFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 
@@ -136,11 +152,20 @@ mypy:
 pep8:
 	-$(PEP8) $(PEP8FLAGS) $(SRC)
 
+pydeps:
+	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_all.svg
+	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
+
 pyflakes:
 	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC)
 
 pylint:
 	-$(PYLINT) $(PYLINTFLAGS) $(SRC)
+
+pytype:
+	-$(PYTYPE) --tree $(PYTYPEFLAGS) $(SRC)
+	-$(PYTYPE) --unresolved $(PYTYPEFLAGS) $(SRC)
+	-$(PYTYPE) $(PYTYPEFLAGS) $(SRC)
 
 
 
@@ -198,6 +223,7 @@ clean:	cleanbuild
 	$(RM) SimpleGUICS2Pygame.egg-info/*
 	-$(RMDIR) SimpleGUICS2Pygame.egg-info
 	$(RM) -r .mypy_cache
+	$(RM) -r .pytype
 
 cleanbuild:
 	$(PYTHON3) $(PYTHON3FLAGS) setup.py clean
@@ -214,3 +240,4 @@ distclean:	clean cleandist
 
 overclean:	distclean
 	$(RM) lint.log
+	$(RM) pydeps_*.svg

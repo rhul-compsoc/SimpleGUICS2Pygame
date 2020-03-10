@@ -12,7 +12,9 @@ Sphinx/_build/*
 *.pyc
 *.pyo
 
-.mypy_cache/*
 __pycache__/*
+
+.mypy_cache/*
+.pytype/*
 
 *~

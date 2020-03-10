@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/keys (March 4, 2020)
+simpleguics2pygame/keys (March 10, 2020)
 
 Keys helpers.
 
@@ -12,10 +12,6 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
-
-from __future__ import division
-from __future__ import print_function
-
 
 __all__ = ['KEY_MAP']
 

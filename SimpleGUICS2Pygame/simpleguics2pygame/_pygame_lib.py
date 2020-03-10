@@ -2,20 +2,16 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_pygame_lib (May 29, 2015)
+simpleguics2pygame/_pygame_lib (March 10, 2020)
 
 Pygame helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015 Olivier Pirson
+GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
-
-from __future__ import division
-from __future__ import print_function
-
 
 __all__ = ['_PYGAME_AVAILABLE', '_PYGAME_VERSION']
 

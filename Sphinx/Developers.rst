@@ -74,3 +74,22 @@ One goal of SimpleGUICS2Pygame is to mimic as much as possible the behavior of C
 Additional functionalities are isolated with **prepending underscore** ``_``.
 
 .. _convention: https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables
+
+
+
+Diagrams of imports
+-------------------
+Only files of SimpleGUICS2Pygame.simpleguics2pygame package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|import only|
+
+.. |import only| image:: _static/img/pydeps_only.svg
+   :target: _static/img/pydeps_only.svg
+
+
+All files
+~~~~~~~~~
+|import all|
+
+.. |import all| image:: _static/img/pydeps_all.svg
+   :target: _static/img/pydeps_all.svg

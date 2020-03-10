@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/timer (March 4, 2020)
+simpleguics2pygame/timer (March 10, 2020)
 
 Class Timer.
 
@@ -16,7 +16,6 @@ http://www.opimedia.be/
 """
 
 from __future__ import division
-from __future__ import print_function
 
 
 __all__ = ['Timer',

@@ -1,12 +1,11 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (March 5, 2020)
+simpleplot (March 10, 2020)
 
 Replace the simpleplot module of CodeSkulptor.
 
 Require matplotlib_
-(`Unofficial Windows Binaries`_)
 (and must be installed separately).
 
 .. warning::
@@ -28,7 +27,6 @@ GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 
 .. _matplotlib: https://matplotlib.org/
-.. _`Unofficial Windows Binaries`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
 """  # noqa
 
 from __future__ import print_function

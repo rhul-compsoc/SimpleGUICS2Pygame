@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (March 7, 2020)
+simpleguics2pygame/image (March 10, 2020)
 
 Class Image.
 
@@ -22,12 +22,7 @@ __all__ = ['Image',
            '_load_local_image']
 
 
-try:
-    import pygame  # pylint: disable=unused-import
-
-    _PYGAME_AVAILABLE = True
-except ImportError:
-    _PYGAME_AVAILABLE = False
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 
 
 #

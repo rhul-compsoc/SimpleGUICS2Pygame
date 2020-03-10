@@ -14,6 +14,7 @@ PATH:
   /home/opi/data/hg/vNu-scripts/vNu-scripts
   /QUICK/progs/tikzit/bin
   /home/opi/data/hg/tsv2htmltable_WORK/src/scripts
+  /home/opi/.local/bin
 
 PYTHONPATH:
   /home/opi/data/git/current/simpleguics2pygame
@@ -42,7 +43,7 @@ import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 8, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 10, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

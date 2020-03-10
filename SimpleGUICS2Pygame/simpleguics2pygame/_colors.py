@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (March 6, 2020)
+simpleguics2pygame/_colors (March 10, 2020)
 
 Colors helpers.
 
@@ -14,7 +14,6 @@ http://www.opimedia.be/
 """
 
 from __future__ import division
-from __future__ import print_function
 
 
 __all__ = []

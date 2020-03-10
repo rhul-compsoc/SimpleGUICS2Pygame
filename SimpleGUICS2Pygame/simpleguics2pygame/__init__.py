@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/__init__ (March 6, 2020)
+simpleguics2pygame/__init__ (March 10, 2020)
 
 Standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_
@@ -10,7 +10,6 @@ reimplementing the SimpleGUI particular module of CodeSkulptor_
 
 Require Pygame_
 (except for the Timer class)
-(`Unofficial Windows Binaries`_)
 (and must be installed separately).
 
 `Online HTML documentation`_ on Read The Docs.
@@ -27,7 +26,6 @@ http://www.opimedia.be/
 .. _Pygame: https://www.pygame.org/
 .. _Python: https://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
-.. _`Unofficial Windows Binaries`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
 """  # noqa
 
 

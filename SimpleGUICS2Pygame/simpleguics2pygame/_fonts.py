@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_fonts (March 6, 2020)
+simpleguics2pygame/_fonts (March 10, 2020)
 
 Fonts helpers.
 
@@ -13,11 +13,12 @@ GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
-from __future__ import division
-from __future__ import print_function
-
-
 __all__ = []
+
+
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+if _PYGAME_AVAILABLE:
+    import pygame
 
 
 #
@@ -73,10 +74,6 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
     font = Frame._pygamefonts_cached.get((font_face, font_size))  # noqa  # pylint: disable=protected-access
 
     if font is None:
-        from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
-        if _PYGAME_AVAILABLE:
-            import pygame
-
         if (font_face is None) or Frame._default_font:  # noqa  # pylint: disable=protected-access
             font = pygame.font.SysFont(None, font_size)
         else:

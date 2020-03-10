@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_media (March 6, 2020)
+simpleguics2pygame/_media (March 10, 2020)
 
 Media helpers.
 
@@ -13,7 +13,6 @@ GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
-from __future__ import division
 from __future__ import print_function
 
 
@@ -40,6 +39,22 @@ if _PYGAME_AVAILABLE:
 
 
 #
+# Private global constant
+#########################
+_MIXER_FREQUENCY = 22050
+"""
+Sound frequency used by the mixer module of Pygame.
+"""
+
+
+_MIXER_INITIALIZED = False
+"""
+If `True`
+then pygame.mixer is initialized.
+"""
+
+
+#
 # "Private" functions
 #####################
 def _load_local_media(type_of_media, filename):
@@ -54,25 +69,25 @@ def _load_local_media(type_of_media, filename):
     Side effects:
 
     * If the media is a valid sound\
-      then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+      then init the pygame.mixer and set _MIXER_INITIALIZED to `True`.
 
     :param type_of_media: Image or Sound
     :param filename: str
 
     :return: pygame.Surface or pygame.mixer.Sound or None
     """
+    global _MIXER_INITIALIZED  # pylint: disable=global-statement
+
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(filename, str), type(filename)
 
-    if not isfile(filename):
+    if not _PYGAME_AVAILABLE or not isfile(filename):
         return None
 
     media_is_image = (type_of_media == 'Image')
 
-    from SimpleGUICS2Pygame.simpleguics2pygame.sound import _MIXER_FREQUENCY, Sound  # noqa  # pylint: disable=no-name-in-module
-
-    if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
-        Sound._mixer_initialized = True  # pylint: disable=protected-access
+    if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
+        _MIXER_INITIALIZED = True  # pylint: disable=protected-access
         pygame.mixer.init(_MIXER_FREQUENCY)  # pylint: disable=protected-access
 
     media = (pygame.image.load(filename) if media_is_image
@@ -81,7 +96,7 @@ def _load_local_media(type_of_media, filename):
     return media
 
 
-def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements
+def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements
     """
     Load an image or a sound from Web or local directory,
     and save if asked with Frame._save_downloaded_medias
@@ -98,7 +113,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     * Each new url is added to `Frame._pygamemedias_cached`.
     * If the media is a valid sound\
-      then init the pygame.mixer and set Sound._mixer_initialized to `True`.
+      then init the pygame.mixer and set _MIXER_INITIALIZED to `True`.
     * If `Frame._print_load_medias` then print loading informations to stderr.
 
     :param type_of_media: Image or Sound
@@ -107,20 +122,24 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     :return: pygame.Surface or pygame.mixer.Sound or None
     """
+    global _MIXER_INITIALIZED  # pylint: disable=global-statement
+
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(url, str), type(url)
     assert isinstance(local_dir, str), type(local_dir)
 
+    if not _PYGAME_AVAILABLE:
+        return None
+
     media_is_image = (type_of_media == 'Image')
 
     from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-    from SimpleGUICS2Pygame.simpleguics2pygame.sound import _MIXER_FREQUENCY, Sound  # noqa  # pylint: disable=no-name-in-module
 
     cached = Frame._pygamemedias_cached.get(url)  # noqa  # pylint: disable=protected-access
     if cached is not None:
         # Already in cache
-        if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
-            Sound._mixer_initialized = True  # pylint: disable=protected-access
+        if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
+            _MIXER_INITIALIZED = True  # pylint: disable=protected-access
             pygame.mixer.init(_MIXER_FREQUENCY)
 
         media = (cached.copy() if media_is_image
@@ -148,8 +167,8 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     # Load...
     if not Frame._save_downloaded_medias_overwrite and filename_exist:  # noqa  # pylint: disable=protected-access
-        if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
-            Sound._mixer_initialized = True  # noqa  # pylint: disable=protected-access
+        if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
+            _MIXER_INITIALIZED = True  # noqa  # pylint: disable=protected-access
             pygame.mixer.init(_MIXER_FREQUENCY)
 
         try:
@@ -184,8 +203,8 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
         return None
 
-    if (not media_is_image) and (not Sound._mixer_initialized):  # noqa  # pylint: disable=protected-access
-        Sound._mixer_initialized = True  # pylint: disable=protected-access
+    if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
+        _MIXER_INITIALIZED = True  # pylint: disable=protected-access
         pygame.mixer.init(_MIXER_FREQUENCY)
 
     try:

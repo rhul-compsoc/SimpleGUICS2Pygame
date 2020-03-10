@@ -2,7 +2,10 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (March 8, 2020)
+Test all other test_*.py. (March 10, 2020)
+
+Require Pillow (PIL)
+https://python-pillow.org/
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame

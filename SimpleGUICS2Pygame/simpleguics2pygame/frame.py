@@ -3,7 +3,7 @@
 # pylint: disable=too-many-lines
 
 """
-simpleguics2pygame/frame (March 7, 2020)
+simpleguics2pygame/frame (March 10, 2020)
 
 Class Frame.
 
@@ -22,14 +22,10 @@ __all__ = ['Frame',
            'create_frame']
 
 
-try:
-    import pygame
-
-    _PYGAME_AVAILABLE = True
-except ImportError:
-    _PYGAME_AVAILABLE = False
-
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+if _PYGAME_AVAILABLE:
+    import pygame
 
 
 #

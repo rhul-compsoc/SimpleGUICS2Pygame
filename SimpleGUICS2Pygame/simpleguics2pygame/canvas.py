@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (March 6, 2020)
+simpleguics2pygame/canvas (March 10, 2020)
 
 Class Canvas.
 
@@ -14,7 +14,6 @@ http://www.opimedia.be/
 """
 
 from __future__ import division
-from __future__ import print_function
 
 import math
 import re
@@ -24,12 +23,9 @@ __all__ = ['Canvas',
            'create_invisible_canvas']
 
 
-try:
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+if _PYGAME_AVAILABLE:
     import pygame
-
-    _PYGAME_AVAILABLE = True
-except ImportError:
-    _PYGAME_AVAILABLE = False
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=no-name-in-module
 
@@ -37,7 +33,7 @@ from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYG
 #
 # Private global constants
 ##########################
-_RADIAN_TO_DEGREE = 180.0 / math.pi
+_RADIAN_TO_DEGREE = 180 / math.pi
 """
 Multiplicative constant to convert radian to degree.
 """

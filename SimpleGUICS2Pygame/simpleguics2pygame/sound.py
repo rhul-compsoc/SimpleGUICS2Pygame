@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (March 7, 2020)
+simpleguics2pygame/sound (March 10, 2020)
 
 Class Sound.
 
@@ -13,30 +13,9 @@ GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
-from __future__ import division
-from __future__ import print_function
-
-
 __all__ = ['Sound',
            'create_sound', 'load_sound',
            '_load_local_sound']
-
-
-try:
-    import pygame  # pylint: disable=unused-import
-
-    _PYGAME_AVAILABLE = True
-except ImportError:
-    _PYGAME_AVAILABLE = False
-
-
-#
-# Private global constant
-#########################
-_MIXER_FREQUENCY = 22050
-"""
-Sound frequency used by the mixer module of Pygame.
-"""
 
 
 #
@@ -93,12 +72,6 @@ class Sound:
     then load sounds are disabled.
     """
 
-    _mixer_initialized = False
-    """
-    If `True`
-    then pygame.mixer is initialized.
-    """
-
     def __init__(self, url):
         """
         Set a sound (if not Sound._load_disabled).
@@ -107,9 +80,6 @@ class Sound:
 
         :param url: str
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert isinstance(url, str), type(url)
 
         from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_media  # noqa  # pylint: disable=no-name-in-module
@@ -119,7 +89,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                               else _load_media('Sound', url,
                                                Sound._dir_search_first))
 
-        assert (self._pygame_sound is None) or Sound._mixer_initialized
+        from SimpleGUICS2Pygame.simpleguics2pygame._media import _MIXER_INITIALIZED  # noqa  # pylint: disable=no-name-in-module
+
+        assert (self._pygame_sound is None) or _MIXER_INITIALIZED
 
     def __repr__(self):
         """
@@ -209,9 +181,6 @@ class _LocalSound(Sound):
 
         :param filename: str
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert isinstance(filename, str), type(filename)
 
         from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media  # noqa  # pylint: disable=no-name-in-module
@@ -220,7 +189,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._pygame_sound = (None if Sound._load_disabled or (filename == '')
                               else _load_local_media('Sound', filename))
 
-        assert (self._pygame_sound is None) or Sound._mixer_initialized
+        from SimpleGUICS2Pygame.simpleguics2pygame._media import _MIXER_INITIALIZED  # noqa  # pylint: disable=no-name-in-module
+
+        assert (self._pygame_sound is None) or _MIXER_INITIALIZED
 
     def __repr__(self):
         """
@@ -247,9 +218,6 @@ def create_sound(sound_data, sample_rate=8000, num_channels=1):
 
     :return: Sound
     """
-    assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
     assert isinstance(sound_data, tuple) or isinstance(sound_data, list), \
         type(sound_data)
     if __debug__:
@@ -295,9 +263,6 @@ def load_sound(url):
 
     :return: Sound
     """
-    assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
     assert isinstance(url, str), type(url)
 
     return Sound(url)
