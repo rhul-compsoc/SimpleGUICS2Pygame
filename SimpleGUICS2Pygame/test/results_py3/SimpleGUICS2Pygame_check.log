@@ -12,6 +12,7 @@ PATH:
   /snap/bin
   /QUICK/progs/Java
   /home/opi/data/hg/vNu-scripts/vNu-scripts
+  /QUICK/progs/pypy3.6-v7.3.0-linux64/bin
   /QUICK/progs/tikzit/bin
   /home/opi/data/hg/tsv2htmltable_WORK/src/scripts
   /home/opi/.local/bin
@@ -43,7 +44,7 @@ import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 10, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 14, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

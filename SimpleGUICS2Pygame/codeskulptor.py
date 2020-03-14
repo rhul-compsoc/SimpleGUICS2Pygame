@@ -1,16 +1,21 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor (March 5, 2020)
+codeskulptor
 
 Replace the codeskulptor module of CodeSkulptor.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
+
+from __future__ import print_function
+
+# print('IMPORT', __name__)
 
 
 def file2url(filename):

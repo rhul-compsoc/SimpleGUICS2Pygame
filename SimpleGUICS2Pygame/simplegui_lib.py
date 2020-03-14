@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib (March 5, 2020)
+simplegui_lib
 
 Some functions and classes to help
 in SimpleGUI of CodeSkulptor,
@@ -13,9 +13,15 @@ and `simplegui_lib_loader`.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
+
+from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 try:
     from user40_AeChfAkzlcqs3wG import draw_rect, draw_text_multi, draw_text_side  # noqa  # pylint: disable=unused-import

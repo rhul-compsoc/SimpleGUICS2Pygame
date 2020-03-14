@@ -8,6 +8,17 @@ Complete **sources** on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2py
 .. _`GPL license`: License.html
 
 
+Naming convention
+-----------------
+Usually in Python, prepending a name by underscore ``_`` is a convention_ for non-public items.
+Here intention is to separate additional variables and functions in SimpleGUICS2Pygame
+to the standard API of CodeSkulptor.
+One goal of SimpleGUICS2Pygame is to mimic as much as possible the behavior of CodeSkulptor.
+Additional functionalities are isolated with **prepending underscore** ``_``.
+
+.. _convention: https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables
+
+
 Hierarchy of files on Bitbucket
 -------------------------------
 * `SimpleGUICS2Pygame/`__: **source** code
@@ -62,19 +73,6 @@ Hierarchy of files on Bitbucket
 
 .. warning::
    Before the version 02.00.00, the main module ``simpleguics2pygame`` was one file. Now it is splitted in several files in ``simpleguics2pygame/`` subdirectory.
-
-
-
-Naming convention
------------------
-Usually in Python, prepending a name by underscore ``_`` is a convention_ for non-public items.
-Here intention is to separate additional variables and functions in SimpleGUICS2Pygame
-to the standard API of CodeSkulptor.
-One goal of SimpleGUICS2Pygame is to mimic as much as possible the behavior of CodeSkulptor.
-Additional functionalities are isolated with **prepending underscore** ``_``.
-
-.. _convention: https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables
-
 
 
 Diagrams of imports

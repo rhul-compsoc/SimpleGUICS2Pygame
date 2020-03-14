@@ -1,21 +1,29 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound (March 10, 2020)
+simpleguics2pygame/sound
 
 Class Sound.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
+
+from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 __all__ = ['Sound',
            'create_sound', 'load_sound',
            '_load_local_sound']
+
+
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
 
 
 #
@@ -66,7 +74,7 @@ class Sound:
     This local directory is relative to the directory of your program.
     """
 
-    _load_disabled = False
+    _load_disabled = _CONFIG['--no-load-sound']
     """
     If `True`
     then load sounds are disabled.

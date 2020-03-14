@@ -74,6 +74,8 @@ I will try to help you with pleasure.
 
 Installation
 ============
+Obviously you need Python_. Then, open a terminal and do:
+
 .. code-block:: sh
 
    $ python -m pip install -U pip --upgrade
@@ -172,7 +174,7 @@ Click to this link |Donate|
 
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013, 2014, 2015, 2016, 2018, 2020 Olivier Pirson
+Copyright (C) 2013-2016, 2018, 2020 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -247,7 +249,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 10, 2020
+* 02.00.00 WORKING VERSION — March 14, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -257,7 +259,7 @@ Changes
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
-    - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help`` and ``--version`` command line options.
+    - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.
     - Added ``transparent`` "color" name.
     - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
     - Improved dealing of input box.

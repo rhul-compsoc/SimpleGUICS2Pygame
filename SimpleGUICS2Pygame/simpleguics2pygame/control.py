@@ -1,19 +1,22 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control (March 10, 2020)
+simpleguics2pygame/control
 
 Classes Control and TextAreaControl.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import division
+from __future__ import print_function
+
+# print('IMPORT', __name__)
 
 
 __all__ = ['Control', 'TextAreaControl']
@@ -21,7 +24,7 @@ __all__ = ['Control', 'TextAreaControl']
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -144,9 +147,6 @@ class Control:  # pylint: disable=too-many-instance-attributes
         assert _PYGAME_AVAILABLE, """Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-
-        assert isinstance(frame, Frame), type(frame)
         assert isinstance(text, str), type(text)
         assert (button_handler is None) or callable(button_handler), \
             type(button_handler)
@@ -244,10 +244,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         height = height_total + Control._button_padding_y * 2
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-
         pygame_surface_button = pygame.Surface((width, height))  # noqa  # pylint: disable=too-many-function-args
-        pygame_surface_button.fill(Frame._controlpanel_background_pygame_color)  # noqa  # pylint: disable=protected-access
+        pygame_surface_button.fill(self._frame_parent._controlpanel_background_pygame_color)  # noqa  # pylint: disable=protected-access
 
         for i, color in enumerate(
                 ((Control._button_selected_background_pygame_color
@@ -429,9 +427,6 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
         assert _PYGAME_AVAILABLE, """Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-
-        assert isinstance(frame, Frame), type(frame)
         assert isinstance(label_text, str), type(label_text)
         assert callable(input_handler), type(input_handler)
         assert isinstance(input_width, int) or isinstance(input_width, float),\

@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Example of simplegui_lib_loader.Loader use. (March 6, 2020)
+Example of simplegui_lib_loader.Loader use.
 
 Documentation:
 https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_loader.html
@@ -10,8 +10,9 @@ https://simpleguics2pygame.readthedocs.io/en/latest/simplegui_lib_loader.html
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 try:

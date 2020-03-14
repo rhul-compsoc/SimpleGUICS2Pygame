@@ -1,17 +1,22 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_pygame_lib (March 10, 2020)
+simpleguics2pygame/_pygame_init
 
-Pygame helpers.
+Initialize Pygame.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
+
+from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 __all__ = ['_PYGAME_AVAILABLE', '_PYGAME_VERSION']
 

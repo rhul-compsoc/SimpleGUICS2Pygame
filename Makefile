@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 10, 2020
+# Makefile of SimpleGUICS2Pygame --- March 14, 2020
 
 .SUFFIXES:
 
@@ -6,6 +6,13 @@ SRC = $(sort $(wildcard *.py)) $(sort $(wildcard SimpleGUICS2Pygame/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*/*.py))
+
+
+PYTHON2      = python2  # https://www.python.org/
+PYTHON2FLAGS =
+
+PYTHON3      = python3
+PYTHON3FLAGS =
 
 
 JOB = 1
@@ -27,13 +34,6 @@ PYLINTFLAGS = -j $(JOB) --disable=line-too-long,locally-disabled
 
 PYTYPE      = pytype  # https://google.github.io/pytype/
 PYTYPEFLAGS = -j $(JOB)
-
-
-PYTHON2      = python2  # https://www.python.org/
-PYTHON2FLAGS =
-
-PYTHON3      = python3
-PYTHON3FLAGS =
 
 
 CHECKTXT = checkTxtPy.py  # not public program
@@ -124,7 +124,7 @@ links:
 #################
 .PHONY: lint lintlog mypy pep8 pydeps pyflakes pylint pytype
 
-lint:	pep8 pyflakes pylint mypy
+lint:	pep8 pyflakes pylint pytype mypy
 
 lintlog:
 	$(ECHO) "Lint" | $(TEE) lint.log
@@ -201,13 +201,13 @@ test2:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 2"
 	@$(ECHO) "=================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); export PYGAME_HIDE_SUPPORT_PROMPT=hide; $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) $(PYTHON2FLAGS) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) $(PYTHON2FLAGS) test_all.py
 
 test3:
 	@$(ECHO) "=================="
 	@$(ECHO) "Test with Python 3"
 	@$(ECHO) "=================="
-	@export PYTHONPATH=$(PWD):$(PYTHONPATH); export PYGAME_HIDE_SUPPORT_PROMPT=hide; $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) $(PYTHON3FLAGS) test_all.py
+	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) $(PYTHON3FLAGS) test_all.py
 
 tests:	test2 test3
 

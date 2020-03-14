@@ -1,8 +1,7 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/timer (March 10, 2020)
+simpleguics2pygame/timer
 
 Class Timer.
 
@@ -11,15 +10,53 @@ Class Timer.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import division
+from __future__ import print_function
+
+# print('IMPORT', __name__)
 
 
 __all__ = ['Timer',
            'create_timer']
+
+
+import atexit  # noqa
+
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
+
+
+#
+# "Private" variable
+####################
+_STOP_TIMERS = _CONFIG['--stop-timers']
+"""
+If `True`
+then stop all timers when program ending.
+
+If `False`
+then timers keep running when program ending.
+(This is the default behavior.)
+"""
+
+
+#
+# "Private" function
+####################
+def __timer_exit():
+    """
+    If _STOP_TIMERS is True
+    then stop all running timers,
+    else do nothing.
+
+    Automatically called when program ending.
+    """
+    if _STOP_TIMERS:
+        Timer._stop_all()  # pylint: disable=protected-access
 
 
 #
@@ -36,6 +73,22 @@ class Timer:
     """
     `Dict` {(Timer id): `Timer`} of all timers are running.
     """
+
+    @classmethod
+    def _running_nb(cls):
+        """
+        Return the number of running timers.
+
+        :return: int >= 0
+        """
+        return len(cls._timers_running)
+
+    @classmethod
+    def _running_some(cls):
+        """
+        :return: True if at least one timer running, else False
+        """
+        return bool(cls._timers_running)
 
     @classmethod
     def _stop_all(cls):
@@ -168,3 +221,9 @@ def create_timer(interval, timer_handler):
     assert callable(timer_handler), type(timer_handler)
 
     return Timer(interval, timer_handler)
+
+
+#
+# Main
+######
+atexit.register(__timer_exit)

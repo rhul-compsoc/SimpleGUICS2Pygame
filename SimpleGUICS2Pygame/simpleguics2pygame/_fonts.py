@@ -1,22 +1,29 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_fonts (March 10, 2020)
+simpleguics2pygame/_fonts
 
 Fonts helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
+
+from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
+
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -37,6 +44,26 @@ to corresponding font names list used by Pygame.
 
 
 #
+# Private global variables
+##########################
+_PYGAMEFONTS_CACHED = {}
+"""
+`Dict` {(`str` CodeSkulptor font face, `int` font size):
+        `pygame.font.Font`}.
+
+**(Not available in SimpleGUI of CodeSkulptor.)**
+"""
+
+_DEFAULT_FONT = _CONFIG['--default-font']
+"""
+If `True`
+then use Pygame default font instead serif, monospace...
+
+**(Not available in SimpleGUI of CodeSkulptor.)**
+"""
+
+
+#
 # "Private" function
 ####################
 def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: disable=invalid-name
@@ -51,7 +78,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
     Side effect:
-    Each new font with new size is added to `Frame._pygamefonts_cached`.
+    Each new font with new size is added to `_PYGAMEFONTS_CACHED`.
     See `Frame._pygamefonts_cached_clear()`.
 
     .. _`Frame._pygamefonts_cached_clear()`: frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame._pygamefonts_cached_clear
@@ -62,19 +89,17 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
 
     :return: pygame.font.Font
     """  # noqa
-    assert ((font_face is None) or
-            ((isinstance(font_face, str) and
-              (font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)))), \
-        font_face
-    assert isinstance(font_size, int), type(font_size)
-    assert font_size > 0, font_size
-
-    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-
-    font = Frame._pygamefonts_cached.get((font_face, font_size))  # noqa  # pylint: disable=protected-access
+    font = _PYGAMEFONTS_CACHED.get((font_face, font_size))
 
     if font is None:
-        if (font_face is None) or Frame._default_font:  # noqa  # pylint: disable=protected-access
+        assert ((font_face is None) or
+                ((isinstance(font_face, str) and
+                  (font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME)))), \
+            font_face
+        assert isinstance(font_size, int), type(font_size)
+        assert font_size > 0, font_size
+
+        if (font_face is None) or _DEFAULT_FONT:  # noqa  # pylint: disable=protected-access
             font = pygame.font.SysFont(None, font_size)
         else:
             try:
@@ -84,6 +109,8 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
             except:  # pylint: disable=bare-except
                 font = pygame.font.SysFont(None, font_size)
 
-        Frame._pygamefonts_cached[(font_face, font_size)] = font  # noqa  # pylint: disable=protected-access
+        assert font is not None
+
+        _PYGAMEFONTS_CACHED[(font_face, font_size)] = font
 
     return font

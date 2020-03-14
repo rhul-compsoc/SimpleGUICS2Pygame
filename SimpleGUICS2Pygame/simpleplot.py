@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot (March 10, 2020)
+simpleplot
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -23,13 +23,17 @@ Require matplotlib_
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
-
 .. _matplotlib: https://matplotlib.org/
+
+:license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """  # noqa
 
 from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 try:
     from matplotlib import __version__ as _MATPLOTLIB_VERSION

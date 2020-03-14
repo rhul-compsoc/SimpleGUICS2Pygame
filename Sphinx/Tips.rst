@@ -102,45 +102,48 @@ See the official HTML colors:
 http://www.opimedia.be/DS/mementos/colors.htm .
 
 
-Command line options
---------------------
-When you run a program you can use following options:
-``python YOURPROGRAM.py [SimpleGUICS2Pygame options] [application options]``
+Command line arguments
+----------------------
+When you run a program you can use following arguments:
+``python YOURPROGRAM.py [SimpleGUICS2Pygame arguments] [application arguments]``
 
 * ``--default-font``: Use Pygame default font instead serif, monospace… (this is faster if you display a lot of text).
 * ``--display-fps``: Display FPS average on the canvas.
-* ``--fps N``: Set Frame Per Second (default is 60 FPS).
-* ``--frame-padding N``: Set the padding in pixels found around the canvas.
+* ``--fps N``: Set Frame Per Second (default: 60 FPS).
+* ``--frame-padding N``: Set the padding in pixels found around the canvas (default: 2).
 * ``--fullscreen``: Fullscreen mode.
 * ``--help``: Print help message and quit.
-* ``--keep-timers``: Keep running timers when close frame without ask.
+* ``--keep-timers``: Keep running timers when close frame without asking (default: ask before close). See also ``--stop-timers``.
 * ``--last``: Mark this argument as the last SimpleGUICS2Pygame's argument. (Do nothing else.)
 * ``--no-border``: Window without border.
 * ``--no-controlpanel``: Hide the control panel (and status boxes).
 * ``--no-load-sound``: Don't load any sound.
 * ``--no-status``: Hide two status boxes.
 * ``--overwrite-downloaded-medias``: Download all images and sounds from Web and save in local directory even if they already exist.
+* ``--print-application-args``: Print remaining arguments transmit to application.
+* ``--print-args``: Print final configuration from SimpleGUICS2Pygame's argument.
 * ``--print-load-medias``: Print URLs or local filenames loaded.
 * ``--print-stats-cache``: After frame stopped, print some statistics of caches.
 * ``--save-downloaded-medias``: Save images and sounds downloaded from Web that don't already exist in local directory.
-* ``--stop-timers``: Stop all timers when close frame without ask.
+* ``--stop-timers``: Stop all timers when ending program (default: running timers continue, as in CodeSkulptor). See also ``--keep-timers``.
 * ``--version``: Print help message and quit.
 
 If an argument is not in this list then it is ignored and all next arguments are ignored by SimpleGUICS2Pygame.
 
 Arguments used by SimpleGUICS2Pygame is deleted to ``sys.argv``.
-Remaining options can used by your application.
+Remaining arguments can used by your application.
 
-SimpleGUICS2Pygame options are read when the module ``simpleguics2pygame`` is imported.
+SimpleGUICS2Pygame arguments are automatically read
+when the module ``simpleguics2pygame`` is imported.
 
 Examples:
   * | ``python YOURPROGRAM.py --no-controlpanel --stop-timers --foo --fullscreen``
     | Run ``YOURPROGRAM.py`` with the control panel hidden and timers will stoped. But SimpleGUICS2Pygame ignore ``--foo`` and ``--fullscreen``.
-    | ``YOURPROGRAM.py`` application receive ``--foo --fullscreen`` options.
+    | ``YOURPROGRAM.py`` application receive ``--foo --fullscreen`` arguments.
 
   * | ``python YOURPROGRAM.py --no-controlpanel --last --stop-timers --foo --fps 30``
     | Run ``YOURPROGRAM.py`` with the control panel hidden. But SimpleGUICS2Pygame ignore ``--stop-timers``, ``--foo``, ``--fps`` and ``30``.
-    | ``YOURPROGRAM.py`` application receive ``--stop-timers --foo --fps 30`` options.
+    | ``YOURPROGRAM.py`` application receive ``--stop-timers --foo --fps 30`` arguments.
 
 
 Download medias

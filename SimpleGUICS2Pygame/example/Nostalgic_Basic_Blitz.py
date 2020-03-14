@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Nostalgic Basic Blitz (March 5, 2020)
+Nostalgic Basic Blitz.
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -12,8 +12,9 @@ http://www.abebooks.fr/JEUX-BASIC-TRS-80-COULEUR-MONSAUT-Pierre/7821908154/bd
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 import random

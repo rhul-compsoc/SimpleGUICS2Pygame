@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_draw (March 7, 2020)
+simplegui_lib_draw
 
 Draw functions to help
 in SimpleGUI of CodeSkulptor.
@@ -9,9 +9,15 @@ in SimpleGUI of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
+
+from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 try:
     # Try import to check if running in SimpleGUICS2Pygame environment

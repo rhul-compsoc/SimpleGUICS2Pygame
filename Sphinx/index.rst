@@ -71,6 +71,8 @@ I will try to help you with pleasure.
 
 Installation
 ------------
+Obviously you need Python_. Then, open a terminal and do:
+
 .. code-block:: sh
 
    $ python -m pip install -U pip --upgrade

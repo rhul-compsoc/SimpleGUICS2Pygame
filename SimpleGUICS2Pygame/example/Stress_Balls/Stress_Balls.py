@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Stress Ball (March 7, 2020)
+Stress Ball
   Display many "balls" and calculate FPS (Frame Per Second)
 
 On Safari: exception failed!
@@ -14,8 +14,9 @@ http://www.codeskulptor.org/#user14_iNYvGMFtb8poj1S.py
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 try:

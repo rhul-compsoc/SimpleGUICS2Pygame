@@ -1,33 +1,40 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas (March 10, 2020)
+simpleguics2pygame/canvas
 
 Class Canvas.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import division
+from __future__ import print_function
+
+# print('IMPORT', __name__)
+
 
 import math
 import re
+import sys
 
 
 __all__ = ['Canvas',
            'create_invisible_canvas']
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 if _PYGAME_AVAILABLE:
     import pygame
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
 
 
 #
@@ -109,10 +116,6 @@ class Canvas:
         assert _PYGAME_AVAILABLE, """Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=invalid-name,no-name-in-module
-
-        assert (frame is None) or isinstance(frame, Frame), type(frame)
-
         assert isinstance(canvas_width, int), type(canvas_width)
         assert canvas_width >= 0, canvas_width
 
@@ -164,8 +167,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             self._draw_handler(self)
 
             if self._frame_parent._display_fps_average:  # noqa  # pylint: disable=protected-access
-                from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
-
                 self._pygame_surface.blit(
                     _simpleguifontface_to_pygamefont(None, 40)
                     .render(str(int(round(self._frame_parent._fps_average))),  # noqa  # pylint: disable=protected-access
@@ -320,8 +321,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                   or [(int or float) >= 0, (int or float) >= 0]
         :param rotation: int or float
         """  # noqa
-        from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=no-name-in-module
-
         assert isinstance(image, Image), type(image)
 
         assert (isinstance(center_source, tuple) or
@@ -415,9 +414,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         rotation = int(round(-rotation * _RADIAN_TO_DEGREE)) % 360
 
         # Get in cache or build Pygame surface
-        from sys import version_info
-
-        if version_info[:2] >= (3, 2):
+        if sys.version_info[:2] >= (3, 2):
             move_to_end = image._pygamesurfaces_cached.move_to_end  # noqa  # pylint: disable=protected-access
         else:
             def move_to_end(key):
@@ -440,8 +437,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             if __debug__:
                 image._pygamesurfaces_cached_counts[0] += 1  # noqa  # pylint: disable=protected-access
         else:                                 # Build result
-            from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-
             key_0 = key[:-1] + (0, )
             if rotation != 0:  # Get not rotated surface in cache
                 pygame_surface_image = image._pygamesurfaces_cached.get(key_0)  # noqa  # pylint: disable=protected-access
@@ -468,7 +463,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 image._pygamesurfaces_cached[key_0] = pygame_surface_image  # noqa  # pylint: disable=protected-access
 
-                if (Frame._print_stats_cache and  # noqa  # pylint: disable=protected-access
+                if (self._frame_parent._print_stats_cache and  # noqa  # pylint: disable=protected-access
                         (len(image._pygamesurfaces_cached) == image._pygamesurfaces_cache_max_size)):  # noqa  # pylint: disable=protected-access
                     image._print_stats_cache(  # noqa  # pylint: disable=protected-access
                         'Surfaces full cache              ')
@@ -481,7 +476,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 image._pygamesurfaces_cached[key] = pygame_surface_image  # noqa  # pylint: disable=protected-access
 
-                if (Frame._print_stats_cache and  # noqa  # pylint: disable=protected-access
+                if (self._frame_parent._print_stats_cache and  # noqa  # pylint: disable=protected-access
                         (len(image._pygamesurfaces_cached) == image._pygamesurfaces_cache_max_size)):  # noqa  # pylint: disable=protected-access
                     image._print_stats_cache(  # noqa  # pylint: disable=protected-access
                         'Surfaces full cache with rotated ')
@@ -764,8 +759,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert font_size >= 0, font_size
 
         assert isinstance(font_color, str), type(font_color)
-
-        from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
 
         assert isinstance(font_face, str), type(font_face)
         assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face

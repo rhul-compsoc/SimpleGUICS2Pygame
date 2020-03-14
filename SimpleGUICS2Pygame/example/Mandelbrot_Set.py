@@ -3,15 +3,16 @@
 # pylint: disable=invalid-name
 
 """
-Mandelbrot Set. (March 5, 2020)
+Mandelbrot Set.
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 import math

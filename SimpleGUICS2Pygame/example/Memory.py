@@ -2,9 +2,9 @@
 # -*- coding: latin-1 -*-
 
 """
-Memory (March 6, 2020)
+Memory.
   Game with 8 x (2 indentical cards)
-         or 4 x (4 indentical cards)
+         or 4 x (4 indentical cards).
 
 My retouched solution of the mini-project #5 of the MOOC
 https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
@@ -12,8 +12,9 @@ https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 import random

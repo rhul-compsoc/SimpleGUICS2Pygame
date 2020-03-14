@@ -1,25 +1,34 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors (March 10, 2020)
+simpleguics2pygame/_colors
 
 Colors helpers.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2018, 2020 Olivier Pirson
+GPLv3 --- Copyright (C)  Olivier Pirson
 http://www.opimedia.be/
+
+:license: GPLv3 --- Copyright (C) 2015, 2018, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import division
+from __future__ import print_function
+
+# print('IMPORT', __name__)
 
 
 __all__ = []
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+import colorsys  # noqa
+
+
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -194,6 +203,17 @@ else:
 
 
 #
+# Private global variable
+#########################
+_PYGAMECOLORS_CACHED = {}
+"""
+`Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
+
+**(Not available in SimpleGUI of CodeSkulptor.)**
+"""
+
+
+#
 # "Private" function
 ####################
 def _simpleguicolor_to_pygamecolor(
@@ -217,7 +237,7 @@ def _simpleguicolor_to_pygamecolor(
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
-    Side effect: Each new color is added to `Frame._pygamecolors_cached`.
+    Side effect: Each new color is added to `_PYGAMECOLORS_CACHED`.
     See `Frame._pygamecolors_cached_clear()`.
 
     .. _`Frame._pygamecolors_cached_clear()`: frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame._pygamecolors_cached_clear
@@ -227,9 +247,7 @@ def _simpleguicolor_to_pygamecolor(
 
     :return: pygame.Color
     """  # noqa
-    from SimpleGUICS2Pygame.simpleguics2pygame.frame import Frame  # noqa  # pylint: disable=no-name-in-module
-
-    pygame_color = Frame._pygamecolors_cached.get(color)  # noqa  # pylint: disable=protected-access
+    pygame_color = _PYGAMECOLORS_CACHED.get(color)  # noqa  # pylint: disable=protected-access
     if pygame_color is not None:  # already in cache
         return pygame_color
 
@@ -277,8 +295,6 @@ def _simpleguicolor_to_pygamecolor(
                 max(0, min(255, int(channels[2]))),
                 max(0, min(255, int(round(float(channels[3]) * 255)))))
     elif color[:3] == 'hsl':
-        from colorsys import hls_to_rgb
-
         if color[3] == '(':  # format hsl(hue, saturation, lightness)
             # See http://www.w3.org/TR/css3-color/#hsl-color
             assert color[-1] == ')', color
@@ -289,7 +305,7 @@ def _simpleguicolor_to_pygamecolor(
             assert datas[1][-1] == '%', datas[1]
             assert datas[2][-1] == '%', datas[2]
 
-            red, green, blue = hls_to_rgb(
+            red, green, blue = colorsys.hls_to_rgb(
                 max(0, min(1, (float(datas[0]) % 360) / 360)),
                 max(0, min(1, float(datas[2][:-1]) / 100)),
                 max(0, min(1, float(datas[1][:-1]) / 100)))
@@ -308,7 +324,7 @@ def _simpleguicolor_to_pygamecolor(
             assert datas[1][-1] == '%', datas[1]
             assert datas[2][-1] == '%', datas[2]
 
-            red, green, blue = hls_to_rgb(
+            red, green, blue = colorsys.hls_to_rgb(
                 max(0, min(1, (float(datas[0]) % 360) / 360)),
                 max(0, min(1, float(datas[2][:-1]) / 100)),
                 max(0, min(1, float(datas[1][:-1]) / 100)))
@@ -324,6 +340,8 @@ def _simpleguicolor_to_pygamecolor(
         pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR.get(color,
                                                           default_pygame_color)
 
-    Frame._pygamecolors_cached[color] = pygame_color  # noqa  # pylint: disable=protected-access
+    assert pygame_color is not None
+
+    _PYGAMECOLORS_CACHED[color] = pygame_color
 
     return pygame_color

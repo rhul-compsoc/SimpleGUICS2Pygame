@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Test all other test_*.py. (March 10, 2020)
+Test all other test_*.py.
 
 Require Pillow (PIL)
 https://python-pillow.org/
@@ -10,8 +10,9 @@ https://python-pillow.org/
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import print_function

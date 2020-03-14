@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Spaceship prototype (March 6, 2020)
+Spaceship prototype.
 
 My retouched solution of the mini-project #7 of the MOOC
 https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
@@ -17,8 +17,9 @@ Run on:
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2014, 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 import math

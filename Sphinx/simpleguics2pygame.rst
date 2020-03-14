@@ -10,11 +10,11 @@
    simpleguics2pygame/sound
    simpleguics2pygame/timer
 
+   simpleguics2pygame/_arguments
    simpleguics2pygame/_colors
    simpleguics2pygame/_fonts
    simpleguics2pygame/_media
-   simpleguics2pygame/_options
-   simpleguics2pygame/_pygame_lib
+   simpleguics2pygame/_pygame_init
 
 
 .. automodule:: SimpleGUICS2Pygame.simpleguics2pygame

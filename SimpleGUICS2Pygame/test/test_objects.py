@@ -2,13 +2,14 @@
 # -*- coding: latin-1 -*-
 
 """
-Test __repr__() et __str__() methods of objects. (March 6, 2020)
+Test __repr__() et __str__() methods of objects.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 try:

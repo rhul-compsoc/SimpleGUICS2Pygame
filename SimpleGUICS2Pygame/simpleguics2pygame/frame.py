@@ -1,31 +1,50 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 # pylint: disable=too-many-lines
 
 """
-simpleguics2pygame/frame (March 10, 2020)
+simpleguics2pygame/frame
 
 Class Frame.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import division
 from __future__ import print_function
+
+# print('IMPORT', __name__)
+
+
+import os.path
+import sys
 
 
 __all__ = ['Frame',
            'create_frame']
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
+
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
 if _PYGAME_AVAILABLE:
     import pygame
+
+
+from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _media  # noqa  # pylint: disable=wrong-import-position,ungrouped-imports
+
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+
+from SimpleGUICS2Pygame.simpleguics2pygame.canvas import Canvas  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame.control import Control, TextAreaControl  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame.keys import KEY_MAP, _SIMPLEGUIKEY_TO_STATUSKEY, _pygamekey_to_simpleguikey  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame.timer import _STOP_TIMERS, Timer, create_timer  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
 
 
 #
@@ -57,24 +76,18 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     Background color of control panel.
     """
 
-    _default_font = False
-    """
-    If `True`
-    then use Pygame default font instead serif, monospace...
-    """
-
-    _display_fps_average = False
+    _display_fps_average = _CONFIG['--display-fps']
     """
     If `True`
     then display FPS average on the canvas.
     """
 
-    _fps = 60
+    _fps = _CONFIG['--fps']
     """
     Frames per second drawed (frequency of draw and check events)
     """
 
-    _frame_padding = 2
+    _frame_padding = _CONFIG['--frame-padding']
     """
     The padding in pixels around the canvas
     """
@@ -84,60 +97,45 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     The only instance of Frame.
     """
 
-    _hide_controlpanel = False
+    _keep_timers = (True if _CONFIG['--keep-timers']
+                    else (False if _STOP_TIMERS
+                          else None))
+    """
+    If `None`
+    then ask (when stop frame) if it should be stop timers when program ending.
+    (This is the default behavior.)
+
+    If `True`
+    then timers keep running when program ending.
+
+    If `False`
+    then stop all timers when program ending.
+    """
+
+    _hide_controlpanel = _CONFIG['--no-controlpanel']
     """
     If `True`
     then hide control panel (and status box).
     """
 
-    _hide_status = False
+    _hide_status = _CONFIG['--no-status']
     """
     If `True`
     then hide status box.
     """
 
-    _keep_timers = None
-    """
-    If `None`
-    then ask if it should be stop timers when stop frame.
-
-    If `True`
-    then timers keep running when stop frame.
-
-    If `False`
-    then stop all timers when stop frame.
-    """
-
-    _print_load_medias = False
-    """
-    If `True`
-    then print URLs or locals filename loaded by `load_image()`
-    and `load_sound()`.
-    """
-
-    _print_stats_cache = False
+    _print_stats_cache = _CONFIG['--print-stats-cache']
     """
     If `True`
     then print some statistics of caches after frame stopped.
     """
 
-    _pygamecolors_cached = {}
-    """
-    `Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
-    """
-
-    _pygamefonts_cached = {}
-    """
-    `Dict` {(`str` CodeSkulptor font face, `int` font size):
-            `pygame.font.Font`}.
-    """
-
-    _pygamemedias_cached = {}
-    """
-    `Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
-    """
-
-    _pygame_mode_flags = 0
+    _pygame_mode_flags = ((pygame.FULLSCREEN | pygame.HWSURFACE  # noqa  # pylint: disable=no-member
+                           if _CONFIG['--fullscreen']
+                           else 0) |
+                          (pygame.NOFRAME  # pylint: disable=no-member
+                           if _CONFIG['--no-border']
+                           else 0))
     """
     Default options of graphic mode.
 
@@ -154,21 +152,6 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     _save_canvas_requests = []
     """
     List of filenames in which to save canvas image.
-    """
-
-    _save_downloaded_medias = False
-    """
-    If `True`
-    then save images and sounds downloaded from Web
-    that don't already exist in local directory.
-    See Frame._save_downloaded_medias_overwrite.
-    """
-
-    _save_downloaded_medias_overwrite = False  # noqa  # pylint: disable=invalid-name
-    """
-    If `True` and `Frame._save_downloaded_medias`
-    then download all images and sounds from Web
-    and save in local directory even if they already exist.
     """
 
     _statuskey_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
@@ -232,9 +215,9 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        Side effect: Empty `Frame._pygamecolors_cached`.
-        """
-        cls._pygamecolors_cached = {}
+        Side effect: Empty `_colors._PYGAMECOLORS_CACHED`.
+        """  # noqa
+        _colors._PYGAMECOLORS_CACHED = {}  # pylint: disable=protected-access
 
     @classmethod
     def _pygamefonts_cached_clear(cls):
@@ -247,9 +230,9 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        Side effect: Empty `Frame._pygamefonts_cached`.
+        Side effect: Empty `_fonts._PYGAMEFONTS_CACHED`.
         """
-        cls._pygamefonts_cached = {}
+        _fonts._PYGAMEFONTS_CACHED = {}  # pylint: disable=protected-access
 
     def __init__(self,
                  title,
@@ -324,12 +307,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                     5 - Frame._statuskey_height)
 
         # Create the window
-        from os.path import sep
-
-        icon_path = __file__.split(sep)[:-1]
+        icon_path = __file__.split(os.path.sep)[:-1]
         try:
             icon_path.extend(('_img', 'SimpleGUICS2Pygame_64x64_t.png'))
-            pygame.display.set_icon(pygame.image.load(sep.join(icon_path)))
+            pygame.display.set_icon(pygame.image.load(os.path.sep.join(icon_path)))  # noqa
         except:  # noqa  # pylint: disable=bare-except
             pass
 
@@ -353,8 +334,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 1)
 
         # Create the canvas
-        from SimpleGUICS2Pygame.simpleguics2pygame.canvas import Canvas  # noqa  # pylint: disable=no-name-in-module
-
         self._canvas = Canvas(self, canvas_width, canvas_height)
 
         # Create the status boxes: key and mouse
@@ -431,8 +410,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                          1)
 
         if pressed is not None:
-            from SimpleGUICS2Pygame.simpleguics2pygame.keys import _SIMPLEGUIKEY_TO_STATUSKEY  # noqa  # pylint: disable=no-name-in-module
-
             key = _SIMPLEGUIKEY_TO_STATUSKEY.get(key, key)
             text = 'Key: {} {}'.format(('Down' if pressed
                                         else 'Up'),
@@ -582,17 +559,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             """
             if self._running:
                 self._save_canvas_request(filename)
-
-                from SimpleGUICS2Pygame.simpleguics2pygame.timer import Timer  # noqa  # pylint: disable=no-name-in-module
-
                 Timer._stop_all()  # noqa  # pylint: disable=protected-access
                 self.stop()
 
         if after == 0:
             save_canvas_and_stop()
         else:
-            from SimpleGUICS2Pygame.simpleguics2pygame.timer import create_timer  # noqa  # pylint: disable=no-name-in-module
-
             timer = create_timer(after, save_canvas_and_stop)
             timer.start()
 
@@ -602,10 +574,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :param image: None or Image
         """
-        if __debug__:
-            from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=no-name-in-module
-
-            assert (image is None) or isinstance(image, Image), type(image)
+        assert (image is None) or isinstance(image, Image), type(image)
 
         self._canvas._background_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access,invalid-name
 
@@ -634,8 +603,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(text, str), type(text)
         assert callable(button_handler), type(button_handler)
         assert (width is None) or isinstance(width, int), type(width)
-
-        from SimpleGUICS2Pygame.simpleguics2pygame.control import Control  # noqa  # pylint: disable=no-name-in-module
 
         control = Control(self, text, button_handler, width)
         self._controls.append(control)
@@ -671,8 +638,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert callable(input_handler), type(input_handler)
         assert isinstance(width, int), type(width)
 
-        from SimpleGUICS2Pygame.simpleguics2pygame.control import TextAreaControl  # noqa  # pylint: disable=no-name-in-module
-
         control = TextAreaControl(self, text, input_handler, width)
         self._controls.append(control)
 
@@ -697,8 +662,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert isinstance(text, str), type(text)
         assert (width is None) or isinstance(width, int), type(width)
-
-        from SimpleGUICS2Pygame.simpleguics2pygame.control import Control  # noqa  # pylint: disable=no-name-in-module
 
         control = Control(self, text, width=width)
         self._controls.append(control)
@@ -735,8 +698,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             type(font_size)
         assert font_size >= 0, font_size
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=no-name-in-module
-
         assert isinstance(font_face, str), type(font_face)
         assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face
 
@@ -755,8 +716,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param color: str
         """
         assert isinstance(color, str), type(color)
-
-        from SimpleGUICS2Pygame.simpleguics2pygame._colors import _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=no-name-in-module
 
         self._canvas._background_pygame_color = _simpleguicolor_to_pygamecolor(color)  # noqa  # pylint: disable=protected-access
 
@@ -845,9 +804,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         (In SimpleGUI of CodeSkulptor this function is *not* blocking.)
         """
-        from SimpleGUICS2Pygame.simpleguics2pygame.control import TextAreaControl  # noqa  # pylint: disable=no-name-in-module
-        from SimpleGUICS2Pygame.simpleguics2pygame.keys import _pygamekey_to_simpleguikey  # noqa  # pylint: disable=no-name-in-module
-
         self._running = True
 
         mouse_drag_out_of_canvas = None
@@ -962,31 +918,29 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         Stop frame activities.
 
         If (Frame._keep_timers is None) and there is still running timers
-        then ask in the canvas if they must be stopped.
+        then ask in the canvas if it should be stop timers when program ending.
 
         (Maybe available in SimpleGUI of CodeSkulptor
         but *not in CodeSkulptor documentation*!)
         """
-        from SimpleGUICS2Pygame.simpleguics2pygame.timer import Timer  # noqa  # pylint: disable=no-name-in-module
-
-        if Frame._keep_timers is not None or not Timer._timers_running:  # noqa  # pylint: disable=protected-access
+        if (Frame._keep_timers is not None) or not Timer._running_some():  # noqa  # pylint: disable=protected-access
+            # Don't ask (eventually because no running timers)
             if not Frame._keep_timers:
-                Timer._stop_all()  # pylint: disable=protected-access
+                Timer._stop_all()  # noqa  # pylint: disable=protected-access
 
             self._running = False
         else:
+            # There are running timers: ask if they should be stop
             def check_key(key):
                 """
                 If key is 'Y'
-                then stop all timers and stop the frame.
+                then stop timers and stop the frame.
 
                 If key is 'N'
                 then stop the frame.
 
                 :param key: int >= 0
                 """
-                from SimpleGUICS2Pygame.simpleguics2pygame.keys import KEY_MAP  # noqa  # pylint: disable=no-name-in-module
-
                 if key == KEY_MAP['Y']:
                     Timer._stop_all()  # noqa  # pylint: disable=protected-access
                     self._running = False
@@ -999,18 +953,20 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 :param canvas: simpleguics2pygame.Canvas
                 """
-                nb_timers_running = len(Timer._timers_running)  # noqa  # pylint: disable=protected-access
-                if nb_timers_running == 0:
+                if not Timer._running_some():  # noqa  # pylint: disable=protected-access
                     self._running = False
 
+                nb_timers_running = Timer._running_nb()  # noqa  # pylint: disable=protected-access
                 size = 20
-                canvas.draw_text('Stop {} running timer{}?'
+                canvas.draw_text('Stop {} running timer{}'
                                  .format(nb_timers_running,
                                          ('s' if nb_timers_running >= 2
                                           else '')),
                                  (10, 10 + size * 3 / 4), size, 'Black')
-                canvas.draw_text('(Yes/No)',
+                canvas.draw_text('when program ending?',
                                  (10, 10 + size * 7 / 4), size, 'Black')
+                canvas.draw_text('(Yes/No)',
+                                 (10, 10 + size * 11 / 4), size, 'Black')
 
             self._keydown_handler = None
             self._keyup_handler = None
@@ -1037,15 +993,13 @@ def _print_stats_cache():
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
-    from sys import stderr
-
     print("""# cached colors: {}
 # cached fonts: {}
-# cached medias: {}""".format(len(Frame._pygamecolors_cached),  # noqa  # pylint: disable=protected-access
-                              len(Frame._pygamefonts_cached),  # noqa  # pylint: disable=protected-access
-                              len(Frame._pygamemedias_cached)),  # noqa  # pylint: disable=protected-access
-          file=stderr)
-    stderr.flush()
+# cached medias: {}""".format(len(_colors._PYGAMECOLORS_CACHED),  # noqa  # pylint: disable=protected-access
+                              len(_fonts._PYGAMEFONTS_CACHED),  # noqa  # pylint: disable=protected-access
+                              len(_media._PYGAMEMEDIAS_CACHED)),  # noqa  # pylint: disable=protected-access
+          file=sys.stderr)
+    sys.stderr.flush()
 
 
 #

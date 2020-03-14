@@ -1,28 +1,35 @@
-#!/usr/bin/env python
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/image (March 10, 2020)
+simpleguics2pygame/image
 
 Class Image.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2015, 2016, 2020 Olivier Pirson
-http://www.opimedia.be/
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:author: Olivier Pirson --- http://www.opimedia.be/
+:version: March 14, 2020
 """
 
 from __future__ import division
 from __future__ import print_function
+
+# print('IMPORT', __name__)
 
 
 __all__ = ['Image',
            'load_image',
            '_load_local_image']
 
+import collections  # noqa
+import sys  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_lib import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+
+from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _load_media  # noqa  # pylint: disable=no-name-in-module
 
 
 #
@@ -94,15 +101,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._url = url
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_media  # noqa  # pylint: disable=no-name-in-module
-
         self._pygame_surface = (None if url == ''
                                 else _load_media('Image', url,
                                                  Image._dir_search_first))
 
-        from collections import OrderedDict
-
-        self._pygamesurfaces_cached = OrderedDict()
+        self._pygamesurfaces_cached = collections.OrderedDict()
 
         self._pygamesurfaces_cache_max_size = \
             Image._pygamesurfaces_cache_default_max_size
@@ -129,8 +132,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param text: str
         :param short_url: bool
         """
-        from sys import stderr
-
         if __debug__:
             print('{}{:4} {:4}({:4},{:4})/{:4}={:2}% {}'
                   .format(text,
@@ -145,13 +146,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                            else ''),
                           (self._url.split('/')[-1] if short_url
                            else self._url)),
-                  file=stderr)
+                  file=sys.stderr)
         else:
             print('{}{:4} {}'.format(text,
                                      len(self._pygamesurfaces_cached),
                                      (self._url.split('/')[-1] if short_url
                                       else self._url)),
-                  file=stderr)
+                  file=sys.stderr)
 
     def _pygamesurfaces_cached_clear(self):
         """
@@ -159,9 +160,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
         """
-        from collections import OrderedDict
-
-        self._pygamesurfaces_cached = OrderedDict()
+        self._pygamesurfaces_cached = collections.OrderedDict()
 
         if __debug__:
             self._pygamesurfaces_cached_counts = [0, 0]
@@ -219,14 +218,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._url = filename
 
-        from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media  # noqa  # pylint: disable=no-name-in-module
-
         self._pygame_surface = (None if filename == ''
                                 else _load_local_media('Image', filename))
 
-        from collections import OrderedDict
-
-        self._pygamesurfaces_cached = OrderedDict()
+        self._pygamesurfaces_cached = collections.OrderedDict()
 
         self._pygamesurfaces_cache_max_size = \
             Image._pygamesurfaces_cache_default_max_size
