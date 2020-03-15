@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 14, 2020
+# Makefile of SimpleGUICS2Pygame --- March 15, 2020
 
 .SUFFIXES:
 
@@ -222,6 +222,8 @@ clean:	cleanbuild
 	-$(RMDIR) __pycache__ */__pycache__ */*/__pycache__ */*/*/__pycache__ */*/*/*/__pycache__
 	$(RM) SimpleGUICS2Pygame.egg-info/*
 	-$(RMDIR) SimpleGUICS2Pygame.egg-info
+	$(RM) -r SimpleGUICS2Pygame/example/_img
+	$(RM) -r SimpleGUICS2Pygame/example/_snd
 	$(RM) -r .mypy_cache
 	$(RM) -r .pytype
 

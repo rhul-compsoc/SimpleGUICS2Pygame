@@ -249,7 +249,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 14, 2020
+* 02.00.00 WORKING VERSION — March 15, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -258,6 +258,7 @@ Changes
 
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
+    - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.
     - Added ``transparent`` "color" name.
@@ -295,9 +296,6 @@ Changes
     - Updated ``test/test_text.py``.
 
 * 01.09.00 — January 1st, 2015
-
-  - **Added ``_load_local_image()`` and ``_load_local_sound()`` functions.**
-  - …
 
 …
 

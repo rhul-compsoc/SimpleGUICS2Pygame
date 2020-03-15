@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 15, 2020
 """
 
 from __future__ import division
@@ -74,6 +74,14 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         else None)
     """
     Background color of control panel.
+    """
+
+    _cursor_auto_hide = False
+    """
+    When move cursor,
+    if `True`
+    then hide cursor when on canvas,
+    else show cursor.
     """
 
     _display_fps_average = _CONFIG['--display-fps']
@@ -234,6 +242,19 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         """
         _fonts._PYGAMEFONTS_CACHED = {}  # pylint: disable=protected-access
 
+    @classmethod
+    def _set_cursor_visible(cls, visible=True):
+        """
+        If visible is `True`
+        then show cursor,
+        else hide cursor.
+
+        Independently of `_cursor_auto_hide` value.
+
+        :param visible: bool
+        """
+        pygame.mouse.set_visible(visible)
+
     def __init__(self,
                  title,
                  canvas_width, canvas_height,
@@ -358,6 +379,16 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :return: str
         """
         return '<Frame object>'
+
+    def _cursor_in_canvas(self):
+        """
+        :return: `True` if the cursor is on canvas, `False` else.
+        """
+        x, y = pygame.mouse.get_pos()
+        x -= self._canvas_x_offset
+        y -= self._canvas_y_offset
+
+        return (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)  # noqa  # pylint: disable=protected-access
 
     def _draw_controlpanel(self):
         """
@@ -822,9 +853,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             # Check events
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEMOTION:        # mouse moved  # noqa  # pylint: disable=no-member
+                    x = event.pos[0] - self._canvas_x_offset
+                    y = event.pos[1] - self._canvas_y_offset
+
+                    if self._cursor_auto_hide:
+                        pygame.mouse.set_visible(not((0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)))  # noqa  # pylint: disable=protected-access
+
                     if self._mousedrag_handler is not None:
-                        x = event.pos[0] - self._canvas_x_offset
-                        y = event.pos[1] - self._canvas_y_offset
                         if pygame.mouse.get_pressed()[0]:  # left click
                             if (not 0 <= x < self._canvas._width) or (not 0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
                                 # Out of canvas

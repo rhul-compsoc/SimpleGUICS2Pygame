@@ -12,6 +12,9 @@ Sphinx/_build/*
 *.pyc
 *.pyo
 
+SimpleGUICS2Pygame/example/_img/*
+SimpleGUICS2Pygame/example/_snd/*
+
 __pycache__/*
 
 .mypy_cache/*

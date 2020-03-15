@@ -22,7 +22,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 15, 2020
 """
 
 import math
@@ -590,6 +590,10 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
         self.started = True
 
+        if SIMPLEGUICS2PYGAME:
+            FRAME._cursor_auto_hide = True  # pylint: disable=protected-access
+            FRAME._set_cursor_visible(not FRAME._cursor_in_canvas())  # noqa  # pylint: disable=protected-access
+
     def stop(self):
         """
         Stop the game.
@@ -608,6 +612,10 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         if self.music_active:
             self.medias.get_sound('soundtrack').rewind()
             self.medias.get_sound('intro').play()
+
+        if SIMPLEGUICS2PYGAME:
+            FRAME._cursor_auto_hide = False  # pylint: disable=protected-access
+            FRAME._set_cursor_visible()  # pylint: disable=protected-access
 
 
 class ImageInfo:
@@ -974,21 +982,14 @@ class Ship(Sprite):
 #
 # Event handlers
 #################
-def click(pos):
+def click(pos):  # pylint: disable=unused-argument
     """
     If click on splash screen
     then start the game.
 
     :param pos: (int >= 0, int >= 0)
     """
-    center = (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0)
-    size = RICEROCKS.img_infos['splash'].get_size()
-
-    if ((not RICEROCKS.started) and
-            ((center[0] - size[0] / 2.0) < pos[0] <
-             (center[0] + size[0] / 2.0)) and
-            ((center[1] - size[1] / 2.0) < pos[1] <
-             (center[1] + size[1] / 2.0))):
+    if not RICEROCKS.started:
         RICEROCKS.start()
 
 
@@ -1025,6 +1026,8 @@ def keydown(key):
             RICEROCKS.my_ship.shot()
         elif key == simplegui.KEY_MAP['B']:
             RICEROCKS.bomb_explode()
+    else:
+        RICEROCKS.start()
 
 
 def keyup(key):
