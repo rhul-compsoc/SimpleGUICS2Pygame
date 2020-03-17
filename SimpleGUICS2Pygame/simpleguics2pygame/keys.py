@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 17, 2020
 """
 
 from __future__ import print_function
@@ -24,52 +24,52 @@ __all__ = ['KEY_MAP']
 #
 # Private global constants
 ##########################
-_PYGAMEKEY_TO_SIMPLEGUIKEY = {97: 65,  # A or a
-                              98: 66,  # ...
-                              99: 67,
-                              100: 68,
-                              101: 69,
-                              102: 70,
-                              103: 71,
-                              104: 72,
-                              105: 73,
-                              106: 74,
-                              107: 75,
-                              108: 76,
-                              109: 77,
-                              110: 78,
-                              111: 79,
-                              112: 80,
-                              113: 81,
-                              114: 82,
-                              115: 83,
-                              116: 84,
-                              117: 85,
-                              118: 86,
-                              119: 87,
-                              120: 88,
-                              121: 89,   # ...
-                              122: 90,   # Z or z
-                              256: 96,   # 0 on numeric keypad
-                              257: 97,   # ...
-                              258: 98,   #
-                              259: 99,   #
-                              260: 100,  #
-                              261: 101,  #
-                              262: 102,  #
-                              263: 103,  #
-                              264: 104,  # ...
-                              265: 105,  # 9 on numeric keypad
-                              273: 38,   # Up
-                              274: 40,   # Down
-                              275: 39,   # Right
-                              276: 37,   # Left
-                              303: 17,   # Shift left
-                              304: 17,   # Shitt right
-                              305: 16,   # Ctrl left
-                              306: 16,   # Ctrl right
-                              307: 18,   # Alt left
-                              308: 18}   # Alt right
+__PYGAMEKEY_TO_SIMPLEGUIKEY = {97: 65,  # A or a
+                               98: 66,  # ...
+                               99: 67,
+                               100: 68,
+                               101: 69,
+                               102: 70,
+                               103: 71,
+                               104: 72,
+                               105: 73,
+                               106: 74,
+                               107: 75,
+                               108: 76,
+                               109: 77,
+                               110: 78,
+                               111: 79,
+                               112: 80,
+                               113: 81,
+                               114: 82,
+                               115: 83,
+                               116: 84,
+                               117: 85,
+                               118: 86,
+                               119: 87,
+                               120: 88,
+                               121: 89,   # ...
+                               122: 90,   # Z or z
+                               256: 96,   # 0 on numeric keypad
+                               257: 97,   # ...
+                               258: 98,   #
+                               259: 99,   #
+                               260: 100,  #
+                               261: 101,  #
+                               262: 102,  #
+                               263: 103,  #
+                               264: 104,  # ...
+                               265: 105,  # 9 on numeric keypad
+                               273: 38,   # Up
+                               274: 40,   # Down
+                               275: 39,   # Right
+                               276: 37,   # Left
+                               303: 17,   # Shift left
+                               304: 17,   # Shitt right
+                               305: 16,   # Ctrl left
+                               306: 16,   # Ctrl right
+                               307: 18,   # Alt left
+                               308: 18}   # Alt right
 """
 `Dict` {`int` Pygame key code : corresponding `int` SimpleGUI key code}.
 
@@ -208,7 +208,7 @@ def _pygamekey_to_simpleguikey(key):
     Return the code use by SimpleGUI to representing
     the `key` expressed by Pygame.
 
-    If `key` not in `_PYGAMEKEY_TO_SIMPLEGUIKEY`
+    If `key` not in `__PYGAMEKEY_TO_SIMPLEGUIKEY`
     then return `key`.
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
@@ -220,4 +220,4 @@ def _pygamekey_to_simpleguikey(key):
     assert isinstance(key, int), type(key)
     assert key >= 0, key
 
-    return _PYGAMEKEY_TO_SIMPLEGUIKEY.get(key, key)
+    return __PYGAMEKEY_TO_SIMPLEGUIKEY.get(key, key)

@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 15, 2020
+:version: March 17, 2020
 """
 
 import math
@@ -20,12 +20,17 @@ import random
 
 try:
     import simplegui
+
+    SIMPLEGUICS2PYGAME = False
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame._joypads as _joypads
 
     simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
+
+    SIMPLEGUICS2PYGAME = True
 
 
 DEBUG = False
@@ -572,25 +577,116 @@ def draw(canvas):
             ball.check_collision()
 
 
+def joypad_axe(joypad, axe, value):
+    """
+    Event handler to deal joypad axe.
+
+    :param joypad: int >= 0
+    :param axe: int >= 0
+    :param value: -1 <= float <= 1
+    """
+    if axe == 1:
+        threshold = 0.7
+
+        if joypad == 0:
+            if value <= -threshold:   # player 0 up
+                PONG.players[0].key_up_active = True
+                PONG.players[0].vel.y = -Player.SPEED
+                PONG.players[0].update_vel()
+            elif value >= threshold:  # player 0 down
+                PONG.players[0].key_down_active = True
+                PONG.players[0].vel.y = Player.SPEED
+                PONG.players[0].update_vel()
+            else:                     # player 0 clear movement
+                PONG.players[0].key_up_active = False
+                PONG.players[0].key_down_active = False
+                PONG.players[0].vel.y = 0
+                PONG.players[0].update_vel()
+        elif joypad == 1:
+            if value <= -threshold:   # player 1 up
+                PONG.players[1].key_up_active = True
+                PONG.players[1].vel.y = -Player.SPEED
+                PONG.players[1].update_vel()
+            elif value >= threshold:  # player 1 down
+                PONG.players[1].key_down_active = True
+                PONG.players[1].vel.y = Player.SPEED
+                PONG.players[1].update_vel()
+            else:                     # player 1 clear movement
+                PONG.players[1].key_up_active = False
+                PONG.players[1].key_down_active = False
+                PONG.players[1].vel.y = 0
+                PONG.players[1].update_vel()
+
+
+def joypad_up(joypad, button):
+    """
+    Event handler to deal joypad buttons.
+
+    :param joypad: int >= 0
+    :param button: int >= 0
+    """
+    if (joypad in (0, 1)) and (button == 0):
+        add_ball()
+
+
+def joypad_hat(joypad, hat, values):
+    """
+    Event handler to deal joypad hat.
+
+    :param joypad: int >= 0
+    :param hat: int >= 0
+    :param values: (a, b) with a and b == -1, 0 or 1
+    """
+    if hat == 0:
+        if joypad == 0:
+            if values[1] == 1:     # player 0 up
+                PONG.players[0].key_up_active = True
+                PONG.players[0].vel.y = -Player.SPEED
+                PONG.players[0].update_vel()
+            elif values[1] == -1:  # player 0 down
+                PONG.players[0].key_down_active = True
+                PONG.players[0].vel.y = Player.SPEED
+                PONG.players[0].update_vel()
+            elif values[1] == 0:   # player 0 clear movement
+                PONG.players[0].key_up_active = False
+                PONG.players[0].key_down_active = False
+                PONG.players[0].vel.y = 0
+                PONG.players[0].update_vel()
+        elif joypad == 1:
+            if values[1] == 1:     # player 1 up
+                PONG.players[1].key_up_active = True
+                PONG.players[1].vel.y = -Player.SPEED
+                PONG.players[1].update_vel()
+            elif values[1] == -1:  # player 1 down
+                PONG.players[1].key_down_active = True
+                PONG.players[1].vel.y = Player.SPEED
+                PONG.players[1].update_vel()
+            elif values[1] == 0:   # player 1 clear movement
+                PONG.players[1].key_up_active = False
+                PONG.players[1].key_down_active = False
+                PONG.players[1].vel.y = 0
+                PONG.players[1].update_vel()
+
+
 def keydown(key):
     """
     Event handler to deal key down.
 
     :param key: int >= 0
     """
-    if key == PONG.players[0].key_up:
+    if key == PONG.players[0].key_up:      # player 0 up
         PONG.players[0].key_up_active = True
         PONG.players[0].vel.y = -Player.SPEED
         PONG.players[0].update_vel()
-    elif key == PONG.players[0].key_down:
+    elif key == PONG.players[0].key_down:  # player 0 down
         PONG.players[0].key_down_active = True
         PONG.players[0].vel.y = Player.SPEED
         PONG.players[0].update_vel()
-    elif key == PONG.players[1].key_up:
+    elif key == PONG.players[1].key_up:    # player 1 up
         PONG.players[1].key_up_active = True
         PONG.players[1].vel.y = -Player.SPEED
         PONG.players[1].update_vel()
-    elif key == PONG.players[1].key_down:
+    elif key == PONG.players[1].key_down:  # player 1 down
         PONG.players[1].key_down_active = True
         PONG.players[1].vel.y = Player.SPEED
         PONG.players[1].update_vel()
@@ -602,19 +698,19 @@ def keyup(key):
 
     :param key: int >= 0
     """
-    if key == PONG.players[0].key_up:
+    if key == PONG.players[0].key_up:      # player 0 clear up
         PONG.players[0].key_up_active = False
         PONG.players[0].vel.y = 0
         PONG.players[0].update_vel()
-    elif key == PONG.players[0].key_down:
+    elif key == PONG.players[0].key_down:  # player 0 clear down
         PONG.players[0].key_down_active = False
         PONG.players[0].vel.y = 0
         PONG.players[0].update_vel()
-    elif key == PONG.players[1].key_up:
+    elif key == PONG.players[1].key_up:    # player 1 clear up
         PONG.players[1].key_up_active = False
         PONG.players[1].vel.y = 0
         PONG.players[1].update_vel()
-    elif key == PONG.players[1].key_down:
+    elif key == PONG.players[1].key_down:  # player 1 clear down
         PONG.players[1].key_down_active = False
         PONG.players[1].vel.y = 0
         PONG.players[1].update_vel()
@@ -674,7 +770,10 @@ def restart():
     BUTTON_PROTECT_LEFT.set_text('Protect left player')
     BUTTON_PROTECT_RIGHT.set_text('Protect right player')
 
-    protect_left()
+    if SIMPLEGUICS2PYGAME and (_joypads._joypad_nb > 0):  # noqa  # pylint: disable=protected-access
+        protect_right()
+    else:
+        protect_left()
 
 
 # Create frame
@@ -710,6 +809,18 @@ FRAME.add_label('Right player keys: Up, Down')
 
 FRAME.set_keydown_handler(keydown)
 FRAME.set_keyup_handler(keyup)
+
+if SIMPLEGUICS2PYGAME:
+    if simplegui._joypads._joypad_nb > 0:  # pylint: disable=protected-access
+        FRAME._set_joypadaxe_handler(joypad_axe)  # noqa  # pylint: disable=protected-access
+        FRAME._set_joypadup_handler(joypad_up)  # noqa  # pylint: disable=protected-access
+        FRAME._set_joypadhat_handler(joypad_hat)  # noqa  # pylint: disable=protected-access
+
+    FRAME.add_label('')
+    FRAME.add_label('%i joypad%s available' %
+                    (simplegui._joypads._joypad_nb,  # noqa  # pylint: disable=protected-access
+                     ('s' if simplegui._joypads._joypad_nb > 1  # noqa  # pylint: disable=protected-access
+                      else '')))
 
 FRAME.set_draw_handler(draw)
 

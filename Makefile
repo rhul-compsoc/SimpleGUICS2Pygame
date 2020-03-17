@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 15, 2020
+# Makefile of SimpleGUICS2Pygame --- March 17, 2020
 
 .SUFFIXES:
 
@@ -32,7 +32,7 @@ PYFLAKESFLAGS =
 PYLINT      = pylint3  # https://www.pylint.org/
 PYLINTFLAGS = -j $(JOB) --disable=line-too-long,locally-disabled
 
-PYTYPE      = pytype  # https://google.github.io/pytype/
+PYTYPE      = export PYGAME_HIDE_SUPPORT_PROMPT=hide; pytype  # https://google.github.io/pytype/
 PYTYPEFLAGS = -j $(JOB)
 
 

@@ -67,7 +67,7 @@ then print URLs or locals filename loaded by `load_image()`
 and `load_sound()`.
 """
 
-_PYGAMEMEDIAS_CACHED = {}
+__PYGAMEMEDIAS_CACHED = {}
 """
 `Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
 """
@@ -145,7 +145,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     Side effects:
 
-    * Each new url is added to `_PYGAMEMEDIAS_CACHED`.
+    * Each new url is added to `__PYGAMEMEDIAS_CACHED`.
     * If the media is a valid sound\
       then init the pygame.mixer and set _MIXER_INITIALIZED to `True`.
     * If `_PRINT_LOAD_MEDIAS` then print loading informations to stderr.
@@ -167,7 +167,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     media_is_image = (type_of_media == 'Image')
 
-    cached = _PYGAMEMEDIAS_CACHED.get(url)
+    cached = __PYGAMEMEDIAS_CACHED.get(url)
     if cached is not None:
         # Already in cache
         if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
@@ -213,7 +213,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
                       file=stderr)
                 stderr.flush()
 
-            _PYGAMEMEDIAS_CACHED[url] = media
+            __PYGAMEMEDIAS_CACHED[url] = media
 
             return media
         except Exception as exc:  # pylint: disable=broad-except
@@ -291,7 +291,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
     if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
         stderr.flush()
 
-    _PYGAMEMEDIAS_CACHED[url] = media
+    __PYGAMEMEDIAS_CACHED[url] = media
 
     return media
 

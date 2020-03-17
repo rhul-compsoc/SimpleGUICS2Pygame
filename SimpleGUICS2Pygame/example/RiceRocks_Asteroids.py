@@ -22,7 +22,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 15, 2020
+:version: March 17, 2020
 """
 
 import math
@@ -126,6 +126,16 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         self.sounds_active = True
         self.timer = simplegui.create_timer(1000, self.rock_spawner)
 
+        self.paused = False
+
+        self.wait = False
+
+        def wait_clear():
+            """Disable waiting."""
+            self.wait = False
+
+        self.timer_wait = simplegui.create_timer(2000, wait_clear)
+
         self.img_infos = None
         self.medias = None
 
@@ -162,7 +172,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
                               (SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Draw animated background
-        if self.animate_background_active:
+        if self.animate_background_active and not self.paused:
             center = self.img_infos['debris'].get_center()
             size_xy = self.img_infos['debris'].get_size()
 
@@ -198,6 +208,9 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
             explosion.update()
             if explosion.lifespan <= 0:  # explosion finished
                 del self.explosions[i]
+
+        if self.paused:
+            return
 
         # Update ship
         self.my_ship.update()
@@ -458,6 +471,11 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
             FRAME.set_draw_handler(self.draw_and_update)
 
+            if SIMPLEGUICS2PYGAME and (simplegui._joypads._joypad_nb > 0):  # noqa  # pylint: disable=protected-access
+                FRAME._set_joypadaxe_handler(joypad_axe)  # noqa  # pylint: disable=protected-access
+                FRAME._set_joypadup_handler(joypad_up)  # noqa  # pylint: disable=protected-access
+                FRAME._set_joypadhat_handler(joypad_hat)  # noqa  # pylint: disable=protected-access
+
             FRAME.set_keydown_handler(keydown)
             FRAME.set_keyup_handler(keyup)
 
@@ -520,12 +538,18 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
         self.medias.wait_loaded()
 
+    def pause_switch(self):
+        """
+        Pause on/off.
+        """
+        self.paused = not self.paused
+
     def rock_spawner(self):
         """
         If the maximum is not reached
         then spawns a rock (not too close to the ship).
         """
-        if len(self.rocks) < 10:
+        if (len(self.rocks) < 10) and not self.paused:
             too_close = True
 
             def random_vel():
@@ -568,6 +592,11 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         """
         Start the game.
         """
+        if self.wait:
+            return
+
+        self.timer_wait.stop()
+
         if self.music_active:
             self.medias.get_sound('intro').rewind()
             self.medias.get_sound('soundtrack').play()
@@ -588,6 +617,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         self.timer.start()
         self.rock_spawner()
 
+        self.paused = False
         self.started = True
 
         if SIMPLEGUICS2PYGAME:
@@ -616,6 +646,9 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         if SIMPLEGUICS2PYGAME:
             FRAME._cursor_auto_hide = False  # pylint: disable=protected-access
             FRAME._set_cursor_visible()  # pylint: disable=protected-access
+
+        self.wait = True
+        self.timer_wait.start()
 
 
 class ImageInfo:
@@ -990,6 +1023,7 @@ def click(pos):  # pylint: disable=unused-argument
     :param pos: (int >= 0, int >= 0)
     """
     if not RICEROCKS.started:
+        RICEROCKS.wait = False
         RICEROCKS.start()
 
 
@@ -1005,6 +1039,84 @@ def fps_on_off():
         BUTTON_FPS.set_text('FPS off')
 
 
+def joypad_axe(joypad, axe, value):
+    """
+    Event handler to deal joypad axe.
+
+    :param joypad: int >= 0
+    :param axe: int >= 0
+    :param value: -1 <= float <= 1
+    """
+    if (joypad == 0) and RICEROCKS.started:
+        threshold = 0.9
+
+        if axe == 0:
+            if value <= -threshold:   # left
+                RICEROCKS.keydown_left = True
+                RICEROCKS.my_ship.turn(False)
+            elif value >= threshold:  # right
+                RICEROCKS.keydown_right = True
+                RICEROCKS.my_ship.turn(True)
+            else:                     # clear horizontal
+                RICEROCKS.keydown_left = False
+                RICEROCKS.keydown_right = False
+                RICEROCKS.my_ship.turn(None)
+        elif axe == 1:
+            if value <= -threshold:         # forward
+                if not RICEROCKS.my_ship.thrust:
+                    RICEROCKS.my_ship.thrust_on_off()
+            elif RICEROCKS.my_ship.thrust:  # clear vertical
+                RICEROCKS.my_ship.thrust_on_off()
+
+
+def joypad_up(joypad, button):
+    """
+    Event handler to deal joypad buttons.
+
+    :param joypad: int >= 0
+    :param button: int >= 0
+    """
+    if joypad == 0:
+        if RICEROCKS.started:
+            if button == 0:    # shoot
+                RICEROCKS.my_ship.shot()
+            elif button == 1:  # bomb
+                RICEROCKS.bomb_explode()
+            elif button == 2:  # flip
+                RICEROCKS.my_ship.flip()
+        else:
+            RICEROCKS.start()
+
+
+def joypad_hat(joypad, hat, values):
+    """
+    Event handler to deal joypad hat.
+
+    :param joypad: int >= 0
+    :param hat: int >= 0
+    :param values: (a, b) with a and b == -1, 0 or 1
+    """
+    if (joypad == 0) and (hat == 0) and RICEROCKS.started:
+        if values[0] == -1:   # left
+            RICEROCKS.keydown_left = True
+            RICEROCKS.my_ship.turn(False)
+        elif values[0] == 1:  # right
+            RICEROCKS.keydown_right = True
+            RICEROCKS.my_ship.turn(True)
+        else:                 # clear horizontal
+            RICEROCKS.keydown_left = False
+            RICEROCKS.keydown_right = False
+            RICEROCKS.my_ship.turn(None)
+
+        if values[1] == 1:              # forward
+            if not RICEROCKS.my_ship.thrust:
+                RICEROCKS.my_ship.thrust_on_off()
+        elif values[1] == -1:           # flip
+            RICEROCKS.my_ship.flip()
+        elif RICEROCKS.my_ship.thrust:  # clear vertical
+            RICEROCKS.my_ship.thrust_on_off()
+
+
 def keydown(key):
     """
     Event handler to deal key down.
@@ -1012,20 +1124,22 @@ def keydown(key):
     :param key: int >= 0
     """
     if RICEROCKS.started:
-        if key == simplegui.KEY_MAP['left']:
+        if key == simplegui.KEY_MAP['left']:     # left
             RICEROCKS.keydown_left = True
             RICEROCKS.my_ship.turn(False)
-        elif key == simplegui.KEY_MAP['right']:
+        elif key == simplegui.KEY_MAP['right']:  # right
             RICEROCKS.keydown_right = True
             RICEROCKS.my_ship.turn(True)
-        elif key == simplegui.KEY_MAP['up']:
+        elif key == simplegui.KEY_MAP['up']:     # forward
             RICEROCKS.my_ship.thrust_on_off()
-        elif key == simplegui.KEY_MAP['down']:
+        elif key == simplegui.KEY_MAP['down']:   # flip
             RICEROCKS.my_ship.flip()
-        elif key == simplegui.KEY_MAP['space']:
+        elif key == simplegui.KEY_MAP['space']:  # shoot
             RICEROCKS.my_ship.shot()
-        elif key == simplegui.KEY_MAP['B']:
+        elif key == simplegui.KEY_MAP['B']:      # bomb
             RICEROCKS.bomb_explode()
+        elif key == simplegui.KEY_MAP['P']:      # pause
+            RICEROCKS.pause_switch()
     else:
         RICEROCKS.start()
 
@@ -1136,7 +1250,15 @@ if __name__ == '__main__':
     FRAME.add_label('Flip: Down')
     FRAME.add_label('Fire: Space')
     FRAME.add_label('Bomb: B')
+    FRAME.add_label('Pause: P')
     FRAME.add_label('Esc: Quit')
+
+    if SIMPLEGUICS2PYGAME:
+        FRAME.add_label('')
+        FRAME.add_label('%i joypad%s available' %
+                        (simplegui._joypads._joypad_nb,  # noqa  # pylint: disable=protected-access
+                         ('s' if simplegui._joypads._joypad_nb > 1  # noqa  # pylint: disable=protected-access
+                          else '')))
 
     FRAME.add_label('')
     FRAME.add_label('One bomb for every 10')

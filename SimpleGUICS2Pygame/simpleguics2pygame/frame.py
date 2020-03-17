@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 15, 2020
+:version: March 17, 2020
 """
 
 from __future__ import division
@@ -35,7 +35,7 @@ if _PYGAME_AVAILABLE:
     import pygame
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _media  # noqa  # pylint: disable=wrong-import-position,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _joypads, _media  # noqa  # pylint: disable=wrong-import-position,ungrouped-imports,unused-import
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
@@ -238,9 +238,9 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        Side effect: Empty `_fonts._PYGAMEFONTS_CACHED`.
+        Side effect: Empty `_fonts.__PYGAMEFONTS_CACHED`.
         """
-        _fonts._PYGAMEFONTS_CACHED = {}  # pylint: disable=protected-access
+        _fonts.__PYGAMEFONTS_CACHED = {}  # pylint: disable=protected-access
 
     @classmethod
     def _set_cursor_visible(cls, visible=True):
@@ -255,7 +255,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         """
         pygame.mouse.set_visible(visible)
 
-    def __init__(self,
+    def __init__(self,  # pylint: disable=too-many-statements
                  title,
                  canvas_width, canvas_height,
                  control_width=200):
@@ -308,11 +308,17 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._fps_average = 0
 
-        self._keydown_handler = None
-        self._keyup_handler = None
+        self.__joypad_down_handler = None
+        self.__joypad_up_handler = None
 
-        self._mouseclic_handler = None
-        self._mousedrag_handler = None
+        self.__joypad_axe_handler = None
+        self.__joypad_hat_handler = None
+
+        self._key_down_handler = None
+        self._key_up_handler = None
+
+        self._mouse_click_handler = None
+        self._mouse_drag_handler = None
 
         self._running = False
 
@@ -379,6 +385,146 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :return: str
         """
         return '<Frame object>'
+
+    def __deal_event_key(self, event):
+        """
+        Private function that dispatch key `event`.
+
+        :param event: Pygame event
+
+        :return: True if some event match, else False
+        """
+        if event.type == pygame.KEYDOWN:  # key pressed  # noqa  # pylint: disable=no-member
+            if ((self._control_selected is not None) and
+                    isinstance(self._control_selected,
+                               TextAreaControl)):
+                self._control_selected._key(event)  # noqa  # pylint: disable=protected-access
+            elif self._key_down_handler is not None:
+                key = _pygamekey_to_simpleguikey(event.key)
+                self._draw_statuskey(key, True)
+                self._key_down_handler(key)
+
+            return True
+        elif event.type == pygame.KEYUP:  # key released  # noqa  # pylint: disable=no-member
+            if ((self._control_selected is not None) and
+                    isinstance(self._control_selected,
+                               TextAreaControl)):
+                pass
+            elif self._key_up_handler is not None:
+                key = _pygamekey_to_simpleguikey(event.key)
+                self._draw_statuskey(key, False)
+                self._key_up_handler(key)
+
+            return True
+        else:
+            return False
+
+    def __deal_event_joypad(self, event):
+        """
+        Private function that dispatch joypad `event`.
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param event: Pygame event
+
+        :return: True if some event match, else False
+        """
+        if event.type == pygame.JOYHATMOTION:     # hat moved  # noqa  # pylint: disable=no-member
+            if self.__joypad_hat_handler is not None:
+                self.__joypad_hat_handler(event.joy, event.hat, event.value)
+
+            return True
+        elif event.type == pygame.JOYAXISMOTION:  # axe moved  # noqa  # pylint: disable=no-member
+            if self.__joypad_axe_handler is not None:
+                self.__joypad_axe_handler(event.joy, event.axis, event.value)
+
+            return True
+        elif event.type == pygame.JOYBUTTONDOWN:  # button pressed  # noqa  # pylint: disable=no-member
+            if self.__joypad_down_handler is not None:
+                self.__joypad_down_handler(event.joy, event.button)
+
+            return True
+        elif event.type == pygame.JOYBUTTONUP:    # button release  # noqa  # pylint: disable=no-member
+            if self.__joypad_up_handler is not None:
+                self.__joypad_up_handler(event.joy, event.button)
+
+            return True
+        else:
+            return False
+
+    def __deal_event_mouse(self, event):  # pylint: disable=too-many-branches
+        """
+        Private function that dispatch mouse `event`.
+
+        :param event: Pygame event
+
+        :return: True if some event match, else False
+        """
+        mouse_drag_out_of_canvas = None
+
+        if event.type == pygame.MOUSEMOTION:        # mouse moved  # noqa  # pylint: disable=no-member
+            x = event.pos[0] - self._canvas_x_offset
+            y = event.pos[1] - self._canvas_y_offset
+
+            if self._cursor_auto_hide:
+                pygame.mouse.set_visible(not((0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)))  # noqa  # pylint: disable=protected-access
+
+            if self._mouse_drag_handler is not None:
+                if pygame.mouse.get_pressed()[0]:  # left click
+                    if (not 0 <= x < self._canvas._width) or (not 0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
+                        # Out of canvas
+                        mouse_drag_out_of_canvas = True
+
+                    if not mouse_drag_out_of_canvas:
+                        # In canvas
+                        # and not out of canvas
+                        #   since last mouse left button pressed
+                        self._draw_statusmouse((x, y), True)
+                        self._mouse_drag_handler((x, y))
+
+            return True
+        elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed  # noqa  # pylint: disable=no-member
+            if event.button == 1:  # left click
+                x = event.pos[0] - self._canvas_x_offset
+                y = event.pos[1] - self._canvas_y_offset
+                if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
+                    # In canvas
+                    mouse_drag_out_of_canvas = False
+                elif x < 0:
+                    # In control panel
+                    control = self._pos_in_control(event.pos[0] -
+                                                   self._border_size,
+                                                   event.pos[1] -
+                                                   self._canvas_y_offset)
+                    if control is not None:
+                        control._mouse_left_button(True)  # noqa  # pylint: disable=protected-access
+                    elif self._control_selected is not None:
+                        self._control_selected = None
+                        self._draw_controlpanel()
+                elif self._control_selected is not None:
+                    self._control_selected = None
+                    self._draw_controlpanel()
+
+            return True
+        elif event.type == pygame.MOUSEBUTTONUP:    # mouse b. released  # noqa  # pylint: disable=no-member
+            if event.button == 1:  # left click
+                x = event.pos[0] - self._canvas_x_offset
+                y = event.pos[1] - self._canvas_y_offset
+                if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
+                    # In canvas
+                    if self._mouse_click_handler is not None:
+                        self._draw_statusmouse((x, y), False)
+                        self._mouse_click_handler((x, y))
+                elif x < 0:
+                    # In control panel
+                    control = self._pos_in_control(event.pos[0] -
+                                                   self._border_size, y)
+                    if control is not None:
+                        control._mouse_left_button(False)  # noqa  # pylint: disable=protected-access
+
+            return True
+        else:
+            return False
 
     def _cursor_in_canvas(self):
         """
@@ -609,6 +755,73 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._canvas._background_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access,invalid-name
 
+    def _set_joypadhat_handler(self, joypad_handler):
+        """
+        Set the function handler
+        that will be executed
+        (with the joypad index, the hat index
+        and the values (a, b) where a and b == -1, 0 or 1)
+        when hat of joypad move.
+
+        (The events are checked on each cycle fixed by `Frame._fps`.)
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param joypad_handler: function (int >= 0, int >= 0, (int, int)) -> *
+        """
+        assert callable(joypad_handler), type(joypad_handler)
+
+        self.__joypad_hat_handler = joypad_handler
+
+    def _set_joypadaxe_handler(self, joypad_handler):
+        """
+        Set the function handler
+        that will be executed
+        (with the joypad index, the axe index and the value)
+        when axis of joypad move.
+
+        (The events are checked on each cycle fixed by `Frame._fps`.)
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param joypad_handler: function (int >= 0, int >=0, -1 <= float <= 1) -> *
+        """  # noqa
+        assert callable(joypad_handler), type(joypad_handler)
+
+        self.__joypad_axe_handler = joypad_handler
+
+    def _set_joypaddown_handler(self, joypad_handler):
+        """
+        Set the function handler
+        that will be executed (with the joypad index and the button index)
+        when a button of joypad is **pressed**.
+
+        (The events are checked on each cycle fixed by `Frame._fps`.)
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param joypad_handler: function (int >= 0, int >= 0) -> *
+        """
+        assert callable(joypad_handler), type(joypad_handler)
+
+        self.__joypad_down_handler = joypad_handler
+
+    def _set_joypadup_handler(self, joypad_handler):
+        """
+        Set the function handler
+        that will be executed (with the joypad index and the button index)
+        when a button of joypad is **released**.
+
+        (The events are checked on each cycle fixed by `Frame._fps`.)
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param joypad_handler: function (int >= 0, int >= 0) -> *
+        """
+        assert callable(joypad_handler), type(joypad_handler)
+
+        self.__joypad_up_handler = joypad_handler
+
     def add_button(self,
                    text,
                    button_handler,
@@ -774,7 +987,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert callable(key_handler), type(key_handler)
 
-        self._keydown_handler = key_handler
+        self._key_down_handler = key_handler
 
     def set_keyup_handler(self,
                           key_handler):
@@ -788,7 +1001,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert callable(key_handler), type(key_handler)
 
-        self._keyup_handler = key_handler
+        self._key_up_handler = key_handler
 
     def set_mouseclick_handler(self,
                                mouse_handler):
@@ -803,7 +1016,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert callable(mouse_handler), type(mouse_handler)
 
-        self._mouseclic_handler = mouse_handler
+        self._mouse_click_handler = mouse_handler
 
     def set_mousedrag_handler(self,
                               mouse_handler):
@@ -819,9 +1032,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert callable(mouse_handler), type(mouse_handler)
 
-        self._mousedrag_handler = mouse_handler
+        self._mouse_drag_handler = mouse_handler
 
-    def start(self):  # pylint: disable=too-many-branches,too-many-statements
+    def start(self):
         """
         Start the frame and these handler events.
 
@@ -837,8 +1050,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         self._running = True
 
-        mouse_drag_out_of_canvas = None
-
         clock = pygame.time.Clock()
 
         # Core of the drawing canvas and dealing events
@@ -852,80 +1063,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
             # Check events
             for event in pygame.event.get():
-                if event.type == pygame.MOUSEMOTION:        # mouse moved  # noqa  # pylint: disable=no-member
-                    x = event.pos[0] - self._canvas_x_offset
-                    y = event.pos[1] - self._canvas_y_offset
-
-                    if self._cursor_auto_hide:
-                        pygame.mouse.set_visible(not((0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)))  # noqa  # pylint: disable=protected-access
-
-                    if self._mousedrag_handler is not None:
-                        if pygame.mouse.get_pressed()[0]:  # left click
-                            if (not 0 <= x < self._canvas._width) or (not 0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
-                                # Out of canvas
-                                mouse_drag_out_of_canvas = True
-
-                            if not mouse_drag_out_of_canvas:
-                                # In canvas
-                                # and not out of canvas
-                                #   since last mouse left button pressed
-                                self._draw_statusmouse((x, y), True)
-                                self._mousedrag_handler((x, y))
-                elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed  # noqa  # pylint: disable=no-member
-                    if event.button == 1:  # left click
-                        if ((0 <=
-                             event.pos[0] - self._canvas_x_offset < self._canvas._width) and  # noqa  # pylint: disable=protected-access
-                                (0 <=
-                                 event.pos[1] - self._canvas_y_offset < self._canvas._height)):  # in canvas  # noqa  # pylint: disable=protected-access
-                            mouse_drag_out_of_canvas = False
-
-                        if event.pos[0] < self._canvas_x_offset:
-                            # In control panel
-                            control = self._pos_in_control(
-                                event.pos[0] - self._border_size,
-                                event.pos[1] - self._canvas_y_offset)
-                            if control is not None:
-                                control._mouse_left_button(True)  # noqa  # pylint: disable=protected-access
-                            elif self._control_selected is not None:
-                                self._control_selected = None
-                                self._draw_controlpanel()
-                        elif self._control_selected is not None:
-                            self._control_selected = None
-                            self._draw_controlpanel()
-                elif event.type == pygame.MOUSEBUTTONUP:    # mouse b. released  # noqa  # pylint: disable=no-member
-                    if event.button == 1:  # left click
-                        x = event.pos[0] - self._canvas_x_offset
-                        y = event.pos[1] - self._canvas_y_offset
-                        if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
-                            # In canvas
-                            if self._mouseclic_handler is not None:
-                                self._draw_statusmouse((x, y), False)
-                                self._mouseclic_handler((x, y))
-                        elif x < 0:
-                            # In control panel
-                            control = self._pos_in_control(
-                                event.pos[0] - self._border_size, y)
-                            if control is not None:
-                                control._mouse_left_button(False)  # noqa  # pylint: disable=protected-access
-                elif event.type == pygame.KEYDOWN:          # key pressed  # noqa  # pylint: disable=no-member
-                    if ((self._control_selected is not None) and
-                            isinstance(self._control_selected,
-                                       TextAreaControl)):
-                        self._control_selected._key(event)  # noqa  # pylint: disable=protected-access
-                    elif self._keydown_handler is not None:
-                        key = _pygamekey_to_simpleguikey(event.key)
-                        self._draw_statuskey(key, True)
-                        self._keydown_handler(key)
-                elif event.type == pygame.KEYUP:            # key released  # noqa  # pylint: disable=no-member
-                    if ((self._control_selected is not None) and
-                            isinstance(self._control_selected,
-                                       TextAreaControl)):
-                        pass
-                    elif self._keyup_handler is not None:
-                        key = _pygamekey_to_simpleguikey(event.key)
-                        self._draw_statuskey(key, False)
-                        self._keyup_handler(key)
-                elif event.type == pygame.QUIT:             # quit  # noqa  # pylint: disable=no-member
+                if (not self.__deal_event_mouse(event) and
+                        not self.__deal_event_joypad(event) and
+                        not self.__deal_event_key(event) and
+                        event.type == pygame.QUIT):  # noqa  # pylint: disable=no-member
                     self.stop()
 
             # Wait (if necessary) next cycle
@@ -1003,11 +1144,17 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 canvas.draw_text('(Yes/No)',
                                  (10, 10 + size * 11 / 4), size, 'Black')
 
-            self._keydown_handler = None
-            self._keyup_handler = None
+            self.__joypad_down_handler = None
+            self.__joypad_up_handler = None
 
-            self._mouseclic_handler = None
-            self._mousedrag_handler = None
+            self.__joypad_axe_handler = None
+            self.__joypad_hat_handler = None
+
+            self._key_down_handler = None
+            self._key_up_handler = None
+
+            self._mouse_click_handler = None
+            self._mouse_drag_handler = None
 
             Frame._hide_status = True
             self._controls = []
@@ -1031,8 +1178,8 @@ def _print_stats_cache():
     print("""# cached colors: {}
 # cached fonts: {}
 # cached medias: {}""".format(len(_colors._PYGAMECOLORS_CACHED),  # noqa  # pylint: disable=protected-access
-                              len(_fonts._PYGAMEFONTS_CACHED),  # noqa  # pylint: disable=protected-access
-                              len(_media._PYGAMEMEDIAS_CACHED)),  # noqa  # pylint: disable=protected-access
+                              len(_fonts.__PYGAMEFONTS_CACHED),  # noqa  # pylint: disable=protected-access
+                              len(_media.__PYGAMEMEDIAS_CACHED)),  # noqa  # pylint: disable=protected-access
           file=sys.stderr)
     sys.stderr.flush()
 

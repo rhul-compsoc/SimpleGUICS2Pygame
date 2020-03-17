@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 15, 2020
+* 02.00.00 WORKING VERSION — March 17, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -9,6 +9,7 @@ ChangeLog
 
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
+    - Added dealing of joypads.
     - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.

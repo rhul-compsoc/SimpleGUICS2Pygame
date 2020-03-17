@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 17, 2020
 """
 
 from __future__ import print_function
@@ -46,7 +46,7 @@ to corresponding font names list used by Pygame.
 #
 # Private global variables
 ##########################
-_PYGAMEFONTS_CACHED = {}
+__PYGAMEFONTS_CACHED = {}
 """
 `Dict` {(`str` CodeSkulptor font face, `int` font size):
         `pygame.font.Font`}.
@@ -78,7 +78,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
     **(Not available in SimpleGUI of CodeSkulptor.)**
 
     Side effect:
-    Each new font with new size is added to `_PYGAMEFONTS_CACHED`.
+    Each new font with new size is added to `__PYGAMEFONTS_CACHED`.
     See `Frame._pygamefonts_cached_clear()`.
 
     .. _`Frame._pygamefonts_cached_clear()`: frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame._pygamefonts_cached_clear
@@ -89,7 +89,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
 
     :return: pygame.font.Font
     """  # noqa
-    font = _PYGAMEFONTS_CACHED.get((font_face, font_size))
+    font = __PYGAMEFONTS_CACHED.get((font_face, font_size))
 
     if font is None:
         assert ((font_face is None) or
@@ -111,6 +111,6 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
 
         assert font is not None
 
-        _PYGAMEFONTS_CACHED[(font_face, font_size)] = font
+        __PYGAMEFONTS_CACHED[(font_face, font_size)] = font
 
     return font

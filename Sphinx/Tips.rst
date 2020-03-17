@@ -71,7 +71,10 @@ But specify only those you use.
         import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib
 
-To run **specific code** on CodeSkulptor_ or with SimpleGUICS2Pygame,
+
+Specific code
+-------------
+To run specific code on CodeSkulptor_ or with SimpleGUICS2Pygame,
 you can write this
 
 .. code-block:: python
@@ -85,7 +88,19 @@ you can write this
 
         SIMPLEGUICS2PYGAME = True
 
-And then you can run specific code simply by testing ``SIMPLEGUICS2PYGAME``.
+And then you can run specific code simply by testing value of ``SIMPLEGUICS2PYGAME``. For example:
+
+.. code-block:: python
+
+    ...
+
+    def joypad_up(joypad, button):
+        if joypad == 0:
+            if button == 0:
+                ...
+
+    if SIMPLEGUICS2PYGAME:
+        frame._set_joypadup_handler(joypad_up)
 
 
 Colors
