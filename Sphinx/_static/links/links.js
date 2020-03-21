@@ -10,17 +10,17 @@
   url: String
 */
 function img_load(item, url) {
-    'use strict';
+    "use strict";
 
     var children = item.children;
 
-    if ((children.length > 0) && (children[0].tagName.toUpperCase() === 'IMG')) {
-        if (children[0].getAttribute('src') === '#') {
-            children[0].setAttribute('src', url);
+    if ((children.length > 0) && (children[0].tagName.toUpperCase() === "IMG")) {
+        if (children[0].getAttribute("src") === "#") {
+            children[0].setAttribute("src", url);
         }
 
-        if ((children.length > 1) && (children[1].className === 'size') && (children[1].children.length > 0)) {
-            children[1].children[0].innerHTML = children[0].width.toString() + ' x ' + children[0].height.toString();
+        if ((children.length > 1) && (children[1].className === "size") && (children[1].children.length > 0)) {
+            children[1].children[0].innerHTML = children[0].width.toString() + " x " + children[0].height.toString();
         }
     }
 }
