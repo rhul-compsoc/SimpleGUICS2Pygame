@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 23, 2020
 """
 
 from __future__ import division
@@ -20,6 +20,7 @@ from __future__ import print_function
 
 
 import math
+import os.path
 import re
 import sys
 
@@ -201,6 +202,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert isinstance(filename, str), type(filename)
 
+        filename = os.path.abspath(os.path.expanduser(filename))
         pygame.image.save(self._pygame_surface, filename)
 
     def draw_circle(self,  # pylint: disable=too-many-arguments

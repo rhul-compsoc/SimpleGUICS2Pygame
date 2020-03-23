@@ -26,7 +26,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 23, 2020
 """
 
 from __future__ import print_function
@@ -45,7 +45,7 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
     if (len(sys.argv) != 2) or (sys.argv[1][0] == '-'):
         help_and_exit()
 
-    filename = sys.argv[1]
+    filename = os.path.abspath(os.path.expanduser(sys.argv[1]))
 
     if filename[-3:] != '.py':
         print("! '{}' have not '.py' extension.".format(filename))
@@ -63,11 +63,8 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
         exit(1)
 
     # Read
-    infile = open(filename)
-
-    lines = [line.rstrip() for line in infile]
-
-    infile.close()
+    with open(filename) as infile:
+        lines = [line.rstrip() for line in infile]
 
     # Check
     if len(lines) < 2:
@@ -119,27 +116,24 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
         os.rename(filename, filename + '.bak')
         print("File copied to {}.bak'".format(filename))
 
-        outfile = (open(filename, mode='w', encoding='latin_1', newline='\n')
-                   if sys.version_info[0] >= 3
-                   else open(filename, mode='w'))
+        with (open(filename, mode='w', encoding='latin_1', newline='\n')
+              if sys.version_info[0] >= 3
+              else open(filename, mode='w')) as outfile:
+            if add_shebang:
+                print('Add shebang.')
+                print('#!/usr/bin/env python', file=outfile)
 
-        if add_shebang:
-            print('Add shebang.')
-            print('#!/usr/bin/env python', file=outfile)
+            if add_coding:
+                print('Add coding latin-1.')
+                print('# -*- coding: latin-1 -*-', file=outfile)
 
-        if add_coding:
-            print('Add coding latin-1.')
-            print('# -*- coding: latin-1 -*-', file=outfile)
+            if change_import:
+                print('Change import simplegui.')
 
-        if change_import:
-            print('Change import simplegui.')
+            if end_blank_line:
+                print('End blank line deleted.')
 
-        if end_blank_line:
-            print('End blank line deleted.')
-
-        print('\n'.join(lines), file=outfile)
-
-        outfile.close()
+            print('\n'.join(lines), file=outfile)
     else:
         print('Nothing changed.')
 

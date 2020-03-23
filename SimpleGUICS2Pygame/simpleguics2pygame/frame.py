@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 17, 2020
+:version: March 23, 2020
 """
 
 from __future__ import division
@@ -713,6 +713,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert isinstance(filename, str), type(filename)
 
+        filename = os.path.abspath(os.path.expanduser(filename))
         self._save_canvas_requests.append(filename)
 
     def _save_canvas_and_stop(self, filename, after=1000):
@@ -729,6 +730,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(filename, str), type(filename)
         assert isinstance(after, int) or isinstance(after, float), type(after)
         assert after >= 0, after
+
+        filename = os.path.abspath(os.path.expanduser(filename))
 
         def save_canvas_and_stop():
             """

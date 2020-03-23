@@ -14,7 +14,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 23, 2020
 """
 
 import random
@@ -41,16 +41,16 @@ if USE_IMAGES:
     CARD_IMAGES = [
         simplegui.load_image(
             'http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/' +
-            filename)
-        for filename in ('Guido_van_Rossum.jpg',
-                         'Python.jpg',
-                         'Joe_Warren.jpg',
-                         'Scott_Rixner.jpg',
-                         'John_Greiner.jpg',
-                         'Stephen_Wong.jpg',
-                         'CodeSkulptor.jpg',
-                         'OPi.jpg',
-                         'Memory.jpg')]
+            url)
+        for url in ('Guido_van_Rossum.jpg',
+                    'Python.jpg',
+                    'Joe_Warren.jpg',
+                    'Scott_Rixner.jpg',
+                    'John_Greiner.jpg',
+                    'Stephen_Wong.jpg',
+                    'CodeSkulptor.jpg',
+                    'OPi.jpg',
+                    'Memory.jpg')]
 else:
     CARD_IMAGES = [simplegui.load_image('')] * 9  # 9 (same) failed images
 

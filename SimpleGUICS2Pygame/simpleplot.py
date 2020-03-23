@@ -27,7 +27,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 23, 2020
 """  # noqa
 
 from __future__ import print_function
@@ -178,7 +178,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import sep
+    from os.path import abspath, expanduser, sep
 
     icon_path = __file__.split(sep)[:-1]
     try:
@@ -215,6 +215,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     matplotlib.pyplot.show(block=_block)
 
     if _filename is not None:
+        _filename = abspath(expanduser(_filename))
         matplotlib.pyplot.savefig(_filename)
 
 
@@ -319,7 +320,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import sep
+    from os.path import abspath, expanduser, sep
 
     icon_path = __file__.split(sep)[:-1]
     try:
@@ -352,6 +353,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     matplotlib.pyplot.show(block=_block)
 
     if _filename is not None:
+        _filename = abspath(expanduser(_filename))
         matplotlib.pyplot.savefig(_filename)
 
 
@@ -447,7 +449,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import sep
+    from os.path import abspath, expanduser, sep
 
     icon_path = __file__.split(sep)[:-1]
     try:
@@ -485,4 +487,5 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     matplotlib.pyplot.show(block=_block)
 
     if _filename is not None:
+        _filename = abspath(expanduser(_filename))
         matplotlib.pyplot.savefig(_filename)

@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 23, 2020
 """
 
 from __future__ import print_function
@@ -134,9 +134,8 @@ def main():
         sys.stderr.flush()
 
     # Make HTLM report
-    outfile = open(DIR_RESULTS + '/log.html', 'w')
-
-    print("""<!DOCTYPE html>
+    with open(DIR_RESULTS + '/log.html', 'w') as outfile:
+        print("""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -158,54 +157,47 @@ def main():
                  PYTHON_VERSION,
                  PYGAME_VERSION,
                  datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
-          file=outfile)
-
-    for i, filename in enumerate(filenames):
-        print("""<li>
-  <h2 {}>{}{}{}</h2>"""
-              .format((' class="error"' if errors[filename]
-                       else ''),
-                      filename,
-                      ('<span class="error">Error: {}!</span>'
-                       .format(errors[filename])
-                       if errors[filename]
-                       else ''),
-                      ('<span class="imgs_diff">Images different: {}!</span>'
-                       .format(imgs_diff[filename])
-                       if imgs_diff.get(filename)
-                       else '')),
               file=outfile)
 
-        f_log = open('{}/{}.log'.format(DIR_RESULTS,
-                                        filename))
+        for i, filename in enumerate(filenames):
+            print("""<li>
+  <h2 {}>{}{}{}</h2>"""
+                  .format((' class="error"' if errors[filename]
+                           else ''),
+                          filename,
+                          ('<span class="error">Error: {}!</span>'
+                           .format(errors[filename])
+                           if errors[filename]
+                           else ''),
+                          ('<span class="imgs_diff">Images different: {}!</span>'  # noqa
+                           .format(imgs_diff[filename])
+                           if imgs_diff.get(filename)
+                           else '')),
+                  file=outfile)
 
-        log = f_log.read().strip()
+            with open('{}/{}.log'.format(DIR_RESULTS, filename)) as f_log:
+                log = f_log.read().strip()
 
-        if imgs_diff.get(filename):
-            print("""<img src="../{0}" alt="[{0}]" title="Comparative result.">
+                if imgs_diff.get(filename):
+                    print("""<img src="../{0}" alt="[{0}]" title="Comparative result.">
 <img src="../{1}" alt="[{1}]" title="Result of test.">
 <img src="../{2}" alt="[{2}]" title="Difference images.">"""
-                  .format('results_good/{}.png'.format(filename),
-                          '{}/{}.png'.format(DIR_RESULTS, filename),
-                          '{}/{}_diff.png'.format(DIR_RESULTS, filename)),
-                  file=outfile)
+                          .format('results_good/{}.png'.format(filename),
+                                  '{}/{}.png'.format(DIR_RESULTS, filename),
+                                  '{}/{}_diff.png'.format(DIR_RESULTS,
+                                                          filename)),
+                          file=outfile)
 
-        if len(log) > 0:
-            print("""<pre class="log">{}</pre>""".format(escape(log)),  # noqa  # pylint: disable=deprecated-method
-                  file=outfile)
+                if len(log) > 0:
+                    print("""<pre class="log">{}</pre>""".format(escape(log)),  # noqa  # pylint: disable=deprecated-method
+                          file=outfile)
 
-        f_log.close()
+            print('</li>', file=outfile)
 
-        print('</li>',
-              file=outfile)
-
-    print("""  </ol>
+        print("""  </ol>
 </main>
 </body>
-</html>""",
-          file=outfile)
-
-    outfile.close()
+</html>""", file=outfile)
 
 
 if __name__ == '__main__':
