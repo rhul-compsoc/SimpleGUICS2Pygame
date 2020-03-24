@@ -6,12 +6,15 @@ CodeSkulptor
 CodeSkulptor_ is a Python implementation (in JavaScript) running in a browser.
 It implements a subset of Python 2.
 
+CodeSkulptor3_ is the same but it implements a subset of Python 3.
+
 It is the environment used in the MOOC
 `An Introduction to Interactive Programming in Python`_
 (Rice University, Coursera).
 
 .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/learn/interactive-python-1
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor3: https://py3.codeskulptor.org/
 
 
 To use a program from CodeSkulptor in *standard Python* (with this package),

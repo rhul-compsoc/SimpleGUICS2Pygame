@@ -19,7 +19,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/git/current/simpleguics2pygame
-  
+  /home/opi/data/git/current/simpleguics2pygame/
 
 
 python - version 2.7.13 (default, Sep 26 2018, 18:42:22) 
@@ -28,7 +28,6 @@ python - version 2.7.13 (default, Sep 26 2018, 18:42:22)
 sys.path:
   /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
   /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python2.7
   /usr/lib/python2.7/plat-x86_64-linux-gnu
   /usr/lib/python2.7/lib-tk

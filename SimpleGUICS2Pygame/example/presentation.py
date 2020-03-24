@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 24, 2020
 """
 
 try:
@@ -51,7 +51,7 @@ def main():
         _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
 
     width = 560
-    height = 400
+    height = 490
 
     def draw_about_handler(canvas):
         """
@@ -77,7 +77,7 @@ def main():
         for i, line in enumerate(
                 ('It is primarily a standard Python (2 and 3) module',
                  'reimplementing the SimpleGUI particular module',
-                 'of CodeSkulptor (a browser Python interpreter).',
+                 'of CodeSkulptor (a Python browser environment).',
                  'This is in fact a package also with other modules',
                  'adapted from CodeSkulptor.',
                  None,
@@ -130,10 +130,16 @@ def main():
     frame.add_button('CodeSkulptor3',
                      lambda: open_new_tab('https://py3.codeskulptor.org/'),
                      180)
-    frame.add_button('matplolib',
-                     lambda: open_new_tab('https://matplotlib.org/'), 180)
+
+    frame.add_label('')
     frame.add_button('Pygame',
                      lambda: open_new_tab('https://www.pygame.org/'), 180)
+    frame.add_button('audioread',
+                     lambda: open_new_tab(
+                         'https://github.com/beetbox/audioread'),
+                     180)
+    frame.add_button('matplolib',
+                     lambda: open_new_tab('https://matplotlib.org/'), 180)
 
     frame.add_label('')
     frame.add_button('GPL',

@@ -19,7 +19,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/git/current/simpleguics2pygame
-  
+  /home/opi/data/git/current/simpleguics2pygame/
 
 
 python - version 3.5.3 (default, Sep 27 2018, 17:25:39) 
@@ -28,7 +28,6 @@ python - version 3.5.3 (default, Sep 27 2018, 17:25:39)
 sys.path:
   /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
   /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python35.zip
   /usr/lib/python3.5
   /usr/lib/python3.5/plat-x86_64-linux-gnu

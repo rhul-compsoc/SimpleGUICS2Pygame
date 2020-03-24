@@ -16,10 +16,3 @@ http://www.codeskulptor.org/#user40_Jax5K1pl4O1JMFp.py .)
     :special-members:
     :private-members:
     :members:
-
-.. autodata:: __name__
-
-
-[source_]
-
-.. _source: _modules/SimpleGUICS2Pygame/simplegui_lib.html

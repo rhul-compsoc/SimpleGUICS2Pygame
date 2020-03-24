@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 24, 2020
 """
 
 
@@ -34,7 +34,7 @@ if SIMPLEGUICS2PYGAME:
     PYGAME_VERSION = 'Pygame ' + pygame_version
     GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
-    PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/
+    PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
     PYGAME_VERSION = ''
     GUI_VERSION = 'simplegui'
 

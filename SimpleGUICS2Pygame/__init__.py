@@ -4,8 +4,8 @@
 SimpleGUICS2Pygame package
 
 It is primarily a standard Python_ (**2 and 3**) module
-reimplementing the SimpleGUI particular module of CodeSkulptor_
-(a browser Python interpreter).
+reimplementing the SimpleGUI particular module of CodeSkulptor_ and CodeSkulptor3_
+(a Python browser environment).
 This is in fact a package also with other modules adapted from CodeSkulptor.
 
 Require Pygame_
@@ -24,6 +24,7 @@ Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor3: https://py3.codeskulptor.org/
 .. _matplotlib: https://matplotlib.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Pygame: https://www.pygame.org/

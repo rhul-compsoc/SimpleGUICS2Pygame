@@ -36,7 +36,7 @@ def parse_requirements_file():
 
 setup(name='SimpleGUICS2Pygame',
       version=_VERSION,
-      description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a browser Python interpreter). In fact a package also with other modules adapted from CodeSkulptor.',  # noqa
+      description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a Python browser environment). In fact a package also with other modules adapted from CodeSkulptor.',  # noqa
       long_description=io.open('README.rst', encoding='utf-8').read(),
 
       author='Olivier Pirson',

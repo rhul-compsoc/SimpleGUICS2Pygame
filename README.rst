@@ -5,8 +5,8 @@ SimpleGUICS2Pygame
 ==================
 
 It is primarily a standard Python_ (**2 and 3**) module
-reimplementing the SimpleGUI particular module of CodeSkulptor_
-(a browser Python interpreter).
+reimplementing the SimpleGUI particular module of CodeSkulptor_ and CodeSkulptor3_
+(a Python browser environment).
 This is in fact a package also with other modules adapted from CodeSkulptor.
 
 Simply change
@@ -31,15 +31,18 @@ and *standard Python* with this module (and Pygame).
 |SimpleGUICS2Pygame|
 
 `Online HTML documentation`_ on **Read The Docs**.
-(You can also see the online `SimpleGUI documentation on CodeSkulptor`_.)
+(You can also see the online `SimpleGUI documentation on CodeSkulptor`_
+or `SimpleGUI documentation on CodeSkulptor3`_.)
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 | and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor3: https://py3.codeskulptor.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Python: https://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html
+.. _`SimpleGUI documentation on CodeSkulptor3`: https://py3.codeskulptor.org/docs.html
 
 .. |SimpleGUICS2Pygame| image:: https://simpleguics2pygame.readthedocs.io/en/latest/_images/SimpleGUICS2Pygame_64x64_t.png
 
@@ -92,6 +95,8 @@ If several Python implementations are installed,
 maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
 
 Note that ``$`` represents the prompt and do *not* be entered by you.
+
+**Requirements are automatically installed**.
 
 See more details in `Online HTML documentation`_.
 
@@ -204,6 +209,9 @@ Note that
   `An Introduction to Interactive Programming in Python`_
   (Rice University, Coursera).
 
+* `SimpleGUI of CodeSkulptor3`_ (Scott Rixner) is the same in the new version CodeSkulptor3_
+  that implements a subset of Python **3**.
+
 * **SimpleGUICS2Pygame** (Olivier Pirson) is **this package**.
   It is fully compatible with Python **2 and 3**.
 
@@ -232,13 +240,17 @@ Note that
 
 * SimpleGUITk_ (David Holm) is *another implementation* of SimpleGUI of CodeSkulptor, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
 
+* simplequi_ (Arthur Gordon-Wright) is *another implementation* of SimpleGUI of CodeSkulptor, using Qt/PySide2. It is a partial implementation that I have not tested.
+
 .. warning::
    * simplegui_ (Florian Berger) is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
 
    .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/learn/interactive-python-1
    .. _simplegui: https://pypi.org/project/simplegui
    .. _`SimpleGUI of CodeSkulptor`: http://www.codeskulptor.org/docs.html#Frames
+   .. _`SimpleGUI of CodeSkulptor3`: https://py3.codeskulptor.org/docs.html#Frames
    .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk
+   .. _simplequi: https://pypi.org/project/simplequi/
 
 |
 

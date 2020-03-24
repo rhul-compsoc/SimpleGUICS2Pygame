@@ -4,27 +4,30 @@
 simpleguics2pygame/__init__
 
 Standard Python_ (**2 and 3**) module
-reimplementing the SimpleGUI particular module of CodeSkulptor_
-(a browser Python interpreter).
+reimplementing the SimpleGUI particular module of CodeSkulptor_ and CodeSkulptor3_
+(a Python browser environment).
 
 Require Pygame_
 (except for the Timer class).
 
 `Online HTML documentation`_ on Read The Docs.
-(You can also see the online `SimpleGUI documentation on CodeSkulptor`_.)
+(You can also see the online `SimpleGUI documentation on CodeSkulptor`_
+or `SimpleGUI documentation on CodeSkulptor3`_.)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor3: https://py3.codeskulptor.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Pygame: https://www.pygame.org/
 .. _Python: https://www.python.org/
 .. _`SimpleGUI documentation on CodeSkulptor`: http://www.codeskulptor.org/docs.html#simplegui-create_frame
+.. _`SimpleGUI documentation on CodeSkulptor3`: https://py3.codeskulptor.org/docs.html#simplegui-create_frame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 24, 2020
 """  # noqa
 
 from __future__ import print_function
