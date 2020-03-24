@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 17, 2020
+:version: March 24, 2020
 """
 
 from __future__ import print_function
@@ -136,6 +136,8 @@ class Sound:
         else start the sound.
         """
         if self._pygame_channel is not None:
+            assert self._pygame_sound is not None
+
             if self._pygame_channel.get_sound() == self._pygame_sound:
                 self._pygame_channel.unpause()
             else:
@@ -248,12 +250,9 @@ def load_sound(url):
     try first to loading from
     ``_snd/commondatastorage.googleapis.com/codeskulptor_assets/jump.ogg``.
 
-    Supported formats are supported formats by Pygame:
-    OGG and uncompressed WAV
-    (see https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound ).
+    Supported formats: OGG, WAV and MP3.
 
-    (CodeSkulptor may supported also MP3,
-    dependant on browser support.)
+    (Supported formats by CodeSkulptor are browser dependant.)
 
     (The sound can be started by `Sound.play()`.)
 

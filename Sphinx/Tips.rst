@@ -234,14 +234,3 @@ Online images_ & sounds_ links
 `Python programs running in CodeSkulptor`_
 
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
-
-
-Sounds
-------
-Supported formats are supported formats by Pygame: OGG and uncompressed WAV.
-MP3 is **not** supported.
-To convert your sounds, you can use for example Audacity_, FFmpeg_ or CloudConvert_.
-
-.. _Audacity: https://www.audacityteam.org/
-.. _FFmpeg: https://www.ffmpeg.org/
-.. _CloudConvert: https://cloudconvert.com/

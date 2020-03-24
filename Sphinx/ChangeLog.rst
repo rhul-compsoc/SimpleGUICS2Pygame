@@ -1,15 +1,17 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 23, 2020
+* 02.00.00 WORKING VERSION — March 24, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
+  - Improved installation. Now all requirements are automatically installed.
 
   - Modules:
 
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
     - Added dealing of joypads.
+    - Added dealing of MP3 sounds.
     - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.

@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 24, 2020
 """
 
 try:
@@ -23,8 +23,31 @@ except ImportError:
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
+LOCAL_SOUNDS = []
 SOUNDS = []
 TIMER = None
+
+
+def load_from_web(url):
+    """
+    Load a sound from web.
+
+    :param url: str
+    """
+    name = url.split('/')[-1]
+    print('Load from web "%s"' % name)
+    SOUNDS.append((True, name, simplegui.load_sound(url)))
+
+
+def load_local(pathname):
+    """
+    Load a local sound from pathname.
+
+    :param pathname: str
+    """
+    name = pathname.split('/')[-1]
+    print('Load local "%s"' % name)
+    LOCAL_SOUNDS.append((False, name, simplegui._load_local_sound(pathname)))  # noqa  # pylint: disable=no-member,protected-access
 
 
 def play():
@@ -32,17 +55,18 @@ def play():
     global TIMER  # pylint: disable=global-statement
 
     if SOUNDS:
-        first = SOUNDS.pop(0)
-        name, sound = first
+        web, name, sound = SOUNDS.pop(0)
         if SIMPLEGUICS2PYGAME:
             length = sound._get_length()  # pylint: disable=protected-access
             length_str = ' %fs' % length
         else:
             length_str = ''
-        print('Play "%s"%s' % (name, length_str))
+        print('Play "%s"%s loaded from %s' %
+              (name, length_str, ('web' if web
+                                  else 'local')))
         sound.play()
     else:
-        print('stop')
+        print('End of test_sound')
         TIMER.stop()
         TIMER = None
 
@@ -51,27 +75,19 @@ def play():
 # Main
 ######
 def main():
-    """Play MP3, OGG and WAV sounds."""
+    """Play WAV, OGG and MP3 sounds."""
+    global SOUNDS  # pylint: disable=global-statement
     global TIMER  # pylint: disable=global-statement
 
-    print('Load from web "arrow.mp3"')
-    SOUNDS.append(('arrow.mp3', simplegui.load_sound('http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3')))  # noqa
-
-    print('Load from web "jump.ogg"')
-    SOUNDS.append(('jump.ogg', simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')))  # noqa
-
-    print('Load from web "bonus.wav"')
-    SOUNDS.append(('bonus.wav', simplegui.load_sound('http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/bonus.wav')))  # noqa
+    load_from_web('http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/bonus.wav')  # noqa
+    load_from_web('http://commondatastorage.googleapis.com/codeskulptor-assets/jump.ogg')  # noqa
+    load_from_web('http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3')  # noqa
 
     if SIMPLEGUICS2PYGAME:
-        print('Load local "chirp_1s.wav"')
-        local_sound_chirp_wav = simplegui._load_local_sound('_snd/chirp_1s.wav')  # noqa  # pylint: disable=protected-access,no-member
-
-        length = local_sound_chirp_wav._get_length()  # noqa  # pylint: disable=protected-access
-        print('Play local "chirp_1s.wav" %fs' % length)
-        local_sound_chirp_wav.play()
-
-    print('(MP3 is NOT supported by Pygame)')
+        load_local('_snd/chirp_1s.wav')
+        load_local('_snd/missile.ogg')
+        load_local('_snd/missile.mp3')
+        SOUNDS = LOCAL_SOUNDS + SOUNDS
 
     TIMER = simplegui.create_timer(2000, play)
     TIMER.start()

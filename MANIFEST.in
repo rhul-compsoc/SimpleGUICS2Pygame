@@ -1,4 +1,5 @@
 include README.rst
+include requirements.txt
 
 include SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_152x261.bmp SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_32x32.ico
 include SimpleGUICS2Pygame/_img/*.png

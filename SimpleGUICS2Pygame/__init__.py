@@ -31,9 +31,9 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 23, 2020
+:version: March 24, 2020
 
-* v.02.00.00 WORKING VERSION --- March 23, 2020
+* v.02.00.00 WORKING VERSION --- March 24, 2020
 * v.01.09.00 --- January 1st, 2015
 * v.01.08.01 --- October 9, 2014
 * v.01.08.00 --- October 4, 2014
@@ -66,7 +66,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-_VERSION = '02.00.00 WORKING VERSION March 23, 2020'
+_VERSION = '02.00.00 WORKING VERSION March 24, 2020'
 """
 Version of SimpleGUICS2Pygame package.
 """

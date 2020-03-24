@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (March 8, 2020)
+Setup of SimpleGUICS2Pygame package (March 24, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -22,6 +22,18 @@ except ImportError:
 from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
 
 
+def parse_requirements_file():
+    """
+    Parse file "requirements.txt" and return the requirements list.
+
+    :return: list of str
+    """
+    with open('requirements.txt') as fin:
+        requirements = fin.readlines()
+
+    return tuple(requirement.strip() for requirement in requirements)
+
+
 setup(name='SimpleGUICS2Pygame',
       version=_VERSION,
       description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a browser Python interpreter). In fact a package also with other modules adapted from CodeSkulptor.',  # noqa
@@ -39,7 +51,10 @@ setup(name='SimpleGUICS2Pygame',
       include_package_data=True,
 
       scripts=('SimpleGUICS2Pygame/script/cs2both.py',
+               'SimpleGUICS2Pygame/script/pygame_check.py',
                'SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py'),
+
+      install_requires=parse_requirements_file(),
 
       keywords='CodeSkulptor SimpleGUI Pygame game education',
       classifiers=(

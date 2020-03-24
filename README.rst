@@ -72,29 +72,26 @@ I will try to help you with pleasure.
 
 
 
-Installation
-============
-Obviously you need Python_. Then, open a terminal and do:
+Installation from sources
+=========================
+Obviously you need Python_.
+
+Download sources_ of SimpleGUICS2Pygame and unzip it.
+
+.. _sources: https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads/
+
+Then open a terminal,
+go to the main directory (the one that contains the file ``setup.py``),
+and run:
 
 .. code-block:: sh
 
-   $ python -m pip install -U pip --upgrade
-   $ python -m pip install -U pygame --user --upgrade
-   $ python -m pip install -U matplotlib --upgrade
-   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
-
-See explanations of each part below.
+   $ python setup.py install --user
 
 If several Python implementations are installed,
 maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
 
 Note that ``$`` represents the prompt and do *not* be entered by you.
-
-In some cases, maybe you must use **administrator rights**. With GNU/Linux do:
-
-.. code-block:: sh
-
-   $ sudo [your command]
 
 See more details in `Online HTML documentation`_.
 
@@ -249,16 +246,18 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 23, 2020
+* 02.00.00 WORKING VERSION — March 24, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
+  - Improved installation. Now all requirements are automatically installed.
 
   - Modules:
 
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
     - Added dealing of joypads.
+    - Added dealing of MP3 sounds.
     - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.

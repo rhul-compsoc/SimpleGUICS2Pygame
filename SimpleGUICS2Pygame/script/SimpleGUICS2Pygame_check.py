@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 24, 2020
 """
 
 from __future__ import print_function
@@ -23,8 +23,8 @@ import sys
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (March 5, 2020)
-=====================================================""")
+    print("""script/SimpleGUICS2Pygame_check.py (March 23, 2020)
+===================================================""")
 
     # Environment variables
     print('PATH:')
@@ -52,17 +52,6 @@ if __name__ == '__main__':
 
     print('\n')
 
-    # matplotlib
-    CMD = 'import matplotlib'
-    try:
-        import matplotlib
-
-        print(CMD, 'ok - Version', matplotlib.__version__)
-    except Exception as exc:  # pylint: disable=broad-except
-        print(CMD, 'FAILED!', exc)
-
-    print('\n')
-
     # Pygame
     CMD = 'import pygame'
     try:
@@ -81,6 +70,28 @@ if __name__ == '__main__':
                       FAILED, 'failed WARNING!')
         except Exception as exc:  # pylint: disable=broad-except
             print(' ', CMD, 'FAILED!', exc)
+    except Exception as exc:  # pylint: disable=broad-except
+        print(CMD, 'FAILED!', exc)
+
+    print('\n')
+
+    # audioread
+    CMD = 'import audioread'
+    try:
+        import audioread
+
+        print(CMD, 'ok - Version', audioread.__version__)
+    except Exception as exc:  # pylint: disable=broad-except
+        print(CMD, 'FAILED!', exc)
+
+    print('\n')
+
+    # matplotlib
+    CMD = 'import matplotlib'
+    try:
+        import matplotlib
+
+        print(CMD, 'ok - Version', matplotlib.__version__)
     except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 

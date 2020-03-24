@@ -7,16 +7,12 @@ Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
   That is to say that there are some differences from one browser to another.
   Therefore it is normal that these elements are also slightly different with SimpleGUICS2Pygame.
 
-* With SimpleGUI of CodeSkulptor_, supported sound formats are also browser dependents.
+* With SimpleGUI of CodeSkulptor_, supported sound formats (WAV, OGG, MP3)
+  are also browser dependents.
 
-  .. warning::
-    With SimpleGUICS2Pygame,
-    MP3 is **not** supported.
-    (Because MP3 is **not** supported by Pygame.)
-    Only OGG and uncompressed WAV are supported.
+  With SimpleGUICS2Pygame WAV, OGG and MP3 (since version 02.00.00) are supported.
 
   I recommend to always use the OGG format.
-  See Tips_.
 
 * .. warning::
     With SimpleGUICS2Pygame,

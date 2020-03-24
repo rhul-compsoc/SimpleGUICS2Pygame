@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 24, 2020
 """
 
 from __future__ import print_function
@@ -23,7 +23,7 @@ __all__ = []
 
 from io import BytesIO  # noqa
 from os import makedirs  # noqa
-from os.path import dirname, isdir, isfile, join, splitext  # noqa
+from os.path import abspath, dirname, expanduser, isdir, isfile, join, splitext  # noqa
 from re import sub  # noqa
 from sys import argv, stderr, version_info  # noqa
 
@@ -110,24 +110,87 @@ def _load_local_media(type_of_media, filename):
 
     :return: pygame.Surface or pygame.mixer.Sound or None
     """
-    global _MIXER_INITIALIZED  # pylint: disable=global-statement
-
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(filename, str), type(filename)
+
+    filename = abspath(expanduser(filename))
 
     if not _PYGAME_AVAILABLE or not isfile(filename):
         return None
 
     media_is_image = (type_of_media == 'Image')
 
-    if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
-        _MIXER_INITIALIZED = True  # pylint: disable=protected-access
-        pygame.mixer.init(_MIXER_FREQUENCY)  # pylint: disable=protected-access
+    if not media_is_image:
+        __mixer_init()
 
-    media = (pygame.image.load(filename) if media_is_image
-             else pygame.mixer.Sound(filename))
+    # Check if is correct sound extension
+    if not media_is_image and (filename[-4:].lower() not in ('.mp3', '.ogg', '.wav')):  # noqa
+        if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
+            print('Sound format not supported "{}"'.format(filename),
+                  file=stderr)
+            stderr.flush()
+
+        return None
+
+    # Load
+    try:
+        media = (pygame.image.load(filename) if media_is_image
+                 else (__load_local_mp3_with_audioread(filename)
+                       if filename[-4:].lower() == '.mp3'
+                       else pygame.mixer.Sound(filename)))  # OGG or WAV
+    except Exception as exc:  # pylint: disable=broad-except
+        if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
+            print('{} Pygame local loading "{}" FAILED! {}'
+                  .format(type_of_media, filename, exc),
+                  file=stderr)
+            stderr.flush()
+
+        return None
 
     return media
+
+
+def __load_local_mp3_with_audioread(filename):
+    """
+    Load a MP3 sound from local file `filename`.
+
+    **Required package `audioread`.**
+
+    **Don't use directly**,
+    this function is use by `_load_local_media` and `_load_media`.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+
+    Adapted from `audioread` example:
+    https://github.com/beetbox/audioread/blob/177182e3f0301cd7d27e984ce45cee7436646db4/decode.py
+
+    :param type_of_media: Image or Sound
+    :param filename: str
+
+    :return: pygame.Surface or pygame.mixer.Sound or None
+    """  # noqa
+    import contextlib
+    import wave
+
+    import audioread
+
+    data = BytesIO()
+
+    with contextlib.closing(wave.open(data, 'wb')) as fout:
+        try:
+            with audioread.audio_open(filename) as fin:
+                fout.setnchannels(fin.channels)
+                fout.setframerate(fin.samplerate)
+                fout.setsampwidth(2)
+
+                for buf in fin:
+                    fout.writeframes(buf)
+        except audioread.DecodeError:
+            return None
+
+    data.seek(0)
+
+    return pygame.mixer.Sound(data)
 
 
 def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements
@@ -156,8 +219,6 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     :return: pygame.Surface or pygame.mixer.Sound or None
     """
-    global _MIXER_INITIALIZED  # pylint: disable=global-statement
-
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(url, str), type(url)
     assert isinstance(local_dir, str), type(local_dir)
@@ -167,17 +228,17 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     media_is_image = (type_of_media == 'Image')
 
+    if not media_is_image:
+        __mixer_init()
+
+    # Search in cache
     cached = __PYGAMEMEDIAS_CACHED.get(url)
     if cached is not None:
         # Already in cache
-        if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
-            _MIXER_INITIALIZED = True  # pylint: disable=protected-access
-            pygame.mixer.init(_MIXER_FREQUENCY)
-
         media = (cached.copy() if media_is_image
-                 else pygame.mixer.Sound(cached))
+                 else pygame.mixer.Sound(cached))  # duplicate sound
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
-            print("{} '{}' got in cache".format(type_of_media, url),
+            print('{} "{}" got in cache'.format(type_of_media, url),
                   file=stderr)
             stderr.flush()
 
@@ -186,10 +247,10 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
     # Build a "normalized" filename
     filename = __normalized_filename(url, local_dir)
 
-    # Check if is correct extension
-    if not media_is_image and (filename[-4:].lower() not in ('.ogg', '.wav')):
+    # Check if is correct sound extension
+    if not media_is_image and (filename[-4:].lower() not in ('.mp3', '.ogg', '.wav')):  # noqa
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
-            print("Sound format not supported '{}'".format(url),
+            print('Sound format not supported "{}"'.format(url),
                   file=stderr)
             stderr.flush()
 
@@ -199,16 +260,14 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
     # Load...
     if not _SAVE_DOWNLOADED_MEDIAS_OVERWRITE and filename_exist:
-        if (not media_is_image) and (not _MIXER_INITIALIZED):
-            _MIXER_INITIALIZED = True
-            pygame.mixer.init(_MIXER_FREQUENCY)
-
         try:
             # Load from local file
             media = (pygame.image.load(filename) if media_is_image
-                     else pygame.mixer.Sound(filename))
+                     else (__load_local_mp3_with_audioread(filename)
+                           if filename[-4:].lower() == '.mp3'
+                           else pygame.mixer.Sound(filename)))  # OGG or WAV
             if _PRINT_LOAD_MEDIAS:
-                print("{} loaded '{}' instead '{}'".format(type_of_media,
+                print('{} loaded "{}" instead "{}"'.format(type_of_media,
                                                            filename, url),
                       file=stderr)
                 stderr.flush()
@@ -217,34 +276,44 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 
             return media
         except Exception as exc:  # pylint: disable=broad-except
-            pass
+            if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
+                print('{} cache loading "{}" FAILED! {}'.format(type_of_media,
+                                                                filename, exc),
+                      file=stderr)
+                stderr.flush()
 
     try:
         # Download from url
         media_data = urlopen(url).read()
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
-            print("{} downloaded '{}'".format(type_of_media, url),
+            print('{} downloaded "{}"'.format(type_of_media, url),
                   file=stderr)
             stderr.flush()
     except Exception as exc:  # pylint: disable=broad-except
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
-            print("{} downloading '{}' FAILED! {}".format(type_of_media,
+            print('{} downloading "{}" FAILED! {}'.format(type_of_media,
                                                           url, exc),
                   file=stderr)
             stderr.flush()
 
         return None
 
-    if (not media_is_image) and (not _MIXER_INITIALIZED):  # noqa  # pylint: disable=protected-access
-        _MIXER_INITIALIZED = True  # pylint: disable=protected-access
-        pygame.mixer.init(_MIXER_FREQUENCY)
-
     try:
-        media = (pygame.image.load(BytesIO(media_data)) if media_is_image
-                 else pygame.mixer.Sound(BytesIO(media_data)))
+        if media_is_image or (filename[-4:].lower() != '.mp3'):  # image or OGG or WAV  # noqa
+            media_bytesio = BytesIO(media_data)
+            media = (pygame.image.load(media_bytesio) if media_is_image
+                     else pygame.mixer.Sound(media_bytesio))  # OGG or WAV
+        else:                                                    # MP3
+            import tempfile
+
+            with tempfile.NamedTemporaryFile('wb',
+                                             prefix='SimpleGUICS2Pygame_',
+                                             suffix='.mp3') as tmpfile:
+                tmpfile.write(media_data)
+                media = __load_local_mp3_with_audioread(tmpfile.name)
     except Exception as exc:  # pylint: disable=broad-except
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
-            print("{} Pygame loading '{}' FAILED! {}".format(type_of_media,
+            print('{} Pygame loading "{}" FAILED! {}'.format(type_of_media,
                                                              url, exc),
                   file=stderr)
             stderr.flush()
@@ -252,39 +321,39 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
         return None
 
     if _SAVE_DOWNLOADED_MEDIAS:
+        # Save copy locally
         if _SAVE_DOWNLOADED_MEDIAS_OVERWRITE or not filename_exist:
             if not isdir(dirname(filename)):
                 try:
                     # Create local directory
                     makedirs(dirname(filename))
                     if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
-                        print("      Created '{}' directory"
+                        print('      Created "{}" directory'
                               .format(dirname(filename)),
                               file=stderr)
                 except Exception as exc:  # pylint: disable=broad-except
                     if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
-                        print("      Creating '{}' directory FAILED!! {}"
+                        print('      Creating "{}" directory FAILED!! {}'
                               .format(dirname(filename), exc),
                               file=stderr)
 
             try:
                 # Save to local file
-                outfile = open(filename, 'wb')
-                outfile.write(media_data)
-                outfile.close()
+                with open(filename, 'wb') as outfile:
+                    outfile.write(media_data)
                 if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
-                    print("      {} in '{}'"
+                    print('      {} in "{}"'
                           .format(('Overwritten' if filename_exist
                                    else 'Saved'), filename),
                           file=stderr)
             except Exception as exc:  # pylint: disable=broad-except
                 if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
-                    print("      {} in '{}' FAILED! {}"
+                    print('      {} in "{}" FAILED! {}'
                           .format(('Overwriting' if filename_exist
                                    else 'Saving'), filename, exc),
                           file=stderr)
         elif _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
-            print("      Local file '{}' already exist"
+            print('      Local file "{}" already exist'
                   .format(filename),
                   file=stderr)
 
@@ -299,6 +368,15 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
 #
 # Private functions
 ###################
+def __mixer_init():
+    """Initialize Pygame mixer (if not already initialized)"""
+    global _MIXER_INITIALIZED  # pylint: disable=global-statement
+
+    if not _MIXER_INITIALIZED:
+        _MIXER_INITIALIZED = True
+        pygame.mixer.init(_MIXER_FREQUENCY)
+
+
 def __normalized_filename(url, local_dir):
     """
     Build a "normalized" filename from url.

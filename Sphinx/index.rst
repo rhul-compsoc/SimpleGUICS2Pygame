@@ -69,55 +69,34 @@ I will try to help you with pleasure.
 .. _Tips: Tips.html
 
 
-Installation
-------------
-Obviously you need Python_. Then, open a terminal and do:
+Installation from sources
+-------------------------
+Obviously you need Python_.
+
+Download sources_ of SimpleGUICS2Pygame and unzip it.
+
+.. _sources: https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads/
+
+Then open a terminal,
+go to the main directory (the one that contains the file ``setup.py``),
+and run:
 
 .. code-block:: sh
 
-   $ python -m pip install -U pip --upgrade
-   $ python -m pip install -U pygame --user --upgrade
-   $ python -m pip install -U matplotlib --upgrade
-   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
-
-See explanations of each part below.
+   $ python setup.py install --user
 
 If several Python implementations are installed,
 maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
 
 Note that ``$`` represents the prompt and do *not* be entered by you.
 
-In some cases, maybe you must use **administrator rights**. With GNU/Linux do:
+Followed requirements are automatically installed.
 
-.. code-block:: sh
-
-   $ sudo [your command]
-
-
-First of all, install pip_, the installer of Python package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If ``pip`` is not yet installed on your system, install it with:
-
-.. code-block:: sh
-
-   $ python -m pip install -U pip --upgrade
-
-If you have some problem,
-see `installation documentation of pip`_.
-
-.. _`installation documentation of pip`: https://pip.pypa.io/en/stable/installing/
-.. _pip: https://pypi.org/project/pip
-
-
-Install required package pygame_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Package pygame_ required
+~~~~~~~~~~~~~~~~~~~~~~~~
 Pygame is required to use module ``simplegui_lib`` (and its submodules)
 and module ``simpleguics2pygame`` of SimpleGUICS2Pygame
 (except for the Timer class).
-
-.. code-block:: sh
-
-   $ python -m pip install -U pygame --user --upgrade
 
 If you have some problem,
 see `installation documentation of pygame`_.
@@ -126,32 +105,23 @@ see `installation documentation of pygame`_.
 .. _Pygame: https://www.pygame.org/
 
 
-Install required package matplotlib_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Package audioread_ required
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+audioread is required to play MP3 sounds
+(other sounds are played by Pygame).
+
+.. _audioread: https://github.com/beetbox/audioread
+
+
+Package matplotlib_ required
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 matplotlib is required to use module ``simpleplot`` of SimpleGUICS2Pygame.
-
-.. code-block:: sh
-
-   $ python -m pip install -U matplotlib --upgrade
 
 If you have some problem,
 see `installation documentation of matplotlib`_.
 
 .. _`installation documentation of matplotlib`: https://matplotlib.org/users/installing.html
 .. _matplotlib: https://matplotlib.org/
-
-
-Finally, install the package SimpleGUICS2Pygame
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. code-block:: sh
-
-   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
-
-Alternatively you can install SimpleGUICS2Pygame manually.
-The download_ directory contains
-some archives of all sources.
-
-.. _download: https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads/
 
 
 Test installation
@@ -169,15 +139,6 @@ You can also test your Pygame installation alone with the other little script_ `
 .. _script: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/script/
 .. _`result in Python 2`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py2/SimpleGUICS2Pygame_check.log
 .. _`result in Python 3`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/test/results_py3/SimpleGUICS2Pygame_check.log
-
-
-Update
-~~~~~~
-If SimpleGUICS2Pygame was installed with pip_ you can update it with:
-
-.. code-block:: sh
-
-   $ python -m pip install -U SimpleGUICS2Pygame --upgrade
 
 
 Examples of CodeSkulptor and SimpleGUICS2Pygame use

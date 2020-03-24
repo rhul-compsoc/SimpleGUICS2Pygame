@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, itial-scale=1">
   <meta name="author" content="SimpleGUICS2Pygame &ndash; test_all">
-  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 17, 2020 &ndash; test report &ndash; Python 2 &ndash; Pygame 1.9.6</title>
+  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 24, 2020 &ndash; test report &ndash; Python 2 &ndash; Pygame 1.9.6</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
 <body>
 <main>
   <header>
-    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 02.00.00 WORKING VERSION March 17, 2020
+    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 02.00.00 WORKING VERSION March 24, 2020
     (<a href="https://simpleguics2pygame.readthedocs.io/" target="_blank">online documentation</a>)
-    <h1>test report &ndash; Python 2 &ndash; Pygame 1.9.6 &ndash; 2020-03-17 11:12:26</h1>
+    <h1>test report &ndash; Python 2 &ndash; Pygame 1.9.6 &ndash; 2020-03-24 01:55:01</h1>
   </header>
   <ol>
 <li>
   <h2 >SimpleGUICS2Pygame_check</h2>
-<pre class="log">script/SimpleGUICS2Pygame_check.py (March 5, 2020)
-=====================================================
+<pre class="log">script/SimpleGUICS2Pygame_check.py (March 23, 2020)
+===================================================
 PATH:
   /home/opi/.cargo/bin
   /home/opi/bin
@@ -38,7 +38,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/
+  
 
 
 python - version 2.7.13 (default, Sep 26 2018, 18:42:22) 
@@ -47,12 +47,16 @@ python - version 2.7.13 (default, Sep 26 2018, 18:42:22)
 sys.path:
   /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
   /home/opi/data/git/current/simpleguics2pygame
+  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python2.7
   /usr/lib/python2.7/plat-x86_64-linux-gnu
   /usr/lib/python2.7/lib-tk
   /usr/lib/python2.7/lib-old
   /usr/lib/python2.7/lib-dynload
   /home/opi/.local/lib/python2.7/site-packages
+  /home/opi/.local/lib/python2.7/site-packages/SimpleGUICS2Pygame-02.00.00.WORKING.VERSION.March.24_.2020-py2.7.egg
+  /home/opi/.local/lib/python2.7/site-packages/pygame-2.0.0.dev6-py2.7-linux-x86_64.egg
+  /home/opi/.local/lib/python2.7/site-packages/audioread-2.1.8-py2.7.egg
   /usr/local/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages/PILcompat
@@ -60,14 +64,17 @@ sys.path:
   /usr/lib/python2.7/dist-packages/wx-3.0-gtk2
 
 
-import matplotlib ok - Version 2.2.5
-
-
 import pygame ok - Version 1.9.6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 17, 2020
+import audioread ok - Version 2.1.8
+
+
+import matplotlib ok - Version 2.0.0
+
+
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 24, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
@@ -158,16 +165,19 @@ timer&lt;type 'instance'&gt;&lt;Timer object&gt;&lt;Timer object&gt;</pre>
 </li>
 <li>
   <h2 >test_sound</h2>
-<pre class="log">Load from web "arrow.mp3"
+<pre class="log">Load from web "bonus.wav"
 Load from web "jump.ogg"
-Load from web "bonus.wav"
+Load from web "arrow.mp3"
 Load local "chirp_1s.wav"
-Play local "chirp_1s.wav" 1.000000s
-(MP3 is NOT supported by Pygame)
-Play "arrow.mp3" 0.000000s
-Play "jump.ogg" 0.350884s
-Play "bonus.wav" 0.448481s
-stop</pre>
+Load local "missile.ogg"
+Load local "missile.mp3"
+Play "chirp_1s.wav" 1.000000s loaded from local
+Play "missile.ogg" 0.232200s loaded from local
+Play "missile.mp3" 0.287347s loaded from local
+Play "bonus.wav" 0.448481s loaded from web
+Play "jump.ogg" 0.350884s loaded from web
+Play "arrow.mp3" 1.280000s loaded from web
+End of test_sound</pre>
 </li>
 <li>
   <h2 >test_text</h2>

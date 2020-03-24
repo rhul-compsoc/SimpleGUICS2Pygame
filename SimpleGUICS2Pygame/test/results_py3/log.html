@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, itial-scale=1">
   <meta name="author" content="SimpleGUICS2Pygame &ndash; test_all">
-  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 17, 2020 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6</title>
+  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 24, 2020 &ndash; test report &ndash; Python 3 &ndash; Pygame 2.0.0.dev6</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
 <body>
 <main>
   <header>
-    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 02.00.00 WORKING VERSION March 17, 2020
+    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 02.00.00 WORKING VERSION March 24, 2020
     (<a href="https://simpleguics2pygame.readthedocs.io/" target="_blank">online documentation</a>)
-    <h1>test report &ndash; Python 3 &ndash; Pygame 1.9.6 &ndash; 2020-03-17 11:13:20</h1>
+    <h1>test report &ndash; Python 3 &ndash; Pygame 2.0.0.dev6 &ndash; 2020-03-24 01:56:08</h1>
   </header>
   <ol>
 <li>
   <h2 >SimpleGUICS2Pygame_check</h2>
-<pre class="log">script/SimpleGUICS2Pygame_check.py (March 5, 2020)
-=====================================================
+<pre class="log">script/SimpleGUICS2Pygame_check.py (March 23, 2020)
+===================================================
 PATH:
   /home/opi/.cargo/bin
   /home/opi/bin
@@ -38,7 +38,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/
+  
 
 
 python - version 3.5.3 (default, Sep 27 2018, 17:25:39) 
@@ -47,23 +47,30 @@ python - version 3.5.3 (default, Sep 27 2018, 17:25:39)
 sys.path:
   /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
   /home/opi/data/git/current/simpleguics2pygame
+  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python35.zip
   /usr/lib/python3.5
   /usr/lib/python3.5/plat-x86_64-linux-gnu
   /usr/lib/python3.5/lib-dynload
   /home/opi/.local/lib/python3.5/site-packages
+  /home/opi/.local/lib/python3.5/site-packages/SimpleGUICS2Pygame-02.00.00.WORKING.VERSION.March.24_.2020-py3.5.egg
+  /home/opi/.local/lib/python3.5/site-packages/audioread-2.1.8-py3.5.egg
+  /home/opi/.local/lib/python3.5/site-packages/pygame-2.0.0.dev6-py3.5-linux-x86_64.egg
   /usr/local/lib/python3.5/dist-packages
   /usr/lib/python3/dist-packages
 
 
-import matplotlib ok - Version 3.0.3
-
-
-import pygame ok - Version 1.9.6
+import pygame ok - Version 2.0.0.dev6
   pygame.init() 6 modules loaded ok
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 17, 2020
+import audioread ok - Version 2.1.8
+
+
+import matplotlib ok - Version 2.2.2
+
+
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 24, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
@@ -80,10 +87,7 @@ import SimpleGUICS2Pygame.simpleplot ok</pre>
   <h2 >test_button_label</h2>
 </li>
 <li>
-  <h2 >test_circle<span class="imgs_diff">Images different: 41!</span></h2>
-<img src="../results_good/test_circle.png" alt="[results_good/test_circle.png]" title="Comparative result.">
-<img src="../results_py3/test_circle.png" alt="[results_py3/test_circle.png]" title="Result of test.">
-<img src="../results_py3/test_circle_diff.png" alt="[results_py3/test_circle_diff.png]" title="Difference images.">
+  <h2 >test_circle</h2>
 </li>
 <li>
   <h2 >test_colors_constants</h2>
@@ -154,16 +158,19 @@ timer&lt;class &#x27;SimpleGUICS2Pygame.simpleguics2pygame.timer.Timer&#x27;&gt;
 </li>
 <li>
   <h2 >test_sound</h2>
-<pre class="log">Load from web &quot;arrow.mp3&quot;
+<pre class="log">Load from web &quot;bonus.wav&quot;
 Load from web &quot;jump.ogg&quot;
-Load from web &quot;bonus.wav&quot;
+Load from web &quot;arrow.mp3&quot;
 Load local &quot;chirp_1s.wav&quot;
-Play local &quot;chirp_1s.wav&quot; 1.000000s
-(MP3 is NOT supported by Pygame)
-Play &quot;arrow.mp3&quot; 0.000000s
-Play &quot;jump.ogg&quot; 0.350884s
-Play &quot;bonus.wav&quot; 0.448481s
-stop</pre>
+Load local &quot;missile.ogg&quot;
+Load local &quot;missile.mp3&quot;
+Play &quot;chirp_1s.wav&quot; 1.000000s loaded from local
+Play &quot;missile.ogg&quot; 0.208980s loaded from local
+Play &quot;missile.mp3&quot; 0.287347s loaded from local
+Play &quot;bonus.wav&quot; 0.448481s loaded from web
+Play &quot;jump.ogg&quot; 0.350884s loaded from web
+Play &quot;arrow.mp3&quot; 1.436735s loaded from web
+End of test_sound</pre>
 </li>
 <li>
   <h2 >test_text</h2>
