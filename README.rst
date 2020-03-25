@@ -35,7 +35,7 @@ and *standard Python* with this module (and Pygame).
 or `SimpleGUI documentation on CodeSkulptor3`_.)
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
-| and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame .
+| and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame/ .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _CodeSkulptor3: https://py3.codeskulptor.org/
@@ -258,7 +258,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 24, 2020
+* 02.00.00 WORKING VERSION — March 25, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)

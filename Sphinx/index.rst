@@ -35,7 +35,7 @@ or `SimpleGUI documentation on CodeSkulptor3`_.)
 
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
-| and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame .
+| and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame/ .
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _CodeSkulptor3: https://py3.codeskulptor.org/
@@ -224,6 +224,8 @@ Note that
   that reimplement
   ``codeskulptor``, ``numeric``, ``simplegui`` and ``simpleplot`` modules of CodeSkulptor.
 
+  ``simplemap`` is *not* implemented.
+
   .. warning::
      SimpleGUICS2Pygame was **designed to mimic behavior of CodeSkulptor**.
      So `load_image()`_ and `load_sound()`_ methods can load medias only from URL, not local files.
@@ -244,16 +246,19 @@ Note that
 
 * SimpleGUITk_ (David Holm) is *another implementation* of SimpleGUI of CodeSkulptor, using Tkinter and some others packages. It is really less complete and not updated. However it works for some programs.
 
+* simplegui2pygamemodule_ (Jimmy Kumar Ahalpara) seems be *another implementation* of SimpleGUI of CodeSkulptor, but I have not tested it.
+
 * simplequi_ (Arthur Gordon-Wright) is *another implementation* of SimpleGUI of CodeSkulptor, using Qt/PySide2. It is a partial implementation that I have not tested.
 
 .. warning::
    * simplegui_ (Florian Berger) is a Python package which has the same name as SimpleGUI of CodeSkulptor, but it is *totally something else*.
 
    .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/learn/interactive-python-1
-   .. _simplegui: https://pypi.org/project/simplegui
+   .. _simplegui: https://pypi.org/project/simplegui/
    .. _`SimpleGUI of CodeSkulptor`: http://www.codeskulptor.org/docs.html#Frames
    .. _`SimpleGUI of CodeSkulptor3`: https://py3.codeskulptor.org/docs.html#Frames
-   .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk
+   .. _simplegui2pygamemodule: https://pypi.org/project/simplegui2pygamemodule/
+   .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk/
    .. _simplequi: https://pypi.org/project/simplequi/
 
 

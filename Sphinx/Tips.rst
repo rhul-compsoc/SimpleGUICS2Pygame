@@ -106,6 +106,24 @@ And then you can run specific code simply by testing value of ``SIMPLEGUICS2PYGA
         frame._set_joypadup_handler(joypad_up)
 
 
+Joypad
+------
+SimpleGUICS2Pygame adds the possibility to use joypads.
+It is *not* available in CodeSkulptor.
+You can make compatible program with the previous tip
+to separate specific code.
+
+Similarly to ``set_mouseclick_handler()`` and ``set_mousedrag_handler()`` functions,
+the class `Frame`_ in SimpleGUICS2Pygame defines
+``_set_joypaddown_handler()``,
+``_set_joypadup_handler()``,
+``_set_joypadaxe_handler()``
+and ``_set_joypadhat_handler()``.
+
+.. _`Frame`: simpleguics2pygame/frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame
+
+
+
 Colors
 ------
 The color parameter used by drawing functions must be in the following formats:
@@ -220,11 +238,11 @@ Python assertions option
 ------------------------
 Run
 ``python YOURPROGRAM.py``
-then asserts is active and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
+then asserts is enabled and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
 It is a good point to develop and write *correct programs*.
 But if you want just run a program (or run faster),
 ``python -O YOURPROGRAM.py``
-then all asserts is *inactive*.
+then all asserts is *disabled*.
 
 
 Ressources: images, sounds and example programs
