@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 25, 2020
+* 02.00.00 WORKING VERSION — March 26, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -12,9 +12,12 @@ ChangeLog
     - Added alpha possibility on background color.
     - Added dealing of joypads.
     - Added dealing of MP3 sounds.
+      Added ``draw_arc()`` in ``Canvas`` and ``test_arc``.
     - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
+    - Added ``codeskulptor_version()`` in ``codeskulptor_lib``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.
+    - Added ``randomize_iteration()`` in ``codeskulptor``.
     - Added ``transparent`` "color" name.
     - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
     - Improved dealing of input box.
@@ -46,6 +49,7 @@ ChangeLog
     - Corrected and updated ``test/test_sound.py``.
     - Added ``test/test_command_line_options.py``.
     - Added ``test/test_input.py``.
+    - Updated ``test/test_dir.py``.
     - Updated ``test/test_objects.py``.
     - Updated ``test/test_text.py``.
 

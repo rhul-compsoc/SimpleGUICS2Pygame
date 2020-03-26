@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 23, 2020
+:version: March 26, 2020
 """
 
 from __future__ import division
@@ -205,6 +205,88 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         filename = os.path.abspath(os.path.expanduser(filename))
         pygame.image.save(self._pygame_surface, filename)
 
+    def draw_arc(self,  # pylint: disable=too-many-arguments
+                 center_point, radius,
+                 start_angle, end_angle,
+                 line_width, line_color):
+        """
+        Draw an arc of circle, from `start_angle` to `end_angle`.
+        Angles given in radians are clockwise
+        and start from 0 at the 3 o'clock position.
+
+        (Available in CodeSkulptor3 but *not in CodeSkulptor 2*!)
+
+        :param center_point: (int or float, int or float)
+                             or [int or float, int or float]
+        :param radius: (int or float) > 0
+        :param start_angle: int or float
+        :param end_angle: int or float
+        :param line_width: (int or float) > 0
+        :param line_color: str
+        """
+        assert (isinstance(center_point, tuple) or
+                isinstance(center_point, list)), type(center_point)
+        assert len(center_point) == 2, len(center_point)
+        assert (isinstance(center_point[0], int) or
+                isinstance(center_point[0], float)), type(center_point[0])
+        assert (isinstance(center_point[1], int) or
+                isinstance(center_point[1], float)), type(center_point[1])
+
+        assert isinstance(radius, int) or isinstance(radius, float), \
+            type(radius)
+        assert radius > 0, radius
+
+        assert (isinstance(start_angle, int) or
+                isinstance(start_angle, float)), (start_angle)
+        assert isinstance(end_angle, int) or isinstance(end_angle, float), \
+            type(end_angle)
+
+        assert isinstance(line_width, int) or isinstance(line_width, float), \
+            type(line_width)
+        assert line_width > 0, line_width
+
+        assert isinstance(line_color, str), type(line_color)
+
+        line_width = (1 if line_width <= 1
+                      else int(round(line_width)))
+
+        radius = int(round(radius)) + int(round(line_width // 2))
+
+        # Adapt Codeskulptor angles to Pygame
+        if start_angle == end_angle:
+            return
+
+        start_angle = -start_angle
+        end_angle = -end_angle
+        start_angle, end_angle = end_angle, start_angle
+
+        double_pi = math.pi * 2
+        start_angle %= double_pi
+        end_angle %= double_pi
+
+        if start_angle == end_angle:
+            return
+
+        # Draw
+        if radius > 1:
+            line_color = _simpleguicolor_to_pygamecolor(line_color)
+
+            if line_color.a > 0:
+                diameter = radius * 2
+                s_tmp = pygame.Surface((diameter, diameter),  # noqa  # pylint: disable=too-many-function-args
+                                       pygame.SRCALPHA)  # noqa  # pylint: disable=no-member
+
+                pygame.draw.arc(s_tmp, line_color,
+                                s_tmp.get_rect(),
+                                start_angle, end_angle,
+                                min(line_width, radius))
+
+                self._pygame_surface.blit(s_tmp,
+                                          (center_point[0] - radius,
+                                           center_point[1] - radius))
+        elif radius > 0:  # == 1
+            self.draw_point(center_point, line_color)
+
     def draw_circle(self,  # pylint: disable=too-many-arguments
                     center_point, radius,
                     line_width, line_color,
@@ -252,34 +334,38 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             if fill_color is not None:
                 fill_color = _simpleguicolor_to_pygamecolor(fill_color)
 
+            center_point_rounded = _pos_round(center_point)
+
             if ((line_color.a == 255) and
                     ((fill_color is None) or (fill_color.a == 255))):
                 # Without alpha
                 if fill_color is not None:
                     pygame.draw.circle(self._pygame_surface, fill_color,
-                                       _pos_round(center_point), radius, 0)
+                                       center_point_rounded, radius,
+                                       0)
                 if line_color != fill_color:
                     pygame.draw.circle(self._pygame_surface, line_color,
-                                       _pos_round(center_point),
-                                       radius, min(line_width, radius))
+                                       center_point_rounded, radius,
+                                       min(line_width, radius))
             elif ((line_color.a > 0) or
                   ((fill_color is not None) and (fill_color.a > 0))):
                 # With one or two alpha (not null)
-                s_alpha = pygame.Surface((radius * 2, radius * 2),  # noqa  # pylint: disable=too-many-arguments,too-many-function-args
+                diameter = radius * 2
+                s_alpha = pygame.Surface((diameter, diameter),  # noqa  # pylint: disable=too-many-function-args
                                          pygame.SRCALPHA)  # noqa  # pylint: disable=no-member
 
                 if (fill_color is not None) and (fill_color.a > 0):
                     pygame.draw.circle(s_alpha, fill_color,
-                                       (radius, radius), radius, 0)
+                                       (radius, radius), radius,
+                                       0)
                 if (line_color != fill_color) and (line_color.a > 0):
                     pygame.draw.circle(s_alpha, line_color,
-                                       (radius, radius),
-                                       radius, min(line_width, radius))
+                                       (radius, radius), radius,
+                                       min(line_width, radius))
 
-                self._pygame_surface.blit(
-                    s_alpha,
-                    (int(round(center_point[0])) - radius,
-                     int(round(center_point[1])) - radius))
+                self._pygame_surface.blit(s_alpha,
+                                          (center_point_rounded[0] - radius,
+                                           center_point_rounded[1] - radius))
         elif radius > 0:  # == 1
             self.draw_point(center_point, line_color)
 

@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 26, 2020
 """
 
 from __future__ import print_function
@@ -54,6 +54,25 @@ def file2url(filename):
             .format(match.group(1), filename))
 
 
+def randomize_iteration(randomize=True):  # pylint: disable=unused-argument
+    """
+    Fake implementation.
+    In CodeSkulptor this function modify the default behaviour
+    of iterations on ``dict`` and ``set``.
+    In SimpleGUICS2Pygame this function does nothing.
+
+    See `CodeSkulptor3 randomize_iteration documentation`_.
+
+    .. _`CodeSkulptor3 randomize_iteration documentation`: https://py3.codeskulptor.org/docs.html#randomize-iteration
+
+    (Available in CodeSkulptor
+    but *not in CodeSkulptor documentation*!)
+
+    :randomize bool:
+    """  # noqa
+    pass
+
+
 def set_timeout(seconds):
     """
     Does nothing.
@@ -64,8 +83,8 @@ def set_timeout(seconds):
 
     .. _`CodeSkulptor set_timeout documentation`: http://www.codeskulptor.org/docs.html#set-timeout
 
-    .. warning::
-       This function is not available in SimpleGUI of CodeSkulptor3.
+    (Available in CodeSkulptor and CodeSkulptor3
+    but *not in CodeSkulptor3 documentation*!)
 
     :param seconds: int >= 0
     """  # noqa

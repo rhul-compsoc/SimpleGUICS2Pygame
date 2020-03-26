@@ -95,19 +95,19 @@ And then you can run specific code simply by testing value of ``SIMPLEGUICS2PYGA
 
 .. code-block:: python
 
-    ...
+    # …
 
     def joypad_up(joypad, button):
         if joypad == 0:
             if button == 0:
-                ...
+                # …
 
     if SIMPLEGUICS2PYGAME:
         frame._set_joypadup_handler(joypad_up)
 
 
-Joypad
-------
+Joypads
+-------
 SimpleGUICS2Pygame adds the possibility to use joypads.
 It is *not* available in CodeSkulptor.
 You can make compatible program with the previous tip
@@ -226,12 +226,12 @@ For example, to draw multiline text you can use `draw_text_multi()`_ from the `s
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib_draw
 
     def draw(canvas):
-        …
+        # …
         draw_text_multi(canvas,
                         """line 1
     line 2
     line 3""", (x, y), size, 'white', 'serif')
-        …
+        # …
 
 
 Python assertions option

@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 26, 2020
 """
 
 from __future__ import print_function
@@ -114,7 +114,7 @@ def main():
                     diff_img = PIL.ImageChops.difference(good_img, src_img)
                     imgs_diff[filename] = int(round(
                         PIL.ImageStat.Stat(diff_img).rms[0]))
-                    if imgs_diff[filename] <= 32:
+                    if imgs_diff[filename] <= 1:
                         imgs_diff[filename] = 0
                     diff_img.save('{}/{}_diff.png'
                                   .format(DIR_RESULTS, filename),

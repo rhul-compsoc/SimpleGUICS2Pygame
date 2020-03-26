@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, itial-scale=1">
   <meta name="author" content="SimpleGUICS2Pygame &ndash; test_all">
-  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 24, 2020 &ndash; test report &ndash; Python 2 &ndash; Pygame 1.9.6</title>
+  <title>SimpleGUICS2Pygame 02.00.00 WORKING VERSION March 26, 2020 &ndash; test report &ndash; Python 2 &ndash; Pygame 1.9.6</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
 <body>
 <main>
   <header>
-    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 02.00.00 WORKING VERSION March 24, 2020
+    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 02.00.00 WORKING VERSION March 26, 2020
     (<a href="https://simpleguics2pygame.readthedocs.io/" target="_blank">online documentation</a>)
-    <h1>test report &ndash; Python 2 &ndash; Pygame 1.9.6 &ndash; 2020-03-24 23:46:53</h1>
+    <h1>test report &ndash; Python 2 &ndash; Pygame 1.9.6 &ndash; 2020-03-26 15:51:21</h1>
   </header>
   <ol>
 <li>
@@ -73,7 +73,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.0.0
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 24, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 26, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
@@ -87,16 +87,25 @@ import SimpleGUICS2Pygame.simpleguics2pygame ok
 import SimpleGUICS2Pygame.simpleplot ok</pre>
 </li>
 <li>
+  <h2 >test_arc<span class="imgs_diff">Images different: 38!</span></h2>
+<img src="../results_good/test_arc.png" alt="[results_good/test_arc.png]" title="Comparative result.">
+<img src="../results_py2/test_arc.png" alt="[results_py2/test_arc.png]" title="Result of test.">
+<img src="../results_py2/test_arc_diff.png" alt="[results_py2/test_arc_diff.png]" title="Difference images.">
+</li>
+<li>
   <h2 >test_button_label</h2>
 </li>
 <li>
-  <h2 >test_circle<span class="imgs_diff">Images different: 41!</span></h2>
+  <h2 >test_circle<span class="imgs_diff">Images different: 37!</span></h2>
 <img src="../results_good/test_circle.png" alt="[results_good/test_circle.png]" title="Comparative result.">
 <img src="../results_py2/test_circle.png" alt="[results_py2/test_circle.png]" title="Result of test.">
 <img src="../results_py2/test_circle_diff.png" alt="[results_py2/test_circle_diff.png]" title="Difference images.">
 </li>
 <li>
-  <h2 >test_colors_constants</h2>
+  <h2 >test_colors_constants<span class="imgs_diff">Images different: 16!</span></h2>
+<img src="../results_good/test_colors_constants.png" alt="[results_good/test_colors_constants.png]" title="Comparative result.">
+<img src="../results_py2/test_colors_constants.png" alt="[results_py2/test_colors_constants.png]" title="Result of test.">
+<img src="../results_py2/test_colors_constants_diff.png" alt="[results_py2/test_colors_constants_diff.png]" title="Difference images.">
 </li>
 <li>
   <h2 >test_colors_html</h2>
@@ -114,12 +123,27 @@ import SimpleGUICS2Pygame.simpleplot ok</pre>
 </li>
 <li>
   <h2 >test_dir</h2>
-<pre class="log">List dir() differences between CodeSkulptor (January 2015) and this "Python":
+<pre class="log">List dir() differences between CodeSkulptor (March 2020) and this "Python":
 
-No difference.</pre>
+CodeSkulptor simplegui.Frame	!= Python 2.7.13 simplegui.Frame
+--------------------------------------------------------------------
+download_canvas_image
+
+CodeSkulptor simplemap	!= Python 2.7.13 simplemap
+--------------------------------------------------------
+Line
+Map
+Marker
+Rice
+__name__
+create_map
+service</pre>
 </li>
 <li>
-  <h2 >test_grid</h2>
+  <h2 >test_grid<span class="imgs_diff">Images different: 12!</span></h2>
+<img src="../results_good/test_grid.png" alt="[results_good/test_grid.png]" title="Comparative result.">
+<img src="../results_py2/test_grid.png" alt="[results_py2/test_grid.png]" title="Result of test.">
+<img src="../results_py2/test_grid_diff.png" alt="[results_py2/test_grid_diff.png]" title="Difference images.">
 </li>
 <li>
   <h2 >test_image</h2>
@@ -179,7 +203,10 @@ Play "arrow.mp3" 1.280000s loaded from web
 End of test_sound</pre>
 </li>
 <li>
-  <h2 >test_text</h2>
+  <h2 >test_text<span class="imgs_diff">Images different: 16!</span></h2>
+<img src="../results_good/test_text.png" alt="[results_good/test_text.png]" title="Comparative result.">
+<img src="../results_py2/test_text.png" alt="[results_py2/test_text.png]" title="Result of test.">
+<img src="../results_py2/test_text_diff.png" alt="[results_py2/test_text_diff.png]" title="Difference images.">
 </li>
   </ol>
 </main>

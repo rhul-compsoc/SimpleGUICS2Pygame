@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 25, 2020
 """
 
 from sys import argv
@@ -18,6 +18,7 @@ try:
     import simplegui
     import codeskulptor
     import numeric
+    import simplemap  # not implemented in SimpleGUICS2Pygame
     import simpleplot
 
     SIMPLEGUICS2PYGAME = False
@@ -43,7 +44,7 @@ TEST = 'test dir'
 
 CODESKULPTOR_DIRS = {
     'codeskulptor': ('__name__',
-                     'file2url', 'set_timeout'),
+                     'file2url', 'randomize_iteration', 'set_timeout'),
 
     'numeric': ('__name__',
                 'identity',
@@ -51,7 +52,8 @@ CODESKULPTOR_DIRS = {
     'numeric.Matrix': ('__init__',
                        '__add__', '__getitem__', '__module__', '__mul__',
                        '__setitem__', '__str__', '__sub__',
-                       'abs', 'copy', 'getcol', 'getrow', 'inverse', 'scale',
+                       'abs', 'copy', 'getcol', 'getrow', 'inverse',
+                       'scale',  # no available in CodeSkulptor3
                        'shape', 'summation', 'transpose'),
 
     'simplegui': ('__name__',
@@ -62,6 +64,7 @@ CODESKULPTOR_DIRS = {
                   'create_sound', 'create_timer',
                   'load_image', 'load_sound'),
     'simplegui.Canvas': ('__init__', '__module__',
+                         'draw_arc',  # no available in CodeSkulptor 2
                          'draw_circle', 'draw_image', 'draw_line',
                          'draw_point', 'draw_polygon', 'draw_polyline',
                          'draw_text'),
@@ -69,6 +72,7 @@ CODESKULPTOR_DIRS = {
                           'get_text', 'set_text'),
     'simplegui.Frame': ('__init__', '__module__',
                         'add_button', 'add_input', 'add_label',
+                        'download_canvas_image',  # no available in CodeSkulptor 2  # noqa
                         'get_canvas_image', 'get_canvas_textwidth',
                         'set_canvas_background', 'set_draw_handler',
                         'set_keydown_handler', 'set_keyup_handler',
@@ -82,6 +86,10 @@ CODESKULPTOR_DIRS = {
                                   'get_text', 'set_text'),
     'simplegui.Timer': ('__init__', '__module__',
                         'get_interval', 'is_running', 'start', 'stop'),
+
+    'simplemap': ('__name__',
+                  'Line', 'Map', 'Marker', 'Rice',
+                  'create_map', 'service'),
 
     'simpleplot': ('__name__',
                    'plot_bars', 'plot_lines', 'plot_scatter')}
@@ -103,6 +111,9 @@ DIRS = {
     'simplegui.Sound': dir(simplegui.Sound),
     'simplegui.TextAreaControl': dir(simplegui.TextAreaControl),
     'simplegui.Timer': dir(simplegui.Timer),
+
+    'simplemap': ([] if SIMPLEGUICS2PYGAME
+                  else dir(simplemap)),
 
     'simpleplot': dir(simpleplot)}
 """
@@ -177,7 +188,7 @@ def print_cmp_seq(a, title_a,
 
 
 # Main
-print('List dir() differences between CodeSkulptor (January 2015) and this "Python":\n')  # noqa
+print('List dir() differences between CodeSkulptor (March 2020) and this "Python":\n')  # noqa
 
 for k in sorted(CODESKULPTOR_DIRS):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,

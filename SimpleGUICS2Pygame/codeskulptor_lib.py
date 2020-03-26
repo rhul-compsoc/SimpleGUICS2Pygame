@@ -10,19 +10,23 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 26, 2020
 """
-
-from __future__ import print_function
 
 # print('IMPORT', __name__)
 
 
-# Private global variable
-#########################
-_CODESKULPTOR_IS = None
+# Private global variables
+##########################
+__CODESKULPTOR_IS = None
 """
 Used to memoization by codeskulptor_is().
+"""
+
+
+__CODESKULPTOR_VERSION = None
+"""
+Used to memoization by codeskulptor_version().
 """
 
 
@@ -72,20 +76,45 @@ def codeskulptor_is():
     :return: bool
     """
     # CodeSkulptor require global in top of function
-    global _CODESKULPTOR_IS  # pylint: disable=global-statement
+    global __CODESKULPTOR_IS  # pylint: disable=global-statement
 
-    if _CODESKULPTOR_IS is None:
+    if __CODESKULPTOR_IS is None:
         try:
             # Try import to check if running in CodeSkulptor environment
-            from codeskulptor import file2url
-            from simplegui import KEY_MAP
+            from codeskulptor import file2url  # noqa  # pylint: disable=unused-variable
+            from simplegui import KEY_MAP  # pylint: disable=unused-variable
 
-            url = file2url('try-codeskulptor-is')
-            _CODESKULPTOR_IS = (url != '') and ('A' in KEY_MAP)
+            __CODESKULPTOR_IS = True
         except ImportError:
-            _CODESKULPTOR_IS = False
+            __CODESKULPTOR_IS = False
 
-    return _CODESKULPTOR_IS
+    return __CODESKULPTOR_IS
+
+
+def codeskulptor_version():
+    """
+    If run in CodeSkulptor environment
+    then return 2 if CodeSkulptor or 3 if CodeSkulptor3
+    else return `False`.
+
+    :return: False, 2 or 3
+    """
+    # CodeSkulptor require global in top of function
+    global __CODESKULPTOR_VERSION  # pylint: disable=global-statement
+
+    if __CODESKULPTOR_VERSION is None:
+        if codeskulptor_is():
+            try:
+                # Try import to check if running in CodeSkulptor version 2
+                from urllib2 import urlopen  # pylint: disable=unused-variable
+
+                __CODESKULPTOR_VERSION = 2
+            except ImportError:
+                __CODESKULPTOR_VERSION = 3
+        else:
+            __CODESKULPTOR_VERSION = False  # noqa  # pylint: disable=redefined-variable-type
+
+    return __CODESKULPTOR_VERSION
 
 
 def hex2(n, uppercase=True):  # pylint: disable=invalid-name

@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 17, 2020
+# Makefile of SimpleGUICS2Pygame --- March 26, 2020
 
 .SUFFIXES:
 
@@ -30,7 +30,7 @@ PYFLAKES      = pyflakes3  # https://pypi.org/project/pyflakes/
 PYFLAKESFLAGS =
 
 PYLINT      = pylint3  # https://www.pylint.org/
-PYLINTFLAGS = -j $(JOB) --disable=line-too-long,locally-disabled
+PYLINTFLAGS = -j $(JOB) --disable=duplicate-code,line-too-long,locally-disabled
 
 PYTYPE      = export PYGAME_HIDE_SUPPORT_PROMPT=hide; pytype  # https://google.github.io/pytype/
 PYTYPEFLAGS = -j $(JOB)
@@ -42,10 +42,11 @@ CHECKTXT = checkTxtPy.py  # not public program
 CD    = cd
 CP    = cp -p
 ECHO  = echo
+GREP  = grep
 GZIP  = gzip
 RM    = rm -f
 RMDIR = rmdir
-SHELL = sh
+SHELL = bash
 TAR   = tar
 TEE   = tee
 
@@ -132,7 +133,7 @@ lintlog:
 	-$(PEP8) $(PEP8FLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) | $(TEE) -a lint.log
 	@$(ECHO) ===== pyflakes ===== | $(TEE) -a lint.log
-	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(GREP) -v 'imported but unused' | $(GREP) -E -v 'impleGUICS2Pygame/simpleguics2pygame/__init__.py:.+undefined name' | $(TEE) -a lint.log || exit 0 && exit 1
 	@$(ECHO) | $(TEE) -a lint.log
 	@$(ECHO) ===== pylint ===== | $(TEE) -a lint.log
 	-$(PYLINT) $(PYLINTFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
@@ -157,7 +158,7 @@ pydeps:
 	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
 
 pyflakes:
-	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC)
+	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(GREP) -v 'imported but unused' | $(GREP) -E -v 'impleGUICS2Pygame/simpleguics2pygame/__init__.py:.+undefined name' || exit 0 && exit 1
 
 pylint:
 	-$(PYLINT) $(PYLINTFLAGS) $(SRC)
