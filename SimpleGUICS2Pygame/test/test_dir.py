@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 25, 2020
+:version: March 27, 2020
 """
 
 from sys import argv
@@ -72,7 +72,7 @@ CODESKULPTOR_DIRS = {
                           'get_text', 'set_text'),
     'simplegui.Frame': ('__init__', '__module__',
                         'add_button', 'add_input', 'add_label',
-                        'download_canvas_image',  # no available in CodeSkulptor 2  # noqa
+                        'download_canvas_image',  # no available in CodeSkulptor 2, and not in documentation of CodeSkulptor3  # noqa
                         'get_canvas_image', 'get_canvas_textwidth',
                         'set_canvas_background', 'set_draw_handler',
                         'set_keydown_handler', 'set_keyup_handler',
@@ -112,7 +112,7 @@ DIRS = {
     'simplegui.TextAreaControl': dir(simplegui.TextAreaControl),
     'simplegui.Timer': dir(simplegui.Timer),
 
-    'simplemap': ([] if SIMPLEGUICS2PYGAME
+    'simplemap': ([] if SIMPLEGUICS2PYGAME  # noqa  # not implemented SimpleGUICS2Pygame
                   else dir(simplemap)),
 
     'simpleplot': dir(simpleplot)}

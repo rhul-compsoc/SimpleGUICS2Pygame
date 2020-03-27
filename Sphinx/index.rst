@@ -72,8 +72,8 @@ I will try to help you with pleasure.
 .. _Tips: Tips.html
 
 
-Installation from sources
--------------------------
+Installation
+------------
 Obviously you need Python_.
 
 Download sources_ of SimpleGUICS2Pygame and unzip it.
@@ -157,8 +157,8 @@ Two simple online examples:
   * `Frame_example.py`_: very simple canvas example
   * `presentation.py`_: little draw images and texts
 
-.. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user47_vA52sTrGMElpRNd.py
+.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_0M6fVplmF2nXPJ4.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_WC2nz2MNytGdPmC.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 

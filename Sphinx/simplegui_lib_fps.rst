@@ -12,7 +12,7 @@ Examples of use in :
   http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
 
 * `example/RiceRocks_Asteroids.py`:
-  http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
+  https://py3.codeskulptor.org/#user305_d0YydVwu3VoWPul.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_fps
     :special-members:

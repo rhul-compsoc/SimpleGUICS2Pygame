@@ -10,12 +10,16 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 27, 2020
 """
 
 try:
+    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
+
     import simplegui
 except ImportError:
+    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
+
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
@@ -42,10 +46,23 @@ def draw(canvas):
                      font_size, 'Green')
 
 
+def save_canvas():
+    """
+    Download/save canvas image.
+    """
+    FRAME.download_canvas_image()
+
+
 # Main
 FRAME = simplegui.create_frame('Title', CANVAS_WIDTH, CANVAS_HEIGHT)
 
 FRAME.add_label('Control Panel')
+
+FRAME.add_label('')
+if codeskulptor_lib.codeskulptor_version() != 2:
+    FRAME.add_button(('Download canvas image'
+                      if codeskulptor_lib.codeskulptor_is()
+                      else 'Save canvas image'), save_canvas)
 
 FRAME.add_label('')
 FRAME.add_button('Quit', FRAME.stop)

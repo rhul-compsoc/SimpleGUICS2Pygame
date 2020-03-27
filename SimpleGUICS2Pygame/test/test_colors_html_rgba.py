@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 27, 2020
 """
 
 try:
-    from user38_ZmhOVHGm2lhVRhk import rgba
+    from user305_fZiH7ljLOrt9aBi import rgba
 
     import simplegui
 

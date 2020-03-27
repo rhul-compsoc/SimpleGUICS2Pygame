@@ -19,14 +19,14 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 15, 2020
+:version: March 27, 2020
 """
 
 import math
 import random
 
 try:
-    from user38_ZmhOVHGm2lhVRhk import assert_position
+    from user305_fZiH7ljLOrt9aBi import assert_position
     from user33_Bhc7VzXKbXGVQV1 import FPS
     from user40_nMs7JxzimyImAv2 import Loader
 

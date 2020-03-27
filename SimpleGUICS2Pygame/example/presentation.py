@@ -12,19 +12,19 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 27, 2020
 """
 
 try:
-    import simplegui
+    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
 
-    SIMPLEGUICS2PYGAME = False
+    import simplegui
 except ImportError:
+    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
+
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
-
-    SIMPLEGUICS2PYGAME = True
 
 
 #
@@ -34,12 +34,7 @@ def main():
     """
     Main function.
     """
-    if SIMPLEGUICS2PYGAME:
-        from sys import version
-        from webbrowser import open_new_tab
-
-        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
-    else:
+    if codeskulptor_lib.codeskulptor_is():
         def open_new_tab(url):
             """
             Fake replacement of webbrowser.open_new_tab() function.
@@ -49,9 +44,14 @@ def main():
         _VERSION = ''  # pylint: disable=invalid-name
         _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa  # pylint: disable=invalid-name
         _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
+    else:
+        from sys import version
+        from webbrowser import open_new_tab
+
+        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
 
     width = 560
-    height = 490
+    height = 540
 
     def draw_about_handler(canvas):
         """
@@ -81,8 +81,13 @@ def main():
                  'This is in fact a package also with other modules',
                  'adapted from CodeSkulptor.',
                  None,
-                 'Require malplotlib for simpleplot.',
+                 None,
                  'Require Pygame for simpleguics2pygame.',
+                 'Require audioread for MP3 sounds.',
+                 'Require malplotlib for simpleplot.',
+                 None,
+                 None,
+                 None,
                  None,
                  'GPLv3',
                  'Copyright (C) 2013 - 2020 Olivier Pirson',
@@ -92,7 +97,11 @@ def main():
                 canvas.draw_text(line, (10, 80 + size * (i + 3 / 4)),
                                  size, 'Black')
 
-    if SIMPLEGUICS2PYGAME:
+    if codeskulptor_lib.codeskulptor_is():
+        logo = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')  # noqa
+        logo_opi = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
+        logo_gpl = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
+    else:
         from os.path import dirname, join
         from sys import argv
 
@@ -103,10 +112,6 @@ def main():
                                                     '../_img/OPi_t.png'))
         logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),  # noqa  # pylint: disable=protected-access,no-member
                                                     '../_img/gplv3-88x31.png'))
-    else:
-        logo = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_64x64_t.png')  # noqa
-        logo_opi = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
-        logo_gpl = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
 
     frame = simplegui.create_frame(
         'SimpleGUICS2Pygame: short presentation of this package',
@@ -150,8 +155,12 @@ def main():
     frame.add_label('')
     frame.add_button('Quit', frame.stop)
 
-    if SIMPLEGUICS2PYGAME:
-        frame.add_label('')
+    frame.add_label('')
+    if codeskulptor_lib.codeskulptor_is():
+        frame.add_label('CodeSkulptor' +
+                        (' 2' if codeskulptor_lib.codeskulptor_version() == 2
+                         else '3'))
+    else:
         frame.add_label('Pygame ' + simplegui._PYGAME_VERSION)  # noqa  # pylint: disable=protected-access,no-member
         frame.add_label('')
         frame.add_label('Python ' + version)
@@ -165,7 +174,7 @@ def main():
 # Main
 ######
 if __name__ == '__main__':
-    if SIMPLEGUICS2PYGAME and not simplegui._PYGAME_AVAILABLE:  # noqa  # pylint: disable=protected-access,no-member
+    if not codeskulptor_lib.codeskulptor_is() and not simplegui._PYGAME_AVAILABLE:  # noqa  # pylint: disable=protected-access,no-member
         print("""Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
 

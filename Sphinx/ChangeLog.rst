@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 26, 2020
+* 02.00.00 WORKING VERSION — March 27, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -13,7 +13,7 @@ ChangeLog
     - Added dealing of joypads.
     - Added dealing of MP3 sounds.
       Added ``draw_arc()`` in ``Canvas`` and ``test_arc``.
-    - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
+    - Added ``Frame.download_canvas_image()``, ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``codeskulptor_version()`` in ``codeskulptor_lib``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.

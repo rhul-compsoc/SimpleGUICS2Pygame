@@ -62,7 +62,7 @@ But specify only those you use.
         import numeric
         import simpleplot
 
-        import user38_ZmhOVHGm2lhVRhk as codeskulptor_lib
+        import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
         import user40_Jax5K1pl4O1JMFp as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
@@ -73,6 +73,13 @@ But specify only those you use.
 
         import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib
+
+Note that import name like ``user305_fZiH7ljLOrt9aBi`` in CodeSkulptor
+is valid both for CodeSkulptor 2 and CodeSkulptor3.
+It corresponds to URLs
+http://www.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py
+and
+https://py3.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py .
 
 
 Specific code
@@ -192,6 +199,15 @@ For example,
 ``load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/double_ship.png')``
 save image to
 ``_img/commondatastorage.googleapis.com/codeskulptor_assets/lathrop/double_ship.png``.
+
+
+SimpleGUICS2Pygame has two additional classes to load directly local files:
+`_LocalImage()`_ and `_LocalSound()`_.
+But be aware that these functions are *not* available in CodeSkulptor.
+
+.. _`_LocalImage()`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image._LocalImage
+.. _`_LocalSound()`: simpleguics2pygame/sound.html#SimpleGUICS2Pygame.simpleguics2pygame.sound._LocalSound
+
 
 
 Helper functions

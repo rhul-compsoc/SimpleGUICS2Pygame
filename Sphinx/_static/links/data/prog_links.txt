@@ -1,6 +1,6 @@
 + SimpleGUICS2Pygame helper <strong>modules</strong>
 
-http://www.codeskulptor.org/#user38_ZmhOVHGm2lhVRhk.py
+https://py3.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py
 Module <strong>codeskulptor_lib</strong>.py
 Some miscellaneous functions to help in CodeSkulptor: <a rel="nofollow" href="../../codeskulptor_lib.html" target="_blank">Documentation</a>.
 
@@ -89,7 +89,7 @@ test_text.py
 http://www.codeskulptor.org/#user31_nv8xdWX8PbNEWXc.py
 Blackjack.py
 
-http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
+https://py3.codeskulptor.org/#user305_0M6fVplmF2nXPJ4.py
 Frame_example.py
 Very simple canvas example.
 
@@ -101,7 +101,7 @@ http://www.codeskulptor.org/#user41_woIs9K9nLFu8HuO.py
 loader.py
 Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
-http://www.codeskulptor.org/#user38_1ghZBJ6lfUcyMj1.py
+https://py3.codeskulptor.org/#user305_OQcw5OP0kVYGZFz.py
 <strong>Mandelbrot_Set</strong>.py
 
 http://www.codeskulptor.org/#user40_5SABMHJKKtk1FoT.py
@@ -113,11 +113,11 @@ http://www.codeskulptor.org/#user33_v5qd5R9aie7aRGT.py
 http://www.codeskulptor.org/#user30_Rs4LgtAMTes82IP.py
 <strong>Pong</strong>.py
 
-http://www.codeskulptor.org/#user47_vA52sTrGMElpRNd.py
+https://py3.codeskulptor.org/#user305_WC2nz2MNytGdPmC.py
 presentation.py
 Little draw images and texts.
 
-http://www.codeskulptor.org/#user40_yvoLCT8tf5BvNUG.py
+https://py3.codeskulptor.org/#user305_d0YydVwu3VoWPul.py
 <strong>RiceRocks_Asteroids</strong>.py
 
 http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py

@@ -14,7 +14,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 23, 2020
+:version: March 27, 2020
 """
 
 import random
@@ -22,7 +22,7 @@ import random
 try:
     import simplegui
 
-    from user38_ZmhOVHGm2lhVRhk import assert_position
+    from user305_fZiH7ljLOrt9aBi import assert_position
     from user40_AeChfAkzlcqs3wG import draw_rect
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui

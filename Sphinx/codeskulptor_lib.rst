@@ -1,7 +1,7 @@
 codeskulptor_lib — some miscellaneous functions
 ===============================================
 (Version saved in CodeSkulptor
-http://www.codeskulptor.org/#user38_ZmhOVHGm2lhVRhk.py .)
+https://py3.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py .)
 
 .. automodule:: SimpleGUICS2Pygame.codeskulptor_lib
     :special-members:

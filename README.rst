@@ -117,8 +117,8 @@ Two simple online examples:
   * `Frame_example.py`_: very simple canvas example
   * `presentation.py`_: little draw images and texts
 
-.. _`Frame_example.py`: http://www.codeskulptor.org/#user30_w7FYxBIKJKzEkTu.py
-.. _`presentation.py`: http://www.codeskulptor.org/#user47_vA52sTrGMElpRNd.py
+.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_0M6fVplmF2nXPJ4.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_WC2nz2MNytGdPmC.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
 
 |
@@ -258,7 +258,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 26, 2020
+* 02.00.00 WORKING VERSION — March 27, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -271,7 +271,7 @@ Changes
     - Added dealing of joypads.
     - Added dealing of MP3 sounds.
       Added ``draw_arc()`` in ``Canvas`` and ``test_arc``.
-    - Added ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
+    - Added ``Frame.download_canvas_image()``, ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``codeskulptor_version()`` in ``codeskulptor_lib``.
     - Added ``draw_text_multi()`` in ``simplegui_lib_draw``.
     - Added ``--frame-padding`` (thanks to `7coil`), ``--last``, ``--help``, ``--print-application-args``, ``--print-args`` and ``--version`` command line options.

@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 27, 2020
 """
 
 from __future__ import division
@@ -19,7 +19,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = ['Image',
+__all__ = ['Image', '_LocalImage',
            'load_image',
            '_load_local_image']
 

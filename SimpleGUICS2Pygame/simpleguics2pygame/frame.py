@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 23, 2020
+:version: March 27, 2020
 """
 
 from __future__ import division
@@ -21,6 +21,7 @@ from __future__ import print_function
 
 
 import os.path
+import random
 import sys
 
 
@@ -916,6 +917,37 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._draw_controlpanel()
 
         return control
+
+    def download_canvas_image(self, filename='canvas.png'):
+        """
+        Save the content of the canvas in a local file.
+
+        In SimpleGUICS2Pygame
+        supported formats are supported formats by Pygame to save:
+        TGA, PNG, JPEG or BMP
+        (see https://www.pygame.org/docs/ref/image.html#pygame.image.save ).
+
+        If `filename` extension is not recognized
+        then TGA format is used.
+
+        If `filename` == ''
+        then a random filename is used,
+        beginning by 'canvas_' and with '.png' extension.
+
+        In CodeSkulptor the format is always PNG.
+
+        (Available in SimpleGUI of CodeSkulptor3
+        but *not in CodeSkulptor 2*
+        and *not in CodeSkulptor documentation*!)
+
+        :param filename: str
+        """
+        assert isinstance(filename, str), type(filename)
+
+        if filename == '':
+            filename = 'canvas_{}.png'.format(''.join(random.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') for _ in range(8)))  # noqa
+
+        self._canvas._save(filename)  # pylint: disable=protected-access
 
     def get_canvas_image(self):
         """
