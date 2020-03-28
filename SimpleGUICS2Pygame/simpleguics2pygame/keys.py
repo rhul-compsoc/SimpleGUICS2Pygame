@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 17, 2020
+:version: March 28, 2020
 """
 
 from __future__ import print_function
@@ -21,108 +21,9 @@ from __future__ import print_function
 __all__ = ['KEY_MAP']
 
 
-#
-# Private global constants
-##########################
-__PYGAMEKEY_TO_SIMPLEGUIKEY = {97: 65,  # A or a
-                               98: 66,  # ...
-                               99: 67,
-                               100: 68,
-                               101: 69,
-                               102: 70,
-                               103: 71,
-                               104: 72,
-                               105: 73,
-                               106: 74,
-                               107: 75,
-                               108: 76,
-                               109: 77,
-                               110: 78,
-                               111: 79,
-                               112: 80,
-                               113: 81,
-                               114: 82,
-                               115: 83,
-                               116: 84,
-                               117: 85,
-                               118: 86,
-                               119: 87,
-                               120: 88,
-                               121: 89,   # ...
-                               122: 90,   # Z or z
-                               256: 96,   # 0 on numeric keypad
-                               257: 97,   # ...
-                               258: 98,   #
-                               259: 99,   #
-                               260: 100,  #
-                               261: 101,  #
-                               262: 102,  #
-                               263: 103,  #
-                               264: 104,  # ...
-                               265: 105,  # 9 on numeric keypad
-                               273: 38,   # Up
-                               274: 40,   # Down
-                               275: 39,   # Right
-                               276: 37,   # Left
-                               303: 17,   # Shift left
-                               304: 17,   # Shitt right
-                               305: 16,   # Ctrl left
-                               306: 16,   # Ctrl right
-                               307: 18,   # Alt left
-                               308: 18}   # Alt right
-"""
-`Dict` {`int` Pygame key code : corresponding `int` SimpleGUI key code}.
-
-**(Not available in SimpleGUI of CodeSkulptor.)**
-"""
-
-
-_SIMPLEGUIKEY_TO_STATUSKEY = {32: 'space',
-                              37: 'Left',
-                              38: 'Up',
-                              39: 'Right',
-                              40: 'Down',
-                              48: '0',
-                              49: '1',
-                              50: '2',
-                              51: '3',
-                              52: '4',
-                              53: '5',
-                              54: '6',
-                              55: '7',
-                              56: '8',
-                              57: '9',
-                              65: 'a',
-                              66: 'b',
-                              67: 'c',
-                              68: 'd',
-                              69: 'e',
-                              70: 'f',
-                              71: 'g',
-                              72: 'h',
-                              73: 'i',
-                              74: 'j',
-                              75: 'k',
-                              76: 'l',
-                              77: 'm',
-                              78: 'n',
-                              79: 'o',
-                              80: 'p',
-                              81: 'q',
-                              82: 'r',
-                              83: 's',
-                              84: 't',
-                              85: 'u',
-                              86: 'v',
-                              87: 'w',
-                              88: 'x',
-                              89: 'y',
-                              90: 'z'}
-"""
-`Dict` {`int` SimpleGUI key code : corresponding `str` status key}.
-
-**(Not available in SimpleGUI of CodeSkulptor.)**
-"""
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+if _PYGAME_AVAILABLE:
+    import pygame.locals
 
 
 #
@@ -197,6 +98,124 @@ KEY_MAP = {'space': 32,
            'z': 90}
 """
 SimpleGUI keyboard characters contants.
+"""
+
+
+#
+# Private global constants
+##########################
+if _PYGAME_AVAILABLE:
+    __PYGAMEKEY_TO_SIMPLEGUIKEY = {pygame.locals.K_SPACE: KEY_MAP['space'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_UP: KEY_MAP['up'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_DOWN: KEY_MAP['down'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_RIGHT: KEY_MAP['right'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_LEFT: KEY_MAP['left'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_LSHIFT: 17,  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_RSHIFT: 17,  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_LCTRL: 16,  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_RCTRL: 16,  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_LALT: 18,  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_RALT: 18,  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_0: KEY_MAP['0'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_1: KEY_MAP['1'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_2: KEY_MAP['2'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_3: KEY_MAP['3'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_4: KEY_MAP['4'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_5: KEY_MAP['5'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_6: KEY_MAP['6'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_7: KEY_MAP['7'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_8: KEY_MAP['8'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_9: KEY_MAP['9'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP0: KEY_MAP['0'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP1: KEY_MAP['1'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP2: KEY_MAP['2'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP3: KEY_MAP['3'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP4: KEY_MAP['4'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP5: KEY_MAP['5'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP6: KEY_MAP['6'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP7: KEY_MAP['7'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP8: KEY_MAP['8'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_KP9: KEY_MAP['9'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_a: KEY_MAP['A'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_b: KEY_MAP['B'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_c: KEY_MAP['C'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_d: KEY_MAP['D'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_e: KEY_MAP['E'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_f: KEY_MAP['F'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_g: KEY_MAP['G'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_h: KEY_MAP['H'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_i: KEY_MAP['I'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_j: KEY_MAP['J'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_k: KEY_MAP['K'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_l: KEY_MAP['L'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_m: KEY_MAP['M'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_n: KEY_MAP['N'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_o: KEY_MAP['O'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_p: KEY_MAP['P'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_q: KEY_MAP['Q'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_r: KEY_MAP['R'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_s: KEY_MAP['S'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_t: KEY_MAP['T'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_u: KEY_MAP['U'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_v: KEY_MAP['V'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_w: KEY_MAP['W'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_x: KEY_MAP['X'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_y: KEY_MAP['Y'],  # noqa  # pylint: disable=no-member
+                                   pygame.locals.K_z: KEY_MAP['Z']}  # noqa  # pylint: disable=no-member
+    """
+    `Dict` {`int` Pygame key code : corresponding `int` SimpleGUI key code}.
+
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+else:
+    __PYGAMEKEY_TO_SIMPLEGUIKEY = dict()
+
+
+_SIMPLEGUIKEY_TO_STATUSKEY = {32: 'space',
+                              37: 'Left',
+                              38: 'Up',
+                              39: 'Right',
+                              40: 'Down',
+                              48: '0',
+                              49: '1',
+                              50: '2',
+                              51: '3',
+                              52: '4',
+                              53: '5',
+                              54: '6',
+                              55: '7',
+                              56: '8',
+                              57: '9',
+                              65: 'a',
+                              66: 'b',
+                              67: 'c',
+                              68: 'd',
+                              69: 'e',
+                              70: 'f',
+                              71: 'g',
+                              72: 'h',
+                              73: 'i',
+                              74: 'j',
+                              75: 'k',
+                              76: 'l',
+                              77: 'm',
+                              78: 'n',
+                              79: 'o',
+                              80: 'p',
+                              81: 'q',
+                              82: 'r',
+                              83: 's',
+                              84: 't',
+                              85: 'u',
+                              86: 'v',
+                              87: 'w',
+                              88: 'x',
+                              89: 'y',
+                              90: 'z'}
+"""
+`Dict` {`int` SimpleGUI key code : corresponding `str` status key}.
+
+**(Not available in SimpleGUI of CodeSkulptor.)**
 """
 
 

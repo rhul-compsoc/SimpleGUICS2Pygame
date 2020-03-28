@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 27, 2020
+* 02.00.00 WORKING VERSION — March 28, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
