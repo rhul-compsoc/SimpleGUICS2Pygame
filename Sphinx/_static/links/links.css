@@ -23,21 +23,56 @@ main {
 }
 
 
-a {
-    color: #2980B9;
+a,
+a[href] {
+    outline: none;
     text-decoration: none;
 }
 
-a.broken { text-decoration: line-through; }
+a[href] { color: #2070b0; }
+a[href]:visited { color: #104060; }
+a[href]:focus,
+a[href]:hover {
+    color: #2070f0;
+    text-decoration: underline;
+}
+a[href]:active { color: #002030; }
+a[href]:focus.no-decoration,
+a[href]:hover.no-decoration {
+    text-decoration: none;
+}
 
-a.mail:link {
-    background-color: inherit;
-    color: green;
+a[href^="http://"]:before,
+a[href^="https://"]:before,
+a[href^="mailto:"]:before {
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 10px;
+    opacity: 0.5;
+    vertical-align: text-bottom;
+    width: 12px;
 }
-a.mail:visited {
-    background-color: inherit;
-    color: olive;
+
+a[href^="http://"]:before { background-image: url(https://simpleguics2pygame.readthedocs.io/en/latest/_images/external-link--10x10-t.png); }
+
+a[href^="https://"]:before {
+    background-image: url(https://simpleguics2pygame.readthedocs.io/en/latest/_images/external-link-https--8x10-t.png);
+    width: 10px;
 }
+
+a[href^="mailto:"] { color: #007000; }
+a[href^="mailto:"]:before {
+    content: "✉";
+    margin-right: 0.2ex;
+}
+a[href^="mailto:"]:visited { color: #004000; }
+a[href^="mailto:"]:focus, a[href^="mailto:"]:hover {
+    color: #00a000;
+    text-decoration: underline;
+}
+a[href^="mailto:"]:active { color: #003000; }
 
 
 img {

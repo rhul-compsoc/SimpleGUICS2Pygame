@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 28, 2020
 """
 
 from __future__ import division
@@ -355,6 +355,8 @@ class Matrix:
         """
         To a matrix (m x n)
         return the matrix with each element multiply by factor.
+
+        **(Method available in CodeSkulptor 2 but not in CodeSkulptor!)**
 
         :param factor: int or float
 

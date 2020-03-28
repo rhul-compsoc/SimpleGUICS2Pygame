@@ -9,10 +9,12 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 28, 2020
 """
 
 try:
+    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
+
     import simplegui
 
     SIMPLEGUICS2PYGAME = False
@@ -33,7 +35,9 @@ if SIMPLEGUICS2PYGAME:
     PYGAME_VERSION = 'Pygame ' + str(_PYGAME_VERSION)
     GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
-    PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
+    PYTHON_VERSION = ('CodeSkulptor' +  # noqa  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/
+                      (' 2' if codeskulptor_lib.codeskulptor_version() == 2
+                       else '3'))
     PYGAME_VERSION = ''
     GUI_VERSION = 'simplegui'
 
@@ -81,7 +85,7 @@ FRAME.add_label(PYGAME_VERSION)
 
 LABEL = FRAME.add_label('label')
 BUTTON = FRAME.add_button('button', lambda: None)
-INPUT = FRAME.add_input('input', lambda: None, 50)
+INPUT = FRAME.add_input('input', lambda text: None, 50)
 
 FRAME.set_draw_handler(draw)
 

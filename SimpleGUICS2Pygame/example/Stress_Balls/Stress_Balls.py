@@ -9,14 +9,14 @@ Stress Ball
 On Safari: exception failed!
 
 Inspired by "Classy Balls" of Bill:
-http://www.codeskulptor.org/#user14_iNYvGMFtb8poj1S.py
+https://py3.codeskulptor.org/#user14_iNYvGMFtb8poj1S.py
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 28, 2020
 """
 
 try:

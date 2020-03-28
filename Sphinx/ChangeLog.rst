@@ -37,6 +37,7 @@ ChangeLog
 
     - Added ``example/presentation.py``.
     - Added ``example/stop_example.py``.
+    - Moved from CodeSkulptor to CodeSkulptor3.
 
   - Scripts:
 

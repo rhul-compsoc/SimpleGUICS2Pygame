@@ -1,4 +1,4 @@
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="surname">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="https://py3.codeskulptor.org/#user30_ZYGzrQiijeOqmTf.py" target="_blank">Analog Clock</a> by (Kostya <span class="surname">Shkryob</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_background.png
 
@@ -104,7 +104,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="https://py3.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
 
@@ -171,7 +171,7 @@ example
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user40_5SABMHJKKtk1FoT.py" target="_blank">Memory Cards</a>
++ <a rel="nofollow" href="https://py3.codeskulptor.org/#user305_i0DZellodyQjHiq.py" target="_blank">Memory Cards</a>
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/CodeSkulptor.jpg
 CodeSkulptor
@@ -216,7 +216,7 @@ Red verso
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a rel="nofollow" href="https://py3.codeskulptor.org/#user33_TL0mU2EnpCzFqZv.py" target="_blank">Pang</a> by (Ender <span class="surname">Kasim</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/pang/9v5ehnO.png
 
@@ -240,7 +240,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/pang/Vlt8FBC.png
 
 
 
-+ <a rel="nofollow" href="http://www.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a rel="nofollow" href="https://py3.codeskulptor.org/#user16_1cRHwBcpa4_0.py" target="_blank">Pyman</a> by (Lawrence <span class="surname">Strickland</span>) Hall of Fame <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/board.gif
 

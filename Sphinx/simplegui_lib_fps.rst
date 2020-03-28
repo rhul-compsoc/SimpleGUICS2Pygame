@@ -1,18 +1,18 @@
-simplegui_lib_fps — class to calculate and display Frames Per Second
+Gsimplegui_lib_fps — class to calculate and display Frames Per Second
 ====================================================================
 (Version saved in CodeSkulptor
-http://www.codeskulptor.org/#user33_Bhc7VzXKbXGVQV1.py .)
+https://py3.codeskulptor.org/#user305_ALZ2cYv1hjEYUuU.py .)
 
 Examples of use in :
 
 * `test/test_image.py`:
-  http://www.codeskulptor.org/#user41_dFyUISmmicuga1u.py
+  https://py3.codeskulptor.org/#user305_dgJnhDALphandpX.py
 
 * `example/Spaceship_prototype.py`:
-  http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
+  https://py3.codeskulptor.org/#user305_H2qHBIzuf73UHHv.py
 
 * `example/RiceRocks_Asteroids.py`:
-  https://py3.codeskulptor.org/#user305_d0YydVwu3VoWPul.py
+  https://py3.codeskulptor.org/#user305_3nh7DSjgKN08VcY.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_fps
     :special-members:

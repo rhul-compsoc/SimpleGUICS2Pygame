@@ -1,12 +1,12 @@
 simplegui_lib_keys — class to manage keyboard handling
 ======================================================
 (Version saved in CodeSkulptor
-http://www.codeskulptor.org/#user30_VE5zdyz5OZwgen9.py .)
+https://py3.codeskulptor.org/#user305_CGRDFZgmaZOL2YB.py .)
 
 Examples of use in :
 
 * `example/keys.py`:
-  http://www.codeskulptor.org/#user41_5bMhgzvyGEqu8B7.py
+  https://py3.codeskulptor.org/#user305_GiE5KrmXkoWFiMW.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_keys
     :special-members:

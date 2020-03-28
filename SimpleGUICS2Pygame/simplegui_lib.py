@@ -15,17 +15,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 25, 2020
+:version: March 28, 2020
 """
 
 # print('IMPORT', __name__)
 
 
 try:
-    from user40_AeChfAkzlcqs3wG import draw_rect, draw_text_multi, draw_text_side  # noqa  # pylint: disable=unused-import
-    from user33_Bhc7VzXKbXGVQV1 import FPS  # pylint: disable=unused-import
-    from user30_VE5zdyz5OZwgen9 import Keys  # pylint: disable=unused-import
-    from user40_nMs7JxzimyImAv2 import Loader  # pylint: disable=unused-import
+    from user305_Vj4GH0AVPin7znw import draw_rect, draw_text_multi, draw_text_side  # noqa  # pylint: disable=unused-import
+    from user305_ALZ2cYv1hjEYUuU import FPS  # pylint: disable=unused-import
+    from user305_CGRDFZgmaZOL2YB import Keys  # pylint: disable=unused-import
+    from user305_Fem7W4gO0hSlII8 import Loader  # pylint: disable=unused-import
 except ImportError:
     from SimpleGUICS2Pygame.simplegui_lib_draw \
         import draw_rect, draw_text_multi, draw_text_side

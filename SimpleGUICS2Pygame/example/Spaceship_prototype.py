@@ -19,7 +19,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: March 28, 2020
 """
 
 import math
@@ -27,8 +27,8 @@ import random
 
 try:
     from user305_fZiH7ljLOrt9aBi import assert_position
-    from user33_Bhc7VzXKbXGVQV1 import FPS
-    from user40_nMs7JxzimyImAv2 import Loader
+    from user305_ALZ2cYv1hjEYUuU import FPS
+    from user305_Fem7W4gO0hSlII8 import Loader
 
     import simplegui
 

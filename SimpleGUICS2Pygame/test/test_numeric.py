@@ -9,14 +9,18 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 28, 2020
 """
 
 try:
+    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
+
     import numeric
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
+    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
+
     import SimpleGUICS2Pygame.numeric as numeric
 
     SIMPLEGUICS2PYGAME = True
@@ -260,12 +264,20 @@ def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-man
                     print('error: getcol != [%i, %i]' % (i, j))
 
     # scale(), +, -
+    # (in CodeSkulptor3 method scale() doesn't exist
+    #  and * is the operator to multiply by a scalar)
     for data in datas:
         m = numeric.Matrix(data)
         adds = numeric.Matrix(data)
-        subs = numeric.Matrix(data).scale(-1)
+        if codeskulptor_lib.codeskulptor_version() == 3:
+            subs = numeric.Matrix(data) * -1
+        else:
+            subs = numeric.Matrix(data).scale(-1)
         for k in range(1, 10):
-            ms = m.scale(k)  # pylint: disable=invalid-name
+            if codeskulptor_lib.codeskulptor_version() == 3:
+                ms = m * k  # pylint: disable=invalid-name
+            else:
+                ms = m.scale(k)  # pylint: disable=invalid-name
             if not m_eq(ms, adds):
                 nb_errors += 1
                 print('error: scale != +: %i %s' % (k, data))
@@ -273,7 +285,10 @@ def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-man
                 print(adds)
             adds = adds + m
 
-            ms = m.scale(-k)  # pylint: disable=invalid-name
+            if codeskulptor_lib.codeskulptor_version() == 3:
+                ms = m * -k  # pylint: disable=invalid-name
+            else:
+                ms = m.scale(-k)  # pylint: disable=invalid-name
             if not m_eq(ms, subs):
                 nb_errors += 1
                 print('error: scale != -: %i %s' % (k, data))
@@ -281,60 +296,63 @@ def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-man
                 print(subs)
             subs = subs - m
 
-    # *
-    m = numeric.Matrix(d5_3) * numeric.Matrix(d3_5)
-    if m_to_l(m) != [[25, -28, 31, -34, 37],
-                     [-70, 82, -94, 106, -118],
-                     [115, -136, 157, -178, 199],
-                     [-160, 190, -220, 250, -280],
-                     [205, -244, 283, -322, 361]]:
-        nb_errors += 1
-        print('error: (5, 3) * (3, 5)')
-        print(m)
-
-    m = numeric.Matrix(d3_5) * numeric.Matrix(d5_3)
-    if m_to_l(m) != [[90, -100, 110],
-                     [-240, 275, -310],
-                     [390, -450, 510]]:
-        nb_errors += 1
-        print('error: (3, 5) * (5, 3)')
-        print(m)
-
-    for data in datas:
-        m = numeric.Matrix(data)
-        m2 = m * numeric.identity(len(data[0]))  # pylint: disable=invalid-name
-        if not m_eq(m, m2):
+    if codeskulptor_lib.codeskulptor_version() != 3:
+        # *
+        # (in CodeSkulptor3 * is the operator to multiply by a scalar
+        # add @ the operator to multiply two matrices)
+        m = numeric.Matrix(d5_3) * numeric.Matrix(d3_5)
+        if m_to_l(m) != [[25, -28, 31, -34, 37],
+                         [-70, 82, -94, 106, -118],
+                         [115, -136, 157, -178, 199],
+                         [-160, 190, -220, 250, -280],
+                         [205, -244, 283, -322, 361]]:
             nb_errors += 1
-            print('error: *: %s' % data)
-            print(m2)
+            print('error: (5, 3) * (3, 5)')
+            print(m)
 
-        m2 = numeric.identity(len(data)) * m  # pylint: disable=invalid-name
-        if not m_eq(m, m2):
+        m = numeric.Matrix(d3_5) * numeric.Matrix(d5_3)
+        if m_to_l(m) != [[90, -100, 110],
+                         [-240, 275, -310],
+                         [390, -450, 510]]:
             nb_errors += 1
-            print('error: *: %s' % data)
-            print(m2)
+            print('error: (3, 5) * (5, 3)')
+            print(m)
 
-    a = numeric.Matrix(d2_2)
-    b = numeric.Matrix(d2_2i)
-    if not m_eq(a * b, numeric.identity(2)):
-        nb_errors += 1
-        print('error: a * a^(-1)')
-        print(a * b)
-    if not m_eq(b * a, numeric.identity(2)):
-        nb_errors += 1
-        print('error: a^(-1) * a')
-        print(b * a)
+        for data in datas:
+            m = numeric.Matrix(data)
+            m2 = m * numeric.identity(len(data[0]))  # noqa  # pylint: disable=invalid-name
+            if not m_eq(m, m2):
+                nb_errors += 1
+                print('error: *: %s' % data)
+                print(m2)
 
-    a = numeric.Matrix(d3_3)
-    b = numeric.Matrix(d3_3i)
-    if not m_eq(a * b, numeric.identity(3)):
-        nb_errors += 1
-        print('error: a * a^(-1)')
-        print(a * b)
-    if not m_eq(b * a, numeric.identity(3)):
-        nb_errors += 1
-        print('error: a^(-1) * a')
-        print(b * a)
+            m2 = numeric.identity(len(data)) * m  # noqa  # pylint: disable=invalid-name
+            if not m_eq(m, m2):
+                nb_errors += 1
+                print('error: *: %s' % data)
+                print(m2)
+
+        a = numeric.Matrix(d2_2)
+        b = numeric.Matrix(d2_2i)
+        if not m_eq(a * b, numeric.identity(2)):
+            nb_errors += 1
+            print('error: a * a^(-1)')
+            print(a * b)
+        if not m_eq(b * a, numeric.identity(2)):
+            nb_errors += 1
+            print('error: a^(-1) * a')
+            print(b * a)
+
+        a = numeric.Matrix(d3_3)
+        b = numeric.Matrix(d3_3i)
+        if not m_eq(a * b, numeric.identity(3)):
+            nb_errors += 1
+            print('error: a * a^(-1)')
+            print(a * b)
+        if not m_eq(b * a, numeric.identity(3)):
+            nb_errors += 1
+            print('error: a^(-1) * a')
+            print(b * a)
 
     # summation()
     for k in range(1, 10):
@@ -417,10 +435,17 @@ def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-man
             print('error: inverse(identity(%i))' % k)
             print(m)
 
-        m = numeric.identity(k).scale(5).inverse()
-        if not m_eq(m, numeric.identity(k).scale(1.0 / 5)):
-            print('error: inverse(identity(%i)*5)' % k)
-            print(m)
+        if codeskulptor_lib.codeskulptor_version() == 3:
+            m = numeric.identity(k) * 5
+            m = m.inverse()
+            if not m_eq(m, numeric.identity(k) * (1.0 / 5)):
+                print('error: inverse(identity(%i)*5)' % k)
+                print(m)
+        else:
+            m = numeric.identity(k).scale(5).inverse()
+            if not m_eq(m, numeric.identity(k).scale(1.0 / 5)):
+                print('error: inverse(identity(%i)*5)' % k)
+                print(m)
 
         m = numeric.identity(k)
         m[0, 0] = 0

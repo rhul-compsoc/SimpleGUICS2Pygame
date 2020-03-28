@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: March 28, 2020
 """
 
 try:
-    from user40_AeChfAkzlcqs3wG import draw_text_multi, draw_text_side
+    from user305_Vj4GH0AVPin7znw import draw_text_multi, draw_text_side
 
     import simplegui
 

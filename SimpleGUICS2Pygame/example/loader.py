@@ -12,13 +12,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 28, 2020
 """
 
 try:
     import simplegui
 
-    from user40_nMs7JxzimyImAv2 import Loader
+    from user305_Fem7W4gO0hSlII8 import Loader
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:

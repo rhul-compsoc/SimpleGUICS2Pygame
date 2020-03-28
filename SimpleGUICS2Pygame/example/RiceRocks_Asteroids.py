@@ -22,7 +22,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: March 28, 2020
 """
 
 import math
@@ -30,8 +30,8 @@ import random
 
 try:
     from user305_fZiH7ljLOrt9aBi import assert_position
-    from user33_Bhc7VzXKbXGVQV1 import FPS
-    from user40_nMs7JxzimyImAv2 import Loader
+    from user305_ALZ2cYv1hjEYUuU import FPS
+    from user305_Fem7W4gO0hSlII8 import Loader
 
     import simplegui
 
@@ -1239,10 +1239,12 @@ if __name__ == '__main__':
     FRAME.add_label('')
     BUTTON_MUSIC = FRAME.add_button('Music off', switch_music)
     BUTTON_SOUNDS = FRAME.add_button('Sounds off', switch_sounds)
-    FRAME.add_label('')
+    if SIMPLEGUICS2PYGAME:
+        FRAME.add_label('')
     BUTTON_ANIMATE_BACKGROUND = FRAME.add_button('Static background',
                                                  switch_animate_background)
-    FRAME.add_label('')
+    if SIMPLEGUICS2PYGAME:
+        FRAME.add_label('')
     FRAME.add_button('Quit', quit_prog)
     FRAME.add_label('')
     FRAME.add_label('Turn: Left and Right')
@@ -1270,5 +1272,10 @@ if __name__ == '__main__':
     FRAME.add_label('')
     FRAME.add_label('Useful to test:')
     BUTTON_FPS = FRAME.add_button('FPS on', fps_on_off)
+
+    if not SIMPLEGUICS2PYGAME:
+        FRAME.add_label('')
+        FRAME.add_label('If the game is too slow,')
+        FRAME.add_label('try with the browser Chrome.')
 
     FRAME.start()

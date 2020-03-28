@@ -117,8 +117,8 @@ Two simple online examples:
   * `Frame_example.py`_: very simple canvas example
   * `presentation.py`_: little draw images and texts
 
-.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_0M6fVplmF2nXPJ4.py
-.. _`presentation.py`: https://py3.codeskulptor.org/#user305_WC2nz2MNytGdPmC.py
+.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_RHJGhkP56dwFPij.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_3TWdpOLtVbUdEb7.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
 
 |
@@ -295,6 +295,7 @@ Changes
 
     - Added ``example/presentation.py``.
     - Added ``example/stop_example.py``.
+    - Moved from CodeSkulptor to CodeSkulptor3.
 
   - Scripts:
 

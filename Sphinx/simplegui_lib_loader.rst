@@ -1,21 +1,21 @@
 simplegui_lib_loader — class to load images and sounds
 ======================================================
 (Version saved in CodeSkulptor
-http://www.codeskulptor.org/#user40_nMs7JxzimyImAv2.py .)
+https://py3.codeskulptor.org/#user305_Fem7W4gO0hSlII8.py .)
 
 Examples of use in :
 
 * `example/loader.py`:
-  http://www.codeskulptor.org/#user41_woIs9K9nLFu8HuO.py
+  https://py3.codeskulptor.org/#user305_RmGavl1UzqeSvoN.py
 
 * `test/test_image.py`:
-  http://www.codeskulptor.org/#user41_dFyUISmmicuga1u.py
+  https://py3.codeskulptor.org/#user305_dgJnhDALphandpX.py
 
 * `example/Spaceship_prototype.py`:
-  http://www.codeskulptor.org/#user40_270vGd5w8KRr837.py
+  https://py3.codeskulptor.org/#user305_H2qHBIzuf73UHHv.py
 
 * `example/RiceRocks_Asteroids.py`:
-  https://py3.codeskulptor.org/#user305_d0YydVwu3VoWPul.py
+  https://py3.codeskulptor.org/#user305_3nh7DSjgKN08VcY.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_loader
     :special-members:

@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 26, 2020
+# Makefile of SimpleGUICS2Pygame --- March 28, 2020
 
 .SUFFIXES:
 
@@ -141,7 +141,7 @@ lintlog:
 	@$(ECHO) ===== pytype --tree ===== | $(TEE) -a lint.log
 	-$(PYTYPE) $(PYTYPEFLAGS) --tree $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) ===== pytype --unresolved ===== | $(TEE) -a lint.log
-	-$(PYTYPE) $(PYTYPEFLAGS) --unresolved $(SRC) 2>&1 | $(TEE) -a lint.log
+	-$(PYTYPE) $(PYTYPEFLAGS) --unresolved $(SRC) 2>&1 | $(GREP) -E -v 'user[0-9]+' | $(TEE) -a lint.log || exit 0 && exit 1
 	@$(ECHO) ===== pytype ===== | $(TEE) -a lint.log
 	-$(PYTYPE) $(PYTYPEFLAGS) -k $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) ===== mypy ===== | $(TEE) -a lint.log
@@ -165,7 +165,7 @@ pylint:
 
 pytype:
 	-$(PYTYPE) --tree $(PYTYPEFLAGS) $(SRC)
-	-$(PYTYPE) --unresolved $(PYTYPEFLAGS) $(SRC)
+	-$(PYTYPE) --unresolved $(PYTYPEFLAGS) $(SRC) | $(GREP) -E -v 'user[0-9]+' || exit 0 && exit 1
 	-$(PYTYPE) $(PYTYPEFLAGS) $(SRC)
 
 

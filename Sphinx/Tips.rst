@@ -63,7 +63,7 @@ But specify only those you use.
         import simpleplot
 
         import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
-        import user40_Jax5K1pl4O1JMFp as simplegui_lib
+        import user305_gIHDK6rkdof6kqb as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -235,7 +235,7 @@ For example, to draw multiline text you can use `draw_text_multi()`_ from the `s
     try:
         import simplegui
 
-        import user40_AeChfAkzlcqs3wG as simplegui_lib_draw
+        import user305_Vj4GH0AVPin7znw as simplegui_lib_draw
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 

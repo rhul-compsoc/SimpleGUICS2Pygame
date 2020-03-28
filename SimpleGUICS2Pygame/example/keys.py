@@ -12,13 +12,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 28, 2020
 """
 
 try:
     import simplegui
 
-    from user30_VE5zdyz5OZwgen9 import Keys
+    from user305_CGRDFZgmaZOL2YB import Keys
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 

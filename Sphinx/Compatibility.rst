@@ -80,3 +80,31 @@ You can use SimpleGUICS2Pygame with Python 2 and Python 3.
 
 .. _CodeSkulptor: http://www.codeskulptor.org/
 .. _CodeSkulptor3: https://py3.codeskulptor.org/
+
+
+Compatibility between CodeSkulptor and CodeSkulptor3
+----------------------------------------------------
+
+CodeSkulptor_ implements a subset of Python 2.
+
+CodeSkulptor3_ implements a subset of Python 3.
+
+There are moreover some other differences.
+
+* In ``simplegui module`` module of CodeSkulptor3 and SimpleGUICS2Pygame,
+  there is a ``Canvas.draw_arc()`` method
+  that doesn't exist in CodeSkulptor2.
+
+* In ``simplegui module`` module of CodeSkulptor3 and SimpleGUICS2Pygame,
+  there is a ``Frame.download_canvas_image()`` method
+  that doesn't exist in CodeSkulptor2.
+
+* In ``numeric`` module of CodeSkulptor 2 and SimpleGUICS2Pygame,
+  there is a ``Matric.scale()`` method
+  to multiply the matrix by a scalar
+  and the operator ``*`` multiply two matrices.
+
+  In CodeSkulptor3,
+  the ``Matric.scale()`` method doesn't exist,
+  the operator ``*`` multiply a matrix by a scalar
+  and the operator ``@`` multiply two matrices.

@@ -153,12 +153,16 @@ You can see examples in `SimpleGUICS2Pygame/example/`_ subdirectory from the sou
 Or online:
 `Python programs running in CodeSkulptor`_ .
 
+On some environments CodeSkulptor_ maybe runs too slow with Firefox.
+CodeSkulptor3_ is better, but maybe too slow too.
+In these cases, use Chrome.
+
 Two simple online examples:
   * `Frame_example.py`_: very simple canvas example
   * `presentation.py`_: little draw images and texts
 
-.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_0M6fVplmF2nXPJ4.py
-.. _`presentation.py`: https://py3.codeskulptor.org/#user305_WC2nz2MNytGdPmC.py
+.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_RHJGhkP56dwFPij.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_3TWdpOLtVbUdEb7.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 
