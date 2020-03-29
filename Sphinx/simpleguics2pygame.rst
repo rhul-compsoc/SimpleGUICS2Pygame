@@ -10,13 +10,6 @@
    simpleguics2pygame/sound
    simpleguics2pygame/timer
 
-   simpleguics2pygame/_arguments
-   simpleguics2pygame/_colors
-   simpleguics2pygame/_fonts
-   simpleguics2pygame/_joypads
-   simpleguics2pygame/_media
-   simpleguics2pygame/_pygame_init
-
 
 .. warning::
    Be careful, the main module `simpleguics2pygame` is split in several files,

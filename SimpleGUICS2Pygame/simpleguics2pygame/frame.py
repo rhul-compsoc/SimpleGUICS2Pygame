@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: March 29, 2020
 """
 
 from __future__ import division
@@ -919,7 +919,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return control
 
     def download_canvas_image(self, filename='canvas.png'):
-        """
+        r"""
         Save the content of the canvas in a local file.
 
         In SimpleGUICS2Pygame
@@ -932,7 +932,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         If `filename` == ''
         then a random filename is used,
-        beginning by 'canvas_' and with '.png' extension.
+        beginning by 'canvas\_' and with '.png' extension.
 
         In CodeSkulptor the format is always PNG.
 

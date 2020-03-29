@@ -8,12 +8,9 @@ Colors helpers.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C)  Olivier Pirson
-http://www.opimedia.be/
-
 :license: GPLv3 --- Copyright (C) 2015, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: March 28, 2020
 """
 
 from __future__ import division
