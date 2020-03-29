@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (March 24, 2020)
+Setup of SimpleGUICS2Pygame package (March 29, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -31,7 +31,7 @@ def parse_requirements_file():
     with open('requirements.txt') as fin:
         requirements = fin.readlines()
 
-    return tuple(requirement.strip() for requirement in requirements)
+    return list(requirement.strip() for requirement in requirements)
 
 
 setup(name='SimpleGUICS2Pygame',
@@ -50,14 +50,14 @@ setup(name='SimpleGUICS2Pygame',
       platforms='any',
       include_package_data=True,
 
-      scripts=('SimpleGUICS2Pygame/script/cs2both.py',
+      scripts=['SimpleGUICS2Pygame/script/cs2both.py',
                'SimpleGUICS2Pygame/script/pygame_check.py',
-               'SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py'),
+               'SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py'],
 
       install_requires=parse_requirements_file(),
 
       keywords='CodeSkulptor SimpleGUI Pygame game education',
-      classifiers=(
+      classifiers=[
           'Development Status :: 5 - Production/Stable',
 
           'Environment :: MacOS X',
@@ -91,4 +91,4 @@ setup(name='SimpleGUICS2Pygame',
           'Topic :: Software Development :: Libraries :: pygame',
           'Topic :: Software Development :: Libraries :: Python Modules',
           'Topic :: Software Development :: User Interfaces',
-          'Topic :: Software Development :: Widget Sets'))
+          'Topic :: Software Development :: Widget Sets'])

@@ -54,7 +54,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.0.0
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 28, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 29, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

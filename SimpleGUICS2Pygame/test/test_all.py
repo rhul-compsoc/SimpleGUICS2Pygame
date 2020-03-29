@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 26, 2020
+:version: March 29, 2020
 """
 
 from __future__ import print_function
@@ -72,14 +72,21 @@ DIR_RESULTS = 'results_py' + str(PYTHON_VERSION)
 #
 # Main
 ######
-def main():
+def main():  # pylint: disable=too-many-branches
     """Execute all test_*.py programs and build HTML report."""
     filenames = sorted(glob.glob('*.py'))
     filenames.remove('test_all.py')
+
+    # Put some blocking tests in the beginning
+    for filename in sorted(('test_button_label.py', 'test_input.py'),
+                           reverse=True):
+        filenames.remove(filename)
+        filenames.insert(0, filename)
+
     filenames.insert(0, 'SimpleGUICS2Pygame_check.py')
     filenames = [filename[:-3] for filename in filenames]
 
-    # Run each test_*.py
+    # Run each tests
     errors = {}
     if TO_COMPARE_IMGS:
         imgs_diff = {}

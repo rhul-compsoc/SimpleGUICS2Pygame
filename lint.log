@@ -74,7 +74,7 @@ C:760, 8: Invalid attribute name "_background_pygame_surface_image" (invalid-nam
 
 Report
 ======
-6163 statements analysed.
+6177 statements analysed.
 
 Statistics by type
 ------------------
@@ -101,38 +101,38 @@ External dependencies
       \-Image (test_all)
       \-ImageChops (test_all)
       \-ImageStat (test_all)
-    SimpleGUICS2Pygame (test_button_label,test_circle,presentation,test_colors_html_rgba,test_colors_constants,test_all,SimpleGUICS2Pygame_check,test_colors_html_hsla,test_input,setup,test_image,test_colors_html,test_line,test_objects,test_text,test_grid,SimpleGUICS2Pygame.simplegui_lib_draw,SimpleGUICS2Pygame.simpleguics2pygame._arguments,test_arc)
-      \-codeskulptor (test_dir,SimpleGUICS2Pygame_check)
-      \-codeskulptor_lib (test_numeric,Spaceship_prototype,presentation,Mandelbrot_Set,test_colors_html_rgba,test_colors_html_hsla,SimpleGUICS2Pygame_check,Frame_example,test_colors_html,Memory,RiceRocks_Asteroids)
-      \-numeric (test_dir,SimpleGUICS2Pygame_check,test_numeric)
+    SimpleGUICS2Pygame (setup,test_colors_html,test_circle,test_objects,test_text,test_line,test_image,test_all,test_colors_html_rgba,test_input,test_colors_constants,test_button_label,SimpleGUICS2Pygame.simplegui_lib_draw,SimpleGUICS2Pygame.simpleguics2pygame._arguments,SimpleGUICS2Pygame_check,test_grid,test_arc,test_colors_html_hsla,presentation)
+      \-codeskulptor (SimpleGUICS2Pygame_check,test_dir)
+      \-codeskulptor_lib (RiceRocks_Asteroids,Memory,Mandelbrot_Set,test_colors_html_rgba,Spaceship_prototype,Frame_example,test_numeric,test_colors_html,SimpleGUICS2Pygame_check,test_colors_html_hsla,presentation)
+      \-numeric (SimpleGUICS2Pygame_check,test_dir,test_numeric)
       \-simplegui_lib (SimpleGUICS2Pygame_check)
-      \-simplegui_lib_draw (SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib,Memory,test_text)
-      \-simplegui_lib_fps (RiceRocks_Asteroids,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib,Spaceship_prototype,test_image)
+      \-simplegui_lib_draw (SimpleGUICS2Pygame_check,test_text,SimpleGUICS2Pygame.simplegui_lib,Memory)
+      \-simplegui_lib_fps (Spaceship_prototype,RiceRocks_Asteroids,test_image,SimpleGUICS2Pygame.simplegui_lib,SimpleGUICS2Pygame_check)
       \-simplegui_lib_keys (keys,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simplegui_lib)
-      \-simplegui_lib_loader (Spaceship_prototype,loader,SimpleGUICS2Pygame_check,test_image,RiceRocks_Asteroids,SimpleGUICS2Pygame.simplegui_lib)
-      \-simpleguics2pygame (test_button_label,Spaceship_prototype,test_all,test_line,test_command_line_options,test_grid,Memory,test_dir,SimpleGUICS2Pygame.simplegui_lib_loader,Nostalgic_Basic_Blitz,Mandelbrot_Set,presentation,test_input,Frame_example,test_sound,Pong,test_arc,test_circle,test_colors_html_rgba,test_colors_html_hsla,SimpleGUICS2Pygame_check,Stopwatch,test_image,SimpleGUICS2Pygame.simplegui_lib_keys,RiceRocks_Asteroids,SimpleGUICS2Pygame.simplegui_lib_fps,Blackjack,stop_example,loader,test_colors_constants,test_objects,test_colors_html,test_text,keys,Stress_Balls)
-      | \-_arguments (SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.timer)
-      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
-      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
-      | \-_joypads (Pong,SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-_media (SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      | \-_pygame_init (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._joypads,SimpleGUICS2Pygame.simpleguics2pygame.keys,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._media)
+      \-simplegui_lib_loader (RiceRocks_Asteroids,test_image,SimpleGUICS2Pygame.simplegui_lib,loader,Spaceship_prototype,SimpleGUICS2Pygame_check)
+      \-simpleguics2pygame (keys,test_command_line_options,test_objects,test_all,loader,Nostalgic_Basic_Blitz,test_colors_html_rgba,stop_example,RiceRocks_Asteroids,SimpleGUICS2Pygame.simplegui_lib_fps,test_circle,Stopwatch,test_colors_html,test_colors_constants,Blackjack,test_grid,Stress_Balls,test_text,test_line,test_button_label,presentation,Mandelbrot_Set,SimpleGUICS2Pygame.simplegui_lib_loader,Memory,test_image,test_input,Spaceship_prototype,Frame_example,test_dir,test_sound,SimpleGUICS2Pygame_check,Pong,test_arc,test_colors_html_hsla,SimpleGUICS2Pygame.simplegui_lib_keys)
+      | \-_arguments (SimpleGUICS2Pygame.simpleguics2pygame.sound,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.timer,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame)
+      | \-_colors (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.control)
+      | \-_fonts (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.control)
+      | \-_joypads (SimpleGUICS2Pygame.simpleguics2pygame.frame,Pong)
+      | \-_media (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.image,SimpleGUICS2Pygame.simpleguics2pygame.sound)
+      | \-_pygame_init (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame.keys,SimpleGUICS2Pygame.simpleguics2pygame._joypads,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame.simpleguics2pygame.image)
       | \-canvas (SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-control (SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-image (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.canvas)
       | \-keys (SimpleGUICS2Pygame.simpleguics2pygame.frame)
       | \-timer (SimpleGUICS2Pygame.simpleguics2pygame.frame)
-      \-simpleplot (test_simpleplot_scatter,test_simpleplot_lines,SimpleGUICS2Pygame_check,test_simpleplot_bars,Stress_Balls_results,test_dir,Stress_Balls)
+      \-simpleplot (Stress_Balls_results,test_simpleplot_lines,test_simpleplot_bars,test_dir,SimpleGUICS2Pygame_check,test_simpleplot_scatter,Stress_Balls)
     audioread (SimpleGUICS2Pygame.simpleguics2pygame._media,SimpleGUICS2Pygame_check)
     matplotlib (SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleplot)
       \-pyplot (SimpleGUICS2Pygame.simpleplot)
-    pygame (SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame._colors,pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._joypads,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._pygame_init,SimpleGUICS2Pygame.simpleguics2pygame._fonts,SimpleGUICS2Pygame.simpleguics2pygame._media)
+    pygame (SimpleGUICS2Pygame.simpleguics2pygame.canvas,SimpleGUICS2Pygame.simpleguics2pygame.control,SimpleGUICS2Pygame.simpleguics2pygame._colors,SimpleGUICS2Pygame.simpleguics2pygame._fonts,pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._joypads,SimpleGUICS2Pygame.simpleguics2pygame.frame,SimpleGUICS2Pygame.simpleguics2pygame._pygame_init,SimpleGUICS2Pygame_check,SimpleGUICS2Pygame.simpleguics2pygame._media)
       \-font (SimpleGUICS2Pygame.simpleguics2pygame._pygame_init)
       \-joystick (SimpleGUICS2Pygame.simpleguics2pygame._joypads)
       \-locals (SimpleGUICS2Pygame.simpleguics2pygame.keys)
       \-mixer (SimpleGUICS2Pygame.simpleguics2pygame._pygame_init)
       \-transform (SimpleGUICS2Pygame.simpleguics2pygame._pygame_init)
-      \-version (test_circle,test_button_label,test_colors_html_rgba,test_colors_constants,test_colors_html_hsla,SimpleGUICS2Pygame.simpleguics2pygame._pygame_init,test_input,test_image,test_colors_html,test_line,test_text,test_grid,test_arc)
+      \-version (test_circle,test_text,test_line,test_image,test_colors_html_rgba,test_input,test_button_label,SimpleGUICS2Pygame.simpleguics2pygame._pygame_init,test_colors_html,test_colors_constants,test_grid,test_arc,test_colors_html_hsla)
     setuptools (setup)
 
 
@@ -143,13 +143,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8087   |47.81 |8087     |=          |
+|code      |8103   |47.85 |8103     |=          |
 +----------+-------+------+---------+-----------+
-|docstring |5127   |30.31 |5127     |=          |
+|docstring |5127   |30.28 |5127     |=          |
 +----------+-------+------+---------+-----------+
-|comment   |774    |4.58  |774      |=          |
+|comment   |775    |4.58  |775      |=          |
 +----------+-------+------+---------+-----------+
-|empty     |2927   |17.30 |2927     |=          |
+|empty     |2928   |17.29 |2928     |=          |
 +----------+-------+------+---------+-----------+
 
 
@@ -162,7 +162,7 @@ Duplication
 +=========================+=======+=========+===========+
 |nb duplicated lines      |1707   |1707     |=          |
 +-------------------------+-------+---------+-----------+
-|percent duplicated lines |10.193 |10.193   |=          |
+|percent duplicated lines |10.183 |10.183   |=          |
 +-------------------------+-------+---------+-----------+
 
 
@@ -175,7 +175,7 @@ Messages by category
 +===========+=======+=========+===========+
 |convention |1      |1        |=          |
 +-----------+-------+---------+-----------+
-|refactor   |0      |0        |=          |
+|refactor   |0      |1        |-1.00      |
 +-----------+-------+---------+-----------+
 |warning    |0      |0        |=          |
 +-----------+-------+---------+-----------+
@@ -214,85 +214,84 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 ===== pytype --tree =====
 Computing dependencies
 Source tree:
-+ test_button_label.py
-    + SimpleGUICS2Pygame/__init__.py
-    :: pygame/version.py
-      SimpleGUICS2Pygame/simpleguics2pygame/__init__.py
-          SimpleGUICS2Pygame/simpleguics2pygame/timer.py
-            + SimpleGUICS2Pygame/simpleguics2pygame/_arguments.py
-          SimpleGUICS2Pygame/simpleguics2pygame/control.py
-              SimpleGUICS2Pygame/simpleguics2pygame/_fonts.py
-                :: pygame/__init__.py
-                  SimpleGUICS2Pygame/simpleguics2pygame/_pygame_init.py
-              SimpleGUICS2Pygame/simpleguics2pygame/_colors.py
-          SimpleGUICS2Pygame/simpleguics2pygame/frame.py
-              SimpleGUICS2Pygame/simpleguics2pygame/_joypads.py
-              random.pyi
-              SimpleGUICS2Pygame/simpleguics2pygame/canvas.py
-                  SimpleGUICS2Pygame/simpleguics2pygame/image.py
-                      SimpleGUICS2Pygame/simpleguics2pygame/_media.py
-                          __init__.pyi
-                        :: audioread/__init__.py
-                          contextlib.pyi
-              SimpleGUICS2Pygame/simpleguics2pygame/keys.py
-                :: pygame/locals.py
-          SimpleGUICS2Pygame/simpleguics2pygame/sound.py
-+ Stress_Balls_results.py
-      SimpleGUICS2Pygame/simpleplot.py
-        :: matplotlib/pyplot.py
-        :: matplotlib/__init__.py
-+ cs2both.py
-+ test_colors_html_rgba.py
-      SimpleGUICS2Pygame/codeskulptor_lib.py
-+ presentation.py
-+ RiceRocks_Asteroids.py
-      SimpleGUICS2Pygame/simplegui_lib_loader.py
-      SimpleGUICS2Pygame/simplegui_lib_fps.py
-+ setup.py
-    :: setuptools/__init__.py
-+ Memory.py
-      SimpleGUICS2Pygame/simplegui_lib_draw.py
-+ test_objects.py
-+ test_image.py
-+ test_colors_constants.py
-+ test_colors_html_hsla.py
-+ test_simpleplot_bars.py
-+ Stress_Balls.py
 + keys.py
       SimpleGUICS2Pygame/simplegui_lib_keys.py
-+ Pong.py
-+ test_input.py
-+ test_sound.py
-+ Stopwatch.py
-+ stop_example.py
-+ Mandelbrot_Set.py
+          SimpleGUICS2Pygame/simpleguics2pygame/__init__.py
+              SimpleGUICS2Pygame/simpleguics2pygame/control.py
+                :: pygame/__init__.py
+                  SimpleGUICS2Pygame/simpleguics2pygame/_colors.py
+                      SimpleGUICS2Pygame/simpleguics2pygame/_pygame_init.py
+                        :: pygame/version.py
+                  SimpleGUICS2Pygame/simpleguics2pygame/_fonts.py
+                      SimpleGUICS2Pygame/simpleguics2pygame/_arguments.py
+                          SimpleGUICS2Pygame/__init__.py
+              SimpleGUICS2Pygame/simpleguics2pygame/sound.py
+                + SimpleGUICS2Pygame/simpleguics2pygame/_media.py
+                      contextlib.pyi
+                    :: audioread/__init__.py
+              SimpleGUICS2Pygame/simpleguics2pygame/timer.py
+              SimpleGUICS2Pygame/simpleguics2pygame/canvas.py
+                  SimpleGUICS2Pygame/simpleguics2pygame/image.py
+              SimpleGUICS2Pygame/simpleguics2pygame/keys.py
+                :: pygame/locals.py
+            + SimpleGUICS2Pygame/simpleguics2pygame/frame.py
+                  SimpleGUICS2Pygame/simpleguics2pygame/_joypads.py
+                  random.pyi
 + test_simpleplot_lines.py
-+ test_colors_html.py
-+ test_dir.py
-      SimpleGUICS2Pygame/codeskulptor.py
-    + SimpleGUICS2Pygame/numeric.py
-+ test_line.py
-+ test_all.py
-      __init__.pyi
-    :: PIL/Image.py
-      glob.pyi
-    :: PIL/ImageChops.py
-    :: PIL/ImageStat.py
-+ test_grid.py
-+ Blackjack.py
-+ test_command_line_options.py
-+ test_numeric.py
-+ Frame_example.py
-+ test_circle.py
-+ test_arc.py
-+ Spaceship_prototype.py
-+ pygame_check.py
+      SimpleGUICS2Pygame/simpleplot.py
+        :: matplotlib/__init__.py
+        :: matplotlib/pyplot.py
++ test_colors_html_rgba.py
+      SimpleGUICS2Pygame/codeskulptor_lib.py
 + SimpleGUICS2Pygame_check.py
-    + SimpleGUICS2Pygame/simplegui_lib.py
-+ test_text.py
+      SimpleGUICS2Pygame/numeric.py
+      SimpleGUICS2Pygame/simplegui_lib_fps.py
+      SimpleGUICS2Pygame/simplegui_lib.py
+          SimpleGUICS2Pygame/simplegui_lib_draw.py
+          SimpleGUICS2Pygame/simplegui_lib_loader.py
+      SimpleGUICS2Pygame/codeskulptor.py
 + test_simpleplot_scatter.py
++ test_command_line_options.py
++ Spaceship_prototype.py
++ test_colors_constants.py
++ Blackjack.py
++ test_sound.py
++ Mandelbrot_Set.py
 + Nostalgic_Basic_Blitz.py
 + loader.py
++ test_image.py
++ test_text.py
++ Stress_Balls.py
++ test_circle.py
++ Pong.py
++ test_numeric.py
++ Memory.py
++ Frame_example.py
++ presentation.py
++ test_simpleplot_bars.py
++ test_arc.py
++ RiceRocks_Asteroids.py
++ test_button_label.py
++ Stopwatch.py
++ test_objects.py
++ setup.py
+    :: setuptools/__init__.py
++ test_line.py
++ test_colors_html.py
++ cs2both.py
++ pygame_check.py
++ test_grid.py
++ test_input.py
++ test_all.py
+    :: PIL/Image.py
+    :: PIL/ImageChops.py
+      __init__.pyi
+    :: PIL/ImageStat.py
+      glob.pyi
++ test_dir.py
++ Stress_Balls_results.py
++ test_colors_html_hsla.py
++ stop_example.py
 ===== pytype --unresolved =====
 Computing dependencies
 Unresolved dependencies:
@@ -312,51 +311,31 @@ Unresolved dependencies:
   urlparse.urlsplit
 ===== pytype =====
 ninja: Entering directory `/home/opi/data/git/current/simpleguics2pygame/.pytype'
-[1/64] check SimpleGUICS2Pygame.simpleplot
-[2/64] check SimpleGUICS2Pygame.simpleguics2pygame._pygame_init
-[3/64] check SimpleGUICS2Pygame.simpleguics2pygame.keys
-[4/64] check SimpleGUICS2Pygame.simpleguics2pygame._colors
-[5/64] check SimpleGUICS2Pygame.__init__
-[6/64] check SimpleGUICS2Pygame.numeric
-[7/64] check SimpleGUICS2Pygame.simpleguics2pygame._arguments
-[8/64] check SimpleGUICS2Pygame.simpleguics2pygame._fonts
-[9/64] check SimpleGUICS2Pygame.simpleguics2pygame._media
-[10/64] check SimpleGUICS2Pygame.simpleguics2pygame.image
-[11/64] check SimpleGUICS2Pygame.simpleguics2pygame.canvas
-[12/64] check setup
-[13/64] check SimpleGUICS2Pygame.simpleguics2pygame.timer
-[14/64] check SimpleGUICS2Pygame.simpleguics2pygame._joypads
-[15/64] check SimpleGUICS2Pygame.simpleguics2pygame.control
-[16/64] check SimpleGUICS2Pygame.simplegui_lib_draw
-[17/64] check SimpleGUICS2Pygame.simpleguics2pygame.frame
-[18/64] check SimpleGUICS2Pygame.simpleguics2pygame.sound
-[19/64] check SimpleGUICS2Pygame.simpleguics2pygame.__init__
-[20/64] check Stress_Balls
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Stress_Balls.imports --module-name Stress_Balls -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 23, in <module>: Can't find module 'simplegui'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 24, in <module>: Can't find module 'simpleplot'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 258, in dict_to_ordered_list: No attribute 'keys' on List[Tuple[nothing, nothing]] [attribute-error]
-  In Union[Dict[nothing, nothing], List[Tuple[nothing, nothing]]]
-Called from (traceback):
-  line 279, in init
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 277, in init: Name 'TIMER' is not defined [name-error]
-
-For more details, see https://google.github.io/pytype/errors.html.
-[21/64] check test_text
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_text.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_text.imports --module-name test_text -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_text.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_text.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_text.py", line 16, in <module>: Can't find module 'user305_Vj4GH0AVPin7znw'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_text.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
+[1/53] check pygame_check
+[2/53] check SimpleGUICS2Pygame.simpleguics2pygame.control
+[3/53] check SimpleGUICS2Pygame.simpleguics2pygame.frame
+[4/53] check SimpleGUICS2Pygame.simpleguics2pygame.sound
+[5/53] check SimpleGUICS2Pygame.simpleguics2pygame.__init__
+[6/53] check SimpleGUICS2Pygame.simplegui_lib_loader
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_loader.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/SimpleGUICS2Pygame.simplegui_lib_loader.imports --module-name SimpleGUICS2Pygame.simplegui_lib_loader -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_loader.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_loader.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_loader.py", line 293, in load: Can't find module 'simplegui'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_loader.py", line 381, in wait_loaded: Can't find module 'simplegui'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[22/64] check test_grid
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_grid.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_grid.imports --module-name test_grid -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_grid.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_grid.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_grid.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
+[7/53] check test_colors_constants
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_colors_constants.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_colors_constants.imports --module-name test_colors_constants -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_colors_constants.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_colors_constants.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_colors_constants.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[23/64] check SimpleGUICS2Pygame.codeskulptor_lib
+[8/53] check SimpleGUICS2Pygame.simplegui_lib_fps
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_fps.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/SimpleGUICS2Pygame.simplegui_lib_fps.imports --module-name SimpleGUICS2Pygame.simplegui_lib_fps -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_fps.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_fps.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_fps.py", line 98, in start: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[9/53] check SimpleGUICS2Pygame.codeskulptor_lib
 FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/codeskulptor_lib.pyi 
 /usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/SimpleGUICS2Pygame.codeskulptor_lib.imports --module-name SimpleGUICS2Pygame.codeskulptor_lib -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/codeskulptor_lib.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/codeskulptor_lib.py
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/codeskulptor_lib.py", line 84, in codeskulptor_is: Can't find module 'codeskulptor'. [import-error]
@@ -364,14 +343,32 @@ File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/codeskulp
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/codeskulptor_lib.py", line 109, in codeskulptor_version: Can't find module 'urllib2'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[24/64] check test_circle
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_circle.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_circle.imports --module-name test_circle -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_circle.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_circle.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_circle.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
+[10/53] check SimpleGUICS2Pygame.simpleplot
+[11/53] check test_simpleplot_lines
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_lines.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_simpleplot_lines.imports --module-name test_simpleplot_lines -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_lines.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_lines.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_lines.py", line 16, in <module>: Can't find module 'codeskulptor'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_lines.py", line 17, in <module>: Can't find module 'simpleplot'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[25/64] check SimpleGUICS2Pygame.codeskulptor
-[26/64] check SimpleGUICS2Pygame.simplegui_lib_keys
+[12/53] check test_objects
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_objects.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_objects.imports --module-name test_objects -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_objects.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py", line 16, in <module>: Can't find module 'user305_fZiH7ljLOrt9aBi'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py", line 32, in <module>: Can't find module 'SimpleGUICS2Pygame.simpleguics2pygame._PYGAME_VERSION'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[13/53] check test_all
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_all.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_all.imports --module-name test_all -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_all.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_all.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_all.py", line 36, in <module>: Can't find module 'simplegui'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_all.py", line 61, in <module>: No attribute '_PYGAME_VERSION' on module 'SimpleGUICS2Pygame.simpleguics2pygame' [module-attr]
+
+For more details, see https://google.github.io/pytype/errors.html.
+[14/53] check SimpleGUICS2Pygame.simplegui_lib_draw
+[15/53] check SimpleGUICS2Pygame.numeric
+[16/53] check SimpleGUICS2Pygame.simplegui_lib_keys
 FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_keys.pyi 
 /usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/SimpleGUICS2Pygame.simplegui_lib_keys.imports --module-name SimpleGUICS2Pygame.simplegui_lib_keys -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_keys.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_keys.py
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_keys.py", line 21, in <module>: Can't find module 'simplegui'. [import-error]
@@ -379,37 +376,91 @@ File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_keys.py", line 69, in __init__: No attribute '_keyup_fct' on Keys [attribute-error]
 
 For more details, see https://google.github.io/pytype/errors.html.
-[27/64] check test_simpleplot_bars
+[17/53] check Stress_Balls_results
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls_results.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Stress_Balls_results.imports --module-name Stress_Balls_results -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls_results.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 17, in <module>: Can't find module 'codeskulptor'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 18, in <module>: Can't find module 'simpleplot'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 99, in main: No attribute 'keys' on int [attribute-error]
+  In Union[Dict[int, int], int]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 102, in main: No attribute 'keys' on int [attribute-error]
+  In Union[Dict[int, int], int]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 127, in main: No attribute 'keys' on Tuple[Dict[int, int], Dict[int, int]] [attribute-error]
+  In Union[Dict[int, int], Tuple[Dict[int, int], Dict[int, int]]]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 144, in main: No attribute 'get' on Tuple[Dict[int, int], Dict[int, int]] [attribute-error]
+  In Union[Dict[int, int], Tuple[Dict[int, int], Dict[int, int]]]
+
+For more details, see https://google.github.io/pytype/errors.html.
+[18/53] check SimpleGUICS2Pygame.codeskulptor
+[19/53] check test_sound
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_sound.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_sound.imports --module-name test_sound -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_sound.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_sound.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_sound.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_sound.py", line 50, in load_local: No attribute '_load_local_sound' on module 'SimpleGUICS2Pygame.simpleguics2pygame' [module-attr]
+
+For more details, see https://google.github.io/pytype/errors.html.
+[20/53] check test_arc
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_arc.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_arc.imports --module-name test_arc -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_arc.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_arc.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_arc.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[21/53] check cs2both
+[22/53] check test_command_line_options
+[23/53] check test_simpleplot_scatter
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_scatter.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_simpleplot_scatter.imports --module-name test_simpleplot_scatter -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_scatter.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_scatter.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_scatter.py", line 16, in <module>: Can't find module 'codeskulptor'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_scatter.py", line 17, in <module>: Can't find module 'simpleplot'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[24/53] check test_text
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_text.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_text.imports --module-name test_text -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_text.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_text.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_text.py", line 16, in <module>: Can't find module 'user305_Vj4GH0AVPin7znw'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_text.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[25/53] check Blackjack
+[26/53] check test_circle
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_circle.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_circle.imports --module-name test_circle -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_circle.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_circle.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_circle.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[27/53] check test_button_label
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_button_label.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_button_label.imports --module-name test_button_label -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_button_label.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_button_label.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_button_label.py", line 17, in <module>: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[28/53] check test_simpleplot_bars
 FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_bars.pyi 
 /usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_simpleplot_bars.imports --module-name test_simpleplot_bars -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_bars.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_bars.py
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_bars.py", line 16, in <module>: Can't find module 'codeskulptor'. [import-error]
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_bars.py", line 17, in <module>: Can't find module 'simpleplot'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[28/64] check SimpleGUICS2Pygame.simplegui_lib_loader
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_loader.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/SimpleGUICS2Pygame.simplegui_lib_loader.imports --module-name SimpleGUICS2Pygame.simplegui_lib_loader -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_loader.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_loader.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_loader.py", line 293, in load: Can't find module 'simplegui'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_loader.py", line 381, in wait_loaded: Can't find module 'simplegui'. [import-error]
+[29/53] check stop_example
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/stop_example.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/stop_example.imports --module-name stop_example -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/stop_example.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/stop_example.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/stop_example.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[29/64] check SimpleGUICS2Pygame.simplegui_lib_fps
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_fps.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/SimpleGUICS2Pygame.simplegui_lib_fps.imports --module-name SimpleGUICS2Pygame.simplegui_lib_fps -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/SimpleGUICS2Pygame/simplegui_lib_fps.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_fps.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/simplegui_lib_fps.py", line 98, in start: Can't find module 'simplegui'. [import-error]
+[30/53] check Pong
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Pong.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Pong.imports --module-name Pong -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Pong.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Pong.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Pong.py", line 22, in <module>: Can't find module 'simplegui'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[30/64] check test_dir
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_dir.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_dir.imports --module-name test_dir -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_dir.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 19, in <module>: Can't find module 'codeskulptor'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 20, in <module>: Can't find module 'numeric'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 21, in <module>: Can't find module 'simplemap'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 22, in <module>: Can't find module 'simpleplot'. [import-error]
+[31/53] check setup
+[32/53] check Stopwatch
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stopwatch.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Stopwatch.imports --module-name Stopwatch -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stopwatch.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stopwatch.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stopwatch.py", line 20, in <module>: Can't find module 'simplegui'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[31/64] check Nostalgic_Basic_Blitz
+[33/53] check Nostalgic_Basic_Blitz
 FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Nostalgic_Basic_Blitz.pyi 
 /usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Nostalgic_Basic_Blitz.imports --module-name Nostalgic_Basic_Blitz -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Nostalgic_Basic_Blitz.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Nostalgic_Basic_Blitz.py
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Nostalgic_Basic_Blitz.py", line 23, in <module>: Can't find module 'simplegui'. [import-error]
@@ -427,109 +478,46 @@ Called from (traceback):
   line 434, in draw
 
 For more details, see https://google.github.io/pytype/errors.html.
-[32/64] check Blackjack
-[33/64] check test_objects
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_objects.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_objects.imports --module-name test_objects -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_objects.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py", line 16, in <module>: Can't find module 'user305_fZiH7ljLOrt9aBi'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_objects.py", line 32, in <module>: Can't find module 'SimpleGUICS2Pygame.simpleguics2pygame._PYGAME_VERSION'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[34/64] check test_command_line_options
-[35/64] check test_sound
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_sound.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_sound.imports --module-name test_sound -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_sound.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_sound.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_sound.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_sound.py", line 50, in load_local: No attribute '_load_local_sound' on module 'SimpleGUICS2Pygame.simpleguics2pygame' [module-attr]
-
-For more details, see https://google.github.io/pytype/errors.html.
-[36/64] check stop_example
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/stop_example.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/stop_example.imports --module-name stop_example -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/stop_example.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/stop_example.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/stop_example.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[37/64] check cs2both
-[38/64] check test_simpleplot_lines
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_lines.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_simpleplot_lines.imports --module-name test_simpleplot_lines -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_lines.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_lines.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_lines.py", line 16, in <module>: Can't find module 'codeskulptor'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_lines.py", line 17, in <module>: Can't find module 'simpleplot'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[39/64] check Pong
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Pong.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Pong.imports --module-name Pong -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Pong.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Pong.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Pong.py", line 22, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[40/64] check Stopwatch
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stopwatch.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Stopwatch.imports --module-name Stopwatch -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stopwatch.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stopwatch.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stopwatch.py", line 20, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[41/64] check Stress_Balls_results
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls_results.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Stress_Balls_results.imports --module-name Stress_Balls_results -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls_results.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 17, in <module>: Can't find module 'codeskulptor'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 18, in <module>: Can't find module 'simpleplot'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 99, in main: No attribute 'keys' on int [attribute-error]
-  In Union[Dict[int, int], int]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 102, in main: No attribute 'keys' on int [attribute-error]
-  In Union[Dict[int, int], int]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 127, in main: No attribute 'keys' on Tuple[Dict[int, int], Dict[int, int]] [attribute-error]
-  In Union[Dict[int, int], Tuple[Dict[int, int], Dict[int, int]]]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls_results.py", line 144, in main: No attribute 'get' on Tuple[Dict[int, int], Dict[int, int]] [attribute-error]
-  In Union[Dict[int, int], Tuple[Dict[int, int], Dict[int, int]]]
-
-For more details, see https://google.github.io/pytype/errors.html.
-[42/64] check test_colors_constants
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_colors_constants.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_colors_constants.imports --module-name test_colors_constants -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_colors_constants.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_colors_constants.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_colors_constants.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[43/64] check test_arc
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_arc.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_arc.imports --module-name test_arc -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_arc.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_arc.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_arc.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[44/64] check test_input
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_input.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_input.imports --module-name test_input -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_input.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_input.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_input.py", line 17, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[45/64] check test_line
+[34/53] check test_line
 FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_line.pyi 
 /usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_line.imports --module-name test_line -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_line.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_line.py
 File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_line.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
 
 For more details, see https://google.github.io/pytype/errors.html#import-error.
-[46/64] check test_all
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_all.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_all.imports --module-name test_all -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_all.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_all.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_all.py", line 36, in <module>: Can't find module 'simplegui'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_all.py", line 61, in <module>: No attribute '_PYGAME_VERSION' on module 'SimpleGUICS2Pygame.simpleguics2pygame' [module-attr]
+[35/53] check test_dir
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_dir.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_dir.imports --module-name test_dir -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_dir.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 18, in <module>: Can't find module 'simplegui'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 19, in <module>: Can't find module 'codeskulptor'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 20, in <module>: Can't find module 'numeric'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 21, in <module>: Can't find module 'simplemap'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_dir.py", line 22, in <module>: Can't find module 'simpleplot'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[36/53] check test_grid
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_grid.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_grid.imports --module-name test_grid -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_grid.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_grid.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_grid.py", line 16, in <module>: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[37/53] check test_input
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_input.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_input.imports --module-name test_input -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_input.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_input.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_input.py", line 17, in <module>: Can't find module 'simplegui'. [import-error]
+
+For more details, see https://google.github.io/pytype/errors.html#import-error.
+[38/53] check Stress_Balls
+FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls.pyi 
+/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/Stress_Balls.imports --module-name Stress_Balls -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/Stress_Balls.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 23, in <module>: Can't find module 'simplegui'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 24, in <module>: Can't find module 'simpleplot'. [import-error]
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 258, in dict_to_ordered_list: No attribute 'keys' on List[Tuple[nothing, nothing]] [attribute-error]
+  In Union[Dict[nothing, nothing], List[Tuple[nothing, nothing]]]
+Called from (traceback):
+  line 279, in init
+File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py", line 277, in init: Name 'TIMER' is not defined [name-error]
 
 For more details, see https://google.github.io/pytype/errors.html.
-[47/64] check pygame_check
-[48/64] check test_simpleplot_scatter
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_scatter.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_simpleplot_scatter.imports --module-name test_simpleplot_scatter -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_simpleplot_scatter.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_scatter.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_scatter.py", line 16, in <module>: Can't find module 'codeskulptor'. [import-error]
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_simpleplot_scatter.py", line 17, in <module>: Can't find module 'simpleplot'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
-[49/64] check test_button_label
-FAILED: /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_button_label.pyi 
-/usr/bin/python3 -m pytype.single --imports_info /home/opi/data/git/current/simpleguics2pygame/.pytype/imports/test_button_label.imports --module-name test_button_label -V 3.5 -o /home/opi/data/git/current/simpleguics2pygame/.pytype/pyi/test_button_label.pyi --analyze-annotated --nofail --quick /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_button_label.py
-File "/home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test/test_button_label.py", line 17, in <module>: Can't find module 'simplegui'. [import-error]
-
-For more details, see https://google.github.io/pytype/errors.html#import-error.
 ninja: build stopped: cannot make progress due to previous errors.
 Computing dependencies
 Analyzing 64 sources with 0 local dependencies
