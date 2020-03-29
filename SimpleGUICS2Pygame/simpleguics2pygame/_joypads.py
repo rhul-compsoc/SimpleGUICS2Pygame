@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 17, 2020
+:version: March 29, 2020
 """
 
 from __future__ import print_function
@@ -32,15 +32,16 @@ if _PYGAME_AVAILABLE:
 #
 # Private global constants
 ##########################
-__PYGAME_JOYPADS = (tuple(pygame.joystick.Joystick(i)
-                          for i in range(pygame.joystick.get_count()))
-                    if _PYGAME_AVAILABLE
-                    else tuple())
-"""
-Tuple of all Pygame joypads found.
+if _PYGAME_AVAILABLE:
+    __PYGAME_JOYPADS = tuple(pygame.joystick.Joystick(i)
+                             for i in range(pygame.joystick.get_count()))
+    """
+    Tuple of all Pygame joypads found.
 
-**(Not available in SimpleGUI of CodeSkulptor.)**
-"""
+    **(Not available in SimpleGUI of CodeSkulptor.)**
+    """
+else:
+    __PYGAME_JOYPADS = tuple()
 
 tuple(joypad.init() for joypad in __PYGAME_JOYPADS)
 
