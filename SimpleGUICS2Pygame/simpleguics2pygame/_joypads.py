@@ -18,6 +18,10 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
+import os.path
+import sys
+
+
 __all__ = []
 
 
@@ -32,16 +36,16 @@ if _PYGAME_AVAILABLE:
 #
 # Private global constants
 ##########################
-if _PYGAME_AVAILABLE:
-    __PYGAME_JOYPADS = tuple(pygame.joystick.Joystick(i)
-                             for i in range(pygame.joystick.get_count()))
-    """
-    Tuple of all Pygame joypads found.
+if not os.path.basename(sys.argv[0]).startswith('sphinx-build'):
+    __PYGAME_JOYPADS = (tuple(pygame.joystick.Joystick(i)
+                              for i in range(pygame.joystick.get_count()))
+                        if _PYGAME_AVAILABLE
+                        else tuple())
+"""
+Tuple of all Pygame joypads found.
 
-    **(Not available in SimpleGUI of CodeSkulptor.)**
-    """
-else:
-    __PYGAME_JOYPADS = tuple()
+**(Not available in SimpleGUI of CodeSkulptor.)**
+"""
 
 tuple(joypad.init() for joypad in __PYGAME_JOYPADS)
 
