@@ -41,13 +41,13 @@ if not os.path.basename(sys.argv[0]).startswith('sphinx-build'):
                               for i in range(pygame.joystick.get_count()))
                         if _PYGAME_AVAILABLE
                         else tuple())
+else:
+    __PYGAME_JOYPADS = tuple()
 """
 Tuple of all Pygame joypads found.
 
 **(Not available in SimpleGUI of CodeSkulptor.)**
 """
-else:
-    __PYGAME_JOYPADS = tuple()
 
 
 # Initialize each joypad
