@@ -46,7 +46,11 @@ Tuple of all Pygame joypads found.
 
 **(Not available in SimpleGUI of CodeSkulptor.)**
 """
+else:
+    __PYGAME_JOYPADS = tuple()
 
+
+# Initialize each joypad
 tuple(joypad.init() for joypad in __PYGAME_JOYPADS)
 
 
