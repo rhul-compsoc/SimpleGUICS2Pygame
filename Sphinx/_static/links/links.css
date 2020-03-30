@@ -231,7 +231,7 @@ body > header > div.infos {
     background-color: #414141;
     clear: both;
     color: white;
-    padding: 0 1ex;
+    padding: 1ex 1ex 0;
     text-align: center;
 }
 
