@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: March 30, 2020
 """
 
 import math
@@ -34,6 +34,7 @@ except ImportError:
 
 
 if SIMPLEGUICS2PYGAME:
+    from sys import argv
     from sys import version as python_version
     from pygame.version import ver as pygame_version
     from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
@@ -151,8 +152,6 @@ def init():
     FRAME.set_draw_handler(draw)
 
     if SIMPLEGUICS2PYGAME:
-        from sys import argv
-
         if len(argv) == 2:
             FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
@@ -184,8 +183,10 @@ LOADER.load()
 LOADER.wait_loaded()
 
 if SIMPLEGUICS2PYGAME:
+    from os.path import dirname, join
+
     LOGO = simplegui._load_local_image(  # noqa  # pylint: disable=protected-access,no-member
-        '../_img/SimpleGUICS2Pygame_64x64_t.png')
+        join(dirname(argv[0]), '../_img/SimpleGUICS2Pygame_64x64_t.png'))
 
 FRAME.start()
 if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access

@@ -98,6 +98,9 @@ Note that ``$`` represents the prompt and do *not* be entered by you.
 
 **Requirements are automatically installed**.
 
+.. warning::
+   With Python 2, installation of Pygame requirement may cause some problems.
+
 See more details in `Online HTML documentation`_.
 
 |
@@ -258,7 +261,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 29, 2020
+* 02.00.00 WORKING VERSION — March 30, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)

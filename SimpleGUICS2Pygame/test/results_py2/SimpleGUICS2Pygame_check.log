@@ -19,7 +19,7 @@ PATH:
 
 PYTHONPATH:
   /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/
+  
 
 
 python - version 2.7.13 (default, Sep 26 2018, 18:42:22) 
@@ -28,15 +28,15 @@ python - version 2.7.13 (default, Sep 26 2018, 18:42:22)
 sys.path:
   /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
   /home/opi/data/git/current/simpleguics2pygame
+  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python2.7
   /usr/lib/python2.7/plat-x86_64-linux-gnu
   /usr/lib/python2.7/lib-tk
   /usr/lib/python2.7/lib-old
   /usr/lib/python2.7/lib-dynload
   /home/opi/.local/lib/python2.7/site-packages
-  /home/opi/.local/lib/python2.7/site-packages/SimpleGUICS2Pygame-02.00.00.WORKING.VERSION.March.24_.2020-py2.7.egg
-  /home/opi/.local/lib/python2.7/site-packages/pygame-2.0.0.dev6-py2.7-linux-x86_64.egg
   /home/opi/.local/lib/python2.7/site-packages/audioread-2.1.8-py2.7.egg
+  /home/opi/.local/lib/python2.7/site-packages/SimpleGUICS2Pygame-02.00.00.WORKING.VERSION.March.30_.2020-py2.7.egg
   /usr/local/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages/PILcompat
@@ -54,7 +54,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.0.0
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 29, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 30, 2020
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

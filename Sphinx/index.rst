@@ -101,6 +101,15 @@ Pygame is required to use module ``simplegui_lib`` (and its submodules)
 and module ``simpleguics2pygame`` of SimpleGUICS2Pygame
 (except for the Timer class).
 
+.. warning::
+   Normally Pygame is installed automatically when you install SimpleGUICS2Pygame.
+   But with Python 2 this installation may fail.
+   In these case install Pygame like this first.
+
+   .. code-block:: sh
+
+     $ python -m pip install -U pygame==1.9.6
+
 If you have some problem,
 see `installation documentation of pygame`_.
 

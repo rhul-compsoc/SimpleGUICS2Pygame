@@ -9,7 +9,7 @@ Examples of use in :
   https://py3.codeskulptor.org/#user305_RmGavl1UzqeSvoN.py
 
 * `test/test_image.py`:
-  https://py3.codeskulptor.org/#user305_dgJnhDALphandpX.py
+  https://py3.codeskulptor.org/#user305_kHtuZnTyMwVe0ya.py
 
 * `example/Spaceship_prototype.py`:
   https://py3.codeskulptor.org/#user305_H2qHBIzuf73UHHv.py
