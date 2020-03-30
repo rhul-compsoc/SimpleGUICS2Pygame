@@ -284,8 +284,8 @@ http://www.codeskulptor.org/#demos-pyman.py
 Pyman (Lawrence <span class="surname">Strickland</span>)
 in CodeSkulptor 2
 
-https://py3.codeskulptor.org/#user16_1cRHwBcpa4_0.py
-<strong>Pyman</strong> (Lawrence <span class="surname">Strickland</span>) <span class="adapted">adapted</span> (but big speed problem in Python, too fast!)
+https://py3.codeskulptor.org/#user305_p0V4bwZMjst5DEx.py
+<strong>Pyman</strong> (Lawrence <span class="surname">Strickland</span>) <span class="adapted">adapted</span>
 
 http://www.codeskulptor.org/#demos-riceracer.py
 Rice Racer (Steve <span class="surname">Knock</span>) (don&rsquo;t work in Python, due to incorrect use of classes)
@@ -333,6 +333,10 @@ https://py3.codeskulptor.org/#user19_Sd5A76hlsV_0.py
 
 + By students of <a rel="nofollow" href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013 &ndash;&nbsp;2016)
 
+http://www.codeskulptor.org/#user40_ntyd9O4ZQtVJss3_0.py
+2048 (Miguel Alejandro Moreno <span class="surname">Barrientos</span> 2015)
+in CodeSkulptor 2 <a rel="nofollow" href="https://miguelalejandromorenobarrientos.github.io/CodeskulptorGames/">Codeskulptor Games</a>
+
 https://py3.codeskulptor.org/#user33_LAnBofUUkve1Qq0.py
 Amiga Tribute Demo (Jason <span class="surname">Butwell</span>)
 
@@ -371,16 +375,22 @@ https://py3.codeskulptor.org/#user28_9FxkYgKObhWu03B.py
 <strong>Fish Pond</strong> (Chris <span class="surname">Arbuthnott</span>) <span class="adapted">adapted</span>
 
 https://py3.codeskulptor.org/#user16_xfbbqbrHIbO8zDv_4.py
-<strong>Fractal</strong> (Roger <span class="surname">Foreman</span>)
+Fractal (Roger <span class="surname">Foreman</span>)
+
+https://py3.codeskulptor.org/#user305_caStsMDczRaesfk.py
+<strong>Fractal</strong> (Roger <span class="surname">Foreman</span>) <span class="adapted">adapted</span>
 
 https://py3.codeskulptor.org/#user16_JERSJkUJn2WSSOk_3.py
-<strong>Fractal: Dragon Curve</strong> (Roger <span class="surname">Foreman</span>)
+Fractal: Dragon Curve (Roger <span class="surname">Foreman</span>)
+
+https://py3.codeskulptor.org/#user305_6Pix0X24ww9nIOf.py
+<strong>Fractal: Dragon Curve</strong> (Roger <span class="surname">Foreman</span>) <span class="adapted">adapted</span>
 
 https://py3.codeskulptor.org/#user16_Iuy7xIrAnI_25.py
 Pitfall (Corrado <span class="surname">Musumeci</span>)
 
 https://py3.codeskulptor.org/#user16_F5TtoDE53v_0.py
-<strong>Pitfall</strong> (Corrado <span class="surname">Musumeci</span>) ADAPATED
+<strong>Pitfall</strong> (Corrado <span class="surname">Musumeci</span>) <span class="adapted">adapted</span>
 
 https://py3.codeskulptor.org/#user27_k063bQs8gFXh7Ox.py
 P-Jeweld (Ender <span class="surname">Kasim</span>)
