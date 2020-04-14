@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_colors
+simpleguics2pygame module: simpleguics2pygame/_colors.
 
 Colors helpers.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 13, 2020
 """
 
 from __future__ import division
@@ -19,7 +19,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = []
+__all__ = tuple()  # type: ignore
 
 
 import colorsys  # noqa
@@ -202,7 +202,7 @@ else:
 #
 # Private global variable
 #########################
-_PYGAMECOLORS_CACHED = {}
+_PYGAMECOLORS_CACHED = {}  # type: ignore
 """
 `Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
 

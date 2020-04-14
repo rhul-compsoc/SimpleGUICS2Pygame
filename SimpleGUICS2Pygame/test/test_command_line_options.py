@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 12, 2020
 """
 
 from sys import argv
@@ -24,9 +24,7 @@ AFTER = tuple(argv)
 
 # Main
 def test():
-    """
-    Test command line options
-    """
+    """Test command line options"""
     print(BEFORE)
     print(AFTER)
 

@@ -9,13 +9,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 13, 2020
 """
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
@@ -26,9 +26,7 @@ CANVAS_HEIGHT = 300
 
 
 def click():
-    """
-    Simple handler function to the timer.
-    """
+    """Simple handler function to the timer."""
     print('click')
 
 
@@ -50,9 +48,7 @@ def draw(canvas):
 
 
 def stop_all():
-    """
-    Handler function to the Quit button.
-    """
+    """Handler function to the Quit button."""
     TIMER.stop()
     SOUND.pause()
     FRAME.stop()

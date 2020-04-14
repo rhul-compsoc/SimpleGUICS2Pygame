@@ -3,14 +3,14 @@
 # pylint: disable=invalid-name
 
 """
-script/SimpleGUICS2Pygame_check.py
+script/SimpleGUICS2Pygame_check.py script.
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: April 14, 2020
 """
 
 from __future__ import print_function
@@ -23,7 +23,7 @@ import sys
 # Main #
 ########
 if __name__ == '__main__':
-    print("""script/SimpleGUICS2Pygame_check.py (March 23, 2020)
+    print("""script/SimpleGUICS2Pygame_check.py (April 14, 2020)
 ===================================================""")
 
     # Environment variables
@@ -100,31 +100,31 @@ if __name__ == '__main__':
     # simplegui
     CMD = 'import simplegui'
     try:
-        import simplegui  # pylint: disable=unused-import,import-error
+        import simplegui  # noqa  # type: ignore  # pylint: disable=unused-import,import-error
 
-        print(CMD, """PROBLEM - The package simplegui is installed!
+        print(CMD, """PROBLEM - The package simplegui is installed on your system!
   It is a Python package which has the same name as SimpleGUI of CodeSkulptor,
   but it is totally something else.
   If you don't uninstall it,
   you must replace the recommended import of SimpleGUICS2Pygame.
 
 """)  # noqa
-    except Exception as exc:  # pylint: disable=broad-except
+    except Exception:  # pylint: disable=broad-except
         pass
 
     # SimpleGUITk
     CMD = 'import simpleguitk'
     try:
-        import simpleguitk  # pylint: disable=unused-import,import-error
+        import simpleguitk  # noqa  # type: ignore  # pylint: disable=unused-import,import-error
 
-        print(CMD, """WARNING - The package simpleguitk is installed!
+        print(CMD, """WARNING - The package simpleguitk is installed on your system!
   It is another implementation of SimpleGUI of CodeSkulptor,
   using Tkinter and some others packages.
   If you don't uninstall it,
   you must be careful with the import of SimpleGUICS2Pygame.
 
-""")
-    except Exception as exc:  # pylint: disable=broad-except
+""")  # noqa
+    except Exception:  # pylint: disable=broad-except
         pass
 
     # SimpleGUICS2Pygame

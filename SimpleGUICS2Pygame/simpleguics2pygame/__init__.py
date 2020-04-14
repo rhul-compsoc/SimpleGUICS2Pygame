@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/__init__
+simpleguics2pygame module: simpleguics2pygame/__init__.
 
 Standard Python_ (**2 and 3**) module
 reimplementing the SimpleGUI particular module of CodeSkulptor_ and CodeSkulptor3_
@@ -27,7 +27,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 29, 2020
+:version: April 14, 2020
 """  # noqa
 
 from __future__ import print_function
@@ -49,7 +49,7 @@ if 'os' in dir():
 import SimpleGUICS2Pygame.simpleguics2pygame._arguments  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
 
 if '_arguments' in dir():
-    del _arguments  # pylint: disable=undefined-variable
+    del _arguments  # type: ignore  # pylint: disable=undefined-variable
 
 
 #
@@ -58,7 +58,7 @@ if '_arguments' in dir():
 from SimpleGUICS2Pygame.simpleguics2pygame.timer import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'timer' in dir():
-    del timer  # pylint: disable=undefined-variable
+    del timer  # type: ignore  # pylint: disable=undefined-variable
 
 
 #
@@ -67,7 +67,7 @@ if 'timer' in dir():
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import *  # noqa  # pylint: disable=no-name-in-module,wildcard-import,wrong-import-position
 
 if '_pygame_init' in dir():
-    del _pygame_init  # pylint: disable=undefined-variable
+    del _pygame_init  # type: ignore  # pylint: disable=undefined-variable
 
 
 #
@@ -76,34 +76,34 @@ if '_pygame_init' in dir():
 from SimpleGUICS2Pygame.simpleguics2pygame.keys import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'keys' in dir():
-    del keys  # pylint: disable=undefined-variable
+    del keys  # type: ignore  # pylint: disable=undefined-variable
 
 from SimpleGUICS2Pygame.simpleguics2pygame.control import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'control' in dir():
-    del control  # pylint: disable=undefined-variable
+    del control  # type: ignore  # pylint: disable=undefined-variable
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame.image import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'image' in dir():
-    del image  # pylint: disable=undefined-variable
+    del image  # type: ignore  # pylint: disable=undefined-variable
 
 from SimpleGUICS2Pygame.simpleguics2pygame.sound import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'sound' in dir():
-    del sound  # pylint: disable=undefined-variable
+    del sound  # type: ignore  # pylint: disable=undefined-variable
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame.canvas import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'canvas' in dir():
-    del canvas  # pylint: disable=undefined-variable
+    del canvas  # type: ignore  # pylint: disable=undefined-variable
 
 from SimpleGUICS2Pygame.simpleguics2pygame.frame import *  # noqa  # pylint: disable=wildcard-import,wrong-import-position,no-name-in-module
 
 if 'frame' in dir():
-    del frame  # pylint: disable=undefined-variable
+    del frame  # type: ignore  # pylint: disable=undefined-variable
 
 
 #

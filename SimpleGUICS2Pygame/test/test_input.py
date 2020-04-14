@@ -9,16 +9,16 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: April 14, 2020
 """
 
 
 try:
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -47,9 +47,7 @@ INPUT_2 = ''
 
 
 def input_1_handler(text):
-    """
-    Simple input handler function.
-    """
+    """Simple input handler function."""
     global INPUT_1  # pylint: disable=global-statement
 
     INPUT_1 = text
@@ -58,9 +56,7 @@ def input_1_handler(text):
 
 
 def input_2_handler(text):
-    """
-    Simple input handler function.
-    """
+    """Simple input handler function."""
     global INPUT_2  # pylint: disable=global-statement
 
     INPUT_2 = text
@@ -89,6 +85,7 @@ def main():
     frame.add_input('Input 2:', input_2_handler, 400)
 
     frame.start()
+
 
 if __name__ == '__main__':
     main()

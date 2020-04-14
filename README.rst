@@ -75,33 +75,29 @@ I will try to help you with pleasure.
 
 
 
-Installation from sources
-=========================
-Obviously you need Python_.
-
-Download sources_ of SimpleGUICS2Pygame and unzip it.
-
-.. _sources: https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads/
-
-Then open a terminal,
-go to the main directory (the one that contains the file ``setup.py``),
-and run:
-
+Installation
+============
 .. code-block:: sh
 
-   $ python setup.py install --user
+   $ python -m pip install SimpleGUICS2Pygame --user
+
+Note that ``$`` represents the prompt and do *not* be entered by you.
 
 If several Python implementations are installed,
 maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
 
-Note that ``$`` represents the prompt and do *not* be entered by you.
+With the ``--user`` option
+the installation is made in the user directory
+and doesn't require administrator rights.
 
-**Requirements are automatically installed**.
+
+Normally all **requirements are automatically installed**.
+But for that you need have ``pip`` and other installation packages installed
+and up to date.
 
 .. warning::
-   With Python 2, installation of Pygame requirement may cause some problems.
-
-See more details in `Online HTML documentation`_.
+   If you have some installation problem
+   see the complete information in `Online HTML documentation`_.
 
 |
 
@@ -261,7 +257,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 WORKING VERSION — March 30, 2020
+* 02.00.00 alpha — April 14, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -281,6 +277,7 @@ Changes
     - Added ``randomize_iteration()`` in ``codeskulptor``.
     - Added ``transparent`` "color" name.
     - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
+    - Corrected ``keys`` parameter use in ``simplegui_lib_keys.Keys()``.
     - Improved dealing of input box.
     - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
 

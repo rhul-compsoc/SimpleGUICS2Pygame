@@ -31,8 +31,6 @@ and *standard Python* with this module (and Pygame).
 (You can also see the online `SimpleGUI documentation on CodeSkulptor`_
 or `SimpleGUI documentation on CodeSkulptor3`_.)
 
-**This is the online HTML documentation of the working version 2.**
-
 
 | **Sources** and installers on Bitbucket: https://bitbucket.org/OPiMedia/simpleguics2pygame
 | and on **PyPI**: https://pypi.org/project/SimpleGUICS2Pygame/ .
@@ -74,26 +72,46 @@ I will try to help you with pleasure.
 
 Installation
 ------------
+Before the installation of SimpleGUICS2Pygame
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Obviously you need Python_.
 
-Download sources_ of SimpleGUICS2Pygame and unzip it.
-
-.. _sources: https://bitbucket.org/OPiMedia/simpleguics2pygame/downloads/
-
-Then open a terminal,
-go to the main directory (the one that contains the file ``setup.py``),
-and run:
+If  ``pip`` (the Python Package Installer) is not installed on your system,
+then install it with:
 
 .. code-block:: sh
 
-   $ python setup.py install --user
+   $ python -m ensurepip --user
+
+Note that ``$`` represents the prompt and do *not* be entered by you.
 
 If several Python implementations are installed,
 maybe you must use something like ``python2`` or ``python3`` instead ``python`` command.
 
-Note that ``$`` represents the prompt and do *not* be entered by you.
+With the ``--user`` option
+the installation is made in the user directory
+and doesn't require administrator rights.
 
-Followed **requirements are automatically installed**.
+
+Before installation, as a precaution,
+upgrade necessary installation packages:
+
+.. code-block:: sh
+
+   $ python -m pip install pip setuptools wheel --upgrade --user
+
+
+Installation of SimpleGUICS2Pygame
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: sh
+
+   $ python -m pip install SimpleGUICS2Pygame --user
+
+**Followed requirements are automatically installed**.
+
+But if the installation failed,
+then install them separately and after that try again to install SimpleGUICS2Pygame.
+
 
 Package pygame_ required
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,18 +121,23 @@ and module ``simpleguics2pygame`` of SimpleGUICS2Pygame
 
 .. warning::
    Normally Pygame is installed automatically when you install SimpleGUICS2Pygame.
-   But with Python 2 this installation may fail.
-   In these case install Pygame like this first.
+   But if it is failed then install it like this first.
 
    .. code-block:: sh
 
-     $ python -m pip install -U pygame==1.9.6
+     $ python -m pip install pygame==1.9.6 --upgrade --user
 
 If you have some problem,
 see `installation documentation of pygame`_.
 
+On Window$ you can also directly install a binary from the
+`Unofficial Windows Binaries for Python Extension Packages`_:
+`Pygame binary`_.
+
 .. _`installation documentation of pygame`: https://www.pygame.org/wiki/GettingStarted
 .. _Pygame: https://www.pygame.org/
+.. _`Pygame binary`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame
+.. _`Unofficial Windows Binaries for Python Extension Packages`: https://www.lfd.uci.edu/~gohlke/pythonlibs/
 
 
 Package audioread_ required
@@ -132,8 +155,11 @@ matplotlib is required to use module ``simpleplot`` of SimpleGUICS2Pygame.
 If you have some problem,
 see `installation documentation of matplotlib`_.
 
+On Window$ you can also directly install `matplotlib binary`_.
+
 .. _`installation documentation of matplotlib`: https://matplotlib.org/users/installing.html
 .. _matplotlib: https://matplotlib.org/
+.. _`matplotlib binary`: https://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
 
 
 Test installation

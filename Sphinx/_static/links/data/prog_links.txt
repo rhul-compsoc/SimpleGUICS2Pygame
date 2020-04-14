@@ -1,26 +1,26 @@
 + SimpleGUICS2Pygame helper <strong>modules</strong>
 
-https://py3.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py
+https://py3.codeskulptor.org/#user305_2YRLOxXzAvucSDa.py
 Module <strong>codeskulptor_lib</strong>.py
 Some miscellaneous functions to help in CodeSkulptor: <a rel="nofollow" href="../../codeskulptor_lib.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_gIHDK6rkdof6kqb.py
+https://py3.codeskulptor.org/#user305_7mCVRRls4kKNTSm.py
 Module <strong>simplegui_lib</strong>.py
 Some functions and classes to help in SimpleGUI of CodeSkulptor, from simplegui_lib_draw, from simplegui_lib_fps, simplegui_lib_keys and simplegui_lib_loader: <a rel="nofollow" href="../../simplegui_lib.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_Vj4GH0AVPin7znw.py
+https://py3.codeskulptor.org/#user305_2AIoOM1Isi08A9H.py
 Module <strong>simplegui_lib_draw</strong>.py
 Draw functions to help in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_draw.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_ALZ2cYv1hjEYUuU.py
+https://py3.codeskulptor.org/#user305_sqdXmWMw7Jq9Sdc.py
 Module <strong>simplegui_lib_fps</strong>.py
 A class to calculate and display FPS (Frames Per Second) in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_fps.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_CGRDFZgmaZOL2YB.py
+https://py3.codeskulptor.org/#user305_3Ofv0u7rEhsrJ6G.py
 Module <strong>simplegui_lib_keys</strong>.py
 A class to help manage keyboard handling in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_Fem7W4gO0hSlII8.py
+https://py3.codeskulptor.org/#user305_5j0j5Vq5STd2mPH.py
 Module <strong>simplegui_lib_loader</strong>.py
 A class to help load images and sounds in SimpleGUI of CodeSkulptor: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 

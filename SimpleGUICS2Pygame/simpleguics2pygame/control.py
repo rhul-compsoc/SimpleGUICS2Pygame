@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/control
+simpleguics2pygame module: simpleguics2pygame/control.
 
 Classes Control and TextAreaControl.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 13, 2020
 """
 
 from __future__ import division
@@ -19,7 +19,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = ['Control', 'TextAreaControl']
+__all__ = ('Control', 'TextAreaControl')
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # noqa  # pylint: disable=no-name-in-module
@@ -75,57 +75,39 @@ def _text_to_text_cut(text, width, pygame_font):
 # Classes
 #########
 class Control:  # pylint: disable=too-many-instance-attributes
-    """
-    Control similar to SimpleGUI `Control` (button and label) of CodeSkulptor.
-    """
+    """Control similar to SimpleGUI `Control` (button and label) of CodeSkulptor."""  # noqa
 
     _button_background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['silver']
                                        if _PYGAME_AVAILABLE
                                        else None)
-    """
-    `pygame.Color` of the background in the button.
-    """
+    """`pygame.Color` of the background in the button."""
 
     _button_selected_background_pygame_color = (pygame.Color('#f0f0f0')  # noqa   # pylint: disable=invalid-name
                                                 if _PYGAME_AVAILABLE
                                                 else None)
-    """
-    `pygame.Color` of the background in the button when it has pressed.
-    """
+    """`pygame.Color` of the background in the button when it has pressed."""
 
     _button_text_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
                                  if _PYGAME_AVAILABLE
                                  else None)
-    """
-    `pygame.Color` of text in the button.
-    """
+    """`pygame.Color` of text in the button."""
 
     _button_pygame_font = (_simpleguifontface_to_pygamefont(None, 20)
                            if _PYGAME_AVAILABLE
                            else None)
-    """
-    `pygame.font.Font` of text in the button.
-    """
+    """`pygame.font.Font` of text in the button."""
 
     _button_padding_x = 5
-    """
-    Horizontal padding in the button.
-    """
+    """Horizontal padding in the button."""
 
     _button_padding_y = 3
-    """
-    Vertical padding in the button.
-    """
+    """Vertical padding in the button."""
 
     _label_text_pygame_color = _button_text_pygame_color
-    """
-    `pygame.Color` of the label.
-    """
+    """`pygame.Color` of the label."""
 
     _label_pygame_font = _button_pygame_font
-    """
-    `pygame.font.Font` of the label.
-    """
+    """`pygame.font.Font` of the label."""
 
     def __init__(self,
                  frame,
@@ -318,8 +300,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: bool
         """
-        assert isinstance(x, int) or isinstance(x, float), type(x)
-        assert isinstance(y, int) or isinstance(y, float), type(y)
+        assert isinstance(x, (int, float)), type(x)
+        assert isinstance(y, (int, float)), type(y)
 
         return ((self._x1 <= x <= self._x2) and
                 (self._y1 <= y <= self._y2))
@@ -360,55 +342,37 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
     _input_background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
                                       if _PYGAME_AVAILABLE
                                       else None)
-    """
-    `pygame.Color` of the background in the input box.
-    """
+    """`pygame.Color` of the background in the input box."""
 
     _input_mark_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['lime']
                                 if _PYGAME_AVAILABLE
                                 else None)
-    """
-    `pygame.Color` of the end mark of text in the input box.
-    """
+    """`pygame.Color` of the end mark of text in the input box."""
 
     _input_padding_x = 5
-    """
-    Horizontal padding in the input box.
-    """
+    """Horizontal padding in the input box."""
 
     _input_padding_y = 3
-    """
-    Vertical padding in the input box.
-    """
+    """Vertical padding in the input box."""
 
     _input_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
                            if _PYGAME_AVAILABLE
                            else None)
-    """
-    `pygame.Color` of the text in the input box.
-    """
+    """`pygame.Color` of the text in the input box."""
 
     _input_pygame_font = Control._label_pygame_font  # noqa  # pylint: disable=protected-access
-    """
-    `pygame.font.Font` of the text in the input box.
-    """
+    """`pygame.font.Font` of the text in the input box."""
 
     _input_selected_background_pygame_color = (  # pylint: disable=invalid-name
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
-    """
-    `pygame.Color` of the background in the input box when it has focus.
-    """
+    """`pygame.Color` of the background in the input box when it has focus."""
 
     _label_text_pygame_color = Control._label_text_pygame_color  # noqa  # pylint: disable=protected-access
-    """
-    `pygame.Color` of the label of the input box.
-    """
+    """`pygame.Color` of the label of the input box."""
 
     _label_pygame_font = _input_pygame_font
-    """
-    `pygame.font.Font` of the label of the input box.
-    """
+    """`pygame.font.Font` of the label of the input box."""
 
     def __init__(self,
                  frame,
@@ -429,8 +393,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(label_text, str), type(label_text)
         assert callable(input_handler), type(input_handler)
-        assert isinstance(input_width, int) or isinstance(input_width, float),\
-            type(input_width)
+        assert isinstance(input_width, (int, float)), type(input_width)
 
         self._frame_parent = frame
 
@@ -563,7 +526,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert 0 <= self._input_pos <= len(self._input_text), \
             (self._input_pos, len(self._input_text), self._input_text)
 
-        if pygame_event.key == pygame.K_END:             # End  # noqa  # pylint: disable=no-member
+        if pygame_event.key == pygame.K_END:             # End  # noqa  # pylint: disable=no-member,no-else-return
             # Set position to end
             if self._input_pos < len(self._input_text):
                 self._input_pos = len(self._input_text)
@@ -678,7 +641,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 # try to convert to str
                 self._input_text = str(self._input_text)
                 self._input_pos = min(self._input_pos, len(self._input_text))
-            except:  # pylint: disable=bare-except
+            except Exception:  # pylint: disable=broad-except
                 pass
 
             self._frame_parent._draw_controlpanel()  # noqa  # pylint: disable=protected-access
@@ -714,8 +677,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: bool
         """
-        assert isinstance(x, int) or isinstance(x, float), type(x)
-        assert isinstance(y, int) or isinstance(y, float), type(y)
+        assert isinstance(x, (int, float)), type(x)
+        assert isinstance(y, (int, float)), type(y)
 
         return ((self._x1 <= x <= self._x2) and
                 (self._y1 <= y <= self._y2))

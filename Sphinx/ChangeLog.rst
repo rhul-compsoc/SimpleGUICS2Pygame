@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 02.00.00 WORKING VERSION — March 30, 2020
+* 02.00.00 alpha — April 14, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
@@ -20,6 +20,7 @@ ChangeLog
     - Added ``randomize_iteration()`` in ``codeskulptor``.
     - Added ``transparent`` "color" name.
     - Added ``ValueError`` exception if ``draw_text()`` try to draw a text containing unprintable whitespace character.
+    - Corrected ``keys`` parameter use in ``simplegui_lib_keys.Keys()``.
     - Improved dealing of input box.
     - Updated ``simpleplot`` module, to "run" same if matplotlib is not installed.
 

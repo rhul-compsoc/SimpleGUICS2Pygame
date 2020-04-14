@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/canvas
+simpleguics2pygame module: simpleguics2pygame/canvas.
 
 Class Canvas.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 26, 2020
+:version: April 13, 2020
 """
 
 from __future__ import division
@@ -25,8 +25,8 @@ import re
 import sys
 
 
-__all__ = ['Canvas',
-           'create_invisible_canvas']
+__all__ = ('Canvas',
+           'create_invisible_canvas')
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
@@ -34,8 +34,8 @@ if _PYGAME_AVAILABLE:
     import pygame
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
-from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
 
 
 #
@@ -58,7 +58,7 @@ Regular expression pattern to unprintable whitespace character.
 ####################
 def _pos_round(position):
     """
-    Returns the rounded `position`.
+    Return the rounded `position`.
 
     **Don't require Pygame.**
 
@@ -69,13 +69,10 @@ def _pos_round(position):
 
     :return: (int, int)
     """
-    assert isinstance(position, tuple) or isinstance(position, list), \
-        type(position)
+    assert isinstance(position, (tuple, list)), type(position)
     assert len(position) == 2, len(position)
-    assert isinstance(position[0], int) or isinstance(position[0], float), \
-        type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), \
-        type(position[1])
+    assert isinstance(position[0], (int, float)), type(position[0])
+    assert isinstance(position[1], (int, float)), type(position[1])
 
     return (int(round(position[0])), int(round(position[1])))
 
@@ -84,18 +81,14 @@ def _pos_round(position):
 # Class
 #######
 class Canvas:
-    """
-    Canvas similar to SimpleGUI `Canvas` of CodeSkulptor.
-    """
+    """Canvas similar to SimpleGUI `Canvas` of CodeSkulptor."""
 
     _background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
                                 if _PYGAME_AVAILABLE
                                 else None)
-    """
-    Default `pygame.Color` of the background of the canvas.
-    """
+    """Default `pygame.Color` of the background of the canvas."""
 
-    _background_pygame_surface_image = None  # pylint: disable=invalid-name
+    _bg_pygame_surface_image = None
     """
     `pygame.Surface` default background image
     replaces `_background_pygame_color`.
@@ -151,7 +144,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         if ((self._draw_handler is not None) and
                 (self._frame_parent is not None)):
-            if self._background_pygame_surface_image is None:
+            if self._bg_pygame_surface_image is None:
                 if self._background_pygame_color.a == 255:
                     # Without alpha
                     self._pygame_surface.fill(self._background_pygame_color)
@@ -163,7 +156,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     self._pygame_surface.blit(s_alpha, (0, 0))
             else:
                 self._pygame_surface.blit(
-                    self._background_pygame_surface_image, (0, 0))
+                    self._bg_pygame_surface_image, (0, 0))
 
             self._draw_handler(self)
 
@@ -224,25 +217,18 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param line_width: (int or float) > 0
         :param line_color: str
         """
-        assert (isinstance(center_point, tuple) or
-                isinstance(center_point, list)), type(center_point)
+        assert isinstance(center_point, (tuple, list)), type(center_point)
         assert len(center_point) == 2, len(center_point)
-        assert (isinstance(center_point[0], int) or
-                isinstance(center_point[0], float)), type(center_point[0])
-        assert (isinstance(center_point[1], int) or
-                isinstance(center_point[1], float)), type(center_point[1])
+        assert isinstance(center_point[0], (int, float)), type(center_point[0])
+        assert isinstance(center_point[1], (int, float)), type(center_point[1])
 
-        assert isinstance(radius, int) or isinstance(radius, float), \
-            type(radius)
+        assert isinstance(radius, (int, float)), type(radius)
         assert radius > 0, radius
 
-        assert (isinstance(start_angle, int) or
-                isinstance(start_angle, float)), (start_angle)
-        assert isinstance(end_angle, int) or isinstance(end_angle, float), \
-            type(end_angle)
+        assert isinstance(start_angle, (int, float)), (start_angle)
+        assert isinstance(end_angle, (int, float)), type(end_angle)
 
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
+        assert isinstance(line_width, (int, float)), type(line_width)
         assert line_width > 0, line_width
 
         assert isinstance(line_color, str), type(line_color)
@@ -304,20 +290,15 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param line_color: str
         :param fill_color: None or str
         """
-        assert (isinstance(center_point, tuple) or
-                isinstance(center_point, list)), type(center_point)
+        assert isinstance(center_point, (tuple, list)), type(center_point)
         assert len(center_point) == 2, len(center_point)
-        assert (isinstance(center_point[0], int) or
-                isinstance(center_point[0], float)), type(center_point[0])
-        assert (isinstance(center_point[1], int) or
-                isinstance(center_point[1], float)), type(center_point[1])
+        assert isinstance(center_point[0], (int, float)), type(center_point[0])
+        assert isinstance(center_point[1], (int, float)), type(center_point[1])
 
-        assert isinstance(radius, int) or isinstance(radius, float), \
-            type(radius)
+        assert isinstance(radius, (int, float)), type(radius)
         assert radius > 0, radius
 
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
+        assert isinstance(line_width, (int, float)), type(line_width)
         assert line_width > 0, line_width
 
         assert isinstance(line_color, str), type(line_color)
@@ -369,7 +350,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         elif radius > 0:  # == 1
             self.draw_point(center_point, line_color)
 
-    def draw_image(self,  # noqa  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches
+    def draw_image(self,  # noqa  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches,too-many-statements
                    image,
                    center_source, width_height_source,
                    center_dest, width_height_dest,
@@ -411,50 +392,40 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """  # noqa
         assert isinstance(image, Image), type(image)
 
-        assert (isinstance(center_source, tuple) or
-                isinstance(center_source, list)), type(center_source)
+        assert isinstance(center_source, (tuple, list)), \
+            type(center_source)
         assert len(center_source) == 2, len(center_source)
-        assert (isinstance(center_source[0], int) or
-                isinstance(center_source[0], float)), type(center_source[0])
-        assert (isinstance(center_source[1], int) or
-                isinstance(center_source[1], float)), type(center_source[1])
+        assert isinstance(center_source[0], (int, float)), \
+            type(center_source[0])
+        assert isinstance(center_source[1], (int, float)), \
+            type(center_source[1])
 
-        assert (isinstance(width_height_source, tuple) or
-                isinstance(width_height_source, list)), \
+        assert isinstance(width_height_source, (tuple, list)), \
             type(width_height_source)
         assert len(width_height_source) == 2, len(width_height_source)
-        assert (isinstance(width_height_source[0], int) or
-                isinstance(width_height_source[0], float)), \
+        assert isinstance(width_height_source[0], (int, float)), \
             type(width_height_source[0])
         assert width_height_source[0] >= 0, width_height_source[0]
-        assert (isinstance(width_height_source[1], int) or
-                isinstance(width_height_source[1], float)), \
+        assert isinstance(width_height_source[1], (int, float)), \
             type(width_height_source[1])
         assert width_height_source[1] >= 0, width_height_source[1]
 
-        assert (isinstance(center_dest, tuple) or
-                isinstance(center_dest, list)), type(center_dest)
+        assert isinstance(center_dest, (tuple, list)), type(center_dest)
         assert len(center_dest) == 2, len(center_dest)
-        assert (isinstance(center_dest[0], int) or
-                isinstance(center_dest[0], float)), type(center_dest[0])
-        assert (isinstance(center_dest[1], int) or
-                isinstance(center_dest[1], float)), type(center_dest[1])
+        assert isinstance(center_dest[0], (int, float)), type(center_dest[0])
+        assert isinstance(center_dest[1], (int, float)), type(center_dest[1])
 
-        assert (isinstance(width_height_dest, tuple) or
-                isinstance(width_height_dest, list)), \
+        assert isinstance(width_height_dest, (tuple, list)), \
             type(width_height_dest)
         assert len(width_height_dest) == 2, len(width_height_dest)
-        assert (isinstance(width_height_dest[0], int) or
-                isinstance(width_height_dest[0], float)), \
+        assert isinstance(width_height_dest[0], (int, float)), \
             type(width_height_dest[0])
         assert width_height_dest[0] >= 0, width_height_dest[0]
-        assert (isinstance(width_height_dest[1], int) or
-                isinstance(width_height_dest[1], float)), \
+        assert isinstance(width_height_dest[1], (int, float)), \
             type(width_height_dest[1])
         assert width_height_dest[1] >= 0, width_height_dest[1]
 
-        assert isinstance(rotation, int) or isinstance(rotation, float), \
-            type(rotation)
+        assert isinstance(rotation, (int, float)), type(rotation)
 
         if image._pygame_surface is None:  # pylint: disable=protected-access
             return
@@ -594,24 +565,17 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param line_width: (int or float) > 0
         :param line_color: str
         """
-        assert isinstance(point1, tuple) or isinstance(point1, list), \
-            type(point1)
+        assert isinstance(point1, (tuple, list)), type(point1)
         assert len(point1) == 2, len(point1)
-        assert isinstance(point1[0], int) or isinstance(point1[0], float), \
-            type(point1[0])
-        assert isinstance(point1[1], int) or isinstance(point1[1], float), \
-            type(point1[1])
+        assert isinstance(point1[0], (int, float)), type(point1[0])
+        assert isinstance(point1[1], (int, float)), type(point1[1])
 
-        assert isinstance(point2, tuple) or isinstance(point2, list), \
-            type(point2)
+        assert isinstance(point2, (tuple, list)), type(point2)
         assert len(point2) == 2, len(point2)
-        assert isinstance(point2[0], int) or isinstance(point2[0], float), \
-            type(point2[0])
-        assert isinstance(point2[1], int) or isinstance(point2[1], float), \
-            type(point2[1])
+        assert isinstance(point2[0], (int, float)), type(point2[0])
+        assert isinstance(point2[1], (int, float)), type(point2[1])
 
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
+        assert isinstance(line_width, (int, float)), type(line_width)
         assert line_width > 0, line_width
 
         assert isinstance(line_color, str), type(line_color)
@@ -650,13 +614,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                          or [int or float, int or float]
         :param color: str
         """
-        assert isinstance(position, tuple) or isinstance(position, list), \
-            type(position)
+        assert isinstance(position, (tuple, list)), type(position)
         assert len(position) == 2, len(position)
-        assert isinstance(position[0], int) or isinstance(position[0], float),\
-            type(position[0])
-        assert isinstance(position[1], int) or isinstance(position[1], float),\
-            type(position[1])
+        assert isinstance(position[0], (int, float)), type(position[0])
+        assert isinstance(position[1], (int, float)), type(position[1])
 
         assert isinstance(color, str), type(color)
 
@@ -690,22 +651,17 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param line_color: str
         :param fill_color: None or str
         """
-        assert isinstance(point_list, tuple) or isinstance(point_list, list), \
-            type(point_list)
+        assert isinstance(point_list, (tuple, list)), type(point_list)
         assert len(point_list) > 0, len(point_list)
 
         if __debug__:
             for point in point_list:
-                assert isinstance(point, tuple) or isinstance(point, list), \
-                    type(point)
+                assert isinstance(point, (tuple, list)), type(point)
                 assert len(point) == 2, len(point)
-                assert (isinstance(point[0], int) or
-                        isinstance(point[0], float)), type(point[0])
-                assert (isinstance(point[1], int) or
-                        isinstance(point[1], float)), type(point[1])
+                assert isinstance(point[0], (int, float)), type(point[0])
+                assert isinstance(point[1], (int, float)), type(point[1])
 
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
+        assert isinstance(line_width, (int, float)), type(line_width)
         assert line_width >= 0, line_width
 
         assert isinstance(line_color, str), type(line_color)
@@ -759,22 +715,17 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param line_width: (int or float) > 0
         :param line_color: str
         """
-        assert isinstance(point_list, tuple) or isinstance(point_list, list), \
-            type(point_list)
+        assert isinstance(point_list, (tuple, list)), type(point_list)
         assert len(point_list) > 0, len(point_list)
 
         if __debug__:
             for point in point_list:
-                assert isinstance(point, tuple) or isinstance(point, list), \
-                    type(point)
+                assert isinstance(point, (tuple, list)), type(point)
                 assert len(point) == 2, len(point)
-                assert (isinstance(point[0], int) or
-                        isinstance(point[0], float)), type(point[0])
-                assert (isinstance(point[1], int) or
-                        isinstance(point[1], float)), type(point[1])
+                assert isinstance(point[0], (int, float)), type(point[0])
+                assert isinstance(point[1], (int, float)), type(point[1])
 
-        assert isinstance(line_width, int) or isinstance(line_width, float), \
-            type(line_width)
+        assert isinstance(line_width, (int, float)), type(line_width)
         assert line_width > 0, line_width
 
         assert isinstance(line_color, str), type(line_color)
@@ -835,15 +786,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """  # noqa
         assert isinstance(text, str), type(text)
 
-        assert isinstance(point, tuple) or isinstance(point, list), type(point)
+        assert isinstance(point, (tuple, list)), type(point)
         assert len(point) == 2, len(point)
-        assert isinstance(point[0], int) or isinstance(point[0], float), \
-            type(point[0])
-        assert isinstance(point[1], int) or isinstance(point[1], float), \
-            type(point[1])
+        assert isinstance(point[0], (int, float)), type(point[0])
+        assert isinstance(point[1], (int, float)), type(point[1])
 
-        assert isinstance(font_size, int) or isinstance(font_size, float), \
-            type(font_size)
+        assert isinstance(font_size, (int, float)), type(font_size)
         assert font_size >= 0, font_size
 
         assert isinstance(font_color, str), type(font_color)
@@ -851,8 +799,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(font_face, str), type(font_face)
         assert font_face in _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, font_face
 
-        assert (isinstance(_font_size_coef, int) or
-                isinstance(_font_size_coef, float)), type(_font_size_coef)
+        assert isinstance(_font_size_coef, (int, float)), type(_font_size_coef)
 
         if text == '':
             return

@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_media
+simpleguics2pygame module: simpleguics2pygame/_media.
 
 Media (images and sounds) helpers.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: April 13, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = []
+__all__ = tuple()  # type: ignore
 
 
 from io import BytesIO  # noqa
@@ -31,8 +31,8 @@ if version_info[0] >= 3:
     from urllib.parse import urlsplit
     from urllib.request import urlopen
 else:
-    from urlparse import urlsplit  # pylint: disable=import-error
-    from urllib2 import urlopen  # pylint: disable=import-error
+    from urlparse import urlsplit  # type: ignore  # noqa  # pylint: disable=import-error
+    from urllib2 import urlopen  # type: ignore  # noqa  # pylint: disable=import-error
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
 
@@ -67,7 +67,7 @@ then print URLs or locals filename loaded by `load_image()`
 and `load_sound()`.
 """
 
-__PYGAMEMEDIAS_CACHED = {}
+__PYGAMEMEDIAS_CACHED = {}  # type: ignore
 """
 `Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
 """
@@ -169,10 +169,10 @@ def __load_local_mp3_with_audioread(filename):
 
     :return: pygame.Surface or pygame.mixer.Sound or None
     """  # noqa
-    import contextlib
-    import wave
+    import contextlib  # pylint: disable=import-outside-toplevel
+    import wave  # pylint: disable=import-outside-toplevel
 
-    import audioread
+    import audioread  # pylint: disable=import-outside-toplevel
 
     data = BytesIO()
 
@@ -304,7 +304,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
             media = (pygame.image.load(media_bytesio) if media_is_image
                      else pygame.mixer.Sound(media_bytesio))  # OGG or WAV
         else:                                                    # MP3
-            import tempfile
+            import tempfile  # pylint: disable=import-outside-toplevel
 
             with tempfile.NamedTemporaryFile('wb',
                                              prefix='SimpleGUICS2Pygame_',

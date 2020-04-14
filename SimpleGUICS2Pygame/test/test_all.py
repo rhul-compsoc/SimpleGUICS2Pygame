@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 29, 2020
+:version: April 14, 2020
 """
 
 from __future__ import print_function
@@ -33,14 +33,14 @@ except ImportError:
     TO_COMPARE_IMGS = False
 
 try:
-    import simplegui
+    import simplegui  # type: ignore
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
 try:
     from html import escape  # for Python 3
 except ImportError:
-    from cgi import escape   # for Python 2
+    from cgi import escape  # type: ignore  # for Python 2
 
 
 RUN_TEST = True
@@ -58,7 +58,7 @@ try:
     from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
     from SimpleGUICS2Pygame import _WEBSITE as SIMPLEGUICS2PYGAME_WEBSITE
     from SimpleGUICS2Pygame import _WEBSITE_DOC as SIMPLEGUICS2PYGAME_WEBSITE_DOC  # noqa
-    PYGAME_VERSION = simplegui._PYGAME_VERSION  # noqa  # pylint: disable=no-member,protected-access
+    PYGAME_VERSION = simplegui._PYGAME_VERSION  # noqa  # type: ignore  # pylint: disable=no-member,protected-access
 except ImportError:
     SIMPLEGUICS2PYGAME_VERSION = '?'
     SIMPLEGUICS2PYGAME_WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa
@@ -188,7 +188,7 @@ def main():  # pylint: disable=too-many-branches
                 if imgs_diff.get(filename):
                     print("""<img src="../{0}" alt="[{0}]" title="Comparative result.">
 <img src="../{1}" alt="[{1}]" title="Result of test.">
-<img src="../{2}" alt="[{2}]" title="Difference images.">"""
+<img src="../{2}" alt="[{2}]" title="Difference images.">"""  # noqa
                           .format('results_good/{}.png'.format(filename),
                                   '{}/{}.png'.format(DIR_RESULTS, filename),
                                   '{}/{}_diff.png'.format(DIR_RESULTS,

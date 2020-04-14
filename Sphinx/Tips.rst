@@ -62,8 +62,8 @@ But specify only those you use.
         import numeric
         import simpleplot
 
-        import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
-        import user305_gIHDK6rkdof6kqb as simplegui_lib
+        import user305_2YRLOxXzAvucSDa as codeskulptor_lib
+        import user305_7mCVRRls4kKNTSm as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -74,12 +74,12 @@ But specify only those you use.
         import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib
 
-Note that import name like ``user305_fZiH7ljLOrt9aBi`` in CodeSkulptor
+Note that import name like ``user305_2YRLOxXzAvucSDa`` in CodeSkulptor
 is valid both for CodeSkulptor 2 and CodeSkulptor3.
 It corresponds to URLs
-http://www.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py
+http://www.codeskulptor.org/#user305_2YRLOxXzAvucSDa.py
 and
-https://py3.codeskulptor.org/#user305_fZiH7ljLOrt9aBi.py .
+https://py3.codeskulptor.org/#user305_2YRLOxXzAvucSDa.py .
 
 
 Specific code
@@ -235,7 +235,7 @@ For example, to draw multiline text you can use `draw_text_multi()`_ from the `s
     try:
         import simplegui
 
-        import user305_Vj4GH0AVPin7znw as simplegui_lib_draw
+        import user305_2AIoOM1Isi08A9H as simplegui_lib_draw
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 

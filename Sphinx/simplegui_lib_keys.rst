@@ -1,7 +1,7 @@
 simplegui_lib_keys — class to manage keyboard handling
 ======================================================
 (Version saved in CodeSkulptor
-https://py3.codeskulptor.org/#user305_CGRDFZgmaZOL2YB.py .)
+https://py3.codeskulptor.org/#user305_3Ofv0u7rEhsrJ6G.py .)
 
 Examples of use in :
 

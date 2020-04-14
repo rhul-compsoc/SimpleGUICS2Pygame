@@ -2,7 +2,7 @@
 # pylint: disable=too-many-lines
 
 """
-simpleguics2pygame/frame
+simpleguics2pygame module: simpleguics2pygame/frame.
 
 Class Frame.
 
@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 29, 2020
+:version: April 13, 2020
 """
 
 from __future__ import division
@@ -25,8 +25,8 @@ import random
 import sys
 
 
-__all__ = ['Frame',
-           'create_frame']
+__all__ = ('Frame',
+           'create_frame')
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
@@ -38,44 +38,36 @@ if _PYGAME_AVAILABLE:
 
 from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _joypads, _media  # noqa  # pylint: disable=wrong-import-position,ungrouped-imports,unused-import
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
 
-from SimpleGUICS2Pygame.simpleguics2pygame.canvas import Canvas  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame.control import Control, TextAreaControl  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame.keys import KEY_MAP, _SIMPLEGUIKEY_TO_STATUSKEY, _pygamekey_to_simpleguikey  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
-from SimpleGUICS2Pygame.simpleguics2pygame.timer import _STOP_TIMERS, Timer, create_timer  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame.canvas import Canvas  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame.control import Control, TextAreaControl  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame.keys import KEY_MAP, _SIMPLEGUIKEY_TO_STATUSKEY, _pygamekey_to_simpleguikey  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame.timer import _STOP_TIMERS, Timer, create_timer  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
 
 
 #
 # Class
 #######
 class Frame:  # pylint: disable=too-many-instance-attributes
-    """
-    Frame similar to SimpleGUI `Frame` of CodeSkulptor.
-    """
+    """Frame similar to SimpleGUI `Frame` of CodeSkulptor."""
 
     _background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
                                 if _PYGAME_AVAILABLE
                                 else None)
-    """
-    Default background color of frame.
-    """
+    """Default background color of frame."""
 
     _canvas_border_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
                                    if _PYGAME_AVAILABLE
                                    else None)
-    """
-    Border color of canvas.
-    """
+    """Border color of canvas."""
 
     _controlpanel_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
-    """
-    Background color of control panel.
-    """
+    """Background color of control panel."""
 
     _cursor_auto_hide = False
     """
@@ -92,19 +84,13 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     """
 
     _fps = _CONFIG['--fps']
-    """
-    Frames per second drawed (frequency of draw and check events)
-    """
+    """Frames per second drawed (frequency of draw and check events)"""
 
     _frame_padding = _CONFIG['--frame-padding']
-    """
-    The padding in pixels around the canvas
-    """
+    """The padding in pixels around the canvas"""
 
     _frame_instance = None
-    """
-    The only instance of Frame.
-    """
+    """The only instance of Frame."""
 
     _keep_timers = (True if _CONFIG['--keep-timers']
                     else (False if _STOP_TIMERS
@@ -158,60 +144,42 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
     """
 
-    _save_canvas_requests = []
-    """
-    List of filenames in which to save canvas image.
-    """
+    _save_canvas_requests = []  # type: ignore
+    """List of filenames in which to save canvas image."""
 
     _statuskey_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
-    """
-    `pygame.Color` of background in status key box.
-    """
+    """`pygame.Color` of background in status key box."""
 
     _statuskey_height = 20
-    """
-    Height of the status key box.
-    """
+    """Height of the status key box."""
 
     _statuskey_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
                                if _PYGAME_AVAILABLE
                                else None)
-    """
-    `pygame.Color` of status key box (text and rectangle).
-    """
+    """`pygame.Color` of status key box (text and rectangle)."""
 
     _statuskey_pygame_font = (pygame.font.Font(None, _statuskey_height)
                               if _PYGAME_AVAILABLE
                               else None)
-    """
-    `pygame.font.Font` of status key box.
-    """
+    """`pygame.font.Font` of status key box."""
 
     _statusmouse_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
-    """
-    `pygame.Color` of background in status mouse box.
-    """
+    """`pygame.Color` of background in status mouse box."""
 
     _statusmouse_height = _statuskey_height
-    """
-    Height of the status mouse box.
-    """
+    """Height of the status mouse box."""
 
     _statusmouse_pygame_color = _statuskey_pygame_color
-    """
-    `pygame.Color` of status mouse box (text and rectangle).
-    """
+    """`pygame.Color` of status mouse box (text and rectangle)."""
 
     _statusmouse_pygame_font = (pygame.font.Font(None, _statusmouse_height)
                                 if _PYGAME_AVAILABLE
                                 else None)
-    """
-    `pygame.font.Font` of status mouse box..
-    """
+    """`pygame.font.Font` of status mouse box."""
 
     @classmethod
     def _pygamecolors_cached_clear(cls):
@@ -278,16 +246,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(title, str), type(title)
 
-        assert (isinstance(canvas_width, int) or
-                isinstance(canvas_width, float)), type(canvas_width)
+        assert isinstance(canvas_width, (int, float)), type(canvas_width)
         assert canvas_width >= 0, canvas_width
 
-        assert (isinstance(canvas_height, int) or
-                isinstance(canvas_height, float)), type(canvas_height)
+        assert isinstance(canvas_height, (int, float)), type(canvas_height)
         assert canvas_height >= 0, canvas_height
 
-        assert (isinstance(control_width, int) or
-                isinstance(control_width, float)), type(control_width)
+        assert isinstance(control_width, (int, float)), type(control_width)
         assert control_width >= 0, control_width
 
         Frame._frame_instance = self
@@ -395,7 +360,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: True if some event match, else False
         """
-        if event.type == pygame.KEYDOWN:  # key pressed  # noqa  # pylint: disable=no-member
+        if event.type == pygame.KEYDOWN:  # key pressed  # noqa  # pylint: disable=no-member,no-else-return
             if ((self._control_selected is not None) and
                     isinstance(self._control_selected,
                                TextAreaControl)):
@@ -430,7 +395,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: True if some event match, else False
         """
-        if event.type == pygame.JOYHATMOTION:     # hat moved  # noqa  # pylint: disable=no-member
+        if event.type == pygame.JOYHATMOTION:     # hat moved  # noqa  # pylint: disable=no-member,no-else-return
             if self.__joypad_hat_handler is not None:
                 self.__joypad_hat_handler(event.joy, event.hat, event.value)
 
@@ -463,7 +428,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         mouse_drag_out_of_canvas = None
 
-        if event.type == pygame.MOUSEMOTION:        # mouse moved  # noqa  # pylint: disable=no-member
+        if event.type == pygame.MOUSEMOTION:        # mouse moved  # noqa  # pylint: disable=no-member,no-else-return
             x = event.pos[0] - self._canvas_x_offset
             y = event.pos[1] - self._canvas_y_offset
 
@@ -528,9 +493,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             return False
 
     def _cursor_in_canvas(self):
-        """
-        :return: `True` if the cursor is on canvas, `False` else.
-        """
+        """:return: `True` if the cursor is on canvas, `False` else."""
         x, y = pygame.mouse.get_pos()
         x -= self._canvas_x_offset
         y -= self._canvas_y_offset
@@ -623,13 +586,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                          or [int or float, int or float]
         :param pressed: bool
         """
-        assert isinstance(position, tuple) or isinstance(position, list), \
-            type(position)
+        assert isinstance(position, (tuple, list)), type(position)
         assert len(position) == 2, len(position)
-        assert isinstance(position[0], int) or isinstance(position[0], float),\
-            type(position[0])
-        assert isinstance(position[1], int) or isinstance(position[1], float),\
-            type(position[1])
+        assert isinstance(position[0], (int, float)), type(position[0])
+        assert isinstance(position[1], (int, float)), type(position[1])
 
         assert (pressed is None) or isinstance(pressed, bool), type(pressed)
 
@@ -691,8 +651,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: None or Control or TextAreaControl
         """
-        assert isinstance(x, int) or isinstance(x, float), type(x)
-        assert isinstance(y, int) or isinstance(y, float), type(y)
+        assert isinstance(x, (int, float)), type(x)
+        assert isinstance(y, (int, float)), type(y)
 
         if (self._controls and
                 (self._controls[0]._y1 <= y <= self._controls[-1]._y2)):  # noqa  # pylint: disable=protected-access
@@ -729,15 +689,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         :param after: int or float >= 0
         """
         assert isinstance(filename, str), type(filename)
-        assert isinstance(after, int) or isinstance(after, float), type(after)
+        assert isinstance(after, (int, float)), type(after)
         assert after >= 0, after
 
         filename = os.path.abspath(os.path.expanduser(filename))
 
         def save_canvas_and_stop():
-            """
-            Handler function will be executed.
-            """
+            """Handler function will be executed."""
             if self._running:
                 self._save_canvas_request(filename)
                 Timer._stop_all()  # noqa  # pylint: disable=protected-access
@@ -757,7 +715,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert (image is None) or isinstance(image, Image), type(image)
 
-        self._canvas._background_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access,invalid-name
+        self._canvas._bg_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access
 
     def _set_joypadhat_handler(self, joypad_handler):
         """
@@ -956,7 +914,6 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         (Available in SimpleGUI of CodeSkulptor
         but *not in CodeSkulptor documentation*!)
         """
-        pass
 
     def get_canvas_textwidth(self,  # pylint: disable=no-self-use
                              text,
@@ -973,8 +930,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert isinstance(text, str), type(text)
 
-        assert isinstance(font_size, int) or isinstance(font_size, float), \
-            type(font_size)
+        assert isinstance(font_size, (int, float)), type(font_size)
         assert font_size >= 0, font_size
 
         assert isinstance(font_face, str), type(font_face)
@@ -1256,16 +1212,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
     assert isinstance(title, str), type(title)
 
-    assert isinstance(canvas_width, int) or isinstance(canvas_width, float), \
-        type(canvas_width)
+    assert isinstance(canvas_width, (int, float)), type(canvas_width)
     assert canvas_width >= 0, canvas_width
 
-    assert isinstance(canvas_height, int) or isinstance(canvas_height, float),\
-        type(canvas_height)
+    assert isinstance(canvas_height, (int, float)), type(canvas_height)
     assert canvas_height >= 0, canvas_height
 
-    assert isinstance(control_width, int) or isinstance(control_width, float),\
-        type(control_width)
+    assert isinstance(control_width, (int, float)), type(control_width)
     assert control_width >= 0, control_width
 
     return Frame(title, canvas_width, canvas_height, control_width)

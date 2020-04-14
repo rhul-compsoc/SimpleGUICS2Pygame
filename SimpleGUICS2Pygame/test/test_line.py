@@ -9,15 +9,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: April 14, 2020
 """
 
 try:
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -76,18 +76,14 @@ def draw(canvas):
 
 
 def switch_colors():
-    """
-    Switch red and white.
-    """
+    """Switch red and white."""
     global STATE_COLORS  # pylint: disable=global-statement
 
     STATE_COLORS = not STATE_COLORS
 
 
 def switch_direction():
-    """
-    Switch horizontal and vertical.
-    """
+    """Switch horizontal and vertical."""
     global STATE_DIRECTION  # pylint: disable=global-statement
 
     STATE_DIRECTION = not STATE_DIRECTION
@@ -114,12 +110,13 @@ def main():
     frame.set_draw_handler(draw)
 
     if SIMPLEGUICS2PYGAME:
-        from sys import argv
+        from sys import argv  # pylint: disable=import-outside-toplevel
 
         if len(argv) == 2:
             frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
     frame.start()
+
 
 if __name__ == '__main__':
     main()

@@ -9,17 +9,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
 try:
-    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
+    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # type: ignore
 
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -29,7 +29,7 @@ except ImportError:
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
-    from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_VERSION  # noqa  # pylint: disable=no-name-in-module
+    from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_VERSION  # noqa  # type: ignore  # pylint: disable=no-name-in-module
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + str(_PYGAME_VERSION)
@@ -66,7 +66,7 @@ def draw(canvas):
                       ('timer', timer)):
         print(name + str(type(obj)) + repr(obj) + str(obj))
 
-    from sys import argv
+    from sys import argv  # pylint: disable=import-outside-toplevel
 
     if len(argv) == 2:
         FRAME.stop()

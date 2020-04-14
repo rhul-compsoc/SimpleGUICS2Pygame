@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_arguments
+simpleguics2pygame module: simpleguics2pygame/_arguments.
 
 Read command line arguments.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 13, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = []
+__all__ = tuple()  # type: ignore
 
 
 import sys  # noqa
@@ -112,7 +112,7 @@ Examples:
   YOURPROGRAM.py application receive --stop-timers --foo --fps 30 arguments.""",  # noqa
           file=sys.stderr)
 
-    exit(code)
+    exit(code)  # pylint: disable=consider-using-sys-exit
 
 
 def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-statements
@@ -134,7 +134,7 @@ def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-st
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
-    def get_next_natural(option):
+    def get_next_natural(option):  # noqa  # pylint: disable=inconsistent-return-statements
         """
         If one non negative integer argument is available
         then return it,
@@ -156,7 +156,7 @@ def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-st
                       file=sys.stderr)
                 __help_quit(2)
 
-            if n >= 0:
+            if n >= 0:  # noqa  # pylint: disable=no-else-return,inconsistent-return-statements
                 return n
             else:
                 print('Argument "{}" for option {} must be >= 0!'
@@ -203,11 +203,11 @@ def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-st
             sys.argv.pop(1)
             print_args = True
         elif arg == '--version':
-            from SimpleGUICS2Pygame import _VERSION
+            from SimpleGUICS2Pygame import _VERSION  # noqa  # pylint: disable=import-outside-toplevel
 
             print('SimpleGUICS2Pygame {}'.format(_VERSION))
 
-            exit()
+            exit()  # pylint: disable=consider-using-sys-exit
         else:  # --last or first argument not recognized by SimpleGUICS2Pygame
             if arg == '--last':
                 sys.argv.pop(1)

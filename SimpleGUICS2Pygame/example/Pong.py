@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Pong.
+Pong game.
 
 My retouched solution of the mini-project #4 of the MOOC
 https://www.coursera.org/learn/interactive-python-1 (Coursera 2013).
@@ -12,18 +12,18 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 17, 2020
+:version: April 13, 2020
 """
 
 import math
 import random
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
     import SimpleGUICS2Pygame.simpleguics2pygame._joypads as _joypads
 
     simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
@@ -42,9 +42,8 @@ PONG = None
 
 # Classes
 class Vector:
-    """
-    Vector (self.x, self.y).
-    """
+    """Vector (self.x, self.y)."""
+
     def __init__(self, x, y):
         """
         Initialize the vector.
@@ -52,15 +51,15 @@ class Vector:
         :param x: int or float
         :param y: int or float
         """
-        assert isinstance(x, int) or isinstance(x, float)
-        assert isinstance(y, int) or isinstance(y, float)
+        assert isinstance(x, (int, float))
+        assert isinstance(y, (int, float))
 
         self.x = x
         self.y = y
 
     def add(self, other):
         """
-        Adds other to self.
+        Add other to self.
 
         :param other: Vector
         """
@@ -71,11 +70,11 @@ class Vector:
 
     def mul_scalar(self, scalar):
         """
-        Multiplies self by scalar.
+        Multiply self by scalar.
 
         :param scalar: int or float
         """
-        assert isinstance(scalar, int) or isinstance(scalar, float)
+        assert isinstance(scalar, (int, float))
 
         self.x *= scalar
         self.y *= scalar
@@ -120,6 +119,7 @@ class Pong:
     Size of the screen (Pong.WIDTH, Pong.HEIGHT).
     Half size: (Pong.HALF_WIDTH, Pong.HALF_HEIGHT)
     """
+
     WIDTH = 600
     HEIGHT = 400
 
@@ -127,9 +127,7 @@ class Pong:
     HALF_HEIGHT = HEIGHT // 2
 
     def __init__(self):
-        """
-        Initialize the game with one ball.
-        """
+        """Initialize the game with one ball."""
         self.current_radius = 20
 
         self.balls = []
@@ -150,8 +148,7 @@ class Pong:
         :param right: None or bool
         """
         assert ((radius is None) or
-                ((isinstance(radius, int) or isinstance(radius, float)) and
-                 (radius > 0)))
+                (isinstance(radius, (int, float)) and (radius > 0)))
         assert (right is None) or isinstance(right, bool)
 
         if radius is None:
@@ -162,9 +159,7 @@ class Pong:
             self.balls_to_launch.append(Ball(radius, right))
 
     def pause(self):
-        """
-        Swicth on/off the pause.
-        """
+        """Swicth on/off the pause."""
         self.paused = not self.paused
 
 
@@ -174,6 +169,7 @@ class MovingItem:
     self.pos: position Vector
     self.vel: velocity Vector
     """
+
     def __init__(self, position, velocity=None):
         """
         Initialize the position and the velocity.
@@ -251,16 +247,13 @@ class MovingItem:
                 (self.vel.y == 0 and other.vel.y == 0))
 
     def update_pos(self):
-        """
-        Add self.vel to self.pos.
-        """
+        """Add self.vel to self.pos."""
         self.pos.add(self.vel)
 
 
 class Ball(MovingItem):
-    """
-    Ball.
-    """
+    """Ball."""
+
     SPEED_MAX_X = 20
     SPEED_MAX_Y = 20
 
@@ -279,7 +272,7 @@ class Ball(MovingItem):
         :param radius: (int or float) > 0
         :param right: None or bool
         """
-        assert isinstance(radius, int) or isinstance(radius, float)
+        assert isinstance(radius, (int, float))
         assert radius > 0, radius
 
         if right is None:
@@ -440,6 +433,7 @@ class Player(MovingItem):
 
     Vertical velocity: Player.SPEED
     """
+
     WIDTH = 8
     HEIGHT = 80
 
@@ -496,9 +490,7 @@ class Player(MovingItem):
                               self.pos.y + Player.HALF_HEIGHT), 1, 'Red')
 
     def protect(self):
-        """
-        Switch protected parameter.
-        """
+        """Switch protected parameter."""
         self.protected = not self.protected
 
     def update_pos(self):
@@ -528,9 +520,7 @@ class Player(MovingItem):
 
 # Event handlers
 def add_ball():
-    """
-    Add one ball to the game.
-    """
+    """Add one ball to the game."""
     PONG.add_ball()
 
 
@@ -717,52 +707,40 @@ def keyup(key):
 
 
 def launch_ball():
-    """
-    Adds a prepared ball (if not in pause).
-    """
+    """Add a prepared ball (if not in pause)."""
     if PONG.balls_to_launch and not PONG.paused:
         PONG.balls.append(PONG.balls_to_launch.pop(0))
 
 
 def pause():
-    """
-    Event handler to deal click on pause button.
-    """
+    """Event handler to deal click on pause button."""
     PONG.pause()
     BUTTON_PAUSE.set_text('Pause ' + ('off' if PONG.paused
                                       else 'on'))
 
 
 def protect_left():
-    """
-    Event handler to deal click on protect left button.
-    """
+    """Event handler to deal click on protect left button."""
     PONG.players[0].protect()
     BUTTON_PROTECT_LEFT.set_text(('Unprotect' if PONG.players[0].protected
                                   else 'Protect') + ' left player')
 
 
 def protect_right():
-    """
-    Event handler to deal click on protect right button.
-    """
+    """Event handler to deal click on protect right button."""
     PONG.players[1].protect()
     BUTTON_PROTECT_RIGHT.set_text(('Unprotect' if PONG.players[1].protected
                                    else 'Protect') + ' right player')
 
 
 def quit_prog():
-    """
-    Stop timer and quit.
-    """
+    """Stop timer and quit."""
     TIMER.stop()
     FRAME.stop()
 
 
 def restart():
-    """
-    Event handler to deal click on restart button.
-    """
+    """Event handler to deal click on restart button."""
     global PONG  # pylint: disable=global-statement
 
     PONG = Pong()

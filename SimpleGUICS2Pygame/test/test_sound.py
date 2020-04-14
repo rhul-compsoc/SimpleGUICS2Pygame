@@ -9,15 +9,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: April 14, 2020
 """
 
 try:
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
@@ -47,7 +47,7 @@ def load_local(pathname):
     """
     name = pathname.split('/')[-1]
     print('Load local "%s"' % name)
-    LOCAL_SOUNDS.append((False, name, simplegui._load_local_sound(pathname)))  # noqa  # pylint: disable=no-member,protected-access
+    LOCAL_SOUNDS.append((False, name, simplegui._load_local_sound(pathname)))  # noqa  # type: ignore  # pylint: disable=no-member,protected-access
 
 
 def play():
@@ -91,6 +91,7 @@ def main():
 
     TIMER = simplegui.create_timer(2000, play)
     TIMER.start()
+
 
 if __name__ == '__main__':
     main()

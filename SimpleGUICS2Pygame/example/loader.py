@@ -12,17 +12,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 13, 2020
 """
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 
-    from user305_Fem7W4gO0hSlII8 import Loader
+    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
@@ -61,9 +61,7 @@ FRAME = simplegui.create_frame('Loader example', WIDTH, HEIGHT, 50)
 
 
 def init():
-    """
-    Init function called after image loaded.
-    """
+    """Init function called after image loaded."""
     # Init your stuff...
     FRAME.add_button('Quit', quit_prog)
 
@@ -86,9 +84,7 @@ def init():
 
 
 def quit_prog():
-    """
-    Stop sounds and frame
-    """
+    """Stop sounds and frame"""
     LOADER.pause_sounds()  # stop all sounds
     FRAME.stop()
     if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access

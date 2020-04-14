@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_fps
+simplegui_lib_fps module.
 
 A class to calculate and display FPS (Frames Per Second)
 in SimpleGUI of CodeSkulptor.
@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 25, 2020
+:version: April 14, 2020
 """
 
 # print('IMPORT', __name__)
@@ -40,8 +40,8 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         :param font_color: str
         :param font_size: int > 0
         """
-        assert isinstance(x, int) or isinstance(x, float), type(x)
-        assert isinstance(y, int) or isinstance(y, float), type(y)
+        assert isinstance(x, (int, float)), type(x)
+        assert isinstance(y, (int, float)), type(y)
         assert isinstance(font_color, str), type(font_color)
         assert font_size > 0, font_size
 
@@ -95,14 +95,12 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         self._nb_seconds = 0
 
         try:
-            from simplegui import create_timer
+            from simplegui import create_timer  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel
         except ImportError:
-            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
+            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # noqa  # pylint: disable=import-outside-toplevel
 
         def update():
-            """
-            Update counters.
-            """
+            """Update counters."""
             if self._timer is not None:
                 self._nb_seconds += 1
                 self._fps = int(round(float(self._nb_frames_drawed) /
@@ -113,9 +111,7 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         self._timer.start()
 
     def stop(self):
-        """
-        Stop calculation and drawing.
-        """
+        """Stop calculation and drawing."""
         if self._timer is not None:
             self._timer.stop()
             self._timer = None

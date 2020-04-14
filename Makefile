@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- March 28, 2020
+# Makefile of SimpleGUICS2Pygame --- April 14, 2020
 
 .SUFFIXES:
 
@@ -8,32 +8,33 @@ SRC = $(sort $(wildcard *.py)) $(sort $(wildcard SimpleGUICS2Pygame/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*/*.py))
 
 
-PYTHON2      = python2  # https://www.python.org/
+PYTHON2      = python2
 PYTHON2FLAGS =
 
-PYTHON3      = python3
+PYTHON3      = python3  # https://www.python.org/
 PYTHON3FLAGS =
 
 
-JOB = 1
-
 MYPY      = mypy  # http://www.mypy-lang.org/
-MYPYFLAGS = --ignore-missing-imports
+MYPYFLAGS = --ignore-missing-imports  # --warn-unused-ignores
 
-PEP8      = pep8  # https://pypi.org/project/pep8/
-PEP8FLAGS = -v --statistics  # --ignore=E501
+PYCODESTYLE      = pycodestyle  # (pep8) https://pypi.org/project/pycodestyle/
+PYCODESTYLEFLAGS = --statistics  # --ignore=E501
 
 PYDEPS      = pydeps  # https://github.com/thebjorn/pydeps
 PYDEPSFLAGS = --noshow
 
-PYFLAKES      = pyflakes3  # https://pypi.org/project/pyflakes/
+PYDOCSTYLE      = pydocstyle  # http://www.pydocstyle.org/
+PYDOCSTYLEFLAGS = --ignore=D203,D205,D212,D400,D401,D407,D413,D415  # http://www.pydocstyle.org/en/latest/error_codes.html
+
+PYFLAKES      = pyflakes  # https://pypi.org/project/pyflakes/
 PYFLAKESFLAGS =
 
-PYLINT      = pylint3  # https://www.pylint.org/
-PYLINTFLAGS = -j $(JOB) --disable=duplicate-code,line-too-long,locally-disabled
+PYLINT      = pylint  # https://www.pylint.org/
+PYLINTFLAGS = -j $(JOB) --disable=duplicate-code,line-too-long,locally-disabled,RP0401
 
 PYTYPE      = export PYGAME_HIDE_SUPPORT_PROMPT=hide; pytype  # https://google.github.io/pytype/
-PYTYPEFLAGS = -j $(JOB)
+PYTYPEFLAGS = -k --strict-import -j $(JOB)
 
 
 CHECKTXT = checkTxtPy.py  # not public program
@@ -44,16 +45,24 @@ CP    = cp -p
 ECHO  = echo
 GREP  = grep
 GZIP  = gzip
+MAKE  = make
 RM    = rm -f
 RMDIR = rmdir
+SED   = sed
 SHELL = bash
 TAR   = tar
 TEE   = tee
 
 
 
+JOB ?= 1  # change this by define new value when start: $ make JOB=3
+
+VERSION = $(shell $(SED) -E -n "s/_VERSION\s*=\s*'(.*)'/\1/p" SimpleGUICS2Pygame/__init__.py)
+
+
+
 # default goal
-test3:
+lint:
 
 
 
@@ -100,7 +109,7 @@ sdist:
 #######
 # Doc #
 #######
-.PHONY: docs docstgz links
+.PHONY: docs docstgz links pydeps
 
 docs:	links
 	$(CP) -t Sphinx/_static/img pydeps_all.svg pydeps_only.svg
@@ -118,55 +127,66 @@ links:
 	@$(CD) Sphinx/_static/links/data; $(PYTHON3) $(PYTHON3FLAGS) make_snd_links.py
 	-@$(CD) Sphinx/_static/links/data; $(RM) -r __pycache__/*.pyc; $(RMDIR) __pycache__
 
+pydeps:
+	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_all.svg
+	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
+
 
 
 #################
 # Static checks #
 #################
-.PHONY: lint lintlog mypy pep8 pydeps pyflakes pylint pytype
+.PHONY: lint lintlog mypy pycodestyle pydocstyle pyflakes pylint pytype pytypeTree pytypeUnresolved
 
-lint:	pep8 pyflakes pylint pytype mypy
+lint:	pycodestyle pyflakes pylint pytypeTree pytypeUnresolved pytype mypy pydocstyle
 
 lintlog:
-	$(ECHO) "Lint" | $(TEE) lint.log
-	@$(ECHO) ===== pep8 ===== | $(TEE) -a lint.log
-	-$(PEP8) $(PEP8FLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	$(ECHO) "Lint SimpleGUICS2Pygame $(VERSION)" | $(TEE) lint.log
 	@$(ECHO) | $(TEE) -a lint.log
-	@$(ECHO) ===== pyflakes ===== | $(TEE) -a lint.log
+	@$(ECHO) ===== pycodestyle '(pep8)' `$(PYCODESTYLE) $(PYCODESTYLEFLAGS) --version` ===== | $(TEE) -a lint.log
+	-$(PYCODESTYLE) $(PYCODESTYLEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== pyflakes `$(PYFLAKES) $(PYFLAKESFLAGS) --version` ===== | $(TEE) -a lint.log
 	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(GREP) -v 'imported but unused' | $(GREP) -E -v 'impleGUICS2Pygame/simpleguics2pygame/__init__.py:.+undefined name' | $(TEE) -a lint.log || exit 0 && exit 1
 	@$(ECHO) | $(TEE) -a lint.log
-	@$(ECHO) ===== pylint ===== | $(TEE) -a lint.log
+	@$(ECHO) ===== `$(PYLINT) $(PYLINTFLAGS) --version` ===== | $(TEE) -a lint.log
 	-$(PYLINT) $(PYLINTFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) | $(TEE) -a lint.log
-	@$(ECHO) ===== pytype --tree ===== | $(TEE) -a lint.log
-	-$(PYTYPE) $(PYTYPEFLAGS) --tree $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) ===== pytype --unresolved ===== | $(TEE) -a lint.log
 	-$(PYTYPE) $(PYTYPEFLAGS) --unresolved $(SRC) 2>&1 | $(GREP) -E -v 'user[0-9]+' | $(TEE) -a lint.log || exit 0 && exit 1
-	@$(ECHO) ===== pytype ===== | $(TEE) -a lint.log
-	-$(PYTYPE) $(PYTYPEFLAGS) -k $(SRC) 2>&1 | $(TEE) -a lint.log
-	@$(ECHO) ===== mypy ===== | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== pytype `$(PYTYPE) $(PYTYPEFLAGS) --version` ===== | $(TEE) -a lint.log
+	-$(PYTYPE) $(PYTYPEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== `$(MYPY) $(MYPYFLAGS) --version` ===== | $(TEE) -a lint.log
 	-$(MYPY) $(MYPYFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	@$(ECHO) | $(TEE) -a lint.log
+	@$(ECHO) ===== pydocstyle `$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) --version` ===== | $(TEE) -a lint.log
+	-$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 
 mypy:
 	-$(MYPY) $(MYPYFLAGS) $(SRC)
 
-pep8:
-	-$(PEP8) $(PEP8FLAGS) $(SRC)
+pycodestyle:
+	-$(PYCODESTYLE) $(PYCODESTYLEFLAGS) $(SRC)
 
-pydeps:
-	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_all.svg
-	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
+pydocstyle:
+	-$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) $(SRC)
 
 pyflakes:
 	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(GREP) -v 'imported but unused' | $(GREP) -E -v 'impleGUICS2Pygame/simpleguics2pygame/__init__.py:.+undefined name' || exit 0 && exit 1
 
 pylint:
-	-$(PYLINT) $(PYLINTFLAGS) $(SRC)
+	-$(PYLINT) $(PYLINTFLAGS) -f colorized $(SRC)
 
 pytype:
-	-$(PYTYPE) --tree $(PYTYPEFLAGS) $(SRC)
-	-$(PYTYPE) --unresolved $(PYTYPEFLAGS) $(SRC) | $(GREP) -E -v 'user[0-9]+' || exit 0 && exit 1
 	-$(PYTYPE) $(PYTYPEFLAGS) $(SRC)
+
+pytypeTree:
+	-$(PYTYPE) --tree $(PYTYPEFLAGS) $(SRC)
+
+pytypeUnresolved:
+	-$(PYTYPE) --unresolved $(PYTYPEFLAGS) $(SRC) | $(GREP) -E -v 'user[0-9]+' || exit 0 && exit 1
 
 
 
@@ -218,6 +238,7 @@ tests:	test2 test3
 # Clean #
 #########
 .PHONY:	clean cleanbuild cleandist cleandocs distclean overclean
+
 clean:	cleanbuild
 	$(RM) -r *.pyc *.pyo */*.pyc */*.pyo */*/*.pyc */*/*.pyo */*/*/*.pyc */*/*/*.pyo */*/*/*/*.pyc */*/*/*/*.pyo */*/*/*/*/*.pyc */*/*/*/*/*.pyo
 	-$(RMDIR) __pycache__ */__pycache__ */*/__pycache__ */*/*/__pycache__ */*/*/*/__pycache__
@@ -233,11 +254,11 @@ cleanbuild:
 	$(RM) -r build
 
 cleandist:	cleandocs
-		$(RM) dist/*
-		-$(RMDIR) dist
+	$(RM) dist/*
+	-$(RMDIR) dist
 
 cleandocs:
-		@$(CD) Sphinx; $(MAKE) clean
+	@$(CD) Sphinx; $(MAKE) clean
 
 distclean:	clean cleandist
 

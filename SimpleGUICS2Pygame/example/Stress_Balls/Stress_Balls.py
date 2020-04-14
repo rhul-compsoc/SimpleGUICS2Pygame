@@ -3,8 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Stress Ball
-  Display many "balls" and calculate FPS (Frame Per Second)
+Stress Ball: display many "balls" and calculate FPS (Frame Per Second).
 
 On Safari: exception failed!
 
@@ -16,28 +15,31 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
+import sys
+
 try:
-    import simplegui
-    import simpleplot
+    import simplegui  # pytype: disable=import-error
+    import simpleplot  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
+    import SimpleGUICS2Pygame.simpleplot as simpleplot  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
 
 # ### Config >>>
 MAX_NB_SECONDS = 30  # number of seconds before next step
 
 ALPHA = False  # start with transparency if True
-REVERSE = False  # reverse LIST_NB_SHAPES if true
+REVERSE = (len(sys.argv) >= 2)  # reverse LIST_NB_SHAPES if true
 
 # Use Frame._get_fps_average() (only with SimpleGUICS2Pygame)
 _FPS_AVERAGE = False
@@ -45,7 +47,7 @@ _FPS_AVERAGE = False
 # Number of shapes of each step
 LIST_NB_SHAPES = [1, 10, 20, 30, 40, 50, 75,
                   100, 200, 300, 400, 500, 750,
-                  1000, 1500, 2000]
+                  1000, 1250, 1500, 1750, 2000]
 # ### <<< config
 
 if REVERSE:
@@ -75,7 +77,7 @@ RGB_COLORS = ((0, 0, 128),
               (255, 255, 255))
 
 
-RESULTS = {}
+RESULTS = {}  # type: ignore
 
 TRANSPARENCY = ALPHA
 
@@ -85,11 +87,13 @@ NB_SHAPES = None
 NB_FRAMES_DRAWED = None
 NB_SECONDS = None
 SHAPES = None
+TIMER = None
 TO_NEXT_STEP = None
 
 
 class Shape:  # pylint: disable=too-many-instance-attributes
     """Shape (ball, disc, square) with its properties."""
+
     def __init__(self, center, radius,  # pylint: disable=too-many-arguments
                  color, fill_color, velocity, shape):
         """
@@ -116,8 +120,8 @@ class Shape:  # pylint: disable=too-many-instance-attributes
         self.velocity_x = velocity[0]
         self.velocity_y = velocity[1]
 
-        self.velocity_x_save = None
-        self.velocity_y_save = None
+        self.velocity_x_save = 0
+        self.velocity_y_save = 0
 
         self.draw = (self.draw_circle,
                      self.draw_disc,
@@ -251,15 +255,15 @@ class Shape:  # pylint: disable=too-many-instance-attributes
 # Functions
 def dict_to_ordered_list(d):
     """
-    :param d:
+    :param d: dictionary
 
     :return: ordered list of keys from dictionary d
     """
-    l = list(d.keys())
-    l.sort()
+    seq = list(d.keys())
+    seq.sort()
 
     return [(NB_SHAPES, d[NB_SHAPES])
-            for NB_SHAPES in l]
+            for NB_SHAPES in seq]
 
 
 def init():
@@ -269,28 +273,27 @@ def init():
     global NB_SHAPES  # pylint: disable=global-statement
     global NB_FRAMES_DRAWED  # pylint: disable=global-statement
     global NB_SECONDS  # pylint: disable=global-statement
-    global RESULTS  # pylint: disable=global-statement
     global SHAPES  # pylint: disable=global-statement
     global TO_NEXT_STEP  # pylint: disable=global-statement
 
     if len(LIST_NB_SHAPES) == 0:
-        TIMER.stop()
+        TIMER.stop()  # type: ignore
 
-        RESULTS = dict_to_ordered_list(RESULTS)
+        final_result = dict_to_ordered_list(RESULTS)
 
         print('Results: {' + ', '
-              .join(['%d: %d' % result for result in RESULTS]) + '}')
+              .join(['%d: %d' % result for result in final_result]) + '}')
 
         try:
             FRAME.stop()
         except Exception as e:  # pylint: disable=broad-except
-            # To avoid simpleguitk failed
+            # To avoid failed when run with simpleguitk
             print('FRAME.stop():' + str(e))
 
         try:
             simpleplot.plot_lines('Stress Balls', 800, 650,
                                   '# balls', 'FPS',
-                                  (RESULTS, ), True)
+                                  (final_result, ), True)
             if SIMPLEGUICS2PYGAME:
                 simpleplot._block()  # pylint: disable=protected-access
         except Exception as e:  # pylint: disable=broad-except
@@ -321,9 +324,7 @@ def init():
 
 
 def n_to_rgba(n, alpha):
-    """
-    :return: RGB tuple with alpha
-    """
+    """:return: RGB tuple with alpha"""
     n = RGB_COLORS[n]
 
     return (n[0], n[1], n[2], alpha)
@@ -331,7 +332,7 @@ def n_to_rgba(n, alpha):
 
 def rgba_to_str(rgba):
     """
-    :param rgba:
+    :param rgba: RGB tuple with alpha
 
     :return: color in correct Pygame string, with transparency or not
     """
@@ -413,7 +414,7 @@ def revert():
 
 def stop():
     """Stop timer and frame."""
-    TIMER.stop()
+    TIMER.stop()  # type: ignore
     FRAME.stop()
 
 
@@ -430,8 +431,6 @@ def transparency_on_off():
 # Main
 print("""Stress Balls:
 # balls | FPS...""")
-
-simplegui.Frame._stop_timers = True  # pylint: disable=protected-access
 
 FRAME = simplegui.create_frame('Stress Balls' +
                                (' ALPHA' if ALPHA

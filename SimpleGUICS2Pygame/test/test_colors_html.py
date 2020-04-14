@@ -9,19 +9,19 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: April 14, 2020
 """
 
 try:
-    from user305_fZiH7ljLOrt9aBi import hex2, hex_fig
+    from user305_2YRLOxXzAvucSDa import hex2, hex_fig  # type: ignore
 
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
     from SimpleGUICS2Pygame.codeskulptor_lib import hex2, hex_fig
 
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -93,12 +93,13 @@ def main():
     frame.set_draw_handler(draw)
 
     if SIMPLEGUICS2PYGAME:
-        from sys import argv
+        from sys import argv  # pylint: disable=import-outside-toplevel
 
         if len(argv) == 2:
             frame._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
 
     frame.start()
+
 
 if __name__ == '__main__':
     main()

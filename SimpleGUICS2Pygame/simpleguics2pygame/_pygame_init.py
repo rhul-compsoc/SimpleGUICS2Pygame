@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_pygame_init
+simpleguics2pygame module: simpleguics2pygame/_pygame_init.
 
 Initialize Pygame.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 12, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = ['_PYGAME_AVAILABLE', '_PYGAME_VERSION']
+__all__ = ('_PYGAME_AVAILABLE', '_PYGAME_VERSION')
 
 
 try:

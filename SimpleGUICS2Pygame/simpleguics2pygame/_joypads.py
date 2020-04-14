@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_joypads
+simpleguics2pygame module: simpleguics2pygame/_joypads.
 
 Dealing of joypads.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 29, 2020
+:version: April 13, 2020
 """
 
 from __future__ import print_function
@@ -22,7 +22,7 @@ import os.path
 import sys
 
 
-__all__ = []
+__all__ = tuple()  # type: ignore
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module

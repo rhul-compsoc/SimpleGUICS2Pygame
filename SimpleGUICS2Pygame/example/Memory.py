@@ -14,18 +14,18 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
 import random
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 
-    from user305_fZiH7ljLOrt9aBi import assert_position
-    from user305_Vj4GH0AVPin7znw import draw_rect
+    from user305_2YRLOxXzAvucSDa import assert_position  # pytype: disable=import-error  # noqa
+    from user305_2AIoOM1Isi08A9H import draw_rect  # pytype: disable=import-error  # noqa
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     from SimpleGUICS2Pygame.codeskulptor_lib import assert_position
     from SimpleGUICS2Pygame.simplegui_lib_draw import draw_rect
@@ -75,8 +75,7 @@ def draw_border(canvas, pos, size,  # pylint: disable=too-many-arguments
     """
     assert_position(pos)
     assert_position(size)
-    assert isinstance(line_width, int) or isinstance(line_width, float), \
-        type(line_width)
+    assert isinstance(line_width, (int, float)), type(line_width)
     assert line_width >= 0, line_width
     assert isinstance(color, str), type(str)
     assert isinstance(shift, int), type(shift)
@@ -100,9 +99,8 @@ def draw_border(canvas, pos, size,  # pylint: disable=too-many-arguments
 
 # Classes
 class Card:
-    """
-    A card (with an identification number and a drawing position).
-    """
+    """A card (with an identification number and a drawing position)."""
+
     WIDTH = 50
     HEIGHT = 100
 
@@ -213,9 +211,8 @@ class Card:
 
 
 class Memory:
-    """
-    Memory game (list of cards)
-    """
+    """Memory game (list of cards)"""
+
     def __init__(self, nb_different_cards=8, nb_repeat_cards=2):
         """
         Initialize the game.
@@ -374,9 +371,7 @@ def restart_8x2():
 
 
 def start():
-    """
-    Event handler to deal start after loading images.
-    """
+    """Event handler to deal start after loading images."""
     restart_8x2()
 
     FRAME.set_mouseclick_handler(mouseclick)

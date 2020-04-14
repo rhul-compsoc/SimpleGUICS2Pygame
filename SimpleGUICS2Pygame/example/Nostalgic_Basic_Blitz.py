@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Nostalgic Basic Blitz.
+Nostalgic Basic Blitz game.
 
 Old little game like those published in
 "Jeux en BASIC sur TRS-80 couleur".
@@ -14,15 +14,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 15, 2020
+:version: April 14, 2020
 """
 
 import random
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
@@ -55,14 +55,10 @@ frame = None
 # Classes
 ##########
 class Blitz:
-    """
-    The Blitz game.
-    """
+    """The Blitz game."""
 
     def __init__(self):
-        """
-        Set the game.
-        """
+        """Set the game."""
         self.__bomb = None
         self.__city = City()
         self.__plane = Plane()
@@ -96,9 +92,7 @@ class Blitz:
             self.__bomb = self.__plane.launch_bomb()
 
     def update(self):
-        """
-        Update all the game
-        """
+        """Update all the game"""
         self.__plane.update()
 
         if self.__bomb is not None:
@@ -107,8 +101,8 @@ class Blitz:
                 self.__city.kill_columns(self.__bomb.pos_x())
                 self.__bomb = None
             else:
-                self.__city.kill_column_top(self.__bomb.pos_x(),
-                                            self.__bomb.pos_y())
+                self.__city.kill_column_top(self.__bomb.pos_x(),  # noqa  # type: ignore
+                                            self.__bomb.pos_y())  # noqa  # type: ignore
 
         x, y = self.__plane.nose_pos()
         if self.__city.check_collide(x + 1, y):
@@ -127,9 +121,7 @@ class Blitz:
 
 
 class Bomb:
-    """
-    A bomb.
-    """
+    """A bomb."""
 
     def __init__(self, x, y):
         """
@@ -187,21 +179,15 @@ class Bomb:
         return self.__pixel_y // CHAR_HEIGHT
 
     def update(self):
-        """
-        Update the bomb position.
-        """
+        """Update the bomb position."""
         self.__pixel_y += CHAR_HEIGHT // 3
 
 
 class City:
-    """
-    A city.
-    """
+    """A city."""
 
     def __init__(self):
-        """
-        Set randomly a city.
-        """
+        """Set randomly a city."""
         heights = [random.randint(4, HEIGHT - 8) // 2
                    for _ in range((WIDTH - 5) // 2)]
 
@@ -309,14 +295,10 @@ class City:
 
 
 class Plane:
-    """
-    A plane.
-    """
+    """A plane."""
 
     def __init__(self):
-        """
-        Set a plane.
-        """
+        """Set a plane."""
         self.__pixel_x = 0
         self.__y = 0
 
@@ -394,9 +376,7 @@ class Plane:
                 self.__y + 1)
 
     def update(self):
-        """
-        Update plane position.
-        """
+        """Update plane position."""
         if (self.__y < HEIGHT - 2) and not self.__crashed:
             self.__pixel_x += 2
             if self.__pixel_x > CANVAS_WIDTH:
@@ -435,9 +415,7 @@ def draw(canvas):
 
 
 def restart():
-    """
-    Restart the game.
-    """
+    """Restart the game."""
     global blitz  # pylint: disable=global-statement
 
     blitz = Blitz()

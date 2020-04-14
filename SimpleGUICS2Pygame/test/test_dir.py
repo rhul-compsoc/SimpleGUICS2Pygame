@@ -9,24 +9,24 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: April 14, 2020
 """
 
 from sys import argv
 
 try:
-    import simplegui
-    import codeskulptor
-    import numeric
-    import simplemap  # not implemented in SimpleGUICS2Pygame
-    import simpleplot
+    import simplegui  # type: ignore
+    import codeskulptor  # type: ignore
+    import numeric  # type: ignore
+    import simplemap  # not implemented in SimpleGUICS2Pygame  # type: ignore
+    import simpleplot  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
-    import SimpleGUICS2Pygame.codeskulptor as codeskulptor
-    import SimpleGUICS2Pygame.numeric as numeric
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
+    import SimpleGUICS2Pygame.codeskulptor as codeskulptor  # type: ignore
+    import SimpleGUICS2Pygame.numeric as numeric  # type: ignore
+    import SimpleGUICS2Pygame.simpleplot as simpleplot  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -142,9 +142,9 @@ def print_cmp_seq(a, title_a,
     """
     global DIFFERENT  # pylint: disable=global-statement
 
-    assert isinstance(a, list) or isinstance(a, tuple), type(a)
+    assert isinstance(a, (list, tuple)), type(a)
     assert isinstance(title_a, str), title_a
-    assert isinstance(b, list) or isinstance(b, tuple), type(b)
+    assert isinstance(b, (list, tuple)), type(b)
     assert isinstance(title_b, str), title_b
 
     ab = list(set(a).union(b))  # pylint: disable=invalid-name

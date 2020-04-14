@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/timer
+simpleguics2pygame module: simpleguics2pygame/timer.
 
 Class Timer.
 
@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 13, 2020
 """
 
 from __future__ import division
@@ -21,8 +21,8 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = ['Timer',
-           'create_timer']
+__all__ = ('Timer',
+           'create_timer')
 
 
 import atexit  # noqa
@@ -69,7 +69,7 @@ class Timer:
     **Don't require Pygame.**
     """
 
-    _timers_running = {}
+    _timers_running = {}  # type: ignore
     """
     `Dict` {(Timer id): `Timer`} of all timers are running.
     """
@@ -85,9 +85,7 @@ class Timer:
 
     @classmethod
     def _running_some(cls):
-        """
-        :return: True if at least one timer running, else False
-        """
+        """:return: True if at least one timer running, else False"""
         return bool(cls._timers_running)
 
     @classmethod
@@ -111,17 +109,14 @@ class Timer:
         :param interval: int or float > 0
         :param timer_handler: function () -> *
         """
-        assert isinstance(interval, int) or isinstance(interval, float), \
-            type(interval)
+        assert isinstance(interval, (int, float)), type(interval)
         assert interval > 0, interval
         assert callable(timer_handler), type(timer_handler)
 
-        import threading
+        import threading  # pylint: disable=import-outside-toplevel
 
         def repeat_handler():
-            """
-            Function to create and start a new timer.
-            """
+            """Function to create and start a new timer."""
             Timer._timers_running[id(self)] = self
             self._timer = threading.Timer(self._interval / 1000, self._handler)
             self._timer.start()
@@ -177,7 +172,7 @@ class Timer:
         (Side effect: Add `id(self)`: `self` in `Timer._timers_running`.)
         """
         if self._timer is None:
-            import threading
+            import threading  # pylint: disable=import-outside-toplevel
 
             Timer._timers_running[id(self)] = self
             self._timer = threading.Timer(self._interval / 1000, self._handler)
@@ -215,8 +210,7 @@ def create_timer(interval, timer_handler):
 
     :return: Timer
     """
-    assert isinstance(interval, int) or isinstance(interval, float), \
-        type(interval)
+    assert isinstance(interval, (int, float)), type(interval)
     assert interval > 0, interval
     assert callable(timer_handler), type(timer_handler)
 

@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_draw
+simplegui_lib_draw module.
 
 Draw functions to help
 in SimpleGUI of CodeSkulptor.
@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 25, 2020
+:version: April 14, 2020
 """
 
 # print('IMPORT', __name__)
@@ -41,20 +41,17 @@ def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
     :param line_color: str
     :param fill_color: str
     """
-    assert isinstance(pos, tuple) or isinstance(pos, list), type(pos)
+    assert isinstance(pos, (tuple, list)), type(pos)
     assert len(pos) == 2, len(pos)
-    assert isinstance(pos[0], int) or isinstance(pos[0], float), type(pos[0])
-    assert isinstance(pos[1], int) or isinstance(pos[1], float), type(pos[1])
+    assert isinstance(pos[0], (int, float)), type(pos[0])
+    assert isinstance(pos[1], (int, float)), type(pos[1])
 
-    assert isinstance(size, tuple) or isinstance(size, list), type(size)
+    assert isinstance(size, (tuple, list)), type(size)
     assert len(size) == 2, len(size)
-    assert isinstance(size[0], int) or isinstance(size[0], float), \
-        type(size[0])
-    assert isinstance(size[1], int) or isinstance(size[1], float), \
-        type(size[1])
+    assert isinstance(size[0], (int, float)), type(size[0])
+    assert isinstance(size[1], (int, float)), type(size[1])
 
-    assert isinstance(line_width, int) or isinstance(line_width, float), \
-        type(line_width)
+    assert isinstance(line_width, (int, float)), type(line_width)
     assert line_width >= 0, line_width
     assert isinstance(line_color, str), type(str)
     assert (fill_color is None) or isinstance(fill_color, str), type(str)
@@ -100,24 +97,19 @@ def draw_text_multi(canvas,  # pylint: disable=too-many-arguments
 
     :raise: ValueError if text contains unprintable whitespace character
     """  # noqa
-    assert (isinstance(text, str) or isinstance(text, tuple) or
-            isinstance(text, list)), type(text)
+    assert isinstance(text, (str, tuple, list)), type(text)
 
-    assert isinstance(point, tuple) or isinstance(point, list), type(point)
+    assert isinstance(point, (tuple, list)), type(point)
     assert len(point) == 2, len(point)
-    assert isinstance(point[0], int) or isinstance(point[0], float), \
-        type(point[0])
-    assert isinstance(point[1], int) or isinstance(point[1], float), \
-        type(point[1])
+    assert isinstance(point[0], (int, float)), type(point[0])
+    assert isinstance(point[1], (int, float)), type(point[1])
 
-    assert isinstance(font_size, int) or isinstance(font_size, float), \
-        type(font_size)
+    assert isinstance(font_size, (int, float)), type(font_size)
     assert font_size >= 0, font_size
 
     assert isinstance(font_color, str), type(font_color)
     assert isinstance(font_face, str), type(font_face)
-    assert (isinstance(_font_size_coef, int) or
-            isinstance(_font_size_coef, float)), type(_font_size_coef)
+    assert isinstance(_font_size_coef, (int, float)), type(_font_size_coef)
 
     if isinstance(text, str):
         # Convert each Window$ and M@c end of line to standard end of line
@@ -181,15 +173,12 @@ def draw_text_side(frame, canvas,  # noqa  # pylint: disable=too-many-arguments,
     """  # noqa
     assert isinstance(text, str), type(text)
 
-    assert isinstance(point, tuple) or isinstance(point, list), type(point)
+    assert isinstance(point, (tuple, list)), type(point)
     assert len(point) == 2, len(point)
-    assert isinstance(point[0], int) or isinstance(point[0], float), \
-        type(point[0])
-    assert isinstance(point[1], int) or isinstance(point[1], float), \
-        type(point[1])
+    assert isinstance(point[0], (int, float)), type(point[0])
+    assert isinstance(point[1], (int, float)), type(point[1])
 
-    assert isinstance(font_size, int) or isinstance(font_size, float), \
-        type(font_size)
+    assert isinstance(font_size, (int, float)), type(font_size)
     assert font_size >= 0, font_size
 
     assert isinstance(font_color, str), type(font_color)
@@ -201,10 +190,9 @@ def draw_text_side(frame, canvas,  # noqa  # pylint: disable=too-many-arguments,
             isinstance(rectangle_fill_color, str)), \
         type(rectangle_fill_color)
 
-    assert isinstance(side_x, int) or isinstance(side_x, float), type(side_x)
-    assert isinstance(side_y, int) or isinstance(side_y, float), type(side_y)
-    assert (isinstance(font_size_coef, int) or
-            isinstance(font_size_coef, float)), type(font_size_coef)
+    assert isinstance(side_x, (int, float)), type(side_x)
+    assert isinstance(side_y, (int, float)), type(side_y)
+    assert isinstance(font_size_coef, (int, float)), type(font_size_coef)
 
     text_width = (frame.get_canvas_textwidth(text, font_size)
                   if font_face is None

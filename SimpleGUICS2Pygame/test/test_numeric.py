@@ -9,19 +9,19 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
 try:
-    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
+    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # type: ignore
 
-    import numeric
+    import numeric  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
+    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib  # type: ignore  # noqa
 
-    import SimpleGUICS2Pygame.numeric as numeric
+    import SimpleGUICS2Pygame.numeric as numeric  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -55,7 +55,7 @@ def m_eq(a, b, exact=True):
     if a.shape() != b.shape():
         return False
 
-    if exact:
+    if exact:  # pylint: disable=no-else-return
         return m_to_l(a) == m_to_l(b)
     else:
         m, n = a.shape()
@@ -88,7 +88,7 @@ def m_to_l(m):
 def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """Perform succession of tests."""
     if SIMPLEGUICS2PYGAME:
-        from sys import argv
+        from sys import argv  # pylint: disable=import-outside-toplevel
 
         if len(argv) != 2:
             print('Test numeric.Matrix ...\n')
@@ -484,7 +484,8 @@ def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-man
     else:
         print('\n%i errors founded' % nb_errors)
 
-        exit(nb_errors)
+        exit(nb_errors)  # pylint: disable=consider-using-sys-exit
+
 
 if __name__ == '__main__':
     main()

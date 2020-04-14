@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor_lib
+codeskulptor_lib module.
 
 Some miscellaneous functions to help in CodeSkulptor.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 26, 2020
+:version: April 14, 2020
 """
 
 # print('IMPORT', __name__)
@@ -49,14 +49,11 @@ def assert_position(position, non_negative=False, non_zero=False):
     assert isinstance(non_negative, bool), type(non_negative)
     assert isinstance(non_zero, bool), type(non_zero)
 
-    assert isinstance(position, tuple) or isinstance(position, list), \
-        type(position)
+    assert isinstance(position, (tuple, list)), type(position)
     assert len(position) == 2, len(position)
 
-    assert isinstance(position[0], int) or isinstance(position[0], float), \
-        type(position[0])
-    assert isinstance(position[1], int) or isinstance(position[1], float), \
-        type(position[1])
+    assert isinstance(position[0], (int, float)), type(position[0])
+    assert isinstance(position[1], (int, float)), type(position[1])
 
     if non_negative:
         assert position[0] >= 0, position
@@ -81,8 +78,8 @@ def codeskulptor_is():
     if __CODESKULPTOR_IS is None:
         try:
             # Try import to check if running in CodeSkulptor environment
-            from codeskulptor import file2url  # noqa  # pylint: disable=unused-variable
-            from simplegui import KEY_MAP  # pylint: disable=unused-variable
+            from codeskulptor import file2url  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,unused-import
+            from simplegui import KEY_MAP  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,unused-import
 
             __CODESKULPTOR_IS = True
         except ImportError:
@@ -106,13 +103,13 @@ def codeskulptor_version():
         if codeskulptor_is():
             try:
                 # Try import to check if running in CodeSkulptor version 2
-                from urllib2 import urlopen  # pylint: disable=unused-variable
+                from urllib2 import urlopen  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,unused-import
 
                 __CODESKULPTOR_VERSION = 2
             except ImportError:
                 __CODESKULPTOR_VERSION = 3
         else:
-            __CODESKULPTOR_VERSION = False  # noqa  # pylint: disable=redefined-variable-type
+            __CODESKULPTOR_VERSION = False
 
     return __CODESKULPTOR_VERSION
 
@@ -162,12 +159,12 @@ def hsl(hue, saturation, lightness):
 
     :return: str
     """
-    assert isinstance(hue, float) or isinstance(hue, int)
+    assert isinstance(hue, (float, int))
 
-    assert isinstance(saturation, float) or isinstance(saturation, int)
+    assert isinstance(saturation, (float, int))
     assert 0 <= saturation <= 100
 
-    assert isinstance(lightness, float) or isinstance(lightness, int)
+    assert isinstance(lightness, (float, int))
     assert 0 <= lightness <= 100
 
     # %s to avoid CodeSkulptor %% bug
@@ -189,15 +186,15 @@ def hsla(hue, saturation, lightness,
 
     :return: str
     """
-    assert isinstance(hue, float) or isinstance(hue, int)
+    assert isinstance(hue, (float, int))
 
-    assert isinstance(saturation, float) or isinstance(saturation, int)
+    assert isinstance(saturation, (float, int))
     assert 0 <= saturation <= 100
 
-    assert isinstance(lightness, float) or isinstance(lightness, int)
+    assert isinstance(lightness, (float, int))
     assert 0 <= lightness <= 100
 
-    assert isinstance(alpha, float) or isinstance(alpha, int)
+    assert isinstance(alpha, (float, int))
     assert 0 <= alpha <= 1
 
     # %s to avoid CodeSkulptor %% bug
@@ -252,7 +249,7 @@ def rgba(red, green, blue,
     assert isinstance(blue, int)
     assert 0 <= blue < 256
 
-    assert isinstance(alpha, float) or isinstance(alpha, int)
+    assert isinstance(alpha, (float, int))
     assert 0 <= alpha <= 1
 
     return 'rgba(%d, %d, %d, %f)' % (red, green, blue, alpha)

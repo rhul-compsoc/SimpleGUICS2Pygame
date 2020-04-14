@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (March 29, 2020)
+Setup of SimpleGUICS2Pygame package (April 14, 2020).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -11,12 +11,12 @@ GPLv3 --- Copyright (C) 2013, 2016, 2018, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
+from __future__ import print_function
+
+
 import io
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+import setuptools
 
 
 from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
@@ -34,61 +34,82 @@ def parse_requirements_file():
     return list(requirement.strip() for requirement in requirements)
 
 
-setup(name='SimpleGUICS2Pygame',
-      version=_VERSION,
-      description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a Python browser environment). In fact a package also with other modules adapted from CodeSkulptor.',  # noqa
-      long_description=io.open('README.rst', encoding='utf-8').read(),
+REQUIREMENTS = parse_requirements_file()
 
-      author='Olivier Pirson',
-      author_email='olivier.pirson.opi@gmail.com',
-      url=_WEBSITE_DOC,
-      project_urls={'Documentation': _WEBSITE_DOC,
-                    'Source Code': _WEBSITE},
 
-      packages=['SimpleGUICS2Pygame'],
-      license='GPLv3',
-      platforms='any',
-      include_package_data=True,
+print("""Warning!
+If the installation failed, please see the online documentation
+to upgrade installation system and to install requirements separately.
+https://simpleguics2pygame.readthedocs.io/en/latest/#installation
+Requirements:""")
+for REQUIREMENT in REQUIREMENTS:
+    print(' ', REQUIREMENT.replace('==', ' '))
+print()
 
-      scripts=['SimpleGUICS2Pygame/script/cs2both.py',
-               'SimpleGUICS2Pygame/script/pygame_check.py',
-               'SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py'],
 
-      install_requires=parse_requirements_file(),
+# https://packaging.python.org/guides/distributing-packages-using-setuptools/#setup-args
+setuptools.setup(
+    name='SimpleGUICS2Pygame',
+    version=_VERSION,
 
-      keywords='CodeSkulptor SimpleGUI Pygame game education',
-      classifiers=[
-          'Development Status :: 5 - Production/Stable',
+    description='Primarily a standard Python (2 and 3) module reimplementing the SimpleGUI particular module of CodeSkulptor (a Python browser environment). In fact a package also with other modules adapted from CodeSkulptor.',  # noqa
+    long_description=io.open('README.rst', encoding='utf-8').read(),
+    long_description_content_type='text/x-rst',
 
-          'Environment :: MacOS X',
-          'Environment :: Win32 (MS Windows)',
-          'Environment :: X11 Applications',
+    url=_WEBSITE_DOC,
 
-          'Intended Audience :: Developers',
-          'Intended Audience :: Education',
-          'Intended Audience :: End Users/Desktop',
-          'Intended Audience :: Other Audience',
+    author='Olivier Pirson',
+    author_email='olivier.pirson.opi@gmail.com',
 
-          'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    license='GPLv3',
 
-          'Natural Language :: English',
+    classifiers=(
+        'Development Status :: 5 - Production/Stable',
 
-          'Operating System :: MacOS :: MacOS X',
-          'Operating System :: Microsoft :: Windows',
-          'Operating System :: OS Independent',
-          'Operating System :: POSIX',
-          'Operating System :: Unix',
+        'Intended Audience :: Education',
+        'Intended Audience :: End Users/Desktop',
 
-          'Programming Language :: Python',
-          'Programming Language :: Python :: 2.7',
-          'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
 
-          'Topic :: Education',
-          'Topic :: Games/Entertainment',
-          'Topic :: Multimedia :: Graphics',
-          'Topic :: Multimedia :: Sound/Audio',
-          'Topic :: Software Development',
-          'Topic :: Software Development :: Libraries :: pygame',
-          'Topic :: Software Development :: Libraries :: Python Modules',
-          'Topic :: Software Development :: User Interfaces',
-          'Topic :: Software Development :: Widget Sets'])
+        'Natural Language :: English',
+
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+
+        'Topic :: Education',
+        'Topic :: Games/Entertainment',
+        'Topic :: Multimedia :: Graphics',
+        'Topic :: Multimedia :: Sound/Audio',
+        'Topic :: Software Development',
+        'Topic :: Software Development :: Libraries :: matplotlib',
+        'Topic :: Software Development :: Libraries :: pygame',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Software Development :: User Interfaces',
+        'Topic :: Software Development :: Widget Sets'
+        ),
+
+    platforms='any',
+
+    keywords='CodeSkulptor SimpleGUI Pygame game education',
+
+    project_urls={
+        'Documentation': _WEBSITE_DOC,
+        'Funding': 'http://www.opimedia.be/donate/',
+        'Say Thanks!': 'http://www.opimedia.be',
+        'Source': _WEBSITE
+    },
+
+    packages=('SimpleGUICS2Pygame', ),
+
+    install_requires=REQUIREMENTS,
+
+    python_requires='>=2.7',
+
+    scripts=('SimpleGUICS2Pygame/script/cs2both.py',
+             'SimpleGUICS2Pygame/script/pygame_check.py',
+             'SimpleGUICS2Pygame/script/SimpleGUICS2Pygame_check.py'),
+
+    # https://setuptools.readthedocs.io/en/latest/setuptools.html#new-and-changed-setup-keywords
+    include_package_data=True
+)

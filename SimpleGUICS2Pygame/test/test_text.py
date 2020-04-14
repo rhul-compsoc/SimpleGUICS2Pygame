@@ -9,20 +9,19 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
 try:
-    from user305_Vj4GH0AVPin7znw import draw_text_multi, draw_text_side
+    from user305_2AIoOM1Isi08A9H import draw_text_multi, draw_text_side  # noqa  # type: ignore
 
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    from SimpleGUICS2Pygame.simplegui_lib_draw \
-        import draw_text_multi, draw_text_side
+    from SimpleGUICS2Pygame.simplegui_lib_draw import draw_text_multi, draw_text_side  # noqa
 
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 

@@ -9,15 +9,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 24, 2020
+:version: April 14, 2020
 """
 
 try:
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -150,18 +150,14 @@ def draw_grid3(canvas, y_offset, color):
 
 
 def switch_color():
-    """
-    Switch between 3 different colors and all in white.
-    """
+    """Switch between 3 different colors and all in white."""
     global STATE_COLORS  # pylint: disable=global-statement
 
     STATE_COLORS = not STATE_COLORS
 
 
 def switch_method():
-    """
-    Switch position of the 3 methods.
-    """
+    """Switch position of the 3 methods."""
     global STATE_METHOD  # pylint: disable=global-statement
 
     STATE_METHOD = (STATE_METHOD + 1) % 3

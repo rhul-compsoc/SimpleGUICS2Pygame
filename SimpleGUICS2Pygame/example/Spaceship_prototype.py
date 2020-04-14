@@ -19,18 +19,18 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
 import math
 import random
 
 try:
-    from user305_fZiH7ljLOrt9aBi import assert_position
-    from user305_ALZ2cYv1hjEYUuU import FPS
-    from user305_Fem7W4gO0hSlII8 import Loader
+    from user305_2YRLOxXzAvucSDa import assert_position  # pytype: disable=import-error # noqa
+    from user305_sqdXmWMw7Jq9Sdc import FPS  # pytype: disable=import-error
+    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error
 
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -38,7 +38,7 @@ except ImportError:
     from SimpleGUICS2Pygame.simplegui_lib_fps import FPS
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
@@ -99,9 +99,8 @@ def angle_to_vector(angle):
 # Classes
 ##########
 class ImageInfo:
-    """
-    Informations to use with Sprite.
-    """
+    """Informations to use with Sprite."""
+
     def __init__(self, center, size,  # pylint: disable=too-many-arguments
                  radius=None, lifespan=None, animated=False):
         """
@@ -121,10 +120,10 @@ class ImageInfo:
         assert_position(center)
         assert_position(size, True, True)
         assert ((radius is None) or
-                ((isinstance(radius, int) or isinstance(radius, float)) and
+                (isinstance(radius, (int, float)) and
                  (radius > 0))), radius
         assert ((lifespan is None) or
-                ((isinstance(lifespan, int) or isinstance(lifespan, float)) and
+                (isinstance(lifespan, (int, float)) and
                  (lifespan > 0))), lifespan
         assert isinstance(animated, bool), type(animated)
 
@@ -180,9 +179,8 @@ class ImageInfo:
 
 
 class Sprite:  # pylint: disable=too-many-instance-attributes
-    """
-    Sprite class
-    """
+    """Sprite class"""
+
     def __init__(self, position,  # pylint: disable=too-many-arguments
                  velocity, angle,
                  angle_velocity,
@@ -202,9 +200,8 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         """
         assert_position(position)
         assert_position(velocity)
-        assert isinstance(angle, int) or isinstance(angle, float), type(angle)
-        assert (isinstance(angle_velocity, int) or
-                isinstance(angle_velocity, float)), type(angle_velocity)
+        assert isinstance(angle, (int, float)), type(angle)
+        assert isinstance(angle_velocity, (int, float)), type(angle_velocity)
         assert isinstance(image_info, ImageInfo), type(image_info)
 
         self.position = list(position)
@@ -246,9 +243,8 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
 
 
 class Ship(Sprite):
-    """
-    Ship class
-    """
+    """Ship class"""
+
     def __init__(self, position,  # pylint: disable=too-many-arguments
                  velocity, angle,
                  image, image_info):
@@ -265,7 +261,7 @@ class Ship(Sprite):
         """
         assert_position(position)
         assert_position(velocity)
-        assert isinstance(angle, int) or isinstance(angle, float), type(angle)
+        assert isinstance(angle, (int, float)), type(angle)
         assert isinstance(image_info, ImageInfo), type(image_info)
 
         Sprite.__init__(self, position, velocity, angle,
@@ -275,9 +271,7 @@ class Ship(Sprite):
         self.thrust = False
 
     def shot(self):  # pylint: disable=no-self-use
-        """
-        Launch a missile.
-        """
+        """Launch a missile."""
         global A_MISSILE  # pylint: disable=global-statement
 
         vector = angle_to_vector(MY_SHIP.angle)
@@ -291,9 +285,7 @@ class Ship(Sprite):
                            LOADER.get_sound('missile'))
 
     def thrust_on_off(self):
-        """
-        Switch activation of thrust.
-        """
+        """Switch activation of thrust."""
         self.thrust = not self.thrust
 
         if self.thrust:
@@ -312,8 +304,7 @@ class Ship(Sprite):
 
         :param angle_move: int or float
         """
-        assert isinstance(angle_move, int) or isinstance(angle_move, float), \
-            type(angle_move)
+        assert isinstance(angle_move, (int, float)), type(angle_move)
 
         MY_SHIP.angle_velocity = angle_move
 
@@ -414,9 +405,7 @@ def draw(canvas):
 
 
 def fps_on_off():
-    """
-    Active or inactive the calculation and drawing of FPS.
-    """
+    """Active or inactive the calculation and drawing of FPS."""
     if FPS_DRAWER.is_started():
         FPS_DRAWER.stop()
         button_fps.set_text('FPS on')
@@ -468,9 +457,7 @@ def keyup(key):
 
 
 def quit_prog():
-    """
-    Stop timer and sounds, and quit.
-    """
+    """Stop timer and sounds, and quit."""
     TIMER.stop()
     LOADER.pause_sounds()
     FRAME.stop()
@@ -479,9 +466,7 @@ def quit_prog():
 
 
 def rock_spawner():
-    """
-    Timer handler that spawns a rock.
-    """
+    """Timer handler that spawns a rock."""
     global A_ROCK  # pylint: disable=global-statement
 
     A_ROCK = Sprite((random.randrange(SCREEN_WIDTH // 16,
@@ -496,9 +481,7 @@ def rock_spawner():
 
 
 def start():
-    """
-    Start the game.
-    """
+    """Start the game."""
     global TIMER  # pylint: disable=global-statement
 
     if SIMPLEGUICS2PYGAME:

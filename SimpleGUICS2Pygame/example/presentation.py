@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-presentation.
+presentation: simple example that displays some information.
 
 Little application that draw
 a short presentation of SimpleGUICS2Pygame package.
@@ -12,17 +12,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: April 14, 2020
 """
 
 try:
-    import user305_fZiH7ljLOrt9aBi as codeskulptor_lib
+    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 except ImportError:
-    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
+    import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib  # type: ignore  # noqa
 
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
@@ -30,14 +30,14 @@ except ImportError:
 #
 # Main function
 ###############
-def main():
-    """
-    Main function.
-    """
+def main():  # pylint: disable=too-many-statements
+    """Main function."""
     if codeskulptor_lib.codeskulptor_is():
         def open_new_tab(url):
             """
-            Fake replacement of webbrowser.open_new_tab() function.
+            Print ``url``.
+
+            Fake replacement of ``webbrowser.open_new_tab()`` function.
             """
             print(url)
 
@@ -45,10 +45,10 @@ def main():
         _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa  # pylint: disable=invalid-name
         _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
     else:
-        from sys import version
-        from webbrowser import open_new_tab
+        from sys import version  # pylint: disable=import-outside-toplevel
+        from webbrowser import open_new_tab  # noqa  # pylint: disable=import-outside-toplevel
 
-        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
+        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC  # noqa  # pylint: disable=import-outside-toplevel
 
     width = 560
     height = 540
@@ -102,8 +102,8 @@ def main():
         logo_opi = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
         logo_gpl = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
     else:
-        from os.path import dirname, join
-        from sys import argv
+        from os.path import dirname, join  # noqa  # pylint: disable=import-outside-toplevel
+        from sys import argv  # pylint: disable=import-outside-toplevel
 
         logo = simplegui._load_local_image(  # noqa  # pylint: disable=protected-access,no-member
             join(dirname(argv[0]),
@@ -178,6 +178,6 @@ if __name__ == '__main__':
         print("""Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
 
-        exit(1)
+        exit(1)  # pylint: disable=consider-using-sys-exit
 
     main()

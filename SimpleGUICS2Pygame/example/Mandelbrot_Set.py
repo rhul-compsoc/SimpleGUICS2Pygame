@@ -3,7 +3,7 @@
 # pylint: disable=invalid-name
 
 """
-Mandelbrot Set.
+Mandelbrot Set simple computation.
 
 See http://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings .
 
@@ -12,23 +12,23 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: April 14, 2020
 """
 
 import math
 
 try:
-    from user305_fZiH7ljLOrt9aBi import codeskulptor_is, hex2
+    from user305_2YRLOxXzAvucSDa import codeskulptor_is, hex2  # pytype: disable=import-error  # noqa
 
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 
-    from codeskulptor import set_timeout
+    from codeskulptor import set_timeout  # pytype: disable=import-error
 
     set_timeout(10)
 except ImportError:
     from SimpleGUICS2Pygame.codeskulptor_lib import codeskulptor_is, hex2
 
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 

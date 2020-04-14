@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-script/cs2both.py
+script/cs2both.py script.
 
 Script that change a CodeSkulptor program
 to run in CodeSkulptor *and* Python SimpleGUICS2Pygame.
@@ -26,7 +26,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 23, 2020
+:version: April 14, 2020
 """
 
 from __future__ import print_function
@@ -39,9 +39,7 @@ import sys
 
 
 def main():  # pylint: disable=too-many-branches,too-many-statements
-    """
-    Main function.
-    """
+    """Main function."""
     if (len(sys.argv) != 2) or (sys.argv[1][0] == '-'):
         help_and_exit()
 
@@ -50,17 +48,17 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
     if filename[-3:] != '.py':
         print("! '{}' have not '.py' extension.".format(filename))
 
-        exit(1)
+        exit(1)  # pylint: disable=consider-using-sys-exit
 
     if not os.path.isfile(filename):
         print("! '{}' doesn't exist.".format(filename))
 
-        exit(1)
+        exit(1)  # pylint: disable=consider-using-sys-exit
 
     if os.path.isfile(filename + '.bak'):
         print("! '{}.bak' alread exist.".format(filename))
 
-        exit(1)
+        exit(1)  # pylint: disable=consider-using-sys-exit
 
     # Read
     with open(filename) as infile:
@@ -70,7 +68,7 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
     if len(lines) < 2:
         print('"Empty" file.')
 
-        exit()
+        exit()  # pylint: disable=consider-using-sys-exit
 
     add_shebang = lines[0][:2]
     add_coding = (not re.match(r'#\w*-\*- coding: \W+ -\*-$', lines[0]) and
@@ -88,7 +86,7 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
     if len(lines) < 2:
         print('"Empty" file.')
 
-        exit()
+        exit()  # pylint: disable=consider-using-sys-exit
 
     for line in lines:
         if (not already_change_import and
@@ -139,8 +137,7 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
 
     while lines:
         line = lines.pop()
-        if re.search(r'^\w*f(rame)?\.start\(\)', line):
-            # f.start() or frame.start()
+        if re.search(r'^\w*f(rame)?\.start\(\)', line):  # f.start() or frame.start()  # noqa  # pylint: disable=no-else-break
             break
         elif re.search(r'^\w*[^#]+\.start\(\)', line):   # other .start()
             print('Warning: Maybe a timer is started *after* the start frame.')
@@ -173,7 +170,7 @@ Changes made :
 - *Try* to check if a timer is started *after* the start frame.
 """, file=sys.stderr)
 
-    exit(1)
+    exit(1)  # pylint: disable=consider-using-sys-exit
 
 
 ########

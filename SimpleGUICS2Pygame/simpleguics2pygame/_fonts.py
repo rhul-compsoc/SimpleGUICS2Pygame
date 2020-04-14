@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/_fonts
+simpleguics2pygame module: simpleguics2pygame/_fonts.
 
 Fonts helpers.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 17, 2020
+:version: April 13, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = []
+__all__ = tuple()  # type: ignore
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
@@ -46,7 +46,7 @@ to corresponding font names list used by Pygame.
 #
 # Private global variables
 ##########################
-__PYGAMEFONTS_CACHED = {}
+__PYGAMEFONTS_CACHED = {}  # type: ignore
 """
 `Dict` {(`str` CodeSkulptor font face, `int` font size):
         `pygame.font.Font`}.
@@ -106,7 +106,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
                 font = pygame.font.SysFont(
                     _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME[font_face],
                     font_size)
-            except:  # pylint: disable=bare-except
+            except Exception:  # pylint: disable=broad-except
                 font = pygame.font.SysFont(None, font_size)
 
         assert font is not None

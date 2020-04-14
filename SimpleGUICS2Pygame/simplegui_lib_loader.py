@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_loader
+simplegui_lib_loader module.
 
 A class to help load images and sounds
 in SimpleGUI of CodeSkulptor.
@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 25, 2020
+:version: April 14, 2020
 """
 
 # print('IMPORT', __name__)
@@ -56,8 +56,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         :param after_function: function () -> *
         :param max_waiting: (int or float) >= 0
         """
-        assert (isinstance(progression_bar_width, int) or
-                isinstance(progression_bar_width, float)), \
+        assert isinstance(progression_bar_width, (int, float)), \
             type(progression_bar_width)
         assert progression_bar_width >= 0, progression_bar_width
 
@@ -78,7 +77,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
 
         try:
             # Try import to check if running in SimpleGUICS2Pygame environment
-            from SimpleGUICS2Pygame.simpleguics2pygame import load_image
+            from SimpleGUICS2Pygame.simpleguics2pygame import load_image  # noqa  # pylint: disable=import-outside-toplevel
 
             Loader.__SIMPLEGUICS2PYGAME = bool(load_image)
         except ImportError:
@@ -123,8 +122,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
 
     def add_image(self, url, name=None):
         """
-        Add an image from `url`
-        and give it a name.
+        Add an image from `url` and give it a name.
 
         **Execute `Loader.load()` before use images.**
 
@@ -148,8 +146,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
 
     def add_sound(self, url, name=None):
         """
-        Add a sound from `url`
-        and give it a `name`.
+        Add a sound from `url` and give it a `name`.
 
         **Execute `Loader.load()` before use sounds.**
 
@@ -173,10 +170,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
 
     def cache_clear(self):
         """
-        * In standard Python with SimpleGUICS2Pygame:\
-          Empty the cache of Pygame surfaces\
-          used by each image of this Loader.\
-          See `Image._pygamesurfaces_cached_clear`_ .
+        * In standard Python with SimpleGUICS2Pygame: Empty the cache of Pygame surfaces used by each image of this Loader. See `Image._pygamesurfaces_cached_clear`_ .
         * In SimpleGUI of CodeSkulptor: do nothing.
 
         .. _`Image._pygamesurfaces_cached_clear`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._pygamesurfaces_cached_clear
@@ -281,16 +275,13 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         **Start loading** of all images and sounds added
         since last `Loader.load()` execution.
 
-        * In standard Python with SimpleGUICS2Pygame:\
-          draw a progression bar on canvas\
-          and wait until the loading is finished.
+        * In standard Python with SimpleGUICS2Pygame: draw a progression bar on canvas and wait until the loading is finished.
         * In SimpleGUI of CodeSkulptor: *don't* wait.
-        """
+        """  # noqa
         if Loader.__SIMPLEGUICS2PYGAME:
-            from SimpleGUICS2Pygame.simpleguics2pygame import load_image, \
-                load_sound
+            from SimpleGUICS2Pygame.simpleguics2pygame import load_image, load_sound  # noqa  # pylint: disable=import-outside-toplevel
         else:
-            from simplegui import load_image, load_sound  # noqa  # pylint: disable=import-error
+            from simplegui import load_image, load_sound  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,import-error
 
         if Loader.__SIMPLEGUICS2PYGAME:
             handler_saved = self._frame._canvas._draw_handler  # noqa  # pylint: disable=protected-access
@@ -313,18 +304,14 @@ class Loader:  # pylint: disable=too-many-instance-attributes
             self._frame._canvas._draw_handler = handler_saved  # noqa  # pylint: disable=protected-access
 
     def pause_sounds(self):
-        """
-        Pause all sounds.
-        """
+        """Pause all sounds."""
         for name in self._sounds:
             if not isinstance(self._sounds[name], str):
                 self._sounds[name].pause()
 
     def print_stats_cache(self):
         """
-        * In standard Python with SimpleGUICS2Pygame:\
-          Print to stderr some statistics of cached Pygame surfaces\
-          used by each image of this Loader. See `Image._print_stats_cache`_ .
+        * In standard Python with SimpleGUICS2Pygame: Print to stderr some statistics of cached Pygame surfaces used by each image of this Loader. See `Image._print_stats_cache`_ .
         * In SimpleGUI of CodeSkulptor: do nothing.
 
         .. _`Image._print_stats_cache`: simpleguics2pygame/image.html#SimpleGUICS2Pygame.simpleguics2pygame.image.Image._print_stats_cache
@@ -376,9 +363,9 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         self.__max_waiting_remain = self._max_waiting
 
         if Loader.__SIMPLEGUICS2PYGAME:
-            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer
+            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # noqa  # pylint: disable=import-outside-toplevel
         else:
-            from simplegui import create_timer  # pylint: disable=import-error
+            from simplegui import create_timer  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,import-error
 
         self._frame.set_draw_handler(self._draw_loading)
         self.__timer = create_timer(Loader._interval, check_if_loaded)

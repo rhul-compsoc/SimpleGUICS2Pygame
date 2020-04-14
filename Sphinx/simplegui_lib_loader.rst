@@ -1,7 +1,7 @@
 simplegui_lib_loader — class to load images and sounds
 ======================================================
 (Version saved in CodeSkulptor
-https://py3.codeskulptor.org/#user305_Fem7W4gO0hSlII8.py .)
+https://py3.codeskulptor.org/#user305_5j0j5Vq5STd2mPH.py .)
 
 Examples of use in :
 

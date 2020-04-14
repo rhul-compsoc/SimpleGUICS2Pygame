@@ -1,4 +1,4 @@
-script/SimpleGUICS2Pygame_check.py (March 23, 2020)
+script/SimpleGUICS2Pygame_check.py (April 14, 2020)
 ===================================================
 PATH:
   /home/opi/.cargo/bin
@@ -36,7 +36,7 @@ sys.path:
   /usr/lib/python2.7/lib-dynload
   /home/opi/.local/lib/python2.7/site-packages
   /home/opi/.local/lib/python2.7/site-packages/audioread-2.1.8-py2.7.egg
-  /home/opi/.local/lib/python2.7/site-packages/SimpleGUICS2Pygame-02.00.00.WORKING.VERSION.March.30_.2020-py2.7.egg
+  /home/opi/.local/lib/python2.7/site-packages/pygame-1.9.6-py2.7-linux-x86_64.egg
   /usr/local/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages/PILcompat
@@ -54,7 +54,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.0.0
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00 WORKING VERSION March 30, 2020
+import SimpleGUICS2Pygame ok - Version 02.00.00a1
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

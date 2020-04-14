@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-numeric
+numeric module.
 
 Replace the numeric module of CodeSkulptor.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 28, 2020
+:version: April 14, 2020
 """
 
 from __future__ import division
@@ -38,6 +38,7 @@ class Matrix:
 
     See http://en.wikipedia.org/wiki/Matrix_%28mathematics%29 .
     """
+
     def __init__(self, data, _copy=True):
         """
         Create a matrix with the 2-dimensional `data`.
@@ -52,21 +53,17 @@ class Matrix:
         """  # noqa
         assert isinstance(_copy, bool), type(_copy)
         if _copy:
-            assert isinstance(data, tuple) or isinstance(data, list), \
-                type(data)
+            assert isinstance(data, (tuple, list)), type(data)
             assert len(data) >= 1
-            assert isinstance(data[0], tuple) or isinstance(data[0], list), \
-                type(data[0])
+            assert isinstance(data[0], (tuple, list)), type(data[0])
             if __debug__:
                 n = len(data[0])
                 assert n >= 1
                 for row in data:
-                    assert isinstance(row, tuple) or isinstance(row, list), \
-                        type(row)
+                    assert isinstance(row, (tuple, list)), type(row)
                     assert n == len(row), (n, len(row))
                     for x in row:
-                        assert isinstance(x, int) or isinstance(x, float), \
-                            type(x)
+                        assert isinstance(x, (int, float)), type(x)
         else:
             assert isinstance(data, list), type(data)
             assert len(data) >= 1
@@ -102,15 +99,14 @@ class Matrix:
 
     def __getitem__(self, i_j):
         """
-        Returns the value of the (m x n) matrix
+        Return the value of the (m x n) matrix
         at row i and column j.
 
         :param i_j: (0 <= int < m, 0 <= int < n) or [0 <= int < m, 0 <= int < n]
 
         :return: float
         """  # noqa
-        assert isinstance(i_j, tuple) or isinstance(i_j, list), \
-            type(i_j)
+        assert isinstance(i_j, (tuple, list)), type(i_j)
         assert len(i_j) == 2, len(i_j)
         assert isinstance(i_j[0], int), type(i_j[0])
         assert 0 <= i_j[0] < self._nb_lines(), (i_j[0], self._nb_lines())
@@ -144,20 +140,19 @@ class Matrix:
         :param i_j: (0 <= int < m, 0 <= int < n) or [0 <= int < m, 0 <= int < n]
         :param value: int or float
         """  # noqa
-        assert isinstance(i_j, tuple) or isinstance(i_j, list), \
-            type(i_j)
+        assert isinstance(i_j, (tuple, list)), type(i_j)
         assert len(i_j) == 2, len(i_j)
         assert isinstance(i_j[0], int), type(i_j[0])
         assert 0 <= i_j[0] < self._nb_lines(), (i_j[0], self._nb_lines())
         assert isinstance(i_j[1], int), type(i_j[1])
         assert 0 <= i_j[1] < self._nb_columns(), (i_j[1], self._nb_columns())
-        assert isinstance(value, int) or isinstance(value, float), type(value)
+        assert isinstance(value, (int, float)), type(value)
 
         self._data[i_j[0]][i_j[1]] = float(value)
 
     def __str__(self):
         """
-        Returns the string representation of the matrix.
+        Return the string representation of the matrix.
 
         :return: string
         """
@@ -271,7 +266,7 @@ class Matrix:
 
     def getcol(self, j):
         """
-        Returns the (1 x m) matrix
+        Return the (1 x m) matrix
         that is a copy of column j of the (m x n) matrix.
 
         :param j: 0 <= int < n
@@ -285,7 +280,7 @@ class Matrix:
 
     def getrow(self, i):
         """
-        Returns the (1 x n) matrix
+        Return the (1 x n) matrix
         that is a copy of row i of the (m x n) matrix.
 
         :param i: 0 <= int < m
@@ -362,8 +357,7 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert isinstance(factor, int) or isinstance(factor, float), \
-            type(factor)
+        assert isinstance(factor, (int, float)), type(factor)
 
         return Matrix([[self[i, j] * factor
                         for j in range(self._nb_columns())]

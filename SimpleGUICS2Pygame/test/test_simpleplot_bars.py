@@ -9,16 +9,16 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 14, 2020
 """
 
 try:
-    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # pylint: disable=unused-import
-    import simpleplot
+    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # type: ignore  # pylint: disable=unused-import
+    import simpleplot  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
-    import SimpleGUICS2Pygame.simpleplot as simpleplot
+    import SimpleGUICS2Pygame.simpleplot as simpleplot  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -34,7 +34,7 @@ def main():
     filename = None
 
     if SIMPLEGUICS2PYGAME:
-        from sys import argv
+        from sys import argv  # pylint: disable=import-outside-toplevel
 
         if len(argv) == 2:
             filename = argv[1]
@@ -51,6 +51,7 @@ def main():
 
     if SIMPLEGUICS2PYGAME and (len(argv) != 2):
         simpleplot._block()  # pylint: disable=protected-access
+
 
 if __name__ == '__main__':
     main()

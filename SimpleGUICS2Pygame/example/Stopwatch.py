@@ -13,13 +13,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 13, 2020
 """
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
@@ -58,9 +58,7 @@ def format_time(decisecond):
 
 # Event handlers for buttons
 def quit_prog():
-    """
-    Stop timer and quit.
-    """
+    """Stop timer and quit."""
     TIMER.stop()
     FRAME.stop()
 
@@ -83,9 +81,7 @@ def reset():
 
 
 def start():
-    """
-    Start timer
-    """
+    """Start timer"""
     TIMER.start()
 
 
@@ -109,9 +105,7 @@ def stop():
 
 # Event handler for timer
 def tick():
-    """
-    Increment TIME
-    """
+    """Increment TIME"""
     global TIME  # pylint: disable=global-statement
 
     TIME += 1

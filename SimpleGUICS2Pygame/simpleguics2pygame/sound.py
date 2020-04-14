@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleguics2pygame/sound
+simpleguics2pygame module: simpleguics2pygame/sound.
 
 Class Sound.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 27, 2020
+:version: April 13, 2020
 """
 
 from __future__ import print_function
@@ -18,9 +18,9 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = ['_LocalSound', 'Sound',
+__all__ = ('_LocalSound', 'Sound',
            'create_sound', 'load_sound',
-           '_load_local_sound']
+           '_load_local_sound')
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
@@ -64,9 +64,7 @@ def _load_local_sound(filename):
 # Class
 #######
 class Sound:
-    """
-    Sound similar to SimpleGUI `Sound` of CodeSkulptor.
-    """
+    """Sound similar to SimpleGUI `Sound` of CodeSkulptor."""
 
     _dir_search_first = '_snd/'
     """
@@ -161,8 +159,7 @@ class Sound:
 
         :param volume: 0 <= int or float <= 1
         """
-        assert isinstance(volume, int) or isinstance(volume, float), \
-            type(volume)
+        assert isinstance(volume, (int, float)), type(volume)
         assert 0 <= volume <= 1, volume
 
         if self._pygame_sound is not None:
@@ -218,8 +215,7 @@ def create_sound(sound_data, sample_rate=8000, num_channels=1):
 
     :return: Sound
     """
-    assert isinstance(sound_data, tuple) or isinstance(sound_data, list), \
-        type(sound_data)
+    assert isinstance(sound_data, (tuple, list)), type(sound_data)
     if __debug__:
         for data in sound_data:
             assert isinstance(data, int), type(data)

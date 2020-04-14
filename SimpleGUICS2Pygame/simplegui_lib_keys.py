@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simplegui_lib_keys
+simplegui_lib_keys module.
 
 A class to help manage keyboard handling
 in SimpleGUI of CodeSkulptor.
@@ -11,16 +11,16 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 25, 2020
+:version: April 14, 2020
 """
 
 # print('IMPORT', __name__)
 
 
 try:
-    import simplegui
+    import simplegui  # type: ignore
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
 
 # Class
@@ -65,20 +65,16 @@ class Keys:
             self._keydown_fct = {}
             self._keyup_fct = {}
         else:
-            self._keydown_fct = dict(self._keydown_fct)
-            self._keyup_fct = dict(self._keyup_fct)
+            self._keydown_fct = dict(keys._keydown_fct)
+            self._keyup_fct = dict(keys._keyup_fct)
 
     def active_handlers(self):
-        """
-        Active key down and key up handlers.
-        """
+        """Active key down and key up handlers."""
         self.active_keydown_handler()
         self.active_keyup_handler()
 
     def active_keydown_handler(self):
-        """
-        Active the key down handler.
-        """
+        """Active the key down handler."""
         def keydown(key_code):
             """Function handler dealt by frame."""
             self._pressed_keys[key_code] = True
@@ -90,9 +86,7 @@ class Keys:
         self._frame.set_keydown_handler(keydown)
 
     def active_keyup_handler(self):
-        """
-        Active the key up handler.
-        """
+        """Active the key up handler."""
         def keyup(key_code):
             """Function handler dealt by frame."""
             if key_code in self._pressed_keys:

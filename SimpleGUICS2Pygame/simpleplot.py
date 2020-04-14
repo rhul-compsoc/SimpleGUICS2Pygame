@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-simpleplot
+simpleplot module.
 
 Replace the simpleplot module of CodeSkulptor.
 
@@ -27,8 +27,8 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 23, 2020
-"""  # noqa
+:version: April 14, 2020
+"""
 
 from __future__ import print_function
 
@@ -142,27 +142,25 @@ def plot_bars(framename, width, height,  # noqa  # pylint: disable=too-many-argu
     assert isinstance(xlabel, str), type(xlabel)
     assert isinstance(ylabel, str), type(ylabel)
 
-    assert isinstance(datasets, list) or isinstance(datasets, tuple), \
-        type(datasets)
+    assert isinstance(datasets, (list, tuple)), type(datasets)
     if __debug__:
         for dataset in datasets:
-            assert isinstance(dataset, list) or isinstance(dataset, tuple) \
-                or isinstance(dataset, dict), type(datasets)
+            assert isinstance(dataset, (list, tuple, dict)), type(datasets)
             assert dataset
             for x, y in (dataset.items() if isinstance(dataset, dict)
                          else dataset):
-                assert isinstance(x, int) or isinstance(x, float), (type(x), x)
-                assert isinstance(y, int) or isinstance(y, float), (type(y), y)
+                assert isinstance(x, (int, float)), (type(x), x)
+                assert isinstance(y, (int, float)), (type(y), y)
 
-    assert ((legends is None) or isinstance(legends, list) or
-            isinstance(legends, tuple)), type(legends)
+    assert ((legends is None) or
+            isinstance(legends, (list, tuple))), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
 
     assert isinstance(_block, bool), type(_block)
     assert (_filename is None) or isinstance(_filename, str), type(_filename)
 
     if not _MATPLOTLIB_AVAILABLE:
-        from sys import stderr
+        from sys import stderr  # pylint: disable=import-outside-toplevel
 
         print("""Fake 'plot_bars' function
 because matplotlib is not available!
@@ -178,14 +176,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import abspath, expanduser, sep
+    from os.path import abspath, expanduser, sep  # noqa  # pylint: disable=import-outside-toplevel
 
     icon_path = __file__.split(sep)[:-1]
     try:
         icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
         matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
             sep.join(icon_path))
-    except:  # pylint: disable=bare-except
+    except Exception:  # pylint: disable=broad-except
         pass
 
     matplotlib.pyplot.xlabel(xlabel)
@@ -282,29 +280,27 @@ def plot_lines(framename, width, height,  # noqa  # pylint: disable=too-many-arg
     assert isinstance(xlabel, str), type(xlabel)
     assert isinstance(ylabel, str), type(ylabel)
 
-    assert isinstance(datasets, list) or isinstance(datasets, tuple), \
-        type(datasets)
+    assert isinstance(datasets, (list, tuple)), type(datasets)
     if __debug__:
         for dataset in datasets:
-            assert isinstance(dataset, list) or isinstance(dataset, tuple) \
-                or isinstance(dataset, dict), type(datasets)
+            assert isinstance(dataset, (list, tuple, dict)), type(datasets)
             assert dataset
             for x, y in (dataset.items() if isinstance(dataset, dict)
                          else dataset):
-                assert isinstance(x, int) or isinstance(x, float), (type(x), x)
-                assert isinstance(y, int) or isinstance(y, float), (type(y), y)
+                assert isinstance(x, (int, float)), (type(x), x)
+                assert isinstance(y, (int, float)), (type(y), y)
 
     assert isinstance(points, bool), type(points)
 
-    assert ((legends is None) or isinstance(legends, list) or
-            isinstance(legends, tuple)), type(legends)
+    assert ((legends is None)
+            or isinstance(legends, (list, tuple))), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
 
     assert isinstance(_block, bool), type(_block)
     assert (_filename is None) or isinstance(_filename, str), type(_filename)
 
     if not _MATPLOTLIB_AVAILABLE:
-        from sys import stderr
+        from sys import stderr  # pylint: disable=import-outside-toplevel
 
         print("""Fake 'plot_lines' function
 because matplotlib is not available!
@@ -320,14 +316,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import abspath, expanduser, sep
+    from os.path import abspath, expanduser, sep  # noqa  # pylint: disable=import-outside-toplevel
 
     icon_path = __file__.split(sep)[:-1]
     try:
         icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
         matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
             sep.join(icon_path))
-    except:  # pylint: disable=bare-except
+    except Exception:  # pylint: disable=broad-except
         pass
 
     matplotlib.pyplot.xlabel(xlabel)
@@ -413,27 +409,25 @@ def plot_scatter(framename, width, height,  # noqa  # pylint: disable=too-many-a
     assert isinstance(xlabel, str), type(xlabel)
     assert isinstance(ylabel, str), type(ylabel)
 
-    assert isinstance(datasets, list) or isinstance(datasets, tuple), \
-        type(datasets)
+    assert isinstance(datasets, (list, tuple)), type(datasets)
     if __debug__:
         for dataset in datasets:
-            assert isinstance(dataset, list) or isinstance(dataset, tuple) \
-                or isinstance(dataset, dict), type(datasets)
+            assert isinstance(dataset, (list, tuple, dict)), type(datasets)
             assert dataset
             for x, y in (dataset.items() if isinstance(dataset, dict)
                          else dataset):
-                assert isinstance(x, int) or isinstance(x, float), (type(x), x)
-                assert isinstance(y, int) or isinstance(y, float), (type(y), y)
+                assert isinstance(x, (int, float)), (type(x), x)
+                assert isinstance(y, (int, float)), (type(y), y)
 
-    assert ((legends is None) or isinstance(legends, list) or
-            isinstance(legends, tuple)), type(legends)
+    assert ((legends is None) or
+            isinstance(legends, (list, tuple))), type(legends)
     assert (legends is None) or (len(legends) == len(datasets)), legends
 
     assert isinstance(_block, bool), type(_block)
     assert (_filename is None) or isinstance(_filename, str), type(_filename)
 
     if not _MATPLOTLIB_AVAILABLE:
-        from sys import stderr
+        from sys import stderr  # pylint: disable=import-outside-toplevel
 
         print("""Fake 'plot_scatter' function
 because matplotlib is not available!
@@ -449,14 +443,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import abspath, expanduser, sep
+    from os.path import abspath, expanduser, sep  # noqa  # pylint: disable=import-outside-toplevel
 
     icon_path = __file__.split(sep)[:-1]
     try:
         icon_path.extend(('_img', 'SimpleGUICS2Pygame_32x32.ico'))
         matplotlib.pyplot.get_current_fig_manager().window.wm_iconbitmap(
             sep.join(icon_path))
-    except:  # pylint: disable=bare-except
+    except Exception:  # pylint: disable=broad-except
         pass
 
     matplotlib.pyplot.xlabel(xlabel)

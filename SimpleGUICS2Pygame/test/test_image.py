@@ -9,23 +9,23 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 30, 2020
+:version: April 14, 2020
 """
 
 import math
 
 try:
-    from user305_ALZ2cYv1hjEYUuU import FPS
-    from user305_Fem7W4gO0hSlII8 import Loader
+    from user305_sqdXmWMw7Jq9Sdc import FPS  # type: ignore
+    from user305_5j0j5Vq5STd2mPH import Loader  # type: ignore
 
-    import simplegui
+    import simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
     from SimpleGUICS2Pygame.simplegui_lib_fps import FPS
     from SimpleGUICS2Pygame.simplegui_lib_loader import Loader
 
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     SIMPLEGUICS2PYGAME = True
 
@@ -129,9 +129,7 @@ def draw(canvas):
 
 
 def fps_on_off():
-    """
-    Active or inactive the calculation and drawing of FPS.
-    """
+    """Active or inactive the calculation and drawing of FPS."""
     if FPS_DRAWER.is_started():
         FPS_DRAWER.stop()
         BUTTON_FPS.set_text('FPS on')
@@ -141,9 +139,7 @@ def fps_on_off():
 
 
 def init():
-    """
-    Init after image loaded.
-    """
+    """Init after image loaded."""
     if not SIMPLEGUICS2PYGAME:
         global LOGO  # pylint: disable=global-statement
 
@@ -185,7 +181,7 @@ LOADER.wait_loaded()
 if SIMPLEGUICS2PYGAME:
     from os.path import dirname, join
 
-    LOGO = simplegui._load_local_image(  # noqa  # pylint: disable=protected-access,no-member
+    LOGO = simplegui._load_local_image(  # noqa  # type: ignore  # pylint: disable=protected-access,no-member
         join(dirname(argv[0]), '../_img/SimpleGUICS2Pygame_64x64_t.png'))
 
 FRAME.start()

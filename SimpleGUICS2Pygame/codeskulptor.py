@@ -1,7 +1,7 @@
 # -*- coding: latin-1 -*-
 
 """
-codeskulptor
+codeskulptor module.
 
 Replace the codeskulptor module of CodeSkulptor.
 
@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 26, 2020
+:version: April 14, 2020
 """
 
 from __future__ import print_function
@@ -43,7 +43,7 @@ def file2url(filename):
 
     :return: str
     """  # noqa
-    from re import search
+    from re import search  # pylint: disable=import-outside-toplevel
 
     match = search('^([a-zA-Z][a-zA-Z0-9]*)[_-]', filename)
 
@@ -70,12 +70,11 @@ def randomize_iteration(randomize=True):  # pylint: disable=unused-argument
 
     :randomize bool:
     """  # noqa
-    pass
 
 
 def set_timeout(seconds):
     """
-    Does nothing.
+    Do nothing.
 
     In CodeSkulptor, this function change the timeout imposed on all programs
     (by default 5 seconds).

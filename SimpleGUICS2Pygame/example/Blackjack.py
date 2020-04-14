@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Blackjack.
+Blackjack game.
 
 My retouched solution of the mini-project #6 of the MOOC
 https://www.coursera.org/learn/interactive-python-2 (Coursera 2013).
@@ -12,15 +12,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: March 14, 2020
+:version: April 13, 2020
 """
 
 import random
 
 try:
-    import simplegui
+    import simplegui  # pytype: disable=import-error
 except ImportError:
-    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
@@ -83,13 +83,13 @@ def assert_pos(pos):
     Assertions to check valid position:
     (int or float, int or float) or [int or float, int or float]
     """
-    assert isinstance(pos, tuple) or isinstance(pos, list), type(pos)
+    assert isinstance(pos, (tuple, list)), type(pos)
     assert len(pos) > 0, len(pos)
 
-    assert isinstance(pos[0], int) or isinstance(pos[0], float), type(pos[0])
+    assert isinstance(pos[0], (int, float)), type(pos[0])
     assert pos[0] >= 0, pos
 
-    assert isinstance(pos[1], int) or isinstance(pos[1], float), type(pos[1])
+    assert isinstance(pos[1], (int, float)), type(pos[1])
     assert pos[1] >= 0, pos
 
 
@@ -107,8 +107,7 @@ def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
     """
     assert_pos(pos)
     assert_pos(size)
-    assert isinstance(line_width, int) or isinstance(line_width, float), \
-        type(line_width)
+    assert isinstance(line_width, (int, float)), type(line_width)
     assert line_width >= 0, line_width
     assert isinstance(line_color, str), type(str)
     assert (fill_color is None) or isinstance(fill_color, str), type(str)
@@ -129,9 +128,8 @@ def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
 # Classes
 #########
 class Card:
-    """
-    Card.
-    """
+    """Card."""
+
     _VALUES = {'A': 1,
                '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
                'T': 10,
@@ -240,9 +238,8 @@ class Card:
 
 
 class Deck:
-    """
-    Deck.
-    """
+    """Deck."""
+
     _SUITS = ('C',  # Clubs (trèfle en français)
               'S',  # Spades (pique)
               'H',  # Heart (coeur)
@@ -256,9 +253,7 @@ class Deck:
               'K')  # King (roi)
 
     def __init__(self):
-        """
-        Set a deck, list of 52 classic cards.
-        """
+        """Set a deck, list of 52 classic cards."""
         self._cards = []
 
         for suit in Deck._SUITS:
@@ -284,16 +279,13 @@ class Deck:
         return self._cards.pop()
 
     def shuffle(self):
-        """
-        Shuffle the deck.
-        """
+        """Shuffle the deck."""
         random.shuffle(self._cards)
 
 
 class Hand:
-    """
-    Hand (of dealer or player).
-    """
+    """Hand (of dealer or player)."""
+
     def __init__(self, is_dealer=False):
         """
         Set an empty hand.
@@ -364,9 +356,7 @@ class Hand:
 # Event handlers
 ################
 def deal():
-    """
-    Start a new round.
-    """
+    """Start a new round."""
     global DECK  # pylint: disable=global-statement
     global HAND_DEALER  # pylint: disable=global-statement
     global HAND_PLAYER  # pylint: disable=global-statement
