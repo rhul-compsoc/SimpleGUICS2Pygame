@@ -79,7 +79,7 @@ Installation
 ============
 .. code-block:: sh
 
-   $ python -m pip install SimpleGUICS2Pygame --user
+   $ python -m pip install SimpleGUICS2Pygame==2.0.0a1 --user
 
 Note that ``$`` represents the prompt and do *not* be entered by you.
 
