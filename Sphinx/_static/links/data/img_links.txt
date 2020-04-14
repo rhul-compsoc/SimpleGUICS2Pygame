@@ -171,7 +171,7 @@ example
 
 
 
-+ <a rel="nofollow" href="https://py3.codeskulptor.org/#user305_i0DZellodyQjHiq.py" target="_blank">Memory Cards</a>
++ <a rel="nofollow" href="http://www.codeskulptor.org/#user305_0fEcjtnm7SwNlgf.py" target="_blank">Memory Cards</a> in CodeSkulptor 2
 
 http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/CodeSkulptor.jpg
 CodeSkulptor

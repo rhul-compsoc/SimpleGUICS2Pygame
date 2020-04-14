@@ -28,119 +28,124 @@ A class to help load images and sounds in SimpleGUI of CodeSkulptor: <a rel="nof
 
 + SimpleGUICS2Pygame <strong>test</strong>
 
-https://py3.codeskulptor.org/#user305_Z1nzb8jivxxdRN2.py
+https://py3.codeskulptor.org/#user305_O3nbw8NmvXY6jmn.py
 test_arc.py
 
-https://py3.codeskulptor.org/#user305_c6UuMIEsPqzYxpM.py
+https://py3.codeskulptor.org/#user305_OGZYXYCarlKKe6m.py
 test_button_label.py
 
-https://py3.codeskulptor.org/#user305_xycPwSkOsKHvNsJ.py
+https://py3.codeskulptor.org/#user305_1DNVXKT4itzBmla.py
 test_circle.py
 
-https://py3.codeskulptor.org/#user305_iR4a0YgMeslcjYk.py
+https://py3.codeskulptor.org/#user305_lXNrBGd8VKE7qHT.py
 test_colors_constants.py
 
-https://py3.codeskulptor.org/#user305_TLum29qtorM2WAT.py
+https://py3.codeskulptor.org/#user305_5jWSvWohpSjl6pP.py
 test_colors_html.py
 
-https://py3.codeskulptor.org/#user305_ZEI2WRsEOFAv1PY.py
+https://py3.codeskulptor.org/#user305_Ry3OUZZhxGiowZI.py
 test_colors_html_hsla.py
 
-https://py3.codeskulptor.org/#user305_xDIfRrEcVWc5WU1.py
+https://py3.codeskulptor.org/#user305_WEvU1mJq5FOqrfz.py
 test_colors_html_rgba.py
 
-https://py3.codeskulptor.org/#user305_wp7bauxDBU8id9l.py
+http://www.codeskulptor.org/#user305_WWee4A7kPEy1s27.py
 test_dir.py
+in CodeSkulptor 2
 
-https://py3.codeskulptor.org/#user305_Ebb7gYjWxI34Ucx.py
+https://py3.codeskulptor.org/#user305_WWee4A7kPEy1s27.py
+test_dir.py
+in CodeSkulptor3
+
+https://py3.codeskulptor.org/#user305_vTJkhK2i3e1IZch.py
 test_grid.py
 
-https://py3.codeskulptor.org/#user305_kHtuZnTyMwVe0ya.py
+https://py3.codeskulptor.org/#user305_deahLP3DxlLN0Qg.py
 test_image.py
 
-https://py3.codeskulptor.org/#user305_oB9RYkxnm5lhdIC.py
+https://py3.codeskulptor.org/#user305_NaVksVBjFPrv2Ex.py
 test_input.py
 
-https://py3.codeskulptor.org/#user305_8UPEjZvI2eJytvU.py
+https://py3.codeskulptor.org/#user305_dAx1yw5uMAfT383.py
 test_line.py
 
-https://py3.codeskulptor.org/#user305_wLHyWA3Casaiu10.py
+https://py3.codeskulptor.org/#user305_zJHLtA8CMp3iS89.py
 test_numeric.py
 
-https://py3.codeskulptor.org/#user305_JMGEUP45rLKZuQh.py
+https://py3.codeskulptor.org/#user305_Ioo0PRKmDd2MSFN.py
 test_objects.py
 
-https://py3.codeskulptor.org/#user305_jDGylOXEjpfT7Db.py
+https://py3.codeskulptor.org/#user305_vrQPs2FsQrHgnHx.py
 test_simpleplot_bars.py
 
-https://py3.codeskulptor.org/#user305_qiePMAAisjnPD4E.py
+https://py3.codeskulptor.org/#user305_akbKUyhLFex92tO.py
 test_simpleplot_lines.py
 
-https://py3.codeskulptor.org/#user305_FHVOnAWh73hZJZh.py
+https://py3.codeskulptor.org/#user305_PnstTiTeTN4ye47.py
 test_simpleplot_scatter.py
 
-https://py3.codeskulptor.org/#user305_zr18YVKBPKSORST.py
+https://py3.codeskulptor.org/#user305_o5LYwvfXL58KZi4.py
 test_sound.py
 
-https://py3.codeskulptor.org/#user305_xv3JaQ7s8Gpyvim.py
+https://py3.codeskulptor.org/#user305_6zZfCdVoz9cCWrD.py
 test_text.py
 
 
 
 + SimpleGUICS2Pygame <strong>examples</strong>
 
-https://py3.codeskulptor.org/#user305_IKQhOWHEDYyMZeZ.py
+https://py3.codeskulptor.org/#user305_k1DtccNMqwmJL9z.py
 Blackjack.py
 
-https://py3.codeskulptor.org/#user305_RHJGhkP56dwFPij.py
+https://py3.codeskulptor.org/#user305_u6bTdsZGXQ9QjVr.py
 Frame_example.py
 Very simple canvas example.
 
-https://py3.codeskulptor.org/#user305_GiE5KrmXkoWFiMW.py
+https://py3.codeskulptor.org/#user305_Gy8HYALW7Wq2f9w.py
 keys.py
 Example of simplegui_lib_keys. Keys use: <a rel="nofollow" href="../../simplegui_lib_keys.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_RmGavl1UzqeSvoN.py
+https://py3.codeskulptor.org/#user305_lLNKckcmXTfzPj6.py
 loader.py
 Example of simplegui_lib_loader. Loader use: <a rel="nofollow" href="../../simplegui_lib_loader.html" target="_blank">Documentation</a>.
 
-https://py3.codeskulptor.org/#user305_7kUorLJigHxayMt.py
+https://py3.codeskulptor.org/#user305_36ZXwPAltAvKh0l.py
 <strong>Mandelbrot_Set</strong>.py
 
-http://www.codeskulptor.org/#user305_i0DZellodyQjHiq.py
+http://www.codeskulptor.org/#user305_0fEcjtnm7SwNlgf.py
 <strong>Memory</strong>.py
 in CodeSkulptor 2
 
-https://py3.codeskulptor.org/#user305_i0DZellodyQjHiq.py
+https://py3.codeskulptor.org/#user305_0fEcjtnm7SwNlgf.py
 Memory.py
 in CodeSkulptor3 (images don't load, I don't know why)
 
-https://py3.codeskulptor.org/#user305_0I1CmBhSKltjO7d.py
+https://py3.codeskulptor.org/#user305_rUO50Nkv0zyR7k3.py
 <strong>Nostalgic_Basic_Blitz</strong>.py
 
-https://py3.codeskulptor.org/#user305_CDUWdlV2zai6jT5.py
+https://py3.codeskulptor.org/#user305_3fS6FHzYdk9FENM.py
 <strong>Pong</strong>.py
 
-https://py3.codeskulptor.org/#user305_3TWdpOLtVbUdEb7.py
+https://py3.codeskulptor.org/#user305_jwi9C0c09PpFXYN.py
 presentation.py
 Little draw images and texts.
 
-https://py3.codeskulptor.org/#user305_3nh7DSjgKN08VcY.py
+https://py3.codeskulptor.org/#user305_IL8qdiqwWMvy8n0.py
 <strong>RiceRocks_Asteroids</strong>.py
 
-https://py3.codeskulptor.org/#user305_H2qHBIzuf73UHHv.py
+https://py3.codeskulptor.org/#user305_p2J0fUOySQe7iva.py
 Spaceship_prototype.py
 
-https://py3.codeskulptor.org/#user305_ZNCxJrsdFm5N2WV.py
+https://py3.codeskulptor.org/#user305_LOEs6EemdjHvnNY.py
 stop_example.py
 
-https://py3.codeskulptor.org/#user305_nBb7pWpi9UYIhbM.py
+https://py3.codeskulptor.org/#user305_Ka5kvssiUWkDnSA.py
 Stopwatch.py
 
-https://py3.codeskulptor.org/#user305_d6zMUA5G98cQKlU.py
+https://py3.codeskulptor.org/#user305_yxXPUDc3ijkiPtT.py
 <strong>Stress_Balls</strong>.py
 
-https://py3.codeskulptor.org/#user305_ITr3KTWnNLTJDYS.py
+https://py3.codeskulptor.org/#user305_GSp3nEBvaGj6XYC.py
 Stress_Balls_results.py
 
 

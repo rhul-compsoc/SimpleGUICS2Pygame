@@ -5,6 +5,9 @@
 """
 Display results of Stress_Balls.py on my different environments.
 
+See
+https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/example/Stress_Balls/Stress_Balls.py
+
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 

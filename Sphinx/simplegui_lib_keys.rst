@@ -6,7 +6,7 @@ https://py3.codeskulptor.org/#user305_3Ofv0u7rEhsrJ6G.py .)
 Examples of use in :
 
 * `example/keys.py`:
-  https://py3.codeskulptor.org/#user305_GiE5KrmXkoWFiMW.py
+  https://py3.codeskulptor.org/#user305_Gy8HYALW7Wq2f9w.py
 
 .. automodule:: SimpleGUICS2Pygame.simplegui_lib_keys
     :special-members:

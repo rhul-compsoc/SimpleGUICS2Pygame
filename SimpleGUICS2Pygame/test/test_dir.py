@@ -188,7 +188,7 @@ def print_cmp_seq(a, title_a,
 
 
 # Main
-print('List dir() differences between CodeSkulptor (March 2020) and this "Python":\n')  # noqa
+print('List dir() differences between CodeSkulptor (April 2020) and this "Python":\n')  # noqa
 
 for k in sorted(CODESKULPTOR_DIRS):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,
