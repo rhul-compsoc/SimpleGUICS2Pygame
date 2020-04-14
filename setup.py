@@ -82,7 +82,6 @@ setuptools.setup(
         'Topic :: Multimedia :: Graphics',
         'Topic :: Multimedia :: Sound/Audio',
         'Topic :: Software Development',
-        'Topic :: Software Development :: Libraries :: matplotlib',
         'Topic :: Software Development :: Libraries :: pygame',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Software Development :: User Interfaces',
