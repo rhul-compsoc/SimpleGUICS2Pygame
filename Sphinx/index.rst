@@ -145,7 +145,14 @@ Package audioread_ required
 audioread is required to play MP3 sounds
 (other sounds are played by Pygame).
 
+If audioread is correctly installed on your system
+but playing MP3 fails,
+it is probably because some external dependency is missing.
+Try to install FFmpeg_ (executable ``ffmpeg`` must be accessible in your path)
+or other library used by audioread_.
+
 .. _audioread: https://github.com/beetbox/audioread
+.. _FFmpeg: https://ffmpeg.org/
 
 
 Package matplotlib_ required

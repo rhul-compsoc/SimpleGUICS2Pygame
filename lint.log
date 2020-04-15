@@ -1,4 +1,4 @@
-Lint SimpleGUICS2Pygame 02.00.00a1
+Lint SimpleGUICS2Pygame 02.00.00a2
 
 ===== pycodestyle (pep8) 2.5.0 =====
 
@@ -9,7 +9,7 @@ Lint SimpleGUICS2Pygame 02.00.00a1
 
 Report
 ======
-6184 statements analysed.
+6188 statements analysed.
 
 Statistics by type
 ------------------
@@ -34,13 +34,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8035   |48.35 |NC       |NC         |
+|code      |8039   |48.35 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |4833   |29.08 |NC       |NC         |
+|docstring |4832   |29.06 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|comment   |776    |4.67  |NC       |NC         |
+|comment   |780    |4.69  |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|empty     |2976   |17.91 |NC       |NC         |
+|empty     |2976   |17.90 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 
 

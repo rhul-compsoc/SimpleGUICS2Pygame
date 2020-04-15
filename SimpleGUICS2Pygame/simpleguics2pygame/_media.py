@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: April 16, 2020
 """
 
 from __future__ import print_function
@@ -375,6 +375,11 @@ def __mixer_init():
     if not _MIXER_INITIALIZED:
         _MIXER_INITIALIZED = True
         pygame.mixer.init(_MIXER_FREQUENCY)
+        if pygame.display.get_surface() is None:
+            # Workaround: Open a fake "empty" display
+            # because on Window$ (and maybe other systems)
+            # sound doesn't play if there is no display!
+            pygame.display.set_mode((1, 1), flags=pygame.NOFRAME)  # noqa  # pylint: disable=no-member
 
 
 def __normalized_filename(url, local_dir):

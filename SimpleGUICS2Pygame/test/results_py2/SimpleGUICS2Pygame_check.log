@@ -35,8 +35,6 @@ sys.path:
   /usr/lib/python2.7/lib-old
   /usr/lib/python2.7/lib-dynload
   /home/opi/.local/lib/python2.7/site-packages
-  /home/opi/.local/lib/python2.7/site-packages/audioread-2.1.8-py2.7.egg
-  /home/opi/.local/lib/python2.7/site-packages/pygame-1.9.6-py2.7-linux-x86_64.egg
   /usr/local/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages
   /usr/lib/python2.7/dist-packages/PILcompat
@@ -54,7 +52,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.0.0
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00a1
+import SimpleGUICS2Pygame ok - Version 02.00.00a2
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

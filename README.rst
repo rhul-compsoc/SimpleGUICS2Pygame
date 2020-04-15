@@ -77,6 +77,10 @@ I will try to help you with pleasure.
 
 Installation
 ============
+Installation requires that Python tools are up to date.
+If not, then see the `Online HTML documentation`_.
+Else, simply do:
+
 .. code-block:: sh
 
    $ python -m pip install SimpleGUICS2Pygame==2.0.0a1 --user
@@ -257,7 +261,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 alpha — April 14, 2020
+* 02.00.00 alpha — April 16, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)

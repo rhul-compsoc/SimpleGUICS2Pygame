@@ -84,8 +84,13 @@ test_simpleplot_lines.py
 https://py3.codeskulptor.org/#user305_PnstTiTeTN4ye47.py
 test_simpleplot_scatter.py
 
-https://py3.codeskulptor.org/#user305_o5LYwvfXL58KZi4.py
+http://www.codeskulptor.org/#user305_nYfcy6EuZGFViYn.py
 test_sound.py
+in CodeSkulptor 2
+
+https://py3.codeskulptor.org/#user305_nYfcy6EuZGFViYn.py
+test_sound.py
+in CodeSkulptor3
 
 https://py3.codeskulptor.org/#user305_6zZfCdVoz9cCWrD.py
 test_text.py

@@ -36,6 +36,12 @@ Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 
 .. _Tips: Tips.html
 
+Problems with SimpleGUICS2Pygame
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If MP3 sound failed on your system read `installation of audioread`_.
+
+.. _`installation of audioread`: index.html#package-audioread-required
+
 
 Compatibility between Python 2 and Python 3
 -------------------------------------------
@@ -108,3 +114,14 @@ There are moreover some other differences.
   the ``Matric.scale()`` method doesn't exist,
   the operator ``*`` multiply a matrix by a scalar
   and the operator ``@`` multiply two matrices.
+
+Problem with CodeSkulptor
+~~~~~~~~~~~~~~~~~~~~~~~~~
+If you have no sound with CodeSkulptor on Chrome/Chromium and GNU/Linux,
+maybe you can fix that problem with ``pavucontrol``.
+For example on Debian, install it and set the volume for the application:
+
+.. code-block:: sh
+
+   $ sudo apt install pavucontrol
+   $ pavucontrol

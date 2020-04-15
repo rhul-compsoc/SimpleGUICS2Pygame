@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: April 16, 2020
 """
 
 try:
@@ -65,6 +65,9 @@ def play():
               (name, length_str, ('web' if web
                                   else 'local')))
         sound.play()
+        if SIMPLEGUICS2PYGAME and (sound._get_length() == 0):  # noqa  # pylint: disable=protected-access
+            # Don't wait for next sound
+            play()
     else:
         print('End of test_sound')
         TIMER.stop()
