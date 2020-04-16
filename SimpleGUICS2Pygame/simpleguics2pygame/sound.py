@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: April 16, 2020
 """
 
 from __future__ import print_function
@@ -247,6 +247,10 @@ def load_sound(url):
     ``_snd/commondatastorage.googleapis.com/codeskulptor_assets/jump.ogg``.
 
     Supported formats: OGG, WAV and MP3.
+
+    If MP3 sound failed on your system read `installation of audioread`_.
+
+    .. _`installation of audioread`: ../index.html#package-audioread-required
 
     (Supported formats by CodeSkulptor are browser dependant.)
 

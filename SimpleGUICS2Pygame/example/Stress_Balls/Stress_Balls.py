@@ -15,7 +15,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: April 16, 2020
 """
 
 import sys
@@ -38,8 +38,10 @@ except ImportError:
 # ### Config >>>
 MAX_NB_SECONDS = 30  # number of seconds before next step
 
-ALPHA = False  # start with transparency if True
-REVERSE = (len(sys.argv) >= 2)  # reverse LIST_NB_SHAPES if true
+REVERSE = False  # reverse LIST_NB_SHAPES if true
+TRANSPARENCY = False  # start with transparency if True
+
+PLOT = True  # plot results at the end if True
 
 # Use Frame._get_fps_average() (only with SimpleGUICS2Pygame)
 _FPS_AVERAGE = False
@@ -49,10 +51,6 @@ LIST_NB_SHAPES = [1, 10, 20, 30, 40, 50, 75,
                   100, 200, 300, 400, 500, 750,
                   1000, 1250, 1500, 1750, 2000]
 # ### <<< config
-
-if REVERSE:
-    LIST_NB_SHAPES.reverse()
-
 
 FONT_SIZE = 40
 
@@ -79,9 +77,8 @@ RGB_COLORS = ((0, 0, 128),
 
 RESULTS = {}  # type: ignore
 
-TRANSPARENCY = ALPHA
-
 FPS = None
+FRAME = None
 FREEZED = None
 NB_SHAPES = None
 NB_FRAMES_DRAWED = None
@@ -290,15 +287,16 @@ def init():
             # To avoid failed when run with simpleguitk
             print('FRAME.stop():' + str(e))
 
-        try:
-            simpleplot.plot_lines('Stress Balls', 800, 650,
-                                  '# balls', 'FPS',
-                                  (final_result, ), True)
-            if SIMPLEGUICS2PYGAME:
-                simpleplot._block()  # pylint: disable=protected-access
-        except Exception as e:  # pylint: disable=broad-except
-            # To avoid fail if no simpleplot
-            print('simpleplot.plot_lines():' + str(e))
+        if PLOT:
+            try:
+                simpleplot.plot_lines('Stress Balls', 800, 650,
+                                      '# balls', 'FPS',
+                                      (final_result, ), True)
+                if SIMPLEGUICS2PYGAME:
+                    simpleplot._block()  # pylint: disable=protected-access
+            except Exception as e:  # pylint: disable=broad-except
+                # To avoid fail if no simpleplot
+                print('simpleplot.plot_lines():' + str(e))
 
         return
 
@@ -428,31 +426,58 @@ def transparency_on_off():
         shape.transparency_reset()
 
 
+#
 # Main
-print("""Stress Balls:
-# balls | FPS...""")
+######
+def main():
+    """Get command line arguments, run and print results."""
+    global FRAME  # pylint: disable=global-statement
+    global PLOT  # pylint: disable=global-statement
+    global REVERSE  # pylint: disable=global-statement
+    global TIMER  # pylint: disable=global-statement
+    global TRANSPARENCY  # pylint: disable=global-statement
 
-FRAME = simplegui.create_frame('Stress Balls' +
-                               (' ALPHA' if ALPHA
-                                else '') +
-                               (' REVERSE' if REVERSE
-                                else '') +
-                               (' _FPS_AVERAGE' if _FPS_AVERAGE
-                                else ''),
-                               WIDTH, HEIGHT)
+    for arg in sys.argv[1:]:
+        if arg == '--no-plot':
+            PLOT = False
+        elif arg == '--reverse':
+            REVERSE = True
+        elif arg == '--transparency':
+            TRANSPARENCY = True
+        else:
+            print('Unknow command line argument "%s"!' % arg)
 
-FRAME.add_button('Un/Freeze', freeze_on_off)
-FRAME.add_button('Revert', revert)
-FRAME.add_button('Without/With transparency', transparency_on_off)
-FRAME.add_button('Next step', next_step)
-FRAME.add_label('')
-FRAME.add_button('Quit', stop)
+    if REVERSE:
+        LIST_NB_SHAPES.reverse()
 
-init()
+    print("""Stress Balls:
+    # balls | FPS...""")
 
-FRAME.set_draw_handler(draw)
+    FRAME = simplegui.create_frame('Stress Balls' +
+                                   (' TRANSPARENCY' if TRANSPARENCY
+                                    else '') +
+                                   (' REVERSE' if REVERSE
+                                    else '') +
+                                   (' _FPS_AVERAGE' if _FPS_AVERAGE
+                                    else ''),
+                                   WIDTH, HEIGHT)
 
-TIMER = simplegui.create_timer(1000, print_fps)
-TIMER.start()
+    FRAME.add_button('Un/Freeze', freeze_on_off)
+    FRAME.add_button('Revert', revert)
+    FRAME.add_button('Without/With transparency', transparency_on_off)
+    FRAME.add_button('Next step', next_step)
+    FRAME.add_label('')
+    FRAME.add_button('Quit', stop)
 
-FRAME.start()
+    init()
+
+    FRAME.set_draw_handler(draw)
+
+    TIMER = simplegui.create_timer(1000, print_fps)
+    TIMER.start()
+
+    FRAME.start()
+
+
+if __name__ == '__main__':
+    main()

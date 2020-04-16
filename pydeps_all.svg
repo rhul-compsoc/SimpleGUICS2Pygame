@@ -9,186 +9,78 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 895.619)">
 <title>G</title><style>.edge>path:hover{stroke-width:8}</style>
 <polygon fill="white" stroke="none" points="-4,4 -4,-895.619 1170.78,-895.619 1170.78,4 -4,4"/>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
-<g id="node1" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#9b2626" stroke="black" cx="846.388" cy="-358.253" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="846.388" y="-366.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="846.388" y="-355.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="846.388" y="-344.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">canvas</text>
+<!-- SimpleGUICS2Pygame_simpleplot -->
+<g id="node1" class="node"><title>SimpleGUICS2Pygame_simpleplot</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#ac4949" stroke="black" cx="88.3883" cy="-726.406" rx="88.2768" ry="21.4286"/>
+<text text-anchor="middle" x="88.3883" y="-729.406" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="88.3883" y="-718.406" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleplot</text>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_keys -->
+<g id="node2" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_keys</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#b83d3d" stroke="black" cx="420.388" cy="-99.6396" rx="88.2768" ry="21.4286"/>
+<text text-anchor="middle" x="420.388" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="420.388" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_keys</text>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib -->
+<g id="node11" class="node"><title>SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#964040" stroke="black" cx="712.388" cy="-21.2132" rx="88.2768" ry="21.4286"/>
+<text text-anchor="middle" x="712.388" y="-24.2132" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="712.388" y="-13.2132" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib</text>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_keys&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
+<g id="edge3" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_keys&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M478.078,-83.5402C525.992,-70.9994 594.233,-53.1386 644.72,-39.9244"/>
+<polygon fill="#b83d3d" stroke="black" points="645.781,-43.2646 654.569,-37.3465 644.009,-36.4927 645.781,-43.2646"/>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_loader -->
+<g id="node3" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_loader</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#b83d3d" stroke="black" cx="615.388" cy="-99.6396" rx="88.2768" ry="21.4286"/>
+<text text-anchor="middle" x="615.388" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="615.388" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_loader</text>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_loader&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
+<g id="edge4" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_loader&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M640.117,-79.1563C652.088,-69.7239 666.627,-58.2688 679.517,-48.1129"/>
+<polygon fill="#b83d3d" stroke="black" points="682.017,-50.599 687.705,-41.661 677.684,-45.1007 682.017,-50.599"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_keys -->
+<g id="node4" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_keys</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#ac2b2b" stroke="black" cx="1078.39" cy="-358.253" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="1078.39" y="-366.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="1078.39" y="-355.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="1078.39" y="-344.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">keys</text>
 </g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="node7" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<g id="node5" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
 <ellipse fill="#732626" stroke="black" cx="615.388" cy="-264.271" rx="88.2768" ry="28.9828"/>
 <text text-anchor="middle" x="615.388" y="-272.771" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
 <text text-anchor="middle" x="615.388" y="-261.771" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
 <text text-anchor="middle" x="615.388" y="-250.771" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">frame</text>
 </g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge35" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M791.645,-335.455C758.108,-322.101 715.017,-304.942 679.837,-290.934"/>
-<polygon fill="#9b2626" stroke="black" points="680.724,-287.52 670.139,-287.072 678.135,-294.023 680.724,-287.52"/>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge43" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M1006,-341.597C985.77,-337.399 963.754,-332.993 943.388,-329.262 843.343,-310.932 816.803,-314.753 717.388,-293.262 708.425,-291.324 699.078,-289.078 689.837,-286.716"/>
+<polygon fill="#ac2b2b" stroke="black" points="690.434,-283.255 679.875,-284.118 688.668,-290.028 690.434,-283.255"/>
 </g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="node9" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<g id="node6" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
 <ellipse fill="#950303" stroke="black" cx="615.388" cy="-178.066" rx="88.2768" ry="21.4286"/>
 <text text-anchor="middle" x="615.388" y="-181.066" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
 <text text-anchor="middle" x="615.388" y="-170.066" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame</text>
 </g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="edge34" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M813.857,-330.852C790.928,-312.337 759.434,-287.095 731.388,-265.271"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
-<g id="node2" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#b62020" stroke="black" cx="654.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="654.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="654.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="654.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_fonts</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
-<g id="edge17" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M661.185,-517.29C669.026,-490.243 684.314,-449.565 710.388,-423.245 727.823,-405.645 751.031,-392.299 773.331,-382.471"/>
-<polygon fill="#b62020" stroke="black" points="774.96,-385.583 782.814,-378.473 772.24,-379.133 774.96,-385.583"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge19" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M589.788,-526.322C547.299,-513.037 496.345,-495.21 478.388,-481.227 466.525,-471.99 455.275,-467.698 459.388,-453.236"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_control -->
-<g id="node13" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#a32828" stroke="black" cx="807.388" cy="-452.236" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="807.388" y="-460.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="807.388" y="-449.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="807.388" y="-438.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">control</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
-<g id="edge18" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M695.792,-520.327C714.834,-508.879 737.579,-495.205 757.553,-483.197"/>
-<polygon fill="#b62020" stroke="black" points="759.45,-486.141 766.217,-477.988 755.843,-480.141 759.45,-486.141"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_timer -->
-<g id="node3" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_timer</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#bc2f2f" stroke="black" cx="110.388" cy="-358.253" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="110.388" y="-366.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="110.388" y="-355.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="110.388" y="-344.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">timer</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge46" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M186.539,-343.383C278.484,-326.636 432.741,-298.539 529.032,-281"/>
-<polygon fill="#bc2f2f" stroke="black" points="529.821,-284.414 539.032,-279.178 528.567,-277.527 529.821,-284.414"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="edge45" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M120.939,-329.142C130.245,-308.266 145.86,-280.822 168.388,-265.271"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors -->
-<g id="node4" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#bf2121" stroke="black" cx="924.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="924.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="924.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="924.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_colors</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
-<g id="edge14" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M923.388,-451.236C912.34,-430.354 895.964,-409.918 881.151,-393.632"/>
-<polygon fill="#bf2121" stroke="black" points="883.411,-390.922 874.035,-385.987 878.287,-395.691 883.411,-390.922"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge16" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M930.516,-517.023C933.18,-497.924 933.695,-472.716 923.388,-453.236"/>
-<path fill="none" stroke="black" d="M923.388,-451.236C916.357,-437.946 916.787,-431.751 904.388,-423.245 846.072,-383.234 808.528,-426.029 749.388,-387.245 722.56,-369.65 729.359,-351.66 706.388,-329.262 694.021,-317.203 679.188,-305.759 665.122,-295.973"/>
-<polygon fill="#bf2121" stroke="black" points="666.728,-292.833 656.491,-290.103 662.792,-298.621 666.728,-292.833"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
-<g id="edge15" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M891.174,-519.106C877.959,-508.717 862.612,-496.651 848.691,-485.707"/>
-<polygon fill="#bf2121" stroke="black" points="850.711,-482.843 840.686,-479.414 846.384,-488.346 850.711,-482.843"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__media -->
-<g id="node5" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#ae1e1e" stroke="black" cx="264.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="264.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="264.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="264.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_media</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge21" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M328.835,-526.251C382.539,-508.614 451.503,-480.959 459.388,-453.236"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_image -->
-<g id="node8" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_image</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#bf2121" stroke="black" cx="575.388" cy="-452.236" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="575.388" y="-460.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="575.388" y="-449.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="575.388" y="-438.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">image</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image -->
-<g id="edge22" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M328.828,-526.16C379.076,-511.298 448.91,-490.644 501.434,-475.109"/>
-<polygon fill="#ae1e1e" stroke="black" points="502.435,-478.463 511.031,-472.271 500.449,-471.751 502.435,-478.463"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_sound -->
-<g id="node10" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_sound</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#a83838" stroke="black" cx="226.388" cy="-452.236" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="226.388" y="-460.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="226.388" y="-449.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="226.388" y="-438.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">sound</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_sound -->
-<g id="edge23" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_sound</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M252.781,-517.121C249.318,-508.741 245.468,-499.421 241.803,-490.548"/>
-<polygon fill="#ae1e1e" stroke="black" points="244.978,-489.068 237.925,-481.162 238.508,-491.74 244.978,-489.068"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__joypads -->
-<g id="node6" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__joypads</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#a13535" stroke="black" cx="459.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="459.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="459.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="459.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_joypads</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__joypads&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge20" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__joypads&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M455.436,-516.894C453.813,-498.418 453.491,-473.972 459.388,-453.236"/>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
+<g id="edge42" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M1012.3,-338.99C1000.36,-335.725 988.007,-332.373 976.388,-329.262 867.677,-300.15 820.207,-334.386 731.388,-265.271"/>
 </g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame_frame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
 <g id="edge38" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_frame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
 <path fill="none" stroke="black" d="M615.388,-235.232C615.388,-227.024 615.388,-218.01 615.388,-209.653"/>
 <polygon fill="#732626" stroke="black" points="618.888,-209.527 615.388,-199.527 611.888,-209.527 618.888,-209.527"/>
 </g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
-<g id="edge40" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M635.532,-430.822C677.284,-416.651 733.031,-397.729 776.719,-382.901"/>
-<polygon fill="#bf2121" stroke="black" points="778.068,-386.139 786.413,-379.61 775.818,-379.51 778.068,-386.139"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge41" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M604.934,-424.628C622.007,-407.597 642.413,-384.093 654.388,-359.253"/>
-<path fill="none" stroke="black" d="M654.388,-357.253C663.176,-339.025 655.855,-318.308 645.282,-301.156"/>
-<polygon fill="#bf2121" stroke="black" points="647.992,-298.912 639.525,-292.544 642.173,-302.802 647.992,-298.912"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="edge39" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M654.388,-357.253C671.058,-322.678 688.354,-323.191 712.388,-293.262 721.803,-281.538 743.255,-274.505 731.388,-265.271"/>
-<path fill="none" stroke="black" d="M731.388,-263.271C719.522,-254.037 723.392,-245.526 712.388,-235.279 698.327,-222.184 680.687,-210.83 664.318,-201.82"/>
-<polygon fill="#bf2121" stroke="black" points="665.857,-198.675 655.386,-197.06 662.565,-204.852 665.857,-198.675"/>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_keys -->
-<g id="node14" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_keys</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#b83d3d" stroke="black" cx="420.388" cy="-99.6396" rx="88.2768" ry="21.4286"/>
-<text text-anchor="middle" x="420.388" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="420.388" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_keys</text>
-</g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame&#45;&gt;SimpleGUICS2Pygame_simplegui_lib_keys -->
 <g id="edge6" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame&#45;&gt;SimpleGUICS2Pygame_simplegui_lib_keys</title><style>.edge>path:hover{stroke-width:8}</style>
 <path fill="none" stroke="black" d="M570.651,-159.532C542.039,-148.318 504.752,-133.704 474.479,-121.84"/>
 <polygon fill="#950303" stroke="black" points="475.505,-118.482 464.917,-118.092 472.95,-125 475.505,-118.482"/>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_loader -->
-<g id="node15" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_loader</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#b83d3d" stroke="black" cx="615.388" cy="-99.6396" rx="88.2768" ry="21.4286"/>
-<text text-anchor="middle" x="615.388" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="615.388" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_loader</text>
 </g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame&#45;&gt;SimpleGUICS2Pygame_simplegui_lib_loader -->
 <g id="edge7" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame&#45;&gt;SimpleGUICS2Pygame_simplegui_lib_loader</title><style>.edge>path:hover{stroke-width:8}</style>
@@ -196,7 +88,7 @@
 <polygon fill="#950303" stroke="black" points="618.888,-130.912 615.388,-120.912 611.888,-130.912 618.888,-130.912"/>
 </g>
 <!-- SimpleGUICS2Pygame_simplegui_lib_fps -->
-<g id="node18" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_fps</title><style>.edge>path:hover{stroke-width:8}</style>
+<g id="node15" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_fps</title><style>.edge>path:hover{stroke-width:8}</style>
 <ellipse fill="#b83d3d" stroke="black" cx="810.388" cy="-99.6396" rx="88.2768" ry="21.4286"/>
 <text text-anchor="middle" x="810.388" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
 <text text-anchor="middle" x="810.388" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_fps</text>
@@ -206,153 +98,23 @@
 <path fill="none" stroke="black" d="M660.125,-159.532C688.738,-148.318 726.025,-133.704 756.297,-121.84"/>
 <polygon fill="#950303" stroke="black" points="757.826,-125 765.86,-118.092 755.272,-118.482 757.826,-125"/>
 </g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_sound -->
+<g id="node7" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_sound</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#a83838" stroke="black" cx="226.388" cy="-452.236" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="226.388" y="-460.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="226.388" y="-449.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="226.388" y="-438.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">sound</text>
+</g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame_sound&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
 <g id="edge44" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_sound&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
 <path fill="none" stroke="black" d="M225.111,-422.843C223.246,-397.608 218.661,-360.054 207.388,-329.262 195.938,-297.986 140.979,-284.192 168.388,-265.271"/>
 </g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_draw -->
-<g id="node11" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_draw</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#c04040" stroke="black" cx="225.388" cy="-99.6396" rx="88.2768" ry="21.4286"/>
-<text text-anchor="middle" x="225.388" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="225.388" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_draw</text>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib -->
-<g id="node19" class="node"><title>SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#964040" stroke="black" cx="517.388" cy="-21.2132" rx="88.2768" ry="21.4286"/>
-<text text-anchor="middle" x="517.388" y="-24.2132" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="517.388" y="-13.2132" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib</text>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_draw&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
-<g id="edge1" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_draw&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M283.078,-83.5402C330.992,-70.9994 399.233,-53.1386 449.72,-39.9244"/>
-<polygon fill="#c04040" stroke="black" points="450.781,-43.2646 459.569,-37.3465 449.009,-36.4927 450.781,-43.2646"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_keys -->
-<g id="node12" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_keys</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#ac2b2b" stroke="black" cx="1078.39" cy="-358.253" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="1078.39" y="-366.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="1078.39" y="-355.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="1078.39" y="-344.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">keys</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge43" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M1006,-341.597C985.77,-337.399 963.754,-332.993 943.388,-329.262 843.343,-310.932 816.803,-314.753 717.388,-293.262 708.425,-291.324 699.078,-289.078 689.837,-286.716"/>
-<polygon fill="#ac2b2b" stroke="black" points="690.434,-283.255 679.875,-284.118 688.668,-290.028 690.434,-283.255"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="edge42" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_keys&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M1012.3,-338.99C1000.36,-335.725 988.007,-332.373 976.388,-329.262 867.677,-300.15 820.207,-334.386 731.388,-265.271"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge37" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M763.707,-427.008C738.936,-410.992 709.549,-387.716 692.388,-359.253"/>
-<path fill="none" stroke="black" d="M692.388,-357.253C680.098,-336.868 663.433,-316.35 648.75,-299.882"/>
-<polygon fill="#a32828" stroke="black" points="651.04,-297.196 641.729,-292.141 645.855,-301.899 651.04,-297.196"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="edge36" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M692.388,-357.253C669.461,-319.226 766.432,-292.54 731.388,-265.271"/>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_keys&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
-<g id="edge3" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_keys&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M445.117,-79.1563C457.088,-69.7239 471.627,-58.2688 484.517,-48.1129"/>
-<polygon fill="#b83d3d" stroke="black" points="487.017,-50.599 492.705,-41.661 482.684,-45.1007 487.017,-50.599"/>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_loader&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
-<g id="edge4" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_loader&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M590.405,-79.1563C578.195,-69.634 563.342,-58.0504 550.227,-47.8231"/>
-<polygon fill="#b83d3d" stroke="black" points="552.364,-45.0507 542.326,-41.661 548.059,-50.5706 552.364,-45.0507"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init -->
-<g id="node16" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#d10505" stroke="black" cx="808.388" cy="-640.202" rx="88.2768" ry="28.9828"/>
-<text text-anchor="middle" x="808.388" y="-648.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="808.388" y="-637.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
-<text text-anchor="middle" x="808.388" y="-626.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_pygame_init</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
-<g id="edge29" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M889.093,-628.302C931.61,-619.439 982.79,-603.54 1021.39,-575.21 1033.51,-566.314 1033.27,-560.463 1040.39,-547.219"/>
-<path fill="none" stroke="black" d="M1040.39,-545.219C1050.86,-525.739 1018.05,-468.851 1002.39,-453.236"/>
-<path fill="none" stroke="black" d="M1002.39,-451.236C975.234,-424.162 938.546,-402.008 907.571,-386.23"/>
-<polygon fill="#d10505" stroke="black" points="909.091,-383.077 898.58,-381.746 905.967,-389.341 909.091,-383.077"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
-<g id="edge26" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M767.119,-614.552C747.872,-603.056 724.797,-589.274 704.552,-577.181"/>
-<polygon fill="#d10505" stroke="black" points="706.151,-574.06 695.771,-571.937 702.562,-580.069 706.151,-574.06"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__colors -->
-<g id="edge25" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__colors</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M841.319,-613.089C854.421,-602.7 869.637,-590.634 883.439,-579.69"/>
-<polygon fill="#d10505" stroke="black" points="885.714,-582.352 891.375,-573.397 881.365,-576.868 885.714,-582.352"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media -->
-<g id="edge28" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M735.925,-623.563C714.266,-619.2 690.421,-614.703 668.388,-611.21 533.139,-589.769 496.66,-602.102 362.388,-575.21 354.096,-573.549 345.483,-571.533 336.96,-569.352"/>
-<polygon fill="#d10505" stroke="black" points="337.582,-565.896 327.019,-566.727 335.794,-572.664 337.582,-565.896"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__joypads -->
-<g id="edge27" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__joypads</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M738.999,-622.077C688.527,-609.484 618.601,-591.752 557.388,-575.21 549.738,-573.143 541.764,-570.942 533.815,-568.718"/>
-<polygon fill="#d10505" stroke="black" points="534.729,-565.339 524.155,-566 532.833,-572.077 534.729,-565.339"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge31" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M802.961,-610.898C797.751,-590.749 787.983,-564.318 770.388,-547.219"/>
-<path fill="none" stroke="black" d="M770.388,-545.219C759.606,-534.74 764.185,-525.122 751.388,-517.227 647.232,-452.969 582.545,-545.486 478.388,-481.227 465.592,-473.333 455.275,-467.698 459.388,-453.236"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image -->
-<g id="edge32" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M770.388,-545.219C759.606,-534.74 763.252,-526.465 751.388,-517.227 724.304,-496.138 689.625,-481.56 658.222,-471.709"/>
-<polygon fill="#d10505" stroke="black" points="659.178,-468.342 648.593,-468.802 657.155,-475.043 659.178,-468.342"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
-<g id="edge24" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M1040.39,-545.219C1059.74,-509.21 1044.67,-493.893 1040.39,-453.236"/>
-<path fill="none" stroke="black" d="M1040.39,-451.236C1038.67,-434.939 1027.44,-435.346 1016.39,-423.245 1001.34,-406.766 995.346,-404.656 981.388,-387.245 962.117,-363.204 968.067,-347.709 943.388,-329.262 864.557,-270.335 809.063,-325.714 731.388,-265.271"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys -->
-<g id="edge33" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M1040.39,-451.236C1038.38,-432.132 1045.28,-412.272 1053.73,-395.917"/>
-<polygon fill="#d10505" stroke="black" points="1057.04,-397.166 1058.84,-386.724 1050.92,-393.77 1057.04,-397.166"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
-<g id="edge30" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M803.643,-611.023C801.639,-592.388 801.189,-567.709 808.388,-547.219"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleplot -->
-<g id="node17" class="node"><title>SimpleGUICS2Pygame_simpleplot</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#ac4949" stroke="black" cx="924.388" cy="-726.406" rx="88.2768" ry="21.4286"/>
-<text text-anchor="middle" x="924.388" y="-729.406" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
-<text text-anchor="middle" x="924.388" y="-718.406" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleplot</text>
-</g>
-<!-- SimpleGUICS2Pygame_simplegui_lib_fps&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
-<g id="edge2" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_fps&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M752.501,-83.5402C704.344,-70.979 635.726,-53.0805 585.042,-39.86"/>
-<polygon fill="#b83d3d" stroke="black" points="585.715,-36.4186 575.155,-37.2812 583.948,-43.192 585.715,-36.4186"/>
-</g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments -->
-<g id="node20" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments</title><style>.edge>path:hover{stroke-width:8}</style>
+<g id="node8" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments</title><style>.edge>path:hover{stroke-width:8}</style>
 <ellipse fill="#f90606" stroke="black" cx="88.3883" cy="-640.202" rx="88.2768" ry="28.9828"/>
 <text text-anchor="middle" x="88.3883" y="-648.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
 <text text-anchor="middle" x="88.3883" y="-637.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
 <text text-anchor="middle" x="88.3883" y="-626.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_arguments</text>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
-<g id="edge9" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M172.701,-631.325C266.883,-621.682 423.567,-603.111 556.388,-575.21 564.603,-573.485 573.138,-571.437 581.593,-569.247"/>
-<polygon fill="#f90606" stroke="black" points="582.695,-572.576 591.457,-566.621 580.894,-565.811 582.695,-572.576"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_timer -->
-<g id="edge13" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_timer</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M110.388,-451.236C105.515,-434.061 104.898,-414.345 105.75,-397.582"/>
-<polygon fill="#f90606" stroke="black" points="109.243,-397.794 106.445,-387.576 102.26,-397.309 109.243,-397.794"/>
-</g>
-<!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media -->
-<g id="edge10" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M134.171,-615.274C157.201,-603.238 185.286,-588.56 209.471,-575.921"/>
-<polygon fill="#f90606" stroke="black" points="211.288,-578.92 218.53,-571.186 208.046,-572.716 211.288,-578.92"/>
 </g>
 <!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
 <g id="edge11" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
@@ -373,6 +135,244 @@
 <path fill="none" stroke="black" d="M110.388,-545.219C120.014,-531.957 122.23,-528.215 134.388,-517.227 147.541,-505.341 162.986,-493.809 177.425,-483.886"/>
 <polygon fill="#f90606" stroke="black" points="179.458,-486.736 185.785,-478.238 175.539,-480.936 179.458,-486.736"/>
 </g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__media -->
+<g id="node9" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#ae1e1e" stroke="black" cx="264.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="264.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="264.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="264.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_media</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media -->
+<g id="edge10" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M134.171,-615.274C157.201,-603.238 185.286,-588.56 209.471,-575.921"/>
+<polygon fill="#f90606" stroke="black" points="211.288,-578.92 218.53,-571.186 208.046,-572.716 211.288,-578.92"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
+<g id="node10" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#b62020" stroke="black" cx="654.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="654.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="654.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="654.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_fonts</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
+<g id="edge9" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M172.701,-631.325C266.883,-621.682 423.567,-603.111 556.388,-575.21 564.603,-573.485 573.138,-571.437 581.593,-569.247"/>
+<polygon fill="#f90606" stroke="black" points="582.695,-572.576 591.457,-566.621 580.894,-565.811 582.695,-572.576"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_timer -->
+<g id="node18" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_timer</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#bc2f2f" stroke="black" cx="110.388" cy="-358.253" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="110.388" y="-366.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="110.388" y="-355.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="110.388" y="-344.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">timer</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_timer -->
+<g id="edge13" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__arguments&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_timer</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M110.388,-451.236C105.515,-434.061 104.898,-414.345 105.75,-397.582"/>
+<polygon fill="#f90606" stroke="black" points="109.243,-397.794 106.445,-387.576 102.26,-397.309 109.243,-397.794"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge21" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M328.835,-526.251C382.539,-508.614 451.503,-480.959 459.388,-453.236"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_sound -->
+<g id="edge23" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_sound</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M252.781,-517.121C249.318,-508.741 245.468,-499.421 241.803,-490.548"/>
+<polygon fill="#ae1e1e" stroke="black" points="244.978,-489.068 237.925,-481.162 238.508,-491.74 244.978,-489.068"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_image -->
+<g id="node14" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_image</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#bf2121" stroke="black" cx="575.388" cy="-452.236" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="575.388" y="-460.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="575.388" y="-449.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="575.388" y="-438.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">image</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image -->
+<g id="edge22" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__media&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M328.828,-526.16C379.076,-511.298 448.91,-490.644 501.434,-475.109"/>
+<polygon fill="#ae1e1e" stroke="black" points="502.435,-478.463 511.031,-472.271 500.449,-471.751 502.435,-478.463"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge19" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M589.788,-526.322C547.299,-513.037 496.345,-495.21 478.388,-481.227 466.525,-471.99 455.275,-467.698 459.388,-453.236"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
+<g id="node17" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#9b2626" stroke="black" cx="846.388" cy="-358.253" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="846.388" y="-366.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="846.388" y="-355.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="846.388" y="-344.753" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">canvas</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
+<g id="edge17" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M661.185,-517.29C669.026,-490.243 684.314,-449.565 710.388,-423.245 727.823,-405.645 751.031,-392.299 773.331,-382.471"/>
+<polygon fill="#b62020" stroke="black" points="774.96,-385.583 782.814,-378.473 772.24,-379.133 774.96,-385.583"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_control -->
+<g id="node19" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#a32828" stroke="black" cx="807.388" cy="-452.236" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="807.388" y="-460.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="807.388" y="-449.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="807.388" y="-438.736" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">control</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
+<g id="edge18" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__fonts&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M695.792,-520.327C714.834,-508.879 737.579,-495.205 757.553,-483.197"/>
+<polygon fill="#b62020" stroke="black" points="759.45,-486.141 766.217,-477.988 755.843,-480.141 759.45,-486.141"/>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_draw -->
+<g id="node12" class="node"><title>SimpleGUICS2Pygame_simplegui_lib_draw</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#c04040" stroke="black" cx="1005.39" cy="-99.6396" rx="88.2768" ry="21.4286"/>
+<text text-anchor="middle" x="1005.39" y="-102.64" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="1005.39" y="-91.6396" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simplegui_lib_draw</text>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_draw&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
+<g id="edge1" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_draw&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M947.501,-83.5402C899.344,-70.979 830.726,-53.0805 780.042,-39.86"/>
+<polygon fill="#c04040" stroke="black" points="780.715,-36.4186 770.155,-37.2812 778.948,-43.192 780.715,-36.4186"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors -->
+<g id="node13" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#bf2121" stroke="black" cx="924.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="924.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="924.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="924.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_colors</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge16" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M930.516,-517.023C933.18,-497.924 933.695,-472.716 923.388,-453.236"/>
+<path fill="none" stroke="black" d="M923.388,-451.236C916.357,-437.946 916.787,-431.751 904.388,-423.245 846.072,-383.234 808.528,-426.029 749.388,-387.245 722.56,-369.65 729.359,-351.66 706.388,-329.262 694.021,-317.203 679.188,-305.759 665.122,-295.973"/>
+<polygon fill="#bf2121" stroke="black" points="666.728,-292.833 656.491,-290.103 662.792,-298.621 666.728,-292.833"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
+<g id="edge14" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M923.388,-451.236C912.34,-430.354 895.964,-409.918 881.151,-393.632"/>
+<polygon fill="#bf2121" stroke="black" points="883.411,-390.922 874.035,-385.987 878.287,-395.691 883.411,-390.922"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
+<g id="edge15" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__colors&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M891.174,-519.106C877.959,-508.717 862.612,-496.651 848.691,-485.707"/>
+<polygon fill="#bf2121" stroke="black" points="850.711,-482.843 840.686,-479.414 846.384,-488.346 850.711,-482.843"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge41" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M604.934,-424.628C622.007,-407.597 642.413,-384.093 654.388,-359.253"/>
+<path fill="none" stroke="black" d="M654.388,-357.253C663.176,-339.025 655.855,-318.308 645.282,-301.156"/>
+<polygon fill="#bf2121" stroke="black" points="647.992,-298.912 639.525,-292.544 642.173,-302.802 647.992,-298.912"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
+<g id="edge39" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M654.388,-357.253C671.058,-322.678 688.354,-323.191 712.388,-293.262 721.803,-281.538 743.255,-274.505 731.388,-265.271"/>
+<path fill="none" stroke="black" d="M731.388,-263.271C719.522,-254.037 723.392,-245.526 712.388,-235.279 698.327,-222.184 680.687,-210.83 664.318,-201.82"/>
+<polygon fill="#bf2121" stroke="black" points="665.857,-198.675 655.386,-197.06 662.565,-204.852 665.857,-198.675"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
+<g id="edge40" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_image&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M635.532,-430.822C677.284,-416.651 733.031,-397.729 776.719,-382.901"/>
+<polygon fill="#bf2121" stroke="black" points="778.068,-386.139 786.413,-379.61 775.818,-379.51 778.068,-386.139"/>
+</g>
+<!-- SimpleGUICS2Pygame_simplegui_lib_fps&#45;&gt;SimpleGUICS2Pygame_simplegui_lib -->
+<g id="edge2" class="edge"><title>SimpleGUICS2Pygame_simplegui_lib_fps&#45;&gt;SimpleGUICS2Pygame_simplegui_lib</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M785.405,-79.1563C773.195,-69.634 758.342,-58.0504 745.227,-47.8231"/>
+<polygon fill="#b83d3d" stroke="black" points="747.364,-45.0507 737.326,-41.661 743.059,-50.5706 747.364,-45.0507"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__joypads -->
+<g id="node16" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__joypads</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#a13535" stroke="black" cx="459.388" cy="-546.219" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="459.388" y="-554.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="459.388" y="-543.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="459.388" y="-532.719" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_joypads</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__joypads&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge20" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__joypads&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M455.436,-516.894C453.813,-498.418 453.491,-473.972 459.388,-453.236"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge35" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M791.645,-335.455C758.108,-322.101 715.017,-304.942 679.837,-290.934"/>
+<polygon fill="#9b2626" stroke="black" points="680.724,-287.52 670.139,-287.072 678.135,-294.023 680.724,-287.52"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
+<g id="edge34" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_canvas&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M813.857,-330.852C790.928,-312.337 759.434,-287.095 731.388,-265.271"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge46" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M186.539,-343.383C278.484,-326.636 432.741,-298.539 529.032,-281"/>
+<polygon fill="#bc2f2f" stroke="black" points="529.821,-284.414 539.032,-279.178 528.567,-277.527 529.821,-284.414"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
+<g id="edge45" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_timer&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M120.939,-329.142C130.245,-308.266 145.86,-280.822 168.388,-265.271"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge37" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M763.707,-427.008C738.936,-410.992 709.549,-387.716 692.388,-359.253"/>
+<path fill="none" stroke="black" d="M692.388,-357.253C680.098,-336.868 663.433,-316.35 648.75,-299.882"/>
+<polygon fill="#a32828" stroke="black" points="651.04,-297.196 641.729,-292.141 645.855,-301.899 651.04,-297.196"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
+<g id="edge36" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame_control&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M692.388,-357.253C669.461,-319.226 766.432,-292.54 731.388,-265.271"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init -->
+<g id="node20" class="node"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init</title><style>.edge>path:hover{stroke-width:8}</style>
+<ellipse fill="#d10505" stroke="black" cx="808.388" cy="-640.202" rx="88.2768" ry="28.9828"/>
+<text text-anchor="middle" x="808.388" y="-648.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">SimpleGUICS2Pygame.</text>
+<text text-anchor="middle" x="808.388" y="-637.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">simpleguics2pygame.</text>
+<text text-anchor="middle" x="808.388" y="-626.702" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">_pygame_init</text>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys -->
+<g id="edge33" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M1040.39,-451.236C1038.38,-432.132 1045.28,-412.272 1053.73,-395.917"/>
+<polygon fill="#d10505" stroke="black" points="1057.04,-397.166 1058.84,-386.724 1050.92,-393.77 1057.04,-397.166"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge31" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M802.961,-610.898C797.751,-590.749 787.983,-564.318 770.388,-547.219"/>
+<path fill="none" stroke="black" d="M770.388,-545.219C759.606,-534.74 764.185,-525.122 751.388,-517.227 647.232,-452.969 582.545,-545.486 478.388,-481.227 465.592,-473.333 455.275,-467.698 459.388,-453.236"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame -->
+<g id="edge24" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M1040.39,-545.219C1059.74,-509.21 1044.67,-493.893 1040.39,-453.236"/>
+<path fill="none" stroke="black" d="M1040.39,-451.236C1038.67,-434.939 1027.44,-435.346 1016.39,-423.245 1001.34,-406.766 995.346,-404.656 981.388,-387.245 962.117,-363.204 968.067,-347.709 943.388,-329.262 864.557,-270.335 809.063,-325.714 731.388,-265.271"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media -->
+<g id="edge28" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M735.925,-623.563C714.266,-619.2 690.421,-614.703 668.388,-611.21 533.139,-589.769 496.66,-602.102 362.388,-575.21 354.096,-573.549 345.483,-571.533 336.96,-569.352"/>
+<polygon fill="#d10505" stroke="black" points="337.582,-565.896 327.019,-566.727 335.794,-572.664 337.582,-565.896"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
+<g id="edge26" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M767.119,-614.552C747.872,-603.056 724.797,-589.274 704.552,-577.181"/>
+<polygon fill="#d10505" stroke="black" points="706.151,-574.06 695.771,-571.937 702.562,-580.069 706.151,-574.06"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__colors -->
+<g id="edge25" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__colors</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M841.319,-613.089C854.421,-602.7 869.637,-590.634 883.439,-579.69"/>
+<polygon fill="#d10505" stroke="black" points="885.714,-582.352 891.375,-573.397 881.365,-576.868 885.714,-582.352"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image -->
+<g id="edge32" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_image</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M770.388,-545.219C759.606,-534.74 763.252,-526.465 751.388,-517.227 724.304,-496.138 689.625,-481.56 658.222,-471.709"/>
+<polygon fill="#d10505" stroke="black" points="659.178,-468.342 648.593,-468.802 657.155,-475.043 659.178,-468.342"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__joypads -->
+<g id="edge27" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__joypads</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M738.999,-622.077C688.527,-609.484 618.601,-591.752 557.388,-575.21 549.738,-573.143 541.764,-570.942 533.815,-568.718"/>
+<polygon fill="#d10505" stroke="black" points="534.729,-565.339 524.155,-566 532.833,-572.077 534.729,-565.339"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
+<g id="edge29" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M889.093,-628.302C931.61,-619.439 982.79,-603.54 1021.39,-575.21 1033.51,-566.314 1033.27,-560.463 1040.39,-547.219"/>
+<path fill="none" stroke="black" d="M1040.39,-545.219C1050.86,-525.739 1018.05,-468.851 1002.39,-453.236"/>
+<path fill="none" stroke="black" d="M1002.39,-451.236C975.234,-424.162 938.546,-402.008 907.571,-386.23"/>
+<polygon fill="#d10505" stroke="black" points="909.091,-383.077 898.58,-381.746 905.967,-389.341 909.091,-383.077"/>
+</g>
+<!-- SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
+<g id="edge30" class="edge"><title>SimpleGUICS2Pygame_simpleguics2pygame__pygame_init&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M803.643,-611.023C801.639,-592.388 801.189,-567.709 808.388,-547.219"/>
+</g>
 <!-- audioread -->
 <g id="node21" class="node"><title>audioread</title><style>.edge>path:hover{stroke-width:8}</style>
 <polygon fill="#80c040" stroke="black" points="295.888,-819.619 292.888,-823.619 271.888,-823.619 268.888,-819.619 232.888,-819.619 232.888,-783.619 295.888,-783.619 295.888,-819.619"/>
@@ -385,23 +385,34 @@
 </g>
 <!-- matplotlib -->
 <g id="node22" class="node"><title>matplotlib</title><style>.edge>path:hover{stroke-width:8}</style>
-<polygon fill="#4cb3b3" stroke="black" points="953.888,-891.619 950.888,-895.619 929.888,-895.619 926.888,-891.619 894.888,-891.619 894.888,-855.619 953.888,-855.619 953.888,-891.619"/>
-<text text-anchor="middle" x="924.388" y="-871.119" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">matplotlib</text>
+<polygon fill="#33cccc" stroke="black" points="117.888,-891.619 114.888,-895.619 93.8883,-895.619 90.8883,-891.619 58.8883,-891.619 58.8883,-855.619 117.888,-855.619 117.888,-891.619"/>
+<text text-anchor="middle" x="88.3883" y="-871.119" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">matplotlib</text>
 </g>
 <!-- matplotlib&#45;&gt;SimpleGUICS2Pygame_simpleplot -->
 <g id="edge48" class="edge"><title>matplotlib&#45;&gt;SimpleGUICS2Pygame_simpleplot</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M924.388,-855.391C924.388,-831.437 924.388,-787.684 924.388,-758.081"/>
-<polygon fill="#4cb3b3" stroke="black" points="927.888,-757.877 924.388,-747.877 920.888,-757.877 927.888,-757.877"/>
+<path fill="none" stroke="black" d="M88.3883,-855.391C88.3883,-831.437 88.3883,-787.684 88.3883,-758.081"/>
+<polygon fill="#33cccc" stroke="black" points="91.8884,-757.877 88.3883,-747.877 84.8884,-757.877 91.8884,-757.877"/>
 </g>
 <!-- pygame -->
 <g id="node23" class="node"><title>pygame</title><style>.edge>path:hover{stroke-width:8}</style>
 <polygon fill="#8547c2" stroke="black" points="533.388,-891.619 530.388,-895.619 509.388,-895.619 506.388,-891.619 479.388,-891.619 479.388,-855.619 533.388,-855.619 533.388,-891.619"/>
 <text text-anchor="middle" x="506.388" y="-871.119" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">pygame</text>
 </g>
-<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
-<g id="edge54" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M1078.39,-639.202C1089.99,-600 1086.19,-587.348 1078.39,-547.219"/>
-<path fill="none" stroke="black" d="M1078.39,-545.219C1077.76,-541.965 1004.74,-455.576 1002.39,-453.236"/>
+<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys -->
+<g id="edge57" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M1078.39,-545.219C1068.58,-494.814 1070.96,-435.26 1074.17,-397.381"/>
+<polygon fill="#8547c2" stroke="black" points="1077.67,-397.573 1075.09,-387.297 1070.7,-396.939 1077.67,-397.573"/>
+</g>
+<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
+<g id="edge56" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M479.153,-871.343C415.385,-867.776 259.09,-855.492 223.388,-819.619 156.971,-752.884 215.185,-700.525 185.388,-611.21 179.727,-594.241 171.498,-592.62 167.388,-575.21 161.468,-550.13 151.234,-537.306 167.388,-517.227 209.031,-465.471 425.357,-510.286 459.388,-453.236"/>
+</g>
+<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media -->
+<g id="edge52" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M533.579,-871.576C603.04,-867.213 783.309,-844.597 808.388,-727.406"/>
+<path fill="none" stroke="black" d="M808.388,-725.406C813.138,-716.89 662.36,-646.818 654.388,-641.202"/>
+<path fill="none" stroke="black" d="M654.388,-639.202C545.781,-562.68 491.214,-607.691 362.388,-575.21 354.582,-573.242 346.454,-571.089 338.367,-568.88"/>
+<polygon fill="#8547c2" stroke="black" points="339.117,-565.456 328.546,-566.165 337.252,-572.203 339.117,-565.456"/>
 </g>
 <!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts -->
 <g id="edge50" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__fonts</title><style>.edge>path:hover{stroke-width:8}</style>
@@ -410,30 +421,19 @@
 </g>
 <!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__colors -->
 <g id="edge49" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__colors</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M808.388,-725.406C870.111,-615.904 1042.72,-761.736 1078.39,-641.202"/>
+<path fill="none" stroke="black" d="M808.388,-725.406C869.615,-615.625 1042.72,-761.736 1078.39,-641.202"/>
 <path fill="none" stroke="black" d="M1078.39,-639.202C1084.74,-617.735 1035.38,-591.367 990.889,-572.375"/>
 <polygon fill="#8547c2" stroke="black" points="992.066,-569.074 981.49,-568.439 989.362,-575.53 992.066,-569.074"/>
-</g>
-<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media -->
-<g id="edge52" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__media</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M533.579,-871.576C603.04,-867.213 783.309,-844.597 808.388,-727.406"/>
-<path fill="none" stroke="black" d="M808.388,-725.406C813.176,-716.912 662.36,-646.818 654.388,-641.202"/>
-<path fill="none" stroke="black" d="M654.388,-639.202C545.781,-562.68 491.214,-607.691 362.388,-575.21 354.582,-573.242 346.454,-571.089 338.367,-568.88"/>
-<polygon fill="#8547c2" stroke="black" points="339.117,-565.456 328.546,-566.165 337.252,-572.203 339.117,-565.456"/>
 </g>
 <!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__joypads -->
 <g id="edge51" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame__joypads</title><style>.edge>path:hover{stroke-width:8}</style>
 <path fill="none" stroke="black" d="M654.388,-639.202C615.037,-611.476 566.013,-588.394 526.964,-572.287"/>
 <polygon fill="#8547c2" stroke="black" points="527.846,-568.867 517.264,-568.343 525.21,-575.352 527.846,-568.867"/>
 </g>
-<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame -->
-<g id="edge56" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_frame</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M479.153,-871.343C415.385,-867.776 259.09,-855.492 223.388,-819.619 156.971,-752.884 215.185,-700.525 185.388,-611.21 179.727,-594.241 171.498,-592.62 167.388,-575.21 161.468,-550.13 151.234,-537.306 167.388,-517.227 209.031,-465.471 425.357,-510.286 459.388,-453.236"/>
-</g>
-<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys -->
-<g id="edge57" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_keys</title><style>.edge>path:hover{stroke-width:8}</style>
-<path fill="none" stroke="black" d="M1078.39,-545.219C1068.58,-494.814 1070.96,-435.26 1074.17,-397.381"/>
-<polygon fill="#8547c2" stroke="black" points="1077.67,-397.573 1075.09,-387.297 1070.7,-396.939 1077.67,-397.573"/>
+<!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas -->
+<g id="edge54" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_canvas</title><style>.edge>path:hover{stroke-width:8}</style>
+<path fill="none" stroke="black" d="M1078.39,-639.202C1089.99,-600 1086.19,-587.348 1078.39,-547.219"/>
+<path fill="none" stroke="black" d="M1078.39,-545.219C1077.76,-541.965 1004.74,-455.576 1002.39,-453.236"/>
 </g>
 <!-- pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control -->
 <g id="edge55" class="edge"><title>pygame&#45;&gt;SimpleGUICS2Pygame_simpleguics2pygame_control</title><style>.edge>path:hover{stroke-width:8}</style>

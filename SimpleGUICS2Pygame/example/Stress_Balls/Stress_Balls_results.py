@@ -170,14 +170,14 @@ def main():  # pylint: disable=too-many-locals
 
     # Graph
     try:
+        simpleplot.plot_lines('Stress Balls results (with old results)',
+                              800, 650, '# balls', 'FPS',
+                              datas_with_old, True, legends)
         simpleplot.plot_lines('Stress Balls results',
                               800, 650, '# balls', 'FPS',
                               datas, True,
                               tuple(legend for legend in legends
                                     if not legend.startswith('old ')))
-        simpleplot.plot_lines('Stress Balls results (with old results)',
-                              800, 650, '# balls', 'FPS',
-                              datas_with_old, True, legends)
         if SIMPLEGUICS2PYGAME:
             simpleplot._block()  # pylint: disable=protected-access
     except Exception as e:  # pylint: disable=broad-except

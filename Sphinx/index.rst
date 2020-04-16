@@ -76,7 +76,7 @@ Before the installation of SimpleGUICS2Pygame
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Obviously you need Python_.
 
-If  ``pip`` (the Python Package Installer) is not installed on your system,
+If  pip_ (the Python Package Installer) is not installed on your system,
 then install it with:
 
 .. code-block:: sh
@@ -99,6 +99,8 @@ upgrade necessary installation packages:
 .. code-block:: sh
 
    $ python -m pip install pip setuptools wheel --upgrade --user
+
+.. _pip: https://pip.pypa.io/
 
 
 Installation of SimpleGUICS2Pygame

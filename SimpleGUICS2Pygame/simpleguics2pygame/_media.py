@@ -329,7 +329,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
             os.close(tmp_file)
 
             # Write MP3 data in temporary file
-            with open(tmp_filename, 'wb') as fout:
+            with open(tmp_filename, 'ab') as fout:
                 fout.write(media_data)
 
             # Load MP3 sound from temporary file

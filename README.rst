@@ -265,14 +265,14 @@ Changes
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)
-  - Improved installation. Now all requirements are automatically installed.
+  - Improved installation. Now all **requirements are automatically installed**.
 
   - Modules:
 
     - **Splitted the big file ``simpleguics2pygame.py``.**
     - Added alpha possibility on background color.
-    - Added dealing of joypads.
-    - Added dealing of MP3 sounds.
+    - Added dealing of **joypads**.
+    - Added dealing of **MP3** sounds.
       Added ``draw_arc()`` in ``Canvas`` and ``test_arc``.
     - Added ``Frame.download_canvas_image()``, ``Frame._cursor_auto_hide`` and ``Frame._set_cursor_visible()``.
     - Added ``codeskulptor_version()`` in ``codeskulptor_lib``.
