@@ -83,7 +83,7 @@ Else, simply do:
 
 .. code-block:: sh
 
-   $ python -m pip install SimpleGUICS2Pygame==2.0.0a1 --user
+   $ python -m pip install SimpleGUICS2Pygame==2.0.0a2 --user
 
 Note that ``$`` represents the prompt and do *not* be entered by you.
 
