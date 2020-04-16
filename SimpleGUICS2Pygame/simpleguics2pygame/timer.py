@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: April 16, 2020
 """
 
 from __future__ import division
@@ -49,7 +49,7 @@ then timers keep running when program ending.
 ####################
 def __timer_exit():
     """
-    If _STOP_TIMERS is True
+    If `_STOP_TIMERS` is True
     then stop all running timers,
     else do nothing.
 

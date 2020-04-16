@@ -9,5 +9,5 @@ Play "missile.ogg" 0.232200s loaded from local
 Play "missile.mp3" 0.287347s loaded from local
 Play "bonus.wav" 0.448481s loaded from web
 Play "jump.ogg" 0.350884s loaded from web
-Play "arrow.mp3" 1.280000s loaded from web
+Play "arrow.mp3" 1.436735s loaded from web
 End of test_sound

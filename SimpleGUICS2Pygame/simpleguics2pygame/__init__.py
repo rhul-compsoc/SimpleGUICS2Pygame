@@ -27,7 +27,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: April 16, 2020
 """  # noqa
 
 from __future__ import print_function

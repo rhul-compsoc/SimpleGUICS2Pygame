@@ -22,10 +22,12 @@ __all__ = tuple()  # type: ignore
 
 
 from io import BytesIO  # noqa
-from os import makedirs  # noqa
 from os.path import abspath, dirname, expanduser, isdir, isfile, join, splitext  # noqa
 from re import sub  # noqa
 from sys import argv, stderr, version_info  # noqa
+
+import atexit  # noqa
+import os  # noqa
 
 if version_info[0] >= 3:
     from urllib.parse import urlsplit
@@ -88,9 +90,23 @@ and save in local directory even if they already exist.
 """
 
 
+__TMP_FILENAMES = []  # type: ignore
+"""List of filenames of temporary files that must be delete."""
+
+
 #
 # "Private" functions
 #####################
+def __delete_tmp_files():
+    """
+    Delete all temporary files in `__TMP_FILENAMES`.
+
+    Automatically called when program ending.
+    """
+    for filename in __TMP_FILENAMES:
+        os.remove(filename)
+
+
 def _load_local_media(type_of_media, filename):
     """
     Load an image or a sound from local file `filename`.
@@ -193,7 +209,7 @@ def __load_local_mp3_with_audioread(filename):
     return pygame.mixer.Sound(data)
 
 
-def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements
+def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements,too-many-locals
     """
     Load an image or a sound from Web or local directory,
     and save if asked with _SAVE_DOWNLOADED_MEDIAS
@@ -306,11 +322,18 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
         else:                                                    # MP3
             import tempfile  # pylint: disable=import-outside-toplevel
 
-            with tempfile.NamedTemporaryFile('wb',
-                                             prefix='SimpleGUICS2Pygame_',
-                                             suffix='.mp3') as tmpfile:
-                tmpfile.write(media_data)
-                media = __load_local_mp3_with_audioread(tmpfile.name)
+            # Create temporary file
+            tmp_file, tmp_filename = tempfile.mkstemp(
+                prefix='SimpleGUICS2Pygame_', suffix='.mp3')
+            __TMP_FILENAMES.append(tmp_filename)
+            os.close(tmp_file)
+
+            # Write MP3 data in temporary file
+            with open(tmp_filename, 'wb') as fout:
+                fout.write(media_data)
+
+            # Load MP3 sound from temporary file
+            media = __load_local_mp3_with_audioread(tmp_filename)
     except Exception as exc:  # pylint: disable=broad-except
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
             print('{} Pygame loading "{}" FAILED! {}'.format(type_of_media,
@@ -326,7 +349,7 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
             if not isdir(dirname(filename)):
                 try:
                     # Create local directory
-                    makedirs(dirname(filename))
+                    os.makedirs(dirname(filename))
                     if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
                         print('      Created "{}" directory'
                               .format(dirname(filename)),
@@ -408,3 +431,9 @@ def __normalized_filename(url, local_dir):
         filename = ''.join(pieces)
 
     return filename
+
+
+#
+# Main
+######
+atexit.register(__delete_tmp_files)
