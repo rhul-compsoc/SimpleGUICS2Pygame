@@ -13,7 +13,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: April 16, 2020
 """
 
 try:
@@ -35,19 +35,19 @@ except ImportError:
 ALL_RESULTS = {
     # SimpleGUICS2Pygame
     'SimpleGUICS2Pygame 02.00.00 Python 2.7.13 -O pygame 1.9.6':
-    ({1: 62, 10: 62, 20: 62, 30: 61, 40: 62, 50: 62, 75: 62,
+    ({1: 62, 10: 62, 20: 62, 30: 62, 40: 62, 50: 62, 75: 62,
       100: 62, 200: 62, 300: 62, 400: 62, 500: 62, 750: 62,
-      1000: 58, 1250: 49, 1500: 42, 1750: 36, 2000: 32},   # normal
+      1000: 60, 1250: 51, 1500: 43, 1750: 38, 2000: 33},   # normal
      {1: 62, 10: 62, 20: 62, 30: 62, 40: 62, 50: 62, 75: 62,
       100: 62, 200: 62, 300: 62, 400: 62, 500: 62, 750: 62,
-      1000: 58, 1250: 49, 1500: 42, 1750: 37, 2000: 33}),  # REVERSE
+      1000: 59, 1250: 49, 1500: 41, 1750: 36, 2000: 32}),  # REVERSE
     'SimpleGUICS2Pygame 02.00.00 Python 3.5.3 -O pygame 1.9.6':
     ({1: 62, 10: 62, 20: 62, 30: 62, 40: 62, 50: 62, 75: 62,
-      100: 62, 200: 62, 300: 62, 400: 61, 500: 61, 750: 61,
-      1000: 60, 1250: 49, 1500: 42, 1750: 36, 2000: 32},   # normal
+      100: 62, 200: 62, 300: 62, 400: 62, 500: 62, 750: 62,
+      1000: 60, 1250: 50, 1500: 43, 1750: 38, 2000: 33},   # normal
      {1: 62, 10: 62, 20: 62, 30: 62, 40: 62, 50: 62, 75: 62,
       100: 62, 200: 62, 300: 62, 400: 62, 500: 62, 750: 62,
-      1000: 59, 1250: 49, 1500: 42, 1750: 36, 2000: 32}),  # REVERSE
+      1000: 60, 1250: 50, 1500: 43, 1750: 38, 2000: 33}),  # REVERSE
     'old SimpleGUICS2Pygame 00.70.00 Python 2.7.5 -O Pygame 1.9.2pre':
     ({1: 62, 10: 62, 20: 62, 30: 62, 40: 62, 50: 62, 75: 62,
       100: 62, 200: 62, 300: 62, 400: 62, 500: 59, 750: 46,
@@ -136,6 +136,7 @@ def main():  # pylint: disable=too-many-locals
     legends.sort()
 
     datas = []
+    datas_with_old = []
 
     for legend in legends:
         data = ALL_RESULTS[legend]
@@ -148,7 +149,9 @@ def main():  # pylint: disable=too-many-locals
         for nb in nb_balls:
             r.append((nb, data[nb]))
 
-        datas.append(r)
+        if not legend.startswith('old '):
+            datas.append(r)
+        datas_with_old.append(r)
 
     # Display
     print('|'.join(['%4d' % nb for nb in alls_nb]) + '|Environment')
@@ -167,8 +170,14 @@ def main():  # pylint: disable=too-many-locals
 
     # Graph
     try:
-        simpleplot.plot_lines('Stress Balls', 800, 650, '# balls', 'FPS',
-                              datas, True, legends)
+        simpleplot.plot_lines('Stress Balls results',
+                              800, 650, '# balls', 'FPS',
+                              datas, True,
+                              tuple(legend for legend in legends
+                                    if not legend.startswith('old ')))
+        simpleplot.plot_lines('Stress Balls results (with old results)',
+                              800, 650, '# balls', 'FPS',
+                              datas_with_old, True, legends)
         if SIMPLEGUICS2PYGAME:
             simpleplot._block()  # pylint: disable=protected-access
     except Exception as e:  # pylint: disable=broad-except
