@@ -107,7 +107,7 @@ Installation of SimpleGUICS2Pygame
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: sh
 
-   $ python -m pip install SimpleGUICS2Pygame==2.0.0a2 --user
+   $ python -m pip install SimpleGUICS2Pygame==2.0.0a3 --user
 
 **Followed requirements are automatically installed**.
 

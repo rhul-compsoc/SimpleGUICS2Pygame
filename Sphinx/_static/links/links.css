@@ -1,4 +1,13 @@
 /* -*- coding: latin-1 -*- */
+/*
+ * links.css (April 18, 2020)
+ *
+ * Piece of SimpleGUICS2Pygame.
+ * https://bitbucket.org/OPiMedia/simpleguics2pygame
+ *
+ * (c) Olivier Pirson
+ * http://www.opimedia.be/
+ */
 @font-face {
     font-family: Lato;
     font-style: normal;
@@ -73,6 +82,8 @@ a[href^="mailto:"]:focus, a[href^="mailto:"]:hover {
     text-decoration: underline;
 }
 a[href^="mailto:"]:active { color: #003000; }
+
+a.broken { text-decoration: line-through; }
 
 
 img {

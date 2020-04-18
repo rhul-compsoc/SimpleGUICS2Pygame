@@ -83,7 +83,7 @@ Else, simply do:
 
 .. code-block:: sh
 
-   $ python -m pip install SimpleGUICS2Pygame==2.0.0a2 --user
+   $ python -m pip install SimpleGUICS2Pygame==2.0.0a3 --user
 
 Note that ``$`` represents the prompt and do *not* be entered by you.
 
@@ -261,7 +261,7 @@ Note that
 
 Changes
 =======
-* 02.00.00 alpha — April 16, 2020
+* 02.00.00 alpha — April 18, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)

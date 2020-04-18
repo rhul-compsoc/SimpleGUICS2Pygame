@@ -1,4 +1,13 @@
 /* -*- coding: latin-1 -*- */
+/*
+ * links.js (April 18, 2020)
+ *
+ * Piece of SimpleGUICS2Pygame.
+ * https://bitbucket.org/OPiMedia/simpleguics2pygame
+ *
+ * (c) Olivier Pirson
+ * http://www.opimedia.be/
+ */
 
 /*
   If item first child is <img src="#"> tag
