@@ -45,10 +45,10 @@ import pygame ok - Version 1.9.6
 import audioread ok - Version 2.1.8
 
 
-import matplotlib ok - Version 2.2.2
+import matplotlib ok - Version 3.0.3
 
 
-import SimpleGUICS2Pygame ok - Version 02.00.00a2
+import SimpleGUICS2Pygame ok - Version 2.0.0a3
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
