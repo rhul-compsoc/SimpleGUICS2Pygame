@@ -133,7 +133,8 @@ Due to the execution in browser
 CodeSkulptor is slower than directly execute Python on your computer.
 Below a graph of speeds of the execution of the test program `example/Stress_Balls/Stress_Balls.py`_
 in several environments (all on Intel Xeon W3530 Quad-Core 2.8 GHz 6 Gio),
-where the canvas is *normally* displayed 60 times by second.
+where the canvas is *normally* displayed 60 times by second
+(SimpleGUITk seems not very precise).
 When there is a lot of shapes to draw the execution
 can no longer finished all drawing during the given time.
 
@@ -145,8 +146,8 @@ You can also execute this online program to plot results:
 
 |Stress Balls results|
 
-.. _`example/Stress_Balls/Stress_Balls.py`: https://py3.codeskulptor.org/#user305_MtFlt5940IBssJR.py
-.. _`example/Stress_Balls/Stress_Balls_results.py`: https://py3.codeskulptor.org/#user305_IWZn4fyS66zVaQp.py
+.. _`example/Stress_Balls/Stress_Balls.py`: https://py3.codeskulptor.org/#user305_ZUWGM5X36wuMNLz.py
+.. _`example/Stress_Balls/Stress_Balls_results.py`: https://py3.codeskulptor.org/#user305_dooqGAQ2FfejOPo.py
 .. _`Python assertions option`: Tips.html#python-assertions-option
 
 .. |Stress Balls results| image:: _static/img/Stress_Balls_results.svg

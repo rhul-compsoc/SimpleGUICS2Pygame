@@ -22,6 +22,7 @@ import sys
 
 try:
     import simplegui  # pytype: disable=import-error
+    # import simpleguitk as simplegui  # SimpleGUITk https://pypi.org/project/SimpleGUITk  # noqa
     import simpleplot  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
@@ -344,7 +345,7 @@ def rgba_to_str(rgba):
     """
     # %f failed on CodeSkulptor
     return ('rgba(%d, %d, %d, %s)' % rgba if TRANSPARENCY
-            else 'rgba(%d, %d, %d, 1)' % rgba[:3])
+            else '#%02x%02x%02x' % rgba[:3])
 
 
 # Handler
@@ -422,7 +423,11 @@ def revert():
 def stop():
     """Stop timer and frame."""
     TIMER.stop()  # type: ignore
-    FRAME.stop()
+    try:
+        FRAME.stop()
+    except Exception as e:  # pylint: disable=broad-except
+        # To avoid failed when run with simpleguitk
+        print('FRAME.stop():' + str(e))
 
 
 def transparency_on_off():

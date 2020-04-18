@@ -98,7 +98,7 @@ upgrade necessary installation packages:
 
 .. code-block:: sh
 
-   $ python -m pip install pip setuptools wheel --upgrade --user
+   $ python -m pip install pip setuptools wheel --user --upgrade
 
 .. _pip: https://pip.pypa.io/
 
@@ -107,7 +107,7 @@ Installation of SimpleGUICS2Pygame
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: sh
 
-   $ python -m pip install SimpleGUICS2Pygame==2.0.0a3 --user
+   $ python -m pip install SimpleGUICS2Pygame==2.0.0a3 --user --upgrade
 
 **Followed requirements are automatically installed**.
 
@@ -127,7 +127,7 @@ and module ``simpleguics2pygame`` of SimpleGUICS2Pygame
 
    .. code-block:: sh
 
-     $ python -m pip install pygame==1.9.6 --upgrade --user
+     $ python -m pip install pygame==1.9.6 --user --upgrade
 
 If you have some problem,
 see `installation documentation of pygame`_.
