@@ -127,8 +127,14 @@ the class `Frame`_ in SimpleGUICS2Pygame defines
 ``_set_joypadaxe_handler()``
 and ``_set_joypadhat_handler()``.
 
-.. _`Frame`: simpleguics2pygame/frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame
+Two little examples using joypads
+(but of course only when you run them with SimpleGUICS2Pygame directly on your computer):
+`example/Pong.py`_
+and `example/RiceRocks_Asteroids.py`_.
 
+.. _`example/Pong.py`: https://py3.codeskulptor.org/#user305_3fS6FHzYdk9FENM.py
+.. _`example/RiceRocks_Asteroids.py`: https://py3.codeskulptor.org/#user305_IL8qdiqwWMvy8n0.py
+.. _`Frame`: simpleguics2pygame/frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame
 
 
 Colors
