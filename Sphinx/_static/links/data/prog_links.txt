@@ -151,15 +151,15 @@ stop_example.py
 https://py3.codeskulptor.org/#user305_Ka5kvssiUWkDnSA.py
 Stopwatch.py
 
-http://www.codeskulptor.org/#user305_tCx2JST82o74lNm.py
+http://www.codeskulptor.org/#user305_MtFlt5940IBssJR.py
 <strong>Stress_Balls</strong>.py
 in CodeSkulptor 2
 
-https://py3.codeskulptor.org/#user305_tCx2JST82o74lNm.py
+https://py3.codeskulptor.org/#user305_MtFlt5940IBssJR.py
 <strong>Stress_Balls</strong>.py
 in CodeSkulptor3
 
-https://py3.codeskulptor.org/#user305_RdqQKZJUXwSFHKu.py
+https://py3.codeskulptor.org/#user305_IWZn4fyS66zVaQp.py
 Stress_Balls_results.py
 
 

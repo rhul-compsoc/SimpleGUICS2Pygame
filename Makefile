@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- April 14, 2020
+# Makefile of SimpleGUICS2Pygame --- April 18, 2020
 
 .SUFFIXES:
 
@@ -113,6 +113,7 @@ sdist:
 
 docs:	links
 	$(CP) -t Sphinx/_static/img pydeps_all.svg pydeps_only.svg
+	$(CP) -t Sphinx/_static/img SimpleGUICS2Pygame/example/Stress_Balls/results/Stress_Balls_results.svg
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
 docstgz:	docs

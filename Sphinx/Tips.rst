@@ -254,11 +254,22 @@ Python assertions option
 ------------------------
 Run
 ``python YOURPROGRAM.py``
-then asserts is enabled and this package is (intentionnaly) very strict. So maybe "correct" program in CodeSkulptor failed!
+then asserts is enabled and this package is (intentionnaly) very strict.
+So maybe "correct" programs in CodeSkulptor fail!
+(In fact CodeSkulptor is very permissive.
+Some incorrect Python codes are accepted.)
 It is a good point to develop and write *correct programs*.
-But if you want just run a program (or run faster),
-``python -O YOURPROGRAM.py``
-then all asserts is *disabled*.
+But if you want just run a program
+without annoying assertions
+you can *disable* them with.
+``python -O YOURPROGRAM.py``.
+
+In some cases
+run without assertions is **faster**.
+See in the `Comparison of speeds`_ section,
+an example where SimpleGUICS2Pygame functions are executed a lot of times.
+
+.. _`Comparison of speeds`: Compatibility.html#comparison-of-speeds
 
 
 Ressources: images, sounds and example programs

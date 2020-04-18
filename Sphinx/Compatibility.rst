@@ -125,3 +125,29 @@ For example on Debian, install it and set the volume for the application:
 
    $ sudo apt install pavucontrol
    $ pavucontrol
+
+
+Comparison of speeds
+--------------------
+Due to the execution in browser
+CodeSkulptor is slower than directly execute Python on your computer.
+Below a graph of speeds of the execution of the test program `Stress_Balls.py`_
+in several environments (all on Intel Xeon W3530 Quad-Core 2.8 GHz 6 Gio),
+where the canvas is *normally* displayed 60 times by second.
+When there is a lot of shapes to draw the execution
+can no longer finished all drawing during the given time.
+
+``-O`` indicates that assertions was disabled during the test.
+See `Python assertions option`_ section.
+
+You can also execute this online program to plot results:
+`Stress_Balls_results.py`_.
+
+|Stress Balls results|
+
+.. _`Python assertions option`: Tips.html#python-assertions-option
+.. _`Stress_Balls.py`: https://py3.codeskulptor.org/#user305_MtFlt5940IBssJR.py
+.. _`Stress_Balls_results.py`: https://py3.codeskulptor.org/#user305_IWZn4fyS66zVaQp.py
+
+.. |Stress Balls results| image:: _static/img/Stress_Balls_results.svg
+   :target: _static/img/Stress_Balls_results.svg

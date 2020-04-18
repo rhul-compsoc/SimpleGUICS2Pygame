@@ -15,7 +15,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 16, 2020
+:version: April 18, 2020
 """
 
 import sys
@@ -263,6 +263,12 @@ def dict_to_ordered_list(d):
             for NB_SHAPES in seq]
 
 
+def flush():
+    """With SimpleGUICS2Pygame flush the standard output, else do nothing."""
+    if SIMPLEGUICS2PYGAME:
+        sys.stdout.flush()
+
+
 def init():
     """Init list of shapes, corresponding to the current step."""
     global FPS  # pylint: disable=global-statement
@@ -297,6 +303,8 @@ def init():
             except Exception as e:  # pylint: disable=broad-except
                 # To avoid fail if no simpleplot
                 print('simpleplot.plot_lines():' + str(e))
+
+        flush()
 
         return
 
@@ -399,6 +407,7 @@ def print_fps():
 
     if (NB_SECONDS > MAX_NB_SECONDS) or TO_NEXT_STEP:
         print('%d | %d' % (NB_SHAPES, FPS))
+        flush()
         RESULTS[NB_SHAPES] = FPS
 
         init()
@@ -452,6 +461,7 @@ def main():
 
     print("""Stress Balls:
     # balls | FPS...""")
+    flush()
 
     FRAME = simplegui.create_frame('Stress Balls' +
                                    (' TRANSPARENCY' if TRANSPARENCY
