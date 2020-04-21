@@ -34,9 +34,9 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8180   |48.58 |NC       |NC         |
+|code      |8179   |48.58 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |4860   |28.86 |NC       |NC         |
+|docstring |4859   |28.86 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 |comment   |798    |4.74  |NC       |NC         |
 +----------+-------+------+---------+-----------+
@@ -99,7 +99,7 @@ Unresolved dependencies:
   urlparse.urlsplit
 
 ===== pytype 2020.04.01 =====
-ninja: Entering directory `/home/opi/data/git/current/simpleguics2pygame/.pytype'
+ninja: Entering directory `/home/opi/data/git/archives/simpleguics2pygame/.pytype'
 ninja: no work to do.
 Computing dependencies
 Analyzing 64 sources with 0 local dependencies

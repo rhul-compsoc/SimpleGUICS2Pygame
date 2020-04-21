@@ -100,10 +100,6 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week8-dart.png
 
 
 
-+  <a lang="fr" href="http://www.opimedia.be/DS/webdev/liens.htm#free-images" target="_blank">&quot;Free&quot; images</a>
-
-
-
 + <a href="https://py3.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_1.png
@@ -171,33 +167,37 @@ example
 
 
 
-+ <a href="http://www.codeskulptor.org/#user305_0fEcjtnm7SwNlgf.py" target="_blank">Memory Cards</a> in CodeSkulptor 2
++  <a lang="fr" href="http://www.opimedia.be/DS/webdev/liens.htm#free-images" target="_blank">List of &quot;free&quot; images websites</a>
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/CodeSkulptor.jpg
+
+
++ <a href="https://py3.codeskulptor.org/#user305_vuhd6NeJIzvhNOV.py" target="_blank">Memory Cards</a> game
+
+https://i.imgur.com/svHUOV2.jpg
 CodeSkulptor
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Guido_van_Rossum.jpg
+https://i.imgur.com/kQbx35z.jpg
 Guido <span class="surname">van Rossum</span>
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Joe_Warren.jpg
+https://i.imgur.com/kvuSM04.jpg
 Joe <span class="surname">Warren</span>
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/John_Greiner.jpg
-John <span class="surname">John_Greiner</span>
+https://i.imgur.com/HXJ6906.jpg
+John <span class="surname">Greiner</span>
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/OPi.jpg
-O<span class="surname">Pi</span>
-
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Python.jpg
+https://i.imgur.com/Rr1jAAn.jpg
 Python
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Scott_Rixner.jpg
+https://i.imgur.com/8CVSH15.jpg
 Scott <span class="surname">Rixner</span>
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Stephen_Wong.jpg
+https://i.imgur.com/ybaQQfu.jpg
+SimpleGUICS2Pygame
+
+https://i.imgur.com/Nlpl5R3.jpg
 Stephen <span class="surname">Wong</span>
 
-http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/Memory.jpg
+https://i.imgur.com/z0ezFNN.jpg
 T-shirt memory
 
 

@@ -121,16 +121,11 @@ Example of simplegui_lib_loader. Loader use: <a href="../../simplegui_lib_loader
 https://py3.codeskulptor.org/#user305_36ZXwPAltAvKh0l.py
 <strong>Mandelbrot_Set</strong>.py
 
-http://www.codeskulptor.org/#user305_0fEcjtnm7SwNlgf.py
+https://py3.codeskulptor.org/#user305_vuhd6NeJIzvhNOV.py
 <strong>Memory</strong>.py
-in CodeSkulptor 2
-
-https://py3.codeskulptor.org/#user305_0fEcjtnm7SwNlgf.py
-Memory.py
-in CodeSkulptor3 (images don't load, I don't know why)
 
 https://py3.codeskulptor.org/#user305_rUO50Nkv0zyR7k3.py
-<strong>Nostalgic_Basic_Blitz</strong>.py
+Nostalgic_Basic_Blitz.py
 
 https://py3.codeskulptor.org/#user305_3fS6FHzYdk9FENM.py
 <strong>Pong</strong>.py

@@ -14,7 +14,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: April 21, 2020
 """
 
 import random
@@ -38,21 +38,19 @@ USE_IMAGES = True  # change to False to avoid images
 
 # Globals variables
 if USE_IMAGES:
-    CARD_IMAGES = [
-        simplegui.load_image(
-            'http://www.opimedia.be/DS/SimpleGUICS2Pygame/stuff/Memory/img/' +
-            url)
-        for url in ('Guido_van_Rossum.jpg',
-                    'Python.jpg',
-                    'Joe_Warren.jpg',
-                    'Scott_Rixner.jpg',
-                    'John_Greiner.jpg',
-                    'Stephen_Wong.jpg',
-                    'CodeSkulptor.jpg',
-                    'OPi.jpg',
-                    'Memory.jpg')]
+    CARD_IMAGES = tuple(
+        simplegui.load_image(url)
+        for url in ('https://i.imgur.com/kQbx35z.jpg',  # Guido van Rossum
+                    'https://i.imgur.com/Rr1jAAn.jpg',  # Python
+                    'https://i.imgur.com/ybaQQfu.jpg',  # SimpleGUICS2Pygame
+                    'https://i.imgur.com/svHUOV2.jpg',  # CodeSkulptor
+                    'https://i.imgur.com/kvuSM04.jpg',  # Joe Warren
+                    'https://i.imgur.com/8CVSH15.jpg',  # Scott Rixner
+                    'https://i.imgur.com/HXJ6906.jpg',  # John Greiner
+                    'https://i.imgur.com/Nlpl5R3.jpg',  # Stephen Wong
+                    'https://i.imgur.com/z0ezFNN.jpg'))  # Memory (verso)
 else:
-    CARD_IMAGES = [simplegui.load_image('')] * 9  # 9 (same) failed images
+    CARD_IMAGES = (simplegui.load_image(''), ) * 9  # 9 (same) failed images
 
 MEMORY = None  # the principal variable, instance of Memory
 

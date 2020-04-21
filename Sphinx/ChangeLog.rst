@@ -1,5 +1,15 @@
 ChangeLog
 =========
+* April 21, 2020
+
+  - Documentation:
+
+    - Updated images and CodeSkulptor programs links.
+
+  - Program examples:
+
+    - Adapted ``example/Memory.py`` with images moved to HTTPS.
+
 * 02.00.00 — April 18, 2020
 
   - Converted from Mercurial version control system to Git.
