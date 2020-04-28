@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- April 18, 2020
+# Makefile of SimpleGUICS2Pygame --- April 28, 2020
 
 .SUFFIXES:
 
@@ -15,14 +15,18 @@ PYTHON3      = python3  # https://www.python.org/
 PYTHON3FLAGS =
 
 
+PYDEPS      = pydeps  # https://github.com/thebjorn/pydeps
+PYDEPSFLAGS = --noshow
+
+PYREVERSE      = pyreverse  # part of pylint, require https://www.graphviz.org/ for SVG format
+PYREVERSEFLAGS = -A -my
+
+
 MYPY      = mypy  # http://www.mypy-lang.org/
 MYPYFLAGS = --ignore-missing-imports  # --warn-unused-ignores
 
 PYCODESTYLE      = pycodestyle  # (pep8) https://pypi.org/project/pycodestyle/
 PYCODESTYLEFLAGS = --statistics  # --ignore=E501
-
-PYDEPS      = pydeps  # https://github.com/thebjorn/pydeps
-PYDEPSFLAGS = --noshow
 
 PYDOCSTYLE      = pydocstyle  # http://www.pydocstyle.org/
 PYDOCSTYLEFLAGS = --ignore=D203,D205,D212,D400,D401,D407,D413,D415  # http://www.pydocstyle.org/en/latest/error_codes.html
@@ -46,6 +50,7 @@ ECHO  = echo
 GREP  = grep
 GZIP  = gzip
 MAKE  = make
+MV    = mv
 RM    = rm -f
 RMDIR = rmdir
 SED   = sed
@@ -109,10 +114,13 @@ sdist:
 #######
 # Doc #
 #######
-.PHONY: docs docstgz links pydeps
+.PHONY: diagrams docs docstgz links pydeps pyreverse
+
+diagrams:	pydeps pyreverse
 
 docs:	links
-	$(CP) -t Sphinx/_static/img pydeps_all.svg pydeps_only.svg
+	$(CP) -t Sphinx/_static/img diagrams/pydeps/pydeps_*.svg
+	$(CP) -t Sphinx/_static/img diagrams/pyreverse/classes_SimpleGUICS2Pygame*.svg
 	$(CP) -t Sphinx/_static/img SimpleGUICS2Pygame/example/Stress_Balls/results/Stress_Balls_results.svg
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) Sphinx; $(MAKE) html
 
@@ -129,8 +137,18 @@ links:
 	-@$(CD) Sphinx/_static/links/data; $(RM) -r __pycache__/*.pyc; $(RMDIR) __pycache__
 
 pydeps:
-	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_all.svg
-	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
+	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o diagrams/pydeps/pydeps_all.svg
+	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o diagrams/pydeps/pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
+
+pyreverse:
+	$(PYREVERSE) $(PYREVERSEFLAGS) -p SimpleGUICS2Pygame SimpleGUICS2Pygame
+	$(PYREVERSE) $(PYREVERSEFLAGS) -f ALL -p SimpleGUICS2Pygame_all SimpleGUICS2Pygame
+	-$(PYREVERSE) $(PYREVERSEFLAGS) -p SimpleGUICS2Pygame -o svg SimpleGUICS2Pygame
+	-$(PYREVERSE) $(PYREVERSEFLAGS) -f ALL -p SimpleGUICS2Pygame_all -o svg SimpleGUICS2Pygame
+	$(MV) classes_SimpleGUICS2Pygame_all.* diagrams/pyreverse/
+	$(MV) classes_SimpleGUICS2Pygame.* diagrams/pyreverse/
+	$(MV) packages_SimpleGUICS2Pygame_all.* diagrams/pyreverse/
+	$(RM) packages_SimpleGUICS2Pygame.*
 
 
 
@@ -265,4 +283,5 @@ distclean:	clean cleandist
 
 overclean:	distclean
 	$(RM) lint.log
-	$(RM) pydeps_*.svg
+	$(RM) diagrams/pydeps/pydeps_*.svg
+	$(RM) diagrams/pyreverse/*_SimpleGUICS2Pygame_*.*
