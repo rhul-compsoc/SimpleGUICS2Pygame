@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- April 28, 2020
+# Makefile of SimpleGUICS2Pygame --- April 30, 2020
 
 .SUFFIXES:
 
@@ -50,6 +50,7 @@ ECHO  = echo
 GREP  = grep
 GZIP  = gzip
 MAKE  = make
+MKDIR = mkdir -p
 MV    = mv
 RM    = rm -f
 RMDIR = rmdir
@@ -137,6 +138,7 @@ links:
 	-@$(CD) Sphinx/_static/links/data; $(RM) -r __pycache__/*.pyc; $(RMDIR) __pycache__
 
 pydeps:
+	$(MKDIR) diagrams/pydeps
 	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o diagrams/pydeps/pydeps_all.svg
 	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o diagrams/pydeps/pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
 
@@ -145,6 +147,7 @@ pyreverse:
 	$(PYREVERSE) $(PYREVERSEFLAGS) -f ALL -p SimpleGUICS2Pygame_all SimpleGUICS2Pygame
 	-$(PYREVERSE) $(PYREVERSEFLAGS) -p SimpleGUICS2Pygame -o svg SimpleGUICS2Pygame
 	-$(PYREVERSE) $(PYREVERSEFLAGS) -f ALL -p SimpleGUICS2Pygame_all -o svg SimpleGUICS2Pygame
+	$(MKDIR) diagrams/pyreverse
 	$(MV) classes_SimpleGUICS2Pygame_all.* diagrams/pyreverse/
 	$(MV) classes_SimpleGUICS2Pygame.* diagrams/pyreverse/
 	$(MV) packages_SimpleGUICS2Pygame_all.* diagrams/pyreverse/
@@ -284,4 +287,7 @@ distclean:	clean cleandist
 overclean:	distclean
 	$(RM) lint.log
 	$(RM) diagrams/pydeps/pydeps_*.svg
-	$(RM) diagrams/pyreverse/*_SimpleGUICS2Pygame_*.*
+	$(RM) diagrams/pyreverse/classes_SimpleGUICS2Pygame*.dot
+	$(RM) diagrams/pyreverse/classes_SimpleGUICS2Pygame*.svg
+	$(RM) diagrams/pyreverse/packages_SimpleGUICS2Pygame*.dot
+	$(RM) diagrams/pyreverse/packages_SimpleGUICS2Pygame*.svg
