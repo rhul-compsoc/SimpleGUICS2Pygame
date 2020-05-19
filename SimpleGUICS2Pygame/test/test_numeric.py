@@ -9,13 +9,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 try:
-    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # type: ignore
+    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
-    import numeric  # type: ignore
+    import numeric  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -85,7 +85,7 @@ def m_to_l(m):
 #
 # Main
 ######
-def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
+def main():  # pylint: disable=too-many-locals,too-many-branches,too-many-statements  # noqa
     """Perform succession of tests."""
     if SIMPLEGUICS2PYGAME:
         from sys import argv  # pylint: disable=import-outside-toplevel
@@ -320,13 +320,13 @@ def main():  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-man
 
         for data in datas:
             m = numeric.Matrix(data)
-            m2 = m * numeric.identity(len(data[0]))  # noqa  # pylint: disable=invalid-name
+            m2 = m * numeric.identity(len(data[0]))  # pylint: disable=invalid-name  # noqa
             if not m_eq(m, m2):
                 nb_errors += 1
                 print('error: *: %s' % data)
                 print(m2)
 
-            m2 = numeric.identity(len(data)) * m  # noqa  # pylint: disable=invalid-name
+            m2 = numeric.identity(len(data)) * m  # pylint: disable=invalid-name  # noqa
             if not m_eq(m, m2):
                 nb_errors += 1
                 print('error: *: %s' % data)

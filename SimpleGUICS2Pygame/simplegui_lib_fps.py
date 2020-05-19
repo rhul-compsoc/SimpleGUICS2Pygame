@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 # print('IMPORT', __name__)
@@ -95,9 +95,9 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         self._nb_seconds = 0
 
         try:
-            from simplegui import create_timer  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel
+            from simplegui import create_timer  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel  # noqa
         except ImportError:
-            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # noqa  # pylint: disable=import-outside-toplevel
+            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # pylint: disable=import-outside-toplevel  # noqa
 
         def update():
             """Update counters."""

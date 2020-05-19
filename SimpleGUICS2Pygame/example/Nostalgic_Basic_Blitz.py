@@ -14,7 +14,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 import random
@@ -24,7 +24,7 @@ try:
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
-    simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
+    simplegui.Frame._cursor_auto_hide = True  # pylint: disable=protected-access  # noqa
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
 
@@ -59,7 +59,7 @@ class Blitz:
 
     def __init__(self):
         """Set the game."""
-        self.__bomb = None
+        self.__bomb = None  # type: Bomb
         self.__city = City()
         self.__plane = Plane()
 
@@ -101,8 +101,8 @@ class Blitz:
                 self.__city.kill_columns(self.__bomb.pos_x())
                 self.__bomb = None
             else:
-                self.__city.kill_column_top(self.__bomb.pos_x(),  # noqa  # type: ignore
-                                            self.__bomb.pos_y())  # noqa  # type: ignore
+                self.__city.kill_column_top(self.__bomb.pos_x(),
+                                            self.__bomb.pos_y())
 
         x, y = self.__plane.nose_pos()
         if self.__city.check_collide(x + 1, y):

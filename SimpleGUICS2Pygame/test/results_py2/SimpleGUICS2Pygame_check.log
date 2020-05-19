@@ -18,7 +18,7 @@ PATH:
   /home/opi/.local/bin
 
 PYTHONPATH:
-  /home/opi/data/git/current/simpleguics2pygame
+  /home/opi/data/git/archives/simpleguics2pygame
   
 
 
@@ -26,9 +26,9 @@ python - version 2.7.13 (default, Sep 26 2018, 18:42:22)
 [GCC 6.3.0 20170516]
 
 sys.path:
-  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
-  /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
+  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/script
+  /home/opi/data/git/archives/simpleguics2pygame
+  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python2.7
   /usr/lib/python2.7/plat-x86_64-linux-gnu
   /usr/lib/python2.7/lib-tk
@@ -52,7 +52,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.2.5
 
 
-import SimpleGUICS2Pygame ok - Version 2.0.0
+import SimpleGUICS2Pygame ok - Version 2.0.1
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

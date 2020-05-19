@@ -14,7 +14,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 21, 2020
+:version: May 19, 2020
 """
 
 import random
@@ -276,7 +276,7 @@ class Memory:
                     if len(self.selected_cards) == self.nb_repeat_cards:
                         # Good number of exposed cards
                         # Reinit exposed cards
-                        for c in self.selected_cards:  # noqa  # pylint: disable=invalid-name
+                        for c in self.selected_cards:  # pylint: disable=invalid-name  # noqa
                             c.selected = False
                             if not self.new_founded:  # but not good cards
                                 c.exposed = False
@@ -302,7 +302,7 @@ class Memory:
                             self.nb_founded += 1
                             if self.nb_founded == self.nb_different_cards:
                                 # Completed game
-                                for c in self.selected_cards:  # noqa  # pylint: disable=invalid-name
+                                for c in self.selected_cards:  # pylint: disable=invalid-name  # noqa
                                     c.selected = False
 
                 break

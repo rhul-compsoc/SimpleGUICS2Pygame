@@ -9,12 +9,12 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 try:
-    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # noqa  # type: ignore  # pylint: disable=unused-import
-    import simpleplot  # type: ignore
+    from codeskulptor import file2url  # to avoid other simpleplot available in Python  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+    import simpleplot  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:

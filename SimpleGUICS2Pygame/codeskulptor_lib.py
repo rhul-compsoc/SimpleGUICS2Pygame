@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 # print('IMPORT', __name__)
@@ -78,8 +78,8 @@ def codeskulptor_is():
     if __CODESKULPTOR_IS is None:
         try:
             # Try import to check if running in CodeSkulptor environment
-            from codeskulptor import file2url  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,unused-import
-            from simplegui import KEY_MAP  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,unused-import
+            from codeskulptor import file2url  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel,unused-import  # noqa
+            from simplegui import KEY_MAP  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel,unused-import  # noqa
 
             __CODESKULPTOR_IS = True
         except ImportError:
@@ -103,7 +103,7 @@ def codeskulptor_version():
         if codeskulptor_is():
             try:
                 # Try import to check if running in CodeSkulptor version 2
-                from urllib2 import urlopen  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,unused-import
+                from urllib2 import urlopen  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel,unused-import  # noqa
 
                 __CODESKULPTOR_VERSION = 2
             except ImportError:

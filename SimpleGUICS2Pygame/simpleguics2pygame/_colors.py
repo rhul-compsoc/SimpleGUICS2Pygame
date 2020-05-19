@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 from __future__ import division
@@ -19,13 +19,13 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = tuple()  # type: ignore
+__all__ = tuple()  # type: tuple
 
 
 import colorsys  # noqa
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -202,7 +202,7 @@ else:
 #
 # Private global variable
 #########################
-_PYGAMECOLORS_CACHED = {}  # type: ignore
+_PYGAMECOLORS_CACHED = dict()  # type: dict
 """
 `Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
 
@@ -244,7 +244,7 @@ def _simpleguicolor_to_pygamecolor(
 
     :return: pygame.Color
     """  # noqa
-    pygame_color = _PYGAMECOLORS_CACHED.get(color)  # noqa  # pylint: disable=protected-access
+    pygame_color = _PYGAMECOLORS_CACHED.get(color)  # pylint: disable=protected-access  # noqa
     if pygame_color is not None:  # already in cache
         return pygame_color
 

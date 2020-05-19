@@ -9,13 +9,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 try:
-    from user305_2AIoOM1Isi08A9H import draw_text_multi, draw_text_side  # noqa  # type: ignore
+    from user305_2AIoOM1Isi08A9H import draw_text_multi, draw_text_side  # pytype: disable=import-error  # noqa
 
-    import simplegui  # type: ignore
+    import simplegui  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -31,7 +31,7 @@ except ImportError:
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from pygame.version import ver as pygame_version
-    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # noqa  # pylint: disable=ungrouped-imports
+    from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # pylint: disable=ungrouped-imports  # noqa
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + pygame_version
@@ -137,7 +137,7 @@ if SIMPLEGUICS2PYGAME:
     from sys import argv
 
     if len(argv) == 2:
-        FRAME._save_canvas_and_stop(argv[1])  # noqa  # pylint: disable=protected-access
+        FRAME._save_canvas_and_stop(argv[1])  # pylint: disable=protected-access  # noqa
 
 
 FRAME.start()

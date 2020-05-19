@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 import math
@@ -26,7 +26,7 @@ except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
     import SimpleGUICS2Pygame.simpleguics2pygame._joypads as _joypads
 
-    simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
+    simplegui.Frame._cursor_auto_hide = True  # pylint: disable=protected-access  # noqa
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
@@ -290,7 +290,7 @@ class Ball(MovingItem):
                                     random.choice((-1, 1)))))
         self.radius = radius
 
-    def check_collision(self):  # noqa  # pylint: disable=too-many-branches,too-many-statements
+    def check_collision(self):  # pylint: disable=too-many-branches,too-many-statements  # noqa
         """
         If the ball touch the top or the bottom of the screen
         then bounce vertically.
@@ -748,7 +748,7 @@ def restart():
     BUTTON_PROTECT_LEFT.set_text('Protect left player')
     BUTTON_PROTECT_RIGHT.set_text('Protect right player')
 
-    if SIMPLEGUICS2PYGAME and (_joypads._joypad_nb > 0):  # noqa  # pylint: disable=protected-access
+    if SIMPLEGUICS2PYGAME and (_joypads._joypad_nb > 0):  # pylint: disable=protected-access  # noqa
         protect_right()
     else:
         protect_left()
@@ -790,14 +790,14 @@ FRAME.set_keyup_handler(keyup)
 
 if SIMPLEGUICS2PYGAME:
     if simplegui._joypads._joypad_nb > 0:  # pylint: disable=protected-access
-        FRAME._set_joypadaxe_handler(joypad_axe)  # noqa  # pylint: disable=protected-access
-        FRAME._set_joypadup_handler(joypad_up)  # noqa  # pylint: disable=protected-access
-        FRAME._set_joypadhat_handler(joypad_hat)  # noqa  # pylint: disable=protected-access
+        FRAME._set_joypadaxe_handler(joypad_axe)  # pylint: disable=protected-access  # noqa
+        FRAME._set_joypadup_handler(joypad_up)  # pylint: disable=protected-access  # noqa
+        FRAME._set_joypadhat_handler(joypad_hat)  # pylint: disable=protected-access  # noqa
 
     FRAME.add_label('')
     FRAME.add_label('%i joypad%s available' %
-                    (simplegui._joypads._joypad_nb,  # noqa  # pylint: disable=protected-access
-                     ('s' if simplegui._joypads._joypad_nb > 1  # noqa  # pylint: disable=protected-access
+                    (simplegui._joypads._joypad_nb,  # pylint: disable=protected-access  # noqa
+                     ('s' if simplegui._joypads._joypad_nb > 1  # pylint: disable=protected-access  # noqa
                       else '')))
 
 FRAME.set_draw_handler(draw)

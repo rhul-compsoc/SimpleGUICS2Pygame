@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 12, 2020
+:version: May 19, 2020
 """
 
 from sys import argv
@@ -17,7 +17,7 @@ from sys import argv
 
 BEFORE = tuple(argv)
 
-import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # noqa  # pylint: disable=wrong-import-position,unused-import
+import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # pylint: disable=wrong-import-position,unused-import  # noqa
 
 AFTER = tuple(argv)
 

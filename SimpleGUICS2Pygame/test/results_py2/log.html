@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, itial-scale=1">
   <meta name="author" content="SimpleGUICS2Pygame &ndash; test_all">
-  <title>SimpleGUICS2Pygame 2.0.0 &ndash; test report &ndash; Python 2 &ndash; Pygame 1.9.6</title>
+  <title>SimpleGUICS2Pygame 2.0.1 &ndash; test report &ndash; Python 2 &ndash; Pygame 1.9.6</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
 <body>
 <main>
   <header>
-    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 2.0.0
+    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 2.0.1
     (<a href="https://simpleguics2pygame.readthedocs.io/" target="_blank">online documentation</a>)
-    <h1>test report &ndash; Python 2 &ndash; Pygame 1.9.6 &ndash; 2020-04-18 21:07:44</h1>
+    <h1>test report &ndash; Python 2 &ndash; Pygame 1.9.6 &ndash; 2020-05-19 16:29:01</h1>
   </header>
   <ol>
 <li>
@@ -37,7 +37,7 @@ PATH:
   /home/opi/.local/bin
 
 PYTHONPATH:
-  /home/opi/data/git/current/simpleguics2pygame
+  /home/opi/data/git/archives/simpleguics2pygame
   
 
 
@@ -45,9 +45,9 @@ python - version 2.7.13 (default, Sep 26 2018, 18:42:22)
 [GCC 6.3.0 20170516]
 
 sys.path:
-  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/script
-  /home/opi/data/git/current/simpleguics2pygame
-  /home/opi/data/git/current/simpleguics2pygame/SimpleGUICS2Pygame/test
+  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/script
+  /home/opi/data/git/archives/simpleguics2pygame
+  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/test
   /usr/lib/python2.7
   /usr/lib/python2.7/plat-x86_64-linux-gnu
   /usr/lib/python2.7/lib-tk
@@ -71,7 +71,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.2.5
 
 
-import SimpleGUICS2Pygame ok - Version 2.0.0
+import SimpleGUICS2Pygame ok - Version 2.0.1
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
@@ -119,12 +119,12 @@ import SimpleGUICS2Pygame.simpleplot ok</pre>
 </li>
 <li>
   <h2 >test_command_line_options</h2>
-<pre class="log">('test_command_line_options.py', 'results_py2/test_command_line_options.png')
-('test_command_line_options.py', 'results_py2/test_command_line_options.png')</pre>
+<pre class="log">(&#x27;test_command_line_options.py&#x27;, &#x27;results_py2/test_command_line_options.png&#x27;)
+(&#x27;test_command_line_options.py&#x27;, &#x27;results_py2/test_command_line_options.png&#x27;)</pre>
 </li>
 <li>
   <h2 >test_dir</h2>
-<pre class="log">List dir() differences between CodeSkulptor (April 2020) and this "Python":
+<pre class="log">List dir() differences between CodeSkulptor (April 2020) and this &quot;Python&quot;:
 
 CodeSkulptor simplemap	!= Python 2.7.13 simplemap
 --------------------------------------------------------
@@ -153,14 +153,14 @@ service</pre>
 </li>
 <li>
   <h2 >test_objects</h2>
-<pre class="log">button&lt;type 'instance'&gt;&lt;Control object&gt;&lt;Control object&gt;
-canvas&lt;type 'instance'&gt;&lt;Canvas object&gt;&lt;Canvas object&gt;
-frame&lt;type 'instance'&gt;&lt;Frame object&gt;&lt;Frame object&gt;
-image&lt;type 'instance'&gt;&lt;Image object&gt;&lt;Image object&gt;
-input&lt;type 'instance'&gt;&lt;TextAreaControl object&gt;&lt;TextAreaControl object&gt;
-label&lt;type 'instance'&gt;&lt;Control object&gt;&lt;Control object&gt;
-sound&lt;type 'instance'&gt;&lt;Sound object&gt;&lt;Sound object&gt;
-timer&lt;type 'instance'&gt;&lt;Timer object&gt;&lt;Timer object&gt;</pre>
+<pre class="log">button&lt;type &#x27;instance&#x27;&gt;&lt;Control object&gt;&lt;Control object&gt;
+canvas&lt;type &#x27;instance&#x27;&gt;&lt;Canvas object&gt;&lt;Canvas object&gt;
+frame&lt;type &#x27;instance&#x27;&gt;&lt;Frame object&gt;&lt;Frame object&gt;
+image&lt;type &#x27;instance&#x27;&gt;&lt;Image object&gt;&lt;Image object&gt;
+input&lt;type &#x27;instance&#x27;&gt;&lt;TextAreaControl object&gt;&lt;TextAreaControl object&gt;
+label&lt;type &#x27;instance&#x27;&gt;&lt;Control object&gt;&lt;Control object&gt;
+sound&lt;type &#x27;instance&#x27;&gt;&lt;Sound object&gt;&lt;Sound object&gt;
+timer&lt;type &#x27;instance&#x27;&gt;&lt;Timer object&gt;&lt;Timer object&gt;</pre>
 </li>
 <li>
   <h2 >test_simpleplot_bars<span class="imgs_diff">Images different: 56!</span></h2>
@@ -182,18 +182,18 @@ timer&lt;type 'instance'&gt;&lt;Timer object&gt;&lt;Timer object&gt;</pre>
 </li>
 <li>
   <h2 >test_sound</h2>
-<pre class="log">Load from web "bonus.wav"
-Load from web "jump.ogg"
-Load from web "arrow.mp3"
-Load local "chirp_1s.wav"
-Load local "missile.ogg"
-Load local "missile.mp3"
-Play "chirp_1s.wav" 1.000000s loaded from local
-Play "missile.ogg" 0.232200s loaded from local
-Play "missile.mp3" 0.287347s loaded from local
-Play "bonus.wav" 0.448481s loaded from web
-Play "jump.ogg" 0.350884s loaded from web
-Play "arrow.mp3" 1.436735s loaded from web
+<pre class="log">Load from web &quot;bonus.wav&quot;
+Load from web &quot;jump.ogg&quot;
+Load from web &quot;arrow.mp3&quot;
+Load local &quot;chirp_1s.wav&quot;
+Load local &quot;missile.ogg&quot;
+Load local &quot;missile.mp3&quot;
+Play &quot;chirp_1s.wav&quot; 1.000000s loaded from local
+Play &quot;missile.ogg&quot; 0.232200s loaded from local
+Play &quot;missile.mp3&quot; 0.287347s loaded from local
+Play &quot;bonus.wav&quot; 0.448481s loaded from web
+Play &quot;jump.ogg&quot; 0.350884s loaded from web
+Play &quot;arrow.mp3&quot; 1.436735s loaded from web
 End of test_sound</pre>
 </li>
 <li>

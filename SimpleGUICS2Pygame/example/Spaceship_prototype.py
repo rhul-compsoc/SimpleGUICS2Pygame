@@ -19,7 +19,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 import math
@@ -40,9 +40,9 @@ except ImportError:
 
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
-    simplegui.Frame._cursor_auto_hide = True  # noqa  # pylint: disable=protected-access
-    simplegui.Frame._hide_status = True  # pylint: disable=protected-access
-    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
+    simplegui.Frame._cursor_auto_hide = True  # pylint: disable=protected-access  # noqa
+    simplegui.Frame._hide_status = True  # pylint: disable=protected-access  # noqa
+    simplegui.Frame._keep_timers = False  # pylint: disable=protected-access  # noqa
 
     SIMPLEGUICS2PYGAME = True
 
@@ -461,7 +461,7 @@ def quit_prog():
     TIMER.stop()
     LOADER.pause_sounds()
     FRAME.stop()
-    if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access
+    if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # pylint: disable=protected-access  # noqa
         LOADER.print_stats_cache()
 
 
@@ -485,7 +485,7 @@ def start():
     global TIMER  # pylint: disable=global-statement
 
     if SIMPLEGUICS2PYGAME:
-        FRAME._set_canvas_background_image(LOADER.get_image('nebula'))  # noqa  # pylint: disable=protected-access
+        FRAME._set_canvas_background_image(LOADER.get_image('nebula'))  # pylint: disable=protected-access  # noqa
 
     FRAME.set_draw_handler(draw)
 

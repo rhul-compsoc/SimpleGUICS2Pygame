@@ -27,7 +27,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -86,7 +86,7 @@ def _block():
         matplotlib.pyplot.show()
 
 
-def plot_bars(framename, width, height,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+def plot_bars(framename, width, height,  # pylint: disable=too-many-arguments,too-many-locals  # noqa
               xlabel, ylabel, datasets,
               legends=None,
               _block=False, _filename=None):
@@ -176,7 +176,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import abspath, expanduser, sep  # noqa  # pylint: disable=import-outside-toplevel
+    from os.path import abspath, expanduser, sep  # pylint: disable=import-outside-toplevel  # noqa
 
     icon_path = __file__.split(sep)[:-1]
     try:
@@ -217,7 +217,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         matplotlib.pyplot.savefig(_filename)
 
 
-def plot_lines(framename, width, height,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+def plot_lines(framename, width, height,  # pylint: disable=too-many-arguments,too-many-locals  # noqa
                xlabel, ylabel, datasets,
                points=False, legends=None,
                _block=False, _filename=None):
@@ -316,7 +316,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import abspath, expanduser, sep  # noqa  # pylint: disable=import-outside-toplevel
+    from os.path import abspath, expanduser, sep  # pylint: disable=import-outside-toplevel  # noqa
 
     icon_path = __file__.split(sep)[:-1]
     try:
@@ -353,7 +353,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
         matplotlib.pyplot.savefig(_filename)
 
 
-def plot_scatter(framename, width, height,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+def plot_scatter(framename, width, height,  # pylint: disable=too-many-arguments,too-many-locals  # noqa
                  xlabel, ylabel, datasets,
                  legends=None,
                  _block=False, _filename=None):
@@ -443,7 +443,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     fig.canvas.set_window_title(framename)
     matplotlib.pyplot.title(framename)
 
-    from os.path import abspath, expanduser, sep  # noqa  # pylint: disable=import-outside-toplevel
+    from os.path import abspath, expanduser, sep  # pylint: disable=import-outside-toplevel  # noqa
 
     icon_path = __file__.split(sep)[:-1]
     try:

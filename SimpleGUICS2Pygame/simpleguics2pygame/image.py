@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 12, 2020
+:version: May 19, 2020
 """
 
 from __future__ import division
@@ -27,9 +27,9 @@ import collections  # noqa
 import sys  # noqa
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _load_media  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _load_media  # pylint: disable=no-name-in-module  # noqa
 
 
 #
@@ -78,7 +78,7 @@ class Image:
     This local directory is relative to the directory of your program.
     """
 
-    _pygamesurfaces_cache_default_max_size = 1000  # noqa  # pylint: disable=invalid-name
+    _pygamesurfaces_cache_default_max_size = 1000  # pylint: disable=invalid-name  # noqa
     """
     Default maximum number of Pygame surfaces
     in the `self._pygamesurfaces_cached`.

@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 # print('IMPORT', __name__)
@@ -130,7 +130,7 @@ def draw_text_multi(canvas,  # pylint: disable=too-many-arguments
         y += font_size
 
 
-def draw_text_side(frame, canvas,  # noqa  # pylint: disable=too-many-arguments,too-many-locals
+def draw_text_side(frame, canvas,  # pylint: disable=too-many-arguments,too-many-locals  # noqa
                    text, point,
                    font_size, font_color,
                    font_face='serif',

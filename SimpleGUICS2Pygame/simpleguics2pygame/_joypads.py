@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -22,10 +22,10 @@ import os.path
 import sys
 
 
-__all__ = tuple()  # type: ignore
+__all__ = tuple()  # type: tuple
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
     import pygame.joystick

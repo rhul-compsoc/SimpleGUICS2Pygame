@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -100,7 +100,7 @@ if __name__ == '__main__':
     # simplegui
     CMD = 'import simplegui'
     try:
-        import simplegui  # noqa  # type: ignore  # pylint: disable=unused-import,import-error
+        import simplegui  # type: ignore  # pylint: disable=unused-import,import-error  # noqa
 
         print(CMD, """PROBLEM - The package simplegui is installed on your system!
   It is a Python package which has the same name as SimpleGUI of CodeSkulptor,
@@ -115,7 +115,7 @@ if __name__ == '__main__':
     # SimpleGUITk
     CMD = 'import simpleguitk'
     try:
-        import simpleguitk  # noqa  # type: ignore  # pylint: disable=unused-import,import-error
+        import simpleguitk  # type: ignore  # pylint: disable=unused-import,import-error  # noqa
 
         print(CMD, """WARNING - The package simpleguitk is installed on your system!
   It is another implementation of SimpleGUI of CodeSkulptor,
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     try:
         import SimpleGUICS2Pygame
 
-        print(CMD, 'ok - Version', SimpleGUICS2Pygame._VERSION)  # noqa  # pylint: disable=protected-access
+        print(CMD, 'ok - Version', SimpleGUICS2Pygame._VERSION)  # pylint: disable=protected-access  # noqa
     except Exception as exc:  # pylint: disable=broad-except
         print(CMD, 'FAILED!', exc)
 

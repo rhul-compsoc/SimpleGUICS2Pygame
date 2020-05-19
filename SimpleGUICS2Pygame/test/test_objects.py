@@ -9,13 +9,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 try:
-    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # type: ignore
+    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
-    import simplegui  # type: ignore
+    import simplegui  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -29,13 +29,13 @@ except ImportError:
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
     from SimpleGUICS2Pygame import _VERSION as GUI_VERSION
-    from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_VERSION  # noqa  # type: ignore  # pylint: disable=no-name-in-module
+    from SimpleGUICS2Pygame.simpleguics2pygame import _PYGAME_VERSION  # pytype: disable=import-error  # pylint: disable=no-name-in-module  # noqa
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
     PYGAME_VERSION = 'Pygame ' + str(_PYGAME_VERSION)
     GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
-    PYTHON_VERSION = ('CodeSkulptor' +  # noqa  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/
+    PYTHON_VERSION = ('CodeSkulptor' +  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
                       (' 2' if codeskulptor_lib.codeskulptor_version() == 2
                        else '3'))
     PYGAME_VERSION = ''

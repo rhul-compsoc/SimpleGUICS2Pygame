@@ -9,17 +9,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from sys import argv
 
 try:
-    import simplegui  # type: ignore
-    import codeskulptor  # type: ignore
-    import numeric  # type: ignore
-    import simplemap  # not implemented in SimpleGUICS2Pygame  # type: ignore
-    import simpleplot  # type: ignore
+    import simplegui  # pytype: disable=import-error
+    import codeskulptor  # pytype: disable=import-error
+    import numeric  # pytype: disable=import-error
+    import simplemap  # not implemented in SimpleGUICS2Pygame  # pytype: disable=import-error  # noqa
+    import simpleplot  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -112,7 +112,7 @@ DIRS = {
     'simplegui.TextAreaControl': dir(simplegui.TextAreaControl),
     'simplegui.Timer': dir(simplegui.Timer),
 
-    'simplemap': ([] if SIMPLEGUICS2PYGAME  # noqa  # not implemented SimpleGUICS2Pygame
+    'simplemap': ([] if SIMPLEGUICS2PYGAME  # not implemented SimpleGUICS2Pygame  # noqa
                   else dir(simplemap)),
 
     'simpleplot': dir(simpleplot)}

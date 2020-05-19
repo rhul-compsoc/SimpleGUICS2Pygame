@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 from __future__ import division
@@ -29,23 +29,23 @@ __all__ = ('Frame',
            'create_frame')
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _joypads, _media  # noqa  # pylint: disable=wrong-import-position,ungrouped-imports,unused-import
+from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _joypads, _media  # pylint: disable=wrong-import-position,ungrouped-imports,unused-import  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
-from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame.canvas import Canvas  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
-from SimpleGUICS2Pygame.simpleguics2pygame.control import Control, TextAreaControl  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
-from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
-from SimpleGUICS2Pygame.simpleguics2pygame.keys import KEY_MAP, _SIMPLEGUIKEY_TO_STATUSKEY, _pygamekey_to_simpleguikey  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
-from SimpleGUICS2Pygame.simpleguics2pygame.timer import _STOP_TIMERS, Timer, create_timer  # noqa  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports
+from SimpleGUICS2Pygame.simpleguics2pygame.canvas import Canvas  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame.control import Control, TextAreaControl  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame.keys import KEY_MAP, _SIMPLEGUIKEY_TO_STATUSKEY, _pygamekey_to_simpleguikey  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
+from SimpleGUICS2Pygame.simpleguics2pygame.timer import _STOP_TIMERS, Timer, create_timer  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
 
 
 #
@@ -64,7 +64,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
                                    else None)
     """Border color of canvas."""
 
-    _controlpanel_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
+    _controlpanel_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
     """Background color of control panel."""
@@ -125,7 +125,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     then print some statistics of caches after frame stopped.
     """
 
-    _pygame_mode_flags = ((pygame.FULLSCREEN | pygame.HWSURFACE  # noqa  # pylint: disable=no-member
+    _pygame_mode_flags = ((pygame.FULLSCREEN | pygame.HWSURFACE  # pylint: disable=no-member  # noqa
                            if _CONFIG['--fullscreen']
                            else 0) |
                           (pygame.NOFRAME  # pylint: disable=no-member
@@ -144,10 +144,10 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
     """
 
-    _save_canvas_requests = []  # type: ignore
+    _save_canvas_requests = []  # type: list
     """List of filenames in which to save canvas image."""
 
-    _statuskey_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
+    _statuskey_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
     """`pygame.Color` of background in status key box."""
@@ -165,7 +165,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
                               else None)
     """`pygame.font.Font` of status key box."""
 
-    _statusmouse_background_pygame_color = (  # noqa  # pylint: disable=invalid-name
+    _statusmouse_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
         _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
         else None)
     """`pygame.Color` of background in status mouse box."""
@@ -194,7 +194,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         Side effect: Empty `_colors._PYGAMECOLORS_CACHED`.
         """  # noqa
-        _colors._PYGAMECOLORS_CACHED = {}  # pylint: disable=protected-access
+        _colors._PYGAMECOLORS_CACHED = dict()  # pylint: disable=protected-access  # noqa
 
     @classmethod
     def _pygamefonts_cached_clear(cls):
@@ -209,7 +209,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         Side effect: Empty `_fonts.__PYGAMEFONTS_CACHED`.
         """
-        _fonts.__PYGAMEFONTS_CACHED = {}  # pylint: disable=protected-access
+        _fonts.__PYGAMEFONTS_CACHED = dict()  # pylint: disable=protected-access  # noqa
 
     @classmethod
     def _set_cursor_visible(cls, visible=True):
@@ -303,8 +303,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         icon_path = __file__.split(os.path.sep)[:-1]
         try:
             icon_path.extend(('_img', 'SimpleGUICS2Pygame_64x64_t.png'))
-            pygame.display.set_icon(pygame.image.load(os.path.sep.join(icon_path)))  # noqa
-        except:  # noqa  # pylint: disable=bare-except
+            pygame.display.set_icon(
+                pygame.image.load(os.path.sep.join(icon_path)))
+        except:  # pylint: disable=bare-except  # noqa
             pass
 
         self._pygame_surface = pygame.display.set_mode(
@@ -330,14 +331,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._canvas = Canvas(self, canvas_width, canvas_height)
 
         # Create the status boxes: key and mouse
-        self._statuskey_pygame_surface = pygame.Surface(  # noqa  # pylint: disable=protected-access,too-many-function-args
+        self._statuskey_pygame_surface = pygame.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
             (self._control_width, Frame._statuskey_height))
-        self._statusmouse_pygame_surface = pygame.Surface(  # noqa  # pylint: disable=protected-access,too-many-function-args
+        self._statusmouse_pygame_surface = pygame.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
             (self._control_width, Frame._statusmouse_height))
         # will be drawn by self._draw_controlpanel()
 
         # Create the control panel
-        self._controlpanel_pygame_surface = pygame.Surface(  # noqa  # pylint: disable=protected-access,too-many-function-args
+        self._controlpanel_pygame_surface = pygame.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
             (self._control_width, canvas_height))
         self._draw_controlpanel()
 
@@ -360,18 +361,18 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: True if some event match, else False
         """
-        if event.type == pygame.KEYDOWN:  # key pressed  # noqa  # pylint: disable=no-member,no-else-return
+        if event.type == pygame.KEYDOWN:  # key pressed  # pylint: disable=no-member,no-else-return  # noqa
             if ((self._control_selected is not None) and
                     isinstance(self._control_selected,
                                TextAreaControl)):
-                self._control_selected._key(event)  # noqa  # pylint: disable=protected-access
+                self._control_selected._key(event)  # pylint: disable=protected-access  # noqa
             elif self._key_down_handler is not None:
                 key = _pygamekey_to_simpleguikey(event.key)
                 self._draw_statuskey(key, True)
                 self._key_down_handler(key)
 
             return True
-        elif event.type == pygame.KEYUP:  # key released  # noqa  # pylint: disable=no-member
+        elif event.type == pygame.KEYUP:  # key released  # pylint: disable=no-member  # noqa
             if ((self._control_selected is not None) and
                     isinstance(self._control_selected,
                                TextAreaControl)):
@@ -395,22 +396,22 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         :return: True if some event match, else False
         """
-        if event.type == pygame.JOYHATMOTION:     # hat moved  # noqa  # pylint: disable=no-member,no-else-return
+        if event.type == pygame.JOYHATMOTION:     # hat moved  # pylint: disable=no-member,no-else-return  # noqa
             if self.__joypad_hat_handler is not None:
                 self.__joypad_hat_handler(event.joy, event.hat, event.value)
 
             return True
-        elif event.type == pygame.JOYAXISMOTION:  # axe moved  # noqa  # pylint: disable=no-member
+        elif event.type == pygame.JOYAXISMOTION:  # axe moved  # pylint: disable=no-member  # noqa
             if self.__joypad_axe_handler is not None:
                 self.__joypad_axe_handler(event.joy, event.axis, event.value)
 
             return True
-        elif event.type == pygame.JOYBUTTONDOWN:  # button pressed  # noqa  # pylint: disable=no-member
+        elif event.type == pygame.JOYBUTTONDOWN:  # button pressed  # pylint: disable=no-member  # noqa
             if self.__joypad_down_handler is not None:
                 self.__joypad_down_handler(event.joy, event.button)
 
             return True
-        elif event.type == pygame.JOYBUTTONUP:    # button release  # noqa  # pylint: disable=no-member
+        elif event.type == pygame.JOYBUTTONUP:    # button release  # pylint: disable=no-member  # noqa
             if self.__joypad_up_handler is not None:
                 self.__joypad_up_handler(event.joy, event.button)
 
@@ -428,16 +429,16 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         mouse_drag_out_of_canvas = None
 
-        if event.type == pygame.MOUSEMOTION:        # mouse moved  # noqa  # pylint: disable=no-member,no-else-return
+        if event.type == pygame.MOUSEMOTION:        # mouse moved  # pylint: disable=no-member,no-else-return  # noqa
             x = event.pos[0] - self._canvas_x_offset
             y = event.pos[1] - self._canvas_y_offset
 
             if self._cursor_auto_hide:
-                pygame.mouse.set_visible(not((0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)))  # noqa  # pylint: disable=protected-access
+                pygame.mouse.set_visible(not((0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)))  # pylint: disable=protected-access  # noqa
 
             if self._mouse_drag_handler is not None:
                 if pygame.mouse.get_pressed()[0]:  # left click
-                    if (not 0 <= x < self._canvas._width) or (not 0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
+                    if (not 0 <= x < self._canvas._width) or (not 0 <= y < self._canvas._height):  # pylint: disable=protected-access  # noqa
                         # Out of canvas
                         mouse_drag_out_of_canvas = True
 
@@ -449,11 +450,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                         self._mouse_drag_handler((x, y))
 
             return True
-        elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed  # noqa  # pylint: disable=no-member
+        elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed  # pylint: disable=no-member  # noqa
             if event.button == 1:  # left click
                 x = event.pos[0] - self._canvas_x_offset
                 y = event.pos[1] - self._canvas_y_offset
-                if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
+                if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # pylint: disable=protected-access  # noqa
                     # In canvas
                     mouse_drag_out_of_canvas = False
                 elif x < 0:
@@ -463,7 +464,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                                    event.pos[1] -
                                                    self._canvas_y_offset)
                     if control is not None:
-                        control._mouse_left_button(True)  # noqa  # pylint: disable=protected-access
+                        control._mouse_left_button(True)  # pylint: disable=protected-access  # noqa
                     elif self._control_selected is not None:
                         self._control_selected = None
                         self._draw_controlpanel()
@@ -472,11 +473,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     self._draw_controlpanel()
 
             return True
-        elif event.type == pygame.MOUSEBUTTONUP:    # mouse b. released  # noqa  # pylint: disable=no-member
+        elif event.type == pygame.MOUSEBUTTONUP:    # mouse b. released  # pylint: disable=no-member  # noqa
             if event.button == 1:  # left click
                 x = event.pos[0] - self._canvas_x_offset
                 y = event.pos[1] - self._canvas_y_offset
-                if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # noqa  # pylint: disable=protected-access
+                if (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height):  # pylint: disable=protected-access  # noqa
                     # In canvas
                     if self._mouse_click_handler is not None:
                         self._draw_statusmouse((x, y), False)
@@ -486,7 +487,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     control = self._pos_in_control(event.pos[0] -
                                                    self._border_size, y)
                     if control is not None:
-                        control._mouse_left_button(False)  # noqa  # pylint: disable=protected-access
+                        control._mouse_left_button(False)  # pylint: disable=protected-access  # noqa
 
             return True
         else:
@@ -498,7 +499,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         x -= self._canvas_x_offset
         y -= self._canvas_y_offset
 
-        return (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)  # noqa  # pylint: disable=protected-access
+        return (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)  # pylint: disable=protected-access  # noqa
 
     def _draw_controlpanel(self):
         """
@@ -526,7 +527,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         pygame.display.update((self._border_size,
                                self._canvas_y_offset,
                                self._control_width,
-                               self._canvas._height))  # noqa  # pylint: disable=protected-access
+                               self._canvas._height))  # pylint: disable=protected-access  # noqa
 
     def _draw_statuskey(self, key=0, pressed=None):
         """
@@ -655,9 +656,9 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         assert isinstance(y, (int, float)), type(y)
 
         if (self._controls and
-                (self._controls[0]._y1 <= y <= self._controls[-1]._y2)):  # noqa  # pylint: disable=protected-access
+                (self._controls[0]._y1 <= y <= self._controls[-1]._y2)):  # pylint: disable=protected-access  # noqa
             for control in self._controls:
-                if control._pos_in(x, y):  # noqa  # pylint: disable=protected-access
+                if control._pos_in(x, y):  # pylint: disable=protected-access  # noqa
                     return control
 
         return None
@@ -698,7 +699,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             """Handler function will be executed."""
             if self._running:
                 self._save_canvas_request(filename)
-                Timer._stop_all()  # noqa  # pylint: disable=protected-access
+                Timer._stop_all()  # pylint: disable=protected-access  # noqa
                 self.stop()
 
         if after == 0:
@@ -715,7 +716,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert (image is None) or isinstance(image, Image), type(image)
 
-        self._canvas._bg_pygame_surface_image = image._pygame_surface  # noqa  # pylint: disable=protected-access
+        self._canvas._bg_pygame_surface_image = image._pygame_surface  # pylint: disable=protected-access  # noqa
 
     def _set_joypadhat_handler(self, joypad_handler):
         """
@@ -952,7 +953,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert isinstance(color, str), type(color)
 
-        self._canvas._background_pygame_color = _simpleguicolor_to_pygamecolor(color)  # noqa  # pylint: disable=protected-access
+        self._canvas._background_pygame_color = _simpleguicolor_to_pygamecolor(color)  # pylint: disable=protected-access  # noqa
 
     def set_draw_handler(self,
                          draw_handler):
@@ -964,7 +965,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert callable(draw_handler), type(draw_handler)
 
-        self._canvas._draw_handler = draw_handler  # noqa  # pylint: disable=protected-access
+        self._canvas._draw_handler = draw_handler  # pylint: disable=protected-access  # noqa
 
     def set_keydown_handler(self,
                             key_handler):
@@ -1046,18 +1047,18 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         # Core of the drawing canvas and dealing events
         while self._running:  # pylint: disable=too-many-nested-blocks
             # Draw canvas
-            self._canvas._draw()  # noqa  # pylint: disable=protected-access
+            self._canvas._draw()  # pylint: disable=protected-access  # noqa
 
             # Save canvas images
             while Frame._save_canvas_requests:
-                self._canvas._save(Frame._save_canvas_requests.pop(0))  # noqa  # pylint: disable=protected-access
+                self._canvas._save(Frame._save_canvas_requests.pop(0))  # pylint: disable=protected-access  # noqa
 
             # Check events
             for event in pygame.event.get():
                 if (not self.__deal_event_mouse(event) and
                         not self.__deal_event_joypad(event) and
                         not self.__deal_event_key(event) and
-                        event.type == pygame.QUIT):  # noqa  # pylint: disable=no-member
+                        event.type == pygame.QUIT):  # pylint: disable=no-member  # noqa
                     self.stop()
 
             # Wait (if necessary) next cycle
@@ -1068,7 +1069,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self.stop()
 
         while Frame._save_canvas_requests:
-            self._canvas._save(Frame._save_canvas_requests.pop(0))  # noqa  # pylint: disable=protected-access
+            self._canvas._save(Frame._save_canvas_requests.pop(0))  # pylint: disable=protected-access  # noqa
 
         Frame._frame_instance = None
 
@@ -1090,10 +1091,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         (Maybe available in SimpleGUI of CodeSkulptor
         but *not in CodeSkulptor documentation*!)
         """
-        if (Frame._keep_timers is not None) or not Timer._running_some():  # noqa  # pylint: disable=protected-access
+        if (Frame._keep_timers is not None) or not Timer._running_some():  # pylint: disable=protected-access  # noqa
             # Don't ask (eventually because no running timers)
             if not Frame._keep_timers:
-                Timer._stop_all()  # noqa  # pylint: disable=protected-access
+                Timer._stop_all()  # pylint: disable=protected-access  # noqa
 
             self._running = False
         else:
@@ -1109,7 +1110,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 :param key: int >= 0
                 """
                 if key == KEY_MAP['Y']:
-                    Timer._stop_all()  # noqa  # pylint: disable=protected-access
+                    Timer._stop_all()  # pylint: disable=protected-access  # noqa
                     self._running = False
                 elif key == KEY_MAP['N']:
                     self._running = False
@@ -1120,10 +1121,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 :param canvas: simpleguics2pygame.Canvas
                 """
-                if not Timer._running_some():  # noqa  # pylint: disable=protected-access
+                if not Timer._running_some():  # pylint: disable=protected-access  # noqa
                     self._running = False
 
-                nb_timers_running = Timer._running_nb()  # noqa  # pylint: disable=protected-access
+                nb_timers_running = Timer._running_nb()  # pylint: disable=protected-access  # noqa
                 size = 20
                 canvas.draw_text('Stop {} running timer{}'
                                  .format(nb_timers_running,
@@ -1168,9 +1169,9 @@ def _print_stats_cache():
     """
     print("""# cached colors: {}
 # cached fonts: {}
-# cached medias: {}""".format(len(_colors._PYGAMECOLORS_CACHED),  # noqa  # pylint: disable=protected-access
-                              len(_fonts.__PYGAMEFONTS_CACHED),  # noqa  # pylint: disable=protected-access
-                              len(_media.__PYGAMEMEDIAS_CACHED)),  # noqa  # pylint: disable=protected-access
+# cached medias: {}""".format(len(_colors._PYGAMECOLORS_CACHED),  # pylint: disable=protected-access  # noqa
+                              len(_fonts.__PYGAMEFONTS_CACHED),  # pylint: disable=protected-access  # noqa
+                              len(_media.__PYGAMEMEDIAS_CACHED)),  # pylint: disable=protected-access  # noqa
           file=sys.stderr)
     sys.stderr.flush()
 

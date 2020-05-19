@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 # print('IMPORT', __name__)
@@ -67,8 +67,8 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         self._after_function = after_function
         self._max_waiting = max_waiting
 
-        self._images = {}
-        self._sounds = {}
+        self._images = dict()
+        self._sounds = dict()
 
         self.__max_waiting_remain_started = False
 
@@ -77,7 +77,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
 
         try:
             # Try import to check if running in SimpleGUICS2Pygame environment
-            from SimpleGUICS2Pygame.simpleguics2pygame import load_image  # noqa  # pylint: disable=import-outside-toplevel
+            from SimpleGUICS2Pygame.simpleguics2pygame import load_image  # pylint: disable=import-outside-toplevel  # noqa
 
             Loader.__SIMPLEGUICS2PYGAME = bool(load_image)
         except ImportError:
@@ -177,7 +177,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         """  # noqa
         if Loader.__SIMPLEGUICS2PYGAME:
             for _, image in sorted(self._images.items()):
-                image._pygamesurfaces_cached_clear()  # noqa  # pylint: disable=protected-access
+                image._pygamesurfaces_cached_clear()  # pylint: disable=protected-access  # noqa
 
     def get_image(self, name):
         """
@@ -279,13 +279,13 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         * In SimpleGUI of CodeSkulptor: *don't* wait.
         """  # noqa
         if Loader.__SIMPLEGUICS2PYGAME:
-            from SimpleGUICS2Pygame.simpleguics2pygame import load_image, load_sound  # noqa  # pylint: disable=import-outside-toplevel
+            from SimpleGUICS2Pygame.simpleguics2pygame import load_image, load_sound  # pylint: disable=import-outside-toplevel  # noqa
         else:
-            from simplegui import load_image, load_sound  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,import-error
+            from simplegui import load_image, load_sound  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel,import-error  # noqa
 
         if Loader.__SIMPLEGUICS2PYGAME:
-            handler_saved = self._frame._canvas._draw_handler  # noqa  # pylint: disable=protected-access
-            self._frame._canvas._draw_handler = self._draw_loading  # noqa  # pylint: disable=protected-access
+            handler_saved = self._frame._canvas._draw_handler  # pylint: disable=protected-access  # noqa
+            self._frame._canvas._draw_handler = self._draw_loading  # pylint: disable=protected-access  # noqa
 
         for name in self._sounds:
             if Loader.__SIMPLEGUICS2PYGAME:
@@ -301,7 +301,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
 
         if Loader.__SIMPLEGUICS2PYGAME:
             self._frame._canvas._draw()  # pylint: disable=protected-access
-            self._frame._canvas._draw_handler = handler_saved  # noqa  # pylint: disable=protected-access
+            self._frame._canvas._draw_handler = handler_saved  # pylint: disable=protected-access  # noqa
 
     def pause_sounds(self):
         """Pause all sounds."""
@@ -319,7 +319,7 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         if Loader.__SIMPLEGUICS2PYGAME:
             max_length = max([len(name) for name in self._images])
             for name, image in sorted(self._images.items()):
-                image._print_stats_cache('Loader %s%s'  # noqa  # pylint: disable=protected-access
+                image._print_stats_cache('Loader %s%s'  # pylint: disable=protected-access  # noqa
                                          % (name,
                                             ' ' * (max_length - len(name))))
 
@@ -363,9 +363,9 @@ class Loader:  # pylint: disable=too-many-instance-attributes
         self.__max_waiting_remain = self._max_waiting
 
         if Loader.__SIMPLEGUICS2PYGAME:
-            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # noqa  # pylint: disable=import-outside-toplevel
+            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # pylint: disable=import-outside-toplevel  # noqa
         else:
-            from simplegui import create_timer  # noqa  # type: ignore  # pylint: disable=import-outside-toplevel,import-error
+            from simplegui import create_timer  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel,import-error  # noqa
 
         self._frame.set_draw_handler(self._draw_loading)
         self.__timer = create_timer(Loader._interval, check_if_loaded)

@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -18,12 +18,12 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = tuple()  # type: ignore
+__all__ = tuple()  # type: tuple
 
 
-from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -46,7 +46,7 @@ to corresponding font names list used by Pygame.
 #
 # Private global variables
 ##########################
-__PYGAMEFONTS_CACHED = {}  # type: ignore
+__PYGAMEFONTS_CACHED = dict()  # type: dict
 """
 `Dict` {(`str` CodeSkulptor font face, `int` font size):
         `pygame.font.Font`}.
@@ -66,7 +66,7 @@ then use Pygame default font instead serif, monospace...
 #
 # "Private" function
 ####################
-def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: disable=invalid-name
+def _simpleguifontface_to_pygamefont(font_face, font_size):  # pylint: disable=invalid-name  # noqa
     """
     Return a `pygame.font.Font` object
     corresponding to the SimpleGUI `font_face` name
@@ -99,7 +99,7 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # noqa  # pylint: d
         assert isinstance(font_size, int), type(font_size)
         assert font_size > 0, font_size
 
-        if (font_face is None) or _DEFAULT_FONT:  # noqa  # pylint: disable=protected-access
+        if (font_face is None) or _DEFAULT_FONT:  # pylint: disable=protected-access  # noqa
             font = pygame.font.SysFont(None, font_size)
         else:
             try:

@@ -1,15 +1,15 @@
-Lint SimpleGUICS2Pygame 2.0.0
+Lint (Tue May 19 16:24:47 CEST 2020) of SimpleGUICS2Pygame 2.0.1
 
-===== pycodestyle (pep8) 2.5.0 =====
+===== pycodestyle (pep8) 2.6.0 =====
 
 ===== pyflakes 2.2.0 Python 3.5.3 on Linux =====
 
-===== pylint 2.4.4 astroid 2.3.3 Python 3.5.3 (default, Sep 27 2018, 17:25:39) [GCC 6.3.0 20170516] =====
+===== pylint 2.5.2 astroid 2.4.1 Python 3.5.3 (default, Sep 27 2018, 17:25:39) [GCC 6.3.0 20170516] =====
 
 
 Report
 ======
-6229 statements analysed.
+6230 statements analysed.
 
 Statistics by type
 ------------------
@@ -34,9 +34,9 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8179   |48.58 |NC       |NC         |
+|code      |8181   |48.58 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |4859   |28.86 |NC       |NC         |
+|docstring |4860   |28.86 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 |comment   |798    |4.74  |NC       |NC         |
 +----------+-------+------+---------+-----------+
@@ -48,13 +48,13 @@ Raw metrics
 Duplication
 -----------
 
-+-------------------------+------+---------+-----------+
-|                         |now   |previous |difference |
-+=========================+======+=========+===========+
-|nb duplicated lines      |0     |NC       |NC         |
-+-------------------------+------+---------+-----------+
-|percent duplicated lines |0.000 |NC       |NC         |
-+-------------------------+------+---------+-----------+
++-------------------------+-------+---------+-----------+
+|                         |now    |previous |difference |
++=========================+=======+=========+===========+
+|nb duplicated lines      |1675   |NC       |NC         |
++-------------------------+-------+---------+-----------+
+|percent duplicated lines |10.049 |NC       |NC         |
++-------------------------+-------+---------+-----------+
 
 
 
@@ -98,7 +98,7 @@ Unresolved dependencies:
   urllib2.urlopen
   urlparse.urlsplit
 
-===== pytype 2020.04.01 =====
+===== pytype 2020.05.13 =====
 ninja: Entering directory `/home/opi/data/git/archives/simpleguics2pygame/.pytype'
 ninja: no work to do.
 Computing dependencies

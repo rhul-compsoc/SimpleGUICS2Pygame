@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 import math
@@ -135,7 +135,7 @@ def draw_and_calculate(canvas):  # pylint: disable=too-many-branches
         print('\nEnd.')
 
     if _FPS_AVERAGE:
-        canvas.draw_text('{:.3}'.format(frame._get_fps_average()),  # noqa  # pylint: disable=protected-access
+        canvas.draw_text('{:.3}'.format(frame._get_fps_average()),  # pylint: disable=protected-access  # noqa
                          (5, 20), 20, 'Black')
 
 
@@ -214,7 +214,7 @@ def draw_only(canvas):
                        contiguous_color)
 
     if _FPS_AVERAGE:
-        canvas.draw_text('{:.3}'.format(frame._get_fps_average()),  # noqa  # pylint: disable=protected-access
+        canvas.draw_text('{:.3}'.format(frame._get_fps_average()),  # pylint: disable=protected-access  # noqa
                          (5, 20), 20, 'Black')
 
 

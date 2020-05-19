@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 16, 2020
+:version: May 19, 2020
 """
 
 try:
-    import simplegui  # type: ignore
+    import simplegui  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -47,7 +47,7 @@ def load_local(pathname):
     """
     name = pathname.split('/')[-1]
     print('Load local "%s"' % name)
-    LOCAL_SOUNDS.append((False, name, simplegui._load_local_sound(pathname)))  # noqa  # type: ignore  # pylint: disable=no-member,protected-access
+    LOCAL_SOUNDS.append((False, name, simplegui._load_local_sound(pathname)))  # pylint: disable=no-member,protected-access  # noqa
 
 
 def play():
@@ -65,7 +65,7 @@ def play():
               (name, length_str, ('web' if web
                                   else 'local')))
         sound.play()
-        if SIMPLEGUICS2PYGAME and (sound._get_length() == 0):  # noqa  # pylint: disable=protected-access
+        if SIMPLEGUICS2PYGAME and (sound._get_length() == 0):  # pylint: disable=protected-access  # noqa
             # Don't wait for next sound
             play()
     else:

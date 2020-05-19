@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 import random
@@ -190,9 +190,9 @@ class Card:
                 canvas.draw_image(
                     CARDS_IMAGE,
                     ((CARD_CENTER[0] + CARD_SIZE[0] *
-                      Deck._RANKS.index(self._rank)),  # noqa  # pylint: disable=protected-access
+                      Deck._RANKS.index(self._rank)),  # pylint: disable=protected-access  # noqa
                      (CARD_CENTER[1] + CARD_SIZE[1] *
-                      Deck._SUITS.index(self._suit))),  # noqa  # pylint: disable=protected-access
+                      Deck._SUITS.index(self._suit))),  # pylint: disable=protected-access  # noqa
                     CARD_SIZE,
                     (pos[0] + CARD_CENTER[0],
                      pos[1] + CARD_CENTER[1]), CARD_SIZE)

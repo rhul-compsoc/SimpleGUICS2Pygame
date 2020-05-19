@@ -72,7 +72,7 @@ Hierarchy of files on Bitbucket
 
 
 .. warning::
-   Before the version 02.00.00, the main module ``simpleguics2pygame`` was one file. Now it is splitted in several files in ``simpleguics2pygame/`` subdirectory.
+   Before the version 2.0.0, the main module ``simpleguics2pygame`` was one file. Now it is splitted in several files in ``simpleguics2pygame/`` subdirectory.
 
 
 Diagrams of imports

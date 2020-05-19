@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -33,7 +33,7 @@ except ImportError:
     TO_COMPARE_IMGS = False
 
 try:
-    import simplegui  # type: ignore
+    import simplegui  # pytype: disable=import-error
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
@@ -58,7 +58,7 @@ try:
     from SimpleGUICS2Pygame import _VERSION as SIMPLEGUICS2PYGAME_VERSION
     from SimpleGUICS2Pygame import _WEBSITE as SIMPLEGUICS2PYGAME_WEBSITE
     from SimpleGUICS2Pygame import _WEBSITE_DOC as SIMPLEGUICS2PYGAME_WEBSITE_DOC  # noqa
-    PYGAME_VERSION = simplegui._PYGAME_VERSION  # noqa  # type: ignore  # pylint: disable=no-member,protected-access
+    PYGAME_VERSION = simplegui._PYGAME_VERSION  # pylint: disable=protected-access  # noqa
 except ImportError:
     SIMPLEGUICS2PYGAME_VERSION = '?'
     SIMPLEGUICS2PYGAME_WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa
@@ -87,9 +87,9 @@ def main():  # pylint: disable=too-many-branches
     filenames = [filename[:-3] for filename in filenames]
 
     # Run each tests
-    errors = {}
+    errors = dict()
     if TO_COMPARE_IMGS:
-        imgs_diff = {}
+        imgs_diff = dict()
 
     for i, filename in enumerate(filenames):
         print('{}/{} - {}... '.format(i + 1, len(filenames), filename),
@@ -196,7 +196,7 @@ def main():  # pylint: disable=too-many-branches
                           file=outfile)
 
                 if len(log) > 0:
-                    print("""<pre class="log">{}</pre>""".format(escape(log)),  # noqa  # pylint: disable=deprecated-method
+                    print("""<pre class="log">{}</pre>""".format(escape(log)),  # pylint: disable=deprecated-method  # noqa
                           file=outfile)
 
             print('</li>', file=outfile)

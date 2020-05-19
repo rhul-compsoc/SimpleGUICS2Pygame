@@ -22,7 +22,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 import math
@@ -152,7 +152,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
                                               'asteroid_explosion'))
             self.rocks = []
 
-    def draw_and_update(self, canvas):  # noqa  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
+    def draw_and_update(self, canvas):  # pylint: disable=too-many-locals,too-many-branches,too-many-statements  # noqa
         """
         Draw and update all stuffs in each FPS cycle.
 
@@ -213,7 +213,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         self.my_ship.update()
 
         # Update missiles
-        for i in range(len(self.missiles) - 1, -1, -1):  # noqa  # pylint: disable=too-many-nested-blocks
+        for i in range(len(self.missiles) - 1, -1, -1):  # pylint: disable=too-many-nested-blocks  # noqa
             missile = self.missiles[i]
 
             missile.update()
@@ -291,7 +291,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
                                                    'live_explosion'))
 
                 self.lives = max(0, self.lives - 1)
-                if self.lives <= 0:  # game over  # noqa  # pylint: disable=no-else-break
+                if self.lives <= 0:  # game over  # pylint: disable=no-else-break  # noqa
                     self.stop()
 
                     self.explosions.append(Sprite(self.my_ship.position,
@@ -448,15 +448,15 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         def init():
             """Init the game after medias loaded."""
             if SIMPLEGUICS2PYGAME:
-                FRAME._set_canvas_background_image(  # noqa  # pylint: disable=protected-access
+                FRAME._set_canvas_background_image(  # pylint: disable=protected-access  # noqa
                     self.medias.get_image('nebula'))
 
-            self.medias._images['live_explosion'] = self.medias._images['ship_explosion']  # noqa  # pylint: disable=protected-access
+            self.medias._images['live_explosion'] = self.medias._images['ship_explosion']  # pylint: disable=protected-access  # noqa
 
             for i in range(1, 4):
-                self.medias._images['little-asteroid-' + str(i)] = self.medias._images['asteroid-' + str(i)]  # noqa  # pylint: disable=protected-access
+                self.medias._images['little-asteroid-' + str(i)] = self.medias._images['asteroid-' + str(i)]  # pylint: disable=protected-access  # noqa
 
-            self.medias._sounds['asteroid_collide_explosion'] = self.medias._sounds['asteroid_explosion']  # noqa  # pylint: disable=protected-access
+            self.medias._sounds['asteroid_collide_explosion'] = self.medias._sounds['asteroid_explosion']  # pylint: disable=protected-access  # noqa
 
             self.medias.get_sound('missile').set_volume(.5)
 
@@ -466,10 +466,10 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
             FRAME.set_draw_handler(self.draw_and_update)
 
-            if SIMPLEGUICS2PYGAME and (simplegui._joypads._joypad_nb > 0):  # noqa  # pylint: disable=protected-access
-                FRAME._set_joypadaxe_handler(joypad_axe)  # noqa  # pylint: disable=protected-access
-                FRAME._set_joypadup_handler(joypad_up)  # noqa  # pylint: disable=protected-access
-                FRAME._set_joypadhat_handler(joypad_hat)  # noqa  # pylint: disable=protected-access
+            if SIMPLEGUICS2PYGAME and (simplegui._joypads._joypad_nb > 0):  # pylint: disable=protected-access  # noqa
+                FRAME._set_joypadaxe_handler(joypad_axe)  # pylint: disable=protected-access  # noqa
+                FRAME._set_joypadup_handler(joypad_up)  # pylint: disable=protected-access  # noqa
+                FRAME._set_joypadhat_handler(joypad_hat)  # pylint: disable=protected-access  # noqa
 
             FRAME.set_keydown_handler(keydown)
             FRAME.set_keyup_handler(keyup)
@@ -611,7 +611,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
         if SIMPLEGUICS2PYGAME:
             FRAME._cursor_auto_hide = True  # pylint: disable=protected-access
-            FRAME._set_cursor_visible(not FRAME._cursor_in_canvas())  # noqa  # pylint: disable=protected-access
+            FRAME._set_cursor_visible(not FRAME._cursor_in_canvas())  # pylint: disable=protected-access  # noqa
 
     def stop(self):
         """Stop the game."""
@@ -765,7 +765,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         assert isinstance(media_name, str), type(media_name)
 
         if (RICEROCKS.sounds_active and
-                (media_name in RICEROCKS.medias._sounds)):  # noqa  # pylint: disable=protected-access
+                (media_name in RICEROCKS.medias._sounds)):  # pylint: disable=protected-access  # noqa
             sound = RICEROCKS.medias.get_sound(media_name)
             sound.rewind()
             sound.play()
@@ -1142,7 +1142,7 @@ def quit_prog():
         RICEROCKS.stop()
         RICEROCKS.medias.pause_sounds()
         FRAME.stop()
-        if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # noqa  # pylint: disable=protected-access
+        if SIMPLEGUICS2PYGAME and FRAME._print_stats_cache:  # pylint: disable=protected-access  # noqa
             RICEROCKS.medias.print_stats_cache()
 
 
@@ -1219,8 +1219,8 @@ if __name__ == '__main__':
     if SIMPLEGUICS2PYGAME:
         FRAME.add_label('')
         FRAME.add_label('%i joypad%s available' %
-                        (simplegui._joypads._joypad_nb,  # noqa  # pylint: disable=protected-access
-                         ('s' if simplegui._joypads._joypad_nb > 1  # noqa  # pylint: disable=protected-access
+                        (simplegui._joypads._joypad_nb,  # pylint: disable=protected-access  # noqa
+                         ('s' if simplegui._joypads._joypad_nb > 1  # pylint: disable=protected-access  # noqa
                           else '')))
 
     FRAME.add_label('')

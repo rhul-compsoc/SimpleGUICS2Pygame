@@ -26,7 +26,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -137,7 +137,7 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
 
     while lines:
         line = lines.pop()
-        if re.search(r'^\w*f(rame)?\.start\(\)', line):  # f.start() or frame.start()  # noqa  # pylint: disable=no-else-break
+        if re.search(r'^\w*f(rame)?\.start\(\)', line):  # f.start() or frame.start()  # pylint: disable=no-else-break  # noqa
             break
         elif re.search(r'^\w*[^#]+\.start\(\)', line):   # other .start()
             print('Warning: Maybe a timer is started *after* the start frame.')

@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 16, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = tuple()  # type: ignore
+__all__ = tuple()  # type: tuple
 
 
 from io import BytesIO  # noqa
@@ -33,12 +33,12 @@ if version_info[0] >= 3:
     from urllib.parse import urlsplit
     from urllib.request import urlopen
 else:
-    from urlparse import urlsplit  # type: ignore  # noqa  # pylint: disable=import-error
-    from urllib2 import urlopen  # type: ignore  # noqa  # pylint: disable=import-error
+    from urlparse import urlsplit  # type: ignore  # pylint: disable=import-error  # noqa
+    from urllib2 import urlopen  # type: ignore  # pylint: disable=import-error  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=wrong-import-position,no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=wrong-import-position,no-name-in-module  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # noqa  # pylint: disable=no-name-in-module,wrong-import-position
+from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module,wrong-import-position  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 
@@ -69,7 +69,7 @@ then print URLs or locals filename loaded by `load_image()`
 and `load_sound()`.
 """
 
-__PYGAMEMEDIAS_CACHED = {}  # type: ignore
+__PYGAMEMEDIAS_CACHED = dict()  # type: dict
 """
 `Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
 """
@@ -90,7 +90,7 @@ and save in local directory even if they already exist.
 """
 
 
-__TMP_FILENAMES = []  # type: ignore
+__TMP_FILENAMES = []  # type: list
 """List of filenames of temporary files that must be delete."""
 
 
@@ -209,7 +209,7 @@ def __load_local_mp3_with_audioread(filename):
     return pygame.mixer.Sound(data)
 
 
-def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements,too-many-locals
+def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements,too-many-locals  # noqa
     """
     Load an image or a sound from Web or local directory,
     and save if asked with _SAVE_DOWNLOADED_MEDIAS
@@ -350,12 +350,12 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
                 try:
                     # Create local directory
                     os.makedirs(dirname(filename))
-                    if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
+                    if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access  # noqa
                         print('      Created "{}" directory'
                               .format(dirname(filename)),
                               file=stderr)
                 except Exception as exc:  # pylint: disable=broad-except
-                    if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
+                    if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access  # noqa
                         print('      Creating "{}" directory FAILED!! {}'
                               .format(dirname(filename), exc),
                               file=stderr)
@@ -364,13 +364,13 @@ def _load_media(type_of_media, url, local_dir):  # noqa  # pylint: disable=too-m
                 # Save to local file
                 with open(filename, 'wb') as outfile:
                     outfile.write(media_data)
-                if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
+                if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access  # noqa
                     print('      {} in "{}"'
                           .format(('Overwritten' if filename_exist
                                    else 'Saved'), filename),
                           file=stderr)
             except Exception as exc:  # pylint: disable=broad-except
-                if _PRINT_LOAD_MEDIAS:  # noqa  # pylint: disable=protected-access
+                if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access  # noqa
                     print('      {} in "{}" FAILED! {}'
                           .format(('Overwriting' if filename_exist
                                    else 'Saving'), filename, exc),
@@ -402,7 +402,7 @@ def __mixer_init():
             # Workaround: Open a fake "empty" display
             # because on Window$ (and maybe other systems)
             # sound doesn't play if there is no display!
-            pygame.display.set_mode((1, 1), flags=pygame.NOFRAME)  # noqa  # pylint: disable=no-member
+            pygame.display.set_mode((1, 1), flags=pygame.NOFRAME)  # pylint: disable=no-member  # noqa
 
 
 def __normalized_filename(url, local_dir):

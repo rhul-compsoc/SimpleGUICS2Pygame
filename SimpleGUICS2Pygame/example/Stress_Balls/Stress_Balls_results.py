@@ -13,12 +13,12 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 18, 2020
+:version: May 19, 2020
 """
 
 try:
     # To avoid other simpleplot available in Python
-    from codeskulptor import file2url    # noqa  # pytype: disable=import-error  # pylint: disable=unused-import
+    from codeskulptor import file2url    # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
     import simpleplot  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
@@ -249,7 +249,7 @@ def main():  # pylint: disable=too-many-locals
 
         assert nb_shapes_a == nb_shapes_b, (nb_shapes_a, nb_shapes_b)
 
-        results = {}
+        results = dict()
 
         for nb in nb_shapes_b:
             alls_nb_set.add(nb)
@@ -268,9 +268,9 @@ def main():  # pylint: disable=too-many-locals
     datas_with_old = []
 
     for legend in legends:
-        data = ALL_RESULTS[legend]
+        data = ALL_RESULTS[legend]  # type: dict
 
-        nb_shapes = list(data.keys())  # noqa  # type: ignore  # pylint: disable=no-member
+        nb_shapes = list(data.keys())  # pylint: disable=no-member
         nb_shapes.sort()
 
         r = []
@@ -287,9 +287,10 @@ def main():  # pylint: disable=too-many-locals
 
     print('----+' * len(alls_nb) + '-----------')
     for legend in legends:
+        data = ALL_RESULTS[legend]  # type: dict
         seq = []
         for nb in alls_nb:
-            fps = ALL_RESULTS[legend].get(nb, None)  # noqa  # type: ignore  # pylint: disable=no-member
+            fps = data.get(nb, None)
             seq.append((('%2d  ' % fps
                          if int(fps) == fps
                          else '%4.1f' % fps)

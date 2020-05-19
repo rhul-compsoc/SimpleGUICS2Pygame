@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-__all__ = tuple()  # type: ignore
+__all__ = tuple()  # type: tuple
 
 
 import sys  # noqa
@@ -115,7 +115,7 @@ Examples:
     exit(code)  # pylint: disable=consider-using-sys-exit
 
 
-def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-statements
+def __read_arguments():  # pylint: disable=too-many-branches,too-many-statements  # noqa
     """
     Read arguments in sys.argv
     and set __CONFIG.
@@ -134,7 +134,7 @@ def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-st
 
     **(Not available in SimpleGUI of CodeSkulptor.)**
     """
-    def get_next_natural(option):  # noqa  # pylint: disable=inconsistent-return-statements
+    def get_next_natural(option):  # pylint: disable=inconsistent-return-statements  # noqa
         """
         If one non negative integer argument is available
         then return it,
@@ -156,7 +156,7 @@ def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-st
                       file=sys.stderr)
                 __help_quit(2)
 
-            if n >= 0:  # noqa  # pylint: disable=no-else-return,inconsistent-return-statements
+            if n >= 0:  # pylint: disable=no-else-return,inconsistent-return-statements  # noqa
                 return n
             else:
                 print('Argument "{}" for option {} must be >= 0!'
@@ -203,7 +203,7 @@ def __read_arguments():  # noqa  # pylint: disable=too-many-branches,too-many-st
             sys.argv.pop(1)
             print_args = True
         elif arg == '--version':
-            from SimpleGUICS2Pygame import _VERSION  # noqa  # pylint: disable=import-outside-toplevel
+            from SimpleGUICS2Pygame import _VERSION  # pylint: disable=import-outside-toplevel  # noqa
 
             print('SimpleGUICS2Pygame {}'.format(_VERSION))
 

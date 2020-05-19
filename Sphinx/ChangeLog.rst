@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* April 28, 2020
+* 2.0.1 — May 19, 2020
 
   - Documentation:
 
@@ -11,7 +11,11 @@ ChangeLog
 
     - Adapted ``example/Memory.py`` with images moved to HTTPS.
 
-* 02.00.00 — April 18, 2020
+  - Tests:
+
+    - Cleaned some type annotations instead ignore them.
+
+* 2.0.0 — April 18, 2020
 
   - Converted from Mercurial version control system to Git.
   - Corrected files included in MANIFEST.in for distribution building. (Thanks to `7coil`.)

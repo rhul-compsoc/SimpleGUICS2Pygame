@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from __future__ import division
@@ -89,8 +89,8 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(), other._nb_lines())  # noqa  # pylint: disable=protected-access
-        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(), other._nb_columns())  # noqa  # pylint: disable=protected-access
+        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(), other._nb_lines())  # pylint: disable=protected-access  # noqa
+        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(), other._nb_columns())  # pylint: disable=protected-access  # noqa
 
         return Matrix([[self[i, j] + other[i, j]
                         for j in range(self._nb_columns())]
@@ -124,11 +124,11 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert self._nb_columns() == other._nb_lines(), (self._nb_columns(), other._nb_lines())  # noqa  # pylint: disable=protected-access
+        assert self._nb_columns() == other._nb_lines(), (self._nb_columns(), other._nb_lines())  # pylint: disable=protected-access  # noqa
 
         return Matrix([[sum([self[i, k] * other[k, j]
                              for k in range(self._nb_columns())])
-                        for j in range(other._nb_columns())]  # noqa  # pylint: disable=protected-access
+                        for j in range(other._nb_columns())]  # pylint: disable=protected-access  # noqa
                        for i in range(self._nb_lines())],
                       _copy=False)
 
@@ -167,8 +167,8 @@ class Matrix:
 
         :return: Matrix (m x n)
         """
-        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(), other._nb_lines())  # noqa  # pylint: disable=protected-access
-        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(), other._nb_columns())  # noqa  # pylint: disable=protected-access
+        assert self._nb_lines() == other._nb_lines(), (self._nb_lines(), other._nb_lines())  # pylint: disable=protected-access  # noqa
+        assert self._nb_columns() == other._nb_columns(), (self._nb_columns(), other._nb_columns())  # pylint: disable=protected-access  # noqa
 
         return Matrix([[self[i, j] - other[i, j]
                         for j in range(self._nb_columns())]
@@ -341,7 +341,7 @@ class Matrix:
                 inv[i, j] /= diagonal
 
         if all([abs(x) <= _epsilon
-                for x in reversed(mat._data[-1])]):  # noqa  # pylint: disable=protected-access
+                for x in reversed(mat._data[-1])]):  # pylint: disable=protected-access  # noqa
             raise ValueError('matrix has no inverse')
 
         return inv

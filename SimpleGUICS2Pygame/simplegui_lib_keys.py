@@ -11,14 +11,14 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 # print('IMPORT', __name__)
 
 
 try:
-    import simplegui  # type: ignore
+    import simplegui  # pytype: disable=import-error
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
@@ -59,11 +59,11 @@ class Keys:
         assert (keys is None) or isinstance(keys, Keys), type(keys)
 
         self._frame = frame
-        self._pressed_keys = {}
+        self._pressed_keys = dict()
 
         if keys is None:
-            self._keydown_fct = {}
-            self._keyup_fct = {}
+            self._keydown_fct = dict()
+            self._keyup_fct = dict()
         else:
             self._keydown_fct = dict(keys._keydown_fct)
             self._keyup_fct = dict(keys._keyup_fct)

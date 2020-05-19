@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 16, 2020
+:version: May 19, 2020
 """
 
 from __future__ import division
@@ -27,7 +27,7 @@ __all__ = ('Timer',
 
 import atexit  # noqa
 
-from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # noqa  # pylint: disable=no-name-in-module
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
 
 #
@@ -69,7 +69,7 @@ class Timer:
     **Don't require Pygame.**
     """
 
-    _timers_running = {}  # type: ignore
+    _timers_running = dict()  # type: dict
     """
     `Dict` {(Timer id): `Timer`} of all timers are running.
     """

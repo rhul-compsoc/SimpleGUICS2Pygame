@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- April 30, 2020
+# Makefile of SimpleGUICS2Pygame --- May 19, 2020
 
 .SUFFIXES:
 
@@ -138,11 +138,13 @@ links:
 	-@$(CD) Sphinx/_static/links/data; $(RM) -r __pycache__/*.pyc; $(RMDIR) __pycache__
 
 pydeps:
+	@$(ECHO)
 	$(MKDIR) diagrams/pydeps
 	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o diagrams/pydeps/pydeps_all.svg
 	$(PYDEPS) $(PYDEPSFLAGS) SimpleGUICS2Pygame --cluster -o diagrams/pydeps/pydeps_only.svg --only SimpleGUICS2Pygame.simpleguics2pygame
 
 pyreverse:
+	@$(ECHO)
 	$(PYREVERSE) $(PYREVERSEFLAGS) -p SimpleGUICS2Pygame SimpleGUICS2Pygame
 	$(PYREVERSE) $(PYREVERSEFLAGS) -f ALL -p SimpleGUICS2Pygame_all SimpleGUICS2Pygame
 	-$(PYREVERSE) $(PYREVERSEFLAGS) -p SimpleGUICS2Pygame -o svg SimpleGUICS2Pygame
@@ -163,7 +165,7 @@ pyreverse:
 lint:	pycodestyle pyflakes pylint pytypeTree pytypeUnresolved pytype mypy pydocstyle
 
 lintlog:
-	$(ECHO) "Lint SimpleGUICS2Pygame $(VERSION)" | $(TEE) lint.log
+	@$(ECHO) 'Lint ('`date`") of SimpleGUICS2Pygame $(VERSION)" | $(TEE) lint.log
 	@$(ECHO) | $(TEE) -a lint.log
 	@$(ECHO) ===== pycodestyle '(pep8)' `$(PYCODESTYLE) $(PYCODESTYLEFLAGS) --version` ===== | $(TEE) -a lint.log
 	-$(PYCODESTYLE) $(PYCODESTYLEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
@@ -187,27 +189,35 @@ lintlog:
 	-$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 
 mypy:
+	@$(ECHO)
 	-$(MYPY) $(MYPYFLAGS) $(SRC)
 
 pycodestyle:
+	@$(ECHO)
 	-$(PYCODESTYLE) $(PYCODESTYLEFLAGS) $(SRC)
 
 pydocstyle:
+	@$(ECHO)
 	-$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) $(SRC)
 
 pyflakes:
+	@$(ECHO)
 	-$(PYFLAKES) $(PYFLAKESFLAGS) $(SRC) 2>&1 | $(GREP) -v 'imported but unused' | $(GREP) -E -v 'impleGUICS2Pygame/simpleguics2pygame/__init__.py:.+undefined name' || exit 0 && exit 1
 
 pylint:
+	@$(ECHO)
 	-$(PYLINT) $(PYLINTFLAGS) -f colorized $(SRC)
 
 pytype:
+	@$(ECHO)
 	-$(PYTYPE) $(PYTYPEFLAGS) $(SRC)
 
 pytypeTree:
+	@$(ECHO)
 	-$(PYTYPE) --tree $(PYTYPEFLAGS) $(SRC)
 
 pytypeUnresolved:
+	@$(ECHO)
 	-$(PYTYPE) --unresolved $(PYTYPEFLAGS) $(SRC) | $(GREP) -E -v 'user[0-9]+' || exit 0 && exit 1
 
 

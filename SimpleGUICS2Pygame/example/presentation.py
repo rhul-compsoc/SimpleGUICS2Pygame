@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 try:
@@ -42,13 +42,13 @@ def main():  # pylint: disable=too-many-statements
             print(url)
 
         _VERSION = ''  # pylint: disable=invalid-name
-        _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # noqa  # pylint: disable=invalid-name
-        _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa  # pylint: disable=invalid-name
+        _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'  # pylint: disable=invalid-name  # noqa
+        _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # pylint: disable=invalid-name  # noqa
     else:
         from sys import version  # pylint: disable=import-outside-toplevel
-        from webbrowser import open_new_tab  # noqa  # pylint: disable=import-outside-toplevel
+        from webbrowser import open_new_tab  # pylint: disable=import-outside-toplevel  # noqa
 
-        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC  # noqa  # pylint: disable=import-outside-toplevel
+        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC  # pylint: disable=import-outside-toplevel  # noqa
 
     width = 560
     height = 540
@@ -102,15 +102,15 @@ def main():  # pylint: disable=too-many-statements
         logo_opi = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/OPi_t.png')  # noqa
         logo_gpl = simplegui.load_image('https://bitbucket.org/OPiMedia/simpleguics2pygame/raw/42359d3aa63aa0b6ea2c663652a60579c7ba80f8/SimpleGUICS2Pygame/_img/gplv3-88x31.png')  # noqa
     else:
-        from os.path import dirname, join  # noqa  # pylint: disable=import-outside-toplevel
+        from os.path import dirname, join  # pylint: disable=import-outside-toplevel  # noqa
         from sys import argv  # pylint: disable=import-outside-toplevel
 
-        logo = simplegui._load_local_image(  # noqa  # pylint: disable=protected-access,no-member
+        logo = simplegui._load_local_image(  # pylint: disable=protected-access,no-member  # noqa
             join(dirname(argv[0]),
                  '../_img/SimpleGUICS2Pygame_64x64_t.png'))
-        logo_opi = simplegui._load_local_image(join(dirname(argv[0]),  # noqa  # pylint: disable=protected-access,no-member
+        logo_opi = simplegui._load_local_image(join(dirname(argv[0]),  # pylint: disable=protected-access,no-member  # noqa
                                                     '../_img/OPi_t.png'))
-        logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),  # noqa  # pylint: disable=protected-access,no-member
+        logo_gpl = simplegui._load_local_image(join(dirname(argv[0]),  # pylint: disable=protected-access,no-member  # noqa
                                                     '../_img/gplv3-88x31.png'))
 
     frame = simplegui.create_frame(
@@ -161,7 +161,7 @@ def main():  # pylint: disable=too-many-statements
                         (' 2' if codeskulptor_lib.codeskulptor_version() == 2
                          else '3'))
     else:
-        frame.add_label('Pygame ' + simplegui._PYGAME_VERSION)  # noqa  # pylint: disable=protected-access,no-member
+        frame.add_label('Pygame ' + simplegui._PYGAME_VERSION)  # pylint: disable=protected-access,no-member  # noqa
         frame.add_label('')
         frame.add_label('Python ' + version)
 
@@ -174,7 +174,7 @@ def main():  # pylint: disable=too-many-statements
 # Main
 ######
 if __name__ == '__main__':
-    if not codeskulptor_lib.codeskulptor_is() and not simplegui._PYGAME_AVAILABLE:  # noqa  # pylint: disable=protected-access,no-member
+    if not codeskulptor_lib.codeskulptor_is() and not simplegui._PYGAME_AVAILABLE:  # pylint: disable=protected-access,no-member  # noqa
         print("""Pygame not available!
 See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
 

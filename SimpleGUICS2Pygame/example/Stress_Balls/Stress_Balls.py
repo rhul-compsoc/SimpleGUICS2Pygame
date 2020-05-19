@@ -15,7 +15,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 18, 2020
+:version: May 19, 2020
 """
 
 import sys
@@ -76,7 +76,7 @@ RGB_COLORS = ((0, 0, 128),
               (255, 255, 255))
 
 
-RESULTS = {}  # type: ignore
+RESULTS = dict()  # type: dict
 
 FPS = None
 FRAME = None
@@ -85,7 +85,7 @@ NB_SHAPES = None
 NB_FRAMES_DRAWED = None
 NB_SECONDS = None
 SHAPES = None
-TIMER = None
+TIMER = None  # type: simplegui.Timer
 TO_NEXT_STEP = None
 
 
@@ -281,7 +281,7 @@ def init():
     global TO_NEXT_STEP  # pylint: disable=global-statement
 
     if len(LIST_NB_SHAPES) == 0:
-        TIMER.stop()  # type: ignore
+        TIMER.stop()
 
         final_result = dict_to_ordered_list(RESULTS)
 
@@ -378,7 +378,7 @@ def draw(canvas):
     NB_FRAMES_DRAWED += 1
 
     s = '#%d | %d FPS' % (NB_SHAPES,
-                          (int(round(FRAME._get_fps_average())) if _FPS_AVERAGE  # noqa  # pylint: disable=protected-access
+                          (int(round(FRAME._get_fps_average())) if _FPS_AVERAGE  # pylint: disable=protected-access  # noqa
                            else FPS))
     canvas.draw_text(s, (12, 13 + FONT_SIZE * 3 // 4), FONT_SIZE, 'Gray')
     canvas.draw_text(s, (10, 10 + FONT_SIZE * 3 // 4), FONT_SIZE, 'White')
@@ -403,7 +403,7 @@ def print_fps():
 
     NB_SECONDS += 1
 
-    FPS = (FRAME._get_fps_average() if _FPS_AVERAGE  # noqa  # pylint: disable=protected-access
+    FPS = (FRAME._get_fps_average() if _FPS_AVERAGE  # pylint: disable=protected-access  # noqa
            else int(round(float(NB_FRAMES_DRAWED) / NB_SECONDS)))
 
     if (NB_SECONDS > MAX_NB_SECONDS) or TO_NEXT_STEP:
@@ -422,7 +422,7 @@ def revert():
 
 def stop():
     """Stop timer and frame."""
-    TIMER.stop()  # type: ignore
+    TIMER.stop()
     try:
         FRAME.stop()
     except Exception as e:  # pylint: disable=broad-except
