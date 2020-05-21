@@ -12,11 +12,16 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 import math
 import random
+
+try:
+    from typing import List, Optional, Tuple, Union
+except ImportError:
+    pass
 
 try:
     import simplegui  # pytype: disable=import-error
@@ -37,7 +42,7 @@ DEBUG = False
 # DEBUG = True  # to help debug
 
 
-PONG = None
+PONG = None  # Optional['Pong']
 
 
 # Classes
@@ -45,6 +50,7 @@ class Vector:
     """Vector (self.x, self.y)."""
 
     def __init__(self, x, y):
+        # type: (Union[int, float], Union[int, float]) -> None
         """
         Initialize the vector.
 
@@ -57,7 +63,7 @@ class Vector:
         self.x = x
         self.y = y
 
-    def add(self, other):
+    def add(self, other):  # type: ('Vector') -> None
         """
         Add other to self.
 
@@ -68,7 +74,7 @@ class Vector:
         self.x += other.x
         self.y += other.y
 
-    def mul_scalar(self, scalar):
+    def mul_scalar(self, scalar):  # type: (Union[int, float]) -> None
         """
         Multiply self by scalar.
 
@@ -79,7 +85,7 @@ class Vector:
         self.x *= scalar
         self.y *= scalar
 
-    def distance(self, other):
+    def distance(self, other):  # type: ('Vector') -> float
         """
         Return the distance between self and other.
 
@@ -91,7 +97,7 @@ class Vector:
 
         return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
 
-    def same(self, other):
+    def same(self, other):  # type: ('Vector') -> bool
         """
         If (self.x, self.y) == (other.x, other.y)
         then return True,
@@ -104,6 +110,7 @@ class Vector:
         return (self.x == other.x) and (self.y == other.y)
 
     def to_tuple(self):
+        # type: () -> Tuple[Union[int, float], Union[int, float]]
         """
         Return the vector as a tuple.
 
@@ -126,17 +133,18 @@ class Pong:
     HALF_WIDTH = WIDTH // 2
     HALF_HEIGHT = HEIGHT // 2
 
-    def __init__(self):
+    def __init__(self):  # type: () -> None
         """Initialize the game with one ball."""
         self.current_radius = 20
 
-        self.balls = []
+        self.balls = []  # type: List['Ball']
         self.balls_to_launch = [Ball(self.current_radius)]
         self.players = (Player(False, 'w', 's'), Player(True, 'up', 'down'))
 
         self.paused = False
 
     def add_ball(self, radius=None, right=None):
+        # type: (Optional[int], Optional[bool]) -> None
         """
         Add a new ball.
 
@@ -144,11 +152,10 @@ class Pong:
         then add a smaller ball (minimum radius == 10),
         else add a ball with radius.
 
-        :param radius: (int or float) > 0
+        :param radius: int > 0
         :param right: None or bool
         """
-        assert ((radius is None) or
-                (isinstance(radius, (int, float)) and (radius > 0)))
+        assert (radius is None) or (isinstance(radius, int) and (radius > 0))
         assert (right is None) or isinstance(right, bool)
 
         if radius is None:
@@ -158,7 +165,7 @@ class Pong:
         else:
             self.balls_to_launch.append(Ball(radius, right))
 
-    def pause(self):
+    def pause(self):  # type: () -> None
         """Swicth on/off the pause."""
         self.paused = not self.paused
 
@@ -171,6 +178,7 @@ class MovingItem:
     """
 
     def __init__(self, position, velocity=None):
+        # type: (Vector, Optional[Vector]) -> None
         """
         Initialize the position and the velocity.
 
@@ -188,6 +196,7 @@ class MovingItem:
                     else velocity)
 
     def bounce(self, horizontally=True, vertically=True):
+        # type: (bool, bool) -> None
         """
         If horizontally
         then invert horizontal velocity.
@@ -206,7 +215,7 @@ class MovingItem:
         if vertically:
             self.vel.y = -self.vel.y
 
-    def same_pos(self, other):
+    def same_pos(self, other):  # type: ('MovingItem') -> bool
         """
         If self and other are same position
         then return True,
@@ -218,7 +227,7 @@ class MovingItem:
 
         return self.pos.same(other.pos)
 
-    def same_vel_horizontal(self, other):
+    def same_vel_horizontal(self, other):  # type: ('MovingItem') -> bool
         """
         If self and other are the same horizontally direction
         then return True,
@@ -232,7 +241,7 @@ class MovingItem:
                 (self.vel.x < 0 and other.vel.x < 0) or
                 (self.vel.x == 0 and other.vel.x == 0))
 
-    def same_vel_vertical(self, other):
+    def same_vel_vertical(self, other):  # type: ('MovingItem') -> bool
         """
         If self and other are the same vertically direction
         then return True,
@@ -246,7 +255,7 @@ class MovingItem:
                 (self.vel.y < 0 and other.vel.y < 0) or
                 (self.vel.y == 0 and other.vel.y == 0))
 
-    def update_pos(self):
+    def update_pos(self):  # type: () -> None
         """Add self.vel to self.pos."""
         self.pos.add(self.vel)
 
@@ -258,6 +267,7 @@ class Ball(MovingItem):
     SPEED_MAX_Y = 20
 
     def __init__(self, radius, right=None):
+        # type: (int, Optional[bool]) -> None
         """
         Initialize the position at middle of screen
         and the velocity at random top up.
@@ -269,10 +279,10 @@ class Ball(MovingItem):
         then velocity goes to right,
         else goes to left.
 
-        :param radius: (int or float) > 0
+        :param radius: int > 0
         :param right: None or bool
         """
-        assert isinstance(radius, (int, float))
+        assert isinstance(radius, int)
         assert radius > 0, radius
 
         if right is None:
@@ -291,6 +301,7 @@ class Ball(MovingItem):
         self.radius = radius
 
     def check_collision(self):  # pylint: disable=too-many-branches,too-many-statements  # noqa
+        # type: () -> None
         """
         If the ball touch the top or the bottom of the screen
         then bounce vertically.
@@ -303,6 +314,8 @@ class Ball(MovingItem):
         If the ball touch *newest* ball
         then both "bounce".
         """
+        assert isinstance(PONG, Pong)
+
         if self.vel.y < 0:    # top
             if self.pos.y <= self.radius:
                 SOUND_BOUNCE_BORDER.play()
@@ -378,7 +391,7 @@ class Ball(MovingItem):
                 elif self.same_pos(ball):
                     founded = True
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the ball.
 
@@ -386,15 +399,15 @@ class Ball(MovingItem):
         """
         for i in range(self.radius, 2, -2):
             color = 255 - 10 * i
-            color = '#' + ('0' + hex(color)[-1] if color < 16
-                           else hex(color)[-2:]) * 3
-            canvas.draw_circle(self.pos.to_tuple(), i, 1, color, color)
+            color_str = '#' + ('0' + hex(color)[-1] if color < 16
+                               else hex(color)[-2:]) * 3
+            canvas.draw_circle(self.pos.to_tuple(), i, 1, color_str, color_str)
 
         if DEBUG:
             canvas.draw_line((self.pos.x - self.radius, self.pos.y),
                              (self.pos.x + self.radius, self.pos.y), 1, 'Red')
 
-    def faster(self):
+    def faster(self):  # type: () -> None
         """
         Increase velocity by 10
         (with maximum (Ball.SPEED_MAX_X, Ball.SPEED_MAX_Y))
@@ -411,7 +424,7 @@ class Ball(MovingItem):
         if neg:
             self.vel.y = -self.vel.y
 
-    def touch(self, other):
+    def touch(self, other):  # type: (Ball) -> bool
         """
         If two balls touch
         then return True,
@@ -443,6 +456,7 @@ class Player(MovingItem):
     SPEED = 5
 
     def __init__(self, right, key_up, key_down):
+        # type: (bool, str, str) -> None
         """
         Initialize the player (right or not) with his keys.
 
@@ -469,7 +483,7 @@ class Player(MovingItem):
 
         self.protected = False
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the paddle.
 
@@ -489,11 +503,11 @@ class Player(MovingItem):
                              (self.pos.x + Player.WIDTH,
                               self.pos.y + Player.HALF_HEIGHT), 1, 'Red')
 
-    def protect(self):
+    def protect(self):  # type: () -> None
         """Switch protected parameter."""
         self.protected = not self.protected
 
-    def update_pos(self):
+    def update_pos(self):  # type: () -> None
         """
         If possible
         then add self.vel to self.pos,
@@ -506,7 +520,7 @@ class Player(MovingItem):
         elif self.pos.y > Pong.HEIGHT - 1 - Player.HALF_HEIGHT:
             self.pos.y = Pong.HEIGHT - 1 - Player.HALF_HEIGHT
 
-    def update_vel(self):
+    def update_vel(self):  # type: () -> None
         """
         If self.vel == 0 and a key is down
         then set the good velocity.
@@ -519,17 +533,21 @@ class Player(MovingItem):
 
 
 # Event handlers
-def add_ball():
+def add_ball():  # type: () -> None
     """Add one ball to the game."""
+    assert isinstance(PONG, Pong)
+
     PONG.add_ball()
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Event handler to draw all items.
 
     :param canvas: simplegui.Canvas
     """
+    assert isinstance(PONG, Pong)
+
     # Mid line
     canvas.draw_line((Pong.HALF_WIDTH, 0), (Pong.HALF_WIDTH, Pong.HEIGHT),
                      1, 'White')
@@ -567,7 +585,7 @@ def draw(canvas):
             ball.check_collision()
 
 
-def joypad_axe(joypad, axe, value):
+def joypad_axe(joypad, axe, value):  # type: (int, int, float) -> None
     """
     Event handler to deal joypad axe.
 
@@ -575,6 +593,8 @@ def joypad_axe(joypad, axe, value):
     :param axe: int >= 0
     :param value: -1 <= float <= 1
     """
+    assert isinstance(PONG, Pong)
+
     if axe == 1:
         threshold = 0.7
 
@@ -608,7 +628,7 @@ def joypad_axe(joypad, axe, value):
                 PONG.players[1].update_vel()
 
 
-def joypad_up(joypad, button):
+def joypad_up(joypad, button):  # type: (int, int) -> None
     """
     Event handler to deal joypad buttons.
 
@@ -620,6 +640,7 @@ def joypad_up(joypad, button):
 
 
 def joypad_hat(joypad, hat, values):
+    # type: (int, int, Tuple[int, int]) -> None
     """
     Event handler to deal joypad hat.
 
@@ -627,6 +648,8 @@ def joypad_hat(joypad, hat, values):
     :param hat: int >= 0
     :param values: (a, b) with a and b == -1, 0 or 1
     """
+    assert isinstance(PONG, Pong)
+
     if hat == 0:
         if joypad == 0:
             if values[1] == 1:     # player 0 up
@@ -658,12 +681,14 @@ def joypad_hat(joypad, hat, values):
                 PONG.players[1].update_vel()
 
 
-def keydown(key):
+def keydown(key):  # type: (int) -> None
     """
     Event handler to deal key down.
 
     :param key: int >= 0
     """
+    assert isinstance(PONG, Pong)
+
     if key == PONG.players[0].key_up:      # player 0 up
         PONG.players[0].key_up_active = True
         PONG.players[0].vel.y = -Player.SPEED
@@ -682,12 +707,14 @@ def keydown(key):
         PONG.players[1].update_vel()
 
 
-def keyup(key):
+def keyup(key):  # type: (int) -> None
     """
     Event handler to deal key up.
 
     :param key: int >= 0
     """
+    assert isinstance(PONG, Pong)
+
     if key == PONG.players[0].key_up:      # player 0 clear up
         PONG.players[0].key_up_active = False
         PONG.players[0].vel.y = 0
@@ -706,40 +733,48 @@ def keyup(key):
         PONG.players[1].update_vel()
 
 
-def launch_ball():
+def launch_ball():  # type: () -> None
     """Add a prepared ball (if not in pause)."""
+    assert isinstance(PONG, Pong)
+
     if PONG.balls_to_launch and not PONG.paused:
         PONG.balls.append(PONG.balls_to_launch.pop(0))
 
 
-def pause():
+def pause():  # type: () -> None
     """Event handler to deal click on pause button."""
+    assert isinstance(PONG, Pong)
+
     PONG.pause()
     BUTTON_PAUSE.set_text('Pause ' + ('off' if PONG.paused
                                       else 'on'))
 
 
-def protect_left():
+def protect_left():  # type: () -> None
     """Event handler to deal click on protect left button."""
+    assert isinstance(PONG, Pong)
+
     PONG.players[0].protect()
     BUTTON_PROTECT_LEFT.set_text(('Unprotect' if PONG.players[0].protected
                                   else 'Protect') + ' left player')
 
 
-def protect_right():
+def protect_right():  # type: () -> None
     """Event handler to deal click on protect right button."""
+    assert isinstance(PONG, Pong)
+
     PONG.players[1].protect()
     BUTTON_PROTECT_RIGHT.set_text(('Unprotect' if PONG.players[1].protected
                                    else 'Protect') + ' right player')
 
 
-def quit_prog():
+def quit_prog():  # type: () -> None
     """Stop timer and quit."""
     TIMER.stop()
     FRAME.stop()
 
 
-def restart():
+def restart():  # type: () -> None
     """Event handler to deal click on restart button."""
     global PONG  # pylint: disable=global-statement
 

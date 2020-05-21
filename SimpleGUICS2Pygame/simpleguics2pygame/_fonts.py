@@ -21,6 +21,11 @@ from __future__ import print_function
 __all__ = tuple()  # type: tuple
 
 
+try:
+    from typing import Dict, Optional, Tuple
+except ImportError:
+    pass
+
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
@@ -46,7 +51,7 @@ to corresponding font names list used by Pygame.
 #
 # Private global variables
 ##########################
-__PYGAMEFONTS_CACHED = dict()  # type: dict
+__PYGAMEFONTS_CACHED = dict()  # type: Dict[Tuple[Optional[str], int], pygame.font.Font]  # noqa
 """
 `Dict` {(`str` CodeSkulptor font face, `int` font size):
         `pygame.font.Font`}.
@@ -67,6 +72,7 @@ then use Pygame default font instead serif, monospace...
 # "Private" function
 ####################
 def _simpleguifontface_to_pygamefont(font_face, font_size):  # pylint: disable=invalid-name  # noqa
+    # type: (Optional[str], int) -> pygame.font.Font
     """
     Return a `pygame.font.Font` object
     corresponding to the SimpleGUI `font_face` name

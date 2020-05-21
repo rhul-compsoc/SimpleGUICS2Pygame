@@ -46,7 +46,7 @@ INPUT_1 = ''
 INPUT_2 = ''
 
 
-def input_1_handler(text):
+def input_1_handler(text):  # type: (str) -> None
     """Simple input handler function."""
     global INPUT_1  # pylint: disable=global-statement
 
@@ -55,7 +55,7 @@ def input_1_handler(text):
     print('.' + INPUT_2 + '.')
 
 
-def input_2_handler(text):
+def input_2_handler(text):  # type: (str) -> None
     """Simple input handler function."""
     global INPUT_2  # pylint: disable=global-statement
 
@@ -67,7 +67,7 @@ def input_2_handler(text):
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Create and start frame."""
     frame = simplegui.create_frame(TEST, 0, 400, 400)
 

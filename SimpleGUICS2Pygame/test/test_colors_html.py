@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
-    from user305_2YRLOxXzAvucSDa import hex2, hex_fig  # pytype: disable=import-error  # noqa
+    from user305_SXBsmszNiUxIeoV import hex2, hex_fig  # pytype: disable=import-error  # noqa
 
     import simplegui  # pytype: disable=import-error
 
@@ -48,7 +48,7 @@ WIDTH = 512
 HEIGHT = 180
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw (with draw_line()) range of colors in #rgb and #rrggbb formats.
 
@@ -78,7 +78,7 @@ def draw(canvas):
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Create and start frame."""
     frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 

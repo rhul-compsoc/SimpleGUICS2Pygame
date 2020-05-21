@@ -18,12 +18,18 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 
 try:
-    # Try import to check if running in SimpleGUICS2Pygame environment
-    from SimpleGUICS2Pygame import _VERSION  # pylint: disable=unused-import
+    import simplegui  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+
+    __SIMPLEGUICS2PYGAME = False
+except ImportError:
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore  # pylint: disable=unused-import  # noqa
 
     __SIMPLEGUICS2PYGAME = True
-except ImportError:
-    __SIMPLEGUICS2PYGAME = False
+
+    try:
+        from typing import Optional, Sequence, Union
+    except ImportError:
+        pass
 
 
 #
@@ -31,6 +37,7 @@ except ImportError:
 ############
 def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
               line_width, line_color, fill_color=None):
+    # type: (simplegui.Canvas, Sequence[Union[int, float]], Sequence[Union[int, float]], int, str, str) -> None  # noqa
     """
     Draw a rectangle.
 
@@ -74,6 +81,7 @@ def draw_text_multi(canvas,  # pylint: disable=too-many-arguments
                     font_size, font_color,
                     font_face='serif',
                     _font_size_coef=3.0 / 4):
+    # type: (simplegui.Canvas, Union[str, Sequence[str]], Sequence[Union[int, float]], Union[int, float], str, str, Union[int, float]) -> None  # noqa
     """
     Draw the `text` (possibly with several lines) at the position `point`.
 
@@ -137,6 +145,7 @@ def draw_text_side(frame, canvas,  # pylint: disable=too-many-arguments,too-many
                    font_size_coef=3.0 / 4,
                    rectangle_color=None, rectangle_fill_color=None,
                    side_x=-1, side_y=1):
+    # type: (simplegui.Frame, simplegui.Canvas, str, Sequence[Union[int, float]], Union[int, float], str, str, Union[int, float], Optional[str], Optional[str], Union[int, float], Union[int, float]) -> None  # noqa
     """
     Draw the `text` string at the position `point`.
 
@@ -160,16 +169,18 @@ def draw_text_side(frame, canvas,  # pylint: disable=too-many-arguments,too-many
     |  == 0 then `point[1]` is the center of the text,
     |   > 0 then `point[1]` is the bottom of the text.
 
+    :param frame: simplegui.Frame
+    :param canvas: simplegui.Canvas
     :param text: str
     :param point: (int or float, int or float) or [int or float, int or float]
     :param font_size: (int or float) >= 0
     :param font_color: str
     :param font_face: str == 'monospace', 'sans-serif', 'serif'
+    :param font_size_coef: int or float
     :param rectangle_color: None or str
     :param rectangle_fill_color: None or str
     :param side_x: int or float
     :param side_y: int or float
-    :param font_size_coef: int or float
     """  # noqa
     assert isinstance(text, str), type(text)
 

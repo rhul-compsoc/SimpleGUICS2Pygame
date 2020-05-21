@@ -120,8 +120,8 @@ Two simple online examples:
   * `Frame_example.py`_: very simple canvas example
   * `presentation.py`_: little draw images and texts
 
-.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_u6bTdsZGXQ9QjVr.py
-.. _`presentation.py`: https://py3.codeskulptor.org/#user305_jwi9C0c09PpFXYN.py
+.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_ELuwGUIuxh7hmlE.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_Z4gikDc1fFTXvKa.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
 
 |
@@ -261,7 +261,7 @@ Note that
 
 Changes
 =======
-* 2.0.1 — May 19, 2020
+* 2.0.1 — May 21, 2020
 
   - Documentation:
 
@@ -274,6 +274,7 @@ Changes
 
   - Tests:
 
+    - Added type annotations (in Python 2 mode) for each function.
     - Cleaned some type annotations instead ignore them.
 
 * 2.0.0 — April 18, 2020

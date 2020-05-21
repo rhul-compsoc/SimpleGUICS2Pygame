@@ -146,8 +146,8 @@ You can also execute this online program to plot results:
 
 |Stress Balls results|
 
-.. _`example/Stress_Balls/Stress_Balls.py`: https://py3.codeskulptor.org/#user305_ZUWGM5X36wuMNLz.py
-.. _`example/Stress_Balls/Stress_Balls_results.py`: https://py3.codeskulptor.org/#user305_dooqGAQ2FfejOPo.py
+.. _`example/Stress_Balls/Stress_Balls.py`: https://py3.codeskulptor.org/#user305_tmjR8lBkaJjmXy7.py
+.. _`example/Stress_Balls/Stress_Balls_results.py`: https://py3.codeskulptor.org/#user305_ApdSY0hhRLWL9LJ.py
 .. _`Python assertions option`: Tips.html#python-assertions-option
 
 .. |Stress Balls results| image:: _static/img/Stress_Balls_results.svg

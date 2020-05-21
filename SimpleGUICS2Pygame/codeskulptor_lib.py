@@ -16,6 +16,12 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 # print('IMPORT', __name__)
 
 
+try:
+    from typing import Union
+except ImportError:
+    pass
+
+
 # Private global variables
 ##########################
 __CODESKULPTOR_IS = None
@@ -33,9 +39,9 @@ Used to memoization by codeskulptor_version().
 # Functions
 ###########
 def assert_position(position, non_negative=False, non_zero=False):
+    # type: (Union[int, float], bool, bool) -> None
     """
-    Assertions to check valid `position`:
-    (int or float, int or float) or [int or float, int or float].
+    Assertions to check valid `position`.
 
     If non_negative
     then each `int` or `float` must be >= 0.
@@ -43,9 +49,9 @@ def assert_position(position, non_negative=False, non_zero=False):
     If non_zero
     then each `int` or `float` must be != 0.
 
-    :param position: object
+    :param position: (int or float, int or float) or [int or float, int or float]
     :param non_negative: bool
-    """
+    """  # noqa
     assert isinstance(non_negative, bool), type(non_negative)
     assert isinstance(non_zero, bool), type(non_zero)
 
@@ -64,7 +70,7 @@ def assert_position(position, non_negative=False, non_zero=False):
         assert position[1] != 0, position
 
 
-def codeskulptor_is():
+def codeskulptor_is():  # type: () -> bool
     """
     If run in CodeSkulptor environment
     then return `True`,
@@ -88,7 +94,7 @@ def codeskulptor_is():
     return __CODESKULPTOR_IS
 
 
-def codeskulptor_version():
+def codeskulptor_version():  # type: () -> Union[bool, int]
     """
     If run in CodeSkulptor environment
     then return 2 if CodeSkulptor or 3 if CodeSkulptor3
@@ -115,6 +121,7 @@ def codeskulptor_version():
 
 
 def hex2(n, uppercase=True):  # pylint: disable=invalid-name
+    # type: (int, bool) -> str
     """
     Return 2 characters corresponding to the hexadecimal representation of `n`.
 
@@ -131,6 +138,7 @@ def hex2(n, uppercase=True):  # pylint: disable=invalid-name
 
 
 def hex_fig(n, uppercase=True):  # pylint: disable=invalid-name
+    # type: (int, bool) -> str
     """
     Return the hexadecimal figure of `n`.
 
@@ -149,6 +157,7 @@ def hex_fig(n, uppercase=True):  # pylint: disable=invalid-name
 
 
 def hsl(hue, saturation, lightness):
+    # type: (Union[int, float], Union[int, float], Union[int, float]) -> str
     """
     Return the string HTML representation of the color
     in 'hsl(hue, lightness, saturation)' format.
@@ -173,8 +182,8 @@ def hsl(hue, saturation, lightness):
                                      lightness, '%')
 
 
-def hsla(hue, saturation, lightness,
-         alpha=1):
+def hsla(hue, saturation, lightness, alpha=1):
+    # type: (Union[int, float], Union[int, float], Union[int, float], Union[int, float]) -> str  # noqa
     """
     Return the string HTML representation of the color
     in 'hsla(hue, lightness, saturation, alpha)' format.
@@ -204,7 +213,7 @@ def hsla(hue, saturation, lightness,
                                          alpha)
 
 
-def rgb(red, green, blue):
+def rgb(red, green, blue):  # type: (int, int, int) -> str
     """
     Return the string HTML representation of the color
     in 'rgb(red, blue, green)' format.
@@ -227,8 +236,8 @@ def rgb(red, green, blue):
     return 'rgba(%d, %d, %d)' % (red, green, blue)
 
 
-def rgba(red, green, blue,
-         alpha=1):
+def rgba(red, green, blue, alpha=1):
+    # type: (int, int, int, Union[int, float]) -> str
     """
     Return the string HTML representation of the color
     in 'rgba(red, blue, green, alpha)' format.

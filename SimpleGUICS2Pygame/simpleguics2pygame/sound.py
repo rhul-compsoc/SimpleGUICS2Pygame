@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import print_function
@@ -23,6 +23,11 @@ __all__ = ('_LocalSound', 'Sound',
            '_load_local_sound')
 
 
+try:
+    from typing import Sequence, Union
+except ImportError:
+    pass
+
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
 from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _load_media  # pylint: disable=no-name-in-module  # noqa
@@ -31,7 +36,7 @@ from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _loa
 #
 # "Private" function
 ####################
-def _load_local_sound(filename):
+def _load_local_sound(filename):  # type: (str) -> '_LocalSound'
     """
     Create and return a sound by loading a file from `filename`.
     Not founded file and errors are ignored.
@@ -80,7 +85,7 @@ class Sound:
     then load sounds are disabled.
     """
 
-    def __init__(self, url):
+    def __init__(self, url):  # type: (str) -> None
         """
         Set a sound (if not Sound._load_disabled).
 
@@ -95,7 +100,7 @@ class Sound:
                               else _load_media('Sound', url,
                                                Sound._dir_search_first))
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<Sound object>'`.
 
@@ -103,7 +108,7 @@ class Sound:
         """
         return '<Sound object>'
 
-    def _get_length(self):
+    def _get_length(self):  # type: () -> Union[int, float]
         """
         Return the length of this sound in seconds.
 
@@ -118,7 +123,7 @@ class Sound:
                 if (self._pygame_sound is not None)
                 else 0)
 
-    def pause(self):
+    def pause(self):  # type: () -> None
         """
         Pause this sound.
         (Use `Sound.play()` to resume.)
@@ -127,7 +132,7 @@ class Sound:
                 (self._pygame_channel.get_sound() == self._pygame_sound)):
             self._pygame_channel.pause()
 
-    def play(self):
+    def play(self):  # type: () -> None
         """
         If this sound is paused
         then resume the sound,
@@ -143,7 +148,7 @@ class Sound:
         elif self._pygame_sound is not None:
             self._pygame_channel = self._pygame_sound.play()
 
-    def rewind(self):
+    def rewind(self):  # type: () -> None
         """
         If this sound has already been started
         then stop the sound and rewind to the begining.
@@ -152,7 +157,7 @@ class Sound:
                 (self._pygame_channel.get_sound() == self._pygame_sound)):
             self._pygame_sound.stop()
 
-    def set_volume(self, volume):
+    def set_volume(self, volume):  # type: (Union[int, float]) -> None
         """
         Change the volume of this sound.
         The default volume is `1` (maximum).
@@ -177,6 +182,7 @@ class _LocalSound(Sound):
     """
 
     def __init__(self, filename):  # pylint: disable=super-init-not-called
+        # type: (str) -> None
         """
         Set a sound (if not Sound._load_disabled).
 
@@ -190,7 +196,7 @@ class _LocalSound(Sound):
         self._pygame_sound = (None if Sound._load_disabled or (filename == '')
                               else _load_local_media('Sound', filename))
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<_LocalSound object>'`.
 
@@ -203,6 +209,7 @@ class _LocalSound(Sound):
 # SimpleGUI functions
 #####################
 def create_sound(sound_data, sample_rate=8000, num_channels=1):
+    # type: (Sequence[int], int, int) -> Sound
     """
     NOT YET IMPLEMENTED! (Return an empty `Sound`.)
 
@@ -230,7 +237,7 @@ def create_sound(sound_data, sample_rate=8000, num_channels=1):
     return Sound('')
 
 
-def load_sound(url):
+def load_sound(url):  # type: (str) -> Sound
     """
     Create and return a sound by loading a file from `url`.
     Not founded URL and errors are ignored.

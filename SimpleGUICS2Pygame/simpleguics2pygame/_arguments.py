@@ -47,7 +47,7 @@ _CONFIG = {'--default-font': False,
 #
 # "Private" functions
 #####################
-def __help_quit(code=0):
+def __help_quit(code=0):  # type: (int) -> None
     """
     Print help message in error output and quit.
 
@@ -116,6 +116,7 @@ Examples:
 
 
 def __read_arguments():  # pylint: disable=too-many-branches,too-many-statements  # noqa
+    # type: () -> None
     """
     Read arguments in sys.argv
     and set __CONFIG.

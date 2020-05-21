@@ -1,20 +1,17 @@
-#!/usr/bin/env python
-# -*- coding: latin-1 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """
 Make 'snd_links.html' file
   from snd_links.txt
-(January 12, 2016)
+(May 21, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-GPLv3 --- Copyright (C) 2013, 2016 Olivier Pirson
+GPLv3 --- Copyright (C) 2013, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
-
-from __future__ import print_function
-
 
 import shutil
 import sys

@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
-    from user305_2AIoOM1Isi08A9H import draw_text_multi, draw_text_side  # pytype: disable=import-error  # noqa
+    from user305_SaT1YKoOikl4ax9 import draw_text_multi, draw_text_side  # pytype: disable=import-error  # noqa
 
     import simplegui  # pytype: disable=import-error
 
@@ -48,7 +48,7 @@ WIDTH = 800
 HEIGHT = 300
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw handler.
 

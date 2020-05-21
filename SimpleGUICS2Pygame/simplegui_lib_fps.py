@@ -17,6 +17,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 # print('IMPORT', __name__)
 
 
+try:
+    from typing import Optional, Union
+except ImportError:
+    pass
+
+try:
+    import simplegui  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+except ImportError:
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore  # pylint: disable=unused-import  # noqa
+
+
 # Class
 ########
 class FPS:  # pylint: disable=too-many-instance-attributes
@@ -32,6 +43,7 @@ class FPS:  # pylint: disable=too-many-instance-attributes
     """
 
     def __init__(self, x=10, y=10, font_color='Red', font_size=40):
+        # type: (Union[int, float], Union[int, float], str, int) -> None
         """
         Set an instance to calculate FPS and drawing on position (x, y).
 
@@ -50,12 +62,12 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         self._x = x
         self._y = y
 
-        self._fps = None
-        self._nb_frames_drawed = None
-        self._nb_seconds = None
-        self._timer = None
+        self._fps = None  # type: Optional[int]
+        self._nb_frames_drawed = None  # type: Optional[int]
+        self._nb_seconds = None  # type: Optional[int]
+        self._timer = None  # type: Optional[simplegui.Timer]
 
-    def draw_fct(self, canvas):
+    def draw_fct(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Update the number of frames drawn
         and draw the FPS.
@@ -67,13 +79,15 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         :param canvas: simplegui.Canvas
         """
         if self._timer is not None:
+            assert isinstance(self._nb_frames_drawed, int)
+
             self._nb_frames_drawed += 1
 
             canvas.draw_text(str(self._fps),
                              (self._x, self._y + self._font_size * 3 // 4),
                              self._font_size, self._font_color)
 
-    def is_started(self):
+    def is_started(self):  # type: () -> bool
         """
         If FPS is active
         then return True,
@@ -81,7 +95,7 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         """
         return self._timer is not None
 
-    def start(self):
+    def start(self):  # type: () -> None
         """
         Start calculation and drawing.
 
@@ -94,23 +108,22 @@ class FPS:  # pylint: disable=too-many-instance-attributes
         self._nb_frames_drawed = 0
         self._nb_seconds = 0
 
-        try:
-            from simplegui import create_timer  # pytype: disable=import-error  # pylint: disable=import-outside-toplevel  # noqa
-        except ImportError:
-            from SimpleGUICS2Pygame.simpleguics2pygame import create_timer  # pylint: disable=import-outside-toplevel  # noqa
-
         def update():
             """Update counters."""
             if self._timer is not None:
+                assert isinstance(self._fps, int)
+                assert isinstance(self._nb_frames_drawed, int)
+                assert isinstance(self._nb_seconds, int)
+
                 self._nb_seconds += 1
                 self._fps = int(round(float(self._nb_frames_drawed) /
                                       self._nb_seconds))
 
-        self._timer = create_timer(1000, update)
+        self._timer = simplegui.create_timer(1000, update)
 
         self._timer.start()
 
-    def stop(self):
+    def stop(self):  # type: () -> None
         """Stop calculation and drawing."""
         if self._timer is not None:
             self._timer.stop()

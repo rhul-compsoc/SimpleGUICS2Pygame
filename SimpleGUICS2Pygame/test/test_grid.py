@@ -50,7 +50,7 @@ STATE_COLORS = True
 STATE_METHOD = 0
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw grid with 3 methods.
 
@@ -78,11 +78,12 @@ def draw(canvas):
 
 
 def draw_grid1(canvas, y_offset, color):
+    # type: (simplegui.Canvas, int, str) -> None
     """
     Draw grid with points.
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
-    :param y_offset: int or float >= 0
+    :param y_offset: int >= 0
     :param color: str
     """
     text = 'points'
@@ -103,11 +104,12 @@ def draw_grid1(canvas, y_offset, color):
 
 
 def draw_grid2(canvas, y_offset, color):
+    # type: (simplegui.Canvas, int, str) -> None
     """
     Draw grid with lines.
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
-    :param y_offset: int or float >= 0
+    :param y_offset: int >= 0
     :param color: str
     """
     text = 'lines'
@@ -127,11 +129,12 @@ def draw_grid2(canvas, y_offset, color):
 
 
 def draw_grid3(canvas, y_offset, color):
+    # type: (simplegui.Canvas, int, str) -> None
     """
     Draw grid with polygons (rectangles).
 
     :param canvas: simpleguics2pygame.Canvas or simplegui.Canvas
-    :param y_offset: int or float >= 0
+    :param y_offset: int >= 0
     :param color: str
     """
     text = 'rectangles'
@@ -149,14 +152,14 @@ def draw_grid3(canvas, y_offset, color):
                                 1, color)
 
 
-def switch_color():
+def switch_color():  # type: () -> None
     """Switch between 3 different colors and all in white."""
     global STATE_COLORS  # pylint: disable=global-statement
 
     STATE_COLORS = not STATE_COLORS
 
 
-def switch_method():
+def switch_method():  # type: () -> None
     """Switch position of the 3 methods."""
     global STATE_METHOD  # pylint: disable=global-statement
 

@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
-    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
+    import user305_SXBsmszNiUxIeoV as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
     import numeric  # pytype: disable=import-error
 
@@ -29,12 +29,18 @@ except ImportError:
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
 
+    try:
+        from typing import List, Tuple, Union
+    except ImportError:
+        pass
+
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
 else:
     PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
 
 
 def m_eq(a, b, exact=True):
+    # type: (numeric.Matrix, numeric.Matrix, bool) -> bool
     """
     If each element of a == each element of b
     then return True,
@@ -68,7 +74,7 @@ def m_eq(a, b, exact=True):
         return True
 
 
-def m_to_l(m):
+def m_to_l(m):  # type: (numeric.Matrix) -> List[List[float]]
     """
     Return the list of list corresponding to the matrix m.
 
@@ -86,6 +92,7 @@ def m_to_l(m):
 # Main
 ######
 def main():  # pylint: disable=too-many-locals,too-many-branches,too-many-statements  # noqa
+    # type: () -> None
     """Perform succession of tests."""
     if SIMPLEGUICS2PYGAME:
         from sys import argv  # pylint: disable=import-outside-toplevel
@@ -101,58 +108,58 @@ def main():  # pylint: disable=too-many-locals,too-many-branches,too-many-statem
              [0, 0, 0],
              [0, 0, 0],
              [0, 0, 0],
-             [0, 0, 0]]
+             [0, 0, 0]]  # type: List[List[Union[int, float]]]
 
     dz3_5 = [[0, 0, 0, 0, 0],
              [0, 0, 0, 0, 0],
-             [0, 0, 0, 0, 0]]
+             [0, 0, 0, 0, 0]]  # type: List[List[Union[int, float]]]
 
-    di1 = [[1]]
+    di1 = [[1]]  # type: List[List[Union[int, float]]]
 
     di5 = [[1, 0, 0, 0, 0],
            [0, 1, 0, 0, 0],
            [0, 0, 1, 0, 0],
            [0, 0, 0, 1, 0],
-           [0, 0, 0, 0, 1]]
+           [0, 0, 0, 0, 1]]  # type: List[List[Union[int, float]]]
 
     d5_3 = [[0, -1, 2],
             [-3, 4, -5],
             [6, -7, 8],
             [-9, 10, -11],
-            [12, -13, 14]]
+            [12, -13, 14]]  # type: List[List[Union[int, float]]]
 
     d5_3t = [[0, -3, 6, -9, 12],
              [-1, 4, -7, 10, -13],
-             [2, -5, 8, -11, 14]]
+             [2, -5, 8, -11, 14]]  # type: List[List[Union[int, float]]]
 
     d3_5 = [[0, -1, 2, -3, 4],
             [-5, 6, -7, 8, -9],
-            [10, -11, 12, -13, 14]]
+            [10, -11, 12, -13, 14]]  # type: List[List[Union[int, float]]]
 
     d3_5t = [[0, -5, 10],
              [-1, 6, -11],
              [2, -7, 12],
              [-3, 8, -13],
-             [4, -9, 14]]
+             [4, -9, 14]]  # type: List[List[Union[int, float]]]
 
     d2_2 = [[1, 2],
-            [3, 4]]
+            [3, 4]]  # type: List[List[Union[int, float]]]
 
     d2_2i = [[-2, 1],
-             [1.5, -0.5]]
+             [1.5, -0.5]]  # type: List[List[Union[int, float]]]
 
     d3_3 = [[2, -1, 0],
             [-1, 2, -1],
-            [0, -1, 2]]
+            [0, -1, 2]]  # type: List[List[Union[int, float]]]
 
     d3_3i = [[0.75, 0.5, 0.25],
              [0.5, 1, 0.5],
-             [0.25, 0.5, 0.75]]
+             [0.25, 0.5, 0.75]]  # type: List[List[Union[int, float]]]
 
     datas = (dz5_3, dz3_5,
              di1, di5,
              d5_3, d5_3t, d3_5, d3_5t,
-             d2_2, d2_2i, d3_3, d3_3i)
+             d2_2, d2_2i, d3_3, d3_3i)  # type: Tuple[List[List[Union[int, float]]], ...]  # noqa
 
     # Matrix(), shape()
     for data in datas:

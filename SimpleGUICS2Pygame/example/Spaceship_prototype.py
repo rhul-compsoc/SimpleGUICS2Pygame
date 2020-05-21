@@ -19,16 +19,21 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 import math
 import random
 
 try:
-    from user305_2YRLOxXzAvucSDa import assert_position  # pytype: disable=import-error # noqa
-    from user305_sqdXmWMw7Jq9Sdc import FPS  # pytype: disable=import-error
-    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error
+    from typing import List, Optional, Sequence, Tuple, Union
+except ImportError:
+    pass
+
+try:
+    from user305_SXBsmszNiUxIeoV import assert_position  # pytype: disable=import-error # noqa
+    from user305_tXfH4AcbNLtjfHy import FPS  # pytype: disable=import-error
+    from user305_SZPJfNxJlVTjbAy import Loader  # pytype: disable=import-error
 
     import simplegui  # pytype: disable=import-error
 
@@ -57,7 +62,7 @@ SCREEN_HEIGHT = 600
 #
 # Global variables
 ###################
-FRAME = None
+FRAME = None  # type: Optional[simplegui.Frame]
 
 KEYDOWN_LEFT = False
 KEYDOWN_RIGHT = False
@@ -70,21 +75,21 @@ SCORE = 0
 
 TIME = 0.5
 
-TIMER = None
+TIMER = None  # type: Optional[simplegui.Timer]
 
 
 # Sprites and (ship)
-A_MISSILE = None
+A_MISSILE = None  # type: Optional['Sprite']
 
-A_ROCK = None
+A_ROCK = None  # type: Optional['Sprite']
 
-MY_SHIP = None
+MY_SHIP = None  # type: Optional['Ship']
 
 
 #
 # Helper function
 ##################
-def angle_to_vector(angle):
+def angle_to_vector(angle):  # type: (float) -> Tuple[float, float]
     """
     Return the vector corresponding to the angle expressed in radians.
 
@@ -103,6 +108,7 @@ class ImageInfo:
 
     def __init__(self, center, size,  # pylint: disable=too-many-arguments
                  radius=None, lifespan=None, animated=False):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Optional[Union[int, float]], Optional[Union[int, float]], bool) -> None  # noqa
         """
         Set informations.
 
@@ -135,7 +141,7 @@ class ImageInfo:
                           else float('inf'))
         self._animated = animated
 
-    def get_animated(self):
+    def get_animated(self):  # type: () -> bool
         """
         If is a animated image
         then return True,
@@ -145,7 +151,7 @@ class ImageInfo:
         """
         return self._animated
 
-    def get_center(self):
+    def get_center(self):  # type: () -> List[Union[int, float]]
         """
         Return position of the center of image.
 
@@ -153,7 +159,7 @@ class ImageInfo:
         """
         return self._center
 
-    def get_lifespan(self):
+    def get_lifespan(self):  # type: () -> Optional[Union[int, float]]
         """
         Return lifespan of image.
 
@@ -161,7 +167,7 @@ class ImageInfo:
         """
         return self._lifespan
 
-    def get_radius(self):
+    def get_radius(self):  # type: () -> Union[int, float]
         """
         Return radius of image.
 
@@ -169,7 +175,7 @@ class ImageInfo:
         """
         return self._radius
 
-    def get_size(self):
+    def get_size(self):  # type: () -> List[Union[int, float]]
         """
         Return size of image.
 
@@ -186,6 +192,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
                  angle_velocity,
                  image, image_info,
                  sound=None):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float], Union[int, float], simplegui.Image, ImageInfo, simplegui.Sound) -> None  # noqa
         """
         Set sprite.
 
@@ -194,6 +201,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         :param velocity: (int or float, int or float)
                          or [int or float, int or float]
         :param angle: int or float
+        :param angle_velocity: int or float
         :param image: simplegui.Image
         :param image_info: ImageInfo
         :param sound: simplegui.Sound
@@ -218,7 +226,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
             sound.rewind()
             sound.play()
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the sprite
         (if the associated image are not loaded, draw a red disc).
@@ -231,7 +239,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         else:
             canvas.draw_circle(self.position, self.radius, 1, 'Red', 'Red')
 
-    def update(self):
+    def update(self):  # type: () -> None
         """
         Update position adding velocity,
         and angle adding angle_velocity.
@@ -248,6 +256,7 @@ class Ship(Sprite):
     def __init__(self, position,  # pylint: disable=too-many-arguments
                  velocity, angle,
                  image, image_info):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float], simplegui.Image, ImageInfo) -> None  # noqa
         """
         Set ship sprite.
 
@@ -271,8 +280,12 @@ class Ship(Sprite):
         self.thrust = False
 
     def shot(self):  # pylint: disable=no-self-use
+        # type: () -> None
         """Launch a missile."""
         global A_MISSILE  # pylint: disable=global-statement
+
+        assert isinstance(LOADER, Loader)
+        assert isinstance(MY_SHIP, Ship)
 
         vector = angle_to_vector(MY_SHIP.angle)
 
@@ -284,8 +297,10 @@ class Ship(Sprite):
                            LOADER.get_image('missile'), MISSILE_INFO,
                            LOADER.get_sound('missile'))
 
-    def thrust_on_off(self):
+    def thrust_on_off(self):  # type: () -> None
         """Switch activation of thrust."""
+        assert isinstance(LOADER, Loader)
+
         self.thrust = not self.thrust
 
         if self.thrust:
@@ -298,6 +313,7 @@ class Ship(Sprite):
             self.image_center[0] -= self.image_size[0]
 
     def turn(self, angle_move):  # pylint: disable=no-self-use
+        # type: (Union[int, float]) -> None
         """
         Turn the ship
         (in fact change angle_velocity).
@@ -305,10 +321,11 @@ class Ship(Sprite):
         :param angle_move: int or float
         """
         assert isinstance(angle_move, (int, float)), type(angle_move)
+        assert isinstance(MY_SHIP, Ship)
 
         MY_SHIP.angle_velocity = angle_move
 
-    def update(self):
+    def update(self):  # type: () -> None
         """
         Update position adding velocity (and deal exit out of the canvas),
         decrease slightly velocity,
@@ -326,20 +343,23 @@ class Ship(Sprite):
         self.velocity[0] *= .98
         self.velocity[1] *= .98
 
-        self.position = ((self.position[0] + self.velocity[0]) % SCREEN_WIDTH,
-                         (self.position[1] + self.velocity[1]) % SCREEN_HEIGHT)
+        self.position = [(self.position[0] + self.velocity[0]) % SCREEN_WIDTH,
+                         (self.position[1] + self.velocity[1]) % SCREEN_HEIGHT]
 
 
 #
 # Event handlers
 #################
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw all stuffs.
 
     :param canvas: simplegui.Canvas
     """
     global TIME  # pylint: disable=global-statement
+
+    assert isinstance(FRAME, simplegui.Frame)
+    assert isinstance(LOADER, Loader)
 
     # Draw static background
     if not SIMPLEGUICS2PYGAME:
@@ -382,6 +402,8 @@ def draw(canvas):
     canvas.draw_text(text, (SCREEN_WIDTH - 20 - width, 20 + size * 7.0 / 4),
                      size, 'White', font)
 
+    assert isinstance(MY_SHIP, Ship)
+
     # Draw ship and sprites
     MY_SHIP.draw(canvas)
 
@@ -404,7 +426,7 @@ def draw(canvas):
     FPS_DRAWER.draw_fct(canvas)
 
 
-def fps_on_off():
+def fps_on_off():  # type: () -> None
     """Active or inactive the calculation and drawing of FPS."""
     if FPS_DRAWER.is_started():
         FPS_DRAWER.stop()
@@ -414,7 +436,7 @@ def fps_on_off():
         button_fps.set_text('FPS off')
 
 
-def keydown(key):
+def keydown(key):  # type: (int) -> None
     """
     Event handler to deal key down.
 
@@ -422,6 +444,8 @@ def keydown(key):
     """
     global KEYDOWN_LEFT  # pylint: disable=global-statement
     global KEYDOWN_RIGHT  # pylint: disable=global-statement
+
+    assert isinstance(MY_SHIP, Ship)
 
     if key == simplegui.KEY_MAP['left']:
         KEYDOWN_LEFT = True
@@ -435,7 +459,7 @@ def keydown(key):
         MY_SHIP.shot()
 
 
-def keyup(key):
+def keyup(key):  # type: (int) -> None
     """
     Event handler to deal key up.
 
@@ -443,6 +467,8 @@ def keyup(key):
     """
     global KEYDOWN_LEFT  # pylint: disable=global-statement
     global KEYDOWN_RIGHT  # pylint: disable=global-statement
+
+    assert isinstance(MY_SHIP, Ship)
 
     if key == simplegui.KEY_MAP['left']:
         KEYDOWN_LEFT = False
@@ -456,8 +482,12 @@ def keyup(key):
         MY_SHIP.thrust_on_off()
 
 
-def quit_prog():
+def quit_prog():  # type: () -> None
     """Stop timer and sounds, and quit."""
+    assert isinstance(FRAME, simplegui.Frame)
+    assert isinstance(LOADER, Loader)
+    assert isinstance(TIMER, simplegui.Timer)
+
     TIMER.stop()
     LOADER.pause_sounds()
     FRAME.stop()
@@ -465,9 +495,11 @@ def quit_prog():
         LOADER.print_stats_cache()
 
 
-def rock_spawner():
+def rock_spawner():  # type: () -> None
     """Timer handler that spawns a rock."""
     global A_ROCK  # pylint: disable=global-statement
+
+    assert isinstance(LOADER, Loader)
 
     A_ROCK = Sprite((random.randrange(SCREEN_WIDTH // 16,
                                       SCREEN_WIDTH * 15 // 16),
@@ -480,11 +512,15 @@ def rock_spawner():
                     LOADER.get_image('asteroid'), ASTEROID_INFO)
 
 
-def start():
+def start():  # type: () -> None
     """Start the game."""
     global TIMER  # pylint: disable=global-statement
 
+    assert isinstance(FRAME, simplegui.Frame)
+
     if SIMPLEGUICS2PYGAME:
+        assert isinstance(LOADER, Loader)
+
         FRAME._set_canvas_background_image(LOADER.get_image('nebula'))  # pylint: disable=protected-access  # noqa
 
     FRAME.set_draw_handler(draw)

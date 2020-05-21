@@ -10,11 +10,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 21, 2020
 """
 
 try:
-    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
+    import user305_SXBsmszNiUxIeoV as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
     import simplegui  # pytype: disable=import-error
 except ImportError:
@@ -29,7 +29,7 @@ CANVAS_WIDTH = 400
 CANVAS_HEIGHT = 300
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw a simple text.
 
@@ -46,7 +46,7 @@ def draw(canvas):
                      font_size, 'Green')
 
 
-def save_canvas():
+def save_canvas():  # type: () -> None
     """Download/save canvas image."""
     FRAME.download_canvas_image()
 

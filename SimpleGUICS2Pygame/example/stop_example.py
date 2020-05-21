@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 20, 2020
 """
 
 try:
@@ -25,12 +25,12 @@ CANVAS_WIDTH = 400
 CANVAS_HEIGHT = 300
 
 
-def click():
+def click():  # type: () -> None
     """Simple handler function to the timer."""
     print('click')
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw a simple text.
 
@@ -47,7 +47,7 @@ def draw(canvas):
                      font_size, 'Green')
 
 
-def stop_all():
+def stop_all():  # type: () -> None
     """Handler function to the Quit button."""
     TIMER.stop()
     SOUND.pause()

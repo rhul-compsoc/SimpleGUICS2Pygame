@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import print_function
@@ -222,7 +222,7 @@ _SIMPLEGUIKEY_TO_STATUSKEY = {32: 'space',
 #
 # "Private" function
 ####################
-def _pygamekey_to_simpleguikey(key):
+def _pygamekey_to_simpleguikey(key):  # type: (int) -> int
     """
     Return the code use by SimpleGUI to representing
     the `key` expressed by Pygame.

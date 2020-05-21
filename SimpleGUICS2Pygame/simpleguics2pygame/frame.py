@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import division
@@ -23,6 +23,11 @@ from __future__ import print_function
 import os.path
 import random
 import sys
+
+try:
+    from typing import Any, Callable, List, Optional, Sequence, Tuple, Union
+except ImportError:
+    pass
 
 
 __all__ = ('Frame',
@@ -144,7 +149,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     See https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode
     """
 
-    _save_canvas_requests = []  # type: list
+    _save_canvas_requests = []  # type: List[str]
     """List of filenames in which to save canvas image."""
 
     _statuskey_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
@@ -182,7 +187,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     """`pygame.font.Font` of status mouse box."""
 
     @classmethod
-    def _pygamecolors_cached_clear(cls):
+    def _pygamecolors_cached_clear(cls):  # type: () -> None
         """
         Empty the cache of Pygame colors used.
 
@@ -197,7 +202,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         _colors._PYGAMECOLORS_CACHED = dict()  # pylint: disable=protected-access  # noqa
 
     @classmethod
-    def _pygamefonts_cached_clear(cls):
+    def _pygamefonts_cached_clear(cls):  # type: () -> None
         """
         Empty the cache of Pygame fonts used.
 
@@ -212,7 +217,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         _fonts.__PYGAMEFONTS_CACHED = dict()  # pylint: disable=protected-access  # noqa
 
     @classmethod
-    def _set_cursor_visible(cls, visible=True):
+    def _set_cursor_visible(cls, visible=True):  # type: (bool) -> None
         """
         If visible is `True`
         then show cursor,
@@ -228,6 +233,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
                  title,
                  canvas_width, canvas_height,
                  control_width=200):
+        # type: (str, Union[int, float], Union[int, float], Union[int, float]) -> None  # noqa
         """
         Set the frame.
 
@@ -268,23 +274,23 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                  self._canvas_border_size)
         self._canvas_y_offset = self._border_size + self._canvas_border_size
 
-        self._controls = []
+        self._controls = []  # type: List[Union[Control, TextAreaControl]]
         self._control_next_y = 10
         self._control_selected = None
 
         self._fps_average = 0
 
-        self.__joypad_down_handler = None
-        self.__joypad_up_handler = None
+        self.__joypad_down_handler = None  # type: Optional[Callable[[int, int], Any]]  # noqa
+        self.__joypad_up_handler = None  # type: Optional[Callable[[int, int], Any]]  # noqa
 
-        self.__joypad_axe_handler = None
-        self.__joypad_hat_handler = None
+        self.__joypad_axe_handler = None  # type: Optional[Callable[[int, int, float], Any]]  # noqa
+        self.__joypad_hat_handler = None  # type: Optional[Callable[[int, int, Tuple[int, int]], Any]]  # noqa
 
-        self._key_down_handler = None
-        self._key_up_handler = None
+        self._key_down_handler = None  # type: Optional[Callable[[int], Any]]
+        self._key_up_handler = None  # type: Optional[Callable[[int], Any]]
 
-        self._mouse_click_handler = None
-        self._mouse_drag_handler = None
+        self._mouse_click_handler = None  # type: Optional[Callable[[Tuple[int, int]], Any]]  # noqa
+        self._mouse_drag_handler = None  # type: Optional[Callable[[Tuple[int, int]], Any]]  # noqa
 
         self._running = False
 
@@ -345,7 +351,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         # Display all
         pygame.display.update()
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return '<Frame object>'.
 
@@ -353,7 +359,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         return '<Frame object>'
 
-    def __deal_event_key(self, event):
+    def __deal_event_key(self, event):  # type: (pygame.event.Event) -> bool
         """
         Private function that dispatch key `event`.
 
@@ -386,7 +392,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         else:
             return False
 
-    def __deal_event_joypad(self, event):
+    def __deal_event_joypad(self, event):  # type: (pygame.event.Event) -> bool
         """
         Private function that dispatch joypad `event`.
 
@@ -420,6 +426,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             return False
 
     def __deal_event_mouse(self, event):  # pylint: disable=too-many-branches
+        # type: (pygame.event.Event) -> bool
         """
         Private function that dispatch mouse `event`.
 
@@ -493,7 +500,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         else:
             return False
 
-    def _cursor_in_canvas(self):
+    def _cursor_in_canvas(self):  # type: () -> bool
         """:return: `True` if the cursor is on canvas, `False` else."""
         x, y = pygame.mouse.get_pos()
         x -= self._canvas_x_offset
@@ -501,7 +508,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         return (0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)  # pylint: disable=protected-access  # noqa
 
-    def _draw_controlpanel(self):
+    def _draw_controlpanel(self):  # type: () -> None
         """
         Draw the control panel
         and two status boxes.
@@ -530,6 +537,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                self._canvas._height))  # pylint: disable=protected-access  # noqa
 
     def _draw_statuskey(self, key=0, pressed=None):
+        # type: (int, Optional[bool]) -> None
         """
         Draw the status box of key.
 
@@ -552,11 +560,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                          1)
 
         if pressed is not None:
-            key = _SIMPLEGUIKEY_TO_STATUSKEY.get(key, key)
+            statuskey = _SIMPLEGUIKEY_TO_STATUSKEY.get(key, key)
             text = 'Key: {} {}'.format(('Down' if pressed
                                         else 'Up'),
-                                       (key if isinstance(key, str)
-                                        else '<{}>'.format(key)))
+                                       (statuskey if isinstance(statuskey, str)
+                                        else '<{}>'.format(statuskey)))
         else:
             text = 'Key:'
 
@@ -578,6 +586,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                Frame._statuskey_height))
 
     def _draw_statusmouse(self, position=(0, 0), pressed=None):
+        # type: (Sequence[Union[int, float]], bool) -> None
         """
         Draw the status box of mouse.
 
@@ -628,7 +637,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                self._control_width,
                                Frame._statusmouse_height))
 
-    def _get_fps_average(self):
+    def _get_fps_average(self):  # type: () -> float
         """
         Return the framerate average (in frame per second) computed by Pygame.
 
@@ -639,6 +648,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return float(self._fps_average)
 
     def _pos_in_control(self, x, y):
+        # type: (Union[int, float], Union[int, float]) -> Optional[Union[Control, TextAreaControl]]  # noqa
         """
         If position (`x`, `y`)
         is on the zone of one `Control` or `TextAreaControl`
@@ -663,7 +673,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         return None
 
-    def _save_canvas_request(self, filename):
+    def _save_canvas_request(self, filename):  # type: (str) -> None
         """
         Request to save the canvas image in a file.
 
@@ -679,6 +689,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._save_canvas_requests.append(filename)
 
     def _save_canvas_and_stop(self, filename, after=1000):
+        # type: (str, Union[int, float]) -> None
         """
         Wait after ms (first wait until the frame is started),
         then save the canvas in a file
@@ -709,6 +720,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             timer.start()
 
     def _set_canvas_background_image(self, image):
+        # type: (Optional[Image]) -> None
         """
         Set an image to replace the background color of the canvas.
 
@@ -716,27 +728,12 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         assert (image is None) or isinstance(image, Image), type(image)
 
-        self._canvas._bg_pygame_surface_image = image._pygame_surface  # pylint: disable=protected-access  # noqa
-
-    def _set_joypadhat_handler(self, joypad_handler):
-        """
-        Set the function handler
-        that will be executed
-        (with the joypad index, the hat index
-        and the values (a, b) where a and b == -1, 0 or 1)
-        when hat of joypad move.
-
-        (The events are checked on each cycle fixed by `Frame._fps`.)
-
-        **(Not available in SimpleGUI of CodeSkulptor.)**
-
-        :param joypad_handler: function (int >= 0, int >= 0, (int, int)) -> *
-        """
-        assert callable(joypad_handler), type(joypad_handler)
-
-        self.__joypad_hat_handler = joypad_handler
+        self._canvas._bg_pygame_surface_image = (  # pylint: disable=protected-access  # noqa
+            None if image is None
+            else image._pygame_surface)  # pylint: disable=protected-access
 
     def _set_joypadaxe_handler(self, joypad_handler):
+        # type: (Callable[[int, int, float], Any]) -> None
         """
         Set the function handler
         that will be executed
@@ -754,6 +751,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self.__joypad_axe_handler = joypad_handler
 
     def _set_joypaddown_handler(self, joypad_handler):
+        # type: (Callable[[int, int], Any]) -> None
         """
         Set the function handler
         that will be executed (with the joypad index and the button index)
@@ -769,7 +767,27 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self.__joypad_down_handler = joypad_handler
 
+    def _set_joypadhat_handler(self, joypad_handler):
+        # type: (Callable[[int, int, Tuple[int, int]], Any]) -> None
+        """
+        Set the function handler
+        that will be executed
+        (with the joypad index, the hat index
+        and the values (a, b) where a and b == -1, 0 or 1)
+        when hat of joypad move.
+
+        (The events are checked on each cycle fixed by `Frame._fps`.)
+
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+
+        :param joypad_handler: function (int >= 0, int >= 0, (int, int)) -> *
+        """
+        assert callable(joypad_handler), type(joypad_handler)
+
+        self.__joypad_hat_handler = joypad_handler
+
     def _set_joypadup_handler(self, joypad_handler):
+        # type: (Callable[[int, int], Any]) -> None
         """
         Set the function handler
         that will be executed (with the joypad index and the button index)
@@ -789,6 +807,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                    text,
                    button_handler,
                    width=None):
+        # type: (str, Callable[[], Any], Optional[int]) -> Control
         """
         Add a button in the control panel.
 
@@ -822,6 +841,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                   text,
                   input_handler,
                   width):
+        # type: (str, Callable[[str], Any], int) -> TextAreaControl
         """
         Add a "label" with an input box in the control panel.
 
@@ -853,6 +873,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return control
 
     def add_label(self, text, width=None):
+        # type: (str, Optional[int]) -> Control
         """
         Add a label in the control panel.
 
@@ -878,6 +899,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return control
 
     def download_canvas_image(self, filename='canvas.png'):
+        # type: (str) -> None
         r"""
         Save the content of the canvas in a local file.
 
@@ -908,7 +930,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._canvas._save(filename)  # pylint: disable=protected-access
 
-    def get_canvas_image(self):
+    def get_canvas_image(self):  # type: () -> None
         """
         NOT YET IMPLEMENTED! (Does nothing.)
 
@@ -920,6 +942,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                              text,
                              font_size,
                              font_face='serif'):
+        # type: (str, Union[int, float], str) -> Union[int, float]
         """
         Return the width needed to draw `text` by `Frame.draw_text()`.
 
@@ -944,8 +967,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 if font_size > 0
                 else 0)
 
-    def set_canvas_background(self,
-                              color):
+    def set_canvas_background(self, color):  # type: (str) -> None
         """
         Set the background color of the canvas.
 
@@ -955,8 +977,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._canvas._background_pygame_color = _simpleguicolor_to_pygamecolor(color)  # pylint: disable=protected-access  # noqa
 
-    def set_draw_handler(self,
-                         draw_handler):
+    def set_draw_handler(self, draw_handler):
+        # type: (Callable[[Canvas], Any]) -> None
         """
         Set the function handler
         that will be executed each cycle fixed by `Frame._fps`.
@@ -967,8 +989,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._canvas._draw_handler = draw_handler  # pylint: disable=protected-access  # noqa
 
-    def set_keydown_handler(self,
-                            key_handler):
+    def set_keydown_handler(self, key_handler):
+        # type: (Callable[[int], Any]) -> None
         """
         Set the function handler
         that will be executed (with the key code) when a key is released.
@@ -981,8 +1003,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._key_down_handler = key_handler
 
-    def set_keyup_handler(self,
-                          key_handler):
+    def set_keyup_handler(self, key_handler):
+        # type: (Callable[[int], Any]) -> None
         """
         Set the function handler
         that will be executed (with the key code) when a key is pressed.
@@ -995,8 +1017,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._key_up_handler = key_handler
 
-    def set_mouseclick_handler(self,
-                               mouse_handler):
+    def set_mouseclick_handler(self, mouse_handler):
+        # type: (Callable[[Tuple[int, int]], Any]) -> None
         """
         Set the function handler
         that will be executed (with the position of the mouse)
@@ -1010,8 +1032,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._mouse_click_handler = mouse_handler
 
-    def set_mousedrag_handler(self,
-                              mouse_handler):
+    def set_mousedrag_handler(self, mouse_handler):
+        # type: (Callable[[Tuple[int, int]], Any]) -> None
         """
         Set the function handler
         that will be executed  (with the position of the mouse)
@@ -1026,7 +1048,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._mouse_drag_handler = mouse_handler
 
-    def start(self):
+    def start(self):  # type: () -> None
         """
         Start the frame and these handler events.
 
@@ -1081,7 +1103,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         Frame._pygamecolors_cached_clear()
         Frame._pygamefonts_cached_clear()
 
-    def stop(self):
+    def stop(self):  # type: () -> None
         """
         Stop frame activities.
 
@@ -1161,7 +1183,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 #
 # "Private" functions
 #####################
-def _print_stats_cache():
+def _print_stats_cache():  # type: () -> None
     """
     Print to stderr some statistics of cached colors, fonts and medias.
 
@@ -1182,6 +1204,7 @@ def _print_stats_cache():
 def create_frame(title,
                  canvas_width, canvas_height,
                  control_width=200):
+    # type: (str, Union[int, float], Union[int, float], Union[int, float]) -> Frame  # noqa
     """
     Create and return an interactive window. ::
 

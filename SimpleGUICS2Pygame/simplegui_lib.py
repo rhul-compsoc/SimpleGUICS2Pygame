@@ -15,17 +15,17 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 # print('IMPORT', __name__)
 
 
 try:
-    from user305_2AIoOM1Isi08A9H import draw_rect, draw_text_multi, draw_text_side  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
-    from user305_sqdXmWMw7Jq9Sdc import FPS  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
-    from user305_3Ofv0u7rEhsrJ6G import Keys  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
-    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+    from user305_SaT1YKoOikl4ax9 import draw_rect, draw_text_multi, draw_text_side  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+    from user305_tXfH4AcbNLtjfHy import FPS  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+    from user305_EtIUDiM87dN1mD2 import Keys  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
+    from user305_SZPJfNxJlVTjbAy import Loader  # pytype: disable=import-error  # pylint: disable=unused-import  # noqa
 except ImportError:
     from SimpleGUICS2Pygame.simplegui_lib_draw import draw_rect, draw_text_multi, draw_text_side  # noqa
     from SimpleGUICS2Pygame.simplegui_lib_fps import FPS

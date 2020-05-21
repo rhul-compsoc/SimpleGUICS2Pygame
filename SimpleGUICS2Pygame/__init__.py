@@ -32,9 +32,9 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 
-* v.2.0.1 --- May 19, 2020
+* v.2.0.1 --- May 21, 2020
 * v.2.0.0 --- April 18, 2020
 * v.01.09.00 --- January 1st, 2015
 * v.01.08.01 --- October 9, 2014

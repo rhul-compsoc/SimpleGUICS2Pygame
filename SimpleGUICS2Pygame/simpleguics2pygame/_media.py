@@ -36,6 +36,11 @@ else:
     from urlparse import urlsplit  # type: ignore  # pylint: disable=import-error  # noqa
     from urllib2 import urlopen  # type: ignore  # pylint: disable=import-error  # noqa
 
+try:
+    from typing import Dict, List, Optional, Union
+except ImportError:
+    pass
+
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=wrong-import-position,no-name-in-module  # noqa
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module,wrong-import-position  # noqa
@@ -69,7 +74,7 @@ then print URLs or locals filename loaded by `load_image()`
 and `load_sound()`.
 """
 
-__PYGAMEMEDIAS_CACHED = dict()  # type: dict
+__PYGAMEMEDIAS_CACHED = dict()  # type: Dict[str, Union[pygame.Surface, pygame.mixer.Sound]]  # noqa
 """
 `Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
 """
@@ -90,14 +95,14 @@ and save in local directory even if they already exist.
 """
 
 
-__TMP_FILENAMES = []  # type: list
+__TMP_FILENAMES = []  # type: List[str]
 """List of filenames of temporary files that must be delete."""
 
 
 #
 # "Private" functions
 #####################
-def __delete_tmp_files():
+def __delete_tmp_files():  # type: () -> None
     """
     Delete all temporary files in `__TMP_FILENAMES`.
 
@@ -108,6 +113,7 @@ def __delete_tmp_files():
 
 
 def _load_local_media(type_of_media, filename):
+    # type: (str, str) -> Optional[Union[pygame.Surface, pygame.mixer.Sound]]
     """
     Load an image or a sound from local file `filename`.
 
@@ -121,7 +127,7 @@ def _load_local_media(type_of_media, filename):
     * If the media is a valid sound\
       then init the pygame.mixer and set _MIXER_INITIALIZED to `True`.
 
-    :param type_of_media: Image or Sound
+    :param type_of_media: 'Image' or 'Sound'
     :param filename: str
 
     :return: pygame.Surface or pygame.mixer.Sound or None
@@ -167,6 +173,7 @@ def _load_local_media(type_of_media, filename):
 
 
 def __load_local_mp3_with_audioread(filename):
+    # type: (str) -> Optional[pygame.mixer.Sound]
     """
     Load a MP3 sound from local file `filename`.
 
@@ -180,10 +187,9 @@ def __load_local_mp3_with_audioread(filename):
     Adapted from `audioread` example:
     https://github.com/beetbox/audioread/blob/177182e3f0301cd7d27e984ce45cee7436646db4/decode.py
 
-    :param type_of_media: Image or Sound
     :param filename: str
 
-    :return: pygame.Surface or pygame.mixer.Sound or None
+    :return: pygame.mixer.Sound or None
     """  # noqa
     import contextlib  # pylint: disable=import-outside-toplevel
     import wave  # pylint: disable=import-outside-toplevel
@@ -210,6 +216,7 @@ def __load_local_mp3_with_audioread(filename):
 
 
 def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements,too-many-locals  # noqa
+    # type: (str, str, str) -> Optional[Union[pygame.Surface, pygame.mixer.Sound]]  # noqa
     """
     Load an image or a sound from Web or local directory,
     and save if asked with _SAVE_DOWNLOADED_MEDIAS
@@ -229,7 +236,7 @@ def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-bran
       then init the pygame.mixer and set _MIXER_INITIALIZED to `True`.
     * If `_PRINT_LOAD_MEDIAS` then print loading informations to stderr.
 
-    :param type_of_media: Image or Sound
+    :param type_of_media: 'Image' or 'Sound'
     :param url: str
     :param local_dir: str
 
@@ -391,7 +398,7 @@ def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-bran
 #
 # Private functions
 ###################
-def __mixer_init():
+def __mixer_init():  # type: () -> None
     """Initialize Pygame mixer (if not already initialized)"""
     global _MIXER_INITIALIZED  # pylint: disable=global-statement
 
@@ -405,7 +412,7 @@ def __mixer_init():
             pygame.display.set_mode((1, 1), flags=pygame.NOFRAME)  # pylint: disable=no-member  # noqa
 
 
-def __normalized_filename(url, local_dir):
+def __normalized_filename(url, local_dir):  # type: (str, str) -> str
     """
     Build a "normalized" filename from url.
 

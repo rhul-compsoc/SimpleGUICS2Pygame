@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
-    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
+    import user305_SXBsmszNiUxIeoV as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
     import simplegui  # pytype: disable=import-error
 
@@ -45,7 +45,7 @@ else:
 TEST = 'test objects'
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Print str representation of each SimpleGUI object.
 

@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 19, 2020
 """
 
 from __future__ import print_function
@@ -18,7 +18,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-def file2url(filename):
+def file2url(filename):  # type: (str) -> str
     """
     Return a completed CodeSkulptor URL ressource from a short `filename`.
 
@@ -55,6 +55,7 @@ def file2url(filename):
 
 
 def randomize_iteration(randomize=True):  # pylint: disable=unused-argument
+    # type: (bool) -> None
     """
     Fake implementation.
     In CodeSkulptor this function modify the default behaviour
@@ -72,7 +73,7 @@ def randomize_iteration(randomize=True):  # pylint: disable=unused-argument
     """  # noqa
 
 
-def set_timeout(seconds):
+def set_timeout(seconds):  # type: (int) -> None
     """
     Do nothing.
 

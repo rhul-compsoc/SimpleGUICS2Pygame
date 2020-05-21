@@ -9,14 +9,14 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 import math
 
 try:
-    from user305_sqdXmWMw7Jq9Sdc import FPS  # pytype: disable=import-error
-    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error
+    from user305_tXfH4AcbNLtjfHy import FPS  # pytype: disable=import-error
+    from user305_SZPJfNxJlVTjbAy import Loader  # pytype: disable=import-error
 
     import simplegui  # pytype: disable=import-error
 
@@ -54,7 +54,7 @@ WIDTH = 360
 HEIGHT = 270
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw a ship image several times.
 
@@ -128,7 +128,7 @@ def draw(canvas):
     FPS_DRAWER.draw_fct(canvas)
 
 
-def fps_on_off():
+def fps_on_off():  # type: () -> None
     """Active or inactive the calculation and drawing of FPS."""
     if FPS_DRAWER.is_started():
         FPS_DRAWER.stop()
@@ -138,7 +138,7 @@ def fps_on_off():
         BUTTON_FPS.set_text('FPS off')
 
 
-def init():
+def init():  # type: () -> None
     """Init after image loaded."""
     if not SIMPLEGUICS2PYGAME:
         global LOGO  # pylint: disable=global-statement

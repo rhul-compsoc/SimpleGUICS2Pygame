@@ -13,7 +13,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 13, 2020
+:version: May 20, 2020
 """
 
 try:
@@ -38,7 +38,7 @@ TIME = 0
 
 
 # Helper function
-def format_time(decisecond):
+def format_time(decisecond):  # type: (int) -> str
     """
     Convert time in tenths of seconds
     into formatted string m:ss.t
@@ -57,13 +57,13 @@ def format_time(decisecond):
 
 
 # Event handlers for buttons
-def quit_prog():
+def quit_prog():  # type: () -> None
     """Stop timer and quit."""
     TIMER.stop()
     FRAME.stop()
 
 
-def reset():
+def reset():  # type: () -> None
     """
     Reinit NB_ATTEMPTS, NB_SUCCESS and time
     and stop timer
@@ -80,12 +80,12 @@ def reset():
     TIME = 0
 
 
-def start():
+def start():  # type: () -> None
     """Start timer"""
     TIMER.start()
 
 
-def stop():
+def stop():  # type: () -> None
     """
     If timer is running
     then stop timer
@@ -104,7 +104,7 @@ def stop():
 
 
 # Event handler for timer
-def tick():
+def tick():  # type: () -> None
     """Increment TIME"""
     global TIME  # pylint: disable=global-statement
 
@@ -112,7 +112,7 @@ def tick():
 
 
 # Draw handler
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Display TIME in center
     and display NB_SUCCESS / NB_ATTEMPTS on upper-right

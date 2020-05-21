@@ -62,8 +62,8 @@ But specify only those you use.
         import numeric
         import simpleplot
 
-        import user305_2YRLOxXzAvucSDa as codeskulptor_lib
-        import user305_7mCVRRls4kKNTSm as simplegui_lib
+        import user305_SXBsmszNiUxIeoV as codeskulptor_lib
+        import user305_SZNWcbqQHXN4pow as simplegui_lib
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 
@@ -74,12 +74,12 @@ But specify only those you use.
         import SimpleGUICS2Pygame.codeskulptor_lib as codeskulptor_lib
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib
 
-Note that import name like ``user305_2YRLOxXzAvucSDa`` in CodeSkulptor
+Note that import name like ``user305_SXBsmszNiUxIeoV`` in CodeSkulptor
 is valid both for CodeSkulptor 2 and CodeSkulptor3.
 It corresponds to URLs
-http://www.codeskulptor.org/#user305_2YRLOxXzAvucSDa.py
+http://www.codeskulptor.org/#user305_SXBsmszNiUxIeoV.py
 and
-https://py3.codeskulptor.org/#user305_2YRLOxXzAvucSDa.py .
+https://py3.codeskulptor.org/#user305_SXBsmszNiUxIeoV.py .
 
 
 Specific code
@@ -132,8 +132,8 @@ Two little examples using joypads
 `example/Pong.py`_
 and `example/RiceRocks_Asteroids.py`_.
 
-.. _`example/Pong.py`: https://py3.codeskulptor.org/#user305_3fS6FHzYdk9FENM.py
-.. _`example/RiceRocks_Asteroids.py`: https://py3.codeskulptor.org/#user305_IL8qdiqwWMvy8n0.py
+.. _`example/Pong.py`: https://py3.codeskulptor.org/#user305_X62vPplhMJxqOWu.py
+.. _`example/RiceRocks_Asteroids.py`: https://py3.codeskulptor.org/#user305_XNvcqTxIBngtHPu.py
 .. _`Frame`: simpleguics2pygame/frame.html#SimpleGUICS2Pygame.simpleguics2pygame.frame.Frame
 
 
@@ -241,7 +241,7 @@ For example, to draw multiline text you can use `draw_text_multi()`_ from the `s
     try:
         import simplegui
 
-        import user305_2AIoOM1Isi08A9H as simplegui_lib_draw
+        import user305_SaT1YKoOikl4ax9 as simplegui_lib_draw
     except ImportError:
         import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 

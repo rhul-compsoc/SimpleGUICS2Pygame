@@ -26,7 +26,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import print_function
@@ -39,6 +39,7 @@ import sys
 
 
 def main():  # pylint: disable=too-many-branches,too-many-statements
+    # type: () -> None
     """Main function."""
     if (len(sys.argv) != 2) or (sys.argv[1][0] == '-'):
         help_and_exit()
@@ -145,7 +146,7 @@ def main():  # pylint: disable=too-many-branches,too-many-statements
             break
 
 
-def help_and_exit():
+def help_and_exit():  # type: () -> None
     """
     Print help message on error output
     and exit.

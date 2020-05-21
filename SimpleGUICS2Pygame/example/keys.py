@@ -12,20 +12,20 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 14, 2020
+:version: May 21, 2020
 """
 
 try:
     import simplegui  # pytype: disable=import-error
 
-    from user305_3Ofv0u7rEhsrJ6G import Keys  # pytype: disable=import-error
+    from user305_EtIUDiM87dN1mD2 import Keys  # pytype: disable=import-error
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
     from SimpleGUICS2Pygame.simplegui_lib_keys import Keys
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw pressed keys.
 
@@ -60,22 +60,22 @@ def draw(canvas):
 
 
 # Functions to associate with specified key events.
-def deal_down_space(key_code):
+def deal_down_space(key_code):  # type: (int) -> None
     """:param key_code: int"""
     print('deal_down_space() function: %i' % key_code)
 
 
-def deal_down_x(key_code):
+def deal_down_x(key_code):  # type: (int) -> None
     """:param key_code: int"""
     print('deal_down_x() function: %i' % key_code)
 
 
-def deal_up_space(key_code):
+def deal_up_space(key_code):  # type: (int) -> None
     """:param key_code: int"""
     print('deal_up_space() function: %i' % key_code)
 
 
-def deal_up_y(key_code):
+def deal_up_y(key_code):  # type: (int) -> None
     """:param key_code: int"""
     print('deal_up_y() function: %i' % key_code)
 

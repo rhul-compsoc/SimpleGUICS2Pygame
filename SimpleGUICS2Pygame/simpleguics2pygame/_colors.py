@@ -24,6 +24,10 @@ __all__ = tuple()  # type: tuple
 
 import colorsys  # noqa
 
+try:
+    from typing import Dict
+except ImportError:
+    pass
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
@@ -202,7 +206,7 @@ else:
 #
 # Private global variable
 #########################
-_PYGAMECOLORS_CACHED = dict()  # type: dict
+_PYGAMECOLORS_CACHED = dict()  # type: Dict[str, pygame.color]
 """
 `Dict` {`str` CodeSkulptor color: `pygame.font.Color`}.
 
@@ -216,6 +220,7 @@ _PYGAMECOLORS_CACHED = dict()  # type: dict
 def _simpleguicolor_to_pygamecolor(
         color,
         default_pygame_color=_SIMPLEGUICOLOR_TO_PYGAMECOLOR['_default']):
+    # type: (str, pygame.Color) -> pygame.Color
     """
     Return a `pygame.Color` object
     corresponding to the SimpleGUI string `color` in format:

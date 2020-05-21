@@ -37,7 +37,7 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo',
 
 autodoc_mock_imports = ['audioread', 'matplotlib', 'pygame',
                         'simplegui',
-                        'user305_2AIoOM1Isi08A9H']
+                        'user305_SaT1YKoOikl4ax9']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

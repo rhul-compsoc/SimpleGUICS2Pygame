@@ -14,7 +14,7 @@
 <polygon fill="none" stroke="black" points="0,-53 0,-407 243,-407 243,-53 0,-53"/>
 <text text-anchor="middle" x="121.5" y="-391.8" font-family="Times,serif" font-size="14.00">SimpleGUICS2Pygame.numeric.Matrix</text>
 <polyline fill="none" stroke="black" points="0,-384 243,-384 "/>
-<text text-anchor="start" x="8" y="-368.8" font-family="Times,serif" font-size="14.00">_data</text>
+<text text-anchor="start" x="8" y="-368.8" font-family="Times,serif" font-size="14.00">_data : list</text>
 <polyline fill="none" stroke="black" points="0,-361 243,-361 "/>
 <text text-anchor="start" x="8" y="-345.8" font-family="Times,serif" font-size="14.00">__add__(other)</text>
 <text text-anchor="start" x="8" y="-330.8" font-family="Times,serif" font-size="14.00">__getitem__(i_j)</text>
@@ -44,9 +44,9 @@
 <polyline fill="none" stroke="black" points="111,-1255 394,-1255 "/>
 <text text-anchor="start" x="119" y="-1239.8" font-family="Times,serif" font-size="14.00">_font_color : str</text>
 <text text-anchor="start" x="119" y="-1224.8" font-family="Times,serif" font-size="14.00">_font_size : int</text>
-<text text-anchor="start" x="119" y="-1209.8" font-family="Times,serif" font-size="14.00">_fps : NoneType, int</text>
-<text text-anchor="start" x="119" y="-1194.8" font-family="Times,serif" font-size="14.00">_nb_frames_drawed : int, NoneType</text>
-<text text-anchor="start" x="119" y="-1179.8" font-family="Times,serif" font-size="14.00">_nb_seconds : NoneType, int</text>
+<text text-anchor="start" x="119" y="-1209.8" font-family="Times,serif" font-size="14.00">_fps : int, NoneType</text>
+<text text-anchor="start" x="119" y="-1194.8" font-family="Times,serif" font-size="14.00">_nb_frames_drawed : NoneType, int</text>
+<text text-anchor="start" x="119" y="-1179.8" font-family="Times,serif" font-size="14.00">_nb_seconds : int, NoneType</text>
 <text text-anchor="start" x="119" y="-1164.8" font-family="Times,serif" font-size="14.00">_timer : NoneType</text>
 <text text-anchor="start" x="119" y="-1149.8" font-family="Times,serif" font-size="14.00">_x : int</text>
 <text text-anchor="start" x="119" y="-1134.8" font-family="Times,serif" font-size="14.00">_y : int</text>
@@ -118,7 +118,7 @@
 <polyline fill="none" stroke="black" points="942.5,-384 1520.5,-384 "/>
 <text text-anchor="start" x="950.5" y="-368.8" font-family="Times,serif" font-size="14.00">_background_pygame_color</text>
 <text text-anchor="start" x="950.5" y="-353.8" font-family="Times,serif" font-size="14.00">_background_pygame_color</text>
-<text text-anchor="start" x="950.5" y="-338.8" font-family="Times,serif" font-size="14.00">_bg_pygame_surface_image</text>
+<text text-anchor="start" x="950.5" y="-338.8" font-family="Times,serif" font-size="14.00">_bg_pygame_surface_image : NoneType</text>
 <text text-anchor="start" x="950.5" y="-323.8" font-family="Times,serif" font-size="14.00">_bg_pygame_surface_image : NoneType</text>
 <text text-anchor="start" x="950.5" y="-308.8" font-family="Times,serif" font-size="14.00">_draw_handler : NoneType</text>
 <text text-anchor="start" x="950.5" y="-293.8" font-family="Times,serif" font-size="14.00">_frame_parent</text>
@@ -255,9 +255,9 @@
 <text text-anchor="start" x="1546.5" y="-241.3" font-family="Times,serif" font-size="14.00">_text_cut : tuple</text>
 <text text-anchor="start" x="1546.5" y="-226.3" font-family="Times,serif" font-size="14.00">_width</text>
 <text text-anchor="start" x="1546.5" y="-211.3" font-family="Times,serif" font-size="14.00">_x1 : int</text>
-<text text-anchor="start" x="1546.5" y="-196.3" font-family="Times,serif" font-size="14.00">_x2 : NoneType, int</text>
+<text text-anchor="start" x="1546.5" y="-196.3" font-family="Times,serif" font-size="14.00">_x2 : int, NoneType</text>
 <text text-anchor="start" x="1546.5" y="-181.3" font-family="Times,serif" font-size="14.00">_y1 : int</text>
-<text text-anchor="start" x="1546.5" y="-166.3" font-family="Times,serif" font-size="14.00">_y2 : int, NoneType</text>
+<text text-anchor="start" x="1546.5" y="-166.3" font-family="Times,serif" font-size="14.00">_y2 : NoneType, int</text>
 <polyline fill="none" stroke="black" points="1538.5,-158.5 1904.5,-158.5 "/>
 <text text-anchor="start" x="1546.5" y="-143.3" font-family="Times,serif" font-size="14.00">__init__(frame, text, button_handler, width)</text>
 <text text-anchor="start" x="1546.5" y="-128.3" font-family="Times,serif" font-size="14.00">__repr__()</text>
@@ -293,7 +293,7 @@
 <text text-anchor="start" x="1930.5" y="-181.3" font-family="Times,serif" font-size="14.00">_x1 : int</text>
 <text text-anchor="start" x="1930.5" y="-166.3" font-family="Times,serif" font-size="14.00">_x2 : NoneType</text>
 <text text-anchor="start" x="1930.5" y="-151.3" font-family="Times,serif" font-size="14.00">_y1 : int</text>
-<text text-anchor="start" x="1930.5" y="-136.3" font-family="Times,serif" font-size="14.00">_y2 : NoneType, int</text>
+<text text-anchor="start" x="1930.5" y="-136.3" font-family="Times,serif" font-size="14.00">_y2 : int, NoneType</text>
 <polyline fill="none" stroke="black" points="1922.5,-128.5 2342.5,-128.5 "/>
 <text text-anchor="start" x="1930.5" y="-113.3" font-family="Times,serif" font-size="14.00">__init__(frame, label_text, input_handler, input_width)</text>
 <text text-anchor="start" x="1930.5" y="-98.3" font-family="Times,serif" font-size="14.00">__repr__()</text>
@@ -387,7 +387,7 @@
 <text text-anchor="start" x="269" y="-316.3" font-family="Times,serif" font-size="14.00">_handler</text>
 <text text-anchor="start" x="269" y="-301.3" font-family="Times,serif" font-size="14.00">_interval</text>
 <text text-anchor="start" x="269" y="-286.3" font-family="Times,serif" font-size="14.00">_is_running : bool</text>
-<text text-anchor="start" x="269" y="-271.3" font-family="Times,serif" font-size="14.00">_timer : Timer, NoneType</text>
+<text text-anchor="start" x="269" y="-271.3" font-family="Times,serif" font-size="14.00">_timer : NoneType, Timer</text>
 <text text-anchor="start" x="269" y="-256.3" font-family="Times,serif" font-size="14.00">_timers_running : dict</text>
 <polyline fill="none" stroke="black" points="261,-248.5 608,-248.5 "/>
 <text text-anchor="start" x="269" y="-233.3" font-family="Times,serif" font-size="14.00">__init__(interval, timer_handler)</text>

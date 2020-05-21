@@ -12,10 +12,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 import random
+
+try:
+    from typing import List, Optional, Sequence, Union
+except ImportError:
+    pass
 
 try:
     import simplegui  # pytype: disable=import-error
@@ -60,10 +65,10 @@ NB_IMAGES_TO_LOAD = 2
 
 # Global variables
 ##################
-DECK = None
+DECK = None  # type: Optional['Deck']
 
-HAND_DEALER = None
-HAND_PLAYER = None
+HAND_DEALER = None  # type: Optional['Hand']
+HAND_PLAYER = None  # type: Optional['Hand']
 
 IN_PLAY = False
 
@@ -78,7 +83,7 @@ SCORE_PLAYER = 0
 
 # Helper functions
 ##################
-def assert_pos(pos):
+def assert_pos(pos):  # type: (Sequence[Union[int, float]]) -> None
     """
     Assertions to check valid position:
     (int or float, int or float) or [int or float, int or float]
@@ -95,6 +100,7 @@ def assert_pos(pos):
 
 def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
               line_width, line_color, fill_color=None):
+    # type: (simplegui.Canvas, Sequence[Union[int, float]], Sequence[Union[int, float]], int, str, Optional[str]) -> None  # noqa
     """
     Draw a rectangle.
 
@@ -103,7 +109,7 @@ def draw_rect(canvas, pos, size,  # pylint: disable=too-many-arguments
     :param size: (int or float, int or float) or [int or float, int or float]
     :param line_width: int >= 0
     :param line_color: str
-    :param fill_color: str
+    :param fill_color: str or None
     """
     assert_pos(pos)
     assert_pos(size)
@@ -135,7 +141,7 @@ class Card:
                'T': 10,
                'J': 10, 'Q': 10, 'K': 10}
 
-    def __init__(self, suit, rank):
+    def __init__(self, suit, rank):  # type: (str, str) -> None
         """
         Set a card.
 
@@ -150,7 +156,7 @@ class Card:
         self._suit = suit
         self._rank = rank
 
-    def __str__(self):
+    def __str__(self):  # type: () -> str
         """
         Return a representation of card.
 
@@ -159,6 +165,7 @@ class Card:
         return self._suit + self._rank
 
     def draw(self, canvas, pos, hide):
+        # type: (simplegui.Canvas, Sequence[Union[int, float]], bool) -> None
         """
         Draw the card at the position.
 
@@ -212,7 +219,7 @@ class Card:
                     FONT_SIZE, ('Red' if self.get_suit() in ('H', 'D')
                                 else 'Black'))
 
-    def get_rank(self):
+    def get_rank(self):  # type: () -> str
         """
         Return the rank of the card.
 
@@ -220,7 +227,7 @@ class Card:
         """
         return self._rank
 
-    def get_suit(self):
+    def get_suit(self):  # type: () -> str
         """
         Return the suit of the card.
 
@@ -228,7 +235,7 @@ class Card:
         """
         return self._suit
 
-    def get_value(self):
+    def get_value(self):  # type: () -> int
         """
         Return the value of the card.
 
@@ -252,7 +259,7 @@ class Deck:
               'Q',  # Queen (dame)
               'K')  # King (roi)
 
-    def __init__(self):
+    def __init__(self):  # type: () -> None
         """Set a deck, list of 52 classic cards."""
         self._cards = []
 
@@ -260,7 +267,7 @@ class Deck:
             for rank in Deck._RANKS:
                 self._cards.append(Card(suit, rank))
 
-    def __str__(self):
+    def __str__(self):  # type: () -> str
         """
         Return the sequence of cards.
 
@@ -268,7 +275,7 @@ class Deck:
         """
         return ' '.join([str(card) for card in self._cards])
 
-    def deal_card(self):
+    def deal_card(self):  # type: () -> Card
         """
         Return a card and remove of the deck.
 
@@ -278,7 +285,7 @@ class Deck:
 
         return self._cards.pop()
 
-    def shuffle(self):
+    def shuffle(self):  # type: () -> None
         """Shuffle the deck."""
         random.shuffle(self._cards)
 
@@ -286,7 +293,7 @@ class Deck:
 class Hand:
     """Hand (of dealer or player)."""
 
-    def __init__(self, is_dealer=False):
+    def __init__(self, is_dealer=False):  # type: (bool) -> None
         """
         Set an empty hand.
 
@@ -295,9 +302,9 @@ class Hand:
         assert isinstance(is_dealer, bool), type(is_dealer)
 
         self._is_dealer = is_dealer
-        self._cards = []
+        self._cards = []  # type: List[Card]
 
-    def __str__(self):
+    def __str__(self):  # type: () -> str
         """
         Return the sequence of cards.
 
@@ -305,7 +312,7 @@ class Hand:
         """
         return ' '.join([str(card) for card in self._cards])
 
-    def add_card(self, card):
+    def add_card(self, card):  # type: (Card) -> None
         """
         Add the card in the hand.
 
@@ -316,6 +323,7 @@ class Hand:
         self._cards.append(card)
 
     def draw(self, canvas, pos):
+        # type: (simplegui.Canvas, Sequence[Union[int, float]]) -> None
         """
         Draw all cards of the hand.
 
@@ -335,7 +343,7 @@ class Hand:
                                pos[1]],
                       (i == 0) and self._is_dealer and IN_PLAY)
 
-    def get_value(self):
+    def get_value(self):  # type: () -> int
         """
         Return value of the hand.
 
@@ -355,7 +363,7 @@ class Hand:
 
 # Event handlers
 ################
-def deal():
+def deal():  # type: () -> None
     """Start a new round."""
     global DECK  # pylint: disable=global-statement
     global HAND_DEALER  # pylint: disable=global-statement
@@ -382,7 +390,7 @@ def deal():
         HAND_DEALER.add_card(DECK.deal_card())
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw all the game.
 
@@ -436,11 +444,14 @@ def draw(canvas):
                           20 + FONT_SIZE * 3 / 4.0),
                          FONT_SIZE, 'Black')
 
+        assert isinstance(HAND_DEALER, Hand)
+        assert isinstance(HAND_PLAYER, Hand)
+
         HAND_DEALER.draw(canvas, DEALER_POS)
         HAND_PLAYER.draw(canvas, PLAYER_POS)
 
 
-def draw_wait_images(canvas):
+def draw_wait_images(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw waiting message when images loading.
 
@@ -459,7 +470,7 @@ def draw_wait_images(canvas):
                      size, 'White')
 
 
-def hit():
+def hit():  # type: () -> None
     """
     Give a new card to the player
     and deal his value.
@@ -467,6 +478,9 @@ def hit():
     global IN_PLAY  # pylint: disable=global-statement
     global OUTCOME  # pylint: disable=global-statement
     global SCORE_DEALER  # pylint: disable=global-statement
+
+    assert isinstance(DECK, Deck)
+    assert isinstance(HAND_PLAYER, Hand)
 
     OUTCOME = None
 
@@ -481,7 +495,7 @@ def hit():
         OUTCOME = 'YOU HAVE BUSTED'
 
 
-def stand():
+def stand():  # type: () -> None
     """
     The player stand.
     Deal the dealer logic and test who win.
@@ -490,6 +504,10 @@ def stand():
     global OUTCOME  # pylint: disable=global-statement
     global SCORE_DEALER  # pylint: disable=global-statement
     global SCORE_PLAYER  # pylint: disable=global-statement
+
+    assert isinstance(DECK, Deck)
+    assert isinstance(HAND_DEALER, Hand)
+    assert isinstance(HAND_PLAYER, Hand)
 
     OUTCOME = None
 
@@ -509,7 +527,7 @@ def stand():
         OUTCOME = 'YOU HAVE BUSTED'
 
 
-def test_images_loaded():
+def test_images_loaded():  # type: () -> None
     """
     Check the number of images already loaded.
 
@@ -553,4 +571,5 @@ if __name__ == '__main__':
     test_images_loaded()
 
     deal()
+
     FRAME.start()

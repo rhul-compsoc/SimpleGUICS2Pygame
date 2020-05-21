@@ -1,6 +1,6 @@
 ChangeLog
 =========
-* 2.0.1 — May 19, 2020
+* 2.0.1 — May 21, 2020
 
   - Documentation:
 
@@ -13,6 +13,7 @@ ChangeLog
 
   - Tests:
 
+    - Added type annotations (in Python 2 mode) for each function.
     - Cleaned some type annotations instead ignore them.
 
 * 2.0.0 — April 18, 2020

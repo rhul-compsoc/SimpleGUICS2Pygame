@@ -22,16 +22,21 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 import math
 import random
 
 try:
-    from user305_2YRLOxXzAvucSDa import assert_position  # pytype: disable=import-error  # noqa
-    from user305_sqdXmWMw7Jq9Sdc import FPS  # pytype: disable=import-error
-    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error
+    from typing import Dict, List, Optional, Sequence, Tuple, Union
+except ImportError:
+    pass
+
+try:
+    from user305_SXBsmszNiUxIeoV import assert_position  # pytype: disable=import-error  # noqa
+    from user305_tXfH4AcbNLtjfHy import FPS  # pytype: disable=import-error
+    from user305_SZPJfNxJlVTjbAy import Loader  # pytype: disable=import-error
 
     import simplegui  # pytype: disable=import-error
 
@@ -59,15 +64,15 @@ SCREEN_HEIGHT = 600
 #
 # Global variables
 ###################
-FRAME = None
+FRAME = None  # type: Optional[simplegui.Frame]
 
-RICEROCKS = None
+RICEROCKS = None  # type: Optional['RiceRocks']
 
 
 #
 # Helper functions
 ###################
-def angle_to_vector(angle):
+def angle_to_vector(angle):  # type: (Union[int, float]) -> Tuple[float, float]
     """
     Return the vector corresponding to the angle expressed in radians.
 
@@ -80,7 +85,7 @@ def angle_to_vector(angle):
     return (math.cos(angle), math.sin(angle))
 
 
-def vector_to_angle(vector):
+def vector_to_angle(vector):  # type: (Sequence[Union[int, float]]) -> float
     """
     Return the angle (in radians) corresponding to the direction of vector.
 
@@ -100,23 +105,23 @@ def vector_to_angle(vector):
 class RiceRocks:  # pylint: disable=too-many-instance-attributes
     """General class dealing the game."""
 
-    def __init__(self):
+    def __init__(self):  # type: () -> None
         """Set elements of the game."""
         self.loaded = False
 
         self.keydown_left = False
         self.keydown_right = False
         self.lives = 3
-        self.my_ship = None
-        self.nb_bombs = None
+        self.my_ship = None  # type: Optional['Ship']
+        self.nb_bombs = None  # type: Optional[int]
         self.score = 0
         self.started = False
         self.time = 0
 
-        self.explosions = []
-        self.live_explosions = []
-        self.missiles = []
-        self.rocks = []
+        self.explosions = []  # type: List['Sprite']
+        self.live_explosions = []  # type: List['Sprite']
+        self.missiles = []  # type: List['Sprite']
+        self.rocks = []  # type: List['Asteroid']
 
         self.animate_background_active = True
         self.music_active = True
@@ -133,15 +138,17 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
         self.timer_wait = simplegui.create_timer(2000, wait_clear)
 
-        self.img_infos = None
+        self.img_infos = None  # type: Optional[Dict[str, 'ImageInfo']]
         self.medias = None
 
-    def bomb_explode(self):
+    def bomb_explode(self):  # type: () -> None
         """
         If it remains bomb
         then detonated a bomb that destroys all asteroids.
         """
         if self.nb_bombs:
+            assert isinstance(self.medias, Loader)
+
             self.nb_bombs -= 1
             if self.sounds_active:
                 self.medias.get_sound('bomb_explode').rewind()
@@ -153,11 +160,17 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
             self.rocks = []
 
     def draw_and_update(self, canvas):  # pylint: disable=too-many-locals,too-many-branches,too-many-statements  # noqa
+        # type: (simplegui.Canvas) -> None
         """
         Draw and update all stuffs in each FPS cycle.
 
         :param canvas: simplegui.Canvas
         """
+        assert isinstance(FRAME, simplegui.Frame)
+        assert isinstance(self.img_infos, dict)
+        assert isinstance(self.medias, Loader)
+        assert isinstance(self.my_ship, Ship)
+
         self.time += 1
 
         # Draw static background
@@ -260,6 +273,8 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
                         self.score += 1
                         if self.score % 10 == 0:  # add a new bomb
+                            assert isinstance(self.nb_bombs, int)
+
                             self.nb_bombs += 1
                             if self.sounds_active:
                                 self.medias.get_sound('bomb_extra').rewind()
@@ -379,39 +394,40 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
                                   -math.pi / 2)
 
         # Display score
-        size = 36
+        text_size = 36
         font = 'sans-serif'
 
         text1 = 'Score'
-        width1 = FRAME.get_canvas_textwidth(text1, size, font)
+        width1 = FRAME.get_canvas_textwidth(text1, text_size, font)
         text2 = str(self.score)
-        width2 = FRAME.get_canvas_textwidth(text2, size, font)
+        width2 = FRAME.get_canvas_textwidth(text2, text_size, font)
 
         canvas.draw_text(text1, (SCREEN_WIDTH - 22 - width1,
-                                 22 + size * 3.0 / 4),
-                         size, 'Gray', font)
+                                 22 + text_size * 3.0 / 4),
+                         text_size, 'Gray', font)
         canvas.draw_text(text2, (SCREEN_WIDTH - 22 - width2,
-                                 22 + size * 7.0 / 4),
-                         size, 'Gray', font)
+                                 22 + text_size * 7.0 / 4),
+                         text_size, 'Gray', font)
 
         canvas.draw_text(text1, (SCREEN_WIDTH - 20 - width1,
-                                 20 + size * 3.0 / 4),
-                         size, 'White', font)
+                                 20 + text_size * 3.0 / 4),
+                         text_size, 'White', font)
         canvas.draw_text(text2, (SCREEN_WIDTH - 20 - width2,
-                                 20 + size * 7.0 / 4),
-                         size, 'White', font)
+                                 20 + text_size * 7.0 / 4),
+                         text_size, 'White', font)
 
         # Draw splash screen if game not started
         if not self.started:
-            size = self.img_infos['splash'].get_size()
-            canvas.draw_image(self.medias.get_image('splash'),
-                              self.img_infos['splash'].get_center(), size,
-                              (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0), size)
+            img_size = self.img_infos['splash'].get_size()
+            canvas.draw_image(
+                self.medias.get_image('splash'),
+                self.img_infos['splash'].get_center(), img_size,
+                (SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0), img_size)
 
         # Update and draw FPS (if started)
         FPS_DRAWER.draw_fct(canvas)
 
-    def load_medias(self):
+    def load_medias(self):  # type: () -> None
         """
         Load images and sounds and waiting all is loaded,
         the set the general draw handler.
@@ -447,6 +463,8 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
         def init():
             """Init the game after medias loaded."""
+            assert isinstance(self.medias, Loader)
+
             if SIMPLEGUICS2PYGAME:
                 FRAME._set_canvas_background_image(  # pylint: disable=protected-access  # noqa
                     self.medias.get_image('nebula'))
@@ -482,6 +500,8 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
             self.loaded = True
 
         self.medias = Loader(FRAME, SCREEN_WIDTH, init)
+
+        assert isinstance(self.medias, Loader)  # to avoid mypy false positives
 
         # Images by Kim Lathrop
         self.medias.add_image('http://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/asteroid_blend.png',  # noqa
@@ -533,16 +553,18 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
 
         self.medias.wait_loaded()
 
-    def pause_switch(self):
+    def pause_switch(self):  # type: () -> None
         """Pause on/off."""
         self.paused = not self.paused
 
-    def rock_spawner(self):
+    def rock_spawner(self):  # type: () -> None
         """
         If the maximum is not reached
         then spawns a rock (not too close to the ship).
         """
         if (len(self.rocks) < 10) and not self.paused:
+            assert isinstance(self.my_ship, Ship)
+
             too_close = True
 
             def random_vel():
@@ -579,7 +601,7 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
             if not too_close:
                 self.rocks.append(rock)
 
-    def start(self):
+    def start(self):  # type: () -> None
         """Start the game."""
         if self.wait:
             return
@@ -587,6 +609,8 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         self.timer_wait.stop()
 
         if self.music_active:
+            assert isinstance(self.medias, Loader)
+
             self.medias.get_sound('intro').rewind()
             self.medias.get_sound('soundtrack').play()
 
@@ -610,11 +634,15 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         self.started = True
 
         if SIMPLEGUICS2PYGAME:
+            assert isinstance(FRAME, simplegui.Frame)
+
             FRAME._cursor_auto_hide = True  # pylint: disable=protected-access
             FRAME._set_cursor_visible(not FRAME._cursor_in_canvas())  # pylint: disable=protected-access  # noqa
 
-    def stop(self):
+    def stop(self):  # type: () -> None
         """Stop the game."""
+        assert isinstance(self.my_ship, Ship)
+
         self.timer.stop()
 
         self.nb_bombs = None
@@ -627,10 +655,14 @@ class RiceRocks:  # pylint: disable=too-many-instance-attributes
         self.my_ship.stop()
 
         if self.music_active:
+            assert isinstance(self.medias, Loader)
+
             self.medias.get_sound('soundtrack').rewind()
             self.medias.get_sound('intro').play()
 
         if SIMPLEGUICS2PYGAME:
+            assert isinstance(FRAME, simplegui.Frame)
+
             FRAME._cursor_auto_hide = False  # pylint: disable=protected-access
             FRAME._set_cursor_visible()  # pylint: disable=protected-access
 
@@ -644,6 +676,7 @@ class ImageInfo:
     def __init__(self, center, size,  # pylint: disable=too-many-arguments
                  radius=None, lifespan=None, animated=False,
                  draw_size=None):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Optional[Union[int, float]], Optional[Union[int, float]], bool, Optional[Sequence[Union[int, float]]]) -> None  # noqa
         """
         Set informations.
 
@@ -687,11 +720,11 @@ class ImageInfo:
         self._radius = (max(size) if radius is None
                         else radius)
         self._lifespan = (lifespan if lifespan
-                          else float('inf'))
+                          else float('inf'))  # type: float
         self._animated = animated
         self._draw_size = list(draw_size)
 
-    def get_animated(self):
+    def get_animated(self):  # type: () -> bool
         """
         If is a animated image
         then return True,
@@ -701,7 +734,7 @@ class ImageInfo:
         """
         return self._animated
 
-    def get_center(self):
+    def get_center(self):  # type: () -> List[Union[int, float]]
         """
         Return position of the center of image.
 
@@ -709,7 +742,7 @@ class ImageInfo:
         """
         return list(self._center)
 
-    def get_draw_size(self):
+    def get_draw_size(self):  # type: () -> List[Union[int, float]]
         """
         Return draw size of image.
 
@@ -717,15 +750,15 @@ class ImageInfo:
         """
         return list(self._draw_size)
 
-    def get_lifespan(self):
+    def get_lifespan(self):  # type: () -> Union[int, float]
         """
         Return lifespan of image.
 
-        :return: None or ((int or float) > 0)
+        :return: (int or float) > 0
         """
         return self._lifespan
 
-    def get_radius(self):
+    def get_radius(self):  # type: () -> Union[int, float]
         """
         Return radius of image.
 
@@ -733,7 +766,7 @@ class ImageInfo:
         """
         return self._radius
 
-    def get_size(self):
+    def get_size(self):  # type: () -> List[Union[int, float]]
         """
         Return size of image.
 
@@ -747,6 +780,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
 
     def __init__(self, position,  # pylint: disable=too-many-arguments
                  velocity, angle, angle_velocity, media_name):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float], Union[int, float], str) -> None  # noqa
         """
         Set sprite.
 
@@ -764,17 +798,13 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         assert isinstance(angle_velocity, (int, float)), type(angle_velocity)
         assert isinstance(media_name, str), type(media_name)
 
-        if (RICEROCKS.sounds_active and
-                (media_name in RICEROCKS.medias._sounds)):  # pylint: disable=protected-access  # noqa
-            sound = RICEROCKS.medias.get_sound(media_name)
-            sound.rewind()
-            sound.play()
-
         self.position = list(position)
         self.velocity = list(velocity)
         self.angle = angle
         self.angle_velocity = angle_velocity
-        self.image = RICEROCKS.medias.get_image(media_name)
+
+        assert isinstance(RICEROCKS, RiceRocks)
+        assert isinstance(RICEROCKS.img_infos, dict)
 
         img_info = RICEROCKS.img_infos[media_name]
         self.animated = img_info.get_animated()
@@ -783,8 +813,20 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         self.image_size = img_info.get_size()
         self.lifespan = img_info.get_lifespan()
         self.radius = img_info.get_radius()
+        self.image = None  # type: Optional[simplegui.Image]
 
-    def collide(self, other_sprite):
+        assert isinstance(RICEROCKS.medias, Loader)
+        assert RICEROCKS.medias is not None  # to avoid mypy false positives
+
+        self.image = RICEROCKS.medias.get_image(media_name)
+
+        if (RICEROCKS.sounds_active and
+                (media_name in RICEROCKS.medias._sounds)):  # pylint: disable=protected-access  # noqa
+            sound = RICEROCKS.medias.get_sound(media_name)
+            sound.rewind()
+            sound.play()
+
+    def collide(self, other_sprite):  # type: ('Sprite') -> bool
         """
         If this sprite collide with other_sprite
         then return True,
@@ -800,7 +842,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
                  (self.position[1] - other_sprite.position[1])**2) <=
                 (self.radius + other_sprite.radius)**2)
 
-    def distance(self, other_sprite):
+    def distance(self, other_sprite):  # type: ('Sprite') -> float
         """
         Return the distance between this sprite and other_sprite.
 
@@ -813,14 +855,14 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         return math.sqrt((self.position[0] - other_sprite.position[0])**2 +
                          (self.position[1] - other_sprite.position[1])**2)
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the sprite
         (if the associated image are not loaded, draw a red disc).
 
         :param canvas: simplegui.Canvas
         """
-        if self.image.get_width() > 0:
+        if (self.image is not None) and (self.image.get_width() > 0):
             canvas.draw_image(self.image,
                               self.image_center, self.image_size,
                               self.position, self.image_draw_size,
@@ -829,7 +871,7 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
             # Useful to debug
             canvas.draw_circle(self.position, self.radius, 1, 'Red', 'Red')
 
-    def update(self):
+    def update(self):  # type: () -> None
         """
         Update position adding velocity,
         angle adding angle_velocity,
@@ -845,7 +887,8 @@ class Sprite:  # pylint: disable=too-many-instance-attributes
         if self.lifespan is not None:
             self.lifespan -= 1
             if self.animated:  # change the current image
-                assert self.image_center[0] < self.image.get_width()
+                assert ((self.image is None) or
+                        (self.image_center[0] < self.image.get_width()))
 
                 self.image_center[0] += self.image_size[0]
 
@@ -855,6 +898,7 @@ class Asteroid(Sprite):
 
     def __init__(self, position,  # pylint: disable=too-many-arguments
                  velocity, angle_velocity, num, little=False):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float], int, bool) -> None  # noqa
         """
         Set an asteroid sprite.
 
@@ -887,6 +931,7 @@ class Ship(Sprite):
     def __init__(self, position, velocity,
                  angle,
                  media_name):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float], str) -> None  # noqa
         """
         Set ship sprite.
 
@@ -908,12 +953,14 @@ class Ship(Sprite):
 
         self.thrust = False
 
-    def flip(self):
+    def flip(self):  # type: () -> None
         """Flip the ship."""
         self.angle += math.pi
 
-    def shot(self):
+    def shot(self):  # type: () -> None
         """Launch a missile."""
+        assert isinstance(RICEROCKS, RiceRocks)
+
         vector = angle_to_vector(self.angle)
 
         RICEROCKS.missiles.append(
@@ -924,14 +971,17 @@ class Ship(Sprite):
                    self.angle, 0,
                    'missile'))
 
-    def stop(self):
+    def stop(self):  # type: () -> None
         """Stop the ship."""
         self.turn(None)
         if self.thrust:
             self.thrust_on_off()
 
-    def thrust_on_off(self):
+    def thrust_on_off(self):  # type: () -> None
         """Switch activation of thrust."""
+        assert isinstance(RICEROCKS, RiceRocks)
+        assert isinstance(RICEROCKS.medias, Loader)
+
         self.thrust = not self.thrust
 
         if self.thrust:
@@ -945,12 +995,12 @@ class Ship(Sprite):
             # Sprite image with inactif thrust
             self.image_center[0] -= self.image_size[0]
 
-    def turn(self, right):
+    def turn(self, right):  # type: (Optional[bool]) -> None
         """
         Turn the ship
         (in fact change angle_velocity).
 
-        :param right: None or Bool
+        :param right: None or bool
         """
         assert (right is None) or isinstance(right, bool), type(right)
 
@@ -958,7 +1008,7 @@ class Ship(Sprite):
                                None: 0,
                                True: 0.05}[right]
 
-    def update(self):
+    def update(self):  # type: () -> None
         """
         Update position adding velocity (and deal exit out of the canvas),
         decrease slightly velocity,
@@ -989,18 +1039,21 @@ class Ship(Sprite):
 # Event handlers
 #################
 def click(pos):  # pylint: disable=unused-argument
+    # type: (Tuple[int, int]) -> None
     """
     If click on splash screen
     then start the game.
 
     :param pos: (int >= 0, int >= 0)
     """
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if not RICEROCKS.started:
         RICEROCKS.wait = False
         RICEROCKS.start()
 
 
-def fps_on_off():
+def fps_on_off():  # type: () -> None
     """Active or inactive the calculation and drawing of FPS."""
     if FPS_DRAWER.is_started():
         FPS_DRAWER.stop()
@@ -1010,7 +1063,7 @@ def fps_on_off():
         BUTTON_FPS.set_text('FPS off')
 
 
-def joypad_axe(joypad, axe, value):
+def joypad_axe(joypad, axe, value):  # type: (int, int, float) -> None
     """
     Event handler to deal joypad axe.
 
@@ -1018,7 +1071,11 @@ def joypad_axe(joypad, axe, value):
     :param axe: int >= 0
     :param value: -1 <= float <= 1
     """
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if (joypad == 0) and RICEROCKS.started:
+        assert isinstance(RICEROCKS.my_ship, Ship)
+
         threshold = 0.9
 
         if axe == 0:
@@ -1040,15 +1097,19 @@ def joypad_axe(joypad, axe, value):
                 RICEROCKS.my_ship.thrust_on_off()
 
 
-def joypad_up(joypad, button):
+def joypad_up(joypad, button):  # type: (int, int) -> None
     """
     Event handler to deal joypad buttons.
 
     :param joypad: int >= 0
     :param button: int >= 0
     """
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if joypad == 0:
         if RICEROCKS.started:
+            assert isinstance(RICEROCKS.my_ship, Ship)
+
             if button == 0:    # shoot
                 RICEROCKS.my_ship.shot()
             elif button == 1:  # bomb
@@ -1060,6 +1121,7 @@ def joypad_up(joypad, button):
 
 
 def joypad_hat(joypad, hat, values):
+    # type: (int, int, Tuple[int, int]) -> None
     """
     Event handler to deal joypad hat.
 
@@ -1067,7 +1129,11 @@ def joypad_hat(joypad, hat, values):
     :param hat: int >= 0
     :param values: (a, b) with a and b == -1, 0 or 1
     """
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if (joypad == 0) and (hat == 0) and RICEROCKS.started:
+        assert isinstance(RICEROCKS.my_ship, Ship)
+
         if values[0] == -1:   # left
             RICEROCKS.keydown_left = True
             RICEROCKS.my_ship.turn(False)
@@ -1088,13 +1154,17 @@ def joypad_hat(joypad, hat, values):
             RICEROCKS.my_ship.thrust_on_off()
 
 
-def keydown(key):
+def keydown(key):  # type: (int) -> None
     """
     Event handler to deal key down.
 
     :param key: int >= 0
     """
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if RICEROCKS.started:
+        assert isinstance(RICEROCKS.my_ship, Ship)
+
         if key == simplegui.KEY_MAP['left']:     # left
             RICEROCKS.keydown_left = True
             RICEROCKS.my_ship.turn(False)
@@ -1115,13 +1185,17 @@ def keydown(key):
         RICEROCKS.start()
 
 
-def keyup(key):
+def keyup(key):  # type: (int) -> None
     """
     Event handler to deal key up.
 
     :param key: int >= 0
     """
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if RICEROCKS.started:
+        assert isinstance(RICEROCKS.my_ship, Ship)
+
         if key == simplegui.KEY_MAP['left']:
             RICEROCKS.keydown_left = False
             RICEROCKS.my_ship.turn(True if RICEROCKS.keydown_right
@@ -1136,9 +1210,14 @@ def keyup(key):
             quit_prog()
 
 
-def quit_prog():
+def quit_prog():  # type: () -> None
     """Stop timer and sounds, and quit."""
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if RICEROCKS.loaded:
+        assert isinstance(FRAME, simplegui.Frame)
+        assert isinstance(RICEROCKS.medias, Loader)
+
         RICEROCKS.stop()
         RICEROCKS.medias.pause_sounds()
         FRAME.stop()
@@ -1146,14 +1225,18 @@ def quit_prog():
             RICEROCKS.medias.print_stats_cache()
 
 
-def stop():
+def stop():  # type: () -> None
     """Stop the game."""
+    assert isinstance(RICEROCKS, RiceRocks)
+
     if RICEROCKS.loaded:
         RICEROCKS.stop()
 
 
-def switch_animate_background():
+def switch_animate_background():  # type: () -> None
     """Switch animate background on/off."""
+    assert isinstance(RICEROCKS, RiceRocks)
+
     RICEROCKS.animate_background_active = (not
                                            RICEROCKS.animate_background_active)
     BUTTON_ANIMATE_BACKGROUND.set_text('Static background'
@@ -1161,8 +1244,11 @@ def switch_animate_background():
                                        else 'Animate background')
 
 
-def switch_music():
+def switch_music():  # type: () -> None
     """Switch music on/off."""
+    assert isinstance(RICEROCKS, RiceRocks)
+    assert isinstance(RICEROCKS.medias, Loader)
+
     RICEROCKS.music_active = not RICEROCKS.music_active
 
     if RICEROCKS.music_active:
@@ -1177,8 +1263,10 @@ def switch_music():
         RICEROCKS.medias.get_sound('soundtrack').rewind()
 
 
-def switch_sounds():
+def switch_sounds():  # type: () -> None
     """Switch sounds on/off."""
+    assert isinstance(RICEROCKS, RiceRocks)
+
     RICEROCKS.sounds_active = not RICEROCKS.sounds_active
     BUTTON_SOUNDS.set_text('Sounds off' if RICEROCKS.sounds_active
                            else 'Sounds on')

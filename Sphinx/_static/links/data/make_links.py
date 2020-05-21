@@ -1,11 +1,11 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 """
 Module
   to make_img_links.py ,
      make_prog_links.py ,
      make_snd_links.py
-(January 29, 2020)
+(May 21, 2020)
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -14,18 +14,13 @@ GPLv3 --- Copyright (C) 2013, 2015, 2016, 2020 Olivier Pirson
 http://www.opimedia.be/
 """
 
-from __future__ import print_function
-
-
-try:
-    from urllib.parse import unquote
-except ImportError:
-    from urllib import unquote
-
 import os.path
+import urllib.parse
+
+from typing import List, TextIO
 
 
-def print_html_list_img(data, dest_file):
+def print_html_list_img(data: List, dest_file: TextIO) -> None:
     """
     Print data as HTML <ul> in dest_file.
 
@@ -61,7 +56,7 @@ def print_html_list_img(data, dest_file):
 
             print("""      <li>
         <a{2} href="{0}" target="_blank" onmouseover="img_load(this, '{0}');"><img src="#" alt="[Loading&hellip;]"><span class="size"><span></span></span><img class="thumbnail" src="{0}" alt=""><span class="name">{1}</span></a>
-      </li>""".format(url, info, add_class), file=dest_file)
+      </li>""".format(url, info, add_class), file=dest_file)  # noqa
 
         print("""    </ul>
   </li>""", file=dest_file)
@@ -69,7 +64,7 @@ def print_html_list_img(data, dest_file):
     print('</ul>', file=dest_file)
 
 
-def print_html_list_link(data, dest_file):
+def print_html_list_link(data: List, dest_file: TextIO) -> None:
     """
     Print data as HTML <ul> in dest_file.
 
@@ -116,7 +111,7 @@ def print_html_list_link(data, dest_file):
     print('</ul>', file=dest_file)
 
 
-def print_html_list_snd(data, dest_file):
+def print_html_list_snd(data: List, dest_file: TextIO) -> None:
     """
     Print data as HTML <ul> in dest_file.
 
@@ -152,7 +147,7 @@ def print_html_list_snd(data, dest_file):
 
             print("""      <li>
         <a{2} href="{0}" target="_blank">{1}</a><audio src="{0}" controls="controls"></audio>
-      </li>""".format(url, info, add_class), file=dest_file)
+      </li>""".format(url, info, add_class), file=dest_file)  # noqa
 
         print("""    </ul>
   </li>""", file=dest_file)
@@ -160,7 +155,7 @@ def print_html_list_snd(data, dest_file):
     print('</ul>', file=dest_file)
 
 
-def read_txt(filename):
+def read_txt(filename: str) -> List:
     """
     Read filename and build a list to use with print_html_list_*().
 
@@ -176,7 +171,7 @@ def read_txt(filename):
     lines = [line.strip() for line in fin]
     fin.close()
 
-    acc = []
+    acc = []  # type: List
 
     i = 0
     while i < len(lines):
@@ -210,7 +205,7 @@ def read_txt(filename):
     return data
 
 
-def url_to_info(url):
+def url_to_info(url: str) -> str:
     """
     Return a clean info name extracted from url.
 
@@ -218,4 +213,4 @@ def url_to_info(url):
 
     :return: str
     """
-    return os.path.basename(unquote(url))
+    return os.path.basename(urllib.parse.unquote(url))

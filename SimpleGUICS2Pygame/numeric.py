@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import division
@@ -20,6 +20,11 @@ from __future__ import print_function
 
 
 from sys import float_info as _SYS_FLOAT_INFO
+
+try:
+    from typing import Sequence, Union
+except ImportError:
+    pass
 
 
 # Global constant
@@ -40,6 +45,7 @@ class Matrix:
     """
 
     def __init__(self, data, _copy=True):
+        # type: (Sequence[Sequence[Union[int, float]]], bool) -> None
         """
         Create a matrix with the 2-dimensional `data`.
 
@@ -52,6 +58,9 @@ class Matrix:
         :param _copy: bool
         """  # noqa
         assert isinstance(_copy, bool), type(_copy)
+
+        self._data = []
+
         if _copy:
             assert isinstance(data, (tuple, list)), type(data)
             assert len(data) >= 1
@@ -64,6 +73,8 @@ class Matrix:
                     assert n == len(row), (n, len(row))
                     for x in row:
                         assert isinstance(x, (int, float)), type(x)
+
+            self._data = [[float(x) for x in row] for row in data]
         else:
             assert isinstance(data, list), type(data)
             assert len(data) >= 1
@@ -77,10 +88,9 @@ class Matrix:
                     for x in row:
                         assert isinstance(x, float), type(x)
 
-        self._data = ([[float(x) for x in row] for row in data] if _copy
-                      else data)
+            self._data = data
 
-    def __add__(self, other):
+    def __add__(self, other):  # type: ('Matrix') -> 'Matrix'
         """
         To a matrix (m x n)
         return the matrix plus other.
@@ -97,7 +107,7 @@ class Matrix:
                        for i in range(self._nb_lines())],
                       _copy=False)
 
-    def __getitem__(self, i_j):
+    def __getitem__(self, i_j):  # type: (Sequence[int]) -> float
         """
         Return the value of the (m x n) matrix
         at row i and column j.
@@ -115,7 +125,7 @@ class Matrix:
 
         return self._data[i_j[0]][i_j[1]]
 
-    def __mul__(self, other):
+    def __mul__(self, other):  # type: ('Matrix') -> 'Matrix'
         """
         To a matrix (m x k)
         return the matrix multiply by other.
@@ -133,6 +143,7 @@ class Matrix:
                       _copy=False)
 
     def __setitem__(self, i_j, value):
+        # type: (Sequence[int], Union[int, float]) -> None
         """
         Change the value of the element at row i and column j,
         to the (m x n) matrix.
@@ -150,7 +161,7 @@ class Matrix:
 
         self._data[i_j[0]][i_j[1]] = float(value)
 
-    def __str__(self):
+    def __str__(self):  # type: () -> str
         """
         Return the string representation of the matrix.
 
@@ -158,7 +169,7 @@ class Matrix:
         """
         return '[{}]'.format('\n '.join([str(row) for row in self._data]))
 
-    def __sub__(self, other):
+    def __sub__(self, other):  # type: ('Matrix') -> 'Matrix'
         """
         To a matrix (m x n)
         return the matrix minus other.
@@ -176,6 +187,7 @@ class Matrix:
                       _copy=False)
 
     def _is_identity(self, epsilon=_EPSILON):
+        # type: (Union[int, float]) -> bool
         """
         If the matrix is an identity matrix
         then return True,
@@ -183,11 +195,11 @@ class Matrix:
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        :param epsilon: 0 <= float < 1
+        :param epsilon: 0 <= (float or int) < 1
 
         :return: bool
         """
-        assert isinstance(epsilon, float), type(epsilon)
+        assert isinstance(epsilon, (float, int)), type(epsilon)
         assert 0 <= epsilon < 1, epsilon
 
         n = self._nb_lines()
@@ -202,7 +214,7 @@ class Matrix:
 
         return True
 
-    def _is_zero(self, epsilon=_EPSILON):
+    def _is_zero(self, epsilon=_EPSILON):  # type: (Union[int, float]) -> bool
         """
         If the matrix is a zeros matrix
         then return True,
@@ -210,11 +222,11 @@ class Matrix:
 
         **(Not available in SimpleGUI of CodeSkulptor.)**
 
-        :param epsilon: 0 <= float < 1
+        :param epsilon: 0 <= (float or int) < 1
 
         :return: bool
         """
-        assert isinstance(epsilon, float), type(epsilon)
+        assert isinstance(epsilon, (float, int)), type(epsilon)
         assert 0 <= epsilon < 1, epsilon
 
         for i in range(self._nb_lines()):
@@ -224,7 +236,7 @@ class Matrix:
 
         return True
 
-    def _nb_columns(self):
+    def _nb_columns(self):  # type: () -> int
         """
         Return n for a (m x n) matrix.
 
@@ -234,7 +246,7 @@ class Matrix:
         """
         return len(self._data[0])
 
-    def _nb_lines(self):
+    def _nb_lines(self):  # type: () -> int
         """
         Return m to a (m x n) matrix.
 
@@ -244,7 +256,7 @@ class Matrix:
         """
         return len(self._data)
 
-    def abs(self):
+    def abs(self):  # type: () -> 'Matrix'
         """
         To a matrix (m x n)
         return the matrix with each element is the absolute value.
@@ -256,7 +268,7 @@ class Matrix:
                        for i in range(self._nb_lines())],
                       _copy=False)
 
-    def copy(self):
+    def copy(self):  # type: () -> 'Matrix'
         """
         Return a copy of the matrix (m x n).
 
@@ -264,7 +276,7 @@ class Matrix:
         """
         return Matrix(self._data)
 
-    def getcol(self, j):
+    def getcol(self, j):  # type: (int) -> 'Matrix'
         """
         Return the (1 x m) matrix
         that is a copy of column j of the (m x n) matrix.
@@ -278,7 +290,7 @@ class Matrix:
 
         return Matrix([[row[j] for row in self._data]], _copy=False)
 
-    def getrow(self, i):
+    def getrow(self, i):  # type: (int) -> 'Matrix'
         """
         Return the (1 x n) matrix
         that is a copy of row i of the (m x n) matrix.
@@ -293,6 +305,7 @@ class Matrix:
         return Matrix([list(self._data[i])], _copy=False)
 
     def inverse(self, _epsilon=_EPSILON):
+        # type: (Union[int, float]) -> 'Matrix'
         """
         If the square matrix (n x n) is inversible
         then return the inverse,
@@ -301,7 +314,7 @@ class Matrix:
         Algorithm used: Gaussian elimination.
         See http://en.wikipedia.org/wiki/Gaussian_elimination .
 
-        :param _epsilon: 0 <= float < 1 **(Option not available in SimpleGUI of CodeSkulptor.)**
+        :param _epsilon: 0 <= (float or int) < 1 **(Option not available in SimpleGUI of CodeSkulptor.)**
 
         :return: Matrix (n x n)
 
@@ -309,7 +322,7 @@ class Matrix:
         """  # noqa
         assert self._nb_lines() == self._nb_columns(), (self._nb_lines(),
                                                         self._nb_columns())
-        assert isinstance(_epsilon, float), type(_epsilon)
+        assert isinstance(_epsilon, (float, int)), type(_epsilon)
         assert 0 <= _epsilon < 1, _epsilon
 
         n = self._nb_columns()
@@ -346,7 +359,7 @@ class Matrix:
 
         return inv
 
-    def scale(self, factor):
+    def scale(self, factor):  # type: (Union[int, float]) -> 'Matrix'
         """
         To a matrix (m x n)
         return the matrix with each element multiply by factor.
@@ -364,7 +377,7 @@ class Matrix:
                        for i in range(self._nb_lines())],
                       _copy=False)
 
-    def shape(self):
+    def shape(self):  # type: () -> tuple
         """
         Return (m, n) to a matrix (m x n).
 
@@ -372,7 +385,7 @@ class Matrix:
         """
         return (self._nb_lines(), self._nb_columns())
 
-    def summation(self):
+    def summation(self):  # type: () -> float
         """
         Return the sum of all the elements of the matrix.
 
@@ -380,7 +393,7 @@ class Matrix:
         """
         return sum([sum(row) for row in self._data])
 
-    def transpose(self):
+    def transpose(self):  # type: () -> 'Matrix'
         """
         Return the transposition of the matrix (m x n).
 
@@ -394,7 +407,7 @@ class Matrix:
 
 # Private function
 ##################
-def _zero(m, n):
+def _zero(m, n):  # type: (int, int) -> Matrix
     """
     Return a (`m` x `n`) zeros matrix.
 
@@ -415,7 +428,7 @@ def _zero(m, n):
 
 # Function
 ##########
-def identity(size):
+def identity(size):  # type: (int) -> Matrix
     """
     Return a (`size` x `size`) identity matrix.
 
@@ -430,3 +443,9 @@ def identity(size):
                      else 0.0) for j in range(size)]
                    for i in range(size)],
                   _copy=False)
+
+
+# Clean types use by static checking
+if 'Sequence' in dir():
+    del Sequence
+    del Union

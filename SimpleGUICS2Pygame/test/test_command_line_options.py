@@ -23,7 +23,7 @@ AFTER = tuple(argv)
 
 
 # Main
-def test():
+def test():  # type: () -> None
     """Test command line options"""
     print(BEFORE)
     print(AFTER)

@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import division
@@ -29,6 +29,11 @@ __all__ = ('Canvas',
            'create_invisible_canvas')
 
 
+try:
+    from typing import Any, Callable, Optional, Sequence, Tuple, Union, TYPE_CHECKING  # noqa
+except ImportError:
+    TYPE_CHECKING = False
+
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
@@ -36,6 +41,9 @@ if _PYGAME_AVAILABLE:
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR, _simpleguicolor_to_pygamecolor  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME, _simpleguifontface_to_pygamefont  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
 from SimpleGUICS2Pygame.simpleguics2pygame.image import Image  # pylint: disable=wrong-import-position,no-name-in-module,ungrouped-imports  # noqa
+
+if TYPE_CHECKING:
+    Frame = Any
 
 
 #
@@ -57,6 +65,7 @@ Regular expression pattern to unprintable whitespace character.
 # "Private" function
 ####################
 def _pos_round(position):
+    # type: (Sequence[Union[int, float]]) -> Tuple[int, int]
     """
     Return the rounded `position`.
 
@@ -97,6 +106,7 @@ class Canvas:
     def __init__(self,
                  frame,
                  canvas_width, canvas_height):
+        # type: (Optional[Frame], int, int) -> None  # noqa
         """
         Set the canvas.
 
@@ -123,11 +133,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         self._background_pygame_color = Canvas._background_pygame_color
 
-        self._draw_handler = None
+        self._draw_handler = None  # type: Optional[Callable[[Canvas], Any]]
 
         self._pygame_surface = pygame.Surface((canvas_width, canvas_height))  # pylint: disable=too-many-function-args  # noqa
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<Canvas object>'`.
 
@@ -135,7 +145,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         return '<Canvas object>'
 
-    def _draw(self):
+    def _draw(self):  # type: () -> None
         """
         If `self._draw_handler` != `None`
         then call it and update display of the canvas.
@@ -178,7 +188,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                    self._width,  # pylint: disable=protected-access  # noqa
                                    self._height))  # pylint: disable=protected-access  # noqa
 
-    def _save(self, filename):
+    def _save(self, filename):  # type: (str) -> None
         """
         Save the canvas in `filename`.
 
@@ -202,6 +212,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                  center_point, radius,
                  start_angle, end_angle,
                  line_width, line_color):
+        # type: (Sequence[Union[int, float]], Union[int, float], Union[int, float], Union[int, float], Union[int, float], str) -> None  # noqa
         """
         Draw an arc of circle, from `start_angle` to `end_angle`.
         Angles given in radians are clockwise
@@ -255,14 +266,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         # Draw
         if radius > 1:
-            line_color = _simpleguicolor_to_pygamecolor(line_color)
+            pygamecolor = _simpleguicolor_to_pygamecolor(line_color)
 
-            if line_color.a > 0:
+            if pygamecolor.a > 0:
                 diameter = radius * 2
                 s_tmp = pygame.Surface((diameter, diameter),  # pylint: disable=too-many-function-args  # noqa
                                        pygame.SRCALPHA)  # pylint: disable=no-member  # noqa
 
-                pygame.draw.arc(s_tmp, line_color,
+                pygame.draw.arc(s_tmp, pygamecolor,
                                 s_tmp.get_rect(),
                                 start_angle, end_angle,
                                 min(line_width, radius))
@@ -277,6 +288,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     center_point, radius,
                     line_width, line_color,
                     fill_color=None):
+        # type: (Sequence[Union[int, float]], Union[int, float], Union[int, float], str, Optional[str]) -> None  # noqa
         """
         Draw a circle.
 
@@ -311,36 +323,36 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         radius = int(round(radius)) + int(round(line_width // 2))
 
         if radius > 1:
-            line_color = _simpleguicolor_to_pygamecolor(line_color)
-            if fill_color is not None:
-                fill_color = _simpleguicolor_to_pygamecolor(fill_color)
+            pygamecolor = _simpleguicolor_to_pygamecolor(line_color)
+            pygamefillcolor = (None if fill_color is None
+                               else _simpleguicolor_to_pygamecolor(fill_color))
 
             center_point_rounded = _pos_round(center_point)
 
-            if ((line_color.a == 255) and
-                    ((fill_color is None) or (fill_color.a == 255))):
+            if ((pygamecolor.a == 255) and
+                    ((pygamefillcolor is None) or (pygamefillcolor.a == 255))):
                 # Without alpha
-                if fill_color is not None:
-                    pygame.draw.circle(self._pygame_surface, fill_color,
+                if pygamefillcolor is not None:
+                    pygame.draw.circle(self._pygame_surface, pygamefillcolor,
                                        center_point_rounded, radius,
                                        0)
-                if line_color != fill_color:
-                    pygame.draw.circle(self._pygame_surface, line_color,
+                if pygamecolor != pygamefillcolor:
+                    pygame.draw.circle(self._pygame_surface, pygamecolor,
                                        center_point_rounded, radius,
                                        min(line_width, radius))
-            elif ((line_color.a > 0) or
-                  ((fill_color is not None) and (fill_color.a > 0))):
+            elif ((pygamecolor.a > 0) or
+                  ((pygamefillcolor is not None) and (pygamefillcolor.a > 0))):
                 # With one or two alpha (not null)
                 diameter = radius * 2
                 s_alpha = pygame.Surface((diameter, diameter),  # pylint: disable=too-many-function-args  # noqa
                                          pygame.SRCALPHA)  # pylint: disable=no-member  # noqa
 
-                if (fill_color is not None) and (fill_color.a > 0):
-                    pygame.draw.circle(s_alpha, fill_color,
+                if (pygamefillcolor is not None) and (pygamefillcolor.a > 0):
+                    pygame.draw.circle(s_alpha, pygamefillcolor,
                                        (radius, radius), radius,
                                        0)
-                if (line_color != fill_color) and (line_color.a > 0):
-                    pygame.draw.circle(s_alpha, line_color,
+                if (pygamecolor != pygamefillcolor) and (pygamecolor.a > 0):
+                    pygame.draw.circle(s_alpha, pygamecolor,
                                        (radius, radius), radius,
                                        min(line_width, radius))
 
@@ -355,6 +367,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                    center_source, width_height_source,
                    center_dest, width_height_dest,
                    rotation=0):
+        # type: (Image, Sequence[Union[int, float]], Sequence[Union[int, float]], Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float]) -> None  # noqa
         """
         Draw `image` on the canvas.
 
@@ -476,7 +489,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         if sys.version_info[:2] >= (3, 2):
             move_to_end = image._pygamesurfaces_cached.move_to_end  # pylint: disable=protected-access  # noqa
         else:
-            def move_to_end(key):
+            def move_to_end(key):  # type: (int) -> None
                 """
                 Move the `key` item to the newest place of the surfaces cache.
 
@@ -522,7 +535,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 image._pygamesurfaces_cached[key_0] = pygame_surface_image  # pylint: disable=protected-access  # noqa
 
-                if (self._frame_parent._print_stats_cache and  # pylint: disable=protected-access  # noqa
+                if (self._frame_parent and  # pylint: disable=protected-access
+                        self._frame_parent._print_stats_cache and  # pylint: disable=protected-access  # noqa
                         (len(image._pygamesurfaces_cached) == image._pygamesurfaces_cache_max_size)):  # pylint: disable=protected-access  # noqa
                     image._print_stats_cache(  # pylint: disable=protected-access  # noqa
                         'Surfaces full cache              ')
@@ -535,7 +549,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
                 image._pygamesurfaces_cached[key] = pygame_surface_image  # pylint: disable=protected-access  # noqa
 
-                if (self._frame_parent._print_stats_cache and  # pylint: disable=protected-access  # noqa
+                if (self._frame_parent and  # pylint: disable=protected-access
+                        self._frame_parent._print_stats_cache and  # pylint: disable=protected-access  # noqa
                         (len(image._pygamesurfaces_cached) == image._pygamesurfaces_cache_max_size)):  # pylint: disable=protected-access  # noqa
                     image._print_stats_cache(  # pylint: disable=protected-access  # noqa
                         'Surfaces full cache with rotated ')
@@ -555,6 +570,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
     def draw_line(self,
                   point1, point2,
                   line_width, line_color):
+        # type: (Sequence[Union[int, float]], Sequence[Union[int, float]], Union[int, float], str) -> None  # noqa
         """
         Draw a line segment from point1 to point2.
 
@@ -580,13 +596,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(line_color, str), type(line_color)
 
-        line_color = _simpleguicolor_to_pygamecolor(line_color)
+        pygamecolor = _simpleguicolor_to_pygamecolor(line_color)
 
-        if line_color.a == 255:  # without alpha
-            pygame.draw.line(self._pygame_surface, line_color,
+        if pygamecolor.a == 255:  # without alpha
+            pygame.draw.line(self._pygame_surface, pygamecolor,
                              _pos_round(point1), _pos_round(point2),
                              int(round(line_width)))
-        elif line_color.a > 0:   # with alpha (not null)
+        elif pygamecolor.a > 0:   # with alpha (not null)
             x1, y1 = _pos_round(point1)
             x2, y2 = _pos_round(point2)  # pylint: disable=invalid-name  # noqa
 
@@ -597,7 +613,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             y_min = min(y1, y2)
 
             s_alpha = pygame.Surface((width, height), pygame.SRCALPHA)  # pylint: disable=too-many-function-args,no-member  # noqa
-            pygame.draw.line(s_alpha, line_color,
+            pygame.draw.line(s_alpha, pygamecolor,
                              (x1 - x_min + line_width,
                               y1 - y_min + line_width),
                              (x2 - x_min + line_width,
@@ -607,6 +623,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                       (x_min - line_width, y_min - line_width))
 
     def draw_point(self, position, color):
+        # type: (Sequence[Union[int, float]], str) -> None
         """
         Draw a point.
 
@@ -621,19 +638,20 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         assert isinstance(color, str), type(color)
 
-        color = _simpleguicolor_to_pygamecolor(color)
+        pygamecolor = _simpleguicolor_to_pygamecolor(color)
 
-        if color.a == 255:  # without alpha
-            self._pygame_surface.set_at(_pos_round(position), color)
-        elif color.a > 0:   # with alpha (not null)
+        if pygamecolor.a == 255:  # without alpha
+            self._pygame_surface.set_at(_pos_round(position), pygamecolor)
+        elif pygamecolor.a > 0:   # with alpha (not null)
             s_alpha = pygame.Surface((1, 1), pygame.SRCALPHA)  # pylint: disable=too-many-function-args,no-member  # noqa
-            s_alpha.set_at((0, 0), color)
+            s_alpha.set_at((0, 0), pygamecolor)
             self._pygame_surface.blit(s_alpha, _pos_round(position))
 
     def draw_polygon(self,
                      point_list,
                      line_width, line_color,
                      fill_color=None):
+        # type: (Sequence[Sequence[Union[int, float]]], Union[int, float], str, Optional[str]) -> None  # noqa
         """
         Draw a polygon from a list of points.
         A segment is automatically drawed
@@ -671,32 +689,32 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         if len(point_list) == 1:
             return
 
-        line_color = _simpleguicolor_to_pygamecolor(line_color)
-        if fill_color is not None:
-            fill_color = _simpleguicolor_to_pygamecolor(fill_color)
+        pygamecolor = _simpleguicolor_to_pygamecolor(line_color)
+        pygamefillcolor = (None if fill_color is None
+                           else _simpleguicolor_to_pygamecolor(fill_color))
 
         point_list = [_pos_round(point) for point in point_list]
 
-        if ((line_color.a == 255) and
-                ((fill_color is None) or (fill_color.a == 255))):
+        if ((pygamecolor.a == 255) and
+                ((pygamefillcolor is None) or (pygamefillcolor.a == 255))):
             # Without alpha
-            if fill_color is not None:
-                pygame.draw.polygon(self._pygame_surface, fill_color,
+            if pygamefillcolor is not None:
+                pygame.draw.polygon(self._pygame_surface, pygamefillcolor,
                                     point_list, 0)
-            if line_color != fill_color:
-                pygame.draw.lines(self._pygame_surface, line_color, True,
+            if pygamecolor != pygamefillcolor:
+                pygame.draw.lines(self._pygame_surface, pygamecolor, True,
                                   point_list, line_width)
-        elif ((line_color.a > 0) or
-              ((fill_color is not None) and (fill_color.a > 0))):
+        elif ((pygamecolor.a > 0) or
+              ((pygamefillcolor is not None) and (pygamefillcolor.a > 0))):
             # With one or two alpha (not null)
             s_alpha = pygame.Surface((self._width, self._height),  # pylint: disable=too-many-function-args  # noqa
                                      pygame.SRCALPHA)  # pylint: disable=no-member  # noqa
 
-            if (fill_color is not None) and (fill_color.a > 0):
-                pygame.draw.polygon(s_alpha, fill_color,
+            if (pygamefillcolor is not None) and (pygamefillcolor.a > 0):
+                pygame.draw.polygon(s_alpha, pygamefillcolor,
                                     point_list, 0)
-            if (line_color != fill_color) and (line_color.a > 0):
-                pygame.draw.lines(s_alpha, line_color, True,
+            if (pygamecolor != pygamefillcolor) and (pygamecolor.a > 0):
+                pygame.draw.lines(s_alpha, pygamecolor, True,
                                   point_list, line_width)
 
             self._pygame_surface.blit(s_alpha, (0, 0))
@@ -704,6 +722,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
     def draw_polyline(self,
                       point_list,
                       line_width, line_color):
+        # type: (Sequence[Sequence[Union[int, float]]], Union[int, float], str) -> None  # noqa
         """
         Draw line segments between a list of points.
 
@@ -733,18 +752,18 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         if len(point_list) == 1:
             return
 
-        line_color = _simpleguicolor_to_pygamecolor(line_color)
+        pygamecolor = _simpleguicolor_to_pygamecolor(line_color)
 
         point_list = [_pos_round(point) for point in point_list]
 
-        if line_color.a == 255:  # without alpha
-            pygame.draw.lines(self._pygame_surface, line_color, False,
+        if pygamecolor.a == 255:  # without alpha
+            pygame.draw.lines(self._pygame_surface, pygamecolor, False,
                               point_list, line_width)
-        elif line_color.a > 0:   # with alpha (not null)
+        elif pygamecolor.a > 0:   # with alpha (not null)
             s_alpha = pygame.Surface((self._width, self._height),  # pylint: disable=too-many-function-args  # noqa
                                      pygame.SRCALPHA)  # pylint: disable=no-member  # noqa
 
-            pygame.draw.lines(s_alpha, line_color, False,
+            pygame.draw.lines(s_alpha, pygamecolor, False,
                               point_list, line_width)
 
             self._pygame_surface.blit(s_alpha, (0, 0))
@@ -754,6 +773,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                   font_size, font_color,
                   font_face='serif',
                   _font_size_coef=3 / 4):
+        # type: (str, Sequence[Union[int, float]], Union[int, float], str, str, Union[int, float]) -> None  # noqa
         """
         Draw the `text` string at the position `point`.
 
@@ -807,14 +827,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         if _RE_UNPRINTABLE_WHITESPACE_CHAR.search(text):
             raise ValueError('text may not contain non-printing characters')
 
-        font_color = _simpleguicolor_to_pygamecolor(font_color)
+        pygamecolor = _simpleguicolor_to_pygamecolor(font_color)
         font_size = int(round(font_size))
 
-        if (font_color.a > 0) and (font_size > 0):
+        if (pygamecolor.a > 0) and (font_size > 0):
             pygame_surface_text = _simpleguifontface_to_pygamefont(
-                font_face, font_size).render(text, True, font_color)
+                font_face, font_size).render(text, True, pygamecolor)
 
-            # if font_color.a == 255:  # without alpha
+            # if pygamecolor.a == 255:  # without alpha
             self._pygame_surface.blit(
                 pygame_surface_text,
                 (point[0],
@@ -836,7 +856,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 #
 # SimpleGUI function
 ####################
-def create_invisible_canvas(width, height):
+def create_invisible_canvas(width, height):  # type: (int, int) -> Canvas
     """
     NOT IMPLEMENTED!
     (Return a "weak" `Canvas`.)

@@ -9,11 +9,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
-    from user305_2YRLOxXzAvucSDa import hsla  # pytype: disable=import-error
+    from user305_SXBsmszNiUxIeoV import hsla  # pytype: disable=import-error
 
     import simplegui  # pytype: disable=import-error
     import codeskulptor  # pytype: disable=import-error
@@ -53,7 +53,7 @@ HEIGHT = 310
 STATE_TRANSPARENCY = True
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw (with draw_line()) range of colors
     in hsla(hue, lightness, saturation, alpha) format.
@@ -82,7 +82,7 @@ def draw(canvas):
                                              else 1)))
 
 
-def switch_transparency():
+def switch_transparency():  # type: () -> None
     """Switch between transparency mode and opaque mode."""
     global STATE_TRANSPARENCY  # pylint: disable=global-statement
 
@@ -92,7 +92,7 @@ def switch_transparency():
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Create and start frame."""
     frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 

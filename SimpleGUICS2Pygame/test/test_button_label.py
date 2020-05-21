@@ -42,7 +42,7 @@ else:
 TEST = 'test button and label'
 
 
-def button_handler():
+def button_handler():  # type: () -> None
     """Simple button handler function."""
     print('clic')
 
@@ -50,7 +50,7 @@ def button_handler():
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Create and start frame."""
     frame = simplegui.create_frame(TEST, 0, 850, 250)
 

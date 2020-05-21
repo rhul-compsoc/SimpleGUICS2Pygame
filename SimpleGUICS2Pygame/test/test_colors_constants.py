@@ -44,7 +44,7 @@ WIDTH = 640
 HEIGHT = 200
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw boxes in each color constant.
 

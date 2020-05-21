@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import division
@@ -26,6 +26,11 @@ __all__ = ('Image', '_LocalImage',
 import collections  # noqa
 import sys  # noqa
 
+try:
+    from typing import Tuple, TYPE_CHECKING
+except ImportError:
+    TYPE_CHECKING = False
+
 
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 
@@ -35,7 +40,7 @@ from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _loa
 #
 # "Private" function
 ####################
-def _load_local_image(filename):
+def _load_local_image(filename):  # type: (str) -> '_LocalImage'
     """
     Create and return an image by loading a file from `filename`.
     Not founded file and errors are ignored.
@@ -84,7 +89,7 @@ class Image:
     in the `self._pygamesurfaces_cached`.
     """
 
-    def __init__(self, url):
+    def __init__(self, url):  # type: (str) -> None
         """
         Set an image.
 
@@ -103,7 +108,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                 else _load_media('Image', url,
                                                  Image._dir_search_first))
 
-        self._pygamesurfaces_cached = collections.OrderedDict()
+        if TYPE_CHECKING:
+            import pygame  # pylint: disable=import-outside-toplevel),unused-import  # noqa
+
+        self._pygamesurfaces_cached = collections.OrderedDict()  # type: collections.OrderedDict[Tuple[int, ...], pygame.Surface]  # noqa
 
         self._pygamesurfaces_cache_max_size = \
             Image._pygamesurfaces_cache_default_max_size
@@ -112,7 +120,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             self._pygamesurfaces_cached_counts = [0, 0]
             self._draw_count = 0
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<Image object>'`.
 
@@ -121,6 +129,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return '<Image object>'
 
     def _print_stats_cache(self, text='', short_url=True):
+        # type: (str, bool) -> None
         """
         Print to stderr some statistics of cached Pygame surfaces
         used by this image.
@@ -152,7 +161,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                                       else self._url)),
                   file=sys.stderr)
 
-    def _pygamesurfaces_cached_clear(self):
+    def _pygamesurfaces_cached_clear(self):  # type: () -> None
         """
         Empty the cache of Pygame surfaces used by this image.
 
@@ -164,7 +173,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             self._pygamesurfaces_cached_counts = [0, 0]
             self._draw_count = 0
 
-    def get_height(self):
+    def get_height(self):  # type: () -> int
         """
         Return the height ot this image.
 
@@ -177,7 +186,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 if self._pygame_surface is not None
                 else 0)
 
-    def get_width(self):
+    def get_width(self):  # type: () -> int
         """
         Return the width ot this image.
 
@@ -202,6 +211,7 @@ class _LocalImage(Image):
     """
 
     def __init__(self, filename):  # pylint: disable=super-init-not-called
+        # type: (str) -> None
         """
         Set an image.
 
@@ -228,7 +238,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             self._pygamesurfaces_cached_counts = [0, 0]
             self._draw_count = 0
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<_LocalImage object>'`.
 
@@ -240,7 +250,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 #
 # SimpleGUI function
 ####################
-def load_image(url):
+def load_image(url):  # type: (str) -> Image
     """
     Create and return an image by loading a file from `url`.
     Not founded URL and errors are ignored.

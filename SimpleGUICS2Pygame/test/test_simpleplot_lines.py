@@ -26,7 +26,7 @@ except ImportError:
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Open two plots."""
     datalist = [(1, 2), (2, 3), (5, 4), (8, 3), (9, 2)]
     dataset = {1: 3, 2: 4, 5: 5, 8: 4, 9: 3}

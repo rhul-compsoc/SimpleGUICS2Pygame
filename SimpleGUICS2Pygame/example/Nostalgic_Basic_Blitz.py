@@ -14,10 +14,15 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 import random
+
+try:
+    from typing import Optional, Tuple
+except ImportError:
+    pass
 
 try:
     import simplegui  # pytype: disable=import-error
@@ -46,84 +51,18 @@ CANVAS_HEIGHT = HEIGHT * CHAR_HEIGHT
 #
 # Global variables
 ###################
-blitz = None
+BLITZ = None  # type: Optional['Blitz']
 
-frame = None
+FRAME = None  # type: Optional[simplegui.Frame]
 
 
 #
 # Classes
 ##########
-class Blitz:
-    """The Blitz game."""
-
-    def __init__(self):
-        """Set the game."""
-        self.__bomb = None  # type: Bomb
-        self.__city = City()
-        self.__plane = Plane()
-
-    def draw(self, canvas):
-        """
-        Draw all the game.
-
-        :param canvas: simplegui.Canvas
-        """
-        assert isinstance(canvas, simplegui.Canvas), type(canvas)
-
-        self.__city.draw(canvas)
-        self.__plane.draw(canvas)
-        if self.__bomb is not None:
-            self.__bomb.draw(canvas)
-
-        text = str(self.__city.nb_remaining_columns())
-        size = 30
-        width = frame.get_canvas_textwidth(text, size)
-        canvas.draw_text(text, (CANVAS_WIDTH - width - 10,
-                                10 + size * 3.0 / 4),
-                         size, 'White')
-
-    def launch_bomb(self):
-        """
-        If not crashed and not already a bomb
-        then launch a bomb.
-        """
-        if (self.__bomb is None) and not self.__plane.crashed():
-            self.__bomb = self.__plane.launch_bomb()
-
-    def update(self):
-        """Update all the game"""
-        self.__plane.update()
-
-        if self.__bomb is not None:
-            self.__bomb.update()
-            if self.__bomb.landed():
-                self.__city.kill_columns(self.__bomb.pos_x())
-                self.__bomb = None
-            else:
-                self.__city.kill_column_top(self.__bomb.pos_x(),
-                                            self.__bomb.pos_y())
-
-        x, y = self.__plane.nose_pos()
-        if self.__city.check_collide(x + 1, y):
-            self.__plane.crashed(True)
-
-    def won(self):
-        """
-        If won
-        then return True,
-        else return False.
-
-        :return: bool
-        """
-        return ((self.__city.nb_remaining_columns() == 0) and
-                not self.__plane.crashed())
-
-
 class Bomb:
     """A bomb."""
 
-    def __init__(self, x, y):
+    def __init__(self, x, y):  # type: (int, int) -> None
         """
         Set a bomb.
 
@@ -138,7 +77,7 @@ class Bomb:
         self.__x = x
         self.__pixel_y = y * CHAR_HEIGHT
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the bomb.
 
@@ -152,7 +91,7 @@ class Bomb:
                           self.__pixel_y + CHAR_HEIGHT),
                          CHAR_WIDTH, 'Red')
 
-    def landed(self):
+    def landed(self):  # type: () -> bool
         """
         If the bomb touch the ground
         then return True,
@@ -162,7 +101,7 @@ class Bomb:
         """
         return self.__pixel_y + CHAR_HEIGHT >= CANVAS_HEIGHT
 
-    def pos_x(self):
+    def pos_x(self):  # type: () -> int
         """
         Return the horizontal position.
 
@@ -170,7 +109,7 @@ class Bomb:
         """
         return self.__x
 
-    def pos_y(self):
+    def pos_y(self):  # type: () -> int
         """
         Return the vertical position.
 
@@ -178,7 +117,7 @@ class Bomb:
         """
         return self.__pixel_y // CHAR_HEIGHT
 
-    def update(self):
+    def update(self):  # type: () -> None
         """Update the bomb position."""
         self.__pixel_y += CHAR_HEIGHT // 3
 
@@ -186,7 +125,7 @@ class Bomb:
 class City:
     """A city."""
 
-    def __init__(self):
+    def __init__(self):  # type: () -> None
         """Set randomly a city."""
         heights = [random.randint(4, HEIGHT - 8) // 2
                    for _ in range((WIDTH - 5) // 2)]
@@ -203,7 +142,7 @@ class City:
                                    height))
         self.__heights.append(height)
 
-    def check_collide(self, x, y):
+    def check_collide(self, x, y):  # type: (int, int) -> bool
         """
         If plane collide with city
         then return True,
@@ -223,7 +162,7 @@ class City:
                 (self.__heights[x] > 0) and
                 (y >= HEIGHT - self.__heights[x]))
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the city.
 
@@ -250,7 +189,7 @@ class City:
                              CANVAS_HEIGHT - 1 - j * CHAR_HEIGHT),
                             CHAR_WIDTH, 'Yellow')
 
-    def kill_column_top(self, x, y):
+    def kill_column_top(self, x, y):  # type: (int, int) -> None
         """
         Kill top of column `x`.
 
@@ -265,7 +204,7 @@ class City:
         if x < len(self.__heights):
             self.__heights[x] = min(max(0, HEIGHT - y - 1), self.__heights[x])
 
-    def kill_columns(self, x):
+    def kill_columns(self, x):  # type: (int) -> None
         """
         Kill the column `x`.
 
@@ -279,7 +218,7 @@ class City:
             while self.__heights and (self.__heights[-1] <= 0):
                 self.__heights.pop()
 
-    def nb_remaining_columns(self):
+    def nb_remaining_columns(self):  # type: () -> int
         """
         Return the number of columns not killed.
 
@@ -297,14 +236,14 @@ class City:
 class Plane:
     """A plane."""
 
-    def __init__(self):
+    def __init__(self):  # type: () -> None
         """Set a plane."""
         self.__pixel_x = 0
         self.__y = 0
 
         self.__crashed = False
 
-    def crashed(self, crashed=None):
+    def crashed(self, crashed=None):  # type: (Optional[bool]) -> bool
         """
         If the plane crashed
         then return True,
@@ -324,7 +263,7 @@ class Plane:
 
         return self.__crashed
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the plane.
 
@@ -349,7 +288,16 @@ class Plane:
                               pixel_y + CHAR_HEIGHT * 2 - 3)),
                             1, color, color)
 
-    def launch_bomb(self):
+        assert isinstance(BLITZ, Blitz)
+
+        if not BLITZ.bomb_launched() and not self.__crashed:
+            canvas.draw_line((self.__pixel_x + CHAR_WIDTH,
+                              pixel_y + CHAR_HEIGHT * 2 - 3),
+                             (self.__pixel_x + CHAR_WIDTH * 2,
+                              pixel_y + CHAR_HEIGHT * 2 - 3),
+                             3, 'Red')
+
+    def launch_bomb(self):  # type: () -> Bomb
         """
         Launch a bomb.
 
@@ -357,7 +305,7 @@ class Plane:
         """
         return Bomb(*self.launch_pos())
 
-    def launch_pos(self):
+    def launch_pos(self):  # type: () -> Tuple[int, int]
         """
         Position of bomb launcher.
 
@@ -366,7 +314,7 @@ class Plane:
         return (self.__pixel_x // CHAR_WIDTH + 1,
                 self.__y + 2)
 
-    def nose_pos(self):
+    def nose_pos(self):  # type: () -> Tuple[int, int]
         """
         Position of nose of the plane.
 
@@ -375,21 +323,96 @@ class Plane:
         return (self.__pixel_x // CHAR_WIDTH + 3,
                 self.__y + 1)
 
-    def update(self):
+    def update(self):  # type: () -> None
         """Update plane position."""
+        assert isinstance(BLITZ, Blitz)
+
         if (self.__y < HEIGHT - 2) and not self.__crashed:
             self.__pixel_x += 2
             if self.__pixel_x > CANVAS_WIDTH:
                 self.__pixel_x = -CHAR_WIDTH * 4
                 self.__y += 1
-            elif blitz.won():
+            elif BLITZ.won():
                 self.__y += 1
+
+
+class Blitz:
+    """The Blitz game."""
+
+    def __init__(self):  # type: () -> None
+        """Set the game."""
+        self.__bomb = None  # type: Optional['Bomb']
+        self.__city = City()  # type: 'City'
+        self.__plane = Plane()  # type: 'Plane'
+
+    def bomb_launched(self):  # type: () -> bool
+        """:return: True if a bomb is launched, False else."""
+        return self.__bomb is not None
+
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
+        """
+        Draw all the game.
+
+        :param canvas: simplegui.Canvas
+        """
+        assert isinstance(canvas, simplegui.Canvas), type(canvas)
+        assert isinstance(FRAME, simplegui.Frame)
+
+        self.__city.draw(canvas)
+        self.__plane.draw(canvas)
+        if self.__bomb is not None:
+            self.__bomb.draw(canvas)
+
+        text = str(self.__city.nb_remaining_columns())
+        size = 30
+        width = FRAME.get_canvas_textwidth(text, size)
+        canvas.draw_text(text, (CANVAS_WIDTH - width - 10,
+                                10 + size * 3.0 / 4),
+                         size, 'White')
+
+    def launch_bomb(self):  # type: () -> None
+        """
+        If not crashed and not already a bomb
+        then launch a bomb.
+        """
+        if (self.__bomb is None) and not self.__plane.crashed():
+            self.__bomb = self.__plane.launch_bomb()
+
+    def update(self):  # type: () -> None
+        """Update all the game"""
+        self.__plane.update()
+
+        if self.__bomb is not None:
+            self.__bomb.update()
+            if self.__bomb.landed():
+                self.__city.kill_columns(self.__bomb.pos_x())
+                self.__bomb = None
+            else:
+                assert isinstance(self.__bomb, Bomb)
+
+                self.__city.kill_column_top(self.__bomb.pos_x(),
+                                            self.__bomb.pos_y())
+
+        x, y = self.__plane.nose_pos()
+        if self.__city.check_collide(x + 1, y):
+            self.__plane.crashed(True)
+
+    def won(self):  # type: () -> bool
+        """
+        If won
+        then return True,
+        else return False.
+
+        :return: bool
+        """
+        return ((self.__city.nb_remaining_columns() == 0) and
+                not self.__plane.crashed())
 
 
 #
 # Handler functions
 ####################
-def deal_keydown(key):
+def deal_keydown(key):  # type: (int) -> None
     """
     Deal key down.
 
@@ -398,47 +421,50 @@ def deal_keydown(key):
     assert isinstance(key, int), type(key)
     assert key >= 0, key
 
+    assert isinstance(BLITZ, Blitz)
+
     if key == simplegui.KEY_MAP['space']:
-        blitz.launch_bomb()
+        BLITZ.launch_bomb()
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Display all.
 
     :param canvas: simplegui.Canvas
     """
     assert isinstance(canvas, simplegui.Canvas), type(canvas)
+    assert isinstance(BLITZ, Blitz)
 
-    blitz.draw(canvas)
-    blitz.update()
+    BLITZ.draw(canvas)
+    BLITZ.update()
 
 
-def restart():
+def restart():  # type: () -> None
     """Restart the game."""
-    global blitz  # pylint: disable=global-statement
+    global BLITZ  # pylint: disable=global-statement
 
-    blitz = Blitz()
+    BLITZ = Blitz()
 
 
 #
 # Main
 #######
-frame = simplegui.create_frame('Nostalgic Basic Blitz)',
+FRAME = simplegui.create_frame('Nostalgic Basic Blitz)',
                                CANVAS_WIDTH, CANVAS_HEIGHT, 100)
 
-frame.add_button('Restart', restart)
-frame.add_label('')
-frame.add_button('Quit', frame.stop)
-frame.add_label('')
-frame.add_label('Spacebar to launch bomb!')
+FRAME.add_button('Restart', restart)
+FRAME.add_label('')
+FRAME.add_button('Quit', FRAME.stop)
+FRAME.add_label('')
+FRAME.add_label('Spacebar to launch bomb!')
 
 
 restart()
 
-frame.set_draw_handler(draw)
+FRAME.set_draw_handler(draw)
 
-frame.set_keydown_handler(deal_keydown)
+FRAME.set_keydown_handler(deal_keydown)
 
 
-frame.start()
+FRAME.start()

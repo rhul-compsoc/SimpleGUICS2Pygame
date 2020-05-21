@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import division
@@ -25,7 +25,13 @@ __all__ = ('Timer',
            'create_timer')
 
 
-import atexit  # noqa
+import atexit
+import threading
+
+try:
+    from typing import Any, Callable, Dict, Optional, Union
+except ImportError:
+    pass
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
@@ -47,7 +53,7 @@ then timers keep running when program ending.
 #
 # "Private" function
 ####################
-def __timer_exit():
+def __timer_exit():  # type: () -> None
     """
     If `_STOP_TIMERS` is True
     then stop all running timers,
@@ -69,13 +75,13 @@ class Timer:
     **Don't require Pygame.**
     """
 
-    _timers_running = dict()  # type: dict
+    _timers_running = dict()  # type: Dict[int, 'Timer']
     """
     `Dict` {(Timer id): `Timer`} of all timers are running.
     """
 
     @classmethod
-    def _running_nb(cls):
+    def _running_nb(cls):  # type: () -> int
         """
         Return the number of running timers.
 
@@ -84,12 +90,12 @@ class Timer:
         return len(cls._timers_running)
 
     @classmethod
-    def _running_some(cls):
+    def _running_some(cls):  # type: () -> bool
         """:return: True if at least one timer running, else False"""
         return bool(cls._timers_running)
 
     @classmethod
-    def _stop_all(cls):
+    def _stop_all(cls):  # type: () -> None
         """
         Stop all timers.
 
@@ -101,6 +107,7 @@ class Timer:
             timer.stop()
 
     def __init__(self, interval, timer_handler):
+        # type: (Union[int, float], Callable[[], Any]) -> None
         """
         Set a time.
 
@@ -113,7 +120,10 @@ class Timer:
         assert interval > 0, interval
         assert callable(timer_handler), type(timer_handler)
 
-        import threading  # pylint: disable=import-outside-toplevel
+        self._interval = interval
+
+        self._is_running = False
+        self._timer = None  # type: Optional[threading.Timer]
 
         def repeat_handler():
             """Function to create and start a new timer."""
@@ -122,13 +132,9 @@ class Timer:
             self._timer.start()
             timer_handler()
 
-        self._interval = interval
         self._handler = repeat_handler
 
-        self._is_running = False
-        self._timer = None
-
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<Timer object>'`.
 
@@ -136,7 +142,7 @@ class Timer:
         """
         return '<Timer object>'
 
-    def get_interval(self):
+    def get_interval(self):  # type: () -> Union[int, float]
         """
         Return the interval of this timer.
 
@@ -147,7 +153,7 @@ class Timer:
         """
         return self._interval
 
-    def is_running(self):
+    def is_running(self):  # type: () -> bool
         """
         If this timer is running
         then return `True`,
@@ -157,7 +163,7 @@ class Timer:
         """
         return self._timer is not None
 
-    def start(self):
+    def start(self):  # type: () -> None
         """
         Start this timer.
 
@@ -172,13 +178,11 @@ class Timer:
         (Side effect: Add `id(self)`: `self` in `Timer._timers_running`.)
         """
         if self._timer is None:
-            import threading  # pylint: disable=import-outside-toplevel
-
             Timer._timers_running[id(self)] = self
             self._timer = threading.Timer(self._interval / 1000, self._handler)
             self._timer.start()
 
-    def stop(self):
+    def stop(self):  # type: () -> None
         """
         Stop this timer.
 
@@ -195,6 +199,7 @@ class Timer:
 # SimpleGUI function
 ####################
 def create_timer(interval, timer_handler):
+    # type: (Union[int, float], Callable[[], Any]) -> Timer
     """
     Create and return a timer
     that will execute the function `timer_handler`

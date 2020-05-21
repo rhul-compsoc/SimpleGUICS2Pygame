@@ -2,7 +2,7 @@
 # -*- coding: latin-1 -*-
 
 """
-Setup of SimpleGUICS2Pygame package (April 14, 2020).
+Setup of SimpleGUICS2Pygame package (May 19, 2020).
 
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
@@ -18,11 +18,15 @@ import io
 
 import setuptools
 
+try:
+    from typing import List
+except ImportError:
+    pass
 
 from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC
 
 
-def parse_requirements_file():
+def parse_requirements_file():  # type: () -> List[str]
     """
     Parse file "requirements.txt" and return the requirements list.
 

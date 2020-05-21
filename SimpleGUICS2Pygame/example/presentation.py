@@ -12,11 +12,11 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
-    import user305_2YRLOxXzAvucSDa as codeskulptor_lib  # pytype: disable=import-error  # noqa
+    import user305_SXBsmszNiUxIeoV as codeskulptor_lib  # pytype: disable=import-error  # noqa
 
     import simplegui  # pytype: disable=import-error
 except ImportError:
@@ -31,9 +31,10 @@ except ImportError:
 # Main function
 ###############
 def main():  # pylint: disable=too-many-statements
+    # type: () -> None
     """Main function."""
     if codeskulptor_lib.codeskulptor_is():
-        def open_new_tab(url):
+        def open_new_tab(url):  # type: (str) -> None
             """
             Print ``url``.
 
@@ -46,9 +47,9 @@ def main():  # pylint: disable=too-many-statements
         _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # pylint: disable=invalid-name  # noqa
     else:
         from sys import version  # pylint: disable=import-outside-toplevel
-        from webbrowser import open_new_tab  # pylint: disable=import-outside-toplevel  # noqa
+        from webbrowser import open_new_tab  # type: ignore  # pylint: disable=import-outside-toplevel  # noqa
 
-        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC  # pylint: disable=import-outside-toplevel  # noqa
+        from SimpleGUICS2Pygame import _VERSION, _WEBSITE, _WEBSITE_DOC  # type: ignore  # pylint: disable=import-outside-toplevel  # noqa
 
     width = 560
     height = 540

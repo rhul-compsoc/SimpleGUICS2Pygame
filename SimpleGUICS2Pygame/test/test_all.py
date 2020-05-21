@@ -42,6 +42,11 @@ try:
 except ImportError:
     from cgi import escape  # type: ignore  # for Python 2
 
+try:
+    from typing import Dict, Union
+except ImportError:
+    pass
+
 
 RUN_TEST = True
 if len(sys.argv) == 2:  # to only compare images et make reports
@@ -65,7 +70,6 @@ except ImportError:
     SIMPLEGUICS2PYGAME_WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'  # noqa
     PYGAME_VERSION = '?'
 
-
 DIR_RESULTS = 'results_py' + str(PYTHON_VERSION)
 
 
@@ -73,6 +77,7 @@ DIR_RESULTS = 'results_py' + str(PYTHON_VERSION)
 # Main
 ######
 def main():  # pylint: disable=too-many-branches
+    # type: () -> None
     """Execute all test_*.py programs and build HTML report."""
     filenames = sorted(glob.glob('*.py'))
     filenames.remove('test_all.py')
@@ -87,9 +92,9 @@ def main():  # pylint: disable=too-many-branches
     filenames = [filename[:-3] for filename in filenames]
 
     # Run each tests
-    errors = dict()
+    errors = dict()  # type: Dict[str, Union[int, str]]
     if TO_COMPARE_IMGS:
-        imgs_diff = dict()
+        imgs_diff = dict()  # type: Dict[str, Union[int, str]]
 
     for i, filename in enumerate(filenames):
         print('{}/{} - {}... '.format(i + 1, len(filenames), filename),
@@ -121,7 +126,8 @@ def main():  # pylint: disable=too-many-branches
                     diff_img = PIL.ImageChops.difference(good_img, src_img)
                     imgs_diff[filename] = int(round(
                         PIL.ImageStat.Stat(diff_img).rms[0]))
-                    if imgs_diff[filename] <= 1:
+
+                    if imgs_diff[filename] <= 1:  # type: ignore
                         imgs_diff[filename] = 0
                     diff_img.save('{}/{}_diff.png'
                                   .format(DIR_RESULTS, filename),

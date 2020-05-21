@@ -25,8 +25,12 @@ except ImportError:
 
     simplegui.Frame._hide_status = True  # pylint: disable=protected-access
 
-
 if SIMPLEGUICS2PYGAME:
+    try:
+        from typing import Union
+    except ImportError:
+        pass
+
     from sys import version as python_version
     from pygame.version import ver as pygame_version
     from SimpleGUICS2Pygame import _VERSION as GUI_VERSION  # pylint: disable=ungrouped-imports  # noqa
@@ -45,7 +49,7 @@ WIDTH = 400
 HEIGHT = 200
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw concentric arcs.
 
@@ -57,7 +61,7 @@ def draw(canvas):
     line_width = 11
 
     for radius in range(1, WIDTH, 20):
-        start_angle = radius // 20
+        start_angle = radius // 20  # type: Union[int, float]
         end_angle = radius // 20 + math.pi
         canvas.draw_arc((WIDTH - 1 - x, y), radius,
                         start_angle, end_angle, line_width,
@@ -91,7 +95,7 @@ def draw(canvas):
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Create and start frame."""
     frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 

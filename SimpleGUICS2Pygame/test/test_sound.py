@@ -22,13 +22,18 @@ except ImportError:
     SIMPLEGUICS2PYGAME = True
     simplegui.Frame._keep_timers = False  # pylint: disable=protected-access
 
+    try:
+        from typing import Optional
+    except ImportError:
+        pass
+
 
 LOCAL_SOUNDS = []
 SOUNDS = []
-TIMER = None
+TIMER = None  # type: Optional[simplegui.Timer]
 
 
-def load_from_web(url):
+def load_from_web(url):  # type: (str) -> None
     """
     Load a sound from web.
 
@@ -39,7 +44,7 @@ def load_from_web(url):
     SOUNDS.append((True, name, simplegui.load_sound(url)))
 
 
-def load_local(pathname):
+def load_local(pathname):  # type: (str) -> None
     """
     Load a local sound from pathname.
 
@@ -50,7 +55,7 @@ def load_local(pathname):
     LOCAL_SOUNDS.append((False, name, simplegui._load_local_sound(pathname)))  # pylint: disable=no-member,protected-access  # noqa
 
 
-def play():
+def play():  # type: () -> None
     """Play one sound"""
     global TIMER  # pylint: disable=global-statement
 
@@ -70,6 +75,9 @@ def play():
             play()
     else:
         print('End of test_sound')
+
+        assert isinstance(TIMER, simplegui.Timer)
+
         TIMER.stop()
         TIMER = None
 
@@ -77,7 +85,7 @@ def play():
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Play WAV, OGG and MP3 sounds."""
     global SOUNDS  # pylint: disable=global-statement
     global TIMER  # pylint: disable=global-statement

@@ -14,16 +14,21 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 import random
 
 try:
+    from typing import List, Optional, Sequence, Union
+except ImportError:
+    pass
+
+try:
     import simplegui  # pytype: disable=import-error
 
-    from user305_2YRLOxXzAvucSDa import assert_position  # pytype: disable=import-error  # noqa
-    from user305_2AIoOM1Isi08A9H import draw_rect  # pytype: disable=import-error  # noqa
+    from user305_SXBsmszNiUxIeoV import assert_position  # pytype: disable=import-error  # noqa
+    from user305_SaT1YKoOikl4ax9 import draw_rect  # pytype: disable=import-error  # noqa
 except ImportError:
     import SimpleGUICS2Pygame.simpleguics2pygame as simplegui  # type: ignore
 
@@ -52,15 +57,19 @@ if USE_IMAGES:
 else:
     CARD_IMAGES = (simplegui.load_image(''), ) * 9  # 9 (same) failed images
 
-MEMORY = None  # the principal variable, instance of Memory
+MEMORY = None  # the principal variable, instance of Memory  # type: Optional['Memory']  # noqa
 
 NB_IMAGES_LOADED = 0
 NB_TEST_IMAGES_LOADED = 20
+
+LABEL_GAME = None  # type: Optional[simplegui.Control]
+LABEL_MOVES = None  # type: Optional[simplegui.Control]
 
 
 # Helper function
 def draw_border(canvas, pos, size,  # pylint: disable=too-many-arguments
                 line_width, color, shift=4):
+    # type: (simplegui.Canvas, Sequence[Union[int, float]], Sequence[Union[int, float]], int, str, int) -> None  # noqa
     """
     Draw a rounded rectangle.
 
@@ -102,7 +111,7 @@ class Card:
     WIDTH = 50
     HEIGHT = 100
 
-    def __init__(self, num, image):
+    def __init__(self, num, image):  # type: (int, simplegui.Image) -> None
         """
         Initialize the card.
 
@@ -120,7 +129,7 @@ class Card:
         self.exposed = False
         self.selected = False
 
-    def draw(self, canvas):
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw the card.
 
@@ -131,7 +140,7 @@ class Card:
         else:
             self.draw_verso(canvas)
 
-    def draw_recto(self, canvas):
+    def draw_recto(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw recto of the card
         (CARD_IMAGES[self.num] images if loaded).
@@ -164,7 +173,7 @@ class Card:
                         3, ('yellow' if self.selected
                             else 'white'))
 
-    def draw_verso(self, canvas):
+    def draw_verso(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw verso of the card
         (CARD_IMAGES[-1] images if loaded).
@@ -191,7 +200,7 @@ class Card:
                       (Card.WIDTH - 6, Card.HEIGHT - 6),
                       1, 'red')
 
-    def in_pos(self, pos):
+    def in_pos(self, pos):  # type: (Sequence[Union[int, float]]) -> bool
         """
         If pos is in this card
         then return True,
@@ -212,6 +221,7 @@ class Memory:
     """Memory game (list of cards)"""
 
     def __init__(self, nb_different_cards=8, nb_repeat_cards=2):
+        # type: (int, int) -> None
         """
         Initialize the game.
 
@@ -247,11 +257,13 @@ class Memory:
                           ((i // (nb_different_cards * nb_repeat_cards // 2)) *
                            (Card.HEIGHT + 10)))
 
-        self.selected_cards = []
+        self.selected_cards = []  # type: List[Card]
 
-        LABEL_MOVES.set_text('Nb moves: 0')
+        assert isinstance(LABEL_MOVES, simplegui.Control)
 
-    def draw(self, canvas):
+        LABEL_MOVES.set_text('Nb moves: 0')  # type: ignore
+
+    def draw(self, canvas):  # type: (simplegui.Canvas) -> None
         """
         Draw all cards.
 
@@ -260,7 +272,7 @@ class Memory:
         for card in self.deck:
             card.draw(canvas)
 
-    def expose(self, pos):
+    def expose(self, pos):  # type: (Sequence[Union[int, float]]) -> None
         """
         Expose the card pointed by position pos,
         and check if good cards are exposed.
@@ -292,6 +304,9 @@ class Memory:
                         # Good number of exposed cards
                         # Update the moves counter
                         self.nb_moves += 1
+
+                        assert isinstance(LABEL_MOVES, simplegui.Control)
+
                         LABEL_MOVES.set_text('Nb moves: ' + str(self.nb_moves))
 
                         # If all exposed cards and pointed card are the same
@@ -309,16 +324,18 @@ class Memory:
 
 
 # Event handlers
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Event handler to draw all cards.
 
     :param canvas: simplegui.Canvas
     """
+    assert isinstance(MEMORY, Memory)
+
     MEMORY.draw(canvas)
 
 
-def draw_wait_images(canvas):
+def draw_wait_images(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw waiting message when images loading.
 
@@ -335,16 +352,18 @@ def draw_wait_images(canvas):
                      size, 'white')
 
 
-def mouseclick(pos):
+def mouseclick(pos):  # type: (Sequence[Union[int]]) -> None
     """
     Event handler to deal clic on a card.
 
     :param pos: (int >= 0, int >= 0)
     """
+    assert isinstance(MEMORY, Memory)
+
     MEMORY.expose(pos)
 
 
-def restart_4x4():
+def restart_4x4():  # type: () -> None
     """
     Event handler to deal click on restart 4x4 button.
 
@@ -352,11 +371,13 @@ def restart_4x4():
     """
     global MEMORY  # pylint: disable=global-statement
 
+    assert isinstance(LABEL_GAME, simplegui.Control)
+
     LABEL_GAME.set_text('4 x (4 indentical cards)')
     MEMORY = Memory(4, 4)
 
 
-def restart_8x2():
+def restart_8x2():  # type: () -> None
     """
     Event handler to deal click on restart 8x2 button.
 
@@ -364,11 +385,13 @@ def restart_8x2():
     """
     global MEMORY  # pylint: disable=global-statement
 
+    assert isinstance(LABEL_GAME, simplegui.Control)
+
     LABEL_GAME.set_text('8 x (2 indentical cards)')
     MEMORY = Memory(8, 2)
 
 
-def start():
+def start():  # type: () -> None
     """Event handler to deal start after loading images."""
     restart_8x2()
 
@@ -376,7 +399,7 @@ def start():
     FRAME.set_draw_handler(draw)
 
 
-def test_images_loaded():
+def test_images_loaded():  # type: () -> None
     """
     Check the number of images already loaded.
 

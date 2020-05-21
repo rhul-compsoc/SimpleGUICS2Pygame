@@ -9,7 +9,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 from sys import argv
@@ -30,9 +30,13 @@ except ImportError:
 
     SIMPLEGUICS2PYGAME = True
 
-
 if SIMPLEGUICS2PYGAME:
     from sys import version as python_version
+
+    try:
+        from typing import Optional, Sequence
+    except ImportError:
+        pass
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
 else:
@@ -132,6 +136,7 @@ else `False`.
 
 def print_cmp_seq(a, title_a,
                   b, title_b):
+    # type: (Sequence[str], str, Sequence[str], str) -> None
     """
     Compare two sequences and print difference.
 
@@ -156,7 +161,8 @@ def print_cmp_seq(a, title_a,
     indent = max(max([len(i) for i in a]), len(title_a))
 
     head = ((title_a + ' ' * indent)[:indent] +
-            '\t!= ' + title_b + '\n' + '-' * (indent + 11 + len(title_b)))
+            '\t!= ' + title_b + '\n' +
+            '-' * (indent + 11 + len(title_b)))  # type: Optional[str]
     for name in ab:
         if name in a_b:
             if head:
@@ -188,7 +194,7 @@ def print_cmp_seq(a, title_a,
 
 
 # Main
-print('List dir() differences between CodeSkulptor (April 2020) and this "Python":\n')  # noqa
+print('List dir() differences between CodeSkulptor (May 2020) and this "Python":\n')  # noqa
 
 for k in sorted(CODESKULPTOR_DIRS):
     print_cmp_seq(CODESKULPTOR_DIRS[k], 'CodeSkulptor ' + k,

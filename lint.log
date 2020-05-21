@@ -1,4 +1,4 @@
-Lint (Tue May 19 16:24:47 CEST 2020) of SimpleGUICS2Pygame 2.0.1
+Lint (Thu May 21 21:12:38 CEST 2020) of SimpleGUICS2Pygame 2.0.1
 
 ===== pycodestyle (pep8) 2.6.0 =====
 
@@ -9,7 +9,7 @@ Lint (Tue May 19 16:24:47 CEST 2020) of SimpleGUICS2Pygame 2.0.1
 
 Report
 ======
-6230 statements analysed.
+6634 statements analysed.
 
 Statistics by type
 ------------------
@@ -17,13 +17,13 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |type     |number |old number |difference |%documented |%badname |
 +=========+=======+===========+===========+============+=========+
-|module   |64     |NC         |NC         |100.00      |12.50    |
+|module   |68     |NC         |NC         |100.00      |11.76    |
 +---------+-------+-----------+-----------+------------+---------+
 |class    |36     |NC         |NC         |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|method   |267    |NC         |NC         |100.00      |0.00     |
+|method   |268    |NC         |NC         |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|function |202    |NC         |NC         |100.00      |0.50     |
+|function |207    |NC         |NC         |100.00      |0.48     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -34,13 +34,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8181   |48.58 |NC       |NC         |
+|code      |8636   |48.69 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |4860   |28.86 |NC       |NC         |
+|docstring |4941   |27.86 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|comment   |798    |4.74  |NC       |NC         |
+|comment   |932    |5.26  |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|empty     |3000   |17.82 |NC       |NC         |
+|empty     |3226   |18.19 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 
 
@@ -48,13 +48,13 @@ Raw metrics
 Duplication
 -----------
 
-+-------------------------+-------+---------+-----------+
-|                         |now    |previous |difference |
-+=========================+=======+=========+===========+
-|nb duplicated lines      |1675   |NC       |NC         |
-+-------------------------+-------+---------+-----------+
-|percent duplicated lines |10.049 |NC       |NC         |
-+-------------------------+-------+---------+-----------+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |1732  |NC       |NC         |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |9.871 |NC       |NC         |
++-------------------------+------+---------+-----------+
 
 
 
@@ -102,10 +102,10 @@ Unresolved dependencies:
 ninja: Entering directory `/home/opi/data/git/archives/simpleguics2pygame/.pytype'
 ninja: no work to do.
 Computing dependencies
-Analyzing 64 sources with 0 local dependencies
+Analyzing 68 sources with 0 local dependencies
 Success: no errors found
 
 ===== mypy 0.770 =====
-Success: no issues found in 64 source files
+Success: no issues found in 68 source files
 
 ===== pydocstyle 5.0.2 =====

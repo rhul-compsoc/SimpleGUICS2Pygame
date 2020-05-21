@@ -1,11 +1,12 @@
-# Makefile of SimpleGUICS2Pygame --- May 19, 2020
+# Makefile of SimpleGUICS2Pygame --- May 21, 2020
 
 .SUFFIXES:
 
 SRC = $(sort $(wildcard *.py)) $(sort $(wildcard SimpleGUICS2Pygame/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*.py)) \
 	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*.py)) \
-	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*/*.py))
+	$(sort $(wildcard SimpleGUICS2Pygame/*/*/*/*.py)) \
+	$(sort $(wildcard Sphinx/_static/links/data/*.py))
 
 
 PYTHON2      = python2
@@ -38,7 +39,7 @@ PYLINT      = pylint  # https://www.pylint.org/
 PYLINTFLAGS = -j $(JOB) --disable=duplicate-code,line-too-long,locally-disabled,RP0401
 
 PYTYPE      = export PYGAME_HIDE_SUPPORT_PROMPT=hide; pytype  # https://google.github.io/pytype/
-PYTYPEFLAGS = -k --strict-import -j $(JOB)
+PYTYPEFLAGS = -P $(PWD):$(PWD)/Sphinx/_static/links/data:$(PYTHONPATH) -k --strict-import -j $(JOB)
 
 
 CHECKTXT = checkTxtPy.py  # not public program
@@ -78,15 +79,15 @@ lint:
 .PHONY: install2 install3 installs
 
 install2:
-	@$(ECHO) "==================="
-	@$(ECHO) "Install to Python 2"
-	@$(ECHO) "==================="
+	@$(ECHO) '==================='
+	@$(ECHO) 'Install to Python 2'
+	@$(ECHO) '==================='
 	$(PYTHON2) $(PYTHON2FLAGS) setup.py install -O1
 
 install3:
-	@$(ECHO) "==================="
-	@$(ECHO) "Install to Python 3"
-	@$(ECHO) "==================="
+	@$(ECHO) '==================='
+	@$(ECHO) 'Install to Python 3'
+	@$(ECHO) '==================='
 	$(PYTHON3) $(PYTHON3FLAGS) setup.py install -O1
 
 installs:	distclean install2 install3
@@ -183,14 +184,14 @@ lintlog:
 	-$(PYTYPE) $(PYTYPEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) | $(TEE) -a lint.log
 	@$(ECHO) ===== `$(MYPY) $(MYPYFLAGS) --version` ===== | $(TEE) -a lint.log
-	-$(MYPY) $(MYPYFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
+	-@export MYPYPATH=$(PWD):$(PYTHONPATH); $(MYPY) $(MYPYFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 	@$(ECHO) | $(TEE) -a lint.log
 	@$(ECHO) ===== pydocstyle `$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) --version` ===== | $(TEE) -a lint.log
 	-$(PYDOCSTYLE) $(PYDOCSTYLEFLAGS) $(SRC) 2>&1 | $(TEE) -a lint.log
 
 mypy:
 	@$(ECHO)
-	-$(MYPY) $(MYPYFLAGS) $(SRC)
+	-@export MYPYPATH=$(PWD):$(PYTHONPATH); $(MYPY) $(MYPYFLAGS) $(SRC)
 
 pycodestyle:
 	@$(ECHO)
@@ -228,38 +229,38 @@ pytypeUnresolved:
 .PHONY: checkTxt requirement2 requirement3 requirements test2 test3 tests
 
 checkTxt:
-	@$(CHECKTXT) .hgignore Makefile "*.py" "*.rst" "*.txt"
-	@$(CHECKTXT) "Sphinx/*.py" "Sphinx/*.rst" "Sphinx/*.txt"
-	@$(CHECKTXT) "Sphinx/_static/*.css*"
-	@$(CHECKTXT) "Sphinx/_static/links/*" "Sphinx/_static/links/*/*"
-	@$(CHECKTXT) "SimpleGUICS2Pygame/*.py" "SimpleGUICS2Pygame/*/*.py" "SimpleGUICS2Pygame/*/*/*.py"
+	@$(CHECKTXT) .hgignore Makefile '*.py' '*.rst' '*.txt'
+	@$(CHECKTXT) 'Sphinx/*.py' 'Sphinx/*.rst' 'Sphinx/*.txt'
+	@$(CHECKTXT) 'Sphinx/_static/*.css*'
+	@$(CHECKTXT) 'Sphinx/_static/links/*.css' 'Sphinx/_static/links/*.js' 'Sphinx/_static/links/*.htm*' 'Sphinx/_static/links/*/*'
+	@$(CHECKTXT) 'SimpleGUICS2Pygame/*.py' 'SimpleGUICS2Pygame/*/*.py' 'SimpleGUICS2Pygame/*/*/*.py'
 
 
 requirement2:
-	@$(ECHO) "========================="
-	@$(ECHO) "Requirement with Python 2"
-	@$(ECHO) "========================="
+	@$(ECHO) '========================='
+	@$(ECHO) 'Requirement with Python 2'
+	@$(ECHO) '========================='
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON2) $(PYTHON2FLAGS) SimpleGUICS2Pygame_check.py
 
 requirement3:
-	@$(ECHO) "========================="
-	@$(ECHO) "Requirement with Python 3"
-	@$(ECHO) "========================="
+	@$(ECHO) '========================='
+	@$(ECHO) 'Requirement with Python 3'
+	@$(ECHO) '========================='
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/script; $(PYTHON3) $(PYTHON3FLAGS) SimpleGUICS2Pygame_check.py
 
 requirements: requirement2 requirement3
 
 
 test2:
-	@$(ECHO) "=================="
-	@$(ECHO) "Test with Python 2"
-	@$(ECHO) "=================="
+	@$(ECHO) '=================='
+	@$(ECHO) 'Test with Python 2'
+	@$(ECHO) '=================='
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON2) $(PYTHON2FLAGS) test_all.py
 
 test3:
-	@$(ECHO) "=================="
-	@$(ECHO) "Test with Python 3"
-	@$(ECHO) "=================="
+	@$(ECHO) '=================='
+	@$(ECHO) 'Test with Python 3'
+	@$(ECHO) '=================='
 	@export PYTHONPATH=$(PWD):$(PYTHONPATH); $(CD) SimpleGUICS2Pygame/test; $(PYTHON3) $(PYTHON3FLAGS) test_all.py
 
 tests:	test2 test3

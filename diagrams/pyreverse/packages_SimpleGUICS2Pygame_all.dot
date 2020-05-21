@@ -26,7 +26,6 @@ rankdir=BT
 "22" [label="SimpleGUICS2Pygame.simpleguics2pygame.timer", shape="box"];
 "23" [label="SimpleGUICS2Pygame.simpleplot", shape="box"];
 "2" -> "1" [arrowhead="open", arrowtail="none"];
-"5" -> "0" [arrowhead="open", arrowtail="none"];
 "8" -> "9" [arrowhead="open", arrowtail="none"];
 "9" -> "10" [arrowhead="open", arrowtail="none"];
 "9" -> "15" [arrowhead="open", arrowtail="none"];

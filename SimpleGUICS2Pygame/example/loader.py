@@ -12,13 +12,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
 
 try:
     import simplegui  # pytype: disable=import-error
 
-    from user305_5j0j5Vq5STd2mPH import Loader  # pytype: disable=import-error
+    from user305_SZPJfNxJlVTjbAy import Loader  # pytype: disable=import-error
 
     SIMPLEGUICS2PYGAME = False
 except ImportError:
@@ -35,7 +35,7 @@ WIDTH = 400
 HEIGHT = 200
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     The real draw handler function.
 
@@ -60,7 +60,7 @@ def draw(canvas):
 FRAME = simplegui.create_frame('Loader example', WIDTH, HEIGHT, 50)
 
 
-def init():
+def init():  # type: () -> None
     """Init function called after image loaded."""
     # Init your stuff...
     FRAME.add_button('Quit', quit_prog)
@@ -83,7 +83,7 @@ def init():
     FRAME.set_draw_handler(draw)
 
 
-def quit_prog():
+def quit_prog():  # type: () -> None
     """Stop sounds and frame"""
     LOADER.pause_sounds()  # stop all sounds
     FRAME.stop()

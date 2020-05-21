@@ -13,8 +13,13 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 21, 2020
 """
+
+try:
+    from typing import Dict, Union
+except ImportError:
+    pass
 
 try:
     # To avoid other simpleplot available in Python
@@ -227,16 +232,20 @@ ALL_RESULTS = {
       1000: 9, 1500: 6, 2000: 5},  # normal
      {1: 45, 10: 38, 20: 35, 30: 36, 40: 34, 50: 35, 75: 33,
       100: 31, 200: 24, 300: 20, 400: 17, 500: 15, 750: 11,
-      1000: 9, 1500: 6, 2000: 5})}  # REVERSE
+      1000: 9, 1500: 6, 2000: 5})  # REVERSE
+    }
 
 
 #
 # Main
 ######
 def main():  # pylint: disable=too-many-locals
+    # type: () -> None
     """Calculate and print average, and open plot."""
     # Calculate average
     alls_nb_set = set()
+
+    all_results = dict()
 
     for legend in ALL_RESULTS:
         data_a, data_b = ALL_RESULTS[legend]
@@ -255,20 +264,20 @@ def main():  # pylint: disable=too-many-locals
             alls_nb_set.add(nb)
             results[nb] = (data_a[nb] + data_b[nb]) / 2.0
 
-        ALL_RESULTS[legend] = results
+        all_results[legend] = results
 
     # Sort results to display
     alls_nb = list(alls_nb_set)
     alls_nb.sort()
 
-    legends = list(ALL_RESULTS.keys())
+    legends = list(all_results.keys())
     legends.sort()
 
     datas = []
     datas_with_old = []
 
     for legend in legends:
-        data = ALL_RESULTS[legend]  # type: dict
+        data = all_results[legend]
 
         nb_shapes = list(data.keys())  # pylint: disable=no-member
         nb_shapes.sort()
@@ -287,7 +296,7 @@ def main():  # pylint: disable=too-many-locals
 
     print('----+' * len(alls_nb) + '-----------')
     for legend in legends:
-        data = ALL_RESULTS[legend]  # type: dict
+        data = all_results[legend]
         seq = []
         for nb in alls_nb:
             fps = data.get(nb, None)

@@ -27,12 +27,18 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 20, 2020
 """
 
 from __future__ import print_function
 
 # print('IMPORT', __name__)
+
+
+try:
+    from typing import Dict, Optional, Sequence, Union
+except ImportError:
+    pass
 
 
 try:
@@ -76,7 +82,7 @@ Color used for each graph.
 #
 # Functions
 ############
-def _block():
+def _block():  # type: () -> None
     """
     If some plot windows are open
     then block the program until closing all windows.
@@ -90,6 +96,7 @@ def plot_bars(framename, width, height,  # pylint: disable=too-many-arguments,to
               xlabel, ylabel, datasets,
               legends=None,
               _block=False, _filename=None):
+    # type: (str, int, int, str, str, Union[Sequence, Dict[Union[int, float], Union[int, float]]], Optional[Sequence], bool, Optional[str]) -> None  # noqa
     """
     Open a window titled `framename`
     and plot graphes with `datasets` data
@@ -221,6 +228,7 @@ def plot_lines(framename, width, height,  # pylint: disable=too-many-arguments,t
                xlabel, ylabel, datasets,
                points=False, legends=None,
                _block=False, _filename=None):
+    # type: (str, int, int, str, str, Union[Sequence, Dict[Union[int, float], Union[int, float]]], bool, Optional[Sequence], bool, Optional[str]) -> None  # noqa
     """
     Open a window titled `framename`
     and plot graphes with `datasets` data
@@ -357,6 +365,7 @@ def plot_scatter(framename, width, height,  # pylint: disable=too-many-arguments
                  xlabel, ylabel, datasets,
                  legends=None,
                  _block=False, _filename=None):
+    # type: (str, int, int, str, str, Union[Sequence, Dict[Union[int, float], Union[int, float]]], Optional[Sequence], bool, Optional[str]) -> None  # noqa
     """
     Open a window titled `framename`
     and plot graphes with `datasets` data
@@ -483,3 +492,11 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
     if _filename is not None:
         _filename = abspath(expanduser(_filename))
         matplotlib.pyplot.savefig(_filename)
+
+
+# Clean types use by static checking
+if 'Sequence' in dir():
+    del Dict
+    del Optional
+    del Sequence
+    del Union

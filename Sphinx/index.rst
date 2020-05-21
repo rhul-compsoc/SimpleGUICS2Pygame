@@ -206,8 +206,8 @@ Two simple online examples:
   * `Frame_example.py`_: very simple canvas example
   * `presentation.py`_: little draw images and texts
 
-.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_u6bTdsZGXQ9QjVr.py
-.. _`presentation.py`: https://py3.codeskulptor.org/#user305_jwi9C0c09PpFXYN.py
+.. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_ELuwGUIuxh7hmlE.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_Z4gikDc1fFTXvKa.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 

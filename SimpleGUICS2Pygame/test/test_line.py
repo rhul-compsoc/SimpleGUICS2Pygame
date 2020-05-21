@@ -48,7 +48,7 @@ STATE_COLORS = True
 STATE_DIRECTION = True
 
 
-def draw(canvas):
+def draw(canvas):  # type: (simplegui.Canvas) -> None
     """
     Draw several lines.
 
@@ -75,14 +75,14 @@ def draw(canvas):
                               else 'White'))
 
 
-def switch_colors():
+def switch_colors():  # type: () -> None
     """Switch red and white."""
     global STATE_COLORS  # pylint: disable=global-statement
 
     STATE_COLORS = not STATE_COLORS
 
 
-def switch_direction():
+def switch_direction():  # type: () -> None
     """Switch horizontal and vertical."""
     global STATE_DIRECTION  # pylint: disable=global-statement
 
@@ -92,7 +92,7 @@ def switch_direction():
 #
 # Main
 ######
-def main():
+def main():  # type: () -> None
     """Create and start frame."""
     frame = simplegui.create_frame(TEST, WIDTH, HEIGHT)
 
