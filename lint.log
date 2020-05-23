@@ -1,4 +1,4 @@
-Lint (Thu May 21 21:12:38 CEST 2020) of SimpleGUICS2Pygame 2.0.1
+Lint (Sat May 23 20:38:14 CEST 2020) of SimpleGUICS2Pygame 2.0.2
 
 ===== pycodestyle (pep8) 2.6.0 =====
 
@@ -9,7 +9,7 @@ Lint (Thu May 21 21:12:38 CEST 2020) of SimpleGUICS2Pygame 2.0.1
 
 Report
 ======
-6634 statements analysed.
+6640 statements analysed.
 
 Statistics by type
 ------------------
@@ -34,13 +34,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8636   |48.69 |NC       |NC         |
+|code      |8642   |48.68 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |4941   |27.86 |NC       |NC         |
+|docstring |4942   |27.84 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|comment   |932    |5.26  |NC       |NC         |
+|comment   |939    |5.29  |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|empty     |3226   |18.19 |NC       |NC         |
+|empty     |3228   |18.18 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 
 
@@ -53,7 +53,7 @@ Duplication
 +=========================+======+=========+===========+
 |nb duplicated lines      |1732  |NC       |NC         |
 +-------------------------+------+---------+-----------+
-|percent duplicated lines |9.871 |NC       |NC         |
+|percent duplicated lines |9.862 |NC       |NC         |
 +-------------------------+------+---------+-----------+
 
 

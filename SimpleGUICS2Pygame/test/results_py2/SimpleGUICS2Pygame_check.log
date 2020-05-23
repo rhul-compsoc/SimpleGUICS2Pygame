@@ -52,7 +52,7 @@ import audioread ok - Version 2.1.8
 import matplotlib ok - Version 2.2.5
 
 
-import SimpleGUICS2Pygame ok - Version 2.0.1
+import SimpleGUICS2Pygame ok - Version 2.0.2
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

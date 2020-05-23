@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 23, 2020
 """
 
 from __future__ import division
@@ -22,17 +22,26 @@ from __future__ import print_function
 __all__ = ('Control', 'TextAreaControl')
 
 
+try:
+    from typing import Any, Callable, Optional, Tuple, Union, TYPE_CHECKING
+except ImportError:
+    TYPE_CHECKING = False
+
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # pylint: disable=no-name-in-module  # noqa
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # pylint: disable=no-name-in-module  # noqa
 from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
 if _PYGAME_AVAILABLE:
     import pygame
 
+if TYPE_CHECKING:
+    Frame = Any
+
 
 #
 # "Private" function
 ####################
 def _text_to_text_cut(text, width, pygame_font):
+    # type: (str, int, pygame.font.Font) -> Tuple[str, ...]
     """
     Cut `text` in pieces smaller `width`.
 
@@ -113,6 +122,7 @@ class Control:  # pylint: disable=too-many-instance-attributes
                  frame,
                  text,
                  button_handler=None, width=None):
+        # type: (Frame, str, Optional[Callable[[], Any]], Optional[int]) -> None  # noqa
         r"""
         Set a button (if button_handler is not None)
         or a label (if button_handler is None)
@@ -153,10 +163,10 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._x1 = 0
         self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls  # pylint: disable=protected-access  # noqa
                     else 0)
-        self._x2 = None
-        self._y2 = None
+        self._x2 = 0
+        self._y2 = 0
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<Control object>'`.
 
@@ -164,7 +174,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         return '<Control object>'
 
-    def _mouse_left_button(self, pressed):
+    def _mouse_left_button(self, pressed):  # type: (bool) -> None
         """
         Deal a click of left mouse button on the zone of this `Control`.
 
@@ -184,7 +194,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         if (not pressed) and (self._button_handler is not None):
             self._button_handler()
 
-    def _draw(self):
+    def _draw(self):  # type: () -> None
         """
         Draw the control object in the control panel.
 
@@ -195,7 +205,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         else:
             self._draw_button()
 
-    def _draw_button(self):
+    def _draw_button(self):  # type: () -> None
         """
         Draw the the control object as a button.
 
@@ -260,7 +270,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._x2 = self._x1 + width
         self._y2 = self._y1 + height
 
-    def _draw_label(self):
+    def _draw_label(self):  # type: () -> None
         """
         Draw the the control object as a label.
 
@@ -288,6 +298,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             self._y2 = self._y1 + Control._label_pygame_font.size('')[1]
 
     def _pos_in(self, x, y):
+        # type: (Union[int, float], Union[int, float]) -> bool
         """
         If position (`x`, `y`) is on the zone of this `aControl`
         then return `True`,
@@ -306,7 +317,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return ((self._x1 <= x <= self._x2) and
                 (self._y1 <= y <= self._y2))
 
-    def get_text(self):
+    def get_text(self):  # type: () -> str
         """
         Return the text of the button or the label.
 
@@ -314,7 +325,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         return self._text
 
-    def set_text(self, text):
+    def set_text(self, text):  # type: (str) -> None
         """
         Change the text of the button or the label.
 
@@ -378,6 +389,7 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
                  frame,
                  label_text,
                  input_handler, input_width):
+        # type: (Frame, str, Optional[Callable[[str], Any]], Union[int, float]) -> None  # noqa
         """
         Set a input box in the control panel.
 
@@ -409,13 +421,13 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._x1 = 0
         self._y1 = (frame._controls[-1]._y2 + 2 if frame._controls  # pylint: disable=protected-access  # noqa
                     else 0)
-        self._x2 = None
-        self._y2 = None
+        self._x2 = 0
+        self._y2 = 0
 
         self._input_pos = 0
         self._input_text = ''
 
-    def __repr__(self):
+    def __repr__(self):  # type: () -> str
         """
         Return `'<TextAreaControl object>'`.
 
@@ -424,6 +436,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return '<TextAreaControl object>'
 
     def _draw(self):  # pylint: disable=too-many-locals
+        # type: () -> None
         """
         Draw the input box and his label.
 
@@ -515,6 +528,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._y2 += rect_height
 
     def _key(self, pygame_event):  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements  # noqa
+        # type: (pygame.event.Event) -> None
         """
         Deal key pressed
         when this `TextAreaControl` have focus.
@@ -646,7 +660,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
             self._frame_parent._draw_controlpanel()  # pylint: disable=protected-access  # noqa
 
-    def _mouse_left_button(self, pressed):
+    def _mouse_left_button(self, pressed):  # type: (bool) -> None
         """
         Deal a click of left mouse button
         on the zone of this `TextAreaControl`.
@@ -665,6 +679,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
             self._frame_parent._draw_controlpanel()  # pylint: disable=protected-access  # noqa
 
     def _pos_in(self, x, y):
+        # type: (Union[int, float], Union[int, float]) -> bool
         """
         If position (`x`, `y`) is on the zone of this `TextAreaControl`
         then return `True`,
@@ -683,7 +698,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         return ((self._x1 <= x <= self._x2) and
                 (self._y1 <= y <= self._y2))
 
-    def get_text(self):
+    def get_text(self):  # type: () -> str
         """
         Return the text of the input box.
 
@@ -691,7 +706,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         """
         return self._input_text
 
-    def set_text(self, input_text):
+    def set_text(self, input_text):  # type: (str) -> None
         """
         Change the text in the input box.
 

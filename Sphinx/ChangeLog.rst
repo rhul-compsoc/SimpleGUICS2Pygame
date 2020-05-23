@@ -1,10 +1,14 @@
 ChangeLog
 =========
-* May 23, 2020
+* 2.0.2 — May 23, 2020
 
   - Documentation:
 
     - Updated image and sound links.
+
+  - Tests:
+
+    - Completed missing type annotations in simpleguics2pygame/control.
 
 * 2.0.1 — May 21, 2020
 
