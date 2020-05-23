@@ -1,1 +1,4 @@
 sphinx-autodoc-typehints
+pygame==1.9.6
+audioread
+matplotlib
