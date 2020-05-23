@@ -6,6 +6,10 @@
 
 
 
++  <a href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="surname">Pi</span></a>)
+
+
+
 + <a href="https://py3.codeskulptor.org/#user19_hLghEN2n2P_0.py" target="_blank">DDR clone</a> by (Emily <span class="surname">Wachtel</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3
@@ -48,10 +52,6 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a
 
 
 
-+  <a href="http://www.clker.com/" target="_blank">Clker.com</a> (profile <a href="http://www.clker.com/profile-201124.html" target="_blank">O<span class="surname">Pi</span></a>)
-
-
-
 + <a href="https://py3.codeskulptor.org/#user33_IpiC59t14EadEvK.py" target="_blank">Galaxy Invaders</a> by (Igor <span class="surname">Petetskih</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_hit.wav
@@ -76,7 +76,11 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_
 
 
 
-+ <a href="https://opengameart.org/" target="_blank">OpenGameArt.org</a>&thinsp;: <a href="https://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid%5B%5D=12" target="_blank">Music</a>, <a href="https://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid%5B%5D=13" target="_blank">Sound Effects</a>
++ <a href="https://itch.io/" target="_blank">itch.io</a>: Free <a href="https://itch.io/game-assets/free" target="_blank">Game assets</a>, Free <a href="https://itch.io/soundtracks/free" target="_blank">Soundtracks</a>
+
+
+
++ <a href="https://opengameart.org/" target="_blank">OpenGameArt.org</a>: <a href="https://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid%5B%5D=12" target="_blank">Music</a>, <a href="https://opengameart.org/art-search-advanced?keys=&amp;field_art_type_tid%5B%5D=13" target="_blank">Sound Effects</a>
 
 
 
@@ -191,7 +195,7 @@ http://codeskulptor-demos.commondatastorage.googleapis.com/descent/Zombie.mp3
 
 
 
-+ <a href="https://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="https://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="surname">Pi</span>Media</a>)&thinsp;: <a href="https://www.sounds-resource.com/" target="_blank">Sounds</a>
++ <a href="https://www.vg-resource.com/" target="_blank">The VG Resource</a> (profile <a href="https://www.vg-resource.com/member.php?action=profile&amp;uid=21390" target="_blank">O<span class="surname">Pi</span>Media</a>): <a href="https://www.sounds-resource.com/" target="_blank">Sounds</a>
 
 
 
