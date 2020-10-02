@@ -108,7 +108,7 @@ and up to date.
 On Arch Linux you can use this package installation script (written by Danny Fajardo):
 `Arch_Linux/PKGBUILD`_.
 
-.. _`Arch_Linux/PKGBUILD`: https://bitbucket.org/OPiMedia/simpleguics2pygame/GNU_Linux/Arch_Linux/PKGBUILD
+.. _`Arch_Linux/PKGBUILD`: https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/GNU_Linux/Arch_Linux/PKGBUILD
 
 |
 
