@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* 2.0.3 — October 2, 2020
+
+  - Corrected reading permission of files in distribution files.
+
 * 2.0.2 — May 23, 2020
 
   - Documentation:

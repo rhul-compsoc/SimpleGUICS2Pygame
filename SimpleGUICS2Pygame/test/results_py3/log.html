@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, itial-scale=1">
   <meta name="author" content="SimpleGUICS2Pygame &ndash; test_all">
-  <title>SimpleGUICS2Pygame 2.0.2 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6</title>
+  <title>SimpleGUICS2Pygame 2.0.3 &ndash; test report &ndash; Python 3 &ndash; Pygame 1.9.6</title>
   <link rel="stylesheet" type="text/css" href="../_css/log.css">
 </head>
 <body>
 <main>
   <header>
-    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 2.0.2
+    <a href="https://bitbucket.org/OPiMedia/simpleguics2pygame/" target="_blank">SimpleGUICS2Pygame</a> 2.0.3
     (<a href="https://simpleguics2pygame.readthedocs.io/" target="_blank">online documentation</a>)
-    <h1>test report &ndash; Python 3 &ndash; Pygame 1.9.6 &ndash; 2020-05-23 20:43:45</h1>
+    <h1>test report &ndash; Python 3 &ndash; Pygame 1.9.6 &ndash; 2020-10-02 11:04:13</h1>
   </header>
   <ol>
 <li>
@@ -20,40 +20,43 @@
 <pre class="log">script/SimpleGUICS2Pygame_check.py (April 14, 2020)
 ===================================================
 PATH:
-  /home/opi/.cargo/bin
+  /QUICK/progs/graalvm-ee-java11-20.1.1/bin
+  /snap/bin
+  /home/opi/.local/bin
   /home/opi/bin
   /usr/local/bin
   /usr/bin
   /bin
   /usr/local/games
   /usr/games
-  /QUICK/progs/bin
   /snap/bin
-  /QUICK/progs/Java
-  /home/opi/data/hg/vNu-scripts/vNu-scripts
-  /QUICK/progs/pypy3.6-v7.3.0-linux64/bin
-  /QUICK/progs/tikzit/bin
-  /home/opi/data/hg/tsv2htmltable_WORK/src/scripts
+  /home/opi/data/git/WORK/outcmp__WORK
+  /home/opi/data/git/WORK/tsv2htmltable__WORK/src/scripts
+  /home/opi/data/git/archives/prog/vnu-scripts/vNu-scripts
   /home/opi/.local/bin
+  /home/opi/.local/share/coursier/bin
+  /home/opi/.config/composer/vendor/bin
+  /home/opi/bin
+  /QUICK/progs/infer-linux64-v0.17.0/bin
+  /QUICK/progs/scala-2.13.3/bin
 
 PYTHONPATH:
-  /home/opi/data/git/archives/simpleguics2pygame
+  /home/opi/data/git/archives/library/simpleguics2pygame
   
 
 
-python - version 3.5.3 (default, Sep 27 2018, 17:25:39) 
-[GCC 6.3.0 20170516]
+python - version 3.7.3 (default, Jul 25 2020, 13:03:44) 
+[GCC 8.3.0]
 
 sys.path:
-  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/script
-  /home/opi/data/git/archives/simpleguics2pygame
-  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/test
-  /usr/lib/python35.zip
-  /usr/lib/python3.5
-  /usr/lib/python3.5/plat-x86_64-linux-gnu
-  /usr/lib/python3.5/lib-dynload
-  /home/opi/.local/lib/python3.5/site-packages
-  /usr/local/lib/python3.5/dist-packages
+  /home/opi/data/git/archives/library/simpleguics2pygame/SimpleGUICS2Pygame/script
+  /home/opi/data/git/archives/library/simpleguics2pygame
+  /home/opi/data/git/archives/library/simpleguics2pygame/SimpleGUICS2Pygame/test
+  /usr/lib/python37.zip
+  /usr/lib/python3.7
+  /usr/lib/python3.7/lib-dynload
+  /home/opi/.local/lib/python3.7/site-packages
+  /usr/local/lib/python3.7/dist-packages
   /usr/lib/python3/dist-packages
 
 
@@ -64,10 +67,10 @@ import pygame ok - Version 1.9.6
 import audioread ok - Version 2.1.8
 
 
-import matplotlib ok - Version 3.0.3
+import matplotlib ok - Version 3.3.2
 
 
-import SimpleGUICS2Pygame ok - Version 2.0.2
+import SimpleGUICS2Pygame ok - Version 2.0.3
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok
@@ -99,7 +102,7 @@ import SimpleGUICS2Pygame.simpleplot ok</pre>
 <img src="../results_py3/test_circle_diff.png" alt="[results_py3/test_circle_diff.png]" title="Difference images.">
 </li>
 <li>
-  <h2 >test_colors_constants<span class="imgs_diff">Images different: 16!</span></h2>
+  <h2 >test_colors_constants<span class="imgs_diff">Images different: 15!</span></h2>
 <img src="../results_good/test_colors_constants.png" alt="[results_good/test_colors_constants.png]" title="Comparative result.">
 <img src="../results_py3/test_colors_constants.png" alt="[results_py3/test_colors_constants.png]" title="Result of test.">
 <img src="../results_py3/test_colors_constants_diff.png" alt="[results_py3/test_colors_constants_diff.png]" title="Difference images.">
@@ -122,7 +125,7 @@ import SimpleGUICS2Pygame.simpleplot ok</pre>
   <h2 >test_dir</h2>
 <pre class="log">List dir() differences between CodeSkulptor (May 2020) and this &quot;Python&quot;:
 
-CodeSkulptor simplemap	!= Python 3.5.3 simplemap
+CodeSkulptor simplemap	!= Python 3.7.3 simplemap
 -------------------------------------------------------
 Line
 Map
@@ -133,7 +136,7 @@ create_map
 service</pre>
 </li>
 <li>
-  <h2 >test_grid<span class="imgs_diff">Images different: 12!</span></h2>
+  <h2 >test_grid<span class="imgs_diff">Images different: 11!</span></h2>
 <img src="../results_good/test_grid.png" alt="[results_good/test_grid.png]" title="Comparative result.">
 <img src="../results_py3/test_grid.png" alt="[results_py3/test_grid.png]" title="Result of test.">
 <img src="../results_py3/test_grid_diff.png" alt="[results_py3/test_grid_diff.png]" title="Difference images.">
@@ -159,19 +162,19 @@ sound&lt;class &#x27;SimpleGUICS2Pygame.simpleguics2pygame.sound.Sound&#x27;&gt;
 timer&lt;class &#x27;SimpleGUICS2Pygame.simpleguics2pygame.timer.Timer&#x27;&gt;&lt;Timer object&gt;&lt;Timer object&gt;</pre>
 </li>
 <li>
-  <h2 >test_simpleplot_bars<span class="imgs_diff">Images different: 56!</span></h2>
+  <h2 >test_simpleplot_bars<span class="imgs_diff">Images different: 63!</span></h2>
 <img src="../results_good/test_simpleplot_bars.png" alt="[results_good/test_simpleplot_bars.png]" title="Comparative result.">
 <img src="../results_py3/test_simpleplot_bars.png" alt="[results_py3/test_simpleplot_bars.png]" title="Result of test.">
 <img src="../results_py3/test_simpleplot_bars_diff.png" alt="[results_py3/test_simpleplot_bars_diff.png]" title="Difference images.">
 </li>
 <li>
-  <h2 >test_simpleplot_lines<span class="imgs_diff">Images different: 56!</span></h2>
+  <h2 >test_simpleplot_lines<span class="imgs_diff">Images different: 65!</span></h2>
 <img src="../results_good/test_simpleplot_lines.png" alt="[results_good/test_simpleplot_lines.png]" title="Comparative result.">
 <img src="../results_py3/test_simpleplot_lines.png" alt="[results_py3/test_simpleplot_lines.png]" title="Result of test.">
 <img src="../results_py3/test_simpleplot_lines_diff.png" alt="[results_py3/test_simpleplot_lines_diff.png]" title="Difference images.">
 </li>
 <li>
-  <h2 >test_simpleplot_scatter<span class="imgs_diff">Images different: 57!</span></h2>
+  <h2 >test_simpleplot_scatter<span class="imgs_diff">Images different: 66!</span></h2>
 <img src="../results_good/test_simpleplot_scatter.png" alt="[results_good/test_simpleplot_scatter.png]" title="Comparative result.">
 <img src="../results_py3/test_simpleplot_scatter.png" alt="[results_py3/test_simpleplot_scatter.png]" title="Result of test.">
 <img src="../results_py3/test_simpleplot_scatter_diff.png" alt="[results_py3/test_simpleplot_scatter_diff.png]" title="Difference images.">
@@ -193,7 +196,7 @@ Play &quot;arrow.mp3&quot; 1.436735s loaded from web
 End of test_sound</pre>
 </li>
 <li>
-  <h2 >test_text<span class="imgs_diff">Images different: 16!</span></h2>
+  <h2 >test_text<span class="imgs_diff">Images different: 15!</span></h2>
 <img src="../results_good/test_text.png" alt="[results_good/test_text.png]" title="Comparative result.">
 <img src="../results_py3/test_text.png" alt="[results_py3/test_text.png]" title="Result of test.">
 <img src="../results_py3/test_text_diff.png" alt="[results_py3/test_text_diff.png]" title="Difference images.">

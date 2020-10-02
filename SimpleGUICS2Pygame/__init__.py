@@ -34,6 +34,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 :author: Olivier Pirson --- http://www.opimedia.be/
 :version: May 23, 2020
 
+* v.2.0.3 --- October 2, 2020
 * v.2.0.2 --- May 23, 2020
 * v.2.0.1 --- May 21, 2020
 * v.2.0.0 --- April 18, 2020
@@ -69,7 +70,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-_VERSION = '2.0.2'
+_VERSION = '2.0.3'
 """Version of SimpleGUICS2Pygame package."""
 
 _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'

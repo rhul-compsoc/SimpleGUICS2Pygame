@@ -1,40 +1,43 @@
 script/SimpleGUICS2Pygame_check.py (April 14, 2020)
 ===================================================
 PATH:
-  /home/opi/.cargo/bin
+  /QUICK/progs/graalvm-ee-java11-20.1.1/bin
+  /snap/bin
+  /home/opi/.local/bin
   /home/opi/bin
   /usr/local/bin
   /usr/bin
   /bin
   /usr/local/games
   /usr/games
-  /QUICK/progs/bin
   /snap/bin
-  /QUICK/progs/Java
-  /home/opi/data/hg/vNu-scripts/vNu-scripts
-  /QUICK/progs/pypy3.6-v7.3.0-linux64/bin
-  /QUICK/progs/tikzit/bin
-  /home/opi/data/hg/tsv2htmltable_WORK/src/scripts
+  /home/opi/data/git/WORK/outcmp__WORK
+  /home/opi/data/git/WORK/tsv2htmltable__WORK/src/scripts
+  /home/opi/data/git/archives/prog/vnu-scripts/vNu-scripts
   /home/opi/.local/bin
+  /home/opi/.local/share/coursier/bin
+  /home/opi/.config/composer/vendor/bin
+  /home/opi/bin
+  /QUICK/progs/infer-linux64-v0.17.0/bin
+  /QUICK/progs/scala-2.13.3/bin
 
 PYTHONPATH:
-  /home/opi/data/git/archives/simpleguics2pygame
+  /home/opi/data/git/archives/library/simpleguics2pygame
   
 
 
-python - version 3.5.3 (default, Sep 27 2018, 17:25:39) 
-[GCC 6.3.0 20170516]
+python - version 3.7.3 (default, Jul 25 2020, 13:03:44) 
+[GCC 8.3.0]
 
 sys.path:
-  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/script
-  /home/opi/data/git/archives/simpleguics2pygame
-  /home/opi/data/git/archives/simpleguics2pygame/SimpleGUICS2Pygame/test
-  /usr/lib/python35.zip
-  /usr/lib/python3.5
-  /usr/lib/python3.5/plat-x86_64-linux-gnu
-  /usr/lib/python3.5/lib-dynload
-  /home/opi/.local/lib/python3.5/site-packages
-  /usr/local/lib/python3.5/dist-packages
+  /home/opi/data/git/archives/library/simpleguics2pygame/SimpleGUICS2Pygame/script
+  /home/opi/data/git/archives/library/simpleguics2pygame
+  /home/opi/data/git/archives/library/simpleguics2pygame/SimpleGUICS2Pygame/test
+  /usr/lib/python37.zip
+  /usr/lib/python3.7
+  /usr/lib/python3.7/lib-dynload
+  /home/opi/.local/lib/python3.7/site-packages
+  /usr/local/lib/python3.7/dist-packages
   /usr/lib/python3/dist-packages
 
 
@@ -45,10 +48,10 @@ import pygame ok - Version 1.9.6
 import audioread ok - Version 2.1.8
 
 
-import matplotlib ok - Version 3.0.3
+import matplotlib ok - Version 3.3.2
 
 
-import SimpleGUICS2Pygame ok - Version 2.0.2
+import SimpleGUICS2Pygame ok - Version 2.0.3
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

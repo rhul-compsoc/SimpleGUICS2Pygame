@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- May 21, 2020
+# Makefile of SimpleGUICS2Pygame --- October 2, 2020
 
 .SUFFIXES:
 
@@ -46,6 +46,7 @@ CHECKTXT = checkTxtPy.py  # not public program
 
 
 CD    = cd
+CHMOD = chmod
 CP    = cp -p
 ECHO  = echo
 GREP  = grep
@@ -97,18 +98,23 @@ installs:	distclean install2 install3
 ################
 # Distribution #
 ################
-.PHONY: all_dist bdist_egg bdist_wininst sdist
+.PHONY: all_dist bdist_egg bdist_wininst chmod sdist
 
 all_dist:	sdist bdist_egg # bdist_wininst
 
-bdist_egg:
+bdist_egg:	chmod
 	$(PYTHON2) $(PYTHON2FLAGS) setup.py bdist_egg
 	$(PYTHON3) $(PYTHON3FLAGS) setup.py bdist_egg
 
-bdist_wininst:
+bdist_wininst:	chmod
 	$(PYTHON3) $(PYTHON3FLAGS) setup.py bdist_wininst --no-target-compile --no-target-optimize --bitmap SimpleGUICS2Pygame/_img/SimpleGUICS2Pygame_152x261.bmp
 
-sdist:
+chmod:
+	$(CHMOD) -R og+rX SimpleGUICS2Pygame
+	$(CHMOD) og+r MANIFEST.in README.rst requirements.txt
+	$(CHMOD) og+rx setup.py SimpleGUICS2Pygame/script/*.py
+
+sdist:	chmod
 	$(PYTHON3) $(PYTHON3FLAGS) setup.py sdist --formats=gztar
 
 
