@@ -103,6 +103,13 @@ and up to date.
    If you have some installation problem
    see the complete information in `Online HTML documentation`_.
 
+
+
+On Arch Linux you can use this package installation script (written by Danny Fajardo):
+`Arch_Linux/PKGBUILD`_.
+
+.. _`Arch_Linux/PKGBUILD`: https://bitbucket.org/OPiMedia/simpleguics2pygame/GNU_Linux/Arch_Linux/PKGBUILD
+
 |
 
 
@@ -264,6 +271,7 @@ Changes
 * 2.0.3 — October 2, 2020
 
   - Corrected reading permission of files in distribution files.
+  - Added Arch Linux installation script (written by Danny Fajardo).
 
 * 2.0.2 — May 23, 2020
 

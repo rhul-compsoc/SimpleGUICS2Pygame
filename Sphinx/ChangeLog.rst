@@ -3,6 +3,7 @@ ChangeLog
 * 2.0.3 — October 2, 2020
 
   - Corrected reading permission of files in distribution files.
+  - Added Arch Linux installation script (written by Danny Fajardo).
 
 * 2.0.2 — May 23, 2020
 

@@ -114,6 +114,11 @@ Installation of SimpleGUICS2Pygame
 But if the installation failed,
 then install them separately and after that try again to install SimpleGUICS2Pygame.
 
+On Arch Linux you can use this package installation script (written by Danny Fajardo):
+`Arch_Linux/PKGBUILD`_.
+
+.. _`Arch_Linux/PKGBUILD`: https://bitbucket.org/OPiMedia/simpleguics2pygame/GNU_Linux/Arch_Linux/PKGBUILD
+
 
 Package pygame_ required
 ~~~~~~~~~~~~~~~~~~~~~~~~
