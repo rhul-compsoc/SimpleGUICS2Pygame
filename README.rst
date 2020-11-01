@@ -262,6 +262,10 @@ Note that
    .. _SimpleGUITk: https://pypi.org/project/SimpleGUITk
    .. _simplequi: https://pypi.org/project/simplequi/
 
+   * PySimpleGUI_ is also a Python package that is *totally something else*.
+
+   .. _PySimpleGUI: https://pypi.org/project/PySimpleGUI/
+
 |
 
 
