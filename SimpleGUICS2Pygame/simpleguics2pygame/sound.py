@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 20, 2020
+:version: November 29, 2020
 """
 
 from __future__ import print_function
@@ -24,9 +24,11 @@ __all__ = ('_LocalSound', 'Sound',
 
 
 try:
-    from typing import Sequence, Union
+    from typing import Optional, Sequence, Union
 except ImportError:
     pass
+
+import pygame
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
@@ -95,10 +97,11 @@ class Sound:
         """
         assert isinstance(url, str), type(url)
 
-        self._pygame_channel = None
-        self._pygame_sound = (None if Sound._load_disabled or (url == '')
-                              else _load_media('Sound', url,
-                                               Sound._dir_search_first))
+        self._pygame_channel = None  # type: Optional[pygame.mixer.Channel]
+        self._pygame_sound = None  # type: Optional[pygame.mixer.Sound]
+        if not Sound._load_disabled and (url != ''):
+            self._pygame_sound = _load_media('Sound', url,  # type: ignore
+                                             Sound._dir_search_first)
 
     def __repr__(self):  # type: () -> str
         """
@@ -193,8 +196,9 @@ class _LocalSound(Sound):
         assert isinstance(filename, str), type(filename)
 
         self._pygame_channel = None
-        self._pygame_sound = (None if Sound._load_disabled or (filename == '')
-                              else _load_local_media('Sound', filename))
+        self._pygame_sound = None  # type: Optional[pygame.mixer.Sound]
+        if not Sound._load_disabled and (filename != ''):
+            self._pygame_sound = _load_local_media('Sound', filename)  # type: ignore  # noqa
 
     def __repr__(self):  # type: () -> str
         """

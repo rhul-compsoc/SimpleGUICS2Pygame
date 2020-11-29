@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: November 29, 2020
 """
 
 from __future__ import print_function
@@ -26,11 +26,9 @@ try:
 except ImportError:
     pass
 
-from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
+import pygame
 
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
-if _PYGAME_AVAILABLE:
-    import pygame
+from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
 
 
 #
@@ -106,14 +104,14 @@ def _simpleguifontface_to_pygamefont(font_face, font_size):  # pylint: disable=i
         assert font_size > 0, font_size
 
         if (font_face is None) or _DEFAULT_FONT:  # pylint: disable=protected-access  # noqa
-            font = pygame.font.SysFont(None, font_size)
+            font = pygame.font.SysFont(None, font_size)  # type: ignore
         else:
             try:
                 font = pygame.font.SysFont(
                     _SIMPLEGUIFONTFACE_TO_PYGAMEFONTNAME[font_face],
                     font_size)
             except Exception:  # pylint: disable=broad-except
-                font = pygame.font.SysFont(None, font_size)
+                font = pygame.font.SysFont(None, font_size)  # type: ignore
 
         assert font is not None
 

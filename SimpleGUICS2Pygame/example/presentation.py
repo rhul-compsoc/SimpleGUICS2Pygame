@@ -12,7 +12,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 21, 2020
+:version: November 29, 2020
 """
 
 try:
@@ -175,10 +175,4 @@ def main():  # pylint: disable=too-many-statements
 # Main
 ######
 if __name__ == '__main__':
-    if not codeskulptor_lib.codeskulptor_is() and not simplegui._PYGAME_AVAILABLE:  # pylint: disable=protected-access,no-member  # noqa
-        print("""Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""")
-
-        exit(1)  # pylint: disable=consider-using-sys-exit
-
     main()

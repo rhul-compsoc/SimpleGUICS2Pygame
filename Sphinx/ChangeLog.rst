@@ -1,5 +1,12 @@
 ChangeLog
 =========
+* 2.1.0 — November 29, 2020
+
+  - Removed Pygame restriction to version 1.9.6.
+  - Removed old special cases when Pygame was not installed.
+  - Cleaned some warnings from mypy.
+  - ``example/Nostalgic_Basic_Blitz.py``: corrected bug with negative position of bomb.
+
 * 2.0.3 — October 2, 2020
 
   - Corrected reading permission of files in distribution files.
@@ -316,7 +323,7 @@ ChangeLog
   - Added some CodeSkulptor programs links.
 
   - ``example/Memory.py``: moved image locations.
-  - ``example/Nostalgic_Basic_Blitz.py`` : added spacebar information.
+  - ``example/Nostalgic_Basic_Blitz.py``: added spacebar information.
 
 * 00.90.10 — June 19, 2013
 

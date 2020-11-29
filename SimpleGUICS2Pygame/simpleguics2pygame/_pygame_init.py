@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: April 12, 2020
+:version: November 29, 2020
 """
 
 from __future__ import print_function
@@ -26,26 +26,25 @@ try:
 
     _PYGAME_AVAILABLE = True
     """
-    `True` if Pygame is available,
-    else `False`.
+    Always `True`. (Variable kept for backward compatibility.)
     """
 except ImportError:
-    _PYGAME_AVAILABLE = False
+    import sys
 
-    _PYGAME_VERSION = None
-    """
-    `pygame.version` if Pygame is available,
-    else `None`.
-    """
+    print("""Pygame not available!
+See https://simpleguics2pygame.readthedocs.io/en/latest/#installation""",
+          file=sys.stderr)
+
+    sys.exit(1)
+
 
 #
 # Init Pygame
 #############
-if _PYGAME_AVAILABLE:
-    import pygame
-    import pygame.font
-    import pygame.mixer
-    import pygame.transform
+import pygame
+import pygame.font
+import pygame.mixer
+import pygame.transform
 
-    pygame.display.init()
-    pygame.font.init()
+pygame.display.init()
+pygame.font.init()

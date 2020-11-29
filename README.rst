@@ -128,7 +128,7 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_ELuwGUIuxh7hmlE.py
-.. _`presentation.py`: https://py3.codeskulptor.org/#user305_Z4gikDc1fFTXvKa.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_l6tVvJwsLXcvIQI.py
 .. _`Python programs running in CodeSkulptor`: https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/prog_links.html
 
 |
@@ -272,6 +272,13 @@ Note that
 
 Changes
 =======
+* 2.1.0 — November 29, 2020
+
+  - Removed Pygame restriction to version 1.9.6.
+  - Removed old special cases when Pygame was not installed.
+  - Cleaned some warnings from mypy.
+  - ``example/Nostalgic_Basic_Blitz.py``: corrected bug with negative position of bomb.
+
 * 2.0.3 — October 2, 2020
 
   - Corrected reading permission of files in distribution files.

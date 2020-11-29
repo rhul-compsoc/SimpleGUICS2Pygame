@@ -11,7 +11,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 20, 2020
+:version: November 29, 2020
 """
 
 from __future__ import division
@@ -29,16 +29,14 @@ try:
 except ImportError:
     pass
 
+import pygame
+
 
 __all__ = ('Frame',
            'create_frame')
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=no-name-in-module  # noqa
-
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
-if _PYGAME_AVAILABLE:
-    import pygame
 
 
 from SimpleGUICS2Pygame.simpleguics2pygame import _colors, _fonts, _joypads, _media  # pylint: disable=wrong-import-position,ungrouped-imports,unused-import  # noqa
@@ -59,19 +57,13 @@ from SimpleGUICS2Pygame.simpleguics2pygame.timer import _STOP_TIMERS, Timer, cre
 class Frame:  # pylint: disable=too-many-instance-attributes
     """Frame similar to SimpleGUI `Frame` of CodeSkulptor."""
 
-    _background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
-                                if _PYGAME_AVAILABLE
-                                else None)
+    _background_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
     """Default background color of frame."""
 
-    _canvas_border_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
-                                   if _PYGAME_AVAILABLE
-                                   else None)
+    _canvas_border_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
     """Border color of canvas."""
 
-    _controlpanel_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
-        _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
-        else None)
+    _controlpanel_background_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']  # pylint: disable=invalid-name  # noqa
     """Background color of control panel."""
 
     _cursor_auto_hide = False
@@ -152,27 +144,19 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     _save_canvas_requests = []  # type: List[str]
     """List of filenames in which to save canvas image."""
 
-    _statuskey_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
-        _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
-        else None)
+    _statuskey_background_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']  # pylint: disable=invalid-name  # noqa
     """`pygame.Color` of background in status key box."""
 
     _statuskey_height = 20
     """Height of the status key box."""
 
-    _statuskey_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
-                               if _PYGAME_AVAILABLE
-                               else None)
+    _statuskey_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
     """`pygame.Color` of status key box (text and rectangle)."""
 
-    _statuskey_pygame_font = (pygame.font.Font(None, _statuskey_height)
-                              if _PYGAME_AVAILABLE
-                              else None)
+    _statuskey_pygame_font = pygame.font.Font(None, _statuskey_height)
     """`pygame.font.Font` of status key box."""
 
-    _statusmouse_background_pygame_color = (  # pylint: disable=invalid-name  # noqa
-        _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
-        else None)
+    _statusmouse_background_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']  # pylint: disable=invalid-name  # noqa
     """`pygame.Color` of background in status mouse box."""
 
     _statusmouse_height = _statuskey_height
@@ -181,9 +165,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
     _statusmouse_pygame_color = _statuskey_pygame_color
     """`pygame.Color` of status mouse box (text and rectangle)."""
 
-    _statusmouse_pygame_font = (pygame.font.Font(None, _statusmouse_height)
-                                if _PYGAME_AVAILABLE
-                                else None)
+    _statusmouse_pygame_font = pygame.font.Font(None, _statusmouse_height)
     """`pygame.font.Font` of status mouse box."""
 
     @classmethod
@@ -244,9 +226,6 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         :param canvas_height: (int or float) >= 0
         :param control_width: (int or float) >= 0
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert Frame._frame_instance is None, \
             "You can't instantiate two Frame!"
 
@@ -337,14 +316,14 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
         self._canvas = Canvas(self, canvas_width, canvas_height)
 
         # Create the status boxes: key and mouse
-        self._statuskey_pygame_surface = pygame.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
+        self._statuskey_pygame_surface = pygame.surface.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
             (self._control_width, Frame._statuskey_height))
-        self._statusmouse_pygame_surface = pygame.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
+        self._statusmouse_pygame_surface = pygame.surface.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
             (self._control_width, Frame._statusmouse_height))
         # will be drawn by self._draw_controlpanel()
 
         # Create the control panel
-        self._controlpanel_pygame_surface = pygame.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
+        self._controlpanel_pygame_surface = pygame.surface.Surface(  # pylint: disable=protected-access,too-many-function-args  # noqa
             (self._control_width, canvas_height))
         self._draw_controlpanel()
 
@@ -444,7 +423,8 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                 pygame.mouse.set_visible(not((0 <= x < self._canvas._width) and (0 <= y < self._canvas._height)))  # pylint: disable=protected-access  # noqa
 
             if self._mouse_drag_handler is not None:
-                if pygame.mouse.get_pressed()[0]:  # left click
+                if pygame.mouse.get_pressed()[0]:  # type: ignore
+                    # Left click
                     if (not 0 <= x < self._canvas._width) or (not 0 <= y < self._canvas._height):  # pylint: disable=protected-access  # noqa
                         # Out of canvas
                         mouse_drag_out_of_canvas = True
@@ -1084,7 +1064,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
                     self.stop()
 
             # Wait (if necessary) next cycle
-            self._fps_average = clock.get_fps()
+            self._fps_average = int(round(clock.get_fps()))
             clock.tick(Frame._fps)
             # clock.tick_busy_loop(Frame._fps)
 
@@ -1231,9 +1211,6 @@ def create_frame(title,
 
     :return: Frame
     """
-    assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
     assert isinstance(title, str), type(title)
 
     assert isinstance(canvas_width, (int, float)), type(canvas_width)

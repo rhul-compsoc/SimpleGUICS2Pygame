@@ -1,15 +1,15 @@
-Lint (Sat May 23 20:38:14 CEST 2020) of SimpleGUICS2Pygame 2.0.2
+Lint (Sun Nov 29 16:58:07 CET 2020) of SimpleGUICS2Pygame 2.1.0
 
 ===== pycodestyle (pep8) 2.6.0 =====
 
-===== pyflakes 2.2.0 Python 3.5.3 on Linux =====
+===== pyflakes 2.2.0 Python 3.7.3 on Linux =====
 
-===== pylint 2.5.2 astroid 2.4.1 Python 3.5.3 (default, Sep 27 2018, 17:25:39) [GCC 6.3.0 20170516] =====
+===== pylint 2.6.0 astroid 2.4.2 Python 3.7.3 (default, Jul 25 2020, 13:03:44) [GCC 8.3.0] =====
 
 
 Report
 ======
-6640 statements analysed.
+6611 statements analysed.
 
 Statistics by type
 ------------------
@@ -34,13 +34,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |8642   |48.68 |NC       |NC         |
+|code      |8567   |48.49 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|docstring |4942   |27.84 |NC       |NC         |
+|docstring |4939   |27.96 |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|comment   |939    |5.29  |NC       |NC         |
+|comment   |940    |5.32  |NC       |NC         |
 +----------+-------+------+---------+-----------+
-|empty     |3228   |18.18 |NC       |NC         |
+|empty     |3220   |18.23 |NC       |NC         |
 +----------+-------+------+---------+-----------+
 
 
@@ -51,9 +51,9 @@ Duplication
 +-------------------------+------+---------+-----------+
 |                         |now   |previous |difference |
 +=========================+======+=========+===========+
-|nb duplicated lines      |1732  |NC       |NC         |
+|nb duplicated lines      |1726  |NC       |NC         |
 +-------------------------+------+---------+-----------+
-|percent duplicated lines |9.862 |NC       |NC         |
+|percent duplicated lines |9.875 |NC       |NC         |
 +-------------------------+------+---------+-----------+
 
 
@@ -83,6 +83,7 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 ===== pytype --unresolved =====
 Computing dependencies
 Unresolved dependencies:
+  UserDict.UserDict
   codeskulptor
   codeskulptor.file2url
   codeskulptor.set_timeout
@@ -98,14 +99,15 @@ Unresolved dependencies:
   urllib2.urlopen
   urlparse.urlsplit
 
-===== pytype 2020.05.13 =====
-ninja: Entering directory `/home/opi/data/git/archives/simpleguics2pygame/.pytype'
+===== pytype 2020.11.23 =====
+ninja: Entering directory `/home/opi/data/git/archives/library/simpleguics2pygame/.pytype'
 ninja: no work to do.
 Computing dependencies
 Analyzing 68 sources with 0 local dependencies
+Leaving directory '/home/opi/data/git/archives/library/simpleguics2pygame/.pytype'
 Success: no errors found
 
-===== mypy 0.770 =====
+===== mypy 0.790 =====
 Success: no issues found in 68 source files
 
-===== pydocstyle 5.0.2 =====
+===== pydocstyle 5.1.1 =====

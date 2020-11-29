@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 23, 2020
+:version: November 29, 2020
 """
 
 from __future__ import division
@@ -23,18 +23,14 @@ __all__ = ('Control', 'TextAreaControl')
 
 
 try:
-    from typing import Any, Callable, Optional, Tuple, Union, TYPE_CHECKING
+    from typing import Any, Callable, Optional, Tuple, Union
 except ImportError:
-    TYPE_CHECKING = False
+    pass
+
+import pygame
 
 from SimpleGUICS2Pygame.simpleguics2pygame._colors import _SIMPLEGUICOLOR_TO_PYGAMECOLOR  # pylint: disable=no-name-in-module  # noqa
 from SimpleGUICS2Pygame.simpleguics2pygame._fonts import _simpleguifontface_to_pygamefont  # pylint: disable=no-name-in-module  # noqa
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
-if _PYGAME_AVAILABLE:
-    import pygame
-
-if TYPE_CHECKING:
-    Frame = Any
 
 
 #
@@ -86,24 +82,16 @@ def _text_to_text_cut(text, width, pygame_font):
 class Control:  # pylint: disable=too-many-instance-attributes
     """Control similar to SimpleGUI `Control` (button and label) of CodeSkulptor."""  # noqa
 
-    _button_background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['silver']
-                                       if _PYGAME_AVAILABLE
-                                       else None)
+    _button_background_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['silver']
     """`pygame.Color` of the background in the button."""
 
-    _button_selected_background_pygame_color = (pygame.Color('#f0f0f0')   # pylint: disable=invalid-name  # noqa
-                                                if _PYGAME_AVAILABLE
-                                                else None)
+    _button_selected_background_pygame_color = pygame.Color('#f0f0f0')   # pylint: disable=invalid-name  # noqa
     """`pygame.Color` of the background in the button when it has pressed."""
 
-    _button_text_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
-                                 if _PYGAME_AVAILABLE
-                                 else None)
+    _button_text_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
     """`pygame.Color` of text in the button."""
 
-    _button_pygame_font = (_simpleguifontface_to_pygamefont(None, 20)
-                           if _PYGAME_AVAILABLE
-                           else None)
+    _button_pygame_font = _simpleguifontface_to_pygamefont(None, 20)
     """`pygame.font.Font` of text in the button."""
 
     _button_padding_x = 5
@@ -122,7 +110,7 @@ class Control:  # pylint: disable=too-many-instance-attributes
                  frame,
                  text,
                  button_handler=None, width=None):
-        # type: (Frame, str, Optional[Callable[[], Any]], Optional[int]) -> None  # noqa
+        # type: (pygame.Frame, str, Optional[Callable[[], Any]], Optional[int]) -> None  # noqa
         r"""
         Set a button (if button_handler is not None)
         or a label (if button_handler is None)
@@ -136,9 +124,6 @@ class Control:  # pylint: disable=too-many-instance-attributes
         :param button_handler: None or (function () -> \*)
         :param width: None or int
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert isinstance(text, str), type(text)
         assert (button_handler is None) or callable(button_handler), \
             type(button_handler)
@@ -236,7 +221,7 @@ See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
 
         height = height_total + Control._button_padding_y * 2
 
-        pygame_surface_button = pygame.Surface((width, height))  # pylint: disable=too-many-function-args  # noqa
+        pygame_surface_button = pygame.surface.Surface((width, height))  # pylint: disable=too-many-function-args  # noqa
         pygame_surface_button.fill(self._frame_parent._controlpanel_background_pygame_color)  # pylint: disable=protected-access  # noqa
 
         for i, color in enumerate(
@@ -350,14 +335,10 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
     to SimpleGUI `TextAreaControl` (input) of CodeSkulptor.
     """
 
-    _input_background_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
-                                      if _PYGAME_AVAILABLE
-                                      else None)
+    _input_background_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']
     """`pygame.Color` of the background in the input box."""
 
-    _input_mark_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['lime']
-                                if _PYGAME_AVAILABLE
-                                else None)
+    _input_mark_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['lime']
     """`pygame.Color` of the end mark of text in the input box."""
 
     _input_padding_x = 5
@@ -366,17 +347,14 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
     _input_padding_y = 3
     """Vertical padding in the input box."""
 
-    _input_pygame_color = (_SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
-                           if _PYGAME_AVAILABLE
-                           else None)
+    _input_pygame_color = _SIMPLEGUICOLOR_TO_PYGAMECOLOR['black']
     """`pygame.Color` of the text in the input box."""
 
     _input_pygame_font = Control._label_pygame_font  # pylint: disable=protected-access  # noqa
     """`pygame.font.Font` of the text in the input box."""
 
-    _input_selected_background_pygame_color = (  # pylint: disable=invalid-name
-        _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white'] if _PYGAME_AVAILABLE
-        else None)
+    _input_selected_background_pygame_color = \
+        _SIMPLEGUICOLOR_TO_PYGAMECOLOR['white']  # pylint: disable=invalid-name
     """`pygame.Color` of the background in the input box when it has focus."""
 
     _label_text_pygame_color = Control._label_text_pygame_color  # pylint: disable=protected-access  # noqa
@@ -389,7 +367,7 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
                  frame,
                  label_text,
                  input_handler, input_width):
-        # type: (Frame, str, Optional[Callable[[str], Any]], Union[int, float]) -> None  # noqa
+        # type: (pygame.Frame, str, Optional[Callable[[str], Any]], Union[int, float]) -> None  # noqa
         """
         Set a input box in the control panel.
 
@@ -400,9 +378,6 @@ class TextAreaControl:  # pylint: disable=too-many-instance-attributes
         :param input_handler: function (str) -> *
         :param input_width: int or float
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert isinstance(label_text, str), type(label_text)
         assert callable(input_handler), type(input_handler)
         assert isinstance(input_width, (int, float)), type(input_width)

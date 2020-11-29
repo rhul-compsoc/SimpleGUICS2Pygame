@@ -14,7 +14,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 20, 2020
+:version: November 28, 2020
 """
 
 import random
@@ -375,7 +375,9 @@ class Blitz:
         If not crashed and not already a bomb
         then launch a bomb.
         """
-        if (self.__bomb is None) and not self.__plane.crashed():
+        if ((self.__bomb is None) and
+                (0 <= self.__plane.launch_pos()[0] < WIDTH) and
+                not self.__plane.crashed()):
             self.__bomb = self.__plane.launch_bomb()
 
     def update(self):  # type: () -> None

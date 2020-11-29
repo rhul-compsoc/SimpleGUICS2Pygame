@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: November 29, 2020
 """
 
 from __future__ import print_function
@@ -21,26 +21,21 @@ from __future__ import print_function
 import os.path
 import sys
 
+import pygame
+import pygame.joystick
+
+pygame.joystick.init()
+
 
 __all__ = tuple()  # type: tuple
-
-
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
-if _PYGAME_AVAILABLE:
-    import pygame
-    import pygame.joystick
-
-    pygame.joystick.init()
 
 
 #
 # Private global constants
 ##########################
 if not os.path.basename(sys.argv[0]).startswith('sphinx-build'):
-    __PYGAME_JOYPADS = (tuple(pygame.joystick.Joystick(i)
-                              for i in range(pygame.joystick.get_count()))
-                        if _PYGAME_AVAILABLE
-                        else tuple())
+    __PYGAME_JOYPADS = tuple(pygame.joystick.Joystick(i)
+                             for i in range(pygame.joystick.get_count()))
 else:
     __PYGAME_JOYPADS = tuple()
     """
@@ -51,7 +46,7 @@ else:
 
 
 # Initialize each joypad
-tuple(joypad.init() for joypad in __PYGAME_JOYPADS)
+tuple(joypad.init() for joypad in __PYGAME_JOYPADS)  # type: ignore
 
 
 _joypad_nb = len(__PYGAME_JOYPADS)  # pylint: disable=invalid-name

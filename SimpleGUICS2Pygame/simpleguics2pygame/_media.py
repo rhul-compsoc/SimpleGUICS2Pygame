@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: November 29, 2020
 """
 
 from __future__ import print_function
@@ -29,6 +29,8 @@ from sys import argv, stderr, version_info  # noqa
 import atexit  # noqa
 import os  # noqa
 
+import pygame
+
 if version_info[0] >= 3:
     from urllib.parse import urlsplit
     from urllib.request import urlopen
@@ -42,10 +44,6 @@ except ImportError:
     pass
 
 from SimpleGUICS2Pygame.simpleguics2pygame._arguments import _CONFIG  # pylint: disable=wrong-import-position,no-name-in-module  # noqa
-
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module,wrong-import-position  # noqa
-if _PYGAME_AVAILABLE:
-    import pygame
 
 
 #
@@ -74,9 +72,9 @@ then print URLs or locals filename loaded by `load_image()`
 and `load_sound()`.
 """
 
-__PYGAMEMEDIAS_CACHED = dict()  # type: Dict[str, Union[pygame.Surface, pygame.mixer.Sound]]  # noqa
+__PYGAMEMEDIAS_CACHED = dict()  # type: Dict[str, Union[pygame.surface.Surface, pygame.mixer.Sound]]  # noqa
 """
-`Dict` {`str` URL: `pygame.Surface or pygame.mixer.Sound`}.
+`Dict` {`str` URL: `pygame.surface.Surface or pygame.mixer.Sound`}.
 """
 
 _SAVE_DOWNLOADED_MEDIAS = _CONFIG['--save-downloaded-medias']
@@ -113,7 +111,7 @@ def __delete_tmp_files():  # type: () -> None
 
 
 def _load_local_media(type_of_media, filename):
-    # type: (str, str) -> Optional[Union[pygame.Surface, pygame.mixer.Sound]]
+    # type: (str, str) -> Optional[Union[pygame.surface.Surface, pygame.mixer.Sound]]  # noqa
     """
     Load an image or a sound from local file `filename`.
 
@@ -130,15 +128,12 @@ def _load_local_media(type_of_media, filename):
     :param type_of_media: 'Image' or 'Sound'
     :param filename: str
 
-    :return: pygame.Surface or pygame.mixer.Sound or None
+    :return: pygame.surface.Surface or pygame.mixer.Sound or None
     """
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(filename, str), type(filename)
 
     filename = abspath(expanduser(filename))
-
-    if not _PYGAME_AVAILABLE or not isfile(filename):
-        return None
 
     media_is_image = (type_of_media == 'Image')
 
@@ -216,7 +211,7 @@ def __load_local_mp3_with_audioread(filename):
 
 
 def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-branches,too-many-statements,too-many-return-statements,too-many-locals  # noqa
-    # type: (str, str, str) -> Optional[Union[pygame.Surface, pygame.mixer.Sound]]  # noqa
+    # type: (str, str, str) -> Optional[Union[pygame.surface.Surface, pygame.mixer.Sound]]  # noqa
     """
     Load an image or a sound from Web or local directory,
     and save if asked with _SAVE_DOWNLOADED_MEDIAS
@@ -240,14 +235,11 @@ def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-bran
     :param url: str
     :param local_dir: str
 
-    :return: pygame.Surface or pygame.mixer.Sound or None
+    :return: pygame.surface.Surface or pygame.mixer.Sound or None
     """
     assert type_of_media in ('Image', 'Sound'), type(type_of_media)
     assert isinstance(url, str), type(url)
     assert isinstance(local_dir, str), type(local_dir)
-
-    if not _PYGAME_AVAILABLE:
-        return None
 
     media_is_image = (type_of_media == 'Image')
 
@@ -258,7 +250,7 @@ def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-bran
     cached = __PYGAMEMEDIAS_CACHED.get(url)
     if cached is not None:
         # Already in cache
-        media = (cached.copy() if media_is_image
+        media = (cached.copy() if media_is_image  # type: ignore
                  else pygame.mixer.Sound(cached))  # duplicate sound
         if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
             print('{} "{}" got in cache'.format(type_of_media, url),
@@ -295,7 +287,7 @@ def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-bran
                       file=stderr)
                 stderr.flush()
 
-            __PYGAMEMEDIAS_CACHED[url] = media
+            __PYGAMEMEDIAS_CACHED[url] = media  # type: ignore
 
             return media
         except Exception as exc:  # pylint: disable=broad-except
@@ -390,7 +382,7 @@ def _load_media(type_of_media, url, local_dir):  # pylint: disable=too-many-bran
     if _PRINT_LOAD_MEDIAS:  # pylint: disable=protected-access
         stderr.flush()
 
-    __PYGAMEMEDIAS_CACHED[url] = media
+    __PYGAMEMEDIAS_CACHED[url] = media  # type: ignore
 
     return media
 

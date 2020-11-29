@@ -10,7 +10,7 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame
 
 :license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 20, 2020
+:version: November 29, 2020
 """
 
 from __future__ import division
@@ -27,12 +27,11 @@ import collections  # noqa
 import sys  # noqa
 
 try:
-    from typing import Tuple, TYPE_CHECKING
+    from typing import Optional, Tuple
 except ImportError:
-    TYPE_CHECKING = False
+    pass
 
-
-from SimpleGUICS2Pygame.simpleguics2pygame._pygame_init import _PYGAME_AVAILABLE  # pylint: disable=no-name-in-module  # noqa
+import pygame
 
 from SimpleGUICS2Pygame.simpleguics2pygame._media import _load_local_media, _load_media  # pylint: disable=no-name-in-module  # noqa
 
@@ -97,21 +96,16 @@ class Image:
 
         :param url: str
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert isinstance(url, str), type(url)
 
         self._url = url
 
-        self._pygame_surface = (None if url == ''
-                                else _load_media('Image', url,
-                                                 Image._dir_search_first))
+        self._pygame_surface = None  # type: Optional[pygame.surface.Surface]
+        if url != '':
+            self._pygame_surface = _load_media('Image', url,  # type: ignore
+                                               Image._dir_search_first)
 
-        if TYPE_CHECKING:
-            import pygame  # pylint: disable=import-outside-toplevel),unused-import  # noqa
-
-        self._pygamesurfaces_cached = collections.OrderedDict()  # type: collections.OrderedDict[Tuple[int, ...], pygame.Surface]  # noqa
+        self._pygamesurfaces_cached = collections.OrderedDict()  # type: collections.OrderedDict[Tuple[int, ...], pygame.surface.Surface]  # noqa
 
         self._pygamesurfaces_cache_max_size = \
             Image._pygamesurfaces_cache_default_max_size
@@ -219,15 +213,13 @@ class _LocalImage(Image):
 
         :param filename: str
         """
-        assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
         assert isinstance(filename, str), type(filename)
 
         self._url = filename
 
-        self._pygame_surface = (None if filename == ''
-                                else _load_local_media('Image', filename))
+        self._pygame_surface = None  # type: Optional[pygame.surface.Surface]
+        if filename != '':
+            self._pygame_surface = _load_local_media('Image', filename)  # type: ignore  # noqa
 
         self._pygamesurfaces_cached = collections.OrderedDict()
 
@@ -283,9 +275,6 @@ def load_image(url):  # type: (str) -> Image
 
     :return: Image
     """
-    assert _PYGAME_AVAILABLE, """Pygame not available!
-See https://simpleguics2pygame.readthedocs.io/en/latest/#installation"""
-
     assert isinstance(url, str), type(url)
 
     return Image(url)

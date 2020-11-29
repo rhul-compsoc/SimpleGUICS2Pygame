@@ -132,7 +132,7 @@ and module ``simpleguics2pygame`` of SimpleGUICS2Pygame
 
    .. code-block:: sh
 
-     $ python -m pip install pygame==1.9.6 --user --upgrade
+     $ python -m pip install pygame --user --upgrade
 
 If you have some problem,
 see `installation documentation of pygame`_.
@@ -212,7 +212,7 @@ Two simple online examples:
   * `presentation.py`_: little draw images and texts
 
 .. _`Frame_example.py`: https://py3.codeskulptor.org/#user305_ELuwGUIuxh7hmlE.py
-.. _`presentation.py`: https://py3.codeskulptor.org/#user305_Z4gikDc1fFTXvKa.py
+.. _`presentation.py`: https://py3.codeskulptor.org/#user305_l6tVvJwsLXcvIQI.py
 .. _`Python programs running in CodeSkulptor`: _static/links/prog_links.html
 
 

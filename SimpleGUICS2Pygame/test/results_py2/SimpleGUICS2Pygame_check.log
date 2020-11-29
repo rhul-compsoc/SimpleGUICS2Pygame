@@ -44,17 +44,17 @@ sys.path:
   /usr/lib/python2.7/dist-packages/gtk-2.0
 
 
-import pygame ok - Version 1.9.6
+import pygame ok - Version 2.0.0
   pygame.init() 6 modules loaded ok
 
 
-import audioread ok - Version 2.1.8
+import audioread ok - Version 2.1.9
 
 
 import matplotlib ok - Version 2.2.5
 
 
-import SimpleGUICS2Pygame ok - Version 2.0.3
+import SimpleGUICS2Pygame ok - Version 2.1.0
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

@@ -1,4 +1,4 @@
-# Makefile of SimpleGUICS2Pygame --- October 2, 2020
+# Makefile of SimpleGUICS2Pygame --- November 29, 2020
 
 .SUFFIXES:
 
@@ -35,7 +35,7 @@ PYDOCSTYLEFLAGS = --ignore=D203,D205,D212,D400,D401,D407,D413,D415  # http://www
 PYFLAKES      = pyflakes  # https://pypi.org/project/pyflakes/
 PYFLAKESFLAGS =
 
-PYLINT      = pylint  # https://www.pylint.org/
+PYLINT      = export PYGAME_HIDE_SUPPORT_PROMPT=hide; pylint  # https://www.pylint.org/
 PYLINTFLAGS = -j $(JOB) --disable=duplicate-code,line-too-long,locally-disabled,RP0401
 
 PYTYPE      = export PYGAME_HIDE_SUPPORT_PROMPT=hide; pytype  # https://google.github.io/pytype/
@@ -45,21 +45,22 @@ PYTYPEFLAGS = -P $(PWD):$(PWD)/Sphinx/_static/links/data:$(PYTHONPATH) -k --stri
 CHECKTXT = checkTxtPy.py  # not public program
 
 
-CD    = cd
-CHMOD = chmod
-CP    = cp -p
-ECHO  = echo
-GREP  = grep
-GZIP  = gzip
-MAKE  = make
-MKDIR = mkdir -p
-MV    = mv
-RM    = rm -f
-RMDIR = rmdir
-SED   = sed
-SHELL = bash
-TAR   = tar
-TEE   = tee
+CD        = cd
+CHMOD     = chmod
+CP        = cp -p
+ECHO      = echo
+GREP      = grep
+GZIP      = gzip
+MAKE      = make
+MKDIR     = mkdir -p
+MV        = mv
+RM        = rm -f
+RMDIR     = rmdir
+SED       = sed
+SHA256SUM = sha256sum
+SHELL     = bash
+TAR       = tar
+TEE       = tee
 
 
 
@@ -98,7 +99,7 @@ installs:	distclean install2 install3
 ################
 # Distribution #
 ################
-.PHONY: all_dist bdist_egg bdist_wininst chmod sdist
+.PHONY: all_dist bdist_egg bdist_wininst chmod sdist sha256
 
 all_dist:	sdist bdist_egg # bdist_wininst
 
@@ -116,6 +117,9 @@ chmod:
 
 sdist:	chmod
 	$(PYTHON3) $(PYTHON3FLAGS) setup.py sdist --formats=gztar
+
+sha256:
+	$(SHA256SUM) _dist/SimpleGUICS2Pygame-$(VERSION).tar.gz
 
 
 

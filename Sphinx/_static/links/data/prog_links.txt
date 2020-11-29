@@ -124,13 +124,13 @@ https://py3.codeskulptor.org/#user305_Yt9yNwyY3FKRgom.py
 https://py3.codeskulptor.org/#user305_4w0E1uUDm1bQsoK.py
 <strong>Memory</strong>.py
 
-https://py3.codeskulptor.org/#user305_XZVoXpoCN5cEjLO.py
+https://py3.codeskulptor.org/#user305_vRkc5CSjtaTgW4y.py
 Nostalgic_Basic_Blitz.py
 
 https://py3.codeskulptor.org/#user305_X62vPplhMJxqOWu.py
 <strong>Pong</strong>.py
 
-https://py3.codeskulptor.org/#user305_Z4gikDc1fFTXvKa.py
+https://py3.codeskulptor.org/#user305_l6tVvJwsLXcvIQI.py
 presentation.py
 Little draw images and texts.
 
