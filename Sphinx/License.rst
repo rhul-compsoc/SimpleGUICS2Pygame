@@ -1,6 +1,6 @@
 License: GPLv3_ |GPLv3|
 =======================
-Copyright (C) 2013-2016, 2018, 2020 Olivier Pirson
+Copyright (C) 2013-2016, 2018, 2020-2021 Olivier Pirson
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

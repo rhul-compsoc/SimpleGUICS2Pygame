@@ -126,6 +126,7 @@ https://py3.codeskulptor.org/#user305_4w0E1uUDm1bQsoK.py
 
 https://py3.codeskulptor.org/#user305_vRkc5CSjtaTgW4y.py
 Nostalgic_Basic_Blitz.py
+(Old version written in AmigaBASIC: <a href="http://www.opimedia.be/DS/grenier/Amiga/online-Amiga/?run=Blitz" target="_blank">Blitz</a>.)
 
 https://py3.codeskulptor.org/#user305_X62vPplhMJxqOWu.py
 <strong>Pong</strong>.py
