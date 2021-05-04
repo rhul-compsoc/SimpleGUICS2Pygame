@@ -8,9 +8,9 @@ Class Canvas.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: November 29, 2020
+:version: May 4, 2021
 """
 
 from __future__ import division
@@ -208,7 +208,7 @@ class Canvas:
         Angles given in radians are clockwise
         and start from 0 at the 3 o'clock position.
 
-        (Available in CodeSkulptor3 but *not in CodeSkulptor 2*!)
+        (Available in CodeSkulptor3 but *not in CodeSkulptor2*!)
 
         :param center_point: (int or float, int or float)
                              or [int or float, int or float]

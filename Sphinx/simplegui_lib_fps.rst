@@ -6,7 +6,7 @@ https://py3.codeskulptor.org/#user305_tXfH4AcbNLtjfHy.py .)
 Examples of use in :
 
 * `test/test_image.py`:
-  https://py3.codeskulptor.org/#user305_pFn2dOrRPLhl8Z4.py
+  https://py3.codeskulptor.org/#user306_Z5qiKFLrvKnOV1i.py
 
 * `example/Spaceship_prototype.py`:
   https://py3.codeskulptor.org/#user305_oBWI7SgNVos3Lgx.py

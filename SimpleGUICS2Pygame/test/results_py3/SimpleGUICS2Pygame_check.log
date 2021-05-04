@@ -1,7 +1,6 @@
 script/SimpleGUICS2Pygame_check.py (April 14, 2020)
 ===================================================
 PATH:
-  /QUICK/progs/graalvm-ee-java11-20.1.1/bin
   /snap/bin
   /home/opi/.local/bin
   /home/opi/bin
@@ -26,7 +25,7 @@ PYTHONPATH:
   
 
 
-python - version 3.7.3 (default, Jul 25 2020, 13:03:44) 
+python - version 3.7.3 (default, Jan 22 2021, 20:04:44) 
 [GCC 8.3.0]
 
 sys.path:
@@ -41,17 +40,17 @@ sys.path:
   /usr/lib/python3/dist-packages
 
 
-import pygame ok - Version 2.0.0
-  pygame.init() 6 modules loaded ok
+import pygame ok - Version 2.0.1
+  pygame.init() 7 modules loaded ok
 
 
 import audioread ok - Version 2.1.9
 
 
-import matplotlib ok - Version 3.3.3
+import matplotlib ok - Version 3.4.1
 
 
-import SimpleGUICS2Pygame ok - Version 2.1.0
+import SimpleGUICS2Pygame ok - Version 2.1.1
 
 import SimpleGUICS2Pygame.codeskulptor ok
 import SimpleGUICS2Pygame.codeskulptor_lib ok

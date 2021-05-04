@@ -110,7 +110,7 @@ http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/theygotc
 
 
 
-+ <a href="http://www.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
++ <a href="https://py2.codeskulptor.org/#demos-riceracer.py" target="_blank">Rice Racer</a> by (Steve <span class="surname">Knock</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2012)
 
 http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/fx/engine-1.ogg
 
@@ -179,7 +179,7 @@ http://commondatastorage.googleapis.com/codeskulptor-assets/sounddogs/thrust.ogg
 
 
 
-+ <a href="http://www.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
++ <a href="https://py3.codeskulptor.org/#save2_WIzjLAwh92.py" target="_blank">The Descent</a> by (Jiaqi <span class="surname">Liu</span>) Hall of Fame <a href="https://www.coursera.org/learn/interactive-python-1" target="_blank"><i>An Introduction to Interactive Programming in Python</i></a> (Coursera 2013)
 
 http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3
 

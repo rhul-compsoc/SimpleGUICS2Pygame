@@ -8,9 +8,9 @@ Replace the numeric module of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013-2014, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 20, 2020
+:version: May 5, 2021
 """
 
 from __future__ import division
@@ -364,7 +364,7 @@ class Matrix:
         To a matrix (m x n)
         return the matrix with each element multiply by factor.
 
-        **(Method available in CodeSkulptor 2 but not in CodeSkulptor!)**
+        **(Method available in CodeSkulptor2 but not in CodeSkulptor3.)**
 
         :param factor: int or float
 

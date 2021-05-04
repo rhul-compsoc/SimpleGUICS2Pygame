@@ -9,9 +9,9 @@ Class Frame.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2015-2016, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2015-2016, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: November 29, 2020
+:version: May 4, 2021
 """
 
 from __future__ import division
@@ -898,7 +898,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
         In CodeSkulptor the format is always PNG.
 
         (Available in SimpleGUI of CodeSkulptor3
-        but *not in CodeSkulptor 2*
+        but *not in CodeSkulptor2*
         and *not in CodeSkulptor documentation*!)
 
         :param filename: str

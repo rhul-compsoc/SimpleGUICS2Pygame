@@ -10,9 +10,9 @@ a short presentation of SimpleGUICS2Pygame package.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2016, 2018, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2016, 2018, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: November 29, 2020
+:version: May 4, 2021
 """
 
 try:
@@ -91,7 +91,7 @@ def main():  # pylint: disable=too-many-statements
                  None,
                  None,
                  'GPLv3',
-                 'Copyright (C) 2013 - 2020 Olivier Pirson',
+                 'Copyright (C) 2013 - 2021 Olivier Pirson',
                  'Olivier Pirson OPi --- http://www.opimedia.be/',
                  'olivier.pirson.opi@gmail.com')):
             if line is not None:
@@ -131,8 +131,9 @@ def main():  # pylint: disable=too-many-statements
                      180)
 
     frame.add_label('')
-    frame.add_button('CodeSkulptor',
-                     lambda: open_new_tab('http://www.codeskulptor.org/'), 180)
+    frame.add_button('CodeSkulptor2',
+                     lambda: open_new_tab('https://py2.codeskulptor.org/'),
+                     180)
     frame.add_button('CodeSkulptor3',
                      lambda: open_new_tab('https://py3.codeskulptor.org/'),
                      180)

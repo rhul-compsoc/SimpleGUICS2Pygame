@@ -1,5 +1,9 @@
 ChangeLog
 =========
+* 2.1.1 — May 4, 2021 (Work in progress)
+
+  - Updated links to CodeSkulptor2.
+
 * 2.1.0 — November 29, 2020
 
   - Removed Pygame restriction to version 1.9.6.

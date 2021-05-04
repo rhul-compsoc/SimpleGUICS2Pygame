@@ -11,9 +11,9 @@ https://bitbucket.org/OPiMedia/simpleguics2pygame/src/master/SimpleGUICS2Pygame/
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2013, 2018, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013, 2018, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 21, 2020
+:version: May 5, 2021
 """
 
 try:
@@ -96,15 +96,15 @@ ALL_RESULTS = {
       100: 60, 200: 59, 300: 59, 400: 59, 500: 59, 750: 60,
       1000: 57, 1250: 46, 1500: 36, 1750: 31, 2000: 28}),  # REVERSE
 
-    # SimpleGUI in CodeSkulptor 2 on Debian
-    'CodeSkulptor 2 Chromium 73.0 Debian 9.12 Stretch':
+    # SimpleGUI in CodeSkulptor2 on Debian
+    'CodeSkulptor2 Chromium 73.0 Debian 9.12 Stretch':
     ({1: 59, 10: 60, 20: 60, 30: 60, 40: 60, 50: 60, 75: 60,
       100: 60, 200: 58, 300: 37, 400: 24, 500: 20, 750: 13,
       1000: 10, 1250: 8, 1500: 7, 1750: 6, 2000: 5},   # normal
      {1: 60, 10: 60, 20: 60, 30: 60, 40: 60, 50: 60, 75: 60,
       100: 60, 200: 45, 300: 31, 400: 24, 500: 19, 750: 13,
       1000: 10, 1250: 8, 1500: 7, 1750: 6, 2000: 5}),  # REVERSE
-    'CodeSkulptor 2 Firefox 68.7 Debian 9.12 Stretch':
+    'CodeSkulptor2 Firefox 68.7 Debian 9.12 Stretch':
     ({1: 1, 10: 0, 20: 0, 30: 0, 40: 0, 50: 0, 75: 0,
       100: 0, 200: 0, 300: 0, 400: 0, 500: 0, 750: 0,
       1000: 0, 1250: 0, 1500: 0, 1750: 0, 2000: 0},   # normal
@@ -128,15 +128,15 @@ ALL_RESULTS = {
       100: 35, 200: 18, 300: 12, 400: 9, 500: 8, 750: 5,
       1000: 4, 1250: 3, 1500: 3, 1750: 2, 2000: 2}),  # REVERSE
 
-    # SimpleGUI in CodeSkulptor 2 on Window$
-    'CodeSkulptor 2 Chrome 81.0 Window$ 10':
+    # SimpleGUI in CodeSkulptor2 on Window$
+    'CodeSkulptor2 Chrome 81.0 Window$ 10':
     ({1: 60, 10: 60, 20: 60, 30: 60, 40: 60, 50: 60, 75: 60,
       100: 60, 200: 55, 300: 37, 400: 28, 500: 22, 750: 15,
       1000: 12, 1250: 10, 1500: 8, 1750: 7, 2000: 6},   # normal
      {1: 60, 10: 60, 20: 60, 30: 60, 40: 60, 50: 60, 75: 60,
       100: 60, 200: 56, 300: 38, 400: 29, 500: 23, 750: 15,
       1000: 12, 1250: 9, 1500: 8, 1750: 7, 2000: 6}),  # REVERSE
-    'CodeSkulptor 2 Firefox 75.0 Window$ 10':
+    'CodeSkulptor2 Firefox 75.0 Window$ 10':
     ({1: 60, 10: 60, 20: 60, 30: 60, 40: 60, 50: 60, 75: 60,
       100: 60, 200: 41, 300: 28, 400: 21, 500: 18, 750: 12,
       1000: 10, 1250: 8, 1500: 7, 1750: 6, 2000: 5},   # normal
@@ -195,22 +195,22 @@ ALL_RESULTS = {
       100: 62, 200: 62, 300: 61, 400: 56, 500: 48, 750: 35,
       1000: 28, 1500: 20, 2000: 15}),  # REVERSE
 
-    # SimpleGUI in CodeSkulptor 2 on Window$
-    'old CodeSkulptor 2 Chrome 27.0 Window$ 7':
+    # SimpleGUI in CodeSkulptor2 on Window$
+    'old CodeSkulptor2 Chrome 27.0 Window$ 7':
     ({1: 40, 10: 40, 20: 38, 30: 35, 40: 33, 50: 35, 75: 35,
       100: 30, 200: 20, 300: 16, 400: 13, 500: 12, 750: 8,
       1000: 6, 1500: 5, 2000: 4},   # normal
      {1: 35, 10: 35, 20: 36, 30: 38, 40: 34, 50: 34, 75: 30,
       100: 30, 200: 20, 300: 15, 400: 13, 500: 12, 750: 8,
       1000: 6, 1500: 4, 2000: 4}),  # REVERSE
-    'old CodeSkulptor 2 Firefox 21.0 Window$ 7':
+    'old CodeSkulptor2 Firefox 21.0 Window$ 7':
     ({1: 60, 10: 60, 20: 60, 30: 58, 40: 57, 50: 47, 75: 29,
       100: 22, 200: 12, 300: 8, 400: 6, 500: 5, 750: 3,
       1000: 2, 1500: 2, 2000: 1},   # normal
      {1: 60, 10: 60, 20: 59, 30: 58, 40: 48, 50: 41, 75: 30,
       100: 23, 200: 12, 300: 8, 400: 6, 500: 5, 750: 3,
       1000: 3, 1500: 2, 2000: 1}),  # REVERSE
-    'old CodeSkulptor 2 Safari 5.1.7 Window$ 7':
+    'old CodeSkulptor2 Safari 5.1.7 Window$ 7':
     ({1: 62, 10: 63, 20: 62, 30: 59, 40: 44, 50: 36, 75: 23,
       100: 19, 200: 12, 300: 8, 400: 7, 500: 6, 750: 5,
       1000: 4, 1500: 3, 2000: 3},   # normal

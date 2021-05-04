@@ -7,9 +7,9 @@ Test dir() content.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2013-2015, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013-2015, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 21, 2020
+:version: May 5, 2021
 """
 
 from sys import argv
@@ -40,7 +40,7 @@ if SIMPLEGUICS2PYGAME:
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
 else:
-    PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
+    PYTHON_VERSION = 'CodeSkulptor'  # https://py2.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
 
 
 TEST = 'test dir'
@@ -68,7 +68,7 @@ CODESKULPTOR_DIRS = {
                   'create_sound', 'create_timer',
                   'load_image', 'load_sound'),
     'simplegui.Canvas': ('__init__', '__module__',
-                         'draw_arc',  # no available in CodeSkulptor 2
+                         'draw_arc',  # no available in CodeSkulptor2
                          'draw_circle', 'draw_image', 'draw_line',
                          'draw_point', 'draw_polygon', 'draw_polyline',
                          'draw_text'),
@@ -76,7 +76,7 @@ CODESKULPTOR_DIRS = {
                           'get_text', 'set_text'),
     'simplegui.Frame': ('__init__', '__module__',
                         'add_button', 'add_input', 'add_label',
-                        'download_canvas_image',  # no available in CodeSkulptor 2, and not in documentation of CodeSkulptor3  # noqa
+                        'download_canvas_image',  # no available in CodeSkulptor2, and not in documentation of CodeSkulptor3  # noqa
                         'get_canvas_image', 'get_canvas_textwidth',
                         'set_canvas_background', 'set_draw_handler',
                         'set_keydown_handler', 'set_keyup_handler',

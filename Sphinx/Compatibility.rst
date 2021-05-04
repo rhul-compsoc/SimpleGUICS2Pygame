@@ -3,12 +3,12 @@ Compatibility
 
 Compatibility between SimpleGUI of CodeSkulptor and SimpleGUICS2Pygame
 ----------------------------------------------------------------------
-* With SimpleGUI of CodeSkulptor_ or CodeSkulptor3_,
+* With SimpleGUI of CodeSkulptor2_ or CodeSkulptor3_,
   some things (like fonts, buttons…) are browser dependents.
   That is to say that there are some differences from one browser to another.
   Therefore it is normal that these elements are also slightly different with SimpleGUICS2Pygame.
 
-* With SimpleGUI of CodeSkulptor_ or CodeSkulptor3_,
+* With SimpleGUI of CodeSkulptor2_ or CodeSkulptor3_,
   supported sound formats (WAV, OGG, MP3)
   are also browser dependents.
 
@@ -46,7 +46,7 @@ If MP3 sound failed on your system read `installation of audioread`_.
 Compatibility between Python 2 and Python 3
 -------------------------------------------
 
-CodeSkulptor_ implements a subset of Python 2.
+CodeSkulptor2_ implements a subset of Python 2.
 
 CodeSkulptor3_ implements a subset of Python 3.
 
@@ -84,14 +84,14 @@ You can use SimpleGUICS2Pygame with Python 2 and Python 3.
   *on the top* of your program, and Python 2 mimic Python 3 print function.
   But then *CodeSkulptor failed*!)
 
-.. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor2: https://py2.codeskulptor.org/
 .. _CodeSkulptor3: https://py3.codeskulptor.org/
 
 
 Compatibility between CodeSkulptor and CodeSkulptor3
 ----------------------------------------------------
 
-CodeSkulptor_ implements a subset of Python 2.
+CodeSkulptor2_ implements a subset of Python 2.
 
 CodeSkulptor3_ implements a subset of Python 3.
 
@@ -105,7 +105,7 @@ There are moreover some other differences.
   there is a ``Frame.download_canvas_image()`` method
   that doesn't exist in CodeSkulptor2.
 
-* In ``numeric`` module of CodeSkulptor 2 and SimpleGUICS2Pygame,
+* In ``numeric`` module of CodeSkulptor2 and SimpleGUICS2Pygame,
   there is a ``Matric.scale()`` method
   to multiply the matrix by a scalar
   and the operator ``*`` multiply two matrices.
@@ -147,7 +147,7 @@ You can also execute this online program to plot results:
 |Stress Balls results|
 
 .. _`example/Stress_Balls/Stress_Balls.py`: https://py3.codeskulptor.org/#user305_tmjR8lBkaJjmXy7.py
-.. _`example/Stress_Balls/Stress_Balls_results.py`: https://py3.codeskulptor.org/#user305_ApdSY0hhRLWL9LJ.py
+.. _`example/Stress_Balls/Stress_Balls_results.py`: https://py3.codeskulptor.org/#user306_mGg4qTqILzZ4ZoZ.py
 .. _`Python assertions option`: Tips.html#python-assertions-option
 
 .. |Stress Balls results| image:: _static/img/Stress_Balls_results.svg

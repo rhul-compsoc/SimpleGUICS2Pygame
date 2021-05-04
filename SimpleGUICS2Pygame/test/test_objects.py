@@ -7,9 +7,9 @@ Test __repr__() et __str__() methods of objects.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2013, 2015, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013, 2015, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 21, 2020
+:version: May 5, 2021
 """
 
 try:
@@ -35,7 +35,7 @@ if SIMPLEGUICS2PYGAME:
     PYGAME_VERSION = 'Pygame ' + str(_PYGAME_VERSION)
     GUI_VERSION = 'SimpleGUICS2Pygame ' + GUI_VERSION
 else:
-    PYTHON_VERSION = ('CodeSkulptor' +  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
+    PYTHON_VERSION = ('CodeSkulptor' +  # https://py2.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
                       (' 2' if codeskulptor_lib.codeskulptor_version() == 2
                        else '3'))
     PYGAME_VERSION = ''

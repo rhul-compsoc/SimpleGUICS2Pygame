@@ -4,7 +4,7 @@
 SimpleGUICS2Pygame package.
 
 It is primarily a standard Python_ (**2 and 3**) module
-reimplementing the SimpleGUI particular module of CodeSkulptor_ and CodeSkulptor3_
+reimplementing the SimpleGUI particular module of CodeSkulptor2_ and CodeSkulptor3_
 (a Python browser environment).
 This is in fact a package also with other modules adapted from CodeSkulptor.
 
@@ -23,17 +23,18 @@ Module simpleplot require matplotlib_ .
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-.. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor2: https://py2.codeskulptor.org/
 .. _CodeSkulptor3: https://py3.codeskulptor.org/
 .. _matplotlib: https://matplotlib.org/
 .. _`Online HTML documentation`: https://simpleguics2pygame.readthedocs.io/
 .. _Pygame: https://www.pygame.org/
 .. _Python: https://www.python.org/
 
-:license: GPLv3 --- Copyright (C) 2013-2016, 2018, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013-2016, 2018, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: November 29, 2020
+:version: May 4, 2021
 
+* v.2.1.1 --- May 4, 2021
 * v.2.1.0 --- November 29, 2020
 * v.2.0.3 --- October 2, 2020
 * v.2.0.2 --- May 23, 2020
@@ -71,7 +72,7 @@ from __future__ import print_function
 # print('IMPORT', __name__)
 
 
-_VERSION = '2.1.0'
+_VERSION = '2.1.1'
 """Version of SimpleGUICS2Pygame package."""
 
 _WEBSITE = 'https://bitbucket.org/OPiMedia/simpleguics2pygame/'
@@ -84,7 +85,7 @@ _WEBSITE_DOC = 'https://simpleguics2pygame.readthedocs.io/'
 #
 # GPLv3
 # ------
-# Copyright (C) 2013-2016, 2018, 2020 Olivier Pirson
+# Copyright (C) 2013-2016, 2018, 2020-2021 Olivier Pirson
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

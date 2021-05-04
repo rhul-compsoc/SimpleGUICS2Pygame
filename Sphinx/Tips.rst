@@ -3,7 +3,7 @@ Tips
 
 CodeSkulptor
 ------------
-CodeSkulptor_ is a Python implementation (in JavaScript) running in a browser.
+CodeSkulptor2_ is a Python implementation (in JavaScript) running in a browser.
 It implements a subset of Python 2.
 
 CodeSkulptor3_ is the same but it implements a subset of Python 3.
@@ -13,7 +13,7 @@ It is the environment used in the MOOC
 (Rice University, Coursera).
 
 .. _`An Introduction to Interactive Programming in Python`: https://www.coursera.org/learn/interactive-python-1
-.. _CodeSkulptor: http://www.codeskulptor.org/
+.. _CodeSkulptor2: https://py2.codeskulptor.org/
 .. _CodeSkulptor3: https://py3.codeskulptor.org/
 
 
@@ -75,16 +75,16 @@ But specify only those you use.
         import SimpleGUICS2Pygame.simplegui_lib as simplegui_lib
 
 Note that import name like ``user305_SXBsmszNiUxIeoV`` in CodeSkulptor
-is valid both for CodeSkulptor 2 and CodeSkulptor3.
+is valid both for CodeSkulptor2 and CodeSkulptor3.
 It corresponds to URLs
-http://www.codeskulptor.org/#user305_SXBsmszNiUxIeoV.py
+https://py2.codeskulptor.org/#user305_SXBsmszNiUxIeoV.py
 and
 https://py3.codeskulptor.org/#user305_SXBsmszNiUxIeoV.py .
 
 
 Specific code
 -------------
-To run specific code on CodeSkulptor_ or with SimpleGUICS2Pygame,
+To run specific code on CodeSkulptor2_ or with SimpleGUICS2Pygame,
 you can write this
 
 .. code-block:: python

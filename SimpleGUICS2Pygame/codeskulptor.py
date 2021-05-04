@@ -8,9 +8,9 @@ Replace the codeskulptor module of CodeSkulptor.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2013-2014, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013-2014, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 19, 2020
+:version: May 4, 2021
 """
 
 from __future__ import print_function
@@ -22,7 +22,7 @@ def file2url(filename):  # type: (str) -> str
     """
     Return a completed CodeSkulptor URL ressource from a short `filename`.
 
-    Example given in the `CodeSkulptor file2url documentation`_:
+    Example given in the `CodeSkulptor2 file2url documentation`_:
     `file2url('assets-Quick_fox.txt')`
     returns
     `'http://codeskulptor-assets.commondatastorage.googleapis.com/assets-Quick_fox.txt'`
@@ -33,7 +33,7 @@ def file2url(filename):  # type: (str) -> str
     returns
     `'//codeskulptor-assets.commondatastorage.googleapis.com/assets_sample_text.txt'`
 
-    .. _`CodeSkulptor file2url documentation`: http://www.codeskulptor.org/docs.html#file2url
+    .. _`CodeSkulptor2 file2url documentation`: https://py2.codeskulptor.org/docs.html#file2url
     .. _`CodeSkulptor3 urllib2-urlopen documentation`: https://py3.codeskulptor.org/docs.html#urllib2-urlopen
 
     :param filename: str
@@ -79,9 +79,9 @@ def set_timeout(seconds):  # type: (int) -> None
 
     In CodeSkulptor, this function change the timeout imposed on all programs
     (by default 5 seconds).
-    See `CodeSkulptor set_timeout documentation`_.
+    See `CodeSkulptor2 set_timeout documentation`_.
 
-    .. _`CodeSkulptor set_timeout documentation`: http://www.codeskulptor.org/docs.html#set-timeout
+    .. _`CodeSkulptor2 set_timeout documentation`: https://py2.codeskulptor.org/docs.html#set-timeout
 
     (Available in CodeSkulptor and CodeSkulptor3
     but *not in CodeSkulptor3 documentation*!)

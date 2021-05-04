@@ -7,9 +7,9 @@ Test numeric.
 Piece of SimpleGUICS2Pygame.
 https://bitbucket.org/OPiMedia/simpleguics2pygame
 
-:license: GPLv3 --- Copyright (C) 2013, 2020 Olivier Pirson
+:license: GPLv3 --- Copyright (C) 2013, 2020-2021 Olivier Pirson
 :author: Olivier Pirson --- http://www.opimedia.be/
-:version: May 21, 2020
+:version: May 5, 2021
 """
 
 try:
@@ -36,7 +36,7 @@ if SIMPLEGUICS2PYGAME:
 
     PYTHON_VERSION = 'Python ' + python_version.split()[0]
 else:
-    PYTHON_VERSION = 'CodeSkulptor'  # http://www.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
+    PYTHON_VERSION = 'CodeSkulptor'  # https://py2.codeskulptor.org/ or https://py3.codeskulptor.org/  # noqa
 
 
 def m_eq(a, b, exact=True):
