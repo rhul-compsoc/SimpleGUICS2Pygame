@@ -28,7 +28,6 @@ Author: 🌳 Olivier Pirson — OPi |OPi| 🇧🇪🇫🇷🇬🇧 🐧 👨‍�
 
 * 📧 olivier.pirson.opi@gmail.com
 * Mastodon: https://mamot.fr/@OPiMedia — Twitter: https://twitter.com/OPirson
-* diaspora* (Framasphere*): https://framasphere.org/u/opimedia
 * 👨‍💻 LinkedIn: https://www.linkedin.com/in/olivierpirson/ — CV: http://www.opimedia.be/CV/English.html
 * other profiles: http://www.opimedia.be/about/
 
