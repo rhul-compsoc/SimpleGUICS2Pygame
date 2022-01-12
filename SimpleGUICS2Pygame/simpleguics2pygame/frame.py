@@ -270,6 +270,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         self._mouse_click_handler = None  # type: Optional[Callable[[Tuple[int, int]], Any]]  # noqa
         self._mouse_drag_handler = None  # type: Optional[Callable[[Tuple[int, int]], Any]]  # noqa
+        self._mouse_hover_handler = None  # type: Optional[Callable[[Tuple[int, int]], Any]]  # noqa
 
         self._running = False
 
@@ -435,6 +436,9 @@ class Frame:  # pylint: disable=too-many-instance-attributes
                         #   since last mouse left button pressed
                         self._draw_statusmouse((x, y), True)
                         self._mouse_drag_handler((x, y))
+
+            if self._mouse_hover_handler is not None:
+                self._mouse_hover_handler((x, y))
 
             return True
         elif event.type == pygame.MOUSEBUTTONDOWN:  # mouse b. pressed  # pylint: disable=no-member  # noqa
@@ -1028,6 +1032,19 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
         self._mouse_drag_handler = mouse_handler
 
+    def _set_mousehover_handler(self, mouse_handler):
+        """
+        Set the function handler that will be executed for each
+        new mouse position, regardless of if the left mouse
+        button is pressed
+        **(Not available in SimpleGUI of CodeSkulptor.)**
+        
+        :param mouse_handler: function ((int >= 0, int >= 0)) -> *
+        """
+        assert callable(mouse_handler), type(mouse_handler)
+
+        self._mouse_hover_handler = mouse_handler
+
     def start(self):  # type: () -> None
         """
         Start the frame and these handler events.
@@ -1149,6 +1166,7 @@ class Frame:  # pylint: disable=too-many-instance-attributes
 
             self._mouse_click_handler = None
             self._mouse_drag_handler = None
+            self._mouse_hover_handler = None
 
             Frame._hide_status = True
             self._controls = []
